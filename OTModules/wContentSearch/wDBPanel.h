@@ -1,0 +1,75 @@
+#ifndef WDBPANEL_H
+#define WDBPANEL_H
+
+#include <QMainWindow>
+#include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTDatabaseHandler.h"
+#include <QtSql>
+
+namespace Ui {
+class wDBPanel;
+}
+
+class wDBPanel : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit wDBPanel(QWidget *parent = nullptr);
+    ~wDBPanel();
+
+private slots:
+
+    void on_rbtnLink_clicked();
+
+    void on_btnStart_clicked();
+
+    void on_actionClose_triggered();
+
+    void on_ledDirectory_textChanged(const QString &arg1);
+
+    void on_lvwDuplicates_clicked(const QModelIndex &index);
+
+    void on_btnSelectNew_clicked();
+
+    void on_btnSelectOld_clicked();
+
+    void on_btnOpenFolder_clicked();
+
+    void on_rbtnStandardContent_clicked();
+
+    void on_btnSelectAllNew_clicked();
+
+    void on_btnSelectAllOld_clicked();
+
+    void on_btnUnlockSource_clicked();
+
+private:
+    Ui::wDBPanel *ui;
+
+    const QString moduleName = "wDBPanel";
+    OTSettings set;
+    OTMiscellaneous misc;
+
+    QStringList standardFilter;
+    QStringListModel *strListModelDuplicates;
+    QStringListModel *strListModelItems;
+
+    int cutCount = set.read("main", "mainDir").toString().count() + 1;
+
+    QString dbPath = "../OMSI-Tools/contentSearchDatabases/current.db";
+    OTDatabaseHandler dbHandler;
+
+    QList <QSqlQueryModel*> models;
+    QStringList paths;
+
+    QString link;
+    QString currentLinkID;
+
+    void removeCurrentFromList();
+    void selectNew();
+    void reloadSelectGroupBoxes();
+    QString checkLinkID();
+};
+
+#endif // WDBPANEL_H
