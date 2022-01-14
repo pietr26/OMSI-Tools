@@ -3,7 +3,6 @@ QT       += core gui network concurrent sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
-# old: c++11
 
 DEFINES += QT_MESSAGELOGCONTEXT
 
