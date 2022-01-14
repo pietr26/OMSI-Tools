@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>wDBPanel</class>
+ <widget class="QMainWindow" name="wDBPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>687</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">wDBPanel</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../ressources.qrc">
+    <normaloff>:/rec/data/icons/iconDatabase.svg</normaloff>:/rec/data/icons/iconDatabase.svg</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="lblDirectory">
+        <property name="text">
+         <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Directory:&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;(content &lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;and&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt; virtual main dir!)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="ledDirectory">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnOpenFolder">
+        <property name="text">
+         <string notr="true">Open folder</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QListView" name="lvwInputItems">
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="isWrapping" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="layoutMode">
+       <enum>QListView::SinglePass</enum>
+      </property>
+      <property name="viewMode">
+       <enum>QListView::ListMode</enum>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbxSource">
+      <property name="title">
+       <string notr="true">Source:</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QRadioButton" name="rbtnLink">
+           <property name="text">
+            <string notr="true">Link:</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ledLink"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Links without &lt;/span&gt;&lt;span style=&quot; font-family:'Courier New'; font-style:italic;&quot;&gt;https://*#[arg]&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rbtnStandardContent">
+         <property name="text">
+          <string notr="true">Standard content</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QPushButton" name="btnUnlockSource">
+        <property name="text">
+         <string notr="true">Unlock source</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>777</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnStart">
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>9</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+          <underline>false</underline>
+         </font>
+        </property>
+        <property name="text">
+         <string notr="true">Start!</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>:/rec/data/icons/iconOpen.png</normaloff>:/rec/data/icons/iconOpen.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="wgtDuplicates" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_7">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QLabel" name="lblDuplicates">
+             <property name="text">
+              <string notr="true">Duplicate exists in database:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QListView" name="lvwDuplicates">
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+             <property name="isWrapping" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="layoutMode">
+              <enum>QListView::SinglePass</enum>
+             </property>
+             <property name="viewMode">
+              <enum>QListView::ListMode</enum>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblExistingEntry">
+             <property name="text">
+              <string notr="true">Existing entry in database:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTableView" name="tvwDuplicates"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QGroupBox" name="gbxSelectSingle">
+             <property name="title">
+              <string notr="true">Select single...</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QPushButton" name="btnSelectNew">
+                <property name="text">
+                 <string notr="true">New</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>:/rec/data/icons/iconAdd.png</normaloff>:/rec/data/icons/iconAdd.png</iconset>
+                </property>
+                <property name="shortcut">
+                 <string notr="true">Ctrl+Shift+N</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnSelectOld">
+                <property name="text">
+                 <string notr="true">Old</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>:/rec/data/icons/iconDeleteFile.png</normaloff>:/rec/data/icons/iconDeleteFile.png</iconset>
+                </property>
+                <property name="shortcut">
+                 <string notr="true">Ctrl+Shift+O</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="gbxSelectAll">
+             <property name="title">
+              <string notr="true">Select all...</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QPushButton" name="btnSelectAllNew">
+                <property name="text">
+                 <string notr="true">New</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>:/rec/data/icons/iconAdd.png</normaloff>:/rec/data/icons/iconAdd.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnSelectAllOld">
+                <property name="text">
+                 <string notr="true">Old</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>:/rec/data/icons/iconDeleteFile.png</normaloff>:/rec/data/icons/iconDeleteFile.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lblProgress">
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>9</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string notr="true">- / -</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="pgbProgress">
+      <property name="value">
+       <number>24</number>
+      </property>
+      <property name="textVisible">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuWindow">
+    <property name="toolTip">
+     <string notr="true"/>
+    </property>
+    <property name="title">
+     <string notr="true">Window</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuWindow"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/rec/data/icons/iconClose.png</normaloff>:/rec/data/icons/iconClose.png</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Close</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Close</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Close</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../../ressources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
