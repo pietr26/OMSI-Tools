@@ -60,8 +60,8 @@ public:
 };
 
 const QString OTName = "OMSI-Tools";
-const QString OTVersion = "0.10.1.1-beta";
-const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Dev;
+const QString OTVersion = "0.10.1.2-lite";
+const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Lite;
 
 // Unsaved code for closeEvents:
 /*
@@ -98,7 +98,6 @@ public:
     /// \brief Returns the downloaded file
     QString doDownload(const QUrl &url)
     {
-
         lastSuccess = 0;
         return download(url);
     }
