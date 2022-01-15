@@ -917,140 +917,152 @@ Code: %1</source>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.cpp" line="16"/>
-        <location filename="../../OTModules/wfonts.cpp" line="638"/>
-        <location filename="../../OTModules/wfonts.cpp" line="640"/>
+        <location filename="../../OTModules/wfonts.cpp" line="645"/>
+        <location filename="../../OTModules/wfonts.cpp" line="647"/>
         <source>fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="98"/>
-        <source>Open font file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wfonts.cpp" line="443"/>
-        <location filename="../../OTModules/wfonts.cpp" line="578"/>
+        <location filename="../../OTModules/wfonts.cpp" line="450"/>
+        <location filename="../../OTModules/wfonts.cpp" line="585"/>
         <source>OMSI font file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="443"/>
+        <location filename="../../OTModules/wfonts.cpp" line="450"/>
         <source>Open font...</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="487"/>
+        <location filename="../../OTModules/wfonts.cpp" line="494"/>
         <source>Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files. If the font is saved with the application, it will deface the font!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="578"/>
+        <location filename="../../OTModules/wfonts.cpp" line="585"/>
         <source>Save font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="610"/>
+        <location filename="../../OTModules/wfonts.cpp" line="617"/>
         <source>Error: The file could not be saved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="620"/>
+        <location filename="../../OTModules/wfonts.cpp" line="627"/>
         <source>File saved successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1170"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1177"/>
         <source>The entered character could not be found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1206"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1226"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1213"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1233"/>
         <source>No other character found according to the search criteria.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1197"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1237"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1204"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1244"/>
         <source>The end of the font was reached, search from top</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="98"/>
+        <location filename="../../OTModules/wfonts.cpp" line="100"/>
+        <source>Invalid format</source>
+        <comment>Note #1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wfonts.cpp" line="100"/>
+        <source>The dropped file is no font file (*.oft)!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wfonts.cpp" line="105"/>
         <source>Open drag and drop font file now?
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="487"/>
+        <location filename="../../OTModules/wfonts.cpp" line="105"/>
+        <source>Open font file</source>
+        <comment>Note #1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wfonts.cpp" line="494"/>
         <source>Open font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="724"/>
+        <location filename="../../OTModules/wfonts.cpp" line="731"/>
         <source>Error in character &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="746"/>
+        <location filename="../../OTModules/wfonts.cpp" line="753"/>
         <source>There aren&apos;t any errors. The font is valid.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="819"/>
+        <location filename="../../OTModules/wfonts.cpp" line="826"/>
         <source>Select color texture...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="819"/>
-        <location filename="../../OTModules/wfonts.cpp" line="838"/>
+        <location filename="../../OTModules/wfonts.cpp" line="826"/>
+        <location filename="../../OTModules/wfonts.cpp" line="845"/>
         <source>Bitmap picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="838"/>
+        <location filename="../../OTModules/wfonts.cpp" line="845"/>
         <source>Select alpha texture...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="913"/>
+        <location filename="../../OTModules/wfonts.cpp" line="920"/>
         <source>The current selection isn&apos;t a valid template.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1120"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1127"/>
         <source>Characters copied!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1136"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1143"/>
         <source>The font file (still) doesn&apos;t exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="887"/>
+        <location filename="../../OTModules/wfonts.cpp" line="894"/>
         <source>Umlauts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="894"/>
+        <location filename="../../OTModules/wfonts.cpp" line="901"/>
         <source>Select a template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="894"/>
+        <location filename="../../OTModules/wfonts.cpp" line="901"/>
         <source>Template:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1170"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1177"/>
         <source>Character not found</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="913"/>
+        <location filename="../../OTModules/wfonts.cpp" line="920"/>
         <source>Invalid selection</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
@@ -1629,8 +1641,8 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="108"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1772"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="690"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1805"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="694"/>
         <source>Start verifying</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1650,7 +1662,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1465"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1498"/>
         <source>Humans</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1660,17 +1672,17 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="925"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="958"/>
         <source>Sceneryobjects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1109"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1142"/>
         <source>Splines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1287"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1320"/>
         <source>Vehicles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1685,79 +1697,79 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="684"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="845"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1024"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1205"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1383"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1561"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="705"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="878"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1057"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1238"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1416"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1594"/>
         <source>ignored</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1820"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1829"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1838"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1847"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1856"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1865"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1853"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1862"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1871"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1880"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1889"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1898"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="922"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="955"/>
         <source>Sceneryobjects on the map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="66"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1104"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1108"/>
         <source>Show settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1106"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1139"/>
         <source>Splines on the map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1284"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1317"/>
         <source>AI vehicles on the map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1462"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1495"/>
         <source>Humans on the map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1715"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1748"/>
         <source>Map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1724"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1757"/>
         <source>Specials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1733"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1766"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1748"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1781"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1760"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1793"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="121"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1784"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1817"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1807,87 +1819,87 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="645"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="666"/>
         <source>Missing tiles:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="774"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="804"/>
         <source>All textures:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="806"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="839"/>
         <source>Missing textures:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="947"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="980"/>
         <source>All sceneryobjects:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="985"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1018"/>
         <source>Missing / invalid sceneryobjects:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1131"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1164"/>
         <source>All splines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1166"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1199"/>
         <source>Missing / invalid splines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1309"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1342"/>
         <source>All vehicles:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1344"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1377"/>
         <source>Missing vehicles:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1487"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1520"/>
         <source>All humans:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1522"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1555"/>
         <source>Missing humans:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1796"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1829"/>
         <source>Edit ignorelist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1874"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1907"/>
         <source>Send feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1886"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1895"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1904"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1913"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1922"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1931"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1919"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1928"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1937"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1946"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1955"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1964"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1940"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1949"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1958"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1967"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1976"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1985"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1973"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1982"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1991"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="2000"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="2009"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="2018"/>
         <source>Ignore</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1897,18 +1909,18 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="483"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="487"/>
         <source>Map file doesn&apos;t exist</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="681"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="685"/>
         <source>Content copied.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="703"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="707"/>
         <source>Select map file...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1923,22 +1935,22 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="733"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="894"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1076"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1254"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1432"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1610"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="763"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="927"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1109"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1287"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1465"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1643"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="763"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="793"/>
         <source>Textures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1808"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1841"/>
         <source>Adjust window size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1948,59 +1960,63 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="474"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="478"/>
         <source>Running...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="483"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="487"/>
         <source>The selected map file doesn&apos;t exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="645"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="649"/>
         <source>Verifycation finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="703"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="707"/>
         <source>OMSI map file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="781"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="798"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="815"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="832"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="849"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="866"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="892"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="909"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="926"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="943"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="960"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="977"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="985"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1005"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1025"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1045"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1065"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1085"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="785"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="802"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="819"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="836"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="853"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="870"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="896"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="913"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="930"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="947"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="964"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="981"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="989"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1009"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1029"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1049"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1069"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1089"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1156"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1184"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1195"/>
         <source>No path selected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="790"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="807"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="824"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="841"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="858"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="875"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="794"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="811"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="828"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="845"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="862"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="879"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1204"/>
         <source>Copied!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1109"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="1113"/>
         <source>Hide settings</source>
         <translation type="unfinished"></translation>
     </message>
