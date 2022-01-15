@@ -904,7 +904,7 @@ public:
                         }
 
                         // Cut all numbers and tabs
-                        while ((line.at(line.count() - 1).isNumber()) || (line.at(line.count() - 1) == '\x9'))
+                        while ((line.at(line.count() - 1).isNumber()) || (line.at(line.count() - 1) == '\x9') || ((line.at(line.count( - 1)) == " ")))
                             line.remove(line.count() - 1, 1);
 
                         QFile vehicle(set.read("main", "mainDir").toString() + "/" + line);
