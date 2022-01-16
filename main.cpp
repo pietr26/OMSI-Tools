@@ -18,9 +18,6 @@ int main(int argc, char *argv[])
 {
     OTSettings set;
 
-    qDebug() << "All settings:";
-    qDebug().noquote() << set.getAllSettings();
-
     QString newName;
     bool isCrash = false;
     if (set.read("main", "closeCheck") == "false")
@@ -41,6 +38,9 @@ int main(int argc, char *argv[])
     set.write("main", "closeCheck", false);
 
     qInfo().noquote() << "Starting " + OTName + "...";
+
+    qDebug() << "All settings:";
+    qDebug().noquote() << set.getAllSettings();
 
     QApplication a(argc, argv);
 
