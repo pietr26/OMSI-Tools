@@ -11,7 +11,6 @@ public:
     /// \brief Opens a database, executes a databse action and close them
     QSqlQuery doAction(QString action)
     {
-        qDebug() << action;
         QSqlQuery qry;
 
         if (!open())
