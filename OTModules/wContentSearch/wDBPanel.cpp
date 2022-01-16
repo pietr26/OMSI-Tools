@@ -63,7 +63,7 @@ wDBPanel::wDBPanel(QWidget *parent) :
     {
         dbHandler.setupDatabase(true);
         dbHandler.doAction("CREATE TABLE paths (ID INTEGER, path varchar(5000), linkID varchar(5000), PRIMARY KEY(ID AUTOINCREMENT))");
-        dbHandler.doAction("CREATE TABLE links (ID INTEGER, link varchar(5000), PRIMARY KEY(ID AUTOINCREMENT))");
+        dbHandler.doAction("CREATE TABLE links (ID INTEGER, link varchar(5000), directLinks varchar(5000), information varchar(5000),PRIMARY KEY(ID AUTOINCREMENT))");
     }
     else
         dbHandler.setupDatabase();
