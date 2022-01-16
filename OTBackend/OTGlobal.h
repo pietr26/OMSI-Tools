@@ -47,14 +47,14 @@ public:
     {
         switch (flag)
         {
-            case Dev:           return "Dev";           break;
-            case Alpha:         return "Alpha";         break;
-            case Beta:          return "Beta";          break;
-            case EA:            return "EA";            break;
-            case Lite:          return "Lite";          break;
-            case Prerelease:    return "Prerelease";    break;
-            case Release:       return "Release";       break;
-            default:            return "?";             break;
+        case Dev:           return "Dev";           break;
+        case Alpha:         return "Alpha";         break;
+        case Beta:          return "Beta";          break;
+        case EA:            return "EA";            break;
+        case Lite:          return "Lite";          break;
+        case Prerelease:    return "Prerelease";    break;
+        case Release:       return "Release";       break;
+        default:            return "?";             break;
         }
     }
 };
@@ -305,6 +305,19 @@ public:
         return "";
     }
 
+    /// \brief Gets all settings keys and its values
+    QString getAllSettings()
+    {
+        QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTName, QSettings::NativeFormat);
+
+        QString returnString;
+
+        foreach (QString current, set.allKeys())
+            returnString += current + "[" + set.value(current).toString() + "], ";
+
+        return returnString;
+    }
+
     /// \brief Installs a translator
     void loadLanguage(QApplication &parent)
     {
@@ -315,10 +328,10 @@ public:
         QString baseLanguageFile;
         switch (read("main", "language").toInt())
         {
-            //case 0: english
-            case 1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
-            case 2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
-            case 3: languageFile = "tr_it"; baseLanguageFile = "qtbase_it"; break;
+        //case 0: english
+        case 1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
+        case 2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
+        case 3: languageFile = "tr_it"; baseLanguageFile = "qtbase_it"; break;
         }
 
         if (languageFile != "")
