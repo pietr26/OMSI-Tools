@@ -343,10 +343,10 @@ public:
             bool baseTrInstall = parent.installTranslator(baseTranslator);
 
             if (trLoad && trInstall && baseTrLoad && baseTrInstall)
-                qInfo() << "Translation files loaded";
+                qInfo() << "Loaded translations";
             else
             {
-                qWarning() << "Error while loading the translation files!";
+                qWarning() << "Error while loading translations!";
 
                 qDebug().noquote() << "trLoad:" << trLoad;
                 qDebug().noquote() << "trInstall:" << trInstall;
