@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>687</height>
+    <height>806</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,6 +64,30 @@
      </widget>
     </item>
     <item>
+     <widget class="QGroupBox" name="gbxInformation">
+      <property name="title">
+       <string>Information</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <widget class="QLineEdit" name="ledInformation"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbxDirectLinks">
+      <property name="title">
+       <string>Direct link(s)</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <item>
+        <widget class="QPlainTextEdit" name="pteDirectLinks"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
      <widget class="QGroupBox" name="gbxSource">
       <property name="title">
        <string notr="true">Source:</string>
@@ -108,7 +132,7 @@
       <item>
        <widget class="QPushButton" name="btnUnlockSource">
         <property name="text">
-         <string notr="true">Unlock source</string>
+         <string notr="true">Unlock</string>
         </property>
        </widget>
       </item>

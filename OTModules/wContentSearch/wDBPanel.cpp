@@ -112,16 +112,35 @@ void wDBPanel::reloadSelectGroupBoxes()
 QString wDBPanel::checkLinkID()
 {
     QSqlQueryModel *qryLinkModel = new QSqlQueryModel;
+
     QString link;
     if (ui->rbtnLink->isChecked())
         link = ui->ledLink->text();
-    else
+    else {
+        delete qryLinkModel;
         return "NULL";
+    }
+
+    QString directLinks;
+    if (ui->pteDirectLinks->toPlainText() != "")
+        directLinks = ui->pteDirectLinks->toPlainText();
+    else {
+        delete qryLinkModel;
+        return "NULL";
+    }
+
+    QString information;
+    if (ui->ledInformation->text() != "")
+        information = ui->ledInformation->text();
+    else {
+        delete qryLinkModel;
+        return "NULL";
+    }
 
     qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT * FROM links WHERE link = '%1'").arg(link)));
 
     if (qryLinkModel->rowCount() == 0)
-        dbHandler.doAction(QString("INSERT INTO links (link) VALUES (\"%1\")").arg(link));
+        dbHandler.doAction(QString("INSERT INTO links (link, directLinks, information) VALUES (\"%1\", \"%2\", \"%3\")").arg(link, directLinks, information));
 
    qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT ID FROM links WHERE link = '%1'").arg(link)));
 
@@ -144,7 +163,10 @@ void wDBPanel::on_btnStart_clicked()
         return;
     }
 
+    ui->gbxDirectLinks->setEnabled(false);
+    ui->gbxInformation->setEnabled(false);
     ui->gbxSource->setEnabled(false);
+
     ui->btnStart->setEnabled(false);
     ui->wgtDuplicates->setEnabled(true);
     ui->btnUnlockSource->setVisible(true);
@@ -154,7 +176,6 @@ void wDBPanel::on_btnStart_clicked()
     currentLinkID.clear();
 
     dbHandler.setupDatabase();
-
 
     setEnabled(false);
     ui->pgbProgress->setVisible(true);
@@ -350,10 +371,19 @@ void wDBPanel::selectNew()
 /// \brief Unlocks the source group box
 void wDBPanel::on_btnUnlockSource_clicked()
 {
+    ui->gbxDirectLinks->setEnabled(true);
+    ui->pteDirectLinks->clear();
+
+    ui->gbxInformation->setEnabled(true);
+    ui->ledInformation->clear();
+
     ui->gbxSource->setEnabled(true);
     ui->ledLink->clear();
+
     ui->btnStart->setEnabled(true);
+
     ui->wgtDuplicates->setEnabled(false);
+
     ui->btnUnlockSource->setVisible(false);
 }
 
