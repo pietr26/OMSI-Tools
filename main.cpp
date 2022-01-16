@@ -18,6 +18,9 @@ int main(int argc, char *argv[])
 {
     OTSettings set;
 
+    qDebug() << "All settings:";
+    qDebug().noquote() << set.getAllSettings();
+
     QString newName;
     bool isCrash = false;
     if (set.read("main", "closeCheck") == "false")
