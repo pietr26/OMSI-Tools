@@ -2,9 +2,6 @@
     <qresource prefix="/rec">
         <file>data/themes/Combinear.qss</file>
         <file>data/themes/Darkeum.qss</file>
-        <file>data/translations/tr_fr.qm</file>
-        <file>data/translations/tr_de.qm</file>
-        <file>data/translations/tr_it.qm</file>
         <file>data/fontTemplates/0-9.oft</file>
         <file>data/fontTemplates/A-Z 0-9.oft</file>
         <file>data/fontTemplates/A-Z a-z 0-9 Umlauts.oft</file>
@@ -62,5 +59,8 @@
         <file>contentSearchDatabases/current.db</file>
         <file>data/icons/iconBook.svg</file>
         <file>data/icons/iconBroom.svg</file>
+        <file>data/translations/tr_de.qm</file>
+        <file>data/translations/tr_fr.qm</file>
+        <file>data/translations/tr_it.qm</file>
     </qresource>
 </RCC>
