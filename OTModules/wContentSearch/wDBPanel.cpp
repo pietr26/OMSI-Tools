@@ -138,7 +138,13 @@ QString wDBPanel::checkLinkID()
     qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT ID FROM links WHERE link = '%1'").arg(link)));
 
     if (!isEmpty)
-        dbHandler.doAction(QString("UPDATE links SET directLinks = '%1', information = '%2' WHERE ID = %3").arg(directLinks, information, qryLinkModel->index(0, 0).data().toString()));
+    {
+        if (directLinks.isEmpty())
+            dbHandler.doAction(QString("UPDATE links SET information = '%1' WHERE ID = %2").arg(information, qryLinkModel->index(0, 0).data().toString()));
+
+        if (information.isEmpty())
+            dbHandler.doAction(QString("UPDATE links SET directLinks = '%1' WHERE ID = %2").arg(directLinks, qryLinkModel->index(0, 0).data().toString()));
+    }
 
     return qryLinkModel->index(0, 0).data().toString();
 }
