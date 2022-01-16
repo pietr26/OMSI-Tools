@@ -121,28 +121,24 @@ QString wDBPanel::checkLinkID()
         return "NULL";
     }
 
-    QString directLinks;
-    if (ui->pteDirectLinks->toPlainText() != "")
-        directLinks = ui->pteDirectLinks->toPlainText();
-    else {
-        delete qryLinkModel;
-        return "NULL";
-    }
+    QString directLinks = ui->pteDirectLinks->toPlainText();
 
-    QString information;
-    if (ui->ledInformation->text() != "")
-        information = ui->ledInformation->text();
-    else {
-        delete qryLinkModel;
-        return "NULL";
-    }
+    QString information = ui->ledInformation->text();
 
     qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT * FROM links WHERE link = '%1'").arg(link)));
 
-    if (qryLinkModel->rowCount() == 0)
-        dbHandler.doAction(QString("INSERT INTO links (link, directLinks, information) VALUES (\"%1\", \"%2\", \"%3\")").arg(link, directLinks, information));
+    bool isEmpty = false;
 
-   qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT ID FROM links WHERE link = '%1'").arg(link)));
+    if (qryLinkModel->rowCount() == 0)
+    {
+        isEmpty = true;
+        dbHandler.doAction(QString("INSERT INTO links (link, directLinks, information) VALUES (\"%1\", \"%2\", \"%3\")").arg(link, directLinks, information));
+    }
+
+    qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT ID FROM links WHERE link = '%1'").arg(link)));
+
+    if (!isEmpty)
+        dbHandler.doAction(QString("UPDATE links SET directLinks = '%1', information = '%2' WHERE ID = %3").arg(directLinks, information, qryLinkModel->index(0, 0).data().toString()));
 
     return qryLinkModel->index(0, 0).data().toString();
 }
