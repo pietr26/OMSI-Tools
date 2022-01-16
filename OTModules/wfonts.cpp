@@ -69,7 +69,7 @@ wFonts::~wFonts()
     delete strListChars;
 }
 
-void wFonts::closeEvent (QCloseEvent *event)
+void wFonts::closeEvent(QCloseEvent *event)
 {
     if (unsaved)
     {
@@ -491,7 +491,8 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen)
     else if (tempFont.moreThanOneFont)
     {
         if (method != OTFileMethods::silentOpen)
-            QMessageBox::warning(this, tr("Open font"), tr("Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files. If the font is saved with the application, it will deface the font!"));
+            QMessageBox::warning(this, tr("Open font"), tr("Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files.\nNo font will be opened."));
+        return;
     }
 
     setUnsaved();
