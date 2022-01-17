@@ -4,17 +4,17 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="378"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="379"/>
         <source>Attention: This module is currently work in progress. Only use it for test, never for real modding! Files edited with this module can possibly be destroyed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="407"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="408"/>
         <source>There is unsaved content. Do you want to save?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="378"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="379"/>
         <source>Work in progress</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
@@ -31,18 +31,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="423"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="424"/>
         <source>Error while openig file</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="423"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="424"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="445"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="446"/>
         <source>Confirm deletion</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
@@ -53,85 +53,85 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="368"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="369"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="385"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="386"/>
         <source>There is unsaved content.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="429"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="430"/>
         <source>There was an error while opening
 %1
 If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="435"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="436"/>
         <source>There are no chars in the font.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="445"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="446"/>
         <source>Should the selection be deleted?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="461"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="462"/>
         <source>Save error</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="461"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="462"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="467"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="468"/>
         <source>Module still deactivated</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="467"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="468"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="480"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
         <source>Bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="480"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
         <source>KB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="483"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="483"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation type="unfinished"></translation>
@@ -154,26 +154,26 @@ If OMSI is running, please close it and retry it. Furthermore, check if the file
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="368"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="369"/>
         <source>OMSI main directory not found</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="385"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="407"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="386"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="408"/>
         <source>Unsaved content</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="429"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="430"/>
         <source>Error while opening file</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="435"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="436"/>
         <source>No chars in font</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
