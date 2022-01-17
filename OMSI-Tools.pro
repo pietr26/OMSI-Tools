@@ -67,7 +67,8 @@ FORMS += \
 TRANSLATIONS += \
     data/translations/tr_de.ts \
     data/translations/tr_fr.ts \
-    data/translations/tr_it.ts
+    data/translations/tr_it.ts \
+    data/translations/tr_cz.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

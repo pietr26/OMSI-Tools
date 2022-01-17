@@ -27,6 +27,8 @@ private slots:
 
     void on_btnIt_clicked();
 
+    void on_btnCz_clicked();
+
 private:
     Ui::wFirstSetup *ui;
     OTSettings set;

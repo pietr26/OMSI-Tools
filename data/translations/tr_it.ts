@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="it">
 <context>
     <name>QObject</name>
     <message>
@@ -584,6 +584,19 @@ Code: %1</source>
     </message>
 </context>
 <context>
+    <name>wDBPanel</name>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wDBPanel.ui" line="69"/>
+        <source>Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wDBPanel.ui" line="81"/>
+        <source>Direct link(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>wFirstSetup</name>
     <message>
         <location filename="../../wfirstsetup.cpp" line="18"/>
@@ -917,14 +930,14 @@ Code: %1</source>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.cpp" line="16"/>
-        <location filename="../../OTModules/wfonts.cpp" line="645"/>
-        <location filename="../../OTModules/wfonts.cpp" line="647"/>
+        <location filename="../../OTModules/wfonts.cpp" line="646"/>
+        <location filename="../../OTModules/wfonts.cpp" line="648"/>
         <source>fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.cpp" line="450"/>
-        <location filename="../../OTModules/wfonts.cpp" line="585"/>
+        <location filename="../../OTModules/wfonts.cpp" line="586"/>
         <source>OMSI font file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -935,40 +948,34 @@ Code: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="494"/>
-        <source>Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files.
-Only the first font will be opened.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wfonts.cpp" line="585"/>
+        <location filename="../../OTModules/wfonts.cpp" line="586"/>
         <source>Save font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="617"/>
+        <location filename="../../OTModules/wfonts.cpp" line="618"/>
         <source>Error: The file could not be saved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="627"/>
+        <location filename="../../OTModules/wfonts.cpp" line="628"/>
         <source>File saved successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1177"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1178"/>
         <source>The entered character could not be found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1213"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1233"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1214"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1234"/>
         <source>No other character found according to the search criteria.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1204"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1244"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1205"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1245"/>
         <source>The end of the font was reached, search from top</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1001,69 +1008,75 @@ Only the first font will be opened.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="731"/>
+        <location filename="../../OTModules/wfonts.cpp" line="494"/>
+        <source>Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files.
+No font will be opened.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wfonts.cpp" line="732"/>
         <source>Error in character &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="753"/>
+        <location filename="../../OTModules/wfonts.cpp" line="754"/>
         <source>There aren&apos;t any errors. The font is valid.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="826"/>
+        <location filename="../../OTModules/wfonts.cpp" line="827"/>
         <source>Select color texture...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="826"/>
-        <location filename="../../OTModules/wfonts.cpp" line="845"/>
+        <location filename="../../OTModules/wfonts.cpp" line="827"/>
+        <location filename="../../OTModules/wfonts.cpp" line="846"/>
         <source>Bitmap picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="845"/>
+        <location filename="../../OTModules/wfonts.cpp" line="846"/>
         <source>Select alpha texture...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="920"/>
+        <location filename="../../OTModules/wfonts.cpp" line="921"/>
         <source>The current selection isn&apos;t a valid template.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1127"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1128"/>
         <source>Characters copied!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1143"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1144"/>
         <source>The font file (still) doesn&apos;t exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="894"/>
+        <location filename="../../OTModules/wfonts.cpp" line="895"/>
         <source>Umlauts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="901"/>
+        <location filename="../../OTModules/wfonts.cpp" line="902"/>
         <source>Select a template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="901"/>
+        <location filename="../../OTModules/wfonts.cpp" line="902"/>
         <source>Template:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1177"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1178"/>
         <source>Character not found</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="920"/>
+        <location filename="../../OTModules/wfonts.cpp" line="921"/>
         <source>Invalid selection</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
@@ -1098,8 +1111,8 @@ Only the first font will be opened.</source>
     </message>
     <message>
         <location filename="../../wsettings.ui" line="283"/>
-        <location filename="../../wsettings.cpp" line="61"/>
-        <location filename="../../wsettings.cpp" line="159"/>
+        <location filename="../../wsettings.cpp" line="59"/>
+        <location filename="../../wsettings.cpp" line="157"/>
         <source>Backup disk usage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1189,147 +1202,147 @@ Only the first font will be opened.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="61"/>
+        <location filename="../../wsettings.cpp" line="59"/>
         <source>Calculating...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="69"/>
+        <location filename="../../wsettings.cpp" line="67"/>
         <source>sec.</source>
         <comment>short form from &apos;seconds&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="86"/>
-        <location filename="../../wsettings.cpp" line="102"/>
+        <location filename="../../wsettings.cpp" line="84"/>
+        <location filename="../../wsettings.cpp" line="100"/>
         <source>Off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="86"/>
+        <location filename="../../wsettings.cpp" line="84"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="102"/>
+        <location filename="../../wsettings.cpp" line="100"/>
         <source>On start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="102"/>
+        <location filename="../../wsettings.cpp" line="100"/>
         <source>Daily</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="102"/>
+        <location filename="../../wsettings.cpp" line="100"/>
         <source>Weekly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="102"/>
+        <location filename="../../wsettings.cpp" line="100"/>
         <source>Monthly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="149"/>
+        <location filename="../../wsettings.cpp" line="147"/>
         <source>Restart to apply all settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="209"/>
+        <location filename="../../wsettings.cpp" line="207"/>
         <source>There was an error while get the newest version. Please check if your computer has a working internet connection, retry it or contact the developer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="214"/>
-        <location filename="../../wsettings.cpp" line="250"/>
+        <location filename="../../wsettings.cpp" line="212"/>
+        <location filename="../../wsettings.cpp" line="248"/>
         <source>Updating %1</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="214"/>
+        <location filename="../../wsettings.cpp" line="212"/>
         <source>There aren&apos;t any updates available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="219"/>
+        <location filename="../../wsettings.cpp" line="217"/>
         <source>Newest version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="219"/>
+        <location filename="../../wsettings.cpp" line="217"/>
         <source>Should the newest version be installed?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="385"/>
+        <location filename="../../wsettings.cpp" line="383"/>
         <source>More languages</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="385"/>
+        <location filename="../../wsettings.cpp" line="383"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="219"/>
+        <location filename="../../wsettings.cpp" line="217"/>
         <source>Updates available</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="209"/>
+        <location filename="../../wsettings.cpp" line="207"/>
         <source>Error while check version</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="219"/>
+        <location filename="../../wsettings.cpp" line="217"/>
         <source>There is an update available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="219"/>
+        <location filename="../../wsettings.cpp" line="217"/>
         <source>Installed version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="250"/>
+        <location filename="../../wsettings.cpp" line="248"/>
         <source>There was an error while starting the updater. Please retry it or conact the developer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="265"/>
+        <location filename="../../wsettings.cpp" line="263"/>
         <source>Should all settings be reset? This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="269"/>
+        <location filename="../../wsettings.cpp" line="267"/>
         <source>The programm will now restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="280"/>
+        <location filename="../../wsettings.cpp" line="278"/>
         <source>Success</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="280"/>
+        <location filename="../../wsettings.cpp" line="278"/>
         <source>Successfully created shortcut in %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="284"/>
+        <location filename="../../wsettings.cpp" line="282"/>
         <source>Error</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="284"/>
+        <location filename="../../wsettings.cpp" line="282"/>
         <source>Could not create shortcut in %1.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1344,19 +1357,19 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="171"/>
+        <location filename="../../wsettings.cpp" line="169"/>
         <source>Delete all backups</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="171"/>
+        <location filename="../../wsettings.cpp" line="169"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="265"/>
-        <location filename="../../wsettings.cpp" line="269"/>
+        <location filename="../../wsettings.cpp" line="263"/>
+        <location filename="../../wsettings.cpp" line="267"/>
         <source>Reset settings</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
