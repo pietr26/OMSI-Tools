@@ -4,17 +4,17 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="378"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="379"/>
         <source>Attention: This module is currently work in progress. Only use it for test, never for real modding! Files edited with this module can possibly be destroyed!</source>
         <translation>Achtung: Dieses Modul befindet sich momentan noch in der Entwicklung. Es sollte nur zum Test verwendet werden, niemals für richtiges Modding! Dateien, die in diesem Modul bearbeitet werden, werden möglicherweise zerstört!</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="407"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="408"/>
         <source>There is unsaved content. Do you want to save?</source>
         <translation>Einige Inhalte sind noch nicht gespeichert. Soll jetzt gespeichert werden?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="378"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="379"/>
         <source>Work in progress</source>
         <comment>Note #1</comment>
         <translation>In Entwicklung</translation>
@@ -31,18 +31,18 @@
         <translation>&quot;Omsi.exe&quot; konnte nicht gefunden werden. Handelt es sich um den richtigen Pfad? Sonst kann es in einigen Modulen zu Fehlern kommen. Soll jetzt ein neuer Pfad ausgewählt werden?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="423"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="424"/>
         <source>Error while openig file</source>
         <comment>Note #1</comment>
         <translation>Datei konnte nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="423"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="424"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Die ausgewählte Datei existiert nicht oder ist lesegeschützt.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="445"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="446"/>
         <source>Confirm deletion</source>
         <comment>Note #1</comment>
         <translation>Löschen bestätigen</translation>
@@ -53,17 +53,17 @@
         <translation>OMSI-Hauptverzeichnis auswählen...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="368"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="369"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Um fortzufahren, benötigt die Anwendung das OMSI-Hauptverzeichnis. Soll es jetzt ausgewählt werden?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="385"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="386"/>
         <source>There is unsaved content.</source>
         <translation>Ungespeicherten Inhalt gefunden.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="429"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="430"/>
         <source>There was an error while opening
 %1
 If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
@@ -71,68 +71,68 @@ If OMSI is running, please close it and retry it. Furthermore, check if the file
 konnte nicht geöffnet werden. Wenn OMSI läuft, schließe es und versuche es erneut. Überprüfe auch, ob die Datei noch existiert.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="435"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="436"/>
         <source>There are no chars in the font.</source>
         <translation>Es gibt keine Zeichen in der Schrift.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="445"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="446"/>
         <source>Should the selection be deleted?</source>
         <translation>Soll die Auswahl gelöscht werden?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="461"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="462"/>
         <source>Save error</source>
         <comment>Note #1</comment>
         <translation>Speicherfehler</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="461"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="462"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation>&apos;%1&apos; konnte nicht gespeichert werden. Wenn OMSI läuft, bitte schließen und erneut versuchen.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="467"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="468"/>
         <source>Module still deactivated</source>
         <comment>Note #1</comment>
         <translation>Modul noch deaktiviert</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="467"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="468"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation>Dieses Modul ist wegen Zeitmangel bei den Entwicklungen leider noch deaktiviert. Bitte halte in den nächsten Tagen nach neuen Aktualisierungen ausschau.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="480"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
         <source>Bytes</source>
         <translation>Bytes</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="480"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
         <source>KB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="483"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation>TB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="483"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation>PB</translation>
@@ -155,26 +155,26 @@ konnte nicht geöffnet werden. Wenn OMSI läuft, schließe es und versuche es er
         <translation>[Leere Zeile in Parkplatzliste %1]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="368"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="369"/>
         <source>OMSI main directory not found</source>
         <comment>Note #1</comment>
         <translation>OMSI-Hauptverzeichnis nicht gefunden</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="385"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="407"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="386"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="408"/>
         <source>Unsaved content</source>
         <comment>Note #1</comment>
         <translation>Ungespeicherter Inhalt</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="429"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="430"/>
         <source>Error while opening file</source>
         <comment>Note #1</comment>
         <translation>Fehler beim Öffnen einer Datei</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="435"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="436"/>
         <source>No chars in font</source>
         <comment>Note #1</comment>
         <translation>Keine Zeichen in Schrift</translation>
