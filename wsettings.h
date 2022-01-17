@@ -29,6 +29,7 @@ public:
     const QString de = "Deutsch (German)";
     const QString fr = "Français (French)";
     const QString it = "Italiano (Italian)";
+    const QString cz = "Čeština (Czech)";
 
 private slots:
 

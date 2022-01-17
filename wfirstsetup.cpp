@@ -22,6 +22,7 @@ wFirstSetup::wFirstSetup(QWidget *parent) :
     ui->btnDe->setText("\t" + wSet.de);
     ui->btnFr->setText("\t" + wSet.fr);
     ui->btnIt->setText("\t" + wSet.it);
+    ui->btnCz->setText("\t" + wSet.cz);
 
     qInfo().noquote() << moduleName + " started successfully.";
 }
@@ -58,3 +59,10 @@ void wFirstSetup::on_btnIt_clicked()
     set.write("main", "language", 3);
     misc.restart();
 }
+
+void wFirstSetup::on_btnCz_clicked()
+{
+    set.write("main", "language", 4);
+    misc.restart();
+}
+

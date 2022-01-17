@@ -328,10 +328,11 @@ public:
         QString baseLanguageFile;
         switch (read("main", "language").toInt())
         {
-        //case 0: english
-        case 1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
-        case 2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
-        case 3: languageFile = "tr_it"; baseLanguageFile = "qtbase_it"; break;
+            //case 0: english
+            case 1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
+            case 2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
+            case 3: languageFile = "tr_it"; baseLanguageFile = "qtbase_it"; break;
+            case 4: languageFile = "tr_cz"; baseLanguageFile = "qtbase_cz"; break;
         }
 
         if (languageFile != "")

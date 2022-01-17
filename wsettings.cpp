@@ -25,21 +25,19 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
 
     // cobxLanguage
     int languageIndex = set.read("main", "language").toInt();
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), en);
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), de);
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), fr);
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/it.svg"), it);
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), en); // 0
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), de); // 1
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), fr); // 2
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/it.svg"), it); // 3
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cz.svg"), cz); // 4
 
-    // Disable item (no. 3)
-    auto * model = qobject_cast<QStandardItemModel*>(ui->cobxLanguage->model());
-        assert(model);
-        if(!model) return;
+    // Disable it
+    auto* model3 = qobject_cast<QStandardItemModel*>(ui->cobxLanguage->model());
+    model3->item(3)->setEnabled(false);
 
-        auto *item = model->item(3);
-        assert(item);
-
-        if(item)
-            item->setEnabled(false);
+    // Disable cz
+    auto* model4 = qobject_cast<QStandardItemModel*>(ui->cobxLanguage->model());
+    model4->item(4)->setEnabled(false);
 
     ui->cobxLanguage->setCurrentIndex(languageIndex);
 
