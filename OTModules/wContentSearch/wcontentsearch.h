@@ -63,6 +63,8 @@ private:
     OTDatabaseHandler dbHandler;
     QString dbPath = ":/rec/contentSearchDatabases/current.db";
     QTemporaryFile database;
+    void clearView(bool withoutUserInput = false);
+    void reloadTabNames();
 };
 
 #endif // WCONTENTSEARCH_H
