@@ -31,13 +31,9 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/it.svg"), it); // 3
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cz.svg"), cz); // 4
 
-    // Disable it
+    // Disable 'it'
     auto* model3 = qobject_cast<QStandardItemModel*>(ui->cobxLanguage->model());
     model3->item(3)->setEnabled(false);
-
-    // Disable cz
-    auto* model4 = qobject_cast<QStandardItemModel*>(ui->cobxLanguage->model());
-    model4->item(4)->setEnabled(false);
 
     ui->cobxLanguage->setCurrentIndex(languageIndex);
 
