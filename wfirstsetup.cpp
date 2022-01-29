@@ -24,6 +24,9 @@ wFirstSetup::wFirstSetup(QWidget *parent) :
     ui->btnIt->setText("\t" + wSet.it);
     ui->btnCz->setText("\t" + wSet.cz);
 
+    ui->btnIt->setEnabled(false);
+    ui->btnIt->setToolTip("This language will be available soon.");
+
     qInfo().noquote() << moduleName + " started successfully.";
 }
 
