@@ -411,114 +411,109 @@ Code: %1</source>
 <context>
     <name>wContentSearch</name>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="129"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="156"/>
         <source>Add file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="48"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="31"/>
         <source>File paths must start from a subfolder in the main directory!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="60"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="91"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="43"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="74"/>
         <source>Add to list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="109"/>
-        <source>Files to search:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="206"/>
-        <source>Not found:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="277"/>
-        <source>Found links:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="299"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="312"/>
         <source>Open in browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="188"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="439"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="112"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="489"/>
         <source>Remove selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="356"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="388"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="406"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="438"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="82"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="145"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="451"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="65"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="172"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="501"/>
         <source>Add list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="42"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="424"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="427"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="25"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="474"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="477"/>
         <source>Add path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="245"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="88"/>
+        <source>Search input:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="234"/>
         <source>Clear lists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="262"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="251"/>
         <source>Search!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="310"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="273"/>
+        <source>Results:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="323"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="330"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="336"/>
         <source>Press this button if a link provided by the program no longer works or does not contain a file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="333"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="339"/>
         <source>Report invalid link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="367"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="417"/>
         <source>Specials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="373"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="423"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="400"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="450"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="412"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="462"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="463"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="513"/>
         <source>Send feedback</source>
         <translation type="unfinished"></translation>
     </message>
@@ -536,63 +531,75 @@ Code: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="149"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="138"/>
         <source>Input is empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="247"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="145"/>
+        <source>Links (%1)</source>
+        <comment>Note #1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="146"/>
+        <source>Not found (%1)</source>
+        <comment>Note #1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="147"/>
+        <source>Standard content (%1)</source>
+        <comment>Note #1
+Please use plural; Optional original text: &apos;Standard files&apos;</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="148"/>
+        <source>Direct links (%1)</source>
+        <comment>Note #1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="239"/>
         <source>Open URL(s)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="263"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="255"/>
         <source>Copy URL(s)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="276"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="268"/>
         <source>Select file with paths...</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="276"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="268"/>
         <source>Text files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="276"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="268"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="299"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="291"/>
         <source>Add files</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="299"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="291"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="302"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="294"/>
         <source>Process aborted.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>wDBPanel</name>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wDBPanel.ui" line="69"/>
-        <source>Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wDBPanel.ui" line="81"/>
-        <source>Direct link(s)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1111,8 +1118,8 @@ No font will be opened.</source>
     </message>
     <message>
         <location filename="../../wsettings.ui" line="283"/>
-        <location filename="../../wsettings.cpp" line="59"/>
-        <location filename="../../wsettings.cpp" line="157"/>
+        <location filename="../../wsettings.cpp" line="55"/>
+        <location filename="../../wsettings.cpp" line="153"/>
         <source>Backup disk usage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1202,147 +1209,147 @@ No font will be opened.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="59"/>
+        <location filename="../../wsettings.cpp" line="55"/>
         <source>Calculating...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="67"/>
+        <location filename="../../wsettings.cpp" line="63"/>
         <source>sec.</source>
         <comment>short form from &apos;seconds&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="84"/>
-        <location filename="../../wsettings.cpp" line="100"/>
+        <location filename="../../wsettings.cpp" line="80"/>
+        <location filename="../../wsettings.cpp" line="96"/>
         <source>Off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="84"/>
+        <location filename="../../wsettings.cpp" line="80"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="100"/>
+        <location filename="../../wsettings.cpp" line="96"/>
         <source>On start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="100"/>
+        <location filename="../../wsettings.cpp" line="96"/>
         <source>Daily</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="100"/>
+        <location filename="../../wsettings.cpp" line="96"/>
         <source>Weekly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="100"/>
+        <location filename="../../wsettings.cpp" line="96"/>
         <source>Monthly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="147"/>
+        <location filename="../../wsettings.cpp" line="143"/>
         <source>Restart to apply all settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="207"/>
+        <location filename="../../wsettings.cpp" line="203"/>
         <source>There was an error while get the newest version. Please check if your computer has a working internet connection, retry it or contact the developer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="212"/>
-        <location filename="../../wsettings.cpp" line="248"/>
+        <location filename="../../wsettings.cpp" line="208"/>
+        <location filename="../../wsettings.cpp" line="244"/>
         <source>Updating %1</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="212"/>
+        <location filename="../../wsettings.cpp" line="208"/>
         <source>There aren&apos;t any updates available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="217"/>
+        <location filename="../../wsettings.cpp" line="213"/>
         <source>Newest version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="217"/>
+        <location filename="../../wsettings.cpp" line="213"/>
         <source>Should the newest version be installed?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="383"/>
+        <location filename="../../wsettings.cpp" line="379"/>
         <source>More languages</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="383"/>
+        <location filename="../../wsettings.cpp" line="379"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="217"/>
+        <location filename="../../wsettings.cpp" line="213"/>
         <source>Updates available</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="207"/>
+        <location filename="../../wsettings.cpp" line="203"/>
         <source>Error while check version</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="217"/>
+        <location filename="../../wsettings.cpp" line="213"/>
         <source>There is an update available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="217"/>
+        <location filename="../../wsettings.cpp" line="213"/>
         <source>Installed version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="248"/>
+        <location filename="../../wsettings.cpp" line="244"/>
         <source>There was an error while starting the updater. Please retry it or conact the developer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="263"/>
+        <location filename="../../wsettings.cpp" line="259"/>
         <source>Should all settings be reset? This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="267"/>
+        <location filename="../../wsettings.cpp" line="263"/>
         <source>The programm will now restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="278"/>
+        <location filename="../../wsettings.cpp" line="274"/>
         <source>Success</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="278"/>
+        <location filename="../../wsettings.cpp" line="274"/>
         <source>Successfully created shortcut in %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="282"/>
+        <location filename="../../wsettings.cpp" line="278"/>
         <source>Error</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="282"/>
+        <location filename="../../wsettings.cpp" line="278"/>
         <source>Could not create shortcut in %1.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1357,19 +1364,19 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="169"/>
+        <location filename="../../wsettings.cpp" line="165"/>
         <source>Delete all backups</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="169"/>
+        <location filename="../../wsettings.cpp" line="165"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../wsettings.cpp" line="259"/>
         <location filename="../../wsettings.cpp" line="263"/>
-        <location filename="../../wsettings.cpp" line="267"/>
         <source>Reset settings</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>

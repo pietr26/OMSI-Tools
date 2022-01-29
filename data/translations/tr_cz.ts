@@ -4,17 +4,17 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="378"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="379"/>
         <source>Attention: This module is currently work in progress. Only use it for test, never for real modding! Files edited with this module can possibly be destroyed!</source>
         <translation>Upozornění: Tento modul je ve fázi vývoje. Používejte ho pouze pro testování, nikoliv pro skutečné vytváření obsahu! Soubory upravené v tomto modulu mohou být poškozeny!</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="407"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="408"/>
         <source>There is unsaved content. Do you want to save?</source>
         <translation>Máte zde neuložený obsah. Chcete obsah uložit?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="378"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="379"/>
         <source>Work in progress</source>
         <comment>Note #1</comment>
         <translation>V přípravě</translation>
@@ -31,18 +31,18 @@
         <translation>&quot;Omsi.exe&quot; nebylo nalezeno ve vybraném adresáři. Je tento adresář správný? Díky tomu se mohou objevit potíže v některých modulech. Chcete vybrat nový adresář?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="423"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="424"/>
         <source>Error while openig file</source>
         <comment>Note #1</comment>
         <translation>Chybné otevření souboru</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="423"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="424"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Tento zvolený soubor neexistuje nebo má ochranu proti čtění.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="445"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="446"/>
         <source>Confirm deletion</source>
         <comment>Note #1</comment>
         <translation>Potvrdit smazaní</translation>
@@ -53,17 +53,17 @@
         <translation>Vyberte hlavní OMSI složku...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="368"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="369"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Pro další používání aplikace je potřeba přidat hlavní složku s OMSI. Chcete ji přidat nyní?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="385"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="386"/>
         <source>There is unsaved content.</source>
         <translation>Máte neuložený obsah.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="429"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="430"/>
         <source>There was an error while opening
 %1
 If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
@@ -72,68 +72,68 @@ If OMSI is running, please close it and retry it. Furthermore, check if the file
 Pokud OMSI běží, zavřete jej prosím a spusťe znovu. Dále zkontrolujte, zda stále soubor existuje.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="435"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="436"/>
         <source>There are no chars in the font.</source>
         <translation>Nemáte žádné znaky ve fontu.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="445"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="446"/>
         <source>Should the selection be deleted?</source>
         <translation>Měl by být výběr odstraněn?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="461"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="462"/>
         <source>Save error</source>
         <comment>Note #1</comment>
         <translation>Chyba uložení</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="461"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="462"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation>Nastala chyba &apos;%1&apos; při ukládání. Pokud OMSI stále běží, zavřete jej prosím a zkuste znovu.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="467"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="468"/>
         <source>Module still deactivated</source>
         <comment>Note #1</comment>
         <translation>Modul není aktivován</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="467"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="468"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation>Bohužel je tento modul stále deaktivován kvůli nedostatku času pro vývoj. Zkontrolujte prosím nové aktualizace následující dny.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="480"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
         <source>Bytes</source>
         <translation>Bytů</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="480"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
         <source>KB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="481"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="483"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation>TB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="483"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation>PB</translation>
@@ -156,26 +156,26 @@ Pokud OMSI běží, zavřete jej prosím a spusťe znovu. Dále zkontrolujte, zd
         <translation>Kontroluji Sceneryobjects...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="368"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="369"/>
         <source>OMSI main directory not found</source>
         <comment>Note #1</comment>
         <translation>Hlavní složka s OMSI nenalezena</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="385"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="407"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="386"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="408"/>
         <source>Unsaved content</source>
         <comment>Note #1</comment>
         <translation>Neuložený obsah</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="429"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="430"/>
         <source>Error while opening file</source>
         <comment>Note #1</comment>
         <translation>Chyba při otevíraní souboru</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="435"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="436"/>
         <source>No chars in font</source>
         <comment>Note #1</comment>
         <translation>Žádné znaky ve fontu</translation>
@@ -415,114 +415,109 @@ Kód chyby: %1</translation>
 <context>
     <name>wContentSearch</name>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="129"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="156"/>
         <source>Add file</source>
         <translation>Přidat soubor</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="48"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="31"/>
         <source>File paths must start from a subfolder in the main directory!</source>
         <translation>Cesta k souborům musí začínat v podsložce v hlavní složce s hrou!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="60"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="91"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="43"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="74"/>
         <source>Add to list</source>
         <translation>Přidat do seznamu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="109"/>
-        <source>Files to search:</source>
-        <translation>Soubory k vyhledání:</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="206"/>
-        <source>Not found:</source>
-        <translation>Nenalezeno:</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="277"/>
-        <source>Found links:</source>
-        <translation>Nalezené odkazy:</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="299"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="312"/>
         <source>Open in browser</source>
         <translation>Otevřít v prohlížeči</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="188"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="439"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="112"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="489"/>
         <source>Remove selection</source>
         <translation>Odstranit vybrané</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="356"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="388"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="406"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="438"/>
         <source>Search</source>
         <translation>Vyhledat</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="82"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="145"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="451"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="65"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="172"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="501"/>
         <source>Add list</source>
         <translation>Přidat seznam</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="42"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="424"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="427"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="25"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="474"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="477"/>
         <source>Add path</source>
         <translation>Přidat cestu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="245"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="88"/>
+        <source>Search input:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="234"/>
         <source>Clear lists</source>
         <translation>Vymazat seznamy</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="262"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="251"/>
         <source>Search!</source>
         <translation>Vyhledat!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="310"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="273"/>
+        <source>Results:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="323"/>
         <source>Copy</source>
         <translation>Kopírovat</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="330"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="336"/>
         <source>Press this button if a link provided by the program no longer works or does not contain a file.</source>
         <translation>Zmáčkněte toto tlačítko, pokud zobrazený odkaz programem nefunguje nebo neobsahuje soubor.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="333"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="339"/>
         <source>Report invalid link</source>
         <translation>Nahlásit nefunkční odkaz</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="367"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="417"/>
         <source>Specials</source>
         <translation>Speciální</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="373"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="423"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="400"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="450"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="412"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="462"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="463"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="513"/>
         <source>Send feedback</source>
         <translation>Poslat zpětnou vazbu</translation>
     </message>
@@ -540,64 +535,76 @@ Kód chyby: %1</translation>
         <translation>Nastala chyba při spouštění databáze odkazů. Zkuste to prosím znovu nebo kontaktujte vývojáře.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="149"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="138"/>
         <source>Input is empty.</source>
         <translation>Zadání je prázdné.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="247"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="145"/>
+        <source>Links (%1)</source>
+        <comment>Note #1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="146"/>
+        <source>Not found (%1)</source>
+        <comment>Note #1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="147"/>
+        <source>Standard content (%1)</source>
+        <comment>Note #1
+Please use plural; Optional original text: &apos;Standard files&apos;</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="148"/>
+        <source>Direct links (%1)</source>
+        <comment>Note #1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="239"/>
         <source>Open URL(s)...</source>
         <translation>Otevřít odkaz(y)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="263"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="255"/>
         <source>Copy URL(s)...</source>
         <translation>Kopírovat odkaz(y)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="276"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="268"/>
         <source>Select file with paths...</source>
         <comment>Note #1</comment>
         <translation>Vybrat soubor s cestou...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="276"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="268"/>
         <source>Text files</source>
         <translation>Textové soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="276"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="268"/>
         <source>All files</source>
         <translation>Všechny soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="299"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="291"/>
         <source>Add files</source>
         <comment>Note #1</comment>
         <translation>Přidat soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="299"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="291"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation>%1 cesta(y) budou přidány do seznamu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="302"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="294"/>
         <source>Process aborted.</source>
         <translation>Proces zrušen.</translation>
-    </message>
-</context>
-<context>
-    <name>wDBPanel</name>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wDBPanel.ui" line="69"/>
-        <source>Information</source>
-        <translation>Informace</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wDBPanel.ui" line="81"/>
-        <source>Direct link(s)</source>
-        <translation>Přímé odkazy</translation>
     </message>
 </context>
 <context>
@@ -1117,8 +1124,8 @@ No font will be opened.</source>
     </message>
     <message>
         <location filename="../../wsettings.ui" line="283"/>
-        <location filename="../../wsettings.cpp" line="59"/>
-        <location filename="../../wsettings.cpp" line="157"/>
+        <location filename="../../wsettings.cpp" line="55"/>
+        <location filename="../../wsettings.cpp" line="153"/>
         <source>Backup disk usage</source>
         <translation>Velikost zálohy na disku</translation>
     </message>
@@ -1208,148 +1215,148 @@ No font will be opened.</source>
         <translation>nastavení</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="59"/>
+        <location filename="../../wsettings.cpp" line="55"/>
         <source>Calculating...</source>
         <translation>Vypočítávám...</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="67"/>
+        <location filename="../../wsettings.cpp" line="63"/>
         <source>sec.</source>
         <comment>short form from &apos;seconds&apos;</comment>
         <translation>s.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="84"/>
-        <location filename="../../wsettings.cpp" line="100"/>
+        <location filename="../../wsettings.cpp" line="80"/>
+        <location filename="../../wsettings.cpp" line="96"/>
         <source>Off</source>
         <translation>Vypnuto</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="84"/>
+        <location filename="../../wsettings.cpp" line="80"/>
         <source>Standard</source>
         <translation>Standardní</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="100"/>
+        <location filename="../../wsettings.cpp" line="96"/>
         <source>On start</source>
         <translation>Při spuštění</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="100"/>
+        <location filename="../../wsettings.cpp" line="96"/>
         <source>Daily</source>
         <translation>Denně</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="100"/>
+        <location filename="../../wsettings.cpp" line="96"/>
         <source>Weekly</source>
         <translation>Týdně</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="100"/>
+        <location filename="../../wsettings.cpp" line="96"/>
         <source>Monthly</source>
         <translation>Měsíčně</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="147"/>
+        <location filename="../../wsettings.cpp" line="143"/>
         <source>Restart to apply all settings.</source>
         <translation>Zrestartujte pro uložení všech změn.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="207"/>
+        <location filename="../../wsettings.cpp" line="203"/>
         <source>There was an error while get the newest version. Please check if your computer has a working internet connection, retry it or contact the developer.</source>
         <translation>Nastala chyba při získávání nejnovější verze.Zkontrolujte, zda má Váš počítač funkční internetové spojení, zopakujte to prosím znovu nebo kontaktujte vývojáře.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="212"/>
-        <location filename="../../wsettings.cpp" line="248"/>
+        <location filename="../../wsettings.cpp" line="208"/>
+        <location filename="../../wsettings.cpp" line="244"/>
         <source>Updating %1</source>
         <comment>Note #1</comment>
         <translation>Aktualizuji %1</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="212"/>
+        <location filename="../../wsettings.cpp" line="208"/>
         <source>There aren&apos;t any updates available.</source>
         <translation>Není dostupná žádná nová verze.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="217"/>
+        <location filename="../../wsettings.cpp" line="213"/>
         <source>Newest version</source>
         <translation>Nejnovější verze</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="217"/>
+        <location filename="../../wsettings.cpp" line="213"/>
         <source>Should the newest version be installed?</source>
         <translation>Má být nejnovější verze nainstalována?</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="383"/>
+        <location filename="../../wsettings.cpp" line="379"/>
         <source>More languages</source>
         <comment>Note #1</comment>
         <translation>Více jazyků</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="383"/>
+        <location filename="../../wsettings.cpp" line="379"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation>Chcete mít větší výběr jazyků?
 Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj jazyk skvěle, rádi uvítáme Váš překlad %1! Zkontaktujte prosím vývojáře na OMSI WebDisk, pokud máte nějaké další otázky týkající se překladu.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="217"/>
+        <location filename="../../wsettings.cpp" line="213"/>
         <source>Updates available</source>
         <comment>Note #1</comment>
         <translation>Dostupné aktualizace</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="207"/>
+        <location filename="../../wsettings.cpp" line="203"/>
         <source>Error while check version</source>
         <comment>Note #1</comment>
         <translation>Chyba při kontrole verze</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="217"/>
+        <location filename="../../wsettings.cpp" line="213"/>
         <source>There is an update available.</source>
         <translation>Je dostupná nová aktualizace.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="217"/>
+        <location filename="../../wsettings.cpp" line="213"/>
         <source>Installed version</source>
         <translation>Nainstalovaná verze</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="248"/>
+        <location filename="../../wsettings.cpp" line="244"/>
         <source>There was an error while starting the updater. Please retry it or conact the developer.</source>
         <translation>Nastala chyba při spouštění aktualizace. Zkuste to prosím znovu nebo kontaktujte vývojáře.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="263"/>
+        <location filename="../../wsettings.cpp" line="259"/>
         <source>Should all settings be reset? This action cannot be undone!</source>
         <translation>Měly by být všechna nastavení resetována? Tato akce nemůže být vrácena!</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="267"/>
+        <location filename="../../wsettings.cpp" line="263"/>
         <source>The programm will now restart.</source>
         <translation>Program se nyní zrestartuje.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="278"/>
+        <location filename="../../wsettings.cpp" line="274"/>
         <source>Success</source>
         <comment>Note #1</comment>
         <translation>Úspěšně</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="278"/>
+        <location filename="../../wsettings.cpp" line="274"/>
         <source>Successfully created shortcut in %1.</source>
         <translation>Úspěšně vytvořen zástupce v %1.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="282"/>
+        <location filename="../../wsettings.cpp" line="278"/>
         <source>Error</source>
         <comment>Note #1</comment>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="282"/>
+        <location filename="../../wsettings.cpp" line="278"/>
         <source>Could not create shortcut in %1.</source>
         <translation>Nepodařilo se vytvořit zástupce v %1.</translation>
     </message>
@@ -1364,19 +1371,19 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Resetovat nastavení</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="169"/>
+        <location filename="../../wsettings.cpp" line="165"/>
         <source>Delete all backups</source>
         <comment>Note #1</comment>
         <translation>Odstranit zálohy</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="169"/>
+        <location filename="../../wsettings.cpp" line="165"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
         <translation>Mají být všechny zálohy odstraněny? Budou automaticky přesunuty do koše.</translation>
     </message>
     <message>
+        <location filename="../../wsettings.cpp" line="259"/>
         <location filename="../../wsettings.cpp" line="263"/>
-        <location filename="../../wsettings.cpp" line="267"/>
         <source>Reset settings</source>
         <comment>Note #1</comment>
         <translation>Reset nastavení</translation>
