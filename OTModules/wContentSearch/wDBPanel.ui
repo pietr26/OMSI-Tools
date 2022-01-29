@@ -66,7 +66,7 @@
     <item>
      <widget class="QGroupBox" name="gbxInformation">
       <property name="title">
-       <string>Information</string>
+       <string notr="true">Information</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_8">
        <item>
@@ -78,7 +78,7 @@
     <item>
      <widget class="QGroupBox" name="gbxDirectLinks">
       <property name="title">
-       <string>Direct link(s)</string>
+       <string notr="true">Direct link(s)</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_9">
        <item>
