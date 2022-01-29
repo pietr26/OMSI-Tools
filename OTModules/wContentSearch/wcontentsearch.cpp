@@ -58,23 +58,12 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
         }
     }
 
-    // Preview:
-    {
-//        ui->lwgUserSearch->addItem("Sceneryobjects/Bamp/Wegweiser/O_Wegweiser_Zwischen_geradeaus.sco");
-//        ui->lwgUserSearch->addItem("Sceneryobjects/Martiesim/VzKat 2017/101-11-G1.sco");
-//        ui->lwgUserSearch->addItem("Sceneryobjects/Martiesim/VzKat 2017/267-G3.sco");
-//        ui->lwgUserSearch->addItem("Sceneryobjects/Martiesim/VzKat 2017/Mast-Verbinder-120-DB-H.sco");
-//        ui->lwgUserSearch->addItem("Sceneryobjects/Bamp/St. Peter-Ording/1_Betriebshofhalle.sco");
-
-//        ui->lwgLinks->addItem("https://reboot.omsi-webdisk.de/file/5005-radwegweiser-cycling-signpost/");
-//        ui->lwgLinks->addItem("https://reboot.omsi-webdisk.de/file/1619-virtueller-schilderwald-vzkat-2017/");
-
-//        ui->lwgNotFound->addItem("Sceneryobjects/Bamp/St. Peter-Ording/1_Betriebshofhalle.sco");
-//        ui->lwgNotFound->item(0)->setForeground(Qt::red);
-    }
-
     dbHandler.dbPath = database.fileName();
     dbHandler.setupDatabase();
+
+    reloadTabNames();
+
+    ui->twgExtras->setTabVisible(3, false);
 
     qInfo().noquote() << moduleName + " started successfully.";
 
@@ -151,17 +140,22 @@ void wContentSearch::on_btnAddToList_clicked()
 }
 
 /// \brief Searchs for user input
+void wContentSearch::reloadTabNames()
+{
+    ui->twgExtras->setTabText(0, tr("Links (%1)", "Note #1").arg(ui->lwgLinks->count()));
+    ui->twgExtras->setTabText(1, tr("Not found (%1)", "Note #1").arg(ui->lwgNotFound->count()));
+    ui->twgExtras->setTabText(2, tr("Standard content (%1)", "Note #1\nPlease use plural; Optional original text: 'Standard files'").arg(ui->lwgStandardContent->count()));
+    ui->twgExtras->setTabText(3, tr("Direct links (%1)", "Note #1").arg(ui->lwgDirectLinks->count()));
+}
+
 void wContentSearch::on_actionSearch_triggered()
 {
-    ui->lwgLinks->clear();
-    ui->lwgNotFound->clear();
+    clearView(true);
 
     QStringList linkIDs;
-    unsigned int foundLinks = 0;
 
     for (int i = 0; i < ui->lwgUserSearch->count(); i++)
     {
-
         QString current = ui->lwgUserSearch->item(i)->text();
 
         QSqlQueryModel *model = new QSqlQueryModel();
@@ -169,32 +163,44 @@ void wContentSearch::on_actionSearch_triggered()
         QString linkID = model->index(0, 0).data().toString();
 
         if (linkID == "")
-        {
             ui->lwgNotFound->addItem(current);
-            ui->lwgNotFound->item(ui->lwgNotFound->count() - 1)->setForeground(Qt::red);
-        }
+        else if (linkID == "std")
+            ui->lwgStandardContent->addItem(current);
         else
-        {
-            foundLinks++;
             linkIDs << linkID;
-        }
     }
 
     linkIDs.removeDuplicates();
 
     QStringList links;
+    QStringList directLinks;
 
     foreach (QString current, linkIDs)
     {
+        if (current == "std")
+            continue;
+
         QSqlQueryModel *model = new QSqlQueryModel();
+
+        // Links
         model->setQuery(dbHandler.doAction(QString("SELECT link FROM links WHERE ID = '%1'").arg(current)));
         links << model->index(0, 0).data().toString();
+
+        // Direct links
+        model->setQuery(dbHandler.doAction(QString("SELECT directLinks FROM links WHERE ID = '%1'").arg(current)));
+        directLinks.append(model->index(0, 0).data().toString().split("\n"));
     }
 
     links.removeDuplicates();
     ui->lwgLinks->addItems(links);
 
-    qInfo().noquote() << QString("Found %1 of %2 links.").arg(QString::number(foundLinks), QString::number(ui->lwgUserSearch->count()));
+    directLinks.removeDuplicates();
+    directLinks.removeAll("\n");
+    ui->lwgDirectLinks->addItems(directLinks);
+
+    qInfo().noquote() << QString("Found %1 of %2 links.").arg(QString::number(ui->lwgLinks->count()), QString::number(ui->lwgUserSearch->count()));
+
+    reloadTabNames();
 
     ui->btnClearLists->setVisible(true);
 }
@@ -305,13 +311,25 @@ void wContentSearch::on_btnAddFile_clicked()
         msg.errorOpeningFile(this);
 }
 
-
-void wContentSearch::on_btnClearLists_clicked()
+/// \brief Clears view
+void wContentSearch::clearView(bool withoutUserInput)
 {
+    if (!withoutUserInput)
+        ui->lwgUserSearch->clear();
+
     ui->lwgLinks->clear();
     ui->lwgNotFound->clear();
-    ui->lwgUserSearch->clear();
+    ui->lwgStandardContent->clear();
+    ui->lwgDirectLinks->clear();
 
+    reloadTabNames();
+    qApp->processEvents();
+}
+
+/// \brief Clear all lists from user action
+void wContentSearch::on_btnClearLists_clicked()
+{
+    clearView();
     ui->btnClearLists->setVisible(false);
 }
 
