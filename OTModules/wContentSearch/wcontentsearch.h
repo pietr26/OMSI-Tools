@@ -53,6 +53,8 @@ private slots:
 
     void on_btnClearLists_clicked();
 
+    void on_lwgLinks_currentTextChanged(const QString &currentText);
+
 private:
     Ui::wContentSearch *ui;
     OTSettings set;
