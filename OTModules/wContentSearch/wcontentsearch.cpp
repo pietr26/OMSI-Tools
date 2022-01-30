@@ -62,6 +62,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     dbHandler.setupDatabase();
 
     reloadTabNames();
+    ui->ledInformation->setVisible(false);
 
     ui->twgExtras->setTabVisible(3, false);
 
