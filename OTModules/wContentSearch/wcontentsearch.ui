@@ -298,6 +298,13 @@
            </widget>
           </item>
           <item>
+           <widget class="QLineEdit" name="ledInformation">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="Line" name="line">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>

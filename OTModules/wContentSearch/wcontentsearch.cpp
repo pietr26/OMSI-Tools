@@ -322,6 +322,9 @@ void wContentSearch::clearView(bool withoutUserInput)
     ui->lwgStandardContent->clear();
     ui->lwgDirectLinks->clear();
 
+    ui->ledInformation->clear();
+    ui->ledInformation->setVisible(false);
+
     reloadTabNames();
     qApp->processEvents();
 }
@@ -331,5 +334,22 @@ void wContentSearch::on_btnClearLists_clicked()
 {
     clearView();
     ui->btnClearLists->setVisible(false);
+}
+
+
+void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    model->setQuery(dbHandler.doAction(QString("SELECT information FROM links WHERE link = '%1'").arg(currentText)));
+
+    QString information = model->index(0, 0).data().toString();
+
+    if (information == "" || information == " " || information == "\n")
+        ui->ledInformation->setVisible(false);
+    else
+    {
+        ui->ledInformation->setVisible(true);
+        ui->ledInformation->setText(information);
+    }
 }
 
