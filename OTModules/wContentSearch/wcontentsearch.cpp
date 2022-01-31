@@ -62,7 +62,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     dbHandler.setupDatabase();
 
     reloadTabNames();
-    ui->ledInformation->setVisible(false);
+    ui->pteInformation->setVisible(false);
 
     ui->twgExtras->setTabVisible(3, false);
 
@@ -323,8 +323,8 @@ void wContentSearch::clearView(bool withoutUserInput)
     ui->lwgStandardContent->clear();
     ui->lwgDirectLinks->clear();
 
-    ui->ledInformation->clear();
-    ui->ledInformation->setVisible(false);
+    ui->pteInformation->clear();
+    ui->pteInformation->setVisible(false);
 
     reloadTabNames();
     qApp->processEvents();
@@ -337,7 +337,7 @@ void wContentSearch::on_btnClearLists_clicked()
     ui->btnClearLists->setVisible(false);
 }
 
-
+/// \brief Sets information for selected link
 void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
 {
     QSqlQueryModel *model = new QSqlQueryModel();
@@ -346,11 +346,16 @@ void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
     QString information = model->index(0, 0).data().toString();
 
     if (information == "" || information == " " || information == "\n")
-        ui->ledInformation->setVisible(false);
+        ui->pteInformation->setVisible(false);
     else
     {
-        ui->ledInformation->setVisible(true);
-        ui->ledInformation->setText(information);
+        if (information.contains("%chromeDL%"))
+            information.replace("%chromeDL%", tr("Downloading might not work with Google Chrome.") + "\n");
+        else if (information.contains("%PASSWORD%"))
+            information.replace("%PASSWORD%", tr("Archive Password:") + " ");
+
+        ui->pteInformation->setVisible(true);
+        ui->pteInformation->setPlainText(information);
     }
 }
 
