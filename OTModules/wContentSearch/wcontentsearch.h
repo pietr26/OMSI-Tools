@@ -5,6 +5,7 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTDatabaseHandler.h"
 #include "wsettings.h"
+#include <QDesktopWidget>
 
 namespace Ui {
 class wContentSearch;
