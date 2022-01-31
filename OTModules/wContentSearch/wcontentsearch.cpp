@@ -62,16 +62,15 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     dbHandler.setupDatabase();
 
     reloadTabNames();
-    ui->pteInformation->setVisible(false);
 
     ui->twgExtras->setTabVisible(3, false);
 
     qInfo().noquote() << moduleName + " started successfully.";
 
-//#ifndef QT_DEBUG
-//    msg.moduleDeactivated(this);
-//    QTimer::singleShot(1, this, SLOT(close()));
-//#endif
+    //#ifndef QT_DEBUG
+    //    msg.moduleDeactivated(this);
+    //    QTimer::singleShot(1, this, SLOT(close()));
+    //#endif
 }
 
 wContentSearch::~wContentSearch()
@@ -114,7 +113,7 @@ void wContentSearch::on_btnSearch_clicked()
 /// \brief Removes current selection from user's input
 void wContentSearch::on_actionRemoveSelection_triggered()
 {
-    if (msg.confirmDeletion(this))
+    if ((ui->lwgUserSearch->selectedItems().count() != 0) && msg.confirmDeletion(this))
     {
         ui->gbxAddFile->setVisible(false);
         qDeleteAll(ui->lwgUserSearch->selectedItems());
@@ -128,15 +127,15 @@ void wContentSearch::on_btnAddToList_clicked()
     if (ui->gbxAddFile->isVisible())
     {
         QString content = ui->ledPath->text();
+
         if (content != "")
         {
             content.replace("\\", "/");
             ui->lwgUserSearch->addItem(content);
-            ui->gbxAddFile->setVisible(false);
-            ui->ledPath->clear();
         }
-        else
-            ui->statusbar->showMessage(tr("Input is empty."), 4000);
+
+        ui->gbxAddFile->setVisible(false);
+        ui->ledPath->clear();
     }
 }
 
@@ -231,14 +230,16 @@ void wContentSearch::on_btnAddListToList_clicked()
 {
     QStringList paths;
 
+    if ((ui->pteAddList->toPlainText() != "") || (ui->pteAddList->toPlainText() != "\n"))
+    {
+        paths << QString(ui->pteAddList->toPlainText()).split("\n");
+
+        paths.removeDuplicates();
+        paths.removeAll("");
+        paths.replaceInStrings("\\", "/");
+    }
+
     ui->gbxAddList->setVisible(false);
-
-    paths << QString(ui->pteAddList->toPlainText()).split("\n");
-
-    paths.removeDuplicates();
-    paths.removeAll("");
-    paths.replaceInStrings("\\", "/");
-
     ui->pteAddList->clear();
     ui->lwgUserSearch->addItems(paths);
 }
@@ -324,7 +325,6 @@ void wContentSearch::clearView(bool withoutUserInput)
     ui->lwgDirectLinks->clear();
 
     ui->pteInformation->clear();
-    ui->pteInformation->setVisible(false);
 
     reloadTabNames();
     qApp->processEvents();
@@ -345,17 +345,11 @@ void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
 
     QString information = model->index(0, 0).data().toString();
 
-    if (information == "" || information == " " || information == "\n")
-        ui->pteInformation->setVisible(false);
-    else
-    {
-        if (information.contains("%chromeDL%"))
-            information.replace("%chromeDL%", tr("Downloading might not work with Google Chrome.") + "\n");
-        else if (information.contains("%PASSWORD%"))
-            information.replace("%PASSWORD%", tr("Archive Password:") + " ");
+    if (information.contains("%chromeDL%"))
+        information.replace("%chromeDL%", tr("Downloading might not work with Google Chrome.") + "\n");
+    else if (information.contains("%PASSWORD%"))
+        information.replace("%PASSWORD%", tr("Archive password:") + " ");
 
-        ui->pteInformation->setVisible(true);
-        ui->pteInformation->setPlainText(information);
-    }
+    ui->pteInformation->setPlainText(information);
 }
 
