@@ -10,12 +10,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     qDebug() << "Set up UI...";
     ui->setupUi(this);
     //adjustSize();
-
-    QSize windowSize = QDesktopWidget().availableGeometry(this).size();
-    windowSize.setWidth(windowSize.width() * 0.5);
-    windowSize.setHeight(windowSize.height() * 0.75);
-    resize(windowSize);
-
+    resize(misc.sizeWindow(0.5, 0.75, this));
     qDebug() << "UI set";
 
     setWindowTitle(OTName + " - " + tr("Content search"));

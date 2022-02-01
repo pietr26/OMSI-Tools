@@ -5,7 +5,6 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTDatabaseHandler.h"
 #include "wsettings.h"
-#include <QDesktopWidget>
 
 namespace Ui {
 class wContentSearch;
@@ -60,6 +59,7 @@ private:
     Ui::wContentSearch *ui;
     OTSettings set;
     OTMessage msg;
+    OTMiscellaneous misc;
     wSettings *WSETTINGS;
     const QString moduleName = "wContentSearch";
 
