@@ -153,7 +153,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="usesScrollButtons">
        <bool>false</bool>
@@ -205,11 +205,11 @@
              <string/>
             </property>
             <property name="text">
-             <string>Details</string>
+             <string/>
             </property>
             <property name="icon">
              <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconAttention.svg</normaloff>:/rec/data/icons/iconAttention.svg</iconset>
+              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
           </item>
@@ -387,11 +387,11 @@
              <string/>
             </property>
             <property name="text">
-             <string>Details</string>
+             <string/>
             </property>
             <property name="icon">
              <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconAttention.svg</normaloff>:/rec/data/icons/iconAttention.svg</iconset>
+              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
           </item>
@@ -482,11 +482,11 @@
              <string/>
             </property>
             <property name="text">
-             <string>Details</string>
+             <string/>
             </property>
             <property name="icon">
              <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconAttention.svg</normaloff>:/rec/data/icons/iconAttention.svg</iconset>
+              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
           </item>
@@ -509,11 +509,11 @@
              <string/>
             </property>
             <property name="text">
-             <string>Details</string>
+             <string/>
             </property>
             <property name="icon">
              <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconAttention.svg</normaloff>:/rec/data/icons/iconAttention.svg</iconset>
+              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
           </item>
@@ -538,11 +538,11 @@
              <string/>
             </property>
             <property name="text">
-             <string>Details</string>
+             <string/>
             </property>
             <property name="icon">
              <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconAttention.svg</normaloff>:/rec/data/icons/iconAttention.svg</iconset>
+              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
           </item>
@@ -571,11 +571,11 @@
              <string/>
             </property>
             <property name="text">
-             <string>Details</string>
+             <string/>
             </property>
             <property name="icon">
              <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconAttention.svg</normaloff>:/rec/data/icons/iconAttention.svg</iconset>
+              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
           </item>
