@@ -6,9 +6,11 @@ wDevTools::wDevTools(QWidget *parent) :
     ui(new Ui::wDevTools)
 {
     qInfo().noquote() << "Starting " + moduleName + "...";
+
     qDebug() << "Set up UI...";
     ui->setupUi(this);
     //adjustSize();
+    resize(misc.sizeWindow(0.5, 0.75, this));
     qDebug() << "UI set";
 
     setWindowTitle(OTName + " - DevTools");

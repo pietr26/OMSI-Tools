@@ -41,6 +41,7 @@ private:
     const QString moduleName = "wDevTools";
     Ui::wDevTools *ui;
     OTSettings set;
+    OTMiscellaneous misc;
     QString omsiFilesFilter = "Sceneryobjects (*.sco);;"
                      "Splines (*.sli);;"
                      "Vehicles (*.bus);;"

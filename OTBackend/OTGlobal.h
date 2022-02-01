@@ -12,6 +12,7 @@
 #include <QFileDialog>
 #include <QtNetwork>
 #include <QDesktopServices>
+#include <QDesktopWidget>
 
 class OTFileMethods
 {
@@ -226,6 +227,15 @@ public:
     static void sendFeedback()
     {
         QDesktopServices::openUrl(OTLinks::supportThread);
+    }
+
+    QSize sizeWindow(double multiplierWidth, double multiplierHeight, QWidget *parent)
+    {
+        QSize windowSize = QDesktopWidget().availableGeometry(parent).size();
+        windowSize.setWidth(windowSize.width() * multiplierWidth);
+        windowSize.setHeight(windowSize.height() * multiplierHeight);
+
+        return windowSize;
     }
 };
 
