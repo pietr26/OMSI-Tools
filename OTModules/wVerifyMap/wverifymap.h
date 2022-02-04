@@ -6,6 +6,7 @@
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "wsettings.h"
 #include "dignorelist.h"
+#include "ignoreListFunctions.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include <QFileDialog>
 #include <QProgressDialog>
@@ -154,19 +155,14 @@ private:
     OTMessage msg;
     OTSettings set;
     OTMiscellaneous misc;
+    ignoreListFunctions iglF;
     wSettings *WSETTINGS;
     wContentSearch *WCONTENTSEARCH;
     int cutCount = set.read("main", "mainDir").toString().count() + 1;
 
     void selectAllAndClear();
 
-    void getIgnoreList();
-
     void toolButtonSetup();
-
-    void writeIgnoreList(QString line);
-
-    QStringList checkForIgnored(QStringList checkList, int &ignoreCount);
 
     dIgnoreList *DIGNORELIST;
 
@@ -176,7 +172,6 @@ private:
     int ignoredSplines = 0;
     int ignoredHumans = 0;
     int ignoredVehicles = 0;
-    QStringList ignoreList;
     OTOMSIFileHandler filehandler;
 
     QTimer *watchProgress = new QTimer();
@@ -186,8 +181,6 @@ private:
     void endVerifying();
 
     void setDetailButtons();
-
-    void copy(QString copytext);
 
     void enableIgnoreLabels(bool enable);
 
