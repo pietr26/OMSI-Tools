@@ -13,6 +13,7 @@
 #include <QtNetwork>
 #include <QDesktopServices>
 #include <QDesktopWidget>
+#include <QClipboard>
 
 class OTFileMethods
 {
@@ -236,6 +237,15 @@ public:
         windowSize.setHeight(windowSize.height() * multiplierHeight);
 
         return windowSize;
+    }
+
+    /// \brief Copies a text
+    void copy(QString copytext)
+    {
+        qDebug() << "Copy something...";
+
+        QClipboard* clipboard = QApplication::clipboard();
+        clipboard->setText(copytext);
     }
 };
 

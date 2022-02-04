@@ -20,20 +20,8 @@ dIgnoreList::dIgnoreList(QWidget *parent) :
     setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
     unsaved = false;
 
-    // load ignoreList
-    QFile file("ignorelist.cfg");
-    if (file.exists() && file.open(QFile::ReadOnly | QFile::Text))
-    {
-        QTextStream in(&file);
-        QStringList list;
-        while (!in.atEnd())
-           list << in.readLine();
+    ui->lwgIgnoreList->addItems(iglF.read());
 
-        list.removeDuplicates();
-        list.sort(Qt::CaseInsensitive);
-        ui->lwgIgnoreList->addItems(list);
-        file.close();
-    }
     qInfo().noquote() << moduleName + " started successfully.";;
 }
 
@@ -52,32 +40,25 @@ void dIgnoreList::closeEvent(QCloseEvent *event)
     qInfo().noquote() << moduleName + " is closing...";
 }
 
-/// \brief Saves the ignoreList
+///// \brief Saves the ignoreList
 void dIgnoreList::save()
 {
-    qInfo() << "Save ignorelist...";
-    QFile file("ignorelist.cfg");
-    if (file.open(QFile::WriteOnly | QFile::Text))
+    qDebug() << "Save ignorelist...";
+
+    if (ui->lwgIgnoreList->count() != 0)
     {
-        QTextStream out(&file);
+        QStringList ignoreList;
 
-        if (ui->lwgIgnoreList->count() != 0)
-        {
-            for (int i = 0; i < ui->lwgIgnoreList->count(); i++)
-                out << ui->lwgIgnoreList->item(i)->text() << "\n";
-        }
+        for (int i = 0; i < ui->lwgIgnoreList->count(); i++)
+            ignoreList << ui->lwgIgnoreList->item(i)->text();
 
-        file.flush();
-        file.close();
-        unsaved = false;
-        qInfo() << "Ignorelist successfully saved!";
+        iglF.write(ignoreList, true);
     }
     else
-    {
-        QMessageBox::critical(this, tr("Could not save ignorelist", "Note #1"), tr("There was an error while saving the ignorelist."));
-        qCritical() << "Could not save ignorelist!";
-        qDebug().noquote() << "To file: '" + QFileInfo(file).absoluteFilePath() + "'";
-    }
+        iglF.write(QStringList(), true);
+
+    unsaved = false;
+    qInfo() << "Ignorelist successfully saved!";
 }
 
 /// \brief Closes ignoreList dialog
@@ -100,8 +81,7 @@ void dIgnoreList::on_btnAddFiles_clicked()
 
     try
     {
-        // Get items from listview
-        for (int i = 0; i < ui->lwgIgnoreList->count(); i++)
+        for (int i = 0; i < ui->lwgIgnoreList->count(); ++i)
             list << ui->lwgIgnoreList->item(i)->text();
 
         // Append new files to the same StringList
@@ -120,7 +100,7 @@ void dIgnoreList::on_btnAddFiles_clicked()
 
     // Deletes all items from listView
     ui->lwgIgnoreList->selectAll();
-    qDeleteAll (ui->lwgIgnoreList->selectedItems());
+    qDeleteAll(ui->lwgIgnoreList->selectedItems());
 
     // Add new list (old and new ones)
     ui->lwgIgnoreList->addItems(list);

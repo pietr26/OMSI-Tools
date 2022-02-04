@@ -16,7 +16,7 @@ SOURCES += \
     OTModules/wContentSearch/wcontentsearch.cpp \
     OTModules/wVehicleList/wvehiclelist.cpp \
     OTModules/wbugrepot.cpp \
-    OTWidgets/wTbnListWidgetTools.cpp \
+    OTWidgets/verifymaptools.cpp \
     main.cpp \
     OTModules/wVerifyMap/dignorelist.cpp \
     OTModules/wdevtools.cpp \
@@ -38,11 +38,12 @@ HEADERS += \
     OTModules/wContentSearch/wcontentsearch.h \
     OTModules/wVehicleList/wvehiclelist.h \
     OTModules/wVerifyMap/dignorelist.h \
+    OTModules/wVerifyMap/ignoreListFunctions.h \
     OTModules/wbugrepot.h \
     OTModules/wdevtools.h \
     OTModules/wfonts.h \
     OTModules/wVerifyMap/wverifymap.h \
-    OTWidgets/wTbnListWidgetTools.h \
+    OTWidgets/verifymaptools.h \
     wabout.h \
     wchangelog.h \
     wfirstsetup.h \
@@ -59,7 +60,7 @@ FORMS += \
     OTModules/wdevtools.ui \
     OTModules/wfonts.ui \
     OTModules/wVerifyMap/wverifymap.ui \
-    OTWidgets/wTbnListWidgetTools.ui \
+    OTWidgets/verifymaptools.ui \
     wabout.ui \
     wchangelog.ui \
     wfirstsetup.ui \

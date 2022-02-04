@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "OTBackend/OTGlobal.h"
+#include "ignoreListFunctions.h"
 #include <QDebug>
 #include <QFileDialog>
 #include <QFile>
@@ -34,14 +35,15 @@ private slots:
 
     void on_btnRemoveAll_clicked();
 
-    void save();
-
 private:
     const QString moduleName = "dIgnoreList";
     Ui::dIgnoreList *ui;
     OTSettings set;
     OTMessage msg;
+    ignoreListFunctions iglF;
     bool unsaved;
+
+    void save();
 };
 
 #endif // DIGNORELIST_H

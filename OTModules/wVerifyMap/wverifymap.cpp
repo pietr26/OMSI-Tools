@@ -118,73 +118,73 @@ void wVerifyMap::on_tbnHumansTools_clicked()
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgTilesAll_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgTilesMissing_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgTexturesAll_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgTexturesMissing_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgObjectsAll_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgObjectsMissing_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgSplinesAll_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgSplinesMissing_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgVehiclesAll_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgVehiclesMissing_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgHumansAll_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Copies a entry from listWidget.
 void wVerifyMap::on_lwgHumansMissing_itemDoubleClicked(QListWidgetItem *item)
 {
-    copy(item->text());
+    misc.copy(item->text());
 }
 
 /// \brief Shows details for tiles
@@ -289,48 +289,6 @@ void wVerifyMap::on_actionStartVerifying_triggered()
     on_btnStartVerifying_clicked();
 }
 
-/// \brief Gets the ignorelist
-void wVerifyMap::getIgnoreList()
-{
-    qDebug() << "Get ignorelist...";
-    ignoreList.clear();
-
-    QFile file("ignorelist.cfg");
-    if (file.exists())
-    {
-        if (file.open(QFile::ReadOnly | QFile::Text))
-        {
-            QTextStream in(&file);
-
-            // Read in all entrys into the local ingorelist stringlist
-            while (!in.atEnd())
-               ignoreList << in.readLine().replace("/", "\\");
-
-            file.close();
-        }
-    }
-}
-
-/// \brief Writes the ignorelist
-void wVerifyMap::writeIgnoreList(QString line)
-{
-    qDebug() << "Append ignorelist...";
-    ignoreList << line;
-
-    // save
-    QFile file("ignorelist.cfg");
-    if (file.open(QFile::WriteOnly | QFile::Text))
-    {
-        QTextStream out(&file);
-        // Read in all entrys into the ignorelist file
-        foreach (QString current, ignoreList)
-            out << current << "\n";
-
-        file.flush();
-        file.close();
-    }
-}
-
 /// \brief Selects all items from lwg's and deletes them (and more)
 void wVerifyMap::selectAllAndClear()
 {
@@ -408,26 +366,6 @@ void wVerifyMap::selectAllAndClear()
     ui->lblIgnoredHumans->setText("-");
 }
 
-/// \brief Returns a QStringList without ignored paths
-QStringList wVerifyMap::checkForIgnored(QStringList checkList, int &ignoreCount)
-{
-    checkList.removeDuplicates();
-    QStringList returnList;
-
-    foreach (QString current, checkList)
-    {
-        current.replace("/", "\\");
-        if (ignoreList.contains(current, Qt::CaseInsensitive))
-        {
-            ignoreCount++;
-            continue;
-        }
-        else
-            returnList << current;
-    }
-    qDebug().noquote() << checkList.count() - returnList.count() << "of" << checkList.count() << "ignored";
-    return returnList;
-}
 
 /// \brief Reloads progress state
 void wVerifyMap::reloadProgress()
@@ -478,8 +416,6 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     ui->btnStartVerifying->setText(tr("Running..."));
     startEndWatchProgress(true);
 
-    getIgnoreList();
-
     ui->twgVerfying->setCurrentIndex(0);
 
     if (!QFile::exists(filehandler.getMapPath()))
@@ -495,19 +431,19 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.getTiles(this);
     qDebug() << "Got tiles.";
 
-    filehandler.stuffobj.missing.tiles = checkForIgnored(filehandler.stuffobj.missing.tiles, ignoredTiles);
-    filehandler.stuffobj.existing.tiles = checkForIgnored(filehandler.stuffobj.existing.tiles, ignoredTiles);
+    filehandler.stuffobj.missing.tiles = iglF.check(filehandler.stuffobj.missing.tiles, ignoredTiles);
+    filehandler.stuffobj.existing.tiles = iglF.check(filehandler.stuffobj.existing.tiles, ignoredTiles);
 
     // SCO and SLI:
     qInfo() << "Get sceneryobjects / splines...";
     filehandler.getItems(filehandler.stuffobj.existing.tiles);
     qDebug() << "Got sceneryobjects / splines.";
 
-    filehandler.stuffobj.missing.sceneryobjects = checkForIgnored(filehandler.stuffobj.missing.sceneryobjects, ignoredObjects);
-    filehandler.stuffobj.existing.sceneryobjects = checkForIgnored(filehandler.stuffobj.existing.sceneryobjects, ignoredObjects);
+    filehandler.stuffobj.missing.sceneryobjects = iglF.check(filehandler.stuffobj.missing.sceneryobjects, ignoredObjects);
+    filehandler.stuffobj.existing.sceneryobjects = iglF.check(filehandler.stuffobj.existing.sceneryobjects, ignoredObjects);
 
-    filehandler.stuffobj.missing.splines = checkForIgnored(filehandler.stuffobj.missing.splines, ignoredSplines);
-    filehandler.stuffobj.existing.splines = checkForIgnored(filehandler.stuffobj.existing.splines, ignoredSplines);
+    filehandler.stuffobj.missing.splines = iglF.check(filehandler.stuffobj.missing.splines, ignoredSplines);
+    filehandler.stuffobj.existing.splines = iglF.check(filehandler.stuffobj.existing.splines, ignoredSplines);
 
 
     // SCO and SLI (advanced)
@@ -527,23 +463,23 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.getVehicles(this);
     qDebug() << "Got vehicles.";
 
-    filehandler.stuffobj.missing.vehicles = checkForIgnored(filehandler.stuffobj.missing.vehicles, ignoredVehicles);
-    filehandler.stuffobj.existing.vehicles = checkForIgnored(filehandler.stuffobj.existing.vehicles, ignoredVehicles);
+    filehandler.stuffobj.missing.vehicles = iglF.check(filehandler.stuffobj.missing.vehicles, ignoredVehicles);
+    filehandler.stuffobj.existing.vehicles = iglF.check(filehandler.stuffobj.existing.vehicles, ignoredVehicles);
 
     // HUM:
     qInfo() << "Get humans...";
     filehandler.getHumans(this);
     qDebug() << "Got humans.";
 
-    filehandler.stuffobj.missing.humans = checkForIgnored(filehandler.stuffobj.missing.humans, ignoredHumans);
-    filehandler.stuffobj.existing.humans = checkForIgnored(filehandler.stuffobj.existing.humans, ignoredHumans);
+    filehandler.stuffobj.missing.humans = iglF.check(filehandler.stuffobj.missing.humans, ignoredHumans);
+    filehandler.stuffobj.existing.humans = iglF.check(filehandler.stuffobj.existing.humans, ignoredHumans);
 
     // TEX:
     if ((set.read(moduleName, "onlyMapTextures") == "false") || (!set.read(moduleName, "onlyMapTextures").isValid()))
     {
         qDebug() << "Read ALL Textures...";
-        filehandler.stuffobj.missing.textures = checkForIgnored(filehandler.stuffobj.missing.textures, ignoredTextures);
-        filehandler.stuffobj.existing.textures = checkForIgnored(filehandler.stuffobj.existing.textures, ignoredTextures);
+        filehandler.stuffobj.missing.textures = iglF.check(filehandler.stuffobj.missing.textures, ignoredTextures);
+        filehandler.stuffobj.existing.textures = iglF.check(filehandler.stuffobj.existing.textures, ignoredTextures);
     }
 
     // GLOBAL TEX:
@@ -551,8 +487,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.checkTextureLayers(this);
     qDebug() << "Got map textures.";
 
-    filehandler.stuffobj.missing.globalTextures = checkForIgnored(filehandler.stuffobj.missing.globalTextures, ignoredTextures);
-    filehandler.stuffobj.existing.globalTextures = checkForIgnored(filehandler.stuffobj.existing.globalTextures, ignoredTextures);
+    filehandler.stuffobj.missing.globalTextures = iglF.check(filehandler.stuffobj.missing.globalTextures, ignoredTextures);
+    filehandler.stuffobj.existing.globalTextures = iglF.check(filehandler.stuffobj.existing.globalTextures, ignoredTextures);
 
     // SET UI:
     {
@@ -675,16 +611,6 @@ void wVerifyMap::setDetailButtons()
         ui->btnHumansDetails->setVisible(true);
 }
 
-/// \brief Copies a text
-void wVerifyMap::copy(QString copytext)
-{
-    qDebug() << "Copy something...";
-
-    QClipboard* clipboard = QApplication::clipboard();
-    clipboard->setText(copytext);
-    ui->statusbar->showMessage(tr("Content copied."), 2500);
-}
-
 /// \brief Ends verifying
 void wVerifyMap::endVerifying()
 {
@@ -790,7 +716,7 @@ void wVerifyMap::on_actionTilesCopy_triggered()
     foreach (QListWidgetItem* current, ui->lwgTilesMissing->selectedItems())
         copytext += current->text() + "\n";
 
-    copy(copytext);
+    misc.copy(copytext);
     ui->statusbar->showMessage(tr("Copied!"), 3000);
 }
 
@@ -807,7 +733,7 @@ void wVerifyMap::on_actionTexturesCopy_triggered()
     foreach (QListWidgetItem* current, ui->lwgTexturesMissing->selectedItems())
         copytext += current->text() + "\n";
 
-    copy(copytext);
+    misc.copy(copytext);
     ui->statusbar->showMessage(tr("Copied!"), 3000);
 }
 
@@ -824,7 +750,7 @@ void wVerifyMap::on_actionObjectsCopy_triggered()
     foreach (QListWidgetItem* current, ui->lwgObjectsMissing->selectedItems())
         copytext += current->text() + "\n";
 
-    copy(copytext);
+    misc.copy(copytext);
     ui->statusbar->showMessage(tr("Copied!"), 3000);
 }
 
@@ -841,7 +767,7 @@ void wVerifyMap::on_actionSplinesCopy_triggered()
     foreach (QListWidgetItem* current, ui->lwgSplinesMissing->selectedItems())
         copytext += current->text() + "\n";
 
-    copy(copytext);
+    misc.copy(copytext);
     ui->statusbar->showMessage(tr("Copied!"), 3000);
 }
 
@@ -858,7 +784,7 @@ void wVerifyMap::on_actionVehiclesCopy_triggered()
     foreach (QListWidgetItem* current, ui->lwgVehiclesMissing->selectedItems())
         copytext += current->text() + "\n";
 
-    copy(copytext);
+    misc.copy(copytext);
     ui->statusbar->showMessage(tr("Copied!"), 3000);
 }
 
@@ -875,7 +801,7 @@ void wVerifyMap::on_actionHumansCopy_triggered()
     foreach (QListWidgetItem* current, ui->lwgHumansMissing->selectedItems())
         copytext += current->text() + "\n";
 
-    copy(copytext);
+    misc.copy(copytext);
     ui->statusbar->showMessage(tr("Copied!"), 3000);
 }
 
@@ -994,7 +920,7 @@ void wVerifyMap::on_actionTilesIgnore_triggered()
     {
         if (ui->lwgTilesMissing->item(i)->isSelected())
         {
-            writeIgnoreList(ui->lwgTilesMissing->item(i)->text());
+            iglF.write(ui->lwgTilesMissing->item(i)->text());
             ui->lblIgnoredTiles->setText(QString::number(ui->lblIgnoredTiles->text().toInt() + 1));
         }
     }
@@ -1014,7 +940,7 @@ void wVerifyMap::on_actionTexturesIgnore_triggered()
     {
         if (ui->lwgTexturesMissing->item(i)->isSelected())
         {
-            writeIgnoreList(ui->lwgTexturesMissing->item(i)->text());
+            iglF.write(ui->lwgTexturesMissing->item(i)->text());
             ui->lblIgnoredTextures->setText(QString::number(ui->lblIgnoredTextures->text().toInt() + 1));
         }
     }
@@ -1034,7 +960,7 @@ void wVerifyMap::on_actionObjectsIgnore_triggered()
     {
         if (ui->lwgObjectsMissing->item(i)->isSelected())
         {
-            writeIgnoreList(ui->lwgObjectsMissing->item(i)->text());
+            iglF.write(ui->lwgObjectsMissing->item(i)->text());
             ui->lblIgnoredObjects->setText(QString::number(ui->lblIgnoredObjects->text().toInt() + 1));
         }
     }
@@ -1054,7 +980,7 @@ void wVerifyMap::on_actionSplinesIgnore_triggered()
     {
         if (ui->lwgSplinesMissing->item(i)->isSelected())
         {
-            writeIgnoreList(ui->lwgSplinesMissing->item(i)->text());
+            iglF.write(ui->lwgSplinesMissing->item(i)->text());
             ui->lblIgnoredSplines->setText(QString::number(ui->lblIgnoredSplines->text().toInt() + 1));
         }
     }
@@ -1074,7 +1000,7 @@ void wVerifyMap::on_actionVehiclesIgnore_triggered()
     {
         if (ui->lwgVehiclesMissing->item(i)->isSelected())
         {
-            writeIgnoreList(ui->lwgVehiclesMissing->item(i)->text());
+            iglF.write(ui->lwgVehiclesMissing->item(i)->text());
             ui->lblIgnoredVehicles->setText(QString::number(ui->lblIgnoredVehicles->text().toInt() + 1));
         }
     }
@@ -1094,7 +1020,7 @@ void wVerifyMap::on_actionHumansIgnore_triggered()
     {
         if (ui->lwgHumansMissing->item(i)->isSelected())
         {
-            writeIgnoreList(ui->lwgHumansMissing->item(i)->text());
+            iglF.write(ui->lwgHumansMissing->item(i)->text());
             ui->lblIgnoredHumans->setText(QString::number(ui->lblIgnoredHumans->text().toInt() + 1));
         }
     }
@@ -1124,9 +1050,6 @@ void wVerifyMap::on_cbxOnlyMapTextures_stateChanged(int arg1)
     else
         set.write(moduleName, "onlyMapTextures", false);
 }
-
-
-
 
 void wVerifyMap::enableIgnoreLabels(bool enable)
 {
@@ -1160,11 +1083,12 @@ void wVerifyMap::ignoreListItems()
     for (int i = 0; i < lwg->count(); i++)
     {
         if (lwg->item(i)->isSelected())
-            writeIgnoreList(lwg->item(i)->text());
+            iglF.write(lwg->item(i)->text());
     }
 
     qDeleteAll(lwg->selectedItems());
 }
+
 void wVerifyMap::searchListItems()
 {
     QObject* obj = sender();
@@ -1184,7 +1108,6 @@ void wVerifyMap::searchListItems()
         ui->statusbar->showMessage(tr("No path selected."), 3000);
 }
 
-
 void wVerifyMap::copyListItems()
 {
     QObject* obj = sender();
@@ -1200,7 +1123,6 @@ void wVerifyMap::copyListItems()
     foreach (QListWidgetItem* current, lwg->selectedItems())
         copytext += current->text() + "\n";
 
-    copy(copytext);
+    misc.copy(copytext);
     ui->statusbar->showMessage(tr("Copied!"), 3000);
 }
-
