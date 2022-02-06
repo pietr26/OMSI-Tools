@@ -16,17 +16,28 @@ class verifyMapTools : public QWidget
     Q_OBJECT
 
 public:
-    explicit verifyMapTools(QListWidget *lwgParent, QWidget *parent);
+    explicit verifyMapTools(QListWidget *lwgAllParent, QListWidget *lwgMissingParent, QWidget *parent);
     ~verifyMapTools();
 
 private slots:
-    void on_tbnTilesTools_clicked();
 
-    void copy();
+    void on_tbnCopy_clicked();
 
-    void ignore();
+    void on_tbnSearch_clicked();
 
-    void search();
+    void on_tbnIgnore_clicked();
+
+    void on_actionCopyFromAll_triggered();
+
+    void on_actionCopyFromMissing_triggered();
+
+    void on_actionSearchFromAll_triggered();
+
+    void on_actionSearchFromMissing_triggered();
+
+    void on_actionIgnoreFromAll_triggered();
+
+    void on_actionIgnoreFromMissing_triggered();
 
 private:
     Ui::verifyMapTools *ui;
@@ -35,7 +46,14 @@ private:
     ignoreListFunctions iglF;
     wContentSearch* WCONTENTSEARCH;
 
-    QListWidget *listWidgetParent;
+    QListWidget *listWidgetAllParent;
+    QListWidget *listWidgetMissingParent;
+
+    void copy(QListWidget *lwg);
+
+    void ignore(QListWidget *lwg);
+
+    void search(QListWidget *lwg);
 };
 
 #endif // VERIFYMAPTOOLS_H

@@ -8,6 +8,7 @@
 #include "dignorelist.h"
 #include "ignoreListFunctions.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
+#include "OTWidgets/verifymaptools.h"
 #include <QFileDialog>
 #include <QProgressDialog>
 #include <QTimer>
@@ -65,30 +66,6 @@ private slots:
 
     void on_cbxAdvancedVerifying_stateChanged(int arg1);
 
-    void on_actionTilesCopy_triggered();
-
-    void on_actionTexturesCopy_triggered();
-
-    void on_actionObjectsCopy_triggered();
-
-    void on_actionSplinesCopy_triggered();
-
-    void on_actionVehiclesCopy_triggered();
-
-    void on_actionHumansCopy_triggered();
-
-    void on_tbnTilesTools_clicked();
-
-    void on_tbnTexturesTools_clicked();
-
-    void on_tbnObjectsTools_clicked();
-
-    void on_tbnSplinesTools_clicked();
-
-    void on_tbnVehiclesTools_clicked();
-
-    void on_tbnHumansTools_clicked();
-
     void on_lwgTilesAll_itemDoubleClicked(QListWidgetItem *item);
 
     void on_lwgTilesMissing_itemDoubleClicked(QListWidgetItem *item);
@@ -115,39 +92,9 @@ private slots:
 
     void on_actionSendFeedback_triggered();
 
-    void on_actionTilesSearch_triggered();
-
-    void on_actionTexturesSearch_triggered();
-
-    void on_actionObjectsSearch_triggered();
-
-    void on_actionSplinesSearch_triggered();
-
-    void on_actionVehiclesSearch_triggered();
-
-    void on_actionHumansSearch_triggered();
-
-    void on_actionTilesIgnore_triggered();
-
-    void on_actionTexturesIgnore_triggered();
-
-    void on_actionObjectsIgnore_triggered();
-
-    void on_actionSplinesIgnore_triggered();
-
-    void on_actionVehiclesIgnore_triggered();
-
-    void on_actionHumansIgnore_triggered();
-
     void on_btnShowSettings_clicked();
 
     void on_cbxOnlyMapTextures_stateChanged(int arg1);
-
-    void ignoreListItems();
-
-    void searchListItems();
-
-    void copyListItems();
 
 private:
     const QString moduleName = "wVerifyMap";
@@ -162,8 +109,6 @@ private:
 
     void selectAllAndClear();
 
-    void toolButtonSetup();
-
     dIgnoreList *DIGNORELIST;
 
     int ignoredTiles = 0;
@@ -172,6 +117,7 @@ private:
     int ignoredSplines = 0;
     int ignoredHumans = 0;
     int ignoredVehicles = 0;
+
     OTOMSIFileHandler filehandler;
 
     QTimer *watchProgress = new QTimer();

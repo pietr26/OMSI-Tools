@@ -13,6 +13,13 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 
     setWindowTitle(OTName + " - " + tr("map verify"));
 
+    ui->hlaTiles->insertWidget(1, new verifyMapTools(ui->lwgHumansAll, ui->lwgHumansMissing, this));
+    ui->hlaTextures->insertWidget(1, new verifyMapTools(ui->lwgTexturesAll, ui->lwgTexturesMissing, this));
+    ui->hlaObjects->insertWidget(1, new verifyMapTools(ui->lwgObjectsAll, ui->lwgObjectsMissing, this));
+    ui->hlaSplines->insertWidget(1, new verifyMapTools(ui->lwgSplinesAll, ui->lwgSplinesMissing, this));
+    ui->hlaVehicles->insertWidget(1, new verifyMapTools(ui->lwgVehiclesAll, ui->lwgVehiclesMissing, this));
+    ui->hlaHumans->insertWidget(1, new verifyMapTools(ui->lwgHumansAll, ui->lwgHumansMissing, this));
+
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
 
@@ -34,20 +41,17 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 
     qDebug() << "Only global textures checkbox loaded";
 
-
-
     // Load Description and picture from the map
     if ((filehandler.getMapPath() != "") && (QFile(filehandler.getMapPath()).exists()))
     {
         QFile global(filehandler.getMapPath());
-        if (!global.open(QFile::ReadOnly | QFile::Text))
-            goto mapNotFound;
-
-        ui->ledMapPath->setText(filehandler.getMapPath());
-        ui->lblPicture->setPixmap(QPixmap(filehandler.getMapPath().remove(QRegularExpression("global.cfg")) + "/picture.jpg"));
-        ui->ledMapName->setText(filehandler.readGlobal("name", this));
+        if (global.open(QFile::ReadOnly | QFile::Text))
+        {
+            ui->ledMapPath->setText(filehandler.getMapPath());
+            ui->lblPicture->setPixmap(QPixmap(filehandler.getMapPath().remove(QRegularExpression("global.cfg")) + "/picture.jpg"));
+            ui->ledMapName->setText(filehandler.readGlobal("name", this));
+        }
     }
-    mapNotFound:
 
     // Hide detail buttons
     ui->btnTilesDetails->setVisible(false);
@@ -65,7 +69,6 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 
     ui->statusbar->showMessage(QString(tr("Press %1 to start the verification.")).arg("\"" + ui->btnStartVerifying->text() + "\""));
 
-    toolButtonSetup();
     ui->twgVerfying->setCurrentIndex(0);
 
     qInfo().noquote() << moduleName + " started successfully.";
@@ -77,42 +80,6 @@ wVerifyMap::~wVerifyMap()
 {
     qInfo().noquote() << moduleName + " is closing...";
     delete ui;
-}
-
-/// \brief Shows tool button menu
-void wVerifyMap::on_tbnTilesTools_clicked()
-{
-    ui->tbnTilesTools->showMenu();
-}
-
-/// \brief Shows tool button menu
-void wVerifyMap::on_tbnTexturesTools_clicked()
-{
-    ui->tbnTexturesTools->showMenu();
-}
-
-/// \brief Shows tool button menu
-void wVerifyMap::on_tbnObjectsTools_clicked()
-{
-    ui->tbnObjectsTools->showMenu();
-}
-
-/// \brief Shows tool button menu
-void wVerifyMap::on_tbnSplinesTools_clicked()
-{
-    ui->tbnSplinesTools->showMenu();
-}
-
-/// \brief Shows tool button menu
-void wVerifyMap::on_tbnVehiclesTools_clicked()
-{
-    ui->tbnVehiclesTools->showMenu();
-}
-
-/// \brief Shows tool button menu
-void wVerifyMap::on_tbnHumansTools_clicked()
-{
-    ui->tbnHumansTools->showMenu();
 }
 
 /// \brief Copies a entry from listWidget.
@@ -233,54 +200,6 @@ void wVerifyMap::on_actionAdjustWindowSize_triggered()
 void wVerifyMap::on_actionSendFeedback_triggered()
 {
     OTMiscellaneous::sendFeedback();
-}
-
-/// \brief Tool button setup
-void wVerifyMap::toolButtonSetup()
-{
-    qDebug() << "Set tool buttons...";
-
-    // Tiles
-    QMenu *tiles = new QMenu(this);
-    tiles->addAction(ui->actionTilesSearch);
-    tiles->addAction(ui->actionTilesCopy);
-    tiles->addAction(ui->actionTilesIgnore);
-    ui->tbnTilesTools->setMenu(tiles);
-
-    // Textures
-    QMenu *textures = new QMenu(this);
-    textures->addAction(ui->actionTexturesSearch);
-    textures->addAction(ui->actionTexturesCopy);
-    textures->addAction(ui->actionTexturesIgnore);
-    ui->tbnTexturesTools->setMenu(textures);
-
-    // Sceneryobjects
-    QMenu *objects = new QMenu(this);
-    objects->addAction(ui->actionObjectsSearch);
-    objects->addAction(ui->actionObjectsCopy);
-    objects->addAction(ui->actionObjectsIgnore);
-    ui->tbnObjectsTools->setMenu(objects);
-
-    // Splines
-    QMenu *splines = new QMenu(this);
-    splines->addAction(ui->actionSplinesSearch);
-    splines->addAction(ui->actionSplinesCopy);
-    splines->addAction(ui->actionSplinesIgnore);
-    ui->tbnSplinesTools->setMenu(splines);
-
-    // Vehicles
-    QMenu *vehicles = new QMenu(this);
-    vehicles->addAction(ui->actionVehiclesSearch);
-    vehicles->addAction(ui->actionVehiclesCopy);
-    vehicles->addAction(ui->actionVehiclesIgnore);
-    ui->tbnVehiclesTools->setMenu(vehicles);
-
-    // Humans
-    QMenu *humans = new QMenu(this);
-    humans->addAction(ui->actionHumansSearch);
-    humans->addAction(ui->actionHumansCopy);
-    humans->addAction(ui->actionHumansIgnore);
-    ui->tbnHumansTools->setMenu(humans);
 }
 
 /// \brief Starts verifying
@@ -691,340 +610,16 @@ void wVerifyMap::on_cbxAdvancedVerifying_stateChanged(int arg1)
         ui->cbxOnlyMapTextures->setEnabled(false);
 
     // maybe reset label names
-//    bool type;
-//    if (arg1 > 0)
-//    {
-//        type = true;
-//    }
-//    else
-//    {
-//        type = false;
-//    }
+    //    bool type;
+    //    if (arg1 > 0)
+    //    {
+    //        type = true;
+    //    }
+    //    else
+    //    {
+    //        type = false;
+    //    }
 
-}
-
-/// \brief Copies missing tiles
-void wVerifyMap::on_actionTilesCopy_triggered()
-{
-    if (ui->lwgTilesMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    QString copytext = "";
-    foreach (QListWidgetItem* current, ui->lwgTilesMissing->selectedItems())
-        copytext += current->text() + "\n";
-
-    misc.copy(copytext);
-    ui->statusbar->showMessage(tr("Copied!"), 3000);
-}
-
-/// \brief Copies missing textures
-void wVerifyMap::on_actionTexturesCopy_triggered()
-{
-    if (ui->lwgTexturesMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    QString copytext = "";
-    foreach (QListWidgetItem* current, ui->lwgTexturesMissing->selectedItems())
-        copytext += current->text() + "\n";
-
-    misc.copy(copytext);
-    ui->statusbar->showMessage(tr("Copied!"), 3000);
-}
-
-/// \brief Copies missing objects
-void wVerifyMap::on_actionObjectsCopy_triggered()
-{
-    if (ui->lwgObjectsMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    QString copytext = "";
-    foreach (QListWidgetItem* current, ui->lwgObjectsMissing->selectedItems())
-        copytext += current->text() + "\n";
-
-    misc.copy(copytext);
-    ui->statusbar->showMessage(tr("Copied!"), 3000);
-}
-
-/// \brief Copies missing splines
-void wVerifyMap::on_actionSplinesCopy_triggered()
-{
-    if (ui->lwgSplinesMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    QString copytext = "";
-    foreach (QListWidgetItem* current, ui->lwgSplinesMissing->selectedItems())
-        copytext += current->text() + "\n";
-
-    misc.copy(copytext);
-    ui->statusbar->showMessage(tr("Copied!"), 3000);
-}
-
-/// \brief Copies missing vehicles
-void wVerifyMap::on_actionVehiclesCopy_triggered()
-{
-    if (ui->lwgVehiclesMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    QString copytext = "";
-    foreach (QListWidgetItem* current, ui->lwgVehiclesMissing->selectedItems())
-        copytext += current->text() + "\n";
-
-    misc.copy(copytext);
-    ui->statusbar->showMessage(tr("Copied!"), 3000);
-}
-
-/// \brief Copies missing humans
-void wVerifyMap::on_actionHumansCopy_triggered()
-{
-    if (ui->lwgHumansMissing->currentRow() == -1)
-        {
-            ui->statusbar->showMessage(tr("No path selected."), 3000);
-            return;
-        }
-
-    QString copytext = "";
-    foreach (QListWidgetItem* current, ui->lwgHumansMissing->selectedItems())
-        copytext += current->text() + "\n";
-
-    misc.copy(copytext);
-    ui->statusbar->showMessage(tr("Copied!"), 3000);
-}
-
-/// \brief Search for paths in wContentSearch
-void wVerifyMap::on_actionTilesSearch_triggered()
-{
-    QStringList paths;
-    foreach(QListWidgetItem* current, ui->lwgTilesMissing->selectedItems())
-        paths << set.read("main", "mainDir").toString() + "/" + current->text();
-
-    if (!paths.empty())
-    {
-        WCONTENTSEARCH = new wContentSearch(this, paths);
-        WCONTENTSEARCH->setWindowModality(Qt::ApplicationModal);
-        WCONTENTSEARCH->show();
-    }
-    else
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-}
-
-/// \brief Search for paths in wContentSearch
-void wVerifyMap::on_actionTexturesSearch_triggered()
-{
-    QStringList paths;
-    foreach(QListWidgetItem* current, ui->lwgTexturesMissing->selectedItems())
-        paths << set.read("main", "mainDir").toString() + "/" + current->text();
-
-    if (!paths.empty())
-    {
-        WCONTENTSEARCH = new wContentSearch(this, paths);
-        WCONTENTSEARCH->setWindowModality(Qt::ApplicationModal);
-        WCONTENTSEARCH->show();
-    }
-    else
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-}
-
-/// \brief Search for paths in wContentSearch
-void wVerifyMap::on_actionObjectsSearch_triggered()
-{
-    QStringList paths;
-    foreach(QListWidgetItem* current, ui->lwgObjectsMissing->selectedItems())
-        paths << set.read("main", "mainDir").toString() + "/" + current->text();
-
-    if (!paths.empty())
-    {
-        WCONTENTSEARCH = new wContentSearch(this, paths);
-        WCONTENTSEARCH->setWindowModality(Qt::ApplicationModal);
-        WCONTENTSEARCH->show();
-    }
-    else
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-}
-
-/// \brief Search for paths in wContentSearch
-void wVerifyMap::on_actionSplinesSearch_triggered()
-{
-    QStringList paths;
-    foreach(QListWidgetItem* current, ui->lwgSplinesMissing->selectedItems())
-        paths << set.read("main", "mainDir").toString() + "/" + current->text();
-
-    if (!paths.empty())
-    {
-        WCONTENTSEARCH = new wContentSearch(this, paths);
-        WCONTENTSEARCH->setWindowModality(Qt::ApplicationModal);
-        WCONTENTSEARCH->show();
-    }
-    else
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-}
-
-/// \brief Search for paths in wContentSearch
-void wVerifyMap::on_actionVehiclesSearch_triggered()
-{
-    QStringList paths;
-    foreach(QListWidgetItem* current, ui->lwgVehiclesMissing->selectedItems())
-        paths << set.read("main", "mainDir").toString() + "/" + current->text();
-
-    if (!paths.empty())
-    {
-        WCONTENTSEARCH = new wContentSearch(this, paths);
-        WCONTENTSEARCH->setWindowModality(Qt::ApplicationModal);
-        WCONTENTSEARCH->show();
-    }
-    else
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-}
-
-/// \brief Search for paths in wContentSearch
-void wVerifyMap::on_actionHumansSearch_triggered()
-{
-    QStringList paths;
-    foreach(QListWidgetItem* current, ui->lwgHumansMissing->selectedItems())
-        paths << set.read("main", "mainDir").toString() + "/" + current->text();
-
-    if (!paths.empty())
-    {
-        WCONTENTSEARCH = new wContentSearch(this, paths);
-        WCONTENTSEARCH->setWindowModality(Qt::ApplicationModal);
-        WCONTENTSEARCH->show();
-    }
-    else
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-}
-
-/// \brief Ignores the selected path(s)
-void wVerifyMap::on_actionTilesIgnore_triggered()
-{
-    if (ui->lwgTilesMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    for (int i = 0; i < ui->lwgTilesMissing->count(); i++)
-    {
-        if (ui->lwgTilesMissing->item(i)->isSelected())
-        {
-            iglF.write(ui->lwgTilesMissing->item(i)->text());
-            ui->lblIgnoredTiles->setText(QString::number(ui->lblIgnoredTiles->text().toInt() + 1));
-        }
-    }
-    qDeleteAll(ui->lwgTilesMissing->selectedItems());
-}
-
-/// \brief Ignores the selected path(s)
-void wVerifyMap::on_actionTexturesIgnore_triggered()
-{
-    if (ui->lwgTexturesMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    for (int i = 0; i < ui->lwgTexturesMissing->count(); i++)
-    {
-        if (ui->lwgTexturesMissing->item(i)->isSelected())
-        {
-            iglF.write(ui->lwgTexturesMissing->item(i)->text());
-            ui->lblIgnoredTextures->setText(QString::number(ui->lblIgnoredTextures->text().toInt() + 1));
-        }
-    }
-    qDeleteAll(ui->lwgTexturesMissing->selectedItems());
-}
-
-/// \brief Ignores the selected path(s)
-void wVerifyMap::on_actionObjectsIgnore_triggered()
-{
-    if (ui->lwgObjectsMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    for (int i = 0; i < ui->lwgObjectsMissing->count(); i++)
-    {
-        if (ui->lwgObjectsMissing->item(i)->isSelected())
-        {
-            iglF.write(ui->lwgObjectsMissing->item(i)->text());
-            ui->lblIgnoredObjects->setText(QString::number(ui->lblIgnoredObjects->text().toInt() + 1));
-        }
-    }
-    qDeleteAll(ui->lwgObjectsMissing->selectedItems());
-}
-
-/// \brief Ignores the selected path(s)
-void wVerifyMap::on_actionSplinesIgnore_triggered()
-{
-    if (ui->lwgSplinesMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    for (int i = 0; i < ui->lwgSplinesMissing->count(); i++)
-    {
-        if (ui->lwgSplinesMissing->item(i)->isSelected())
-        {
-            iglF.write(ui->lwgSplinesMissing->item(i)->text());
-            ui->lblIgnoredSplines->setText(QString::number(ui->lblIgnoredSplines->text().toInt() + 1));
-        }
-    }
-    qDeleteAll(ui->lwgSplinesMissing->selectedItems());
-}
-
-/// \brief Ignores the selected path(s)
-void wVerifyMap::on_actionVehiclesIgnore_triggered()
-{
-    if (ui->lwgVehiclesMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    for (int i = 0; i < ui->lwgVehiclesMissing->count(); i++)
-    {
-        if (ui->lwgVehiclesMissing->item(i)->isSelected())
-        {
-            iglF.write(ui->lwgVehiclesMissing->item(i)->text());
-            ui->lblIgnoredVehicles->setText(QString::number(ui->lblIgnoredVehicles->text().toInt() + 1));
-        }
-    }
-    qDeleteAll(ui->lwgVehiclesMissing->selectedItems());
-}
-
-/// \brief Ignores the selected path(s)
-void wVerifyMap::on_actionHumansIgnore_triggered()
-{
-    if (ui->lwgHumansMissing->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    for (int i = 0; i < ui->lwgHumansMissing->count(); i++)
-    {
-        if (ui->lwgHumansMissing->item(i)->isSelected())
-        {
-            iglF.write(ui->lwgHumansMissing->item(i)->text());
-            ui->lblIgnoredHumans->setText(QString::number(ui->lblIgnoredHumans->text().toInt() + 1));
-        }
-    }
-    qDeleteAll(ui->lwgHumansMissing->selectedItems());
 }
 
 void wVerifyMap::on_btnShowSettings_clicked()
@@ -1066,63 +661,4 @@ void wVerifyMap::enableIgnoreLabels(bool enable)
     ui->lblIgnoredSplines->setText(str);
     ui->lblIgnoredVehicles->setText(str);
     ui->lblIgnoredHumans->setText(str);
-}
-
-void wVerifyMap::ignoreListItems()
-{
-    QObject* obj = sender();
-    QListWidget *lwg = dynamic_cast<QListWidget*>(obj);
-
-    enableIgnoreLabels(false);
-    if (lwg->currentRow() == -1)
-    {
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-        return;
-    }
-
-    for (int i = 0; i < lwg->count(); i++)
-    {
-        if (lwg->item(i)->isSelected())
-            iglF.write(lwg->item(i)->text());
-    }
-
-    qDeleteAll(lwg->selectedItems());
-}
-
-void wVerifyMap::searchListItems()
-{
-    QObject* obj = sender();
-    QListWidget *lwg = dynamic_cast<QListWidget*>(obj);
-
-    QStringList paths;
-    foreach(QListWidgetItem* current, lwg->selectedItems())
-        paths << set.read("main", "mainDir").toString() + "/" + current->text();
-
-    if (!paths.empty())
-    {
-        WCONTENTSEARCH = new wContentSearch(this, paths);
-        WCONTENTSEARCH->setWindowModality(Qt::ApplicationModal);
-        WCONTENTSEARCH->show();
-    }
-    else
-        ui->statusbar->showMessage(tr("No path selected."), 3000);
-}
-
-void wVerifyMap::copyListItems()
-{
-    QObject* obj = sender();
-    QListWidget *lwg = dynamic_cast<QListWidget*>(obj);
-
-    if (lwg->currentRow() == -1)
-        {
-            ui->statusbar->showMessage(tr("No path selected."), 3000);
-            return;
-        }
-
-    QString copytext = "";
-    foreach (QListWidgetItem* current, lwg->selectedItems())
-        copytext += current->text() + "\n";
-
-    misc.copy(copytext);
-    ui->statusbar->showMessage(tr("Copied!"), 3000);
 }

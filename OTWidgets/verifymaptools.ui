@@ -6,47 +6,117 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>100</width>
-    <height>45</height>
+    <width>46</width>
+    <height>107</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QToolButton" name="tbnMain">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
+    <widget class="QToolButton" name="tbnCopy">
      <property name="text">
-      <string>Tools</string>
+      <string/>
      </property>
      <property name="icon">
       <iconset resource="../ressources.qrc">
-       <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
-     </property>
-     <property name="popupMode">
-      <enum>QToolButton::MenuButtonPopup</enum>
-     </property>
-     <property name="toolButtonStyle">
-      <enum>Qt::ToolButtonTextBesideIcon</enum>
+       <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
      </property>
      <property name="autoRaise">
       <bool>false</bool>
      </property>
-     <property name="arrowType">
-      <enum>Qt::NoArrow</enum>
+    </widget>
+   </item>
+   <item>
+    <widget class="QToolButton" name="tbnSearch">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../ressources.qrc">
+       <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+     </property>
+     <property name="autoRaise">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QToolButton" name="tbnIgnore">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../ressources.qrc">
+       <normaloff>:/rec/data/icons/iconUnvisible.svg</normaloff>:/rec/data/icons/iconUnvisible.svg</iconset>
+     </property>
+     <property name="autoRaise">
+      <bool>false</bool>
      </property>
     </widget>
    </item>
   </layout>
+  <action name="actionCopyFromAll">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconLeft.svg</normaloff>:/rec/data/icons/iconLeft.svg</iconset>
+   </property>
+   <property name="text">
+    <string>From left list</string>
+   </property>
+  </action>
+  <action name="actionCopyFromMissing">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+   </property>
+   <property name="text">
+    <string>From right list</string>
+   </property>
+  </action>
+  <action name="actionSearchFromAll">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconLeft.svg</normaloff>:/rec/data/icons/iconLeft.svg</iconset>
+   </property>
+   <property name="text">
+    <string>From left list</string>
+   </property>
+  </action>
+  <action name="actionSearchFromMissing">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+   </property>
+   <property name="text">
+    <string>From right list</string>
+   </property>
+  </action>
+  <action name="actionIgnoreFromAll">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconLeft.svg</normaloff>:/rec/data/icons/iconLeft.svg</iconset>
+   </property>
+   <property name="text">
+    <string>From left list</string>
+   </property>
+  </action>
+  <action name="actionIgnoreFromMissing">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+   </property>
+   <property name="text">
+    <string>From right list</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../ressources.qrc"/>
