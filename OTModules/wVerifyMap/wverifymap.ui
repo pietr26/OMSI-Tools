@@ -587,20 +587,11 @@
        <attribute name="title">
         <string>Tiles</string>
        </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QSplitter" name="splitter">
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
+         <layout class="QHBoxLayout" name="hlaTiles">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
              <widget class="QLabel" name="lblTilesAll">
               <property name="toolTip">
@@ -649,12 +640,9 @@
              </widget>
             </item>
            </layout>
-          </widget>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_13">
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_13">
               <item>
@@ -730,10 +718,71 @@
               </property>
              </widget>
             </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabTextures">
+       <attribute name="title">
+        <string>Textures</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QHBoxLayout" name="hlaTextures">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_10">
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_17">
+             <widget class="QLabel" name="lblTexturesAll">
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="text">
+               <string>All textures:</string>
+              </property>
+              <property name="buddy">
+               <cstring>lwgTilesAll</cstring>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListWidget" name="lwgTexturesAll">
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="dragEnabled">
+               <bool>false</bool>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::ExtendedSelection</enum>
+              </property>
+              <property name="batchSize">
+               <number>300</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_11">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_21">
               <item>
-               <spacer name="horizontalSpacer_6">
+               <widget class="QLabel" name="lblTexturesMissing">
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="text">
+                 <string>Missing textures:</string>
+                </property>
+                <property name="buddy">
+                 <cstring>lwgTilesMissing</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_12">
                 <property name="toolTip">
                  <string/>
                 </property>
@@ -749,198 +798,37 @@
                </spacer>
               </item>
               <item>
-               <widget class="QToolButton" name="tbnTilesTools">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
+               <widget class="QLabel" name="lblIgnoredTextures">
                 <property name="toolTip">
                  <string/>
                 </property>
                 <property name="text">
-                 <string>Tools</string>
+                 <string notr="true">-</string>
                 </property>
-                <property name="icon">
-                 <iconset resource="../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblIgnoredTexturesText">
+                <property name="toolTip">
+                 <string/>
                 </property>
-                <property name="popupMode">
-                 <enum>QToolButton::MenuButtonPopup</enum>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextBesideIcon</enum>
-                </property>
-                <property name="autoRaise">
-                 <bool>false</bool>
-                </property>
-                <property name="arrowType">
-                 <enum>Qt::NoArrow</enum>
+                <property name="text">
+                 <string>ignored</string>
                 </property>
                </widget>
               </item>
              </layout>
             </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tabTextures">
-       <attribute name="title">
-        <string>Textures</string>
-       </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_23">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_18">
-          <item>
-           <widget class="QLabel" name="lblTexturesAll">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string>All textures:</string>
-            </property>
-            <property name="buddy">
-             <cstring>lwgTilesAll</cstring>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QListWidget" name="lwgTexturesAll">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="dragEnabled">
-             <bool>false</bool>
-            </property>
-            <property name="selectionMode">
-             <enum>QAbstractItemView::ExtendedSelection</enum>
-            </property>
-            <property name="batchSize">
-             <number>300</number>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_17">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_21">
             <item>
-             <widget class="QLabel" name="lblTexturesMissing">
+             <widget class="QListWidget" name="lwgTexturesMissing">
               <property name="toolTip">
                <string/>
               </property>
-              <property name="text">
-               <string>Missing textures:</string>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::ExtendedSelection</enum>
               </property>
-              <property name="buddy">
-               <cstring>lwgTilesMissing</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_12">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QLabel" name="lblIgnoredTextures">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string notr="true">-</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="lblIgnoredTexturesText">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>ignored</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QListWidget" name="lwgTexturesMissing">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="selectionMode">
-             <enum>QAbstractItemView::ExtendedSelection</enum>
-            </property>
-            <property name="batchSize">
-             <number>300</number>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_22">
-            <item>
-             <spacer name="horizontalSpacer_13">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QToolButton" name="tbnTexturesTools">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>Tools</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../../ressources.qrc">
-                <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
-              </property>
-              <property name="popupMode">
-               <enum>QToolButton::MenuButtonPopup</enum>
-              </property>
-              <property name="toolButtonStyle">
-               <enum>Qt::ToolButtonTextBesideIcon</enum>
-              </property>
-              <property name="autoRaise">
-               <bool>false</bool>
-              </property>
-              <property name="arrowType">
-               <enum>Qt::NoArrow</enum>
+              <property name="batchSize">
+               <number>300</number>
               </property>
              </widget>
             </item>
@@ -959,18 +847,9 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QSplitter" name="splitter_2">
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
+         <layout class="QHBoxLayout" name="hlaObjects">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_13">
             <item>
              <widget class="QLabel" name="lblObjectsAll">
               <property name="toolTip">
@@ -1001,12 +880,9 @@
              </widget>
             </item>
            </layout>
-          </widget>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_14">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_14">
               <item>
@@ -1076,61 +952,9 @@
               </property>
              </widget>
             </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_10">
-              <item>
-               <spacer name="horizontalSpacer_2">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QToolButton" name="tbnObjectsTools">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="text">
-                 <string>Tools</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
-                </property>
-                <property name="popupMode">
-                 <enum>QToolButton::MenuButtonPopup</enum>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextBesideIcon</enum>
-                </property>
-                <property name="autoRaise">
-                 <bool>false</bool>
-                </property>
-                <property name="arrowType">
-                 <enum>Qt::NoArrow</enum>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
            </layout>
-          </widget>
-         </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -1141,20 +965,11 @@
        <attribute name="title">
         <string>Splines</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_14">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <widget class="QSplitter" name="splitter_3">
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_7">
+         <layout class="QHBoxLayout" name="hlaSplines">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_15">
             <item>
              <widget class="QLabel" name="lblSplinesAll">
               <property name="toolTip">
@@ -1182,12 +997,9 @@
              </widget>
             </item>
            </layout>
-          </widget>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_16">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_18">
               <item>
@@ -1254,61 +1066,9 @@
               </property>
              </widget>
             </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_11">
-              <item>
-               <spacer name="horizontalSpacer_3">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QToolButton" name="tbnSplinesTools">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="text">
-                 <string>Tools</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
-                </property>
-                <property name="popupMode">
-                 <enum>QToolButton::MenuButtonPopup</enum>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextBesideIcon</enum>
-                </property>
-                <property name="autoRaise">
-                 <bool>false</bool>
-                </property>
-                <property name="arrowType">
-                 <enum>Qt::NoArrow</enum>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
            </layout>
-          </widget>
-         </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -1319,20 +1079,11 @@
        <attribute name="title">
         <string>Vehicles</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_15">
+       <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <widget class="QSplitter" name="splitter_4">
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_9">
+         <layout class="QHBoxLayout" name="hlaVehicles">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_17">
             <item>
              <widget class="QLabel" name="lblVehiclesAll">
               <property name="toolTip">
@@ -1360,12 +1111,9 @@
              </widget>
             </item>
            </layout>
-          </widget>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_8">
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_18">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_19">
               <item>
@@ -1432,61 +1180,9 @@
               </property>
              </widget>
             </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_15">
-              <item>
-               <spacer name="horizontalSpacer_4">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QToolButton" name="tbnVehiclesTools">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="text">
-                 <string>Tools</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
-                </property>
-                <property name="popupMode">
-                 <enum>QToolButton::MenuButtonPopup</enum>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextBesideIcon</enum>
-                </property>
-                <property name="autoRaise">
-                 <bool>false</bool>
-                </property>
-                <property name="arrowType">
-                 <enum>Qt::NoArrow</enum>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
            </layout>
-          </widget>
-         </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -1497,20 +1193,11 @@
        <attribute name="title">
         <string>Humans</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_16">
+       <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <widget class="QSplitter" name="splitter_5">
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_11">
+         <layout class="QHBoxLayout" name="hlaHumans">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_19">
             <item>
              <widget class="QLabel" name="lblHumansAll">
               <property name="toolTip">
@@ -1538,12 +1225,9 @@
              </widget>
             </item>
            </layout>
-          </widget>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_10">
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_20">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_20">
               <item>
@@ -1610,61 +1294,9 @@
               </property>
              </widget>
             </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_16">
-              <item>
-               <spacer name="horizontalSpacer_5">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QToolButton" name="tbnHumansTools">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="text">
-                 <string>Tools</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
-                </property>
-                <property name="popupMode">
-                 <enum>QToolButton::MenuButtonPopup</enum>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextBesideIcon</enum>
-                </property>
-                <property name="autoRaise">
-                 <bool>false</bool>
-                </property>
-                <property name="arrowType">
-                 <enum>Qt::NoArrow</enum>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
            </layout>
-          </widget>
-         </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -1844,60 +1476,6 @@
     <string notr="true">Ctrl+G</string>
    </property>
   </action>
-  <action name="actionTilesCopy">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Copy</string>
-   </property>
-  </action>
-  <action name="actionTexturesCopy">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Copy</string>
-   </property>
-  </action>
-  <action name="actionObjectsCopy">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Copy</string>
-   </property>
-  </action>
-  <action name="actionSplinesCopy">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Copy</string>
-   </property>
-  </action>
-  <action name="actionVehiclesCopy">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Copy</string>
-   </property>
-  </action>
-  <action name="actionHumansCopy">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Copy</string>
-   </property>
-  </action>
   <action name="actionSendFeedback">
    <property name="icon">
     <iconset resource="../../ressources.qrc">
@@ -1908,114 +1486,6 @@
    </property>
    <property name="shortcut">
     <string notr="true">F1</string>
-   </property>
-  </action>
-  <action name="actionTilesSearch">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Search</string>
-   </property>
-  </action>
-  <action name="actionTexturesSearch">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Search</string>
-   </property>
-  </action>
-  <action name="actionObjectsSearch">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Search</string>
-   </property>
-  </action>
-  <action name="actionSplinesSearch">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Search</string>
-   </property>
-  </action>
-  <action name="actionVehiclesSearch">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Search</string>
-   </property>
-  </action>
-  <action name="actionHumansSearch">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Search</string>
-   </property>
-  </action>
-  <action name="actionTilesIgnore">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconUnvisible.svg</normaloff>:/rec/data/icons/iconUnvisible.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Ignore</string>
-   </property>
-  </action>
-  <action name="actionTexturesIgnore">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconUnvisible.svg</normaloff>:/rec/data/icons/iconUnvisible.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Ignore</string>
-   </property>
-  </action>
-  <action name="actionObjectsIgnore">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconUnvisible.svg</normaloff>:/rec/data/icons/iconUnvisible.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Ignore</string>
-   </property>
-  </action>
-  <action name="actionSplinesIgnore">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconUnvisible.svg</normaloff>:/rec/data/icons/iconUnvisible.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Ignore</string>
-   </property>
-  </action>
-  <action name="actionVehiclesIgnore">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconUnvisible.svg</normaloff>:/rec/data/icons/iconUnvisible.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Ignore</string>
-   </property>
-  </action>
-  <action name="actionHumansIgnore">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconUnvisible.svg</normaloff>:/rec/data/icons/iconUnvisible.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Ignore</string>
    </property>
   </action>
  </widget>

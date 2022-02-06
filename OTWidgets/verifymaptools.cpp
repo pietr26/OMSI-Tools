@@ -1,12 +1,22 @@
 #include "verifymaptools.h"
 #include "ui_verifymaptools.h"
 
-verifyMapTools::verifyMapTools(QListWidget *lwgParent, QWidget *parent) :
+verifyMapTools::verifyMapTools(QListWidget *lwgAllParent, QListWidget *lwgMissingParent, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::verifyMapTools)
 {
     ui->setupUi(this);
-    listWidgetParent = lwgParent;
+    listWidgetAllParent = lwgAllParent;
+    listWidgetMissingParent = lwgMissingParent;
+
+    ui->tbnCopy->addAction(ui->actionCopyFromAll);
+    ui->tbnCopy->addAction(ui->actionCopyFromMissing);
+
+    ui->tbnSearch->addAction(ui->actionSearchFromAll);
+    ui->tbnSearch->addAction(ui->actionSearchFromMissing);
+
+    ui->tbnIgnore->addAction(ui->actionIgnoreFromAll);
+    ui->tbnIgnore->addAction(ui->actionIgnoreFromMissing);
 }
 
 verifyMapTools::~verifyMapTools()
@@ -14,45 +24,37 @@ verifyMapTools::~verifyMapTools()
     delete ui;
 }
 
-void verifyMapTools::on_tbnTilesTools_clicked()
-{
-    ui->tbnMain->showMenu();
-}
-
 /// \brief Copies missing objects
-void verifyMapTools::copy()
+void verifyMapTools::copy(QListWidget *lwg)
 {
-    if (listWidgetParent->currentRow() == -1)
+    if (lwg->currentRow() == -1)
         return;
 
     QString copytext = "";
-    foreach (QListWidgetItem* current, listWidgetParent->selectedItems())
+    foreach (QListWidgetItem* current, lwg->selectedItems())
         copytext += current->text() + "\n";
 
     misc.copy(copytext);
 }
 
 /// \brief Ignores the selected path(s)
-void verifyMapTools::ignore()
+void verifyMapTools::ignore(QListWidget *lwg)
 {
-    if (listWidgetParent->currentRow() == -1)
+    if (lwg->currentRow() == -1)
         return;
 
-    for (int i = 0; i < listWidgetParent->count(); i++)
-    {
-        if (listWidgetParent->item(i)->isSelected())
-        {
-            iglF.write(listWidgetParent->item(i)->text());
-        }
-    }
-    qDeleteAll(listWidgetParent->selectedItems());
+    for (int i = 0; i < lwg->count(); i++)
+        if (lwg->item(i)->isSelected())
+            iglF.write(lwg->item(i)->text());
+
+    qDeleteAll(lwg->selectedItems());
 }
 
 /// \brief Search for paths in wContentSearch
-void verifyMapTools::search()
+void verifyMapTools::search(QListWidget *lwg)
 {
     QStringList paths;
-    foreach(QListWidgetItem* current, listWidgetParent->selectedItems())
+    foreach(QListWidgetItem* current, lwg->selectedItems())
         paths << set.read("main", "mainDir").toString() + "/" + current->text();
 
     if (!paths.empty())
@@ -61,5 +63,59 @@ void verifyMapTools::search()
         WCONTENTSEARCH->setWindowModality(Qt::ApplicationModal);
         WCONTENTSEARCH->show();
     }
+}
+
+
+void verifyMapTools::on_tbnCopy_clicked()
+{
+    ui->tbnCopy->showMenu();
+}
+
+
+void verifyMapTools::on_tbnSearch_clicked()
+{
+    ui->tbnSearch->showMenu();
+}
+
+
+void verifyMapTools::on_tbnIgnore_clicked()
+{
+    ui->tbnIgnore->showMenu();
+}
+
+
+void verifyMapTools::on_actionCopyFromAll_triggered()
+{
+    copy(listWidgetAllParent);
+}
+
+
+void verifyMapTools::on_actionCopyFromMissing_triggered()
+{
+    copy(listWidgetMissingParent);
+}
+
+
+void verifyMapTools::on_actionSearchFromAll_triggered()
+{
+    search(listWidgetAllParent);
+}
+
+
+void verifyMapTools::on_actionSearchFromMissing_triggered()
+{
+    search(listWidgetMissingParent);
+}
+
+
+void verifyMapTools::on_actionIgnoreFromAll_triggered()
+{
+    ignore(listWidgetAllParent);
+}
+
+
+void verifyMapTools::on_actionIgnoreFromMissing_triggered()
+{
+    ignore(listWidgetMissingParent);
 }
 

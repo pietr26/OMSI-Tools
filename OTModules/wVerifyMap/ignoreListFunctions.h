@@ -7,24 +7,13 @@ class ignoreListFunctions
 {
 public:
 
-    ignoreListFunctions()
-    {
-        if (!ignoreList.open(QFile::ReadWrite | QFile::Text))
-            qFatal("Could not open ignorelist!");
-    }
-
-    ~ignoreListFunctions()
-    {
-        ignoreList.close();
-    }
-
     /// \brief Writes the ignorelist
     void write(QStringList items, bool flushBeforeWrite = false)
     {
         if (flushBeforeWrite)
-            ignoreList.open(QFile::ReadWrite | QFile::Text);
+            ignoreList.open(QFile::WriteOnly | QFile::Text);
         else
-            ignoreList.open(QFile::ReadWrite | QFile::Append);
+            ignoreList.open(QFile::WriteOnly | QFile::Append);
 
         qDebug() << "Append ignorelist...";
         QTextStream out(&ignoreList);
@@ -49,14 +38,14 @@ public:
     /// \brief Returns a QStringList without ignored paths
     QStringList check(QStringList checkList, int &ignoreCount)
     {
-        ignoreList.open(QFile::ReadWrite | QFile::Text);
+        ignoreList.open(QFile::ReadOnly | QFile::Text);
 
         checkList.removeDuplicates();
         checkList.replaceInStrings("/", "\\");
 
         QStringList returnList;
 
-        QStringList ignoreStringList = read();
+        QStringList ignoreStringList = read(true);
 
         foreach (QString current, checkList)
         {
@@ -74,9 +63,10 @@ public:
     }
 
     /// \brief Gets the ignorelist
-    QStringList read()
+    QStringList read(bool isAlreadyOpen = false)
     {
-        ignoreList.open(QFile::ReadWrite | QFile::Text);
+        if (!isAlreadyOpen)
+            ignoreList.open(QFile::ReadOnly | QFile::Text);
 
         qDebug() << "Read ignorelist...";
 
@@ -86,7 +76,8 @@ public:
         while (!in.atEnd())
             returnList << in.readLine().replace("/", "\\");
 
-        ignoreList.close();
+        if (!isAlreadyOpen)
+            ignoreList.close();
 
         return returnList;
     }
