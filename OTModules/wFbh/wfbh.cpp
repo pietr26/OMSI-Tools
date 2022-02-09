@@ -41,6 +41,8 @@ wFbh::wFbh(QWidget *parent)
     ui->btnFSelectAll->setVisible(false);
 #endif
 
+    ui->ledLink->setFocus();
+
     qInfo().noquote() << moduleName + " started successfully.";
 }
 
