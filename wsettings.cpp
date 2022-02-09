@@ -269,13 +269,7 @@ void wSettings::on_btnResetSettings_clicked()
 /// \brief Creates a desktop shortcut
 void wSettings::on_btnCreateDesktopShortcut_clicked()
 {
-    if (QFile(qApp->applicationFilePath()).link(QDir().homePath() + QString("/Desktop/%1.lnk").arg(OTName)))
-    {
-        QMessageBox::information(this, tr("Success", "Note #1"), tr("Successfully created shortcut in %1.").arg(QDir().homePath() + "/Desktop"));
-        ui->btnCreateDesktopShortcut->setEnabled(false);
-    }
-    else
-        QMessageBox::warning(this, tr("Error", "Note #1"), tr("Could not create shortcut in %1.").arg(QDir().homePath() + "/Desktop"));
+    misc.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/%1.lnk").arg(OTName), this);
 }
 
 /// \brief Changes and saves the theme (live)
