@@ -34,6 +34,9 @@ wStart::wStart(QWidget *parent)
     ui->gbxDevTools->setVisible(isNoRelease);
     ui->actionSendFeedback->setVisible(isNoRelease);
 
+    if (!QFile("Fbh.unlock").exists())
+        ui->gbxFbh->setVisible(false);
+
     adjustSize();
 
     QVariant checkVersion = set.read("main", "autoUpdateCheck");
@@ -237,5 +240,19 @@ void wStart::on_actionChangelog_triggered()
 void wStart::on_actionManual_triggered()
 {
     QDesktopServices::openUrl(QUrl("file:///" + QApplication::applicationDirPath() + "/_docs/OMSI-Tools Lite - Handbuch DE.pdf"));
+}
+
+/// \brief Opens Filebase-Helper
+void wStart::on_btnOpenFbh_clicked()
+{
+    close();
+    WFBH = new wFbh(this);
+    WFBH->show();
+}
+
+/// \brief Creates shortcut for Filebase-Helper
+void wStart::on_btnCreateShortcut_clicked()
+{
+    misc.createShortcut(qApp->applicationFilePath() + """ directFbh", QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
 }
 
