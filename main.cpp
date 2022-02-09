@@ -93,6 +93,11 @@ int main(int argc, char *argv[])
     qInfo().noquote() << OTName + " is closing...";
 
     set.write("main", "closeCheck", true);
+
+    // If still exits (ran in normal mode), delete UI pointer
+    if (WSTARTUPSCREEN)
+        delete WSTARTUPSCREEN;
+
     return exec;
 }
 
