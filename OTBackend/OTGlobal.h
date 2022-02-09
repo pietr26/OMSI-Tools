@@ -1,5 +1,6 @@
 #ifndef OTGLOBAL_H
 #define OTGLOBAL_H
+
 #include <QMessageBox>
 #include <QTextStream>
 #include <QFile>
@@ -14,6 +15,7 @@
 #include <QDesktopServices>
 #include <QDesktopWidget>
 #include <QClipboard>
+#include <QString>
 
 class OTFileMethods
 {
@@ -246,6 +248,20 @@ public:
 
         QClipboard* clipboard = QApplication::clipboard();
         clipboard->setText(copytext);
+    }
+
+    void createShortcut(QString filepath, QString shortcutLocation, QWidget *parent)
+    {
+        if (QFile(filepath).link(shortcutLocation))
+        {
+            QMessageBox::information(parent, QObject::tr("Success", "Note #1"), QObject::tr("Successfully created shortcut!"));
+            qInfo().noquote() << QString("Created shortcut in '%1'!").arg(shortcutLocation);
+        }
+        else
+        {
+            QMessageBox::warning(parent, QString(QObject::tr("Error", "Note #1")), QObject::tr("Could not create shortcut in %1.").arg(QDir().homePath() + "/Desktop"));
+            qCritical().noquote() << QString("Could not create a shortcut in '%1'!").arg(shortcutLocation);
+        }
     }
 };
 
