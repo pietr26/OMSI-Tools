@@ -66,5 +66,6 @@
         <file>data/translations/qtbase_it.qm</file>
         <file>data/translations/qtbase_cz.qm</file>
         <file>data/icons/iconLeft.svg</file>
+        <file>data/icons/iconFbh.png</file>
     </qresource>
 </RCC>
