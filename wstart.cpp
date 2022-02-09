@@ -246,13 +246,14 @@ void wStart::on_actionManual_triggered()
 void wStart::on_btnOpenFbh_clicked()
 {
     hide();
-    WFBH = new wFbh(this);
+    WFBH = new wFbh();
     WFBH->show();
 }
 
 /// \brief Creates shortcut for Filebase-Helper
 void wStart::on_btnCreateShortcut_clicked()
 {
-    misc.createShortcut(qApp->applicationFilePath() + """ directFbh", QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
+    misc.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
+    QMessageBox::information(this, "Info", "Die gesetzte Verknüpfung muss jedoch noch modifiziert werden. Wie genau das funktioniert, kannst du im entsprechenden Thread im internen OWD-Forum sehen.");
 }
 

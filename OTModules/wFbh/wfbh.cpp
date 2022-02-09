@@ -25,6 +25,8 @@ wFbh::wFbh(QWidget *parent)
     ui->cobxWelcome->addItem("Hey");
     ui->cobxWelcome->setCurrentIndex(set.read(moduleName, "welcome").toInt());
 
+    ui->ledName->setText(set.read(moduleName, "name").toString());
+
     ui->gbxCopyright->setVisible(false);
     ui->gbxAddElement->setVisible(false);
 
@@ -56,7 +58,8 @@ void wFbh::on_actionClose_triggered()
 
 void wFbh::on_ledName_textChanged(const QString &arg1)
 {
-    set.write(moduleName, "name", arg1);
+    if (finishedSetup)
+        set.write(moduleName, "name", arg1);
 }
 
 void wFbh::getLanguage()
@@ -191,7 +194,8 @@ void wFbh::on_cbxFCopyright_stateChanged(int arg1)
 
 void wFbh::on_cobxWelcome_currentIndexChanged(int index)
 {
-    set.write(moduleName, "welcome", index);
+    if (finishedSetup)
+        set.write(moduleName, "welcome", index);
 }
 
 void wFbh::on_btnFCopy_clicked()

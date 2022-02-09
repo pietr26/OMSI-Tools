@@ -70,15 +70,23 @@ int main(int argc, char *argv[])
     if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "updateInstalled"))
         QDir(QDir::tempPath() + "/OMSI-Tools_tempAppDir").removeRecursively();
 
-/*    QFile convert("C:/Users/pietr/Desktop/Testfile.o3d");
+    /*    QFile convert("C:/Users/pietr/Desktop/Testfile.o3d");
     convert.open(QFile::ReadOnly);
     QByteArray test = convert.readAll();
     test.toInt();
 
     qDebug() << test;*/
 
-    wStartUpScreen w;
-    w.show();
+    if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "openFbh"))
+    {
+        wFbh w;
+        w.show();
+    }
+    else
+    {
+        wStartUpScreen w;
+        w.show();
+    }
 
     int exec = a.exec();
 
