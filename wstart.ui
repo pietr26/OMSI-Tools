@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>599</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -375,6 +375,37 @@
            <iconset resource="ressources.qrc">
             <normaloff>:/rec/data/icons/iconCrash.svg</normaloff>:/rec/data/icons/iconCrash.svg</iconset>
           </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="gbxFbh">
+          <property name="title">
+           <string notr="true">Filebase-Helper</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <widget class="QPushButton" name="btnOpenFbh">
+             <property name="text">
+              <string>Open</string>
+             </property>
+             <property name="icon">
+              <iconset resource="ressources.qrc">
+               <normaloff>:/rec/data/icons/iconFbh.png</normaloff>:/rec/data/icons/iconFbh.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnCreateShortcut">
+             <property name="text">
+              <string>Create shortcut</string>
+             </property>
+             <property name="icon">
+              <iconset resource="ressources.qrc">
+               <normaloff>:/rec/data/icons/iconLink.svg</normaloff>:/rec/data/icons/iconLink.svg</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
         <item>

@@ -17,6 +17,7 @@
 #include <QDebug>
 #include <QTimer>
 #include <QCloseEvent>
+#include <OTModules/wFbh/wfbh.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class wStart; }
@@ -61,6 +62,10 @@ private slots:
 
     void on_actionManual_triggered();
 
+    void on_btnOpenFbh_clicked();
+
+    void on_btnCreateShortcut_clicked();
+
 private:
     const QString moduleName = "wStart";
     Ui::wStart *ui;
@@ -74,6 +79,7 @@ private:
     wChangelog *WCHANGELOG;
     wFirstSetup *WFIRSTSETUP;
     wAbout *WABOUT;
+    wFbh *WFBH;
 
     OTSettings set;
     OTMessage msg;
