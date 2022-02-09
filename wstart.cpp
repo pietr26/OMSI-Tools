@@ -245,7 +245,7 @@ void wStart::on_actionManual_triggered()
 /// \brief Opens Filebase-Helper
 void wStart::on_btnOpenFbh_clicked()
 {
-    close();
+    hide();
     WFBH = new wFbh(this);
     WFBH->show();
 }
