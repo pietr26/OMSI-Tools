@@ -262,8 +262,44 @@ public:
             QMessageBox::warning(parent, QString(QObject::tr("Error", "Note #1")), QObject::tr("Could not create shortcut in %1.").arg(QDir().homePath() + "/Desktop"));
             qCritical().noquote() << QString("Could not create a shortcut in '%1'!").arg(shortcutLocation);
         }
+
+//        HRESULT hres;
+//        IShellLink *psl;
+
+//        hres = CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_IShellLink, (LPVOID*)&psl);
+//        if (SUCCEEDED(hres))
+//        {
+//            IPersistFile* ppf;
+
+//            psl->SetPath((const wchar_t*) filepath.utf16());
+//            if (!args.isEmpty())
+//                psl->SetArguments((const wchar_t*) QString(args).utf16());
+
+//            hres = psl->QueryInterface(IID_IPersistFile, (LPVOID*)&ppf);
+
+//            if (SUCCEEDED(hres))
+//            {
+//                WCHAR wsz[MAX_PATH];
+
+//                MultiByteToWideChar(CP_ACP, 0, shortcutLocation.toStdString().c_str(), -1, wsz, MAX_PATH);
+
+//                hres = ppf->Save(wsz, TRUE);
+//                ppf->Release();
+//            }
+//            psl->Release();
+//        }
+
+        // ADD TO HEADER:
+//#include "windows.h"
+//#include "winnls.h"
+//#include "shobjidl.h"
+//#include "objbase.h"
+//#include "objidl.h"
+//#include "shlguid.h"
     }
 };
+
+
 
 /// \brief Class for settings which all modules needs
 class OTSettings
@@ -364,11 +400,11 @@ public:
         QString baseLanguageFile;
         switch (read("main", "language").toInt())
         {
-            //case 0: english
-            case 1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
-            case 2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
-            case 3: languageFile = "tr_it"; baseLanguageFile = "qtbase_it"; break;
-            case 4: languageFile = "tr_cz"; baseLanguageFile = "qtbase_cz"; break;
+        //case 0: english
+        case 1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
+        case 2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
+        case 3: languageFile = "tr_it"; baseLanguageFile = "qtbase_it"; break;
+        case 4: languageFile = "tr_cz"; baseLanguageFile = "qtbase_cz"; break;
         }
 
         if (languageFile != "")
