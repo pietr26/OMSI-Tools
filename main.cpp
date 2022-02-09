@@ -77,13 +77,16 @@ int main(int argc, char *argv[])
 
     qDebug() << test;*/
 
+    wStartUpScreen *WSTARTUPSCREEN = new wStartUpScreen;
     wFbh WFBH;
-    wStartUpScreen WSTARTUPSCREEN;
 
     if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "openFbh"))
+    {
         WFBH.show();
+        delete WSTARTUPSCREEN;
+    }
     else
-        WSTARTUPSCREEN.show();
+        WSTARTUPSCREEN->show();
 
     int exec = a.exec();
 
