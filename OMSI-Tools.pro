@@ -14,6 +14,7 @@ SOURCES += \
     OTBackend/OTLogger.cpp \
     OTModules/wContentSearch/wDBPanel.cpp \
     OTModules/wContentSearch/wcontentsearch.cpp \
+    OTModules/wFbh/wfbh.cpp \
     OTModules/wVehicleList/wvehiclelist.cpp \
     OTModules/wbugrepot.cpp \
     OTWidgets/verifymaptools.cpp \
@@ -36,6 +37,8 @@ HEADERS += \
     OTBackend/OTOmsiFileHandler.h \
     OTModules/wContentSearch/wDBPanel.h \
     OTModules/wContentSearch/wcontentsearch.h \
+    OTModules/wFbh/FbhFunctions.h \
+    OTModules/wFbh/wfbh.h \
     OTModules/wVehicleList/wvehiclelist.h \
     OTModules/wVerifyMap/dignorelist.h \
     OTModules/wVerifyMap/ignoreListFunctions.h \
@@ -54,6 +57,7 @@ HEADERS += \
 FORMS += \
     OTModules/wContentSearch/wDBPanel.ui \
     OTModules/wContentSearch/wcontentsearch.ui \
+    OTModules/wFbh/wfbh.ui \
     OTModules/wVehicleList/wvehiclelist.ui \
     OTModules/wVerifyMap/dignorelist.ui \
     OTModules/wbugrepot.ui \
