@@ -75,15 +75,15 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
 
     // Preview:
     {
-        ui->lwgUserSearch->addItem("Sceneryobjects/Bamp/Wegweiser/O_Wegweiser_Zwischen_geradeaus.sco");
-        ui->lwgUserSearch->addItem("Sceneryobjects/Martiesim/VzKat 2017/101-11-G1.sco");
-        ui->lwgUserSearch->addItem("Sceneryobjects/BahnFan2014/DB_Stationsschild/model/db_schild.o3d"); // chromeDL
-        ui->lwgUserSearch->addItem("Sceneryobjects/Static_Vehicles_DL/texture/DL05_07.tga"); // Password
-        ui->lwgUserSearch->addItem("Sceneryobjects/Bamp/St. Peter-Ording/1_Betriebshofhalle.sco"); // not found
+//        ui->lwgUserSearch->addItem("Sceneryobjects/Bamp/Wegweiser/O_Wegweiser_Zwischen_geradeaus.sco");
+//        ui->lwgUserSearch->addItem("Sceneryobjects/Martiesim/VzKat 2017/101-11-G1.sco");
+//        ui->lwgUserSearch->addItem("Sceneryobjects/BahnFan2014/DB_Stationsschild/model/db_schild.o3d"); // chromeDL
+//        ui->lwgUserSearch->addItem("Sceneryobjects/Static_Vehicles_DL/texture/DL05_07.tga"); // Password
+//        ui->lwgUserSearch->addItem("Sceneryobjects/Bamp/St. Peter-Ording/1_Betriebshofhalle.sco"); // not found
 
-        ui->lwgUserSearch->addItem("Sceneryobjects/Rumpelhans/Verkehrszeichen/DreieckU.sco");
-        ui->lwgUserSearch->addItem("maps/Berlin-Spandau/Chrono/0200_Grenzoeffnung/tile_2411_11276.map"); // std
-        ui->lwgUserSearch->addItem("Sceneryobjects/Steven Objecten/Model/SG_WinkelBlok1.X");
+//        ui->lwgUserSearch->addItem("Sceneryobjects/Rumpelhans/Verkehrszeichen/DreieckU.sco");
+//        ui->lwgUserSearch->addItem("maps/Berlin-Spandau/Chrono/0200_Grenzoeffnung/tile_2411_11276.map"); // std
+//        ui->lwgUserSearch->addItem("Sceneryobjects/Steven Objecten/Model/SG_WinkelBlok1.X");
     }
 }
 
