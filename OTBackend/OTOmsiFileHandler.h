@@ -696,7 +696,7 @@ public:
             QFileInfo tileInfo(tile);
 
             if (tile.exists())
-                stuffobj.existing.tiles << tileInfo.absoluteFilePath().remove(0, getMapPath().remove(QRegExp("global.cfg")).length());
+                stuffobj.existing.tiles << tileInfo.absoluteFilePath().remove(0, getMapPath().remove("global.cfg").length());
             else
             {
                 stuffobj.missing.tiles << tileInfo.fileName();
@@ -725,7 +725,7 @@ public:
             currentProgress = i;
             qApp->processEvents();
 
-            path = getMapPath().remove(QRegExp("global.cfg")) + path;
+            path = getMapPath().remove("global.cfg") + path;
 
             QFile tile(path);
             tile.open(QFile::ReadOnly | QFile::Text);
@@ -780,11 +780,11 @@ public:
 
         // parklists
         QStringList parklists;
-        parklists << getMapPath().remove(QRegExp("global.cfg")) + "parklist_p.txt";
+        parklists << getMapPath().remove("global.cfg") + "parklist_p.txt";
 
         for (int i = 1; i > 100; i++)
         {
-            QString additionalParklist = getMapPath().remove(QRegExp("global.cfg")) + "parklist_p_" + QString::number(i) + ".txt";
+            QString additionalParklist = getMapPath().remove("global.cfg") + "parklist_p_" + QString::number(i) + ".txt";
             if (QFile(additionalParklist).exists())
                 parklists << additionalParklist;
         }
@@ -850,7 +850,7 @@ public:
         cutCount = set.read("main", "mainDir").toString().count() + 1;
 
         QStringList aiLists;
-        aiLists << getMapPath().remove(QRegExp("global.cfg")) + "ailists.cfg";
+        aiLists << getMapPath().remove("global.cfg") + "ailists.cfg";
 
         // chronologies:
         const QString directory(QFileInfo(mapPath).absolutePath() + "/Chrono");
@@ -904,7 +904,7 @@ public:
                         }
 
                         // Cut all numbers, tabs and spaces
-                        while (line.at(line.count() - 1).isNumber() || (line.at(line.count() - 1) == '\x9') || (line.at(line.count() - 1) == " "))
+                        while (line.at(line.count() - 1).isNumber() || (line.at(line.count() - 1) == '\x9') || (line.at(line.count() - 1) == ' '))
                             line.remove(line.count() - 1, 1);
 
                         QFile vehicle(set.read("main", "mainDir").toString() + "/" + line);
@@ -954,9 +954,9 @@ public:
             QString filePath;
 
             if (i == 0)
-                filePath = getMapPath().remove(QRegExp("global.cfg")) + "humans.txt";
+                filePath = getMapPath().remove("global.cfg") + "humans.txt";
             else
-                filePath = getMapPath().remove(QRegExp("global.cfg")) + "drivers.txt";
+                filePath = getMapPath().remove("global.cfg") + "drivers.txt";
 
             QFile humans(filePath);
             if (!humans.open(QFile::ReadOnly | QFile::Text))
@@ -1059,7 +1059,7 @@ public:
 
         qDebug() << "Encoding:" << encoding;
 
-        in.setCodec(encoding);
+        in.setEncoding(encoding);
         QString line;
         int fontCounter = 0;
 
@@ -1145,7 +1145,7 @@ public:
 
         QTextStream out(&file);
 
-        out.setCodec(encoding);
+        out.setEncoding(encoding);
 
         out << misc.writeFileHeader();
 

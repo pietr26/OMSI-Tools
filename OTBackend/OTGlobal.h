@@ -13,7 +13,7 @@
 #include <QFileDialog>
 #include <QtNetwork>
 #include <QDesktopServices>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QClipboard>
 #include <QString>
 
@@ -232,9 +232,10 @@ public:
         QDesktopServices::openUrl(OTLinks::supportThread);
     }
 
-    QSize sizeWindow(double multiplierWidth, double multiplierHeight, QWidget *parent)
+    QSize sizeWindow(double multiplierWidth, double multiplierHeight)
     {
-        QSize windowSize = QDesktopWidget().availableGeometry(parent).size();
+        QScreen *screen = QGuiApplication::primaryScreen();
+        QSize windowSize = screen->availableGeometry().size();
         windowSize.setWidth(windowSize.width() * multiplierWidth);
         windowSize.setHeight(windowSize.height() * multiplierHeight);
 
