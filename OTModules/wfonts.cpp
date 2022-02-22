@@ -190,16 +190,16 @@ void wFonts::loadRecentFiles()
         action->setVisible(true);
         switch (i)
         {
-            case 1: action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_1)); break;
-            case 2: action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_2)); break;
-            case 3: action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_3)); break;
-            case 4: action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_4)); break;
-            case 5: action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_5)); break;
-            case 6: action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_6)); break;
-            case 7: action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_7)); break;
-            case 8: action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_8)); break;
-            case 9: action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_9)); break;
-            case 10: action->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_0)); break;
+            case 1: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_1)); break;
+            case 2: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_2)); break;
+            case 3: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_3)); break;
+            case 4: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_4)); break;
+            case 5: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_5)); break;
+            case 6: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_6)); break;
+            case 7: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_7)); break;
+            case 8: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_8)); break;
+            case 9: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_9)); break;
+            case 10: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_0)); break;
         }
 
         connect(action, &QAction::triggered, this, [=]() { this->open(OTFileMethods::open, action->data().toString()); });

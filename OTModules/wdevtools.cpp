@@ -10,7 +10,7 @@ wDevTools::wDevTools(QWidget *parent) :
     qDebug() << "Set up UI...";
     ui->setupUi(this);
     //adjustSize();
-    resize(misc.sizeWindow(0.5, 0.75, this));
+    resize(misc.sizeWindow(0.5, 0.75));
     qDebug() << "UI set";
 
     setWindowTitle(OTName + " - DevTools");

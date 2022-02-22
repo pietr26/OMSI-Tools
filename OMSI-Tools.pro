@@ -1,6 +1,4 @@
-QT       += core gui network concurrent sql
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core widgets gui network concurrent sql
 
 CONFIG += c++17
 
