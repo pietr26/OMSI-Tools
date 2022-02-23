@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 
     qInfo().noquote() << "Starting " + OTName + "...";
 
+
     qDebug() << "All settings:";
     qDebug().noquote() << set.getAllSettings();
 
@@ -70,20 +71,13 @@ int main(int argc, char *argv[])
     if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "updateInstalled"))
         QDir(QDir::tempPath() + "/OMSI-Tools_tempAppDir").removeRecursively();
 
-    /*    QFile convert("C:/Users/pietr/Desktop/Testfile.o3d");
-    convert.open(QFile::ReadOnly);
-    QByteArray test = convert.readAll();
-    test.toInt();
-
-    qDebug() << test;*/
-
-    wStartUpScreen *WSTARTUPSCREEN = new wStartUpScreen;
-    wFbh WFBH;
+    wStartUpScreen *WSTARTUPSCREEN = new wStartUpScreen();
+    wFbh *WFBH;
 
     if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "openFbh"))
     {
-        WFBH.show();
-        delete WSTARTUPSCREEN;
+        WFBH = new wFbh();
+        WFBH->show();
     }
     else
         WSTARTUPSCREEN->show();
@@ -94,9 +88,7 @@ int main(int argc, char *argv[])
 
     set.write("main", "closeCheck", true);
 
-    // If still exits (ran in normal mode), delete UI pointer
-    if (WSTARTUPSCREEN)
-        delete WSTARTUPSCREEN;
+    delete WSTARTUPSCREEN;
 
     return exec;
 }
