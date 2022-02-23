@@ -232,12 +232,12 @@ public:
         QDesktopServices::openUrl(OTLinks::supportThread);
     }
 
-    QSize sizeWindow(double multiplierWidth, double multiplierHeight)
+    QSize sizeWindow(double width, double height)
     {
         QScreen *screen = QGuiApplication::primaryScreen();
         QSize windowSize = screen->availableGeometry().size();
-        windowSize.setWidth(windowSize.width() * multiplierWidth);
-        windowSize.setHeight(windowSize.height() * multiplierHeight);
+        windowSize.setWidth(windowSize.width() * width);
+        windowSize.setHeight(windowSize.height() * height);
 
         return windowSize;
     }
