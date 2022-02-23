@@ -2,14 +2,7 @@
 #define WSETTINGS_H
 
 #include <QMainWindow>
-#include <QDebug>
 #include "OTBackend/OTGlobal.h"
-#include <QDesktopServices>
-#include <QUrl>
-#include <QFileInfo>
-#include <QDir>
-#include <QSettings>
-#include <QTimer>
 #include "OTModules/wdevtools.h"
 #include <QStandardItemModel>
 

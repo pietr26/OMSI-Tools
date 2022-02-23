@@ -1059,7 +1059,7 @@ public:
 
         qDebug() << "Encoding:" << encoding;
 
-        in.setEncoding(encoding);
+        //in.setEncoding(encoding);
         QString line;
         int fontCounter = 0;
 
@@ -1145,7 +1145,7 @@ public:
 
         QTextStream out(&file);
 
-        out.setEncoding(encoding);
+        //out.setEncoding(encoding);
 
         out << misc.writeFileHeader();
 

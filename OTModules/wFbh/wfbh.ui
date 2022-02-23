@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>971</width>
-    <height>1150</height>
+    <width>692</width>
+    <height>1264</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -354,7 +354,6 @@
             <property name="font">
              <font>
               <pointsize>9</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -465,7 +464,6 @@
           </property>
           <property name="font">
            <font>
-            <family>Corbel</family>
             <pointsize>9</pointsize>
             <italic>true</italic>
            </font>
@@ -516,7 +514,6 @@
             <property name="font">
              <font>
               <pointsize>9</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -659,9 +656,7 @@ reasons</string>
           <item row="0" column="1" colspan="2">
            <widget class="QLineEdit" name="ledPath">
             <property name="font">
-             <font>
-              <family>Consolas</family>
-             </font>
+             <font/>
             </property>
            </widget>
           </item>

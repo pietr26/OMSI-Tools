@@ -11,7 +11,7 @@ wFbh::wFbh(QWidget *parent)
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
-    adjustSize();
+    //adjustSize();
     qDebug() << "UI set";
 
     // Load settings
