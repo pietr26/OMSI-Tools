@@ -146,10 +146,8 @@ QToolButton
 {
     background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(84, 84, 84, 255),stop:1 rgba(59, 59, 59, 255));    color: #ffffff;
     min-width: 80px;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 3px;
-    border-color: #051a39;
+    border: 1px solid #111;
+	border-radius: 3px;
     padding: 5px;
     padding-left: 8px;
     padding-right: 8px;
@@ -178,19 +176,22 @@ QToolButton:checked
     border: 1px solid #222;
 }
 
+QToolButton::disabled
+{
+	background-color: #404040;
+	color: #656565;
+	border-color: #333;
+}
+
 
 /*-----QPushButton-----*/
 QPushButton
 {
 	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(84, 84, 84, 255),stop:1 rgba(59, 59, 59, 255));
 	color: #ffffff;
-	min-width: 80px;
-	border-style: solid;
-	border-width: 1px;
+	border: 1px solid #111;
 	border-radius: 3px;
-	border-color: #051a39;
-	padding: 5px;
-
+	padding: 3px;
 }
 
 QPushButton::flat
@@ -198,7 +199,6 @@ QPushButton::flat
 	background-color: transparent;
 	border: none;
 	color: #fff;
-
 }
 
 
@@ -206,8 +206,7 @@ QPushButton::disabled
 {
 	background-color: #404040;
 	color: #656565;
-	border-color: #051a39;
-
+	border-color: #333;
 }
 
 
@@ -215,7 +214,6 @@ QPushButton::hover
 {
 	background-color: rgba(183, 134, 32, 20%);
 	border: 1px solid #b78620;
-
 }
 
 
@@ -223,7 +221,6 @@ QPushButton::pressed
 {
 	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(74, 74, 74, 255),stop:1 rgba(49, 49, 49, 255));
 	border: 1px solid #b78620;
-
 }
 
 
@@ -231,7 +228,6 @@ QPushButton::checked
 {
 	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(74, 74, 74, 255),stop:1 rgba(49, 49, 49, 255));
 	border: 1px solid #222;
-
 }
 
 
@@ -241,7 +237,7 @@ QLineEdit
 	background-color: #131313;
 	color : #eee;
 	border: 1px solid #343434;
-	border-radius: 2px;
+	border-radius: 3px;
 	padding: 3px;
 	padding-left: 5px;
 
@@ -266,7 +262,7 @@ QTextEdit
 	background-color: #131313;
 	color : #eee;
 	border: 1px solid #343434;
-	border-radius: 2px;
+	border-radius: 3px;
 	padding: 3px;
 	padding-left: 5px;
 
@@ -332,7 +328,6 @@ QTabBar::tab:selected
 QTabBar::tab:!selected:hover
 {
 	border-top-color: #b78620;
-
 }
 
 
@@ -341,58 +336,44 @@ QComboBox
 {
     background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(84, 84, 84, 255),stop:1 rgba(59, 59, 59, 255));
     border: 1px solid #000;
+	border-radius: 3px;
     padding-left: 6px;
+	padding: 3px;
     color: #ffffff;
-    height: 35px;
-
 }
-
 
 QComboBox::disabled
 {
 	background-color: #404040;
 	color: #656565;
 	border-color: #051a39;
-
 }
-
 
 QComboBox:on
 {
     background-color: #b78620;
-	color: #000;
-
 }
-
-
-QComboBox QAbstractItemView
-{
-    background-color: #383838;
-    color: #ffffff;
-    border: 1px solid black;
-    selection-background-color: #b78620;
-    outline: 0;
-
-}
-
 
 QComboBox::drop-down
 {
-	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(57, 57, 57, 255),stop:1 rgba(50, 50, 50, 255));
-    subcontrol-origin: padding;
+	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(84, 84, 84, 255),stop:1 rgba(59, 59, 59, 255));
+	subcontrol-origin: padding;
     subcontrol-position: top right;
     width: 15px;
     border-left-width: 1px;
     border-left-color: black;
-    border-left-style: solid; 
-
+    border-left-style: solid;
 }
 
-
-QComboBox::down-arrow
+QComboBox::hover
 {
-    width: 8px;
-    height: 8px;
+	background-color: rgba(183, 134, 32, 20%);
+	border: 1px solid #b78620;
+}
+
+QComboBox::drop-down:hover
+{
+	background-color: rgba(183, 134, 32, 20%);
 }
 
 
@@ -405,8 +386,7 @@ QDateTimeEdit
 	border: 1px solid #343434;
 	padding: 3px;
 	padding-left: 5px;
-    border-radius : 2px;
-
+    border-radius: 3px;
 }
 
 QSpinBox::disabled, 
@@ -414,7 +394,6 @@ QDateTimeEdit::disabled
 {
 	background-color: #575553;
 	color: #7F7F7F;
-
 }
 
 
@@ -423,9 +402,8 @@ QGroupBox
 {
     border: 1px solid;
     border-color: #666666;
-	border-radius: 5px;
-    margin-top: 20px;
-
+	border-radius: 2px;
+    margin-top: 21px;
 }
 
 
@@ -434,10 +412,9 @@ QGroupBox::title
     background-color: transparent;
     color: #eee;
     subcontrol-origin: margin;
-    padding: 5px;
+    padding: 2px;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
-
 }
 
 
