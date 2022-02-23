@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>wStyleTest</class>
+ <widget class="QMainWindow" name="wStyleTest">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1053</width>
+    <height>1721</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>Buttons</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>PushButton</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton">
+         <property name="text">
+          <string>Toolbutton</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QRadioButton" name="radioButton_2">
+           <property name="text">
+            <string>RadioButton</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton">
+           <property name="text">
+            <string>RadioButton</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QCommandLinkButton" name="commandLinkButton">
+         <property name="text">
+          <string>CommandLinkButton</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QCheckBox" name="checkBox">
+           <property name="text">
+            <string>CheckBox</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBox_2">
+           <property name="text">
+            <string>CheckBox</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>Item Widgets</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QListWidget" name="listWidget">
+         <item>
+          <property name="text">
+           <string>ListWidgetItem 1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>ListWidgetItem 2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>ListWidgetItem 3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>ListWidgetItem 4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>ListWidgetItem Disabled</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTreeWidget" name="treeWidget">
+         <column>
+          <property name="text">
+           <string>TreeWidgetColumn 1</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>TreeWidgetColumn 2</string>
+          </property>
+         </column>
+         <item>
+          <property name="text">
+           <string>TreeWidgetMainBranch</string>
+          </property>
+          <property name="text">
+           <string>This is a main branch.</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>TreeWidgetSubBranch 1</string>
+           </property>
+           <property name="text">
+            <string>This is a sub branch.</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>TreeWidgetItem 1</string>
+            </property>
+            <property name="text">
+             <string>This is a item.</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>TreeWidgetItem 2</string>
+            </property>
+            <property name="text">
+             <string>This is a item.</string>
+            </property>
+           </item>
+          </item>
+          <item>
+           <property name="text">
+            <string>TreeWidgetSubBranch 2</string>
+           </property>
+           <property name="text">
+            <string>This is a sub branch.</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>TreeWidgetItem 1</string>
+            </property>
+            <property name="text">
+             <string>This is a item.</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>TreeWidgetItem 2</string>
+            </property>
+            <property name="text">
+             <string>This is a item.</string>
+            </property>
+           </item>
+          </item>
+         </item>
+         <item>
+          <property name="text">
+           <string>TreeWidgetMainBranch Disabled</string>
+          </property>
+          <property name="text">
+           <string>This is a disabled main branch.</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableWidget">
+         <row>
+          <property name="text">
+           <string>TableWidgetRow 1</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>TableWidgetRow 2</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>TabelWidgetRow 3</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>TableWidgetRow 4</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>TableWidgetColumn 1</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>TableWidgetColumn 2</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>TableWidgetColumn 3</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>TableWidgetColumn 4</string>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string>0,0</string>
+          </property>
+         </item>
+         <item row="0" column="1">
+          <property name="text">
+           <string>1,0</string>
+          </property>
+         </item>
+         <item row="0" column="2">
+          <property name="text">
+           <string>2,0</string>
+          </property>
+         </item>
+         <item row="0" column="3">
+          <property name="text">
+           <string>3,0</string>
+          </property>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string>0,1</string>
+          </property>
+         </item>
+         <item row="1" column="1">
+          <property name="text">
+           <string>1,1</string>
+          </property>
+         </item>
+         <item row="1" column="2">
+          <property name="text">
+           <string>2,1</string>
+          </property>
+         </item>
+         <item row="1" column="3">
+          <property name="text">
+           <string>3,1</string>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string>0,2</string>
+          </property>
+         </item>
+         <item row="2" column="1">
+          <property name="text">
+           <string>1,2</string>
+          </property>
+         </item>
+         <item row="2" column="2">
+          <property name="text">
+           <string>2,2</string>
+          </property>
+         </item>
+         <item row="2" column="3">
+          <property name="text">
+           <string>3,2</string>
+          </property>
+         </item>
+         <item row="3" column="0">
+          <property name="text">
+           <string>0,3</string>
+          </property>
+         </item>
+         <item row="3" column="1">
+          <property name="text">
+           <string>1,3</string>
+          </property>
+         </item>
+         <item row="3" column="2">
+          <property name="text">
+           <string>2,3</string>
+          </property>
+         </item>
+         <item row="3" column="3">
+          <property name="text">
+           <string>3,3</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="title">
+       <string>Containers</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOn</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOn</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>-115</y>
+            <width>990</width>
+            <height>419</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QMdiArea" name="mdiArea"/>
+           </item>
+           <item>
+            <widget class="QToolBox" name="toolBox">
+             <property name="currentIndex">
+              <number>4</number>
+             </property>
+             <widget class="QWidget" name="page">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>970</width>
+                <height>74</height>
+               </rect>
+              </property>
+              <attribute name="label">
+               <string>Page 1</string>
+              </attribute>
+             </widget>
+             <widget class="QWidget" name="page_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>970</width>
+                <height>74</height>
+               </rect>
+              </property>
+              <attribute name="label">
+               <string>Page 2</string>
+              </attribute>
+             </widget>
+             <widget class="QWidget" name="page_5">
+              <attribute name="label">
+               <string>Page 3</string>
+              </attribute>
+             </widget>
+             <widget class="QWidget" name="page_6">
+              <attribute name="label">
+               <string>Page 4</string>
+              </attribute>
+             </widget>
+             <widget class="QWidget" name="page_7">
+              <attribute name="label">
+               <string>Page Disabled</string>
+              </attribute>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTabWidget" name="tabWidget">
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="tab">
+              <attribute name="title">
+               <string>Tab 1</string>
+              </attribute>
+             </widget>
+             <widget class="QWidget" name="tab_2">
+              <attribute name="title">
+               <string>Tab 2</string>
+              </attribute>
+             </widget>
+             <widget class="QWidget" name="tab_3">
+              <attribute name="title">
+               <string>Tab 3</string>
+              </attribute>
+             </widget>
+             <widget class="QWidget" name="tab_4">
+              <attribute name="title">
+               <string>Tab 4</string>
+              </attribute>
+             </widget>
+             <widget class="QWidget" name="tab_5">
+              <attribute name="title">
+               <string>Tab 5</string>
+              </attribute>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QStackedWidget" name="stackedWidget">
+             <widget class="QWidget" name="page_3"/>
+             <widget class="QWidget" name="page_4"/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="title">
+       <string>Input Widgets</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QComboBox" name="comboBox">
+         <item>
+          <property name="text">
+           <string>Item 1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Item 2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Item 3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Item 4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Item Disabled</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFontComboBox" name="fontComboBox"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="placeholderText">
+          <string>lineEdit</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="textEdit">
+         <property name="placeholderText">
+          <string>textEdit</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPlainTextEdit" name="plainTextEdit">
+         <property name="placeholderText">
+          <string>plainTextEdit</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinBox"/>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+       </item>
+       <item>
+        <widget class="QTimeEdit" name="timeEdit"/>
+       </item>
+       <item>
+        <widget class="QDateEdit" name="dateEdit"/>
+       </item>
+       <item>
+        <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+       </item>
+       <item>
+        <widget class="QDial" name="dial"/>
+       </item>
+       <item>
+        <widget class="QScrollBar" name="horizontalScrollBar">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="horizontalSlider">
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="invertedAppearance">
+          <bool>false</bool>
+         </property>
+         <property name="invertedControls">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QKeySequenceEdit" name="keySequenceEdit"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="title">
+       <string>Display widgets</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_7">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="textBrowser">
+         <property name="placeholderText">
+          <string>textBrowser</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGraphicsView" name="graphicsView"/>
+       </item>
+       <item>
+        <widget class="QCalendarWidget" name="calendarWidget"/>
+       </item>
+       <item>
+        <widget class="QLCDNumber" name="lcdNumber">
+         <property name="smallDecimalPoint">
+          <bool>true</bool>
+         </property>
+         <property name="digitCount">
+          <number>10</number>
+         </property>
+         <property name="mode">
+          <enum>QLCDNumber::Dec</enum>
+         </property>
+         <property name="intValue" stdset="0">
+          <number>1234567890</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>24</number>
+         </property>
+         <property name="format">
+          <string>Parent to slider: %p%</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1053</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <widget class="QMenu" name="menuSubmenu">
+     <property name="title">
+      <string>Submenu</string>
+     </property>
+     <addaction name="actionAction"/>
+     <addaction name="actionDisabledAction"/>
+    </widget>
+    <widget class="QMenu" name="menuDisabledSubmenu">
+     <property name="title">
+      <string>Disabled Submenu</string>
+     </property>
+     <addaction name="actionAction"/>
+     <addaction name="actionDisabledAction"/>
+    </widget>
+    <addaction name="separator"/>
+    <addaction name="menuSubmenu"/>
+    <addaction name="separator"/>
+    <addaction name="menuDisabledSubmenu"/>
+   </widget>
+   <widget class="QMenu" name="menuDisabledMenu">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="title">
+     <string>Disabled Menu</string>
+    </property>
+   </widget>
+   <addaction name="menuMenu"/>
+   <addaction name="menuDisabledMenu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="dockWidget">
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>This label is in a dockWidget.</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionAction">
+   <property name="text">
+    <string>Action</string>
+   </property>
+  </action>
+  <action name="actionDisabledAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Disabled Action</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
