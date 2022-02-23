@@ -18,6 +18,7 @@
 #include <QTimer>
 #include <QCloseEvent>
 #include <OTModules/wFbh/wfbh.h>
+#include <OTModules/wstyletest.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class wStart; }
@@ -66,6 +67,8 @@ private slots:
 
     void on_btnCreateShortcut_clicked();
 
+    void on_btnStyleTest_clicked();
+
 private:
     const QString moduleName = "wStart";
     Ui::wStart *ui;
@@ -80,6 +83,7 @@ private:
     wFirstSetup *WFIRSTSETUP;
     wAbout *WABOUT;
     wFbh *WFBH;
+    wStyleTest *WSTYLETEST;
 
     OTSettings set;
     OTMessage msg;
