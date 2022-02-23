@@ -24,6 +24,7 @@ private:
     const QString moduleName = "wStyleTest";
     Ui::wStyleTest *ui;
     OTSettings set;
+    OTMiscellaneous misc;
 };
 
 #endif // WSTYLETEST_H

@@ -10,19 +10,17 @@ wStyleTest::wStyleTest(QWidget *parent) :
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
-    adjustSize();
+    resize(misc.sizeWindow(0.4, 1));
     qDebug() << "UI set";
 
-    setWindowTitle(OTName + " - " + tr("settings"));
-    //ui->statusbar->showMessage(tr("Restart to apply all settings."));
+    setWindowTitle(OTName + " - " + tr("style test"));
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
 
     // StyleTest stuff
-    auto* model = qobject_cast<QStandardItemModel*>(ui->listWidget->model());
-    model->item(4)->setEnabled(false);
-    ui->listWidget->setCurrentIndex(model->item(4)->index());
+    ui->listWidget->item(4)->setFlags(ui->listWidget->item(4)->flags() & ~Qt::ItemIsSelectable);
+    ui->listWidget->setCurrentRow(4);
 
     ui->page_7->setEnabled(false);
     ui->tab_5->setEnabled(false);

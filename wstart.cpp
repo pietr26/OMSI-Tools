@@ -257,3 +257,11 @@ void wStart::on_btnCreateShortcut_clicked()
     QMessageBox::information(this, "Info", "Die gesetzte Verknüpfung muss jedoch noch modifiziert werden. Wie genau das funktioniert, kannst du im entsprechenden Thread im internen OWD-Forum sehen.");
 }
 
+/// \brief Opens style test
+void wStart::on_btnStyleTest_clicked()
+{
+    hide();
+    WSTYLETEST = new wStyleTest();
+    WSTYLETEST->show();
+}
+

@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>599</height>
+    <height>592</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -442,6 +442,17 @@
              <property name="icon">
               <iconset resource="ressources.qrc">
                <normaloff>:/rec/data/icons/iconDatabase.svg</normaloff>:/rec/data/icons/iconDatabase.svg</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnStyleTest">
+             <property name="text">
+              <string>StyleTest</string>
+             </property>
+             <property name="icon">
+              <iconset resource="ressources.qrc">
+               <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
              </property>
             </widget>
            </item>
