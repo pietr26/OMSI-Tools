@@ -23,7 +23,6 @@ wStyleTest::wStyleTest(QWidget *parent) :
     ui->listWidget->setCurrentRow(4);
 
     ui->page_7->setEnabled(false);
-    ui->tab_5->setEnabled(false);
 
     auto* model2 = qobject_cast<QStandardItemModel*>(ui->comboBox->model());
     model2->item(4)->setEnabled(false);
