@@ -1041,7 +1041,7 @@ public:
     }
 
     /// \brief Opens a font
-    OTFontModel openFont(QString path, const char *encoding = "ANSI")
+    OTFontModel openFont(QString path, bool utf8encoding = false)
     {
         OTFontModel font;
         font.path = path;
@@ -1057,9 +1057,12 @@ public:
 
         QTextStream in(&file);
 
-        qDebug() << "Encoding:" << encoding;
+        if (utf8encoding)
+        {
+            qDebug() << "Set encoding to UTF-8";
+            in.setEncoding(QStringConverter::Utf8);
+        }
 
-        //in.setEncoding(encoding);
         QString line;
         int fontCounter = 0;
 
@@ -1133,7 +1136,7 @@ public:
     }
 
     /// \brief Saves a font
-    bool saveFont(OTFontModel font, const char *encoding = "ANSI")
+    bool saveFont(OTFontModel font, bool utf8encoding = false)
     {
         QFile file(font.path);
 
@@ -1145,13 +1148,17 @@ public:
 
         QTextStream out(&file);
 
-        //out.setEncoding(encoding);
+        if (utf8encoding)
+        {
+            qDebug() << "Set encoding to UTF-8";
+            out.setEncoding(QStringConverter::Utf8);
+        }
 
         out << misc.writeFileHeader();
 
         QString extraHashs = "##";
 
-        // set in fontnameLength x "#" to cover the name complety
+        // set in fontnameLength x "#" to cover the name completely
         for (int i = 0; i < font.name.length(); i++)
             extraHashs += "#";
 
