@@ -481,7 +481,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen)
         tempFont.path = filen;
 
     selectAllAndClear();
-    tempFont = filehandler.openFont(tempFont.path, encoding);
+    tempFont = filehandler.openFont(tempFont.path, utf8encoding);
     if (tempFont.error)
     {
         if (method != OTFileMethods::silentOpen)
@@ -610,7 +610,7 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
 
         qDebug() << "Direct path:" << tempFont.path;
 
-        if (!filehandler.saveFont(tempFont, encoding))
+        if (!filehandler.saveFont(tempFont, utf8encoding))
         {
             if (method != OTFileMethods::backupSave)
             {
@@ -933,9 +933,9 @@ void wFonts::on_actionLoadTemplate_triggered()
 void wFonts::on_cobxEncoding_currentTextChanged()
 {
     if (ui->cobxEncoding->currentIndex() == 1)
-        encoding = "UTF-8";
+        utf8encoding = true;
     else
-        encoding = "ANSI";
+        utf8encoding = false;
 
     setUnsaved();
 }

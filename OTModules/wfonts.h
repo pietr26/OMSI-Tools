@@ -136,7 +136,7 @@ private:
 
     int maxRecentFileCount = 10;
 
-    const char *encoding = "ANSI";
+    bool utf8encoding = false;
     QStringListModel *strListChars;
 
     void setTitle(QString filen = "empty");
