@@ -105,7 +105,7 @@ QMenu::separator
 
 QMenu::item:disabled
 {
-    color: #555;
+    color: #656565;
     background-color: transparent;
     padding: 2px 20px 2px 20px;
 
@@ -287,7 +287,6 @@ QTabBar::tab
 
 QTabWidget::pane 
 {
-	background-color: red;
 	border: 1px solid #666;
 	top: 1px;
 
@@ -550,9 +549,8 @@ QListView
 QListView::disabled 
 {
 	background-color: #656565;
-	color: #1b1b1b;
+	color: #656565;
     border: 1px solid #656565;
-
 }
 
 
@@ -560,14 +558,12 @@ QListView::item
 {
 	background-color: #2d2d2d;
     padding: 1px;
-
 }
 
 
 QListView::item:alternate 
 {
     background-color: #3a3a3a;
-
 }
 
 
