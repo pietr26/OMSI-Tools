@@ -242,6 +242,12 @@ public:
         return windowSize;
     }
 
+    QPoint centerPosition(QWidget* parent)
+    {
+        QScreen *screen = QGuiApplication::primaryScreen();
+        return screen->geometry().center() - parent->rect().center();
+    }
+
     /// \brief Copies a text
     void copy(QString copytext)
     {
