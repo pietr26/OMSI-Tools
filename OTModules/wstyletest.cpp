@@ -13,10 +13,7 @@ wStyleTest::wStyleTest(QWidget *parent) :
     resize(misc.sizeWindow(0.4, 1));
     qDebug() << "UI set";
 
-    setWindowTitle(OTName + " - " + tr("style test"));
-
-    // Load settings
-    setStyleSheet(set.read("main", "theme").toString());
+    setWindowTitle(OTName + " - style test");
 
     // StyleTest stuff
     ui->listWidget->item(4)->setFlags(ui->listWidget->item(4)->flags() & ~Qt::ItemIsSelectable);
@@ -28,16 +25,32 @@ wStyleTest::wStyleTest(QWidget *parent) :
     model2->item(4)->setEnabled(false);
     ui->comboBox->setCurrentIndex(4);
 
+    connect(timer, &QTimer::timeout, this, &wStyleTest::loadStyleSheet);
+    timer->start(1000);
+
     qInfo().noquote() << moduleName + " started successfully.";
 }
 
 wStyleTest::~wStyleTest()
 {
+    delete timer;
     delete ui;
 }
 
 void wStyleTest::on_horizontalSlider_valueChanged(int value)
 {
     ui->progressBar->setValue(value);
+}
+
+void wStyleTest::loadStyleSheet()
+{
+    QFile themePath(ui->ledStyle->text());
+    if (themePath.open(QFile::ReadOnly | QFile::Text))
+    {
+        QTextStream in(&themePath);
+        QString content = in.readAll();
+        themePath.close();
+        setStyleSheet(content);
+    }
 }
 

@@ -365,18 +365,15 @@ public:
         if (name != "")
         {
             QFile themePath(":/rec/data/themes/" + name + ".qss");
-            if (themePath.exists())
+            if (!themePath.open(QFile::ReadOnly | QFile::Text))
+                write("main", "theme", "");
+            else
             {
-                if (!themePath.open(QFile::ReadOnly | QFile::Text))
-                    write("main", "theme", "");
-                else
-                {
-                    QTextStream in(&themePath);
-                    QString content = in.readAll();
-                    themePath.close();
-                    qDebug().noquote() << "Load stylesheet '" + QFileInfo(themePath).absoluteFilePath() + "'";
-                    return content;
-                }
+                QTextStream in(&themePath);
+                QString content = in.readAll();
+                themePath.close();
+                qDebug().noquote() << "Load stylesheet '" + QFileInfo(themePath).absoluteFilePath() + "'";
+                return content;
             }
 
             qDebug().noquote() << "Could not find stlyesheet '" + QFileInfo(themePath).absoluteFilePath() + "'!";

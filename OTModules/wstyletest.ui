@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1053</width>
-    <height>742</height>
+    <width>1004</width>
+    <height>847</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string notr="true">MainWindow</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../ressources.qrc">
@@ -20,30 +20,66 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_6">
     <item>
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string notr="true">This absolute path will be shown as stylesheet (auto apply):</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="ledStyle"/>
+    </item>
+    <item>
      <widget class="QTabWidget" name="twgMain">
       <property name="currentIndex">
-       <number>2</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
-        <string>Buttons</string>
+        <string notr="true">Buttons</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_9">
+       <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QCheckBox" name="checkBox">
             <property name="text">
-             <string>CheckBox</string>
+             <string notr="true">CheckBox</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox_3">
+            <property name="text">
+             <string notr="true">CheckBox</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
-             <string>CheckBox</string>
+             <string notr="true">Disabled CheckBox</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
@@ -52,39 +88,143 @@
           <item>
            <widget class="QRadioButton" name="radioButton_2">
             <property name="text">
-             <string>RadioButton</string>
+             <string notr="true">RadioButton</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_3">
+            <property name="text">
+             <string notr="true">RadioButton</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QRadioButton" name="radioButton">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
-             <string>RadioButton</string>
+             <string notr="true">Disabled RadioButton</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
-          <property name="text">
-           <string>PushButton</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string notr="true">PushButton</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string notr="true">Disabled PushButton</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton">
-          <property name="text">
-           <string>Toolbutton</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QToolButton" name="toolButton">
+            <property name="text">
+             <string notr="true">ToolButton</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButton_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string notr="true">Disabled ToolButton</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QCommandLinkButton" name="commandLinkButton">
-          <property name="text">
-           <string>CommandLinkButton</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QCommandLinkButton" name="commandLinkButton_2">
+            <property name="text">
+             <string notr="true">CommandLinkButton</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCommandLinkButton" name="commandLinkButton">
+            <property name="text">
+             <string notr="true">Disabled CommandLinkButton</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
          <spacer name="verticalSpacer">
@@ -103,129 +243,129 @@
       </widget>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
-        <string>Item Widgets</string>
+        <string notr="true">Item Widgets</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QTableWidget" name="tableWidget">
           <row>
            <property name="text">
-            <string>TableWidgetRow 1</string>
+            <string notr="true">TableWidgetRow 1</string>
            </property>
           </row>
           <row>
            <property name="text">
-            <string>TableWidgetRow 2</string>
+            <string notr="true">TableWidgetRow 2</string>
            </property>
           </row>
           <row>
            <property name="text">
-            <string>TabelWidgetRow 3</string>
+            <string notr="true">TabelWidgetRow 3</string>
            </property>
           </row>
           <row>
            <property name="text">
-            <string>TableWidgetRow 4</string>
+            <string notr="true">TableWidgetRow 4</string>
            </property>
           </row>
           <column>
            <property name="text">
-            <string>TableWidgetColumn 1</string>
+            <string notr="true">TableWidgetColumn 1</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>TableWidgetColumn 2</string>
+            <string notr="true">TableWidgetColumn 2</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>TableWidgetColumn 3</string>
+            <string notr="true">TableWidgetColumn 3</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>TableWidgetColumn 4</string>
+            <string notr="true">TableWidgetColumn 4</string>
            </property>
           </column>
           <item row="0" column="0">
            <property name="text">
-            <string>0,0</string>
+            <string notr="true">0,0</string>
            </property>
           </item>
           <item row="0" column="1">
            <property name="text">
-            <string>1,0</string>
+            <string notr="true">1,0</string>
            </property>
           </item>
           <item row="0" column="2">
            <property name="text">
-            <string>2,0</string>
+            <string notr="true">2,0</string>
            </property>
           </item>
           <item row="0" column="3">
            <property name="text">
-            <string>3,0</string>
+            <string notr="true">3,0</string>
            </property>
           </item>
           <item row="1" column="0">
            <property name="text">
-            <string>0,1</string>
+            <string notr="true">0,1</string>
            </property>
           </item>
           <item row="1" column="1">
            <property name="text">
-            <string>1,1</string>
+            <string notr="true">1,1</string>
            </property>
           </item>
           <item row="1" column="2">
            <property name="text">
-            <string>2,1</string>
+            <string notr="true">2,1</string>
            </property>
           </item>
           <item row="1" column="3">
            <property name="text">
-            <string>3,1</string>
+            <string notr="true">3,1</string>
            </property>
           </item>
           <item row="2" column="0">
            <property name="text">
-            <string>0,2</string>
+            <string notr="true">0,2</string>
            </property>
           </item>
           <item row="2" column="1">
            <property name="text">
-            <string>1,2</string>
+            <string notr="true">1,2</string>
            </property>
           </item>
           <item row="2" column="2">
            <property name="text">
-            <string>2,2</string>
+            <string notr="true">2,2</string>
            </property>
           </item>
           <item row="2" column="3">
            <property name="text">
-            <string>3,2</string>
+            <string notr="true">3,2</string>
            </property>
           </item>
           <item row="3" column="0">
            <property name="text">
-            <string>0,3</string>
+            <string notr="true">0,3</string>
            </property>
           </item>
           <item row="3" column="1">
            <property name="text">
-            <string>1,3</string>
+            <string notr="true">1,3</string>
            </property>
           </item>
           <item row="3" column="2">
            <property name="text">
-            <string>2,3</string>
+            <string notr="true">2,3</string>
            </property>
           </item>
           <item row="3" column="3">
            <property name="text">
-            <string>3,3</string>
+            <string notr="true">3,3</string>
            </property>
           </item>
          </widget>
@@ -234,76 +374,76 @@
          <widget class="QTreeWidget" name="treeWidget">
           <column>
            <property name="text">
-            <string>TreeWidgetColumn 1</string>
+            <string notr="true">TreeWidgetColumn 1</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>TreeWidgetColumn 2</string>
+            <string notr="true">TreeWidgetColumn 2</string>
            </property>
           </column>
           <item>
            <property name="text">
-            <string>TreeWidgetMainBranch</string>
+            <string notr="true">TreeWidgetMainBranch</string>
            </property>
            <property name="text">
-            <string>This is a main branch.</string>
+            <string notr="true">This is a main branch.</string>
            </property>
            <item>
             <property name="text">
-             <string>TreeWidgetSubBranch 1</string>
+             <string notr="true">TreeWidgetSubBranch 1</string>
             </property>
             <property name="text">
-             <string>This is a sub branch.</string>
+             <string notr="true">This is a sub branch.</string>
             </property>
             <item>
              <property name="text">
-              <string>TreeWidgetItem 1</string>
+              <string notr="true">TreeWidgetItem 1</string>
              </property>
              <property name="text">
-              <string>This is a item.</string>
+              <string notr="true">This is a item.</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>TreeWidgetItem 2</string>
+              <string notr="true">TreeWidgetItem 2</string>
              </property>
              <property name="text">
-              <string>This is a item.</string>
+              <string notr="true">This is a item.</string>
              </property>
             </item>
            </item>
            <item>
             <property name="text">
-             <string>TreeWidgetSubBranch 2</string>
+             <string notr="true">TreeWidgetSubBranch 2</string>
             </property>
             <property name="text">
-             <string>This is a sub branch.</string>
+             <string notr="true">This is a sub branch.</string>
             </property>
             <item>
              <property name="text">
-              <string>TreeWidgetItem 1</string>
+              <string notr="true">TreeWidgetItem 1</string>
              </property>
              <property name="text">
-              <string>This is a item.</string>
+              <string notr="true">This is a item.</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>TreeWidgetItem 2</string>
+              <string notr="true">TreeWidgetItem 2</string>
              </property>
              <property name="text">
-              <string>This is a item.</string>
+              <string notr="true">This is a item.</string>
              </property>
             </item>
            </item>
           </item>
           <item>
            <property name="text">
-            <string>TreeWidgetMainBranch Disabled</string>
+            <string notr="true">TreeWidgetMainBranch Disabled</string>
            </property>
            <property name="text">
-            <string>This is a disabled main branch.</string>
+            <string notr="true">This is a disabled main branch.</string>
            </property>
           </item>
          </widget>
@@ -312,27 +452,27 @@
          <widget class="QListWidget" name="listWidget">
           <item>
            <property name="text">
-            <string>ListWidgetItem 1</string>
+            <string notr="true">ListWidgetItem 1</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>ListWidgetItem 2</string>
+            <string notr="true">ListWidgetItem 2</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>ListWidgetItem 3</string>
+            <string notr="true">ListWidgetItem 3</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>ListWidgetItem 4</string>
+            <string notr="true">ListWidgetItem 4</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>ListWidgetItem Disabled</string>
+            <string notr="true">ListWidgetItem Disabled</string>
            </property>
           </item>
          </widget>
@@ -341,79 +481,466 @@
       </widget>
       <widget class="QWidget" name="tab_8">
        <attribute name="title">
-        <string>Input Widgets</string>
+        <string notr="true">Input Widgets</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QComboBox" name="comboBox">
+         <layout class="QHBoxLayout" name="horizontalLayout_16">
           <item>
-           <property name="text">
-            <string>Item 1</string>
-           </property>
+           <spacer name="horizontalSpacer_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
           <item>
-           <property name="text">
-            <string>Item 2</string>
-           </property>
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="text">
+             <string notr="true">Clear all</string>
+            </property>
+           </widget>
           </item>
-          <item>
-           <property name="text">
-            <string>Item 3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Item 4</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Item Disabled</string>
-           </property>
-          </item>
-         </widget>
+         </layout>
         </item>
         <item>
-         <widget class="QFontComboBox" name="fontComboBox"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_15">
+          <item>
+           <widget class="QComboBox" name="comboBox">
+            <item>
+             <property name="text">
+              <string notr="true">Item 1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">Item 2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">Item 3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">Item 4</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">Item Disabled</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <item>
+             <property name="text">
+              <string notr="true">Item 1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">Item 2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">Item 3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">Item 4</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">Item Disabled</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_19">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit">
-          <property name="placeholderText">
-           <string>lineEdit</string>
+         <layout class="QHBoxLayout" name="horizontalLayout_14">
+          <item>
+           <widget class="QFontComboBox" name="fontComboBox">
+            <property name="currentText">
+             <string notr="true">Segoe UI</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFontComboBox" name="fontComboBox_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_20">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_13">
+          <item>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="text">
+             <string notr="true">abc</string>
+            </property>
+            <property name="placeholderText">
+             <string notr="true">lineEdit</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string notr="true">abc</string>
+            </property>
+            <property name="placeholderText">
+             <string notr="true">Disabled lineEdit</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_21">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <item>
+           <widget class="QTextEdit" name="textEdit">
+            <property name="html">
+             <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;abc&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="placeholderText">
+             <string notr="true">textEdit</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="textEdit_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="html">
+             <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;abc&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="placeholderText">
+             <string notr="true">Disabled textEdit</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_22">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_11">
+          <item>
+           <widget class="QPlainTextEdit" name="plainTextEdit">
+            <property name="plainText">
+             <string notr="true">abc</string>
+            </property>
+            <property name="placeholderText">
+             <string notr="true">plainTextEdit</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPlainTextEdit" name="plainTextEdit_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="plainText">
+             <string notr="true">abc</string>
+            </property>
+            <property name="placeholderText">
+             <string notr="true">Disabled plainTextEdit</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_23">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string notr="true">spinBox:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QTextEdit" name="textEdit">
-          <property name="placeholderText">
-           <string>textEdit</string>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QSpinBox" name="spinBox"/>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="spinBox_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string notr="true">doubleSpinBox:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPlainTextEdit" name="plainTextEdit">
-          <property name="placeholderText">
-           <string>plainTextEdit</string>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string notr="true">timeEdit:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="spinBox"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <widget class="QTimeEdit" name="timeEdit"/>
+          </item>
+          <item>
+           <widget class="QTimeEdit" name="timeEdit_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string notr="true">dateEdit:</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QTimeEdit" name="timeEdit"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <item>
+           <widget class="QDateEdit" name="dateEdit"/>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="dateEdit_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QDateEdit" name="dateEdit"/>
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string notr="true">dateTimeEdit:</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_10">
+          <item>
+           <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+          </item>
+          <item>
+           <widget class="QDateTimeEdit" name="dateTimeEdit_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_10">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QDial" name="dial"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_17">
+          <item>
+           <widget class="QDial" name="dial"/>
+          </item>
+          <item>
+           <widget class="QDial" name="dial_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_24">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QScrollBar" name="horizontalScrollBar">
@@ -423,13 +950,44 @@
          </widget>
         </item>
         <item>
-         <widget class="QKeySequenceEdit" name="keySequenceEdit"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_18">
+          <item>
+           <widget class="QKeySequenceEdit" name="keySequenceEdit">
+            <property name="keySequence">
+             <string notr="true">Ctrl+T</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QKeySequenceEdit" name="keySequenceEdit_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="keySequence">
+             <string notr="true">Ctrl+T</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_25">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="tab_9">
        <attribute name="title">
-        <string>Containers</string>
+        <string notr="true">Containers</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_10">
         <item>
@@ -448,8 +1006,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>992</width>
-             <height>542</height>
+             <width>943</width>
+             <height>590</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -466,12 +1024,12 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>923</width>
+                 <height>74</height>
                 </rect>
                </property>
                <attribute name="label">
-                <string>Page 1</string>
+                <string notr="true">Page 1</string>
                </attribute>
               </widget>
               <widget class="QWidget" name="page_2">
@@ -479,12 +1037,12 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>923</width>
+                 <height>74</height>
                 </rect>
                </property>
                <attribute name="label">
-                <string>Page 2</string>
+                <string notr="true">Page 2</string>
                </attribute>
               </widget>
               <widget class="QWidget" name="page_5">
@@ -492,12 +1050,12 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
+                 <width>923</width>
+                 <height>74</height>
                 </rect>
                </property>
                <attribute name="label">
-                <string>Page 3</string>
+                <string notr="true">Page 3</string>
                </attribute>
               </widget>
               <widget class="QWidget" name="page_6">
@@ -505,25 +1063,28 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>100</width>
-                 <height>30</height>
-                </rect>
-               </property>
-               <attribute name="label">
-                <string>Page 4</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="page_7">
-               <property name="geometry">
-                <rect>
-                 <x>0</x>
-                 <y>0</y>
-                 <width>972</width>
+                 <width>923</width>
                  <height>74</height>
                 </rect>
                </property>
                <attribute name="label">
-                <string>Page Disabled</string>
+                <string notr="true">Page 4</string>
+               </attribute>
+              </widget>
+              <widget class="QWidget" name="page_7">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>923</width>
+                 <height>74</height>
+                </rect>
+               </property>
+               <attribute name="label">
+                <string notr="true">Page Disabled</string>
                </attribute>
               </widget>
              </widget>
@@ -542,70 +1103,304 @@
       </widget>
       <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>Display Widgets</string>
+        <string notr="true">Display Widgets</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QSlider" name="horizontalSlider">
-          <property name="maximum">
-           <number>100</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="invertedAppearance">
-           <bool>false</bool>
-          </property>
-          <property name="invertedControls">
-           <bool>false</bool>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_25">
+          <item>
+           <spacer name="horizontalSpacer_12">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_4">
+            <property name="text">
+             <string notr="true">Clear all</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QProgressBar" name="progressBar">
-          <property name="value">
-           <number>24</number>
-          </property>
-          <property name="format">
-           <string>Parent to slider: %p%</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_22">
+          <item>
+           <widget class="QSlider" name="horizontalSlider">
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="invertedAppearance">
+             <bool>false</bool>
+            </property>
+            <property name="invertedControls">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="horizontalSlider_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="invertedAppearance">
+             <bool>false</bool>
+            </property>
+            <property name="invertedControls">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_13">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_21">
+          <item>
+           <widget class="QProgressBar" name="progressBar">
+            <property name="value">
+             <number>24</number>
+            </property>
+            <property name="format">
+             <string notr="true">Parent to slider: %p%</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QProgressBar" name="progressBar_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="value">
+             <number>24</number>
+            </property>
+            <property name="format">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_14">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QTextBrowser" name="textBrowser">
-          <property name="placeholderText">
-           <string>textBrowser</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_20">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string notr="true">TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string notr="true">Disabled TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_15">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_19">
+          <item>
+           <widget class="QTextBrowser" name="textBrowser">
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
+            <property name="markdown">
+             <string notr="true">abc
+
+</string>
+            </property>
+            <property name="html">
+             <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;abc&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="placeholderText">
+             <string notr="true">textBrowser</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="textBrowser_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
+            <property name="markdown">
+             <string notr="true">abc
+
+</string>
+            </property>
+            <property name="html">
+             <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;abc&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="placeholderText">
+             <string notr="true">Disabled textBrowser</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_16">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QGraphicsView" name="graphicsView"/>
         </item>
         <item>
-         <widget class="QCalendarWidget" name="calendarWidget"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_23">
+          <item>
+           <widget class="QCalendarWidget" name="calendarWidget"/>
+          </item>
+          <item>
+           <widget class="QCalendarWidget" name="calendarWidget_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_17">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QLCDNumber" name="lcdNumber">
-          <property name="smallDecimalPoint">
-           <bool>true</bool>
-          </property>
-          <property name="digitCount">
-           <number>10</number>
-          </property>
-          <property name="mode">
-           <enum>QLCDNumber::Dec</enum>
-          </property>
-          <property name="intValue" stdset="0">
-           <number>1234567890</number>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_24">
+          <item>
+           <widget class="QLCDNumber" name="lcdNumber">
+            <property name="smallDecimalPoint">
+             <bool>true</bool>
+            </property>
+            <property name="digitCount">
+             <number>10</number>
+            </property>
+            <property name="mode">
+             <enum>QLCDNumber::Dec</enum>
+            </property>
+            <property name="intValue" stdset="0">
+             <number>1234567890</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLCDNumber" name="lcdNumber_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="smallDecimalPoint">
+             <bool>true</bool>
+            </property>
+            <property name="digitCount">
+             <number>10</number>
+            </property>
+            <property name="mode">
+             <enum>QLCDNumber::Dec</enum>
+            </property>
+            <property name="intValue" stdset="0">
+             <number>1234567890</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_18">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="Line" name="line">
@@ -625,17 +1420,17 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1053</width>
+     <width>1004</width>
      <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
     <property name="title">
-     <string>Menu</string>
+     <string notr="true">Menu</string>
     </property>
     <widget class="QMenu" name="menuSubmenu">
      <property name="title">
-      <string>Submenu</string>
+      <string notr="true">Submenu</string>
      </property>
      <addaction name="actionAction"/>
      <addaction name="actionDisabledAction"/>
@@ -645,7 +1440,7 @@
       <bool>false</bool>
      </property>
      <property name="title">
-      <string>Disabled Submenu</string>
+      <string notr="true">Disabled Submenu</string>
      </property>
      <addaction name="actionAction"/>
      <addaction name="actionDisabledAction"/>
@@ -666,7 +1461,7 @@
      </size>
     </property>
     <property name="title">
-     <string>Disabled Menu</string>
+     <string notr="true">Disabled Menu</string>
     </property>
    </widget>
    <addaction name="menuMenu"/>
@@ -682,7 +1477,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>This label is in a dockWidget.</string>
+        <string notr="true">This label is in a dockWidget.</string>
        </property>
       </widget>
      </item>
@@ -691,7 +1486,10 @@
   </widget>
   <action name="actionAction">
    <property name="text">
-    <string>Action</string>
+    <string notr="true">Action</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Action</string>
    </property>
   </action>
   <action name="actionDisabledAction">
@@ -699,12 +1497,336 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Disabled Action</string>
+    <string notr="true">Disabled Action</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Disabled Action</string>
    </property>
   </action>
  </widget>
  <resources>
   <include location="../ressources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>928</x>
+     <y>152</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>337</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>971</x>
+     <y>153</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>448</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>textEdit_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>957</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>659</x>
+     <y>303</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>plainTextEdit_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>961</x>
+     <y>146</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>659</x>
+     <y>340</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>textEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>968</x>
+     <y>146</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>337</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>plainTextEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>968</x>
+     <y>153</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>337</x>
+     <y>340</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>spinBox_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>934</x>
+     <y>145</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>104</x>
+     <y>375</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>spinBox</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>936</x>
+     <y>141</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>376</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>doubleSpinBox</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>950</x>
+     <y>142</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>435</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>doubleSpinBox_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>943</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>126</x>
+     <y>439</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>timeEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>927</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>513</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>timeEdit_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>953</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>113</x>
+     <y>502</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>dateEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>958</x>
+     <y>153</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>87</x>
+     <y>562</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>dateEdit_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>952</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>180</x>
+     <y>574</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>dateTimeEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>901</x>
+     <y>161</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>132</x>
+     <y>632</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>dateTimeEdit_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>937</x>
+     <y>152</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>234</x>
+     <y>625</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>keySequenceEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>961</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>306</x>
+     <y>721</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>keySequenceEdit_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>943</x>
+     <y>145</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>524</x>
+     <y>722</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>textBrowser_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>955</x>
+     <y>151</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>550</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>textBrowser</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>939</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>219</x>
+     <y>309</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
