@@ -27,6 +27,7 @@ wStyleTest::wStyleTest(QWidget *parent) :
 
     connect(timer, &QTimer::timeout, this, &wStyleTest::loadStyleSheet);
     timer->start(1000);
+    ui->ledStyle->setText(set.read(moduleName, "testStylesheet").toString());
 
     qInfo().noquote() << moduleName + " started successfully.";
 }
