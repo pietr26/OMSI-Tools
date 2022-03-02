@@ -52,5 +52,7 @@ void wStyleTest::loadStyleSheet()
         themePath.close();
         setStyleSheet(content);
     }
+
+    set.write(moduleName, "testStylesheet", ui->ledStyle->text());
 }
 
