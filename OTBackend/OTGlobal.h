@@ -245,7 +245,7 @@ public:
     QPoint centerPosition(QWidget* parent)
     {
         QScreen *screen = QGuiApplication::primaryScreen();
-        return screen->geometry().center() - (parent->rect().center() * 0.5);
+        return screen->geometry().center() - parent->rect().center();
     }
 
     /// \brief Copies a text
