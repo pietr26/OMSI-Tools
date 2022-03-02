@@ -32,7 +32,7 @@
     <item>
      <widget class="QTabWidget" name="twgMain">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
@@ -621,6 +621,13 @@
          </layout>
         </item>
         <item>
+         <widget class="QLabel" name="label_10">
+          <property name="text">
+           <string notr="true">lineEdit:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_13">
           <item>
            <widget class="QLineEdit" name="lineEdit">
@@ -659,6 +666,13 @@
            </spacer>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string notr="true">textEdit:</string>
+          </property>
+         </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_12">
@@ -707,6 +721,13 @@ p, li { white-space: pre-wrap; }
            </spacer>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_12">
+          <property name="text">
+           <string notr="true">plainTextEdit:</string>
+          </property>
+         </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_11">
