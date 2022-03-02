@@ -20,11 +20,14 @@ public:
 private slots:
     void on_horizontalSlider_valueChanged(int value);
 
+    void loadStyleSheet();
+
 private:
     const QString moduleName = "wStyleTest";
     Ui::wStyleTest *ui;
     OTSettings set;
     OTMiscellaneous misc;
+    QTimer *timer = new QTimer(this);
 };
 
 #endif // WSTYLETEST_H
