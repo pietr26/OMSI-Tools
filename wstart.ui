@@ -423,7 +423,7 @@
               <string/>
              </property>
              <property name="text">
-              <string>DevTools</string>
+              <string notr="true">DevTools</string>
              </property>
              <property name="icon">
               <iconset resource="ressources.qrc">
@@ -448,7 +448,7 @@
            <item>
             <widget class="QPushButton" name="btnStyleTest">
              <property name="text">
-              <string>StyleTest</string>
+              <string notr="true">StyleTest</string>
              </property>
              <property name="icon">
               <iconset resource="ressources.qrc">
