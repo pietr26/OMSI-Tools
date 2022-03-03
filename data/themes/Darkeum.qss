@@ -1,4 +1,4 @@
-/* Darkeum
+/*
 Copyright (c) DevSec Studio. All rights reserved.
 
 MIT License
@@ -509,57 +509,13 @@ QGroupBox::title::disabled
 QCheckBox::disabled
 {
 	color: #656565;
-
 }
 
 
 /*-----QRadioButton-----*/
-QRadioButton::indicator::unchecked
-{ 
-	border: 2px inset gray; 
-	border-radius: 5px; 
-	background-color:  #fff;
-	width: 9px; 
-	height: 9px; 
-
-}
-
-
-QRadioButton::indicator::unchecked:hover
-{ 
-	border: 2px solid #607cff; 
-	border-radius: 5px; 
-	background-color:  #fff;
-	width: 9px; 
-	height: 9px; 
-
-}
-
-
-QRadioButton::indicator::checked
-{ 
-	border: 2px inset darkgray; 
-	border-radius: 5px; 
-	background-color: #4969ff; 
-	width: 9px; 
-	height: 9px; 
-
-}
-
-
 QRadioButton::disabled
 {
 	color: #656565;
-
-}
-
-
-QRadioButton::indicator:disabled
-{
-	background-color: #656565;
-	color: #656565;
-    border: 2px solid #656565;
-
 }
 
 

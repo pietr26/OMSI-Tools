@@ -1,4 +1,4 @@
-/* Combinear
+/*
 Copyright (c) DevSec Studio. All rights reserved.
 
 MIT License
@@ -28,7 +28,6 @@ QWidget
 	color: #fff;
 	selection-background-color: #b78620;
 	selection-color: #000;
-
 }
 
 
@@ -37,7 +36,11 @@ QLabel
 {
 	background-color: transparent;
 	color: #fff;
+}
 
+QLabel::disabled
+{
+	color: #656565;
 }
 
 
@@ -116,8 +119,6 @@ QMenu::item:selected
 {
     background-color: rgba(183, 134, 32, 20%);
     border: 1px solid #b78620;
-
-
 }
 
 
@@ -129,7 +130,6 @@ QToolBar
 	border-bottom: 1px solid #4f4f4f;
 	border-left: 1px solid #4f4f4f;
 	border-right: 1px solid #4f4f4f;
-
 }
 
 
@@ -240,7 +240,11 @@ QLineEdit
 	border-radius: 3px;
 	padding: 3px;
 	padding-left: 5px;
+}
 
+QLineEdit::disabled
+{
+	color: #656565;
 }
 
 
@@ -253,8 +257,13 @@ QPlainTextEdit
 	border-radius: 2px;
 	padding: 3px;
 	padding-left: 5px;
-
 }
+
+QPlainTextEdit::disabled
+{
+	color: #656565;
+}
+
 
 /*-----QTextEdit-----*/
 QTextEdit
@@ -265,7 +274,11 @@ QTextEdit
 	border-radius: 3px;
 	padding: 3px;
 	padding-left: 5px;
+}
 
+QTextEdit::disabled
+{
+	color: #656565;
 }
 
 
@@ -278,7 +291,7 @@ QTabBar::tab
 	border-width: 1px;
 	border-color: #666;
 	border-bottom: none;
-	padding: 5px;
+	padding: 2px;
 	padding-left: 15px;
 	padding-right: 15px;
 
@@ -378,6 +391,7 @@ QComboBox::drop-down:hover
 
 /*-----QSpinBox & QDateTimeEdit-----*/
 QSpinBox,
+QDoubleSpinBox,
 QDateTimeEdit 
 {
     background-color: #131313;
@@ -388,10 +402,10 @@ QDateTimeEdit
     border-radius: 3px;
 }
 
-QSpinBox::disabled, 
+QSpinBox::disabled,
+QDoubleSpinBox::disabled,
 QDateTimeEdit::disabled
 {
-	background-color: #575553;
 	color: #7F7F7F;
 }
 
@@ -492,12 +506,9 @@ QTreeView
 	selection-color: #fff;
 	background-color: #2d2d2d;
 	border: 1px solid gray;
-	padding-top : 5px;
 	color: #fff;
 	font: 8pt;
-
 }
-
 
 QTreeView::item:selected
 {
@@ -598,7 +609,6 @@ QListView::item:hover {
     background-color: #262626;
     border: none;
     color: white;
-
 }
 
 
@@ -608,13 +618,11 @@ QCheckBox
 	background-color: transparent;
     color: lightgray;
 	border: none;
-
 }
 
 QCheckBox::disabled
 {
 	color: #656565;
-
 }
 
 
@@ -623,7 +631,6 @@ QRadioButton
 {
 	color: lightgray;
 	background-color: #3a3a3a;
-
 }
 
 
@@ -634,37 +641,28 @@ QRadioButton::indicator::unchecked:hover
 	border-radius: 6px;
 }
 
-
-QRadioButton::indicator::checked 
+QRadioButton::disabled
 {
-	border: 2px solid #b78620;
-	border-radius: 6px;
-	background-color: rgba(183,134,32,20%);  
-
-
+	color: #656565;
 }
-
 
 /*-----QSlider-----*/
 QSlider::groove:horizontal 
 {
 	background-color: transparent;
 	height: 3px;
-
 }
 
 
 QSlider::sub-page:horizontal 
 {
 	background-color: #b78620;
-
 }
 
 
 QSlider::add-page:horizontal 
 {
 	background-color: #131313;
-
 }
 
 
@@ -675,7 +673,6 @@ QSlider::handle:horizontal
 	margin-top: -6px;
 	margin-bottom: -6px;
 	border-radius: 6px;
-
 }
 
 
@@ -683,32 +680,24 @@ QSlider::handle:horizontal:hover
 {
 	background-color: #d89e25;
 	border-radius: 6px;
-
 }
 
 
 QSlider::sub-page:horizontal:disabled 
 {
-	background-color: #bbb;
-	border-color: #999;
-
+	background-color: #656565;
 }
 
 
 QSlider::add-page:horizontal:disabled 
 {
-	background-color: #eee;
-	border-color: #999;
-
+	background-color: #656565;
 }
 
 
 QSlider::handle:horizontal:disabled 
 {
-	background-color: #eee;
-	border: 1px solid #aaa;
-	border-radius: 3px;
-
+	background-color: #656565;
 }
 
 
@@ -859,8 +848,8 @@ QProgressBar
 QProgressBar::chunk
 {
     background-color: #b78620;
-    width: 30px;
-    margin: 0.5px;
+    width: 20px;
+    margin: 1.5px;
 
 }
 
