@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>592</height>
+    <height>598</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -248,20 +248,6 @@
            <string>Miscellaneous</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_6">
-           <item>
-            <widget class="QPushButton" name="btnVehicleList">
-             <property name="toolTip">
-              <string/>
-             </property>
-             <property name="text">
-              <string>Vehicle list</string>
-             </property>
-             <property name="icon">
-              <iconset resource="ressources.qrc">
-               <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
-             </property>
-            </widget>
-           </item>
            <item>
             <widget class="QPushButton" name="btnBackup">
              <property name="enabled">

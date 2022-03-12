@@ -6,7 +6,6 @@
 #include "OTModules/wfonts.h"
 #include "OTModules/wVerifyMap/wverifymap.h"
 #include "OTBackend/OTGlobal.h"
-#include "OTModules/wVehicleList/wvehiclelist.h"
 #include "wabout.h"
 #include "OTModules/wdevtools.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
@@ -75,7 +74,6 @@ private:
     wSettings *WSETTINGS;
     wFonts *WFONTS;
     wVerifyMap *WVERIFYMAP;
-    wVehicleList *WVEHICLELIST;
     wDevTools *WDEVTOOLS;
     wDBPanel *WDBPANEL;
     wContentSearch *WCONTENTSEARCH;
