@@ -17,7 +17,7 @@
    <string notr="true">wVerifyMap</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="../../ressources.qrc">
     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
   </property>
   <property name="tabShape">
@@ -56,7 +56,7 @@
           <string>...</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
          </property>
         </widget>
@@ -72,7 +72,7 @@
          <string>Show settings</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../../ressources.qrc">
           <normaloff>:/rec/data/icons/iconTabClosed.svg</normaloff>:/rec/data/icons/iconTabClosed.svg</iconset>
         </property>
        </widget>
@@ -100,7 +100,6 @@
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -114,7 +113,7 @@
          <string>Start verifying</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../../ressources.qrc">
           <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
         </property>
        </widget>
@@ -128,14 +127,36 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_12">
        <item>
-        <widget class="QCheckBox" name="cbxAdvancedVerifying">
-         <property name="toolTip">
-          <string>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</string>
-         </property>
-         <property name="text">
-          <string>Advanced verifying</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QCheckBox" name="cbxAdvancedVerifying">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</string>
+           </property>
+           <property name="text">
+            <string>Advanced verifying</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>not recommended for quick verification</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QCheckBox" name="cbxOnlyMapTextures">
@@ -217,7 +238,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../../ressources.qrc">
               <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
@@ -309,7 +330,6 @@
            <widget class="QLineEdit" name="ledMapName">
             <property name="font">
              <font>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -399,7 +419,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../../ressources.qrc">
               <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
@@ -494,7 +514,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../../ressources.qrc">
               <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
@@ -521,7 +541,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../../ressources.qrc">
               <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
@@ -550,7 +570,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../../ressources.qrc">
               <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
@@ -583,7 +603,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="../../ressources.qrc">
               <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
@@ -1415,7 +1435,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
    </property>
    <property name="text">
@@ -1427,7 +1447,7 @@
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
    </property>
    <property name="text">
@@ -1439,7 +1459,7 @@
   </action>
   <action name="actionStartVerifying">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
    </property>
    <property name="text">
@@ -1451,7 +1471,7 @@
   </action>
   <action name="actionSettings">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
    </property>
    <property name="text">
@@ -1463,7 +1483,7 @@
   </action>
   <action name="actionEditIgnorelist">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconUnvisible.svg</normaloff>:/rec/data/icons/iconUnvisible.svg</iconset>
    </property>
    <property name="text">
@@ -1475,7 +1495,7 @@
   </action>
   <action name="actionAdjustWindowSize">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconResize.svg</normaloff>:/rec/data/icons/iconResize.svg</iconset>
    </property>
    <property name="text">
@@ -1487,7 +1507,7 @@
   </action>
   <action name="actionSendFeedback">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
    </property>
    <property name="text">
@@ -1498,6 +1518,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>
