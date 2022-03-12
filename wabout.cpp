@@ -36,7 +36,8 @@ wAbout::wAbout(QWidget *parent) :
                                 QString("<li><b>Bamp</b> (%1)</li>").arg(tr("founder & head", "Meaning of 'head': A management role")) +
                                 QString("<li><b>Dari19</b> | <b>der_Nik_</b> | <b>DerGrafikfehler</b> | <b>Erilambus</b> | <b>fOcUs04</b> | <b>MeerrettichMeister</b> | <b>PingPong</b> | <b>SGTVP</b> | <b>TobiB</b> (%1)</li>").arg(tr("beta test")) +
                                 QString("<li><b>Dari19</b> (%1)</li>").arg(tr("italian translations")) +
-                                QString("<li><b>PG_97</b> (%1)</li>").arg(tr("french translations")) + "</ul>";
+                                QString("<li><b>PG_97</b> (%1)</li>").arg(tr("french translations")) +
+                                QString("<li><b>tfc</b> (%1)</li>").arg(tr("czech translations")) + "</ul>";
 
     ui->teedAbout->setHtml(aboutText);
 
