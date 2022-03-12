@@ -29,7 +29,6 @@ wStart::wStart(QWidget *parent)
     else
         isNoRelease = true;
 
-    ui->btnVehicleList->setEnabled(isNoRelease);
     ui->btnSimulateCrash->setVisible(isNoRelease);
     ui->gbxDevTools->setVisible(isNoRelease);
     ui->actionSendFeedback->setVisible(isNoRelease);
