@@ -180,15 +180,6 @@ void wStart::on_btnVerifyMap_clicked()
     WVERIFYMAP->show();
 }
 
-/// \brief Opens vehicle lists module
-void wStart::on_btnVehicleList_clicked()
-{
-    msg.WIP(this);
-    hide();
-    WVEHICLELIST = new wVehicleList();
-    WVEHICLELIST->show();
-}
-
 /// \brief Opens DevTools
 void wStart::on_btnDevTools_clicked()
 {
