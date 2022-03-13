@@ -44,8 +44,6 @@ private slots:
 
     void on_btnVerifyMap_clicked();
 
-    void on_btnVehicleList_clicked();
-
     void on_btnDevTools_clicked();
 
     void on_btnDBPanel_clicked();
