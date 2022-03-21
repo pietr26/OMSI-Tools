@@ -66,7 +66,7 @@ private:
     QString link;
     QString currentLinkID;
 
-    void removeCurrentFromList();
+    void removeCurrentFromList(bool all = false);
     void selectNew();
     void reloadSelectGroupBoxes();
     QString checkLinkID();

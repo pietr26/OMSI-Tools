@@ -284,16 +284,28 @@ void wDBPanel::on_btnOpenFolder_clicked()
 }
 
 /// \brief Removes current from duplicate list
-void wDBPanel::removeCurrentFromList()
+void wDBPanel::removeCurrentFromList(bool all)
 {
-    int at = ui->lvwDuplicates->currentIndex().row();
-    models.removeAt(at);
-    paths.removeAt(at);
+    if (all)
+    {
+        models.clear();
+        paths.clear();
+
+        strListModelDuplicates->setStringList(paths);
+        ui->lvwDuplicates->setModel(strListModelDuplicates);
+    }
+    else
+    {
+        int at = ui->lvwDuplicates->currentIndex().row();
+        models.removeAt(at);
+        paths.removeAt(at);
+    }
 
     strListModelDuplicates->setStringList(paths);
     ui->lvwDuplicates->setModel(strListModelDuplicates);
     reloadSelectGroupBoxes();
 
+    // Put in an empty model to the single view
     QSqlQueryModel *model = new QSqlQueryModel();
     model->clear();
     ui->tvwDuplicates->setModel(model);
@@ -349,10 +361,6 @@ void wDBPanel::on_btnSelectAllOld_clicked()
     ui->pgbProgress->setValue(0);
     ui->pgbProgress->setMaximum(0);
 
-    QElapsedTimer timer;
-    timer.start();
-    int rowCount = strListModelDuplicates->rowCount();
-
     while (strListModelDuplicates->rowCount() >= 1)
     {
         ui->statusbar->showMessage(QString("%1 elements remaining...").arg(strListModelDuplicates->rowCount()), 1000);
@@ -364,7 +372,7 @@ void wDBPanel::on_btnSelectAllOld_clicked()
     ui->pgbProgress->setValue(0);
     ui->pgbProgress->setMaximum(1);
 
-    ui->statusbar->showMessage(QString("Finished - Needed %1 sec for %2 files").arg(QString::number(timer.elapsed() / 1000), QString::number(rowCount)));
+    ui->statusbar->showMessage("Finished.");
 }
 
 /// \brief Merge function for select new buttons
