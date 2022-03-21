@@ -212,6 +212,9 @@ void wDBPanel::on_btnStart_clicked()
 
     qInfo().noquote() << "Starting database comparision / appending...";
 
+    QElapsedTimer timer;
+    timer.start();
+
     foreach (QString current, files)
     {
         i++;
@@ -244,7 +247,7 @@ void wDBPanel::on_btnStart_clicked()
     setEnabled(true);
     reloadSelectGroupBoxes();
 
-    ui->statusbar->showMessage("Finished!", 3000);
+    ui->statusbar->showMessage(QString("Finished - Needed %1 sec for %2 files").arg(QString::number(timer.elapsed() / 1000), QString::number(files.count())));
     qInfo() << "database comparision / appending finished.";
 }
 
@@ -346,6 +349,10 @@ void wDBPanel::on_btnSelectAllOld_clicked()
     ui->pgbProgress->setValue(0);
     ui->pgbProgress->setMaximum(0);
 
+    QElapsedTimer timer;
+    timer.start();
+    int rowCount = strListModelDuplicates->rowCount();
+
     while (strListModelDuplicates->rowCount() >= 1)
     {
         ui->statusbar->showMessage(QString("%1 elements remaining...").arg(strListModelDuplicates->rowCount()), 1000);
@@ -356,6 +363,8 @@ void wDBPanel::on_btnSelectAllOld_clicked()
 
     ui->pgbProgress->setValue(0);
     ui->pgbProgress->setMaximum(1);
+
+    ui->statusbar->showMessage(QString("Finished - Needed %1 sec for %2 files").arg(QString::number(timer.elapsed() / 1000), QString::number(rowCount)));
 }
 
 /// \brief Merge function for select new buttons
