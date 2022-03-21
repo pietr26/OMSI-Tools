@@ -361,13 +361,7 @@ void wDBPanel::on_btnSelectAllOld_clicked()
     ui->pgbProgress->setValue(0);
     ui->pgbProgress->setMaximum(0);
 
-    while (strListModelDuplicates->rowCount() >= 1)
-    {
-        ui->statusbar->showMessage(QString("%1 elements remaining...").arg(strListModelDuplicates->rowCount()), 1000);
-        qApp->processEvents();
-        ui->lvwDuplicates->setCurrentIndex(strListModelDuplicates->index(0));
-        removeCurrentFromList();
-    }
+    removeCurrentFromList(true);
 
     ui->pgbProgress->setValue(0);
     ui->pgbProgress->setMaximum(1);
