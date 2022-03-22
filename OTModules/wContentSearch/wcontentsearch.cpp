@@ -361,6 +361,8 @@ void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
 
     if (information.contains("%chromeDL%"))
         information.replace("%chromeDL%", tr("Downloading might not work with Google Chrome.") + "\n");
+    else if (information.contains("%directDL%"))
+        information.replace("%directDL%", tr("Direct download link - the download will start directly after opening the URL.") + "\n");
     else if (information.contains("%PASSWORD%"))
         information.replace("%PASSWORD%", tr("Archive password:") + " ");
 
