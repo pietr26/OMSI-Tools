@@ -6,6 +6,9 @@
 #include "OTBackend/OTDatabaseHandler.h"
 #include <QtSql>
 
+// Function for time measurement:
+//      f(x) = 0.0283x - 53.492
+
 namespace Ui {
 class wDBPanel;
 }
@@ -70,6 +73,8 @@ private:
     void selectNew();
     void reloadSelectGroupBoxes();
     QString checkLinkID();
+
+    void reloadTimeMeasurement(int remaining);
 };
 
 #endif // WDBPANEL_H
