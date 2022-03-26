@@ -22,6 +22,8 @@ private slots:
 
     void loadStyleSheet();
 
+    void on_toolButton_clicked();
+
 private:
     const QString moduleName = "wStyleTest";
     Ui::wStyleTest *ui;

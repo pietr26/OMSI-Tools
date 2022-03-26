@@ -59,3 +59,9 @@ void wStyleTest::loadStyleSheet()
     set.write(moduleName, "testStylesheet", ui->ledStyle->text());
 }
 
+
+void wStyleTest::on_toolButton_clicked()
+{
+    ui->toolButton->showMenu();
+}
+
