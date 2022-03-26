@@ -149,6 +149,11 @@ QString wDBPanel::checkLinkID()
     return qryLinkModel->index(0, 0).data().toString();
 }
 
+void wDBPanel::reloadTimeMeasurement(int remaining)
+{
+    ui->statusbar->showMessage(QString("Estimated remaining time: %1s").arg(qRound(0.0283 * remaining)));
+}
+
 void wDBPanel::on_btnStart_clicked()
 {
     if ((!QDir(ui->ledDirectory->text()).exists()) || (ui->ledDirectory->text() == ""))
@@ -217,6 +222,7 @@ void wDBPanel::on_btnStart_clicked()
 
     foreach (QString current, files)
     {
+        reloadTimeMeasurement(files.count() - i);
         i++;
         qApp->processEvents();
 
@@ -248,6 +254,7 @@ void wDBPanel::on_btnStart_clicked()
     reloadSelectGroupBoxes();
 
     ui->statusbar->showMessage(QString("Finished - Needed %1 sec for %2 files").arg(QString::number(timer.elapsed() / 1000), QString::number(files.count())));
+
     qInfo() << "database comparision / appending finished.";
 }
 
