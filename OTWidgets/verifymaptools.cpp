@@ -55,7 +55,7 @@ void verifyMapTools::search(QListWidget *lwg)
 {
     QStringList paths;
     foreach(QListWidgetItem* current, lwg->selectedItems())
-        paths << set.read("main", "mainDir").toString() + "/" + current->text();
+        paths << current->text();
 
     if (!paths.empty())
     {
