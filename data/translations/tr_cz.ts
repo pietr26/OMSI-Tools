@@ -641,6 +641,11 @@ Please use plural; Optional original text: &apos;Standard files&apos;</comment>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="365"/>
+        <source>Direct download link - the download will start directly after opening the URL.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="367"/>
         <source>Archive password:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -784,7 +789,7 @@ Please use plural; Optional original text: &apos;Standard files&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="704"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="706"/>
         <source>Close</source>
         <translation type="unfinished">Zavřít</translation>
     </message>
@@ -867,17 +872,17 @@ reasons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="660"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="662"/>
         <source>Information:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="670"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="672"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="701"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="703"/>
         <source>Schließen</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1779,28 +1784,28 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Poslat zpětnou vazbu</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="79"/>
+        <location filename="../../wstart.cpp" line="78"/>
         <source>No updates available.</source>
         <translation>Není dostupná žádná nová aktualizace.</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="172"/>
+        <location filename="../../wstart.cpp" line="171"/>
         <source>Coming soon!</source>
         <translation>Již brzy!</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="172"/>
+        <location filename="../../wstart.cpp" line="171"/>
         <source>Where should I release my modification?</source>
         <comment>Note #1</comment>
         <translation>Kde bych měl vydat svoji modifikaci?</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="210"/>
+        <location filename="../../wstart.cpp" line="209"/>
         <source>Simulate crash</source>
         <translation>Simulovat pád aplikace</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="210"/>
+        <location filename="../../wstart.cpp" line="209"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Měl by být simulován pád aplikace?</translation>
     </message>
@@ -1833,7 +1838,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
 <context>
     <name>wStartUpScreen</name>
     <message>
-        <location filename="../../wstartupscreen.ui" line="105"/>
+        <location filename="../../wstartupscreen.ui" line="106"/>
         <source>Loading UI...</source>
         <extracomment>&apos;UI&apos; = User Interface</extracomment>
         <translation>Načítám UI...</translation>
@@ -1922,63 +1927,63 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="113"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1466"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1467"/>
         <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="539"/>
         <source>Start verifying</source>
         <translation>Začít kontrolu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="164"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="165"/>
         <source>Show only map textures</source>
         <translation>Zobrazit pouze mapové textury</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="205"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="206"/>
         <source>Overview and statistics about the map</source>
         <translation>Přehled a statistiky o mapě</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="208"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="209"/>
         <source>Overview</source>
         <translation>Přehled</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1223"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1224"/>
         <source>Humans</source>
         <translation>Lidé</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="617"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="618"/>
         <source>Tiles</source>
         <translation>Tily</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="875"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="876"/>
         <source>Sceneryobjects</source>
         <translation>Sceneryobjects</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="995"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="996"/>
         <source>Splines</source>
         <translation>Splines</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1109"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1110"/>
         <source>Vehicles</source>
         <translation>Vozidla</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="722"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="845"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="962"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1079"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1193"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1307"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="723"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="846"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="963"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1080"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1194"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1308"/>
         <source>ignored</source>
         <translation>ignorováno</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="872"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="873"/>
         <source>Sceneryobjects on the map</source>
         <translation>Sceneryobjects v mapě</translation>
     </message>
@@ -1989,163 +1994,163 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Zobrazit nastavení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="992"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="156"/>
+        <source>(not recommended for quick verification)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="993"/>
         <source>Splines on the map</source>
         <translation>Splines na mapě</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1106"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1107"/>
         <source>AI vehicles on the map</source>
         <translation>AI vozidla v mapě</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1220"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1221"/>
         <source>Humans on the map</source>
         <translation>Lidé v mapě</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1409"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1410"/>
         <source>Map</source>
         <translation>Mapa</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1418"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1419"/>
         <source>Specials</source>
         <translation>Speciální</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1427"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1428"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1442"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1443"/>
         <source>Open</source>
         <translation>Otevřít</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1454"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1455"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="126"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1478"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1479"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="155"/>
-        <source>not recommended for quick verification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="279"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="280"/>
         <source>Total:</source>
         <translation>Celkem:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="312"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="313"/>
         <source>Tiles:</source>
         <translation>Tily:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="370"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="371"/>
         <source>Vehicles:</source>
         <translation>Vozidla:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="406"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="407"/>
         <source>Sceneryobjects:</source>
         <translation>Sceneryobjects:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="433"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="434"/>
         <source>Splines:</source>
         <translation>Splines:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="449"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="450"/>
         <source>Textures:</source>
         <translation>Textury:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="459"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="460"/>
         <source>Missing (or invalid):</source>
         <translation>Chybějící (nebo neplatné):</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="587"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="588"/>
         <source>Humans:</source>
         <translation>Lidé:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="630"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="631"/>
         <source>All tiles:</source>
         <translation>Všechny tily:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="683"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="684"/>
         <source>Missing tiles:</source>
         <translation>Chybějící tily:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="771"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="772"/>
         <source>All textures:</source>
         <translation>Všechny textury:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="806"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="807"/>
         <source>Missing textures:</source>
         <translation>Chybějící textury:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="888"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="889"/>
         <source>All sceneryobjects:</source>
         <translation>Všechny Sceneryobjects:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="923"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="924"/>
         <source>Missing / invalid sceneryobjects:</source>
         <translation>Chybějící / neplatné Sceneryobjects:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1008"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1009"/>
         <source>All splines:</source>
         <translation>Všechny splines:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1040"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1041"/>
         <source>Missing / invalid splines:</source>
         <translation>Chybějící / neplatné splines:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1122"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1123"/>
         <source>All vehicles:</source>
         <translation>Všechny vozidla:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1154"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1155"/>
         <source>Missing vehicles:</source>
         <translation>Chybějící vozidla:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1236"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1237"/>
         <source>All humans:</source>
         <translation>Všichni lidé:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1268"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1269"/>
         <source>Missing humans:</source>
         <translation>Chybějící lidé:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1490"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1491"/>
         <source>Edit ignorelist</source>
         <translation>Upravit seznam ignorovaných</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1514"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1515"/>
         <source>Send feedback</source>
         <translation>Poslat zpětnou vazbu</translation>
     </message>
@@ -2176,12 +2181,12 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Pokročilá kontrola</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="758"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="759"/>
         <source>Textures</source>
         <translation>Textury</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1502"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1503"/>
         <source>Adjust window size</source>
         <translation>Upravit velikost okna</translation>
     </message>
