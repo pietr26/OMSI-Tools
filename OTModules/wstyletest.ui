@@ -38,7 +38,7 @@
       <item>
        <widget class="QTabWidget" name="twgMain">
         <property name="currentIndex">
-         <number>3</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab_6">
          <attribute name="title">
@@ -1085,8 +1085,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>921</width>
-                   <height>74</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
