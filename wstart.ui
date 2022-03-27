@@ -517,7 +517,13 @@
      <normaloff>:/rec/data/icons/iconInfo.svg</normaloff>:/rec/data/icons/iconInfo.svg</iconset>
    </property>
    <property name="text">
-    <string>About</string>
+    <string notr="true">About</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">About</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">About</string>
    </property>
    <property name="shortcut">
     <string notr="true"/>

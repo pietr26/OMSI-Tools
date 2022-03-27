@@ -38,6 +38,8 @@ wStart::wStart(QWidget *parent)
 
     adjustSize();
 
+    ui->actionAbout->setText(tr("About %1").arg(OTName));
+
     QVariant checkVersion = set.read("main", "autoUpdateCheck");
     QVariant lastAutoUpdateCheck = set.read("main", "lastAutoUpdateCheck").toString();
     bool checkForUpdate = false;
