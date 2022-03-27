@@ -872,6 +872,7 @@ public:
             }
 
             QTextStream in(&aiListFile);
+
             QString line;
             int lineCounter = 0;
 
