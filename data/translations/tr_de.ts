@@ -160,9 +160,9 @@ konnte nicht geöffnet werden. Wenn OMSI läuft, schließe es und versuche es er
         <translation>PB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="902"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="928"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="980"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="903"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="929"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="981"/>
         <source>[Empty line]</source>
         <translation>[Leere Zeile]</translation>
     </message>
@@ -1749,12 +1749,12 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Verknüpfung erstellen</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="544"/>
+        <location filename="../../wstart.ui" line="550"/>
         <source>Changelog</source>
         <translation>Änderungsprotokoll</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="553"/>
+        <location filename="../../wstart.ui" line="559"/>
         <source>Manual</source>
         <translation>Handbuch</translation>
     </message>
@@ -1774,38 +1774,38 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="520"/>
-        <source>About</source>
-        <translation>Über</translation>
-    </message>
-    <message>
-        <location filename="../../wstart.ui" line="532"/>
+        <location filename="../../wstart.ui" line="538"/>
         <source>Send feedback</source>
         <translation>Feedback senden</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="78"/>
+        <location filename="../../wstart.cpp" line="41"/>
+        <source>About %1</source>
+        <translation>Über %1</translation>
+    </message>
+    <message>
+        <location filename="../../wstart.cpp" line="80"/>
         <source>No updates available.</source>
         <translation>Keine Aktualisierungen verfügbar.</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="171"/>
+        <location filename="../../wstart.cpp" line="173"/>
         <source>Coming soon!</source>
         <translation>Folgt!</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="171"/>
+        <location filename="../../wstart.cpp" line="173"/>
         <source>Where should I release my modification?</source>
         <comment>Note #1</comment>
         <translation>Wo kann ich meine Modifikation veröffentlichen?</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="209"/>
+        <location filename="../../wstart.cpp" line="211"/>
         <source>Simulate crash</source>
         <translation>Absturz simulieren</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="209"/>
+        <location filename="../../wstart.cpp" line="211"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Soll ein Anwendungsabsturz simuliert werden?</translation>
     </message>
