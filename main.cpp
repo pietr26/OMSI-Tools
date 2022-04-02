@@ -37,11 +37,9 @@ int main(int argc, char *argv[])
 
     set.write("main", "closeCheck", false);
 
+    qDebug().noquote() << "Settings" + set.getAllSettings() + "\n================================================\n";
+
     qInfo().noquote() << "Starting " + OTName + "...";
-
-
-    qDebug() << "All settings:";
-    qDebug().noquote() << set.getAllSettings();
 
     QApplication a(argc, argv);
 
