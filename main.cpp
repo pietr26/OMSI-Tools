@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     {
         isCrash = true;
         OTMiscellaneous misc;
-        newName = QString("logfile_crash_%1.txt").arg(misc.getDate() + "_" + misc.getTime("hh.mm.ss"));
+        newName = QString("logfile_crash_%1.txt").arg(misc.getDate("dd-MM-yyyy") + "_" + misc.getTime("hh-mm-ss"));
 
         QFile::copy("logfile.txt", newName);
     }

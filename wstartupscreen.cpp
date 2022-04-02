@@ -1,6 +1,6 @@
 #include "wstartupscreen.h"
+#include "qpainter.h"
 #include "ui_wstartupscreen.h"
-
 
 wStartUpScreen::wStartUpScreen(QWidget *parent) :
     QMainWindow(parent),
@@ -18,8 +18,9 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     timer->start(startUpScreenDuration);
 
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    ui->lblTitle->setText(OTName + "                        ");
-    ui->lblVersionCopyright->setText(tr("Version") + " " + OTVersion + "\n© Bamp");
+    ui->lblTitle->setText(OTName);
+    ui->lblVersion->setText(OTVersion);
+    ui->lblCopyright->setText("© Bamp");
 
     // Sets up and plays opacity animation
     setWindowOpacity(0.0);
