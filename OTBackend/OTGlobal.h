@@ -389,7 +389,7 @@ public:
         QString returnString = "\n";
 
         foreach (QString current, set.allKeys())
-            returnString += current + "\n " + set.value(current).toString() + "\n";
+            returnString += current + " -> " + set.value(current).toString() + "\n";
 
         return returnString;
     }
