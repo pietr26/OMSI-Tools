@@ -40,7 +40,8 @@ void Logger::attach(QString filename)
     if (file.open(QFile::WriteOnly | QFile::Text))
     {
         QTextStream out(&file);
-        out << QString("########################\n   %1 Logfile\n########################\n" + OTVersion + " | %2\n\n").arg(OTName, debugInfo);
+
+        out << QString("========================\n   %1 Logfile\n========================\n" + OTVersion + " | %2\n\n").arg(OTName, debugInfo);
         file.close();
     }
 }
@@ -72,7 +73,7 @@ void Logger::handler(QtMsgType type, const QMessageLogContext &context, const QS
                 break;
 
             case QtFatalMsg:
-                logText = QString("[Fatal]        %1").arg(msg + " - application closed.");
+                logText = QString("[Fatal]        %1").arg("Application closed due to a fatal error: " + msg);
                 break;
         }
 
@@ -85,13 +86,13 @@ void Logger::handler(QtMsgType type, const QMessageLogContext &context, const QS
             // hardcore debug:
             if (logfileMode == 2)
             {
-                out << entryCount << "\t" << QDateTime::currentDateTime().toString("dd-MM-yyyy, hh:mm:ss") << " - " << logText << "\n";
+                out << entryCount << "\t[" << QDateTime::currentDateTime().toString("dd-MM-yyyy hh:mm:ss") << "] " << logText << "\n";
 
-                out << "Source: " << context.file << "(" << context.line << ") | " << context.function << "\n\n";
+                out << "src " << context.file << "(" << context.line << ") | " << context.function << "\n\n";
 
             }
             else
-                out << entryCount << "\t" << QDateTime::currentDateTime().toString("dd-MM-yyyy, hh:mm:ss") << " - " << logText << "\n";
+                out << entryCount << "\t[" << QDateTime::currentDateTime().toString("dd-MM-yyyy hh:mm:ss") << "] " << logText << "\n";
             file.close();
         }
     }
