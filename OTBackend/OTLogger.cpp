@@ -11,7 +11,6 @@ bool hardcoreDebugLogfile;
 
 Logger::Logger(QObject *parent) : QObject(parent)
 {
-
 }
 
 /// \brief Creates the start of a logfile
@@ -38,12 +37,10 @@ void Logger::attach(QString filename)
         case 2: debugInfo = "Detail debug logger is enabled."; break;
     }
 
-        debugInfo = "Debug logger is enabled.";
-
     if (file.open(QFile::WriteOnly | QFile::Text))
     {
         QTextStream out(&file);
-        out << QString("########################\n   %1 Logfile\n########################\nVersion: " + OTVersion + "\n%2\n\n").arg(OTName, debugInfo);
+        out << QString("########################\n   %1 Logfile\n########################\n" + OTVersion + " | %2\n\n").arg(OTName, debugInfo);
         file.close();
     }
 }
@@ -56,26 +53,26 @@ void Logger::handler(QtMsgType type, const QMessageLogContext &context, const QS
         QString logText;
         switch (type)
         {
-            case QtInfoMsg:
-                logText = QString("   -     -   Info:      %1").arg(msg);
-                break;
-
             case QtDebugMsg:
                 if (logfileMode <= 0)
                     return;
-                logText = QString("   -     -   - Debug:     %1").arg(msg);
+                logText = QString("  [Debug]      %1").arg(msg);
+                break;
+
+            case QtInfoMsg:
+                logText = QString("  [Info]       %1").arg(msg);
                 break;
 
             case QtWarningMsg:
-                logText = QString("   -     Warning:       %1").arg(msg);
+                logText = QString("  [Warning]    %1").arg(msg);
                 break;
 
             case QtCriticalMsg:
-                logText = QString("   - Critical:          %1").arg(msg);
+                logText = QString("[Critical]     %1").arg(msg);
                 break;
 
             case QtFatalMsg:
-                logText = QString(" Fatal:                 %1").arg(msg + " - application closed.");
+                logText = QString("[Fatal]        %1").arg(msg + " - application closed.");
                 break;
         }
 
@@ -90,7 +87,7 @@ void Logger::handler(QtMsgType type, const QMessageLogContext &context, const QS
             {
                 out << entryCount << "\t" << QDateTime::currentDateTime().toString("dd-MM-yyyy, hh:mm:ss") << " - " << logText << "\n";
 
-                out << "Source: " << context.file << "(" << context.line << ") | " << context.function << "\n--------------------\n";
+                out << "Source: " << context.file << "(" << context.line << ") | " << context.function << "\n\n";
 
             }
             else
