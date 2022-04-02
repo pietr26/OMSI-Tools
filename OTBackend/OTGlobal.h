@@ -386,10 +386,10 @@ public:
     {
         QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTName, QSettings::NativeFormat);
 
-        QString returnString;
+        QString returnString = "\n";
 
         foreach (QString current, set.allKeys())
-            returnString += current + "[" + set.value(current).toString() + "], ";
+            returnString += current + "\n " + set.value(current).toString() + "\n";
 
         return returnString;
     }
