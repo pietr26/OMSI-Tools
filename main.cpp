@@ -17,13 +17,13 @@ void testArea()
 int main(int argc, char *argv[])
 {
     OTSettings set;
+    OTMiscellaneous misc;
 
     QString newName;
     bool isCrash = false;
     if (set.read("main", "closeCheck") == "false")
     {
         isCrash = true;
-        OTMiscellaneous misc;
         newName = QString("logfile_crash_%1.txt").arg(misc.getDate("dd-MM-yyyy") + "_" + misc.getTime("hh-mm-ss"));
 
         QFile::copy("logfile.txt", newName);
@@ -51,13 +51,7 @@ int main(int argc, char *argv[])
         QMessageBox::StandardButton reply = QMessageBox::question(NULL, QObject::tr("Crash detected"), QObject::tr("%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.\nOpen the path of the logfile?").arg(OTName));
 
         if (reply == QMessageBox::Yes)
-        {
-            QStringList args;
-            args << "/select," << QDir::toNativeSeparators(newName);
-
-            QProcess *process = new QProcess(NULL);
-            process->start("explorer.exe", args);
-        }
+            misc.showInExplorer(newName);
     }
     else
         qDebug() << "No crash detected.";

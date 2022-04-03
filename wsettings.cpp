@@ -359,12 +359,7 @@ void wSettings::on_gbxAutosave_clicked()
 /// \brief Opens the logfile path in explorer
 void wSettings::on_btnOpenLogfilePath_clicked()
 {
-    QStringList args;
-    args << "/select," << QDir::toNativeSeparators(qApp->applicationDirPath() + "/logfile.txt");
-    qDebug() << "Open logfile";
-
-    QProcess *process = new QProcess(this);
-    process->start("explorer.exe", args);
+    misc.showInExplorer(qApp->applicationDirPath() + "/logfile.txt");
 }
 
 /// \brief Shows a promotion to apply to a translator
