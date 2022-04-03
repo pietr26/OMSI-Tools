@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         QFile::copy("logfile.txt", newName);
     }
 
-    if (set.read("main", "logfileMode").isValid() && (set.read("main", "logfileMode") != -1))
+    if ((set.read("main", "logfileMode") != -1))
     {
         Logger::attach();
         Logger::logging = true;

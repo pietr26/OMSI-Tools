@@ -31,10 +31,10 @@ void Logger::attach(QString filename)
     QString debugInfo;
     switch (logfileMode)
     {
-        case -1: debugInfo = "Logger is disabled. You should not see this text. ;-)\n"; break;
-        case 0: debugInfo = ""; break;
-        case 1: debugInfo = "Debug logger is enabled."; break;
-        case 2: debugInfo = "Detail debug logger is enabled."; break;
+        case -1: debugInfo = "Logging disabled. You should not see this text. ;-)"; break;
+        case 0: debugInfo = "Normal logging"; break;
+        case 1: debugInfo = "Debug logging"; break;
+        case 2: debugInfo = "Detail debug logging"; break;
     }
 
     if (file.open(QFile::WriteOnly | QFile::Text))
