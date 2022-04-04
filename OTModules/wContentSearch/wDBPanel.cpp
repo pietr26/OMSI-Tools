@@ -134,19 +134,18 @@ QString wDBPanel::checkLinkID()
         QString dbAction = QString("INSERT INTO links (link, directLinks, information) VALUES ('%1'").arg(link);
 
         if (directLinks.isEmpty())
-            dbAction.append(QString(", %1").arg(QString()));
+            dbAction.append(QString(", NULL"));
         else
             dbAction.append(QString(", '%1'").arg(directLinks));
 
         if (information.isEmpty())
-            dbAction.append(QString(", %1").arg(QString()));
+            dbAction.append(QString(", NULL"));
         else
             dbAction.append(QString(", '%1'").arg(information));
 
         dbAction.append(")");
 
         isEmpty = true;
-        dbHandler.doAction("INSERT INTO links (link) VALUES ('b2442tbtvg2tb2vv2rgtv2gtvt2')");
         dbHandler.doAction(dbAction);
         qDebug() << dbAction;
     }
