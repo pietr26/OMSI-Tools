@@ -22,6 +22,8 @@ public:
 private slots:
     void finished();
 
+    void on_btnClose_clicked();
+
 private:
     const QString moduleName = "wStartUpScreen";
     Ui::wStartUpScreen *ui;

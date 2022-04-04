@@ -12,6 +12,7 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(OTName + " - " + tr("Start...", "Note #1"));
+    ui->lblStatus->setText(tr("Start-up..."));
 
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(finished()));
@@ -19,8 +20,9 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
 
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     ui->lblTitle->setText(OTName);
-    ui->lblVersion->setText("❯❯ " + OTVersion);
+    ui->lblVersion->setText(OTVersion);
     ui->lblCopyright->setText("© Bamp");
+    ui->lblCopyright->setVisible(false);
 
     // Sets up and plays opacity animation
     setWindowOpacity(0.0);
@@ -56,5 +58,11 @@ void wStartUpScreen::finished()
         FIRSTSETUP = new firstSetup(this);
         ui->vlaFirstSetup->addWidget(FIRSTSETUP);
     }
+}
+
+
+void wStartUpScreen::on_btnClose_clicked()
+{
+    close();
 }
 
