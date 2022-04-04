@@ -157,7 +157,7 @@ QPushButton
 	border-width: 1px;
 	border-radius: 3px;
 	border-color: #051a39;
-	padding: 5px;
+	padding: 3px;
 
 }
 
@@ -249,9 +249,10 @@ QComboBox
     background-color: #607cff;
     border: 1px solid;
     border-radius: 3px;
-    padding-left: 6px;
+	padding-left: 6px;
+	padding: 3px;
+	
     color: #ffffff;
-    height: 35px;
 
 }
 
