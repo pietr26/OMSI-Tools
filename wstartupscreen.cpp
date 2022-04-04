@@ -1,5 +1,4 @@
 #include "wstartupscreen.h"
-#include "qpainter.h"
 #include "ui_wstartupscreen.h"
 
 wStartUpScreen::wStartUpScreen(QWidget *parent) :
@@ -36,27 +35,27 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
 
     // ---------------
 
-    QGraphicsOpacityEffect *labelEffect = new QGraphicsOpacityEffect(this);
-    ui->lblVersion->setGraphicsEffect(labelEffect);
+//    QGraphicsOpacityEffect *labelEffect = new QGraphicsOpacityEffect(this);
+//    ui->lblVersion->setGraphicsEffect(labelEffect);
 
-    QPropertyAnimation *labelAnimation = new QPropertyAnimation(labelEffect, "opacity");
-    labelAnimation->setDuration(2500);
-    labelAnimation->setStartValue(-1);
-    labelAnimation->setEndValue(1);
-    labelAnimation->setEasingCurve(QEasingCurve::InOutCubic);
-    labelAnimation->start(QPropertyAnimation::DeleteWhenStopped);
+//    QPropertyAnimation *labelAnimation = new QPropertyAnimation(labelEffect, "opacity");
+//    labelAnimation->setDuration(2500);
+//    labelAnimation->setStartValue(-1);
+//    labelAnimation->setEndValue(1);
+//    labelAnimation->setEasingCurve(QEasingCurve::InOutCubic);
+//    labelAnimation->start(QPropertyAnimation::DeleteWhenStopped);
 
-    // ---------------
+//    // ---------------
 
-    QGraphicsOpacityEffect *prefixlabelEffect = new QGraphicsOpacityEffect(this);
-    ui->lblVersionPrefix->setGraphicsEffect(prefixlabelEffect);
+//    QGraphicsOpacityEffect *prefixlabelEffect = new QGraphicsOpacityEffect(this);
+//    ui->lblVersionPrefix->setGraphicsEffect(prefixlabelEffect);
 
-    QPropertyAnimation *prefixLabelAnimation = new QPropertyAnimation(prefixlabelEffect, "opacity");
-    prefixLabelAnimation->setDuration(2500);
-    prefixLabelAnimation->setStartValue(-1);
-    prefixLabelAnimation->setEndValue(1);
-    prefixLabelAnimation->setEasingCurve(QEasingCurve::InOutCubic);
-    prefixLabelAnimation->start(QPropertyAnimation::DeleteWhenStopped);
+//    QPropertyAnimation *prefixLabelAnimation = new QPropertyAnimation(prefixlabelEffect, "opacity");
+//    prefixLabelAnimation->setDuration(2500);
+//    prefixLabelAnimation->setStartValue(-1);
+//    prefixLabelAnimation->setEndValue(1);
+//    prefixLabelAnimation->setEasingCurve(QEasingCurve::InOutCubic);
+//    prefixLabelAnimation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
 wStartUpScreen::~wStartUpScreen()
@@ -73,11 +72,7 @@ void wStartUpScreen::finished()
     setCursor(Qt::ArrowCursor);
 
     if (set.read("main", "language").isValid())
-    {
-        hide();
-        WSTART = new wStart();
-        WSTART->show();
-    }
+        QTimer::singleShot(1000, this, &wStartUpScreen::openWStart);
     else
     {
         ui->btnClose->setEnabled(true);
@@ -96,9 +91,14 @@ void wStartUpScreen::finished()
     }
 }
 
-
 void wStartUpScreen::on_btnClose_clicked()
 {
     close();
 }
 
+void wStartUpScreen::openWStart()
+{
+    WSTART = new wStart();
+    WSTART->show();
+    hide();
+}

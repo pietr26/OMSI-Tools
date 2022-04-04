@@ -121,7 +121,7 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
         QTimer::singleShot(0, this, SLOT(on_btnCheckForUpdates_clicked()));
 
 
-    qInfo().noquote() << moduleName + " started successfully.";
+    qInfo().noquote() << moduleName + " started";
 }
 
 wSettings::~wSettings()

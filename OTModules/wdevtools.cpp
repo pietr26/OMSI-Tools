@@ -20,7 +20,7 @@ wDevTools::wDevTools(QWidget *parent) :
 
     setOutputVisible(true);
 
-    qInfo().noquote() << moduleName + " started successfully. Note: Internal module, may contains bugs.";
+    qInfo().noquote() << moduleName + " started - Note: Internal module, may contains bugs.";
 }
 
 wDevTools::~wDevTools()

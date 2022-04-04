@@ -27,7 +27,7 @@ wChangelog::wChangelog(QWidget *parent, bool updateAvailable) :
 
     QTimer::singleShot(0, this, SLOT(downloadChangelog()));
 
-    qInfo().noquote() << moduleName + " started successfully.";
+    qInfo().noquote() << moduleName + " started";
 }
 
 wChangelog::~wChangelog()

@@ -86,7 +86,7 @@ wStart::wStart(QWidget *parent)
         }
     }
 
-    qInfo().noquote() << moduleName + " started successfully.";
+    qInfo().noquote() << moduleName + " started";
 
     //setWindowFlags(Qt::Window | Qt::WindowContextHelpButtonHint | Qt::WindowCloseButtonHint);
 }

@@ -23,6 +23,8 @@ public:
 private slots:
     void finished();
 
+    void openWStart();
+
     void on_btnClose_clicked();
 
 private:
