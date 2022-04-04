@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "updateInstalled"))
         QDir(QDir::tempPath() + "/OMSI-Tools_tempAppDir").removeRecursively();
 
-    wStartUpScreen *WSTARTUPSCREEN = new wStartUpScreen();
+    wStartUpScreen *WSTARTUPSCREEN;
     wFbh *WFBH;
 
     if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "openFbh"))
@@ -72,15 +72,16 @@ int main(int argc, char *argv[])
         WFBH->show();
     }
     else
+    {
+        WSTARTUPSCREEN = new wStartUpScreen();
         WSTARTUPSCREEN->show();
+    }
 
     int exec = a.exec();
 
     qInfo().noquote() << OTName + " is closing...";
 
     set.write("main", "closeCheck", true);
-
-    delete WSTARTUPSCREEN;
 
     return exec;
 }
