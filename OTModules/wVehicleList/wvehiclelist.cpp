@@ -16,7 +16,7 @@ wVehicleList::wVehicleList(QWidget *parent) :
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
 
-    qInfo().noquote() << moduleName + " started successfully.";
+    qInfo().noquote() << moduleName + " started";
 }
 
 wVehicleList::~wVehicleList()

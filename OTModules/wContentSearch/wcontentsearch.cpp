@@ -66,7 +66,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
 
     ui->twgExtras->setTabVisible(3, false);
 
-    qInfo().noquote() << moduleName + " started successfully.";
+    qInfo().noquote() << moduleName + " started";
 
     //#ifndef QT_DEBUG
     //    msg.moduleDeactivated(this);

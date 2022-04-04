@@ -59,7 +59,7 @@ wFonts::wFonts() :
     connect(ui->lvwChars->selectionModel(), &QItemSelectionModel::currentRowChanged, this, &wFonts::charSelectionChanged);
     reloadValidProperty();
 
-    qInfo().noquote() << moduleName + " started successfully.";
+    qInfo().noquote() << moduleName + " started";
 }
 
 wFonts::~wFonts()

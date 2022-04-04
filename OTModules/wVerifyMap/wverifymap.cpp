@@ -71,7 +71,7 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 
     ui->twgVerfying->setCurrentIndex(0);
 
-    qInfo().noquote() << moduleName + " started successfully.";
+    qInfo().noquote() << moduleName + " started";
 
     ui->lwgTilesAll->installEventFilter(this);
 }

@@ -70,7 +70,7 @@ wDBPanel::wDBPanel(QWidget *parent) :
 
     ui->ledDirectory->setText(set.read(moduleName, "tempPath").toString());
 
-    qInfo().noquote() << moduleName + " started successfully.";
+    qInfo().noquote() << moduleName + " started";
 }
 
 wDBPanel::~wDBPanel()
@@ -131,8 +131,24 @@ QString wDBPanel::checkLinkID()
 
     if (qryLinkModel->rowCount() == 0)
     {
+        QString dbAction = QString("INSERT INTO links (link, directLinks, information) VALUES ('%1'").arg(link);
+
+        if (directLinks.isEmpty())
+            dbAction.append(QString(", %1").arg(QString()));
+        else
+            dbAction.append(QString(", '%1'").arg(directLinks));
+
+        if (information.isEmpty())
+            dbAction.append(QString(", %1").arg(QString()));
+        else
+            dbAction.append(QString(", '%1'").arg(information));
+
+        dbAction.append(")");
+
         isEmpty = true;
-        dbHandler.doAction(QString("INSERT INTO links (link, directLinks, information) VALUES (\"%1\", \"%2\", \"%3\")").arg(link, directLinks, information));
+        dbHandler.doAction("INSERT INTO links (link) VALUES ('b2442tbtvg2tb2vv2rgtv2gtvt2')");
+        dbHandler.doAction(dbAction);
+        qDebug() << dbAction;
     }
 
     qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT ID FROM links WHERE link = '%1'").arg(link)));

@@ -44,7 +44,7 @@ wFbh::wFbh(QWidget *parent)
 
     ui->ledLink->setFocus();
 
-    qInfo().noquote() << moduleName + " started successfully.";
+    qInfo().noquote() << moduleName + " started";
 }
 
 wFbh::~wFbh()

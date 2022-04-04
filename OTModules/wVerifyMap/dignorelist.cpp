@@ -22,7 +22,7 @@ dIgnoreList::dIgnoreList(QWidget *parent) :
 
     ui->lwgIgnoreList->addItems(iglF.read());
 
-    qInfo().noquote() << moduleName + " started successfully.";;
+    qInfo().noquote() << moduleName + " started";;
 }
 
 dIgnoreList::~dIgnoreList()

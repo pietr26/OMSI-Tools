@@ -31,7 +31,7 @@ wStyleTest::wStyleTest(QWidget *parent) :
     timer->start(1000);
     ui->ledStyle->setText(set.read(moduleName, "testStylesheet").toString());
 
-    qInfo().noquote() << moduleName + " started successfully.";
+    qInfo().noquote() << moduleName + " started";
 }
 
 wStyleTest::~wStyleTest()
