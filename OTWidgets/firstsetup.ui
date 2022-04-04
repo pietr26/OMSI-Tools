@@ -7,137 +7,46 @@
     <x>0</x>
     <y>0</y>
     <width>369</width>
-    <height>185</height>
+    <height>144</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">firstSetup</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>Select language</string>
+      <string>First setup</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="2" column="0">
-         <widget class="QPushButton" name="btnCz">
-          <property name="text">
-           <string notr="true">cz</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../ressources.qrc">
-            <normaloff>:/rec/data/flags/cz.svg</normaloff>:/rec/data/flags/cz.svg</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>36</width>
-            <height>36</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>false</bool>
-          </property>
-          <property name="checked">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QPushButton" name="btnEn">
-          <property name="text">
-           <string notr="true">en</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../ressources.qrc">
-            <normaloff>:/rec/data/flags/en.svg</normaloff>:/rec/data/flags/en.svg</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>36</width>
-            <height>36</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>false</bool>
-          </property>
-          <property name="checked">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="btnDe">
-          <property name="text">
-           <string notr="true">de</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../ressources.qrc">
-            <normaloff>:/rec/data/flags/de.svg</normaloff>:/rec/data/flags/de.svg</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>36</width>
-            <height>36</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>false</bool>
-          </property>
-          <property name="checked">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="btnIt">
-          <property name="text">
-           <string notr="true">it</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../ressources.qrc">
-            <normaloff>:/rec/data/flags/it.svg</normaloff>:/rec/data/flags/it.svg</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>36</width>
-            <height>36</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>false</bool>
-          </property>
-          <property name="checked">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QPushButton" name="btnFr">
-          <property name="text">
-           <string notr="true">fr</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../ressources.qrc">
-            <normaloff>:/rec/data/flags/fr.svg</normaloff>:/rec/data/flags/fr.svg</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>36</width>
-            <height>36</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>false</bool>
-          </property>
-          <property name="checked">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="1">
+       <widget class="QComboBox" name="cobxLanguage"/>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="btnContinue">
+        <property name="text">
+         <string>Continue</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../ressources.qrc">
+          <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblLanguage">
+        <property name="text">
+         <string>Language</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
