@@ -4,51 +4,51 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="455"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="439"/>
         <source>Attention: This module is currently work in progress. Only use it for test, never for real modding! Files edited with this module can possibly be destroyed!</source>
         <translation>Upozornění: Tento modul je ve fázi vývoje. Používejte ho pouze pro testování, nikoliv pro skutečné vytváření obsahu! Soubory upravené v tomto modulu mohou být poškozeny!</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="484"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="468"/>
         <source>There is unsaved content. Do you want to save?</source>
         <translation>Máte zde neuložený obsah. Chcete obsah uložit?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="455"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="439"/>
         <source>Work in progress</source>
         <comment>Note #1</comment>
         <translation>V přípravě</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="353"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="337"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <comment>Note #1</comment>
         <translation>&quot;Omsi.exe&quot; nenalezeno</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="353"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="337"/>
         <source>&quot;Omsi.exe&quot; could not found in the selected directory. Is it the correct path?. Otherwise, problems may appear in some modules. Should a new path be selected?</source>
         <translation>&quot;Omsi.exe&quot; nebylo nalezeno ve vybraném adresáři. Je tento adresář správný? Díky tomu se mohou objevit potíže v některých modulech. Chcete vybrat nový adresář?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="500"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="484"/>
         <source>Error while openig file</source>
         <comment>Note #1</comment>
         <translation>Chybné otevření souboru</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="500"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="484"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Tento zvolený soubor neexistuje nebo má ochranu proti čtění.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="522"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="506"/>
         <source>Confirm deletion</source>
         <comment>Note #1</comment>
         <translation>Potvrdit smazaní</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="348"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="332"/>
         <source>Select the OMSI main directory...</source>
         <translation>Vyberte hlavní OMSI složku...</translation>
     </message>
@@ -75,17 +75,17 @@
         <translation type="unfinished">Nepodařilo se vytvořit zástupce v %1.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="445"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="429"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Pro další používání aplikace je potřeba přidat hlavní složku s OMSI. Chcete ji přidat nyní?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="462"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="446"/>
         <source>There is unsaved content.</source>
         <translation>Máte neuložený obsah.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="506"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="490"/>
         <source>There was an error while opening
 %1
 If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
@@ -94,68 +94,68 @@ If OMSI is running, please close it and retry it. Furthermore, check if the file
 Pokud OMSI běží, zavřete jej prosím a spusťe znovu. Dále zkontrolujte, zda stále soubor existuje.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="512"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="496"/>
         <source>There are no chars in the font.</source>
         <translation>Nemáte žádné znaky ve fontu.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="522"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="506"/>
         <source>Should the selection be deleted?</source>
         <translation>Měl by být výběr odstraněn?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="538"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="522"/>
         <source>Save error</source>
         <comment>Note #1</comment>
         <translation>Chyba uložení</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="538"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="522"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation>Nastala chyba &apos;%1&apos; při ukládání. Pokud OMSI stále běží, zavřete jej prosím a zkuste znovu.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="544"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="528"/>
         <source>Module still deactivated</source>
         <comment>Note #1</comment>
         <translation>Modul není aktivován</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="544"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="528"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation>Bohužel je tento modul stále deaktivován kvůli nedostatku času pro vývoj. Zkontrolujte prosím nové aktualizace následující dny.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="557"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="541"/>
         <source>Bytes</source>
         <translation>Bytů</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="557"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="541"/>
         <source>KB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="558"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="542"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="558"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="542"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="559"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="543"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation>TB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="559"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="543"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation>PB</translation>
@@ -178,26 +178,26 @@ Pokud OMSI běží, zavřete jej prosím a spusťe znovu. Dále zkontrolujte, zd
         <translation>Kontroluji Sceneryobjects...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="445"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="429"/>
         <source>OMSI main directory not found</source>
         <comment>Note #1</comment>
         <translation>Hlavní složka s OMSI nenalezena</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="462"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="484"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="446"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="468"/>
         <source>Unsaved content</source>
         <comment>Note #1</comment>
         <translation>Neuložený obsah</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="506"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="490"/>
         <source>Error while opening file</source>
         <comment>Note #1</comment>
         <translation>Chyba při otevíraní souboru</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="512"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="496"/>
         <source>No chars in font</source>
         <comment>Note #1</comment>
         <translation>Žádné znaky ve fontu</translation>
@@ -213,12 +213,12 @@ Pokud OMSI běží, zavřete jej prosím a spusťe znovu. Dále zkontrolujte, zd
         <translation>Získávám Sceneryobjects a Splines...</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="53"/>
+        <location filename="../../main.cpp" line="51"/>
         <source>Crash detected</source>
         <translation>Zaznamenán pád</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="53"/>
+        <location filename="../../main.cpp" line="51"/>
         <source>%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.
 Open the path of the logfile?</source>
         <translation>%1 spadlo při posledním spuštění.Logovací soubor byl uložen zvlášť. Kontaktujte prosím s touto chybu vývojáře.
@@ -282,6 +282,24 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <location filename="../../OTModules/wVerifyMap/dignorelist.cpp" line="92"/>
         <source>There was an error while append the files to the ignorelist.</source>
         <translation>Nastala chyba při přidávání zápisů do souboru ignorovaných.</translation>
+    </message>
+</context>
+<context>
+    <name>firstSetup</name>
+    <message>
+        <location filename="../../OTWidgets/firstsetup.ui" line="20"/>
+        <source>First setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/firstsetup.ui" line="29"/>
+        <source>Continue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/firstsetup.ui" line="40"/>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -885,19 +903,6 @@ reasons</source>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="703"/>
         <source>Schließen</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>wFirstSetup</name>
-    <message>
-        <location filename="../../wfirstsetup.cpp" line="18"/>
-        <source>first setup</source>
-        <translation>Prvotní nastavení</translation>
-    </message>
-    <message>
-        <location filename="../../wfirstsetup.ui" line="27"/>
-        <source>Select your language:</source>
-        <translation>Zvolte Váš jazyk:</translation>
     </message>
 </context>
 <context>
@@ -1569,13 +1574,13 @@ No font will be opened.</source>
         <translation>Má být nejnovější verze nainstalována?</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="373"/>
+        <location filename="../../wsettings.cpp" line="368"/>
         <source>More languages</source>
         <comment>Note #1</comment>
         <translation>Více jazyků</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="373"/>
+        <location filename="../../wsettings.cpp" line="368"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation>Chcete mít větší výběr jazyků?
@@ -1789,23 +1794,23 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Není dostupná žádná nová aktualizace.</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="173"/>
+        <location filename="../../wstart.cpp" line="166"/>
         <source>Coming soon!</source>
         <translation>Již brzy!</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="173"/>
+        <location filename="../../wstart.cpp" line="166"/>
         <source>Where should I release my modification?</source>
         <comment>Note #1</comment>
         <translation>Kde bych měl vydat svoji modifikaci?</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="211"/>
+        <location filename="../../wstart.cpp" line="204"/>
         <source>Simulate crash</source>
         <translation>Simulovat pád aplikace</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="211"/>
+        <location filename="../../wstart.cpp" line="204"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Měl by být simulován pád aplikace?</translation>
     </message>
@@ -1838,21 +1843,20 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
 <context>
     <name>wStartUpScreen</name>
     <message>
-        <location filename="../../wstartupscreen.ui" line="106"/>
-        <source>Loading UI...</source>
-        <extracomment>&apos;UI&apos; = User Interface</extracomment>
-        <translation>Načítám UI...</translation>
-    </message>
-    <message>
         <location filename="../../wstartupscreen.cpp" line="14"/>
         <source>Start...</source>
         <comment>Note #1</comment>
         <translation>Spouštění...</translation>
     </message>
     <message>
-        <location filename="../../wstartupscreen.cpp" line="22"/>
-        <source>Version</source>
-        <translation>Verze</translation>
+        <location filename="../../wstartupscreen.cpp" line="15"/>
+        <source>Start-up...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wstartupscreen.cpp" line="47"/>
+        <source>Finished.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
