@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>369</width>
-    <height>144</height>
+    <width>354</width>
+    <height>137</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,34 +19,60 @@
      <property name="title">
       <string>First setup</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="1">
-       <widget class="QComboBox" name="cobxLanguage"/>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="lblLanguage">
+          <property name="text">
+           <string>Language</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="cobxLanguage"/>
+        </item>
+       </layout>
       </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="btnContinue">
-        <property name="text">
-         <string>Continue</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="lblLanguage">
-        <property name="text">
-         <string>Language</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
+      <item>
        <widget class="Line" name="line_2">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnContinue">
+          <property name="font">
+           <font>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Continue</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../ressources.qrc">
+            <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>

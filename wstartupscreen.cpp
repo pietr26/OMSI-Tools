@@ -11,8 +11,8 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
-    setWindowTitle(OTName + " - " + tr("Start...", "Note #1"));
-    ui->lblStatus->setText(tr("Start-up..."));
+    ui->lblStatus->setText(tr("Start-up...", "Note #1"));
+    setWindowTitle(OTName + " - " + ui->lblStatus->text());
 
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(finished()));
@@ -24,14 +24,39 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     ui->lblCopyright->setText("© Bamp");
     ui->lblCopyright->setVisible(false);
 
-    // Sets up and plays opacity animation
-    setWindowOpacity(0.0);
-    QPropertyAnimation *animation = new QPropertyAnimation(this, "windowOpacity");
-    animation->setDuration(900);
-    animation->setStartValue(0.0);
-    animation->setEndValue(1.0);
-    animation->setEasingCurve(QEasingCurve::OutCubic);
-    animation->start(QPropertyAnimation::DeleteWhenStopped);
+    ui->btnClose->setEnabled(false);
+
+    setWindowOpacity(0);
+    QPropertyAnimation *windowAnimation = new QPropertyAnimation(this, "windowOpacity");
+    windowAnimation->setDuration(1000);
+    windowAnimation->setStartValue(0);
+    windowAnimation->setEndValue(1);
+    windowAnimation->setEasingCurve(QEasingCurve::OutCubic);
+    windowAnimation->start(QPropertyAnimation::DeleteWhenStopped);
+
+    // ---------------
+
+    QGraphicsOpacityEffect *labelEffect = new QGraphicsOpacityEffect(this);
+    ui->lblVersion->setGraphicsEffect(labelEffect);
+
+    QPropertyAnimation *labelAnimation = new QPropertyAnimation(labelEffect, "opacity");
+    labelAnimation->setDuration(2500);
+    labelAnimation->setStartValue(-1);
+    labelAnimation->setEndValue(1);
+    labelAnimation->setEasingCurve(QEasingCurve::InOutCubic);
+    labelAnimation->start(QPropertyAnimation::DeleteWhenStopped);
+
+    // ---------------
+
+    QGraphicsOpacityEffect *prefixlabelEffect = new QGraphicsOpacityEffect(this);
+    ui->lblVersionPrefix->setGraphicsEffect(prefixlabelEffect);
+
+    QPropertyAnimation *prefixLabelAnimation = new QPropertyAnimation(prefixlabelEffect, "opacity");
+    prefixLabelAnimation->setDuration(2500);
+    prefixLabelAnimation->setStartValue(-1);
+    prefixLabelAnimation->setEndValue(1);
+    prefixLabelAnimation->setEasingCurve(QEasingCurve::InOutCubic);
+    prefixLabelAnimation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
 wStartUpScreen::~wStartUpScreen()
@@ -55,8 +80,19 @@ void wStartUpScreen::finished()
     }
     else
     {
+        ui->btnClose->setEnabled(true);
         FIRSTSETUP = new firstSetup(this);
         ui->vlaFirstSetup->addWidget(FIRSTSETUP);
+
+        QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect(this);
+        ui->lblStatus->setGraphicsEffect(effect);
+
+        QPropertyAnimation *animation = new QPropertyAnimation(effect, "opacity");
+        animation->setDuration(2500);
+        animation->setStartValue(1);
+        animation->setEndValue(0);
+        animation->setEasingCurve(QEasingCurve::InOutCubic);
+        animation->start(QPropertyAnimation::DeleteWhenStopped);
     }
 }
 
