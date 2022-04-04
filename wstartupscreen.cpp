@@ -19,7 +19,7 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
 
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     ui->lblTitle->setText(OTName);
-    ui->lblVersion->setText(OTVersion);
+    ui->lblVersion->setText("❯❯ " + OTVersion);
     ui->lblCopyright->setText("© Bamp");
 
     // Sets up and plays opacity animation
