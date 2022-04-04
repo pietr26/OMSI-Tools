@@ -289,12 +289,12 @@ Open the path of the logfile?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTWidgets/firstsetup.ui" line="29"/>
+        <location filename="../../OTWidgets/firstsetup.ui" line="67"/>
         <source>Continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTWidgets/firstsetup.ui" line="40"/>
+        <location filename="../../OTWidgets/firstsetup.ui" line="28"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -324,64 +324,59 @@ Open the path of the logfile?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="36"/>
-        <source>founder &amp; head</source>
-        <comment>Meaning of &apos;head&apos;: A management role</comment>
+        <location filename="../../wabout.cpp" line="21"/>
+        <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="37"/>
-        <source>beta test</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="38"/>
-        <source>italian translations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="39"/>
-        <source>french translations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="27"/>
-        <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="27"/>
-        <source>The Project has been started at January 22, 2021.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="28"/>
-        <source>Version:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="29"/>
-        <source>Official Build:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="30"/>
-        <source>Application Build:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="31"/>
-        <source>Licensed under:</source>
+        <location filename="../../wabout.cpp" line="25"/>
+        <source>Debug build</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../wabout.cpp" line="32"/>
-        <source>Involved persons:</source>
+        <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="32"/>
+        <source>The Project has been started at January 22, 2021 and it&apos;s still in an early state of development.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="32"/>
+        <source>%1 is licensed under %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="35"/>
+        <source>Founder &amp; head</source>
+        <comment>Meaning of &apos;head&apos;: A management role</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="36"/>
+        <source>Beta test</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="37"/>
+        <source>Translators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="38"/>
+        <source>italian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="39"/>
+        <source>french</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../wabout.cpp" line="40"/>
-        <source>czech translations</source>
+        <source>czech</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1836,18 +1831,13 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
 <context>
     <name>wStartUpScreen</name>
     <message>
-        <location filename="../../wstartupscreen.cpp" line="14"/>
-        <source>Start...</source>
+        <location filename="../../wstartupscreen.cpp" line="13"/>
+        <source>Start-up...</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstartupscreen.cpp" line="15"/>
-        <source>Start-up...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../wstartupscreen.cpp" line="47"/>
+        <location filename="../../wstartupscreen.cpp" line="71"/>
         <source>Finished.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -291,12 +291,12 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Erstes Einrichten</translation>
     </message>
     <message>
-        <location filename="../../OTWidgets/firstsetup.ui" line="29"/>
+        <location filename="../../OTWidgets/firstsetup.ui" line="67"/>
         <source>Continue</source>
         <translation>Weiter</translation>
     </message>
     <message>
-        <location filename="../../OTWidgets/firstsetup.ui" line="40"/>
+        <location filename="../../OTWidgets/firstsetup.ui" line="28"/>
         <source>Language</source>
         <translation>Sprache</translation>
     </message>
@@ -326,65 +326,60 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Über</translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="36"/>
-        <source>founder &amp; head</source>
-        <comment>Meaning of &apos;head&apos;: A management role</comment>
-        <translation>Gründer &amp; Leitung</translation>
+        <location filename="../../wabout.cpp" line="21"/>
+        <source>Version</source>
+        <translation>Version</translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="37"/>
-        <source>beta test</source>
-        <translation>Betatest</translation>
+        <location filename="../../wabout.cpp" line="25"/>
+        <source>Debug build</source>
+        <translation>Debug-Build</translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="38"/>
-        <source>italian translations</source>
-        <translation>italienische Übersetzungen</translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="39"/>
-        <source>french translations</source>
-        <translation>französische Übersetzungen</translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="27"/>
+        <location filename="../../wabout.cpp" line="32"/>
         <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
         <translation>%1 ist ein Tool zum Erstellen von Modifikationen für OMSI 2 - Der Omnibussimulator. %1 macht die Erstellung von Modifikationen einfacher und liefert viele nützliche Funktionen mit, welche den Workflow verbessern.</translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="27"/>
-        <source>The Project has been started at January 22, 2021.</source>
-        <translation>Das Projekt wurde am 22. Januar 2021 begonnen.</translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="28"/>
-        <source>Version:</source>
-        <translation>Version:</translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="29"/>
-        <source>Official Build:</source>
-        <translation>Offizieller Build:</translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="30"/>
-        <source>Application Build:</source>
-        <translation>Anwendungsbuild:</translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="31"/>
-        <source>Licensed under:</source>
-        <translation>Lizensiert unter:</translation>
+        <location filename="../../wabout.cpp" line="32"/>
+        <source>The Project has been started at January 22, 2021 and it&apos;s still in an early state of development.</source>
+        <translation>Das Projekt wurde am 22. Januar 2021 gestartet und es befindet sich noch in einem frühen Entwicklungszustand.</translation>
     </message>
     <message>
         <location filename="../../wabout.cpp" line="32"/>
-        <source>Involved persons:</source>
-        <translation>Mitwirkende Personen:</translation>
+        <source>%1 is licensed under %2.</source>
+        <translation>%1 ist unter %2 lizensiert.</translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="35"/>
+        <source>Founder &amp; head</source>
+        <comment>Meaning of &apos;head&apos;: A management role</comment>
+        <translation>Gründer und Leitung</translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="36"/>
+        <source>Beta test</source>
+        <translation>Betatest</translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="37"/>
+        <source>Translators</source>
+        <translation>Übersetzer</translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="38"/>
+        <source>italian</source>
+        <translation>italienisch</translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="39"/>
+        <source>french</source>
+        <translation>französisch</translation>
     </message>
     <message>
         <location filename="../../wabout.cpp" line="40"/>
-        <source>czech translations</source>
-        <translation>tschechische Übersetzungen</translation>
+        <source>czech</source>
+        <translation>tschechisch</translation>
     </message>
 </context>
 <context>
@@ -1843,18 +1838,13 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
 <context>
     <name>wStartUpScreen</name>
     <message>
-        <location filename="../../wstartupscreen.cpp" line="14"/>
-        <source>Start...</source>
+        <location filename="../../wstartupscreen.cpp" line="13"/>
+        <source>Start-up...</source>
         <comment>Note #1</comment>
         <translation>Starten...</translation>
     </message>
     <message>
-        <location filename="../../wstartupscreen.cpp" line="15"/>
-        <source>Start-up...</source>
-        <translation>Starten...</translation>
-    </message>
-    <message>
-        <location filename="../../wstartupscreen.cpp" line="47"/>
+        <location filename="../../wstartupscreen.cpp" line="71"/>
         <source>Finished.</source>
         <translation>Fertig.</translation>
     </message>
