@@ -28,7 +28,7 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     animation->setDuration(900);
     animation->setStartValue(0.0);
     animation->setEndValue(1.0);
-    animation->setEasingCurve(QEasingCurve::OutQuint);
+    animation->setEasingCurve(QEasingCurve::OutCubic);
     animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
