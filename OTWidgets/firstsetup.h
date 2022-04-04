@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "OTBackend/OTGlobal.h"
+#include <QStandardItemModel>
 
 namespace Ui {
 class firstSetup;

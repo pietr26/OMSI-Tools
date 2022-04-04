@@ -41,9 +41,9 @@
         <property name="font">
          <font>
           <family>Consolas</family>
-          <pointsize>11</pointsize>
-          <italic>true</italic>
-          <bold>true</bold>
+          <pointsize>10</pointsize>
+          <italic>false</italic>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -84,6 +84,13 @@
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">

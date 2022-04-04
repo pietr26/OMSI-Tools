@@ -7,7 +7,6 @@ firstSetup::firstSetup(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    wSettings wSet;
     // Very simple: Copy from wsettings.cpp, wSettings::wSettings():
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), set.langEn);
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), set.langDe);

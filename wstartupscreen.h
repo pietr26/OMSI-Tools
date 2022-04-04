@@ -5,6 +5,7 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTWidgets/firstsetup.h"
 #include <QPropertyAnimation>
+#include <QGraphicsOpacityEffect>
 #include "wstart.h"
 
 namespace Ui {
