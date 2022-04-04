@@ -42,9 +42,6 @@
         <pointsize>9</pointsize>
        </font>
       </property>
-      <property name="cursor">
-       <cursorShape>BusyCursor</cursorShape>
-      </property>
       <property name="text">
        <string extracomment="'UI': User Interface">Loading UI...</string>
       </property>
@@ -70,7 +67,7 @@
          </size>
         </property>
         <property name="cursor">
-         <cursorShape>BusyCursor</cursorShape>
+         <cursorShape>ArrowCursor</cursorShape>
         </property>
         <property name="text">
          <string/>
@@ -101,9 +98,6 @@
           <italic>false</italic>
           <bold>false</bold>
          </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>BusyCursor</cursorShape>
         </property>
         <property name="text">
          <string notr="true">name</string>
@@ -137,9 +131,6 @@
         <bold>true</bold>
        </font>
       </property>
-      <property name="cursor">
-       <cursorShape>BusyCursor</cursorShape>
-      </property>
       <property name="styleSheet">
        <string notr="true">color: #008AFF</string>
       </property>
@@ -168,6 +159,9 @@
      </spacer>
     </item>
     <item>
+     <layout class="QVBoxLayout" name="vlaFirstSetup"/>
+    </item>
+    <item>
      <widget class="QLabel" name="lblCopyright">
       <property name="font">
        <font>
@@ -175,9 +169,6 @@
         <pointsize>11</pointsize>
         <italic>false</italic>
        </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>BusyCursor</cursorShape>
       </property>
       <property name="text">
        <string notr="true">copyright</string>

@@ -11,7 +11,6 @@
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTModules/wContentSearch/wDBPanel.h"
 #include "wchangelog.h"
-#include "wfirstsetup.h"
 #include <QMessageBox>
 #include <QDebug>
 #include <QTimer>
@@ -76,7 +75,6 @@ private:
     wDBPanel *WDBPANEL;
     wContentSearch *WCONTENTSEARCH;
     wChangelog *WCHANGELOG;
-    wFirstSetup *WFIRSTSETUP;
     wAbout *WABOUT;
     wFbh *WFBH;
     wStyleTest *WSTYLETEST;

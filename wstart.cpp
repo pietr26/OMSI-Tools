@@ -86,13 +86,6 @@ wStart::wStart(QWidget *parent)
         }
     }
 
-    if (!set.read("main", "language").isValid())
-    {
-        WFIRSTSETUP = new wFirstSetup(this);
-        WFIRSTSETUP->setWindowModality(Qt::ApplicationModal);
-        WFIRSTSETUP->show();
-    }
-
     qInfo().noquote() << moduleName + " started successfully.";
 
     //setWindowFlags(Qt::Window | Qt::WindowContextHelpButtonHint | Qt::WindowCloseButtonHint);
