@@ -16,6 +16,7 @@ SOURCES += \
     OTModules/wVehicleList/wvehiclelist.cpp \
     OTModules/wbugrepot.cpp \
     OTModules/wstyletest.cpp \
+    OTWidgets/firstsetup.cpp \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
     OTModules/wVerifyMap/dignorelist.cpp \
@@ -24,7 +25,6 @@ SOURCES += \
     OTModules/wVerifyMap/wverifymap.cpp \
     wabout.cpp \
     wchangelog.cpp \
-    wfirstsetup.cpp \
     wsettings.cpp \
     wstart.cpp \
     wstartupscreen.cpp
@@ -46,10 +46,10 @@ HEADERS += \
     OTModules/wfonts.h \
     OTModules/wVerifyMap/wverifymap.h \
     OTModules/wstyletest.h \
+    OTWidgets/firstsetup.h \
     OTWidgets/verifymaptools.h \
     wabout.h \
     wchangelog.h \
-    wfirstsetup.h \
     wsettings.h \
     wstart.h \
     wstartupscreen.h
@@ -65,10 +65,10 @@ FORMS += \
     OTModules/wfonts.ui \
     OTModules/wVerifyMap/wverifymap.ui \
     OTModules/wstyletest.ui \
+    OTWidgets/firstsetup.ui \
     OTWidgets/verifymaptools.ui \
     wabout.ui \
     wchangelog.ui \
-    wfirstsetup.ui \
     wsettings.ui \
     wstart.ui \
     wstartupscreen.ui

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
+#include "OTWidgets/firstsetup.h"
 #include <QPropertyAnimation>
 #include "wstart.h"
 
@@ -19,13 +20,14 @@ public:
     ~wStartUpScreen();
 
 private slots:
-    void goToWStart();
+    void finished();
 
 private:
     const QString moduleName = "wStartUpScreen";
     Ui::wStartUpScreen *ui;
     OTSettings set;
     wStart *WSTART;
+    firstSetup *FIRSTSETUP;
 
     QTimer *timer;
 

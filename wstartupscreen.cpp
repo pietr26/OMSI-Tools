@@ -14,7 +14,7 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     setWindowTitle(OTName + " - " + tr("Start...", "Note #1"));
 
     timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(goToWStart()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(finished()));
     timer->start(startUpScreenDuration);
 
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
@@ -38,12 +38,23 @@ wStartUpScreen::~wStartUpScreen()
     delete ui;
 }
 
-/// \brief Opens wStart
-void wStartUpScreen::goToWStart()
+/// \brief Shows first setup section
+void wStartUpScreen::finished()
 {
-    hide();
-    WSTART = new wStart();
-    WSTART->show();
     timer->stop();
+    ui->lblStatus->setText(tr("Finished."));
+    setCursor(Qt::ArrowCursor);
+
+    if (set.read("main", "language").isValid())
+    {
+        hide();
+        WSTART = new wStart();
+        WSTART->show();
+    }
+    else
+    {
+        FIRSTSETUP = new firstSetup(this);
+        ui->vlaFirstSetup->addWidget(FIRSTSETUP);
+    }
 }
 
