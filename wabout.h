@@ -16,6 +16,9 @@ public:
     explicit wAbout(QWidget *parent = nullptr);
     ~wAbout();
 
+private slots:
+    void on_btnClose_clicked();
+
 private:
     Ui::wAbout *ui;
     OTSettings set;
