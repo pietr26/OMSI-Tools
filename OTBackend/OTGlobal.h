@@ -289,6 +289,13 @@ public:
 class OTSettings
 {
 public:
+    // Language names:
+    const QString langEn = "English";
+    const QString langDe = "Deutsch (German)";
+    const QString langFr = "Français (French)";
+    const QString langIt = "Italiano (Italian)";
+    const QString langCz = "Čeština (Czech)";
+
     /// \brief Writes a setting
     void write(QString module, QString name, QVariant value)
     {

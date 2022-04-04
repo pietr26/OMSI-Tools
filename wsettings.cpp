@@ -25,11 +25,11 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
 
     // cobxLanguage
     int languageIndex = set.read("main", "language").toInt();
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), en); // 0
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), de); // 1
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), fr); // 2
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/it.svg"), it); // 3
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cz.svg"), cz); // 4
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), set.langEn); // 0
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), set.langDe); // 1
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), set.langFr); // 2
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/it.svg"), set.langIt); // 3
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cz.svg"), set.langCz); // 4
 
     // Disable 'it'
     auto* model3 = qobject_cast<QStandardItemModel*>(ui->cobxLanguage->model());
