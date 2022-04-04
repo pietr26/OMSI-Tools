@@ -14,38 +14,41 @@ wAbout::wAbout(QWidget *parent) :
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
     setWindowTitle(tr("About") + " " + OTName);
 
+    ui->lblTitle->setText(OTName);
+    ui->lblVersion->setText(tr("Version") + " " + OTVersion);
+
+    QString build;
 #ifdef QT_DEBUG
-    QString build = "Debug";
-#else
-    QString build = "Release";
+    build = ", " + tr("Debug build");
 #endif
 
-    QString aboutText =         QString("<h2>%1</h2>").arg(OTName) +
-                                tr("%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.").arg(OTName) + "<br>" + tr("The Project has been started at January 22, 2021.") + "<br><br>" +
-            "<table><tr><td><b>" +    tr("Version:") +           "</b></td><td>" + OTVersion +
-            "</td></tr><tr><td><b>" + tr("Official Build:") +    "</b></td><td>" + OTBuildOptions::getBuildName(OTBuild) +
-            "</td></tr><tr><td><b>" + tr("Application Build:") + "     </b></td><td>" + build + "</td></tr></table><br><br>" +
-            "<b>" +                   tr("Licensed under:") +    "</b> CC-BY-NC-ND</a> (https://creativecommons.org/licenses/by-nc-nd/4.0/)" + "<br><br><b>" +
-            tr("Involved persons:") + "</b>" +
+    ui->lbladditionalVersion->setText("(" + OTBuildOptions::getBuildName(OTBuild) + build + ")<br/><br/>");
 
-            // Involved persons:
-                          "<ul>" +
-                                QString("<li><b>Bamp</b> (%1)</li>").arg(tr("founder & head", "Meaning of 'head': A management role")) +
-                                QString("<li><b>Dari19</b> | <b>der_Nik_</b> | <b>DerGrafikfehler</b> | <b>Erilambus</b> | <b>fOcUs04</b> | <b>MeerrettichMeister</b> | <b>PingPong</b> | <b>SGTVP</b> | <b>TobiB</b> (%1)</li>").arg(tr("beta test")) +
-                                QString("<li><b>Dari19</b> (%1)</li>").arg(tr("italian translations")) +
-                                QString("<li><b>PG_97</b> (%1)</li>").arg(tr("french translations")) +
-                                QString("<li><b>tfc</b> (%1)</li>").arg(tr("czech translations")) + "</ul>";
+    ui->lblInformation->setText(tr("%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.").arg(OTName) + "<br/>" + tr("The Project has been started at January 22, 2021 and it's still in an early state of development.") + "<br/><br/>" + tr("%1 is licensed under %2.").arg(OTName, "<a href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</a>"));
 
-    ui->teedAbout->setHtml(aboutText);
+    QString credits = QString("<b>%1:</b> Bamp").arg(tr("Founder & head", "Meaning of 'head': A management role")) +
+                      QString("<br/><b>%1:</b> Dari19 | der_Nik_ | DerGrafikfehler | Erilambus | fOcUs04 | MeerrettichMeister | PingPong | SGTVP | TobiB").arg(tr("Beta test")) +
+                      QString("<br/><br/><b>%1:</b><br/>").arg(tr("Translators")) +
+                      QString("Dari19 (%1)<br/>").arg(tr("italian")) +
+                      QString("PG_97 (%1)<br/>").arg(tr("french")) +
+                      QString("tfc (%1)<br/>").arg(tr("czech"));
 
-    setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
-    qInfo().noquote() << moduleName + " started successfully.";
+    ui->teedAbout->setHtml(credits);
+
+    qInfo().noquote() << moduleName + " started";
 }
 
 wAbout::~wAbout()
 {
     delete ui;
 }
+
+void wAbout::on_btnClose_clicked()
+{
+    close();
+}
+
