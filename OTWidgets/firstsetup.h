@@ -22,6 +22,8 @@ private slots:
 
     void on_btnContinue_clicked();
 
+    void on_btnSelectMainDir_clicked();
+
 private:
     Ui::firstSetup *ui;
     OTSettings set;

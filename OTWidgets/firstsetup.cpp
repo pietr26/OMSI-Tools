@@ -28,6 +28,16 @@ firstSetup::~firstSetup()
 void firstSetup::on_btnContinue_clicked()
 {
     set.write("main", "language", ui->cobxLanguage->currentIndex());
+    set.write("main", "mainDir", ui->ledMainDir->text());
+
     misc.restart();
+}
+
+
+void firstSetup::on_btnSelectMainDir_clicked()
+{
+    QString mainDir = set.getOmsiPath(this);
+    if (mainDir != "")
+        ui->ledMainDir->setText(mainDir);
 }
 
