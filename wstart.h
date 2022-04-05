@@ -65,6 +65,8 @@ private slots:
 
     void on_btnStyleTest_clicked();
 
+    void on_btnView_clicked();
+
 private:
     const QString moduleName = "wStart";
     Ui::wStart *ui;

@@ -319,63 +319,63 @@ Open the path of the logfile?</source>
 <context>
     <name>wAbout</name>
     <message>
-        <location filename="../../wabout.cpp" line="18"/>
+        <location filename="../../wabout.cpp" line="19"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="21"/>
+        <location filename="../../wabout.cpp" line="22"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="25"/>
+        <location filename="../../wabout.cpp" line="26"/>
         <source>Debug build</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="32"/>
+        <location filename="../../wabout.cpp" line="31"/>
         <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="32"/>
+        <location filename="../../wabout.cpp" line="31"/>
         <source>The Project has been started at January 22, 2021 and it&apos;s still in an early state of development.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="32"/>
+        <location filename="../../wabout.cpp" line="31"/>
         <source>%1 is licensed under %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="35"/>
+        <location filename="../../wabout.cpp" line="33"/>
         <source>Founder &amp; head</source>
         <comment>Meaning of &apos;head&apos;: A management role</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="36"/>
+        <location filename="../../wabout.cpp" line="34"/>
         <source>Beta test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="37"/>
+        <location filename="../../wabout.cpp" line="35"/>
         <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="38"/>
+        <location filename="../../wabout.cpp" line="36"/>
         <source>italian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="39"/>
+        <location filename="../../wabout.cpp" line="37"/>
         <source>french</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="40"/>
+        <location filename="../../wabout.cpp" line="38"/>
         <source>czech</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1742,32 +1742,37 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="550"/>
+        <location filename="../../wstart.ui" line="511"/>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wstart.ui" line="633"/>
         <source>Changelog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="559"/>
+        <location filename="../../wstart.ui" line="642"/>
         <source>Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="472"/>
+        <location filename="../../wstart.ui" line="555"/>
         <source>Specials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="496"/>
+        <location filename="../../wstart.ui" line="579"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="508"/>
+        <location filename="../../wstart.ui" line="591"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="538"/>
+        <location filename="../../wstart.ui" line="621"/>
         <source>Send feedback</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1777,28 +1782,33 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="80"/>
+        <location filename="../../wstart.cpp" line="82"/>
         <source>No updates available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="166"/>
+        <location filename="../../wstart.cpp" line="85"/>
+        <source>New update available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wstart.cpp" line="141"/>
         <source>Coming soon!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="166"/>
+        <location filename="../../wstart.cpp" line="141"/>
         <source>Where should I release my modification?</source>
         <comment>Note #1</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="204"/>
+        <location filename="../../wstart.cpp" line="179"/>
         <source>Simulate crash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="204"/>
+        <location filename="../../wstart.cpp" line="179"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1813,12 +1823,12 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="465"/>
+        <location filename="../../wstart.ui" line="548"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="478"/>
+        <location filename="../../wstart.ui" line="561"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
