@@ -40,6 +40,8 @@ wStart::wStart(QWidget *parent)
 
     ui->actionAbout->setText(tr("About %1").arg(OTName));
 
+    ui->wdgUpdate->setVisible(false);
+
     QVariant checkVersion = set.read("main", "autoUpdateCheck");
     QVariant lastAutoUpdateCheck = set.read("main", "lastAutoUpdateCheck").toString();
     bool checkForUpdate = false;
@@ -80,42 +82,15 @@ wStart::wStart(QWidget *parent)
             ui->statusbar->showMessage(tr("No updates available."), 30000);
         else if (update.at(0) != "false")
         {
-            WCHANGELOG = new wChangelog(this, true);
-            WCHANGELOG->setWindowModality(Qt::ApplicationModal);
-            WCHANGELOG->show();
+            ui->lblUpdate->setText(tr("New update available") + " •");
+            ui->statusbar->addPermanentWidget(ui->wdgUpdate);
+            ui->wdgUpdate->setVisible(true);
+            ui->lblUpdateVersion->setText(update.at(1));
         }
     }
 
     qInfo().noquote() << moduleName + " started";
-
-    //setWindowFlags(Qt::Window | Qt::WindowContextHelpButtonHint | Qt::WindowCloseButtonHint);
 }
-
-/*    // Set welcomeText:
- *
-    int time = misc.getTime("hh").toInt();
-    if (time == 0 || time > 18)
-    ui->lblWelcome->setText(tr("Good evening!"));
-    else if (time > 1 && time < 9)
-    ui->lblWelcome->setText(tr("Good morning!"));
-    else if (time > 10 && time < 17)
-    ui->lblWelcome->setText(tr("Hello!"));
-    else
-    ui->lblWelcome->setText("");
-
-    // picture animation
-    QPixmap picture(":/rec/data/pictures/test.jpg");
-    ui->lblPicture->setPixmap(picture);
-    QGraphicsOpacityEffect *fadeIn = new QGraphicsOpacityEffect(ui->lblPicture);
-    ui->lblPicture->setGraphicsEffect(fadeIn);
-
-    QPropertyAnimation *animation = new QPropertyAnimation(fadeIn, "opacity");
-    animation->setDuration(1500);
-    animation->setStartValue(0);
-    animation->setEndValue(1);
-    animation->setEasingCurve(QEasingCurve::InOutQuad);
-    animation->start(QPropertyAnimation::DeleteWhenStopped);
-*/
 
 wStart::~wStart()
 {
@@ -248,5 +223,13 @@ void wStart::on_btnStyleTest_clicked()
     hide();
     WSTYLETEST = new wStyleTest();
     WSTYLETEST->show();
+}
+
+
+void wStart::on_btnView_clicked()
+{
+    WCHANGELOG = new wChangelog(this, true);
+    WCHANGELOG->setWindowModality(Qt::ApplicationModal);
+    WCHANGELOG->show();
 }
 

@@ -322,63 +322,63 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
 <context>
     <name>wAbout</name>
     <message>
-        <location filename="../../wabout.cpp" line="18"/>
+        <location filename="../../wabout.cpp" line="19"/>
         <source>About</source>
         <translation>O programu</translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="21"/>
+        <location filename="../../wabout.cpp" line="22"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="25"/>
+        <location filename="../../wabout.cpp" line="26"/>
         <source>Debug build</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="32"/>
+        <location filename="../../wabout.cpp" line="31"/>
         <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
         <translation>%1 je pomůcka pro vytváření modifikací do hry OMSI 2 - the bus simulator. %1 obsahuje spoustu užiteckých funkcí pro urychlení práce a umožňuje vytváření modifikací mnohem jednodušeji.</translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="32"/>
+        <location filename="../../wabout.cpp" line="31"/>
         <source>The Project has been started at January 22, 2021 and it&apos;s still in an early state of development.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="32"/>
+        <location filename="../../wabout.cpp" line="31"/>
         <source>%1 is licensed under %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="35"/>
+        <location filename="../../wabout.cpp" line="33"/>
         <source>Founder &amp; head</source>
         <comment>Meaning of &apos;head&apos;: A management role</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="36"/>
+        <location filename="../../wabout.cpp" line="34"/>
         <source>Beta test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="37"/>
+        <location filename="../../wabout.cpp" line="35"/>
         <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="38"/>
+        <location filename="../../wabout.cpp" line="36"/>
         <source>italian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="39"/>
+        <location filename="../../wabout.cpp" line="37"/>
         <source>french</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="40"/>
+        <location filename="../../wabout.cpp" line="38"/>
         <source>czech</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1749,32 +1749,37 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="550"/>
+        <location filename="../../wstart.ui" line="511"/>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wstart.ui" line="633"/>
         <source>Changelog</source>
         <translation>Seznam změn</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="559"/>
+        <location filename="../../wstart.ui" line="642"/>
         <source>Manual</source>
         <translation>Manuál</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="472"/>
+        <location filename="../../wstart.ui" line="555"/>
         <source>Specials</source>
         <translation>Speciální</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="496"/>
+        <location filename="../../wstart.ui" line="579"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="508"/>
+        <location filename="../../wstart.ui" line="591"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="538"/>
+        <location filename="../../wstart.ui" line="621"/>
         <source>Send feedback</source>
         <translation>Poslat zpětnou vazbu</translation>
     </message>
@@ -1784,28 +1789,33 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="80"/>
+        <location filename="../../wstart.cpp" line="82"/>
         <source>No updates available.</source>
         <translation>Není dostupná žádná nová aktualizace.</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="166"/>
+        <location filename="../../wstart.cpp" line="85"/>
+        <source>New update available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wstart.cpp" line="141"/>
         <source>Coming soon!</source>
         <translation>Již brzy!</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="166"/>
+        <location filename="../../wstart.cpp" line="141"/>
         <source>Where should I release my modification?</source>
         <comment>Note #1</comment>
         <translation>Kde bych měl vydat svoji modifikaci?</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="204"/>
+        <location filename="../../wstart.cpp" line="179"/>
         <source>Simulate crash</source>
         <translation>Simulovat pád aplikace</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="204"/>
+        <location filename="../../wstart.cpp" line="179"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Měl by být simulován pád aplikace?</translation>
     </message>
@@ -1820,12 +1830,12 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Simulovat pád aplikace</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="465"/>
+        <location filename="../../wstart.ui" line="548"/>
         <source>Window</source>
         <translation>Okno</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="478"/>
+        <location filename="../../wstart.ui" line="561"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>
