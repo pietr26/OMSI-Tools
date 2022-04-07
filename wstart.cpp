@@ -40,7 +40,7 @@ wStart::wStart(QWidget *parent)
 
     ui->actionAbout->setText(tr("About %1").arg(OTName));
 
-    ui->wdgUpdate->setVisible(false);
+    ui->fraUpdate->setVisible(false);
 
     QVariant checkVersion = set.read("main", "autoUpdateCheck");
     QVariant lastAutoUpdateCheck = set.read("main", "lastAutoUpdateCheck").toString();
@@ -83,8 +83,8 @@ wStart::wStart(QWidget *parent)
         else if (update.at(0) != "false")
         {
             ui->lblUpdate->setText(tr("New update available") + " •");
-            ui->statusbar->addPermanentWidget(ui->wdgUpdate);
-            ui->wdgUpdate->setVisible(true);
+            ui->statusbar->addPermanentWidget(ui->fraUpdate);
+            ui->fraUpdate->setVisible(true);
             ui->lblUpdateVersion->setText(update.at(1));
         }
     }
