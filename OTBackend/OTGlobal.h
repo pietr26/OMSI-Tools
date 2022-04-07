@@ -283,8 +283,6 @@ public:
     }
 };
 
-
-
 /// \brief Class for settings which all modules needs
 class OTSettings
 {
@@ -379,10 +377,10 @@ public:
     }
 
     /// \brief Installs a translator
-    void loadLanguage(QApplication &parent)
+    void loadTranslator()
     {
-        QTranslator *translator = new QTranslator(&parent);
-        QTranslator *baseTranslator = new QTranslator(&parent);
+        qApp->removeTranslator(&currentTranslator);
+        qApp->removeTranslator(&currentBaseTranslator);
 
         QString languageFile;
         QString baseLanguageFile;
@@ -397,11 +395,11 @@ public:
 
         if (languageFile != "")
         {
-            bool trLoad = translator->load(languageFile, ":/rec/data/translations/");
-            bool trInstall = parent.installTranslator(translator);
+            bool trLoad = currentTranslator.load(languageFile, ":/rec/data/translations/");
+            bool trInstall = qApp->installTranslator(&currentTranslator);
 
-            bool baseTrLoad = baseTranslator->load(baseLanguageFile, ":/rec/data/translations/");
-            bool baseTrInstall = parent.installTranslator(baseTranslator);
+            bool baseTrLoad = currentBaseTranslator.load(baseLanguageFile, ":/rec/data/translations/");
+            bool baseTrInstall = qApp->installTranslator(&currentBaseTranslator);
 
             if (trLoad && trInstall && baseTrLoad && baseTrInstall)
                 qInfo() << "Loaded translations";
@@ -415,10 +413,11 @@ public:
                 qDebug().noquote() << "baseTrInstall:" << baseTrInstall;
             }
         }
-
-        delete translator;
-        delete baseTranslator;
     }
+
+private:
+    static QTranslator currentTranslator;
+    static QTranslator currentBaseTranslator;
 };
 
 /// \brief Message class
@@ -547,7 +546,7 @@ public:
     }
 
     /// \brief Returns disk usage of 'dirPath'
-    QString formatSize(QString dirPath)
+    QString formatSize(QString dirPath, bool withUnit = true)
     {
         qint64 size = dirSize(dirPath);
 
@@ -560,7 +559,14 @@ public:
 
             outputSize = outputSize / 1024;
         }
-        QString result = QString("%0 %1").arg(outputSize, 0, 'f', 2).arg(units[i]);
+
+        currentUnit = units[i];
+        QString result;
+        if (withUnit)
+            result = QString("%0 %1").arg(outputSize, 0, 'f', 2).arg(units[i]);
+        else
+            result = QString("%0").arg(outputSize, 0, 'f', 2);
+
         return result;
     }
 
@@ -596,6 +602,7 @@ public:
         return result;
     }
 
+    QString currentUnit;
 private:
     qint64 dirSize(QString dirPath)
     {

@@ -13,6 +13,9 @@ void testArea()
 
 }
 
+QTranslator OTSettings::currentTranslator;
+QTranslator OTSettings::currentBaseTranslator;
+
 /// \brief Main function
 int main(int argc, char *argv[])
 {
@@ -43,7 +46,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    set.loadLanguage(a);
+    set.loadTranslator();
 
     if (isCrash)
     {
@@ -57,7 +60,6 @@ int main(int argc, char *argv[])
         qDebug() << "No crash detected.";
 
     testArea();
-
 
     // If the application was updated, remove the temporary directory in the temp folder
     if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "updateInstalled"))

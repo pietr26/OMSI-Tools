@@ -52,7 +52,8 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
         ui->gbxAutosave->setChecked(false);
 
     // lblDiskUsage
-    ui->lblDiskUsage->setText(tr("Backup disk usage") + tr("Calculating..."));
+    ui->lblDiskUsageSize->setText(tr("Calculating..."));
+    ui->lblDiskUsageUnit->setText("");
     refreshDiskUsage();
 
     // sbxAutosaveDuration
@@ -150,7 +151,8 @@ void wSettings::setUnsaved(bool visible)
 /// \brief Refreshes disk usage for backup folder
 void wSettings::refreshDiskUsage()
 {
-    ui->lblDiskUsage->setText(tr("Backup disk usage") + ": " + dUs.formatSize("backup"));
+    ui->lblDiskUsageSize->setText(dUs.formatSize("backup", false));
+    ui->lblDiskUsageUnit->setText(dUs.currentUnit);
 }
 
 /// \brief Closes the application
@@ -296,7 +298,8 @@ void wSettings::on_cobxLanguage_currentIndexChanged(int index)
     if (setupFinished)
     {
         set.write("main", "language", index);
-        //set.loadLanguage();
+        set.loadTranslator();
+        ui->retranslateUi(this);
         setUnsaved(true);
     }
 }
