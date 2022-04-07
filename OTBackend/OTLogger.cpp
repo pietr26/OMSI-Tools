@@ -8,7 +8,6 @@ unsigned int entryCount = 1;
 int logfileMode;
 bool hardcoreDebugLogfile;
 
-
 Logger::Logger(QObject *parent) : QObject(parent)
 {
 }
