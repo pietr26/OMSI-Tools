@@ -13,7 +13,7 @@ wFonts::wFonts() :
     adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTName + " - " + tr("fonts"));
+    setWindowTitle(OTName + " - " + tr("font creation"));
 
     loadRecentFiles();
 
@@ -33,8 +33,8 @@ wFonts::wFonts() :
 
     // Set only-Numbers
     ui->ledHighestPixelInFontRow->setValidator(new QIntValidator(0, 10000, this));
-    ui->ledLeftPixel->setValidator(new QIntValidator(0, 10000, this));
-    ui->ledRightPixel->setValidator(new QIntValidator(0, 10000, this));
+    ui->sbxLeftPixel->clear();
+    ui->sbxRightPixel->clear();
     ui->sbxMaxHeigthOfChars->clear();
     ui->sbxDistanceBetweenChars->clear();
 
@@ -311,10 +311,10 @@ void wFonts::checkCurrentChar()
         ui->lblLeftPixel->setStyleSheet("color:goldenrod");
     }
 
-    if (ui->ledRightPixel->text() == "")
+    if (ui->sbxRightPixel->text() == "")
         ui->lblRightPixel->setStyleSheet("color:red");
 
-    if (ui->ledLeftPixel->text() == "")
+    if (ui->sbxLeftPixel->text() == "")
         ui->lblLeftPixel->setStyleSheet("color:red");
 
     if (ui->ledHighestPixelInFontRow->text() == "")
@@ -366,8 +366,8 @@ void wFonts::selectAllAndClear(bool onlyChar)
     }
 
     ui->ledCharacter->clear();
-    ui->ledLeftPixel->clear();
-    ui->ledRightPixel->clear();
+    ui->sbxLeftPixel->clear();
+    ui->sbxRightPixel->clear();
     ui->ledHighestPixelInFontRow->clear();
     ui->ledComment->clear();
 
@@ -405,8 +405,8 @@ void wFonts::move(int selection, QString action)
 void wFonts::enableFontArea(bool status)
 {
     ui->ledCharacter->setEnabled(status);
-    ui->ledLeftPixel->setEnabled(status);
-    ui->ledRightPixel->setEnabled(status);
+    ui->sbxLeftPixel->setEnabled(status);
+    ui->sbxRightPixel->setEnabled(status);
     ui->ledHighestPixelInFontRow->setEnabled(status);
     ui->ledComment->setEnabled(status);
     ui->btnDeleteSelection->setEnabled(status);
@@ -500,8 +500,16 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen)
     ui->ledFontName->setText(tempFont.name);
     ui->ledColorTexture->setText(tempFont.colorTexture);
     ui->ledAlphaTexture->setText(tempFont.alphaTexture);
-    ui->sbxMaxHeigthOfChars->setValue(tempFont.maxHeightOfChars);
-    ui->sbxDistanceBetweenChars->setValue(tempFont.distanceBetweenChars);
+
+    if (tempFont.maxHeightOfChars != -1)
+        ui->sbxMaxHeigthOfChars->setValue(tempFont.maxHeightOfChars);
+    else
+        ui->sbxMaxHeigthOfChars->clear();
+
+    if (tempFont.distanceBetweenChars != -1)
+        ui->sbxDistanceBetweenChars->setValue(tempFont.distanceBetweenChars);
+    else
+        ui->sbxDistanceBetweenChars->clear();
 
     font = tempFont;
 
@@ -954,42 +962,6 @@ void wFonts::on_ledCharacter_textChanged(const QString &arg1)
     setUnsaved();
 }
 
-/// \brief Slot for left pixel changes
-void wFonts::on_ledLeftPixel_textChanged(const QString &arg1)
-{
-    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
-    {
-        if (arg1 == "")
-            font.charList[ui->lvwChars->currentIndex().row()].leftPixel = -1;
-        else
-            font.charList[ui->lvwChars->currentIndex().row()].leftPixel = arg1.toInt();
-
-        if (!charUIUpdate)
-            reloadCharList();
-    }
-
-    checkCurrentChar();
-    setUnsaved();
-}
-
-/// \brief Slot for right pixel changes
-void wFonts::on_ledRightPixel_textChanged(const QString &arg1)
-{
-    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
-    {
-        if (arg1 == "")
-            font.charList[ui->lvwChars->currentIndex().row()].rightPixel = -1;
-        else
-            font.charList[ui->lvwChars->currentIndex().row()].rightPixel = arg1.toInt();
-
-        if (!charUIUpdate)
-            reloadCharList();
-    }
-
-    checkCurrentChar();
-    setUnsaved();
-}
-
 /// \brief Slot for highestPIFR changes
 void wFonts::on_ledHighestPixelInFontRow_textChanged(const QString &arg1)
 {
@@ -1094,14 +1066,14 @@ void wFonts::reloadCharUI()
     ui->ledCharacter->setText(character.character);
 
     if (character.leftPixel != -1)
-        ui->ledLeftPixel->setText(QString::number(character.leftPixel));
+        ui->sbxLeftPixel->setValue(character.leftPixel);
     else
-        ui->ledLeftPixel->clear();
+        ui->sbxLeftPixel->clear();
 
     if (character.rightPixel != -1)
-        ui->ledRightPixel->setText(QString::number(character.rightPixel));
+        ui->sbxRightPixel->setValue(character.rightPixel);
     else
-        ui->ledRightPixel->clear();
+        ui->sbxRightPixel->clear();
 
     if (character.highestPixelInFontRow != -1)
         ui->ledHighestPixelInFontRow->setText(QString::number(character.highestPixelInFontRow));
@@ -1276,3 +1248,37 @@ void wFonts::on_actionSendFeedback_triggered()
     OTMiscellaneous::sendFeedback();
 }
 
+
+void wFonts::on_sbxLeftPixel_textChanged(const QString &arg1)
+{
+    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    {
+        if (arg1 == "")
+            font.charList[ui->lvwChars->currentIndex().row()].leftPixel = -1;
+        else
+            font.charList[ui->lvwChars->currentIndex().row()].leftPixel = arg1.toInt();
+
+        if (!charUIUpdate)
+            reloadCharList();
+    }
+
+    checkCurrentChar();
+    setUnsaved();
+}
+
+void wFonts::on_sbxRightPixel_textChanged(const QString &arg1)
+{
+    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    {
+        if (arg1 == "")
+            font.charList[ui->lvwChars->currentIndex().row()].rightPixel = -1;
+        else
+            font.charList[ui->lvwChars->currentIndex().row()].rightPixel = arg1.toInt();
+
+        if (!charUIUpdate)
+            reloadCharList();
+    }
+
+    checkCurrentChar();
+    setUnsaved();
+}

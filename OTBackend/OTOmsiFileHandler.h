@@ -1079,8 +1079,10 @@ public:
                     font.name = in.readLine();
                     font.colorTexture = in.readLine();
                     font.alphaTexture = in.readLine();
-                    font.maxHeightOfChars = in.readLine().toInt();
-                    font.distanceBetweenChars = in.readLine().toInt();
+                    QString maxHeightOfChars = in.readLine();
+                    font.maxHeightOfChars = (maxHeightOfChars == "") ? -1 : maxHeightOfChars.toInt();
+                    QString distanceBetweenChars = in.readLine();
+                    font.distanceBetweenChars = (distanceBetweenChars == "") ? -1 : distanceBetweenChars.toInt();
                 }
 
                 else if (line == "[char]")
@@ -1090,29 +1092,20 @@ public:
                     character.character = in.readLine();
 
                     QString leftPixel = in.readLine();
-                    if (leftPixel == "")
-                        leftPixel = "-1";
-                    character.leftPixel = leftPixel.toInt();
+                    character.leftPixel = (leftPixel == "") ? -1 : leftPixel.toInt();
 
                     QString rightPixel = in.readLine();
-                    if (rightPixel == "")
-                        rightPixel = "-1";
-                    character.rightPixel = rightPixel.toInt();
+                    character.rightPixel = (rightPixel == "") ? -1 : rightPixel.toInt();
 
                     QString highestPixelInFontRow = in.readLine();
-                    if (highestPixelInFontRow == "")
-                        highestPixelInFontRow = "-1";
-                    character.highestPixelInFontRow = highestPixelInFontRow.toInt();
+                    character.highestPixelInFontRow = (highestPixelInFontRow == "") ? -1 : highestPixelInFontRow.toInt();
 
                     line = in.readLine();
 
                     if (line == "[char]")
                         continue;
                     else if (line.contains("//"))
-                    {
-                        line.remove(0, 3);
-                        character.comment = line;
-                    }
+                        character.comment = line.remove(0, 3);
 
                     font.charList.append(character);
                 }
@@ -1176,17 +1169,13 @@ public:
         out << font.colorTexture << "\n";
         out << font.alphaTexture << "\n";
 
-        QString maxHeightOfChars = QString::number(font.maxHeightOfChars);
-        if (font.maxHeightOfChars == -1)
-            maxHeightOfChars = "";
+        // variable = (condition) ? expressionTrue : expressionFalse;
 
-        out << font.maxHeightOfChars << "\n";
+        QString maxHeightOfChars = (font.maxHeightOfChars == -1) ? "" : QString::number(font.maxHeightOfChars);
+        out << maxHeightOfChars << "\n";
+        QString distanceBetweenChars = (font.distanceBetweenChars == -1) ? "" : QString::number(font.distanceBetweenChars);
+        out << distanceBetweenChars << "\n";
 
-        QString distanceBetweenChars = QString::number(font.distanceBetweenChars);
-        if (font.distanceBetweenChars == -1)
-            distanceBetweenChars = "";
-
-        out << font.distanceBetweenChars << "\n";
         out << "\n";
 
         foreach (OTCharacterModel current, font.charList)
@@ -1195,19 +1184,13 @@ public:
             out << "[char]" << "\n";
             out << current.character << "\n";
 
-            QString leftPixel = QString::number(current.leftPixel);
-            if (leftPixel == "-1")
-                leftPixel = "";
+            QString leftPixel = (current.leftPixel == -1) ? "" : QString::number(current.leftPixel);
             out << leftPixel << "\n";
 
-            QString rightPixel = QString::number(current.rightPixel);
-            if (rightPixel == "-1")
-                rightPixel = "";
+            QString rightPixel = (current.rightPixel == -1) ? "" : QString::number(current.rightPixel);
             out << rightPixel << "\n";
 
-            QString highestPixelInFontRow = QString::number(current.highestPixelInFontRow);
-            if (highestPixelInFontRow == "-1")
-                highestPixelInFontRow = "";
+            QString highestPixelInFontRow = (current.highestPixelInFontRow == -1) ? "" : QString::number(current.highestPixelInFontRow);
             out << highestPixelInFontRow << "\n";
 
             // Output: [Tab]// [Comment]
