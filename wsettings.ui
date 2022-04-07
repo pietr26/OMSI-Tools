@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>677</width>
+    <width>574</width>
     <height>726</height>
    </rect>
   </property>
@@ -364,7 +364,7 @@
            <item>
             <widget class="QLabel" name="lblAutoUpdateCheck">
              <property name="text">
-              <string>Check for updates automatically:</string>
+              <string>Check automatically:</string>
              </property>
             </widget>
            </item>
@@ -391,7 +391,7 @@
            <item>
             <widget class="QPushButton" name="btnCheckForUpdates">
              <property name="text">
-              <string>Check for updates</string>
+              <string>Check for updates now</string>
              </property>
              <property name="icon">
               <iconset resource="ressources.qrc">
@@ -540,7 +540,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>677</width>
+     <width>574</width>
      <height>24</height>
     </rect>
    </property>
