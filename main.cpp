@@ -13,9 +13,6 @@ void testArea()
 
 }
 
-QTranslator OTSettings::currentTranslator;
-QTranslator OTSettings::currentBaseTranslator;
-
 /// \brief Main function
 int main(int argc, char *argv[])
 {

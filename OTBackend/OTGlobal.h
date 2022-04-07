@@ -379,8 +379,8 @@ public:
     /// \brief Installs a translator
     void loadTranslator()
     {
-        qApp->removeTranslator(&currentTranslator);
-        qApp->removeTranslator(&currentBaseTranslator);
+        QTranslator *translator = new QTranslator();
+        QTranslator *baseTranslator = new QTranslator();
 
         QString languageFile;
         QString baseLanguageFile;
@@ -395,11 +395,11 @@ public:
 
         if (languageFile != "")
         {
-            bool trLoad = currentTranslator.load(languageFile, ":/rec/data/translations/");
-            bool trInstall = qApp->installTranslator(&currentTranslator);
+            bool trLoad = translator->load(languageFile, ":/rec/data/translations/");
+            bool trInstall = qApp->installTranslator(translator);
 
-            bool baseTrLoad = currentBaseTranslator.load(baseLanguageFile, ":/rec/data/translations/");
-            bool baseTrInstall = qApp->installTranslator(&currentBaseTranslator);
+            bool baseTrLoad = baseTranslator->load(baseLanguageFile, ":/rec/data/translations/");
+            bool baseTrInstall = qApp->installTranslator(baseTranslator);
 
             if (trLoad && trInstall && baseTrLoad && baseTrInstall)
                 qInfo() << "Loaded translations";
@@ -414,10 +414,6 @@ public:
             }
         }
     }
-
-private:
-    static QTranslator currentTranslator;
-    static QTranslator currentBaseTranslator;
 };
 
 /// \brief Message class
@@ -603,6 +599,7 @@ public:
     }
 
     QString currentUnit;
+
 private:
     qint64 dirSize(QString dirPath)
     {
