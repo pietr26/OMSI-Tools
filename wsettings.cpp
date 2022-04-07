@@ -298,8 +298,6 @@ void wSettings::on_cobxLanguage_currentIndexChanged(int index)
     if (setupFinished)
     {
         set.write("main", "language", index);
-        set.loadTranslator();
-        ui->retranslateUi(this);
         setUnsaved(true);
     }
 }
