@@ -50,7 +50,7 @@ void wAbout::on_btnClose_clicked()
 
 void wAbout::on_btnMore_clicked()
 {
-    QMessageBox::about(this, tr("More information", "Note #1"), tr("Developed with %1 and %2").arg("Qt 6.2.3", "MinGW 11.2.0") + "\n\n" +
+    QMessageBox::about(this, tr("More information"), tr("Developed with %1 and %2").arg("Qt 6.2.3", "MinGW 11.2.0") + "\n\n" +
                                                                          tr("Build type: %1").arg(OTBuildOptions::getBuildName(OTBuild)) + "\n" +
                                                                          tr("Application build: %1").arg(appBuild) + "\n\n" +
                                                                          tr("Approximate lines of code: %1 (%2)").arg("18 000", OTTranslations::getMonthName(4) + " 2022"));

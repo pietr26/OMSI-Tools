@@ -339,7 +339,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
 
     if (!QFile::exists(filehandler.getMapPath()))
     {
-        QMessageBox::warning(this, tr("Map file doesn't exist", "Note #1"), tr("The selected map file doesn't exist."));
+        QMessageBox::warning(this, tr("Map file doesn't exist"), tr("The selected map file doesn't exist."));
         qWarning() << QString("Could not found map file '%1'!").arg(filehandler.getMapPath());
         return endVerifying();
     }
