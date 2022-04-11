@@ -21,6 +21,7 @@ private slots:
 
     void on_btnMore_clicked();
 
+
 private:
     Ui::wAbout *ui;
     OTSettings set;
