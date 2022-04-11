@@ -626,4 +626,29 @@ private:
     QStringList units;
 };
 
+class OTTranslations
+{
+public:
+    static QString getMonthName(int monthNumber)
+    {
+        return months[monthNumber];
+    }
+
+private:
+    static inline const QMap<int, QString> months = {
+        {1, QObject::tr("January")},
+        {2, QObject::tr("February")},
+        {3, QObject::tr("March")},
+        {4, QObject::tr("April")},
+        {5, QObject::tr("May")},
+        {6, QObject::tr("June")},
+        {7, QObject::tr("July")},
+        {8, QObject::tr("August")},
+        {9, QObject::tr("September")},
+        {10, QObject::tr("October")},
+        {11, QObject::tr("November")},
+        {12, QObject::tr("December")},
+    };
+};
+
 #endif // OTGLOBAL_H
