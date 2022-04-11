@@ -33,34 +33,55 @@
       <property name="title">
        <string notr="true">Functions</string>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="1">
-        <widget class="QPushButton" name="btnGetListOfFiles">
-         <property name="text">
-          <string notr="true">Get list of files</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QPushButton" name="btnGetKeywords">
-         <property name="text">
-          <string notr="true">Get all keywords from file(s)</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="btnLineCounter">
-         <property name="text">
-          <string notr="true">Count lines from file(s)</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="btnSoundFileLister">
-         <property name="text">
-          <string notr="true">Get sound file paths from sound.cfg</string>
-         </property>
-        </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="1">
+          <widget class="QPushButton" name="btnGetListOfFiles">
+           <property name="text">
+            <string notr="true">Get list of files</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="btnSoundFileLister">
+           <property name="text">
+            <string notr="true">Get sound file paths from sound.cfg</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QPushButton" name="btnLineCounter">
+             <property name="text">
+              <string notr="true">Count lines from file(s)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnLineCounterStart">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string notr="true">Start</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="btnGetKeywords">
+           <property name="text">
+            <string notr="true">Get all keywords from file(s)</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
