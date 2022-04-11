@@ -305,7 +305,7 @@ public:
         }
         else
         {
-            QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Updates available"), QString("<html>%1<br><br><b>%2:</b> %3<br><b>%4:</b> %5<br><br>%6</html>").arg(QObject::tr("There is an update available."), QObject::tr("Installed version"), OTVersion, QObject::tr("Newest version"), update.at(1), QObject::tr("Should the newest version be installed?")));
+            QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Found update"), QString("<html>%1<br><br><b>%2:</b> %3<br><b>%4:</b> %5<br><br>%6</html>").arg(QObject::tr("There is an update available."), QObject::tr("Installed version"), OTVersion, QObject::tr("Newest version"), update.at(1), QObject::tr("The update will be installed.")), QMessageBox::Yes | QMessageBox::Cancel);
             qInfo() << "Updates available!";
 
             if (reply == QMessageBox::Yes)
