@@ -561,7 +561,7 @@ public:
     /// \brief If the user wants to open a file via a button and the file doesn't exist, this message es helpful
     void errorOpeningFile(QWidget *parent)
     {
-        QMessageBox::information(parent, QObject::tr("Error while openig file"), QObject::tr("The selected file doesn't exists or is read-protected."));
+        QMessageBox::information(parent, QObject::tr("Error while opening file"), QObject::tr("The selected file doesn't exists or is read-protected."));
     }
 
     /// \brief Could not open a file from OMSI main dir
