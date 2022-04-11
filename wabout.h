@@ -19,10 +19,18 @@ public:
 private slots:
     void on_btnClose_clicked();
 
+    void on_btnMore_clicked();
+
 private:
     Ui::wAbout *ui;
     OTSettings set;
     const QString moduleName = "wAbout";
+
+#ifdef QT_DEBUG
+    QString appBuild = "Debug";
+#else
+    QString appBuild = "Release";
+#endif
 };
 
 #endif // WABOUT_H
