@@ -60,7 +60,10 @@ int main(int argc, char *argv[])
 
     // If the application was updated, remove the temporary directory in the temp folder
     if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "updateInstalled"))
+    {
+        qInfo() << "Update installed, remove old files...";
         QDir(QDir::tempPath() + "/OMSI-Tools_tempAppDir").removeRecursively();
+    }
 
     wStartUpScreen *WSTARTUPSCREEN;
     wFbh *WFBH;
