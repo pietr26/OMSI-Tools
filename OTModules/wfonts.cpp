@@ -97,12 +97,12 @@ void wFonts::dropEvent(QDropEvent *e)
 
     if (QFileInfo(fileName).suffix() != "oft")
     {
-        QMessageBox::critical(this, tr("Invalid format", "Note #1"), tr("The dropped file is no font file (*.oft)!"));
+        QMessageBox::critical(this, tr("Invalid format"), tr("The dropped file is no font file (*.oft)!"));
         qWarning() << "Dropped file is no OFT file!";
         return;
     }
 
-    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Open font file", "Note #1"), tr("Open drag and drop font file now?\n%1").arg(fileName));
+    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Open font file"), tr("Open drag and drop font file now?\n%1").arg(fileName));
 
     if (reply == QMessageBox::Yes)
         open(OTFileMethods::open, fileName);
@@ -447,7 +447,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen)
         if (filen == "")
         {
             qDebug() << "Open with file dialog";
-            filen = QFileDialog::getOpenFileName(this, tr("Open font...", "Note #1"), set.read("main", "mainDir").toString() + "/Fonts", tr("OMSI font file") + " (*.oft)");
+            filen = QFileDialog::getOpenFileName(this, tr("Open font..."), set.read("main", "mainDir").toString() + "/Fonts", tr("OMSI font file") + " (*.oft)");
             if (filen == "")
                 return;
             else
@@ -926,7 +926,7 @@ void wFonts::on_actionLoadTemplate_triggered()
 
         else
         {
-            QMessageBox::warning(this, tr("Invalid selection", "Note #1"), tr("The current selection isn't a valid template."));
+            QMessageBox::warning(this, tr("Invalid selection"), tr("The current selection isn't a valid template."));
             qDebug() << "Invalid template!";
         }
         qDebug() << QString("Template: '%1'").arg(selectedTemplate);
@@ -1147,7 +1147,7 @@ void wFonts::on_btnFind_clicked()
     }
 
     // If char couldn't be found
-    QMessageBox::information(this, tr("Character not found", "Note #1"), tr("The entered character could not be found."));
+    QMessageBox::information(this, tr("Character not found"), tr("The entered character could not be found."));
     qDebug() << "Character not found.";
     currentSearch = "";
     ui->btnNextResult->setEnabled(false);

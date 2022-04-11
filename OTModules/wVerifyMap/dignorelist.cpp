@@ -89,7 +89,7 @@ void dIgnoreList::on_btnAddFiles_clicked()
     }
     catch (...)
     {
-        QMessageBox::critical(this, tr("Could not append ignorelist", "Note #1"), tr("There was an error while append the files to the ignorelist."));
+        QMessageBox::critical(this, tr("Could not append ignorelist"), tr("There was an error while append the files to the ignorelist."));
         qCritical() << "Could not append ignorelist!";
         qDebug().noquote().noquote() << "Try to add files: " << newFiles;
         return;

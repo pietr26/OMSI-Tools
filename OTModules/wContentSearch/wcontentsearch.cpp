@@ -156,10 +156,10 @@ void wContentSearch::on_btnAddToList_clicked()
 /// \brief Searchs for user input
 void wContentSearch::reloadTabNames()
 {
-    ui->twgExtras->setTabText(0, tr("Links (%1)", "Note #1").arg(ui->lwgLinks->count()));
-    ui->twgExtras->setTabText(1, tr("Not found (%1)", "Note #1").arg(ui->lwgNotFound->count()));
-    ui->twgExtras->setTabText(2, tr("Standard content (%1)", "Note #1\nPlease use plural; Optional original text: 'Standard files'").arg(ui->lwgStandardContent->count()));
-    ui->twgExtras->setTabText(3, tr("Direct links (%1)", "Note #1").arg(ui->lwgDirectLinks->count()));
+    ui->twgExtras->setTabText(0, tr("Links (%1)").arg(ui->lwgLinks->count()));
+    ui->twgExtras->setTabText(1, tr("Not found (%1)").arg(ui->lwgNotFound->count()));
+    ui->twgExtras->setTabText(2, tr("Standard content (%1)", "Please use plural; Optional original text: 'Standard files'").arg(ui->lwgStandardContent->count()));
+    ui->twgExtras->setTabText(3, tr("Direct links (%1)").arg(ui->lwgDirectLinks->count()));
 }
 
 void wContentSearch::on_actionSearch_triggered()
@@ -295,7 +295,7 @@ void wContentSearch::on_btnReportDeathLink_clicked()
 /// \brief Adds paths from a file via fileDialog
 void wContentSearch::on_btnAddFile_clicked()
 {
-    QString filename = QFileDialog::getOpenFileName(this, tr("Select file with paths...", "Note #1"), QStandardPaths::displayName(QStandardPaths::DesktopLocation), QString("%1 (*.txt);; %2 (*.*)").arg(tr("Text files"), tr("All files")));
+    QString filename = QFileDialog::getOpenFileName(this, tr("Select file with paths..."), QStandardPaths::displayName(QStandardPaths::DesktopLocation), QString("%1 (*.txt);; %2 (*.*)").arg(tr("Text files"), tr("All files")));
 
     if (filename == "")
         return;
@@ -318,7 +318,7 @@ void wContentSearch::on_btnAddFile_clicked()
         }
         file.close();
 
-        if (QMessageBox::information(this, tr("Add files", "Note #1"), tr("%1 path(s) will be added to the list.").arg(pathsFromFile.count()), QMessageBox::Cancel | QMessageBox::Yes) == QMessageBox::Yes)
+        if (QMessageBox::information(this, tr("Add files"), tr("%1 path(s) will be added to the list.").arg(pathsFromFile.count()), QMessageBox::Cancel | QMessageBox::Yes) == QMessageBox::Yes)
             ui->lwgUserSearch->addItems(pathsFromFile);
         else
             ui->statusbar->showMessage(tr("Process aborted."), 4000);

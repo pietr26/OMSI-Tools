@@ -10,7 +10,7 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
-    ui->lblStatus->setText(tr("Start-up...", "Note #1"));
+    ui->lblStatus->setText(tr("Start-up..."));
     setWindowTitle(OTName + " - " + ui->lblStatus->text());
 
     timer = new QTimer();
