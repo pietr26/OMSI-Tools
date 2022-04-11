@@ -4,51 +4,51 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="439"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="437"/>
         <source>Attention: This module is currently work in progress. Only use it for test, never for real modding! Files edited with this module can possibly be destroyed!</source>
         <translation>Upozornění: Tento modul je ve fázi vývoje. Používejte ho pouze pro testování, nikoliv pro skutečné vytváření obsahu! Soubory upravené v tomto modulu mohou být poškozeny!</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="468"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="466"/>
         <source>There is unsaved content. Do you want to save?</source>
         <translation>Máte zde neuložený obsah. Chcete obsah uložit?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="439"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="437"/>
         <source>Work in progress</source>
         <comment>Note #1</comment>
         <translation>V přípravě</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="337"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="335"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <comment>Note #1</comment>
         <translation>&quot;Omsi.exe&quot; nenalezeno</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="337"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="335"/>
         <source>&quot;Omsi.exe&quot; could not found in the selected directory. Is it the correct path?. Otherwise, problems may appear in some modules. Should a new path be selected?</source>
         <translation>&quot;Omsi.exe&quot; nebylo nalezeno ve vybraném adresáři. Je tento adresář správný? Díky tomu se mohou objevit potíže v některých modulech. Chcete vybrat nový adresář?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="484"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
         <source>Error while openig file</source>
         <comment>Note #1</comment>
         <translation>Chybné otevření souboru</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="484"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="482"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Tento zvolený soubor neexistuje nebo má ochranu proti čtění.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="506"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="504"/>
         <source>Confirm deletion</source>
         <comment>Note #1</comment>
         <translation>Potvrdit smazaní</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="332"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="330"/>
         <source>Select the OMSI main directory...</source>
         <translation>Vyberte hlavní OMSI složku...</translation>
     </message>
@@ -75,17 +75,17 @@
         <translation type="unfinished">Nepodařilo se vytvořit zástupce v %1.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="429"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="427"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Pro další používání aplikace je potřeba přidat hlavní složku s OMSI. Chcete ji přidat nyní?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="446"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="444"/>
         <source>There is unsaved content.</source>
         <translation>Máte neuložený obsah.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="490"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="488"/>
         <source>There was an error while opening
 %1
 If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
@@ -94,71 +94,131 @@ If OMSI is running, please close it and retry it. Furthermore, check if the file
 Pokud OMSI běží, zavřete jej prosím a spusťe znovu. Dále zkontrolujte, zda stále soubor existuje.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="496"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="494"/>
         <source>There are no chars in the font.</source>
         <translation>Nemáte žádné znaky ve fontu.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="506"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="504"/>
         <source>Should the selection be deleted?</source>
         <translation>Měl by být výběr odstraněn?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="522"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="520"/>
         <source>Save error</source>
         <comment>Note #1</comment>
         <translation>Chyba uložení</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="522"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="520"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation>Nastala chyba &apos;%1&apos; při ukládání. Pokud OMSI stále běží, zavřete jej prosím a zkuste znovu.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="528"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="526"/>
         <source>Module still deactivated</source>
         <comment>Note #1</comment>
         <translation>Modul není aktivován</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="528"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="526"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation>Bohužel je tento modul stále deaktivován kvůli nedostatku času pro vývoj. Zkontrolujte prosím nové aktualizace následující dny.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="541"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="539"/>
         <source>Bytes</source>
         <translation>Bytů</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="541"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="539"/>
         <source>KB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="542"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="540"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="542"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="540"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="543"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="541"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation>TB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="543"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="541"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation>PB</translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="639"/>
+        <source>January</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="640"/>
+        <source>February</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="641"/>
+        <source>March</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="642"/>
+        <source>April</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="643"/>
+        <source>May</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="644"/>
+        <source>June</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="645"/>
+        <source>July</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="646"/>
+        <source>August</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="647"/>
+        <source>September</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="648"/>
+        <source>October</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="649"/>
+        <source>November</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="650"/>
+        <source>December</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTOmsiFileHandler.h" line="824"/>
@@ -178,26 +238,26 @@ Pokud OMSI běží, zavřete jej prosím a spusťe znovu. Dále zkontrolujte, zd
         <translation>Kontroluji Sceneryobjects...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="429"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="427"/>
         <source>OMSI main directory not found</source>
         <comment>Note #1</comment>
         <translation>Hlavní složka s OMSI nenalezena</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="446"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="468"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="444"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="466"/>
         <source>Unsaved content</source>
         <comment>Note #1</comment>
         <translation>Neuložený obsah</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="490"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="488"/>
         <source>Error while opening file</source>
         <comment>Note #1</comment>
         <translation>Chyba při otevíraní souboru</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="496"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="494"/>
         <source>No chars in font</source>
         <comment>Note #1</comment>
         <translation>Žádné znaky ve fontu</translation>
@@ -338,53 +398,79 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
     </message>
     <message>
         <location filename="../../wabout.cpp" line="26"/>
-        <source>Debug build</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../wabout.cpp" line="31"/>
         <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
         <translation>%1 je pomůcka pro vytváření modifikací do hry OMSI 2 - the bus simulator. %1 obsahuje spoustu užiteckých funkcí pro urychlení práce a umožňuje vytváření modifikací mnohem jednodušeji.</translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="31"/>
+        <location filename="../../wabout.cpp" line="26"/>
         <source>The Project has been started at January 22, 2021 and it&apos;s still in an early state of development.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="31"/>
+        <location filename="../../wabout.cpp" line="26"/>
         <source>%1 is licensed under %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="33"/>
+        <location filename="../../wabout.cpp" line="28"/>
         <source>Founder &amp; head</source>
         <comment>Meaning of &apos;head&apos;: A management role</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="34"/>
+        <location filename="../../wabout.cpp" line="29"/>
         <source>Beta test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="35"/>
+        <location filename="../../wabout.cpp" line="30"/>
         <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="36"/>
+        <location filename="../../wabout.cpp" line="31"/>
         <source>italian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="37"/>
+        <location filename="../../wabout.cpp" line="32"/>
         <source>french</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="38"/>
+        <location filename="../../wabout.cpp" line="33"/>
         <source>czech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="53"/>
+        <source>More information</source>
+        <comment>Note #1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="53"/>
+        <source>Developed with %1 and %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="54"/>
+        <source>Build type: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="55"/>
+        <source>Application build: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.cpp" line="56"/>
+        <source>Approximate lines of code: %1 (%2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wabout.ui" line="280"/>
+        <source>More...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1225,14 +1311,14 @@ reasons</source>
         <translation>Poslat zpětnou vazbu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="646"/>
-        <location filename="../../OTModules/wfonts.cpp" line="648"/>
+        <location filename="../../OTModules/wfonts.cpp" line="654"/>
+        <location filename="../../OTModules/wfonts.cpp" line="656"/>
         <source>fonts</source>
         <translation>fonty</translation>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.cpp" line="450"/>
-        <location filename="../../OTModules/wfonts.cpp" line="586"/>
+        <location filename="../../OTModules/wfonts.cpp" line="594"/>
         <source>OMSI font file</source>
         <translation>Soubor fontu pro OMSI</translation>
     </message>
@@ -1243,34 +1329,34 @@ reasons</source>
         <translation>Otevřít font...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="586"/>
+        <location filename="../../OTModules/wfonts.cpp" line="594"/>
         <source>Save font</source>
         <translation>Uložit font</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="618"/>
+        <location filename="../../OTModules/wfonts.cpp" line="626"/>
         <source>Error: The file could not be saved.</source>
         <translation>Chyba: Soubor nemohl být uložen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="628"/>
+        <location filename="../../OTModules/wfonts.cpp" line="636"/>
         <source>File saved successfully.</source>
         <translation>Soubor byl úspěšně uložen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1142"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1150"/>
         <source>The entered character could not be found.</source>
         <translation>Zadaný znak nelze najít.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1178"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1198"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1186"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1206"/>
         <source>No other character found according to the search criteria.</source>
         <translation>Žádný jiný znak nebyl nalezen v závislosti na hledaných kritériích.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1169"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1209"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1177"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1217"/>
         <source>The end of the font was reached, search from top</source>
         <translation>Konec fontu byl dosažen, hledejte ze shora</translation>
     </message>
@@ -1316,69 +1402,69 @@ No font will be opened.</source>
 Žádný font nebude otevřen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="732"/>
+        <location filename="../../OTModules/wfonts.cpp" line="740"/>
         <source>Error in character &apos;%1&apos;</source>
         <translation>Chyba ve znaku &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="754"/>
+        <location filename="../../OTModules/wfonts.cpp" line="762"/>
         <source>There aren&apos;t any errors. The font is valid.</source>
         <translation>Nenašly se nějaké chyby. Font je v pořádku.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="827"/>
+        <location filename="../../OTModules/wfonts.cpp" line="835"/>
         <source>Select color texture...</source>
         <translation>Vyberte barvu textury...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="827"/>
-        <location filename="../../OTModules/wfonts.cpp" line="846"/>
+        <location filename="../../OTModules/wfonts.cpp" line="835"/>
+        <location filename="../../OTModules/wfonts.cpp" line="854"/>
         <source>Bitmap picture</source>
         <translation>Bitmap obrázek</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="846"/>
+        <location filename="../../OTModules/wfonts.cpp" line="854"/>
         <source>Select alpha texture...</source>
         <translation>Vybrat alpha texturu...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="921"/>
+        <location filename="../../OTModules/wfonts.cpp" line="929"/>
         <source>The current selection isn&apos;t a valid template.</source>
         <translation>Současný výběr není spravná šablona.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1092"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1100"/>
         <source>Characters copied!</source>
         <translation>Znaky zkopírovány!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1108"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1116"/>
         <source>The font file (still) doesn&apos;t exist.</source>
         <translation>Soubor fontu (stále) neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="895"/>
+        <location filename="../../OTModules/wfonts.cpp" line="903"/>
         <source>Umlauts</source>
         <translation>Přehlásky</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="902"/>
+        <location filename="../../OTModules/wfonts.cpp" line="910"/>
         <source>Select a template</source>
         <translation>Vybrat šablonu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="902"/>
+        <location filename="../../OTModules/wfonts.cpp" line="910"/>
         <source>Template:</source>
         <translation>Šablona:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1142"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1150"/>
         <source>Character not found</source>
         <comment>Note #1</comment>
         <translation>Znak nebyl nalezen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="921"/>
+        <location filename="../../OTModules/wfonts.cpp" line="929"/>
         <source>Invalid selection</source>
         <comment>Note #1</comment>
         <translation>Neplatný výběr</translation>
@@ -1412,49 +1498,42 @@ No font will be opened.</source>
         <translation>Interval zálohování:</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="283"/>
-        <location filename="../../wsettings.cpp" line="55"/>
-        <location filename="../../wsettings.cpp" line="153"/>
-        <source>Backup disk usage</source>
-        <translation>Velikost zálohy na disku</translation>
-    </message>
-    <message>
-        <location filename="../../wsettings.ui" line="290"/>
+        <location filename="../../wsettings.ui" line="321"/>
         <source>Open backup folder</source>
         <translation>Otevřít složku se zálohou</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="301"/>
+        <location filename="../../wsettings.ui" line="332"/>
         <source>Delete all backups</source>
         <translation>Odstranit všechny zálohy</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="319"/>
+        <location filename="../../wsettings.ui" line="350"/>
         <source>Logging</source>
         <translation>Logování</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="333"/>
+        <location filename="../../wsettings.ui" line="364"/>
         <source>Mode:</source>
         <translation>Mód:</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="359"/>
+        <location filename="../../wsettings.ui" line="390"/>
         <source>Updates</source>
         <translation>Aktualizace</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="412"/>
+        <location filename="../../wsettings.ui" line="443"/>
         <source>Miscellaneous</source>
         <translation>Různé</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="444"/>
+        <location filename="../../wsettings.ui" line="475"/>
         <source>Confirm deletion</source>
         <translation>Potvrzovat mazání</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="345"/>
+        <location filename="../../wsettings.ui" line="376"/>
         <source>Open logfile path</source>
         <translation>Otevřít cestu k logfilu</translation>
     </message>
@@ -1479,22 +1558,27 @@ No font will be opened.</source>
         <translation>Hlavní složka s hrou:</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="367"/>
+        <location filename="../../wsettings.ui" line="285"/>
+        <source>Backup disk usage:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../wsettings.ui" line="398"/>
         <source>Check automatically:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="394"/>
+        <location filename="../../wsettings.ui" line="425"/>
         <source>Check for updates now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="502"/>
+        <location filename="../../wsettings.ui" line="533"/>
         <source>Restart</source>
         <translation>Restartovat</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="526"/>
+        <location filename="../../wsettings.ui" line="557"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
@@ -1509,148 +1593,148 @@ No font will be opened.</source>
         <translation>Vypočítávám...</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="63"/>
+        <location filename="../../wsettings.cpp" line="64"/>
         <source>sec.</source>
         <comment>short form from &apos;seconds&apos;</comment>
         <translation>s.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="80"/>
-        <location filename="../../wsettings.cpp" line="96"/>
+        <location filename="../../wsettings.cpp" line="81"/>
+        <location filename="../../wsettings.cpp" line="97"/>
         <source>Off</source>
         <translation>Vypnuto</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="80"/>
+        <location filename="../../wsettings.cpp" line="81"/>
         <source>Standard</source>
         <translation>Standardní</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="96"/>
+        <location filename="../../wsettings.cpp" line="97"/>
         <source>On start</source>
         <translation>Při spuštění</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="96"/>
+        <location filename="../../wsettings.cpp" line="97"/>
         <source>Daily</source>
         <translation>Denně</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="96"/>
+        <location filename="../../wsettings.cpp" line="97"/>
         <source>Weekly</source>
         <translation>Týdně</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="96"/>
+        <location filename="../../wsettings.cpp" line="97"/>
         <source>Monthly</source>
         <translation>Měsíčně</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="143"/>
+        <location filename="../../wsettings.cpp" line="144"/>
         <source>Restart to apply all settings.</source>
         <translation>Zrestartujte pro uložení všech změn.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="203"/>
+        <location filename="../../wsettings.cpp" line="205"/>
         <source>There was an error while get the newest version. Please check if your computer has a working internet connection, retry it or contact the developer.</source>
         <translation>Nastala chyba při získávání nejnovější verze.Zkontrolujte, zda má Váš počítač funkční internetové spojení, zopakujte to prosím znovu nebo kontaktujte vývojáře.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="208"/>
-        <location filename="../../wsettings.cpp" line="244"/>
+        <location filename="../../wsettings.cpp" line="210"/>
+        <location filename="../../wsettings.cpp" line="246"/>
         <source>Updating %1</source>
         <comment>Note #1</comment>
         <translation>Aktualizuji %1</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="208"/>
+        <location filename="../../wsettings.cpp" line="210"/>
         <source>There aren&apos;t any updates available.</source>
         <translation>Není dostupná žádná nová verze.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="213"/>
+        <location filename="../../wsettings.cpp" line="215"/>
         <source>Newest version</source>
         <translation>Nejnovější verze</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="213"/>
+        <location filename="../../wsettings.cpp" line="215"/>
         <source>Should the newest version be installed?</source>
         <translation>Má být nejnovější verze nainstalována?</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="368"/>
+        <location filename="../../wsettings.cpp" line="369"/>
         <source>More languages</source>
         <comment>Note #1</comment>
         <translation>Více jazyků</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="368"/>
+        <location filename="../../wsettings.cpp" line="369"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation>Chcete mít větší výběr jazyků?
 Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj jazyk skvěle, rádi uvítáme Váš překlad %1! Zkontaktujte prosím vývojáře na OMSI WebDisk, pokud máte nějaké další otázky týkající se překladu.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="213"/>
+        <location filename="../../wsettings.cpp" line="215"/>
         <source>Updates available</source>
         <comment>Note #1</comment>
         <translation>Dostupné aktualizace</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="203"/>
+        <location filename="../../wsettings.cpp" line="205"/>
         <source>Error while check version</source>
         <comment>Note #1</comment>
         <translation>Chyba při kontrole verze</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="213"/>
+        <location filename="../../wsettings.cpp" line="215"/>
         <source>There is an update available.</source>
         <translation>Je dostupná nová aktualizace.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="213"/>
+        <location filename="../../wsettings.cpp" line="215"/>
         <source>Installed version</source>
         <translation>Nainstalovaná verze</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="244"/>
+        <location filename="../../wsettings.cpp" line="246"/>
         <source>There was an error while starting the updater. Please retry it or conact the developer.</source>
         <translation>Nastala chyba při spouštění aktualizace. Zkuste to prosím znovu nebo kontaktujte vývojáře.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="259"/>
+        <location filename="../../wsettings.cpp" line="261"/>
         <source>Should all settings be reset? This action cannot be undone!</source>
         <translation>Měly by být všechna nastavení resetována? Tato akce nemůže být vrácena!</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="263"/>
+        <location filename="../../wsettings.cpp" line="265"/>
         <source>The programm will now restart.</source>
         <translation>Program se nyní zrestartuje.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="420"/>
+        <location filename="../../wsettings.ui" line="451"/>
         <source>Create desktop shortcut</source>
         <translation>Vytvořit zástupce na ploše</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="487"/>
+        <location filename="../../wsettings.ui" line="518"/>
         <source>Reset settings</source>
         <translation>Resetovat nastavení</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="165"/>
+        <location filename="../../wsettings.cpp" line="167"/>
         <source>Delete all backups</source>
         <comment>Note #1</comment>
         <translation>Odstranit zálohy</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="165"/>
+        <location filename="../../wsettings.cpp" line="167"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
         <translation>Mají být všechny zálohy odstraněny? Budou automaticky přesunuty do koše.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="259"/>
-        <location filename="../../wsettings.cpp" line="263"/>
+        <location filename="../../wsettings.cpp" line="261"/>
+        <location filename="../../wsettings.cpp" line="265"/>
         <source>Reset settings</source>
         <comment>Note #1</comment>
         <translation>Reset nastavení</translation>
