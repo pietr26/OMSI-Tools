@@ -322,10 +322,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     if (set.read("main", "mainDir").toString() == "")
     {
         if (msg.setMainDirYesNo(this))
-        {
-            WSETTINGS = new wSettings(this, "mainDirSelection");
-            WSETTINGS->show();
-        }
+            set.selectOMSIMainDir(this);
         else
             return;
         cutCount = set.read("main", "mainDir").toString().count() + 1;

@@ -207,8 +207,68 @@ public:
             QDir().mkdir("backup");
     }
 
-    /// \brief Checks for an update - index 0: "false" = error, "noUpdates" = no updates available, else: new version - index 1: latestVersion
-    QStringList checkForUpdate()
+    /// \brief Open feedback form
+    static void sendFeedback()
+    {
+        QDesktopServices::openUrl(OTLinks::supportThread);
+    }
+
+    /// \brief Sizes the window in dependence to the screen geometry
+    QSize sizeWindow(double width, double height)
+    {
+        QScreen *screen = QGuiApplication::primaryScreen();
+        QSize windowSize = screen->availableGeometry().size();
+        windowSize.setWidth(windowSize.width() * width);
+        windowSize.setHeight(windowSize.height() * height);
+
+        return windowSize;
+    }
+
+    /// \brief Get center position of a widget
+    QPoint centerPosition(QWidget* parent)
+    {
+        QScreen *screen = QGuiApplication::primaryScreen();
+        return screen->geometry().center() - parent->rect().center();
+    }
+
+    /// \brief Copies a text
+    void copy(QString copytext)
+    {
+        qDebug() << "Copy something...";
+
+        QClipboard* clipboard = QApplication::clipboard();
+        clipboard->setText(copytext);
+    }
+
+    /// \brief Creates a shortcut
+    void createShortcut(QString filepath, QString shortcutLocation, QWidget *parent)
+    {
+        if (QFile(filepath).link(shortcutLocation))
+        {
+            QMessageBox::information(parent, QObject::tr("Success"), QObject::tr("Successfully created shortcut!"));
+            qInfo().noquote() << QString("Created shortcut in '%1'!").arg(shortcutLocation);
+        }
+        else
+        {
+            QMessageBox::warning(parent, QString(QObject::tr("Error")), QObject::tr("Could not create shortcut in %1.").arg(QDir().homePath() + "/Desktop"));
+            qCritical().noquote() << QString("Could not create a shortcut in '%1'!").arg(shortcutLocation);
+        }
+    }
+
+    /// \brief Selects a folder or file in explorer
+    void showInExplorer(QString absolutePath)
+    {
+        // ATTENTION: This will NOT work in the OneDrive folder - I don't know why.
+        QStringList args;
+        args << "/select," << QDir::toNativeSeparators(absolutePath);
+        qDebug() << "Show in explorer:" << absolutePath;
+
+        QProcess *process = new QProcess();
+        process->start("explorer.exe", args);
+    }
+
+    /// \brief Checks for an update - index 0: "false" = error, "noUpdates" = no updates available, else: new version | index 1: latestVersion
+    QStringList getUpdateInformation()
     {
         QStringList list;
 
@@ -227,59 +287,67 @@ public:
         return list;
     }
 
-    static void sendFeedback()
+    /// \brief Searches for updates and returns information to the user
+    void searchForUpdates(QWidget *parent)
     {
-        QDesktopServices::openUrl(OTLinks::supportThread);
-    }
+        QStringList update = getUpdateInformation();
+        qDebug().noquote() << "Update from server:" << update;
 
-    QSize sizeWindow(double width, double height)
-    {
-        QScreen *screen = QGuiApplication::primaryScreen();
-        QSize windowSize = screen->availableGeometry().size();
-        windowSize.setWidth(windowSize.width() * width);
-        windowSize.setHeight(windowSize.height() * height);
-
-        return windowSize;
-    }
-
-    QPoint centerPosition(QWidget* parent)
-    {
-        QScreen *screen = QGuiApplication::primaryScreen();
-        return screen->geometry().center() - parent->rect().center();
-    }
-
-    /// \brief Copies a text
-    void copy(QString copytext)
-    {
-        qDebug() << "Copy something...";
-
-        QClipboard* clipboard = QApplication::clipboard();
-        clipboard->setText(copytext);
-    }
-
-    void createShortcut(QString filepath, QString shortcutLocation, QWidget *parent)
-    {
-        if (QFile(filepath).link(shortcutLocation))
+        if (update.at(0) == "false")
         {
-            QMessageBox::information(parent, QObject::tr("Success", "Note #1"), QObject::tr("Successfully created shortcut!"));
-            qInfo().noquote() << QString("Created shortcut in '%1'!").arg(shortcutLocation);
+            QMessageBox::warning(parent, QObject::tr("Error while check version"), QObject::tr("There was an error while get the newest version. Please check if your computer has a working internet connection, retry it or contact the developer."));
+            qWarning() << "Could not check newest update!";
+        }
+        else if (update.at(0) == "noUpdates")
+        {
+            QMessageBox::information(parent, QObject::tr("Updating %1").arg(OTName), QObject::tr("There aren't any updates available."));
+            qInfo() << "There's no update available.";
         }
         else
         {
-            QMessageBox::warning(parent, QString(QObject::tr("Error", "Note #1")), QObject::tr("Could not create shortcut in %1.").arg(QDir().homePath() + "/Desktop"));
-            qCritical().noquote() << QString("Could not create a shortcut in '%1'!").arg(shortcutLocation);
+            QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Updates available"), QString("<html>%1<br><br><b>%2:</b> %3<br><b>%4:</b> %5<br><br>%6</html>").arg(QObject::tr("There is an update available."), QObject::tr("Installed version"), OTVersion, QObject::tr("Newest version"), update.at(1), QObject::tr("Should the newest version be installed?")));
+            qInfo() << "Updates available!";
+
+            if (reply == QMessageBox::Yes)
+            {
+
+                qDebug() << "Create tempAppDir and copy files...";
+                QDirIterator dirIterator(QApplication::applicationDirPath(), QStringList{"*.*"}, QDir::Files, QDirIterator::Subdirectories);
+                while (dirIterator.hasNext())
+                {
+                    QString file = dirIterator.next();
+
+                    QDir().mkdir(QDir::tempPath() + "/OMSI-Tools_tempAppDir");
+
+                    QString newFilePath = QDir::tempPath() + "/OMSI-Tools_tempAppDir/" + file.remove(0, QApplication::applicationDirPath().count() + 1);
+                    QDir().mkpath(QFileInfo(newFilePath).absolutePath());
+
+                    qDebug().noquote() << "New path:" << newFilePath;
+                    if (QFile(newFilePath).exists())
+                        QFile(newFilePath).remove();
+
+                    qDebug().noquote() << "From path:" << QApplication::applicationDirPath() + "/" + file;
+                    qDebug() << "-----------------------------------------------------------------";
+                    QFile(QApplication::applicationDirPath() + "/" + file).copy(newFilePath);
+                }
+                qDebug() << "Finished.";
+
+                QStringList args;
+                args << "callFromMainApplication";
+                args << QApplication::applicationDirPath();
+                if (!QProcess::startDetached(QDir::tempPath() + "/OMSI-Tools_tempAppDir/OMSI-Tools_Updater.exe", args))
+                {
+                    qWarning() << "There was an error while starting the updater (with name 'OMSI-Tools_Updater.exe').";
+                    QMessageBox::warning(parent, QObject::tr("Updating %1").arg(OTName), QObject::tr("There was an error while starting the updater. Please retry it or contact the developer."));
+                }
+                else
+                {
+                    qInfo() << QString("Start Updater...");
+                    QApplication::quit();
+
+                }
+            }
         }
-    }
-
-    void showInExplorer(QString absolutePath)
-    {
-        // ATTENTION: This will NOT work in the OneDrive folder - I don't know why.
-        QStringList args;
-        args << "/select," << QDir::toNativeSeparators(absolutePath);
-        qDebug() << "Show in explorer:" << absolutePath;
-
-        QProcess *process = new QProcess();
-        process->start("explorer.exe", args);
     }
 };
 
@@ -332,7 +400,7 @@ public:
         if (mainDir != "" && !QFileInfo(QFile(mainDir + "/Omsi.exe")).exists())
         {
             qWarning().noquote() << "'" + mainDir + "' isn't an OMSI path!";
-            QMessageBox::StandardButton reply = QMessageBox::warning(parent, QObject::tr("Could not found \"Omsi.exe\"", "Note #1"), QObject::tr("\"Omsi.exe\" could not found in the selected directory. Is it the correct path?. Otherwise, problems may appear in some modules. Should a new path be selected?"), QMessageBox::Yes | QMessageBox::No);
+            QMessageBox::StandardButton reply = QMessageBox::warning(parent, QObject::tr("Could not found \"Omsi.exe\""), QObject::tr("\"Omsi.exe\" could not found in the selected directory. Is it the correct path?. Otherwise, problems may appear in some modules. Should a new path be selected?"), QMessageBox::Yes | QMessageBox::No);
             if (reply == QMessageBox::Yes)
                 return getOmsiPath(parent);
         }
@@ -414,6 +482,20 @@ public:
             }
         }
     }
+
+    /// \brief Selects OMSI main directory
+    QString selectOMSIMainDir(QWidget *parent, QString startPath = "")
+    {
+        QString mainDir = getOmsiPath(parent, startPath);
+
+        if (mainDir != "")
+        {
+            write("main", "mainDir", mainDir);
+            return mainDir;
+        }
+        else
+            return startPath;
+    }
 };
 
 /// \brief Message class
@@ -424,7 +506,7 @@ public:
     bool setMainDirYesNo(QWidget *parent)
     {
         qDebug() << "Message: Action needs main directory. Set now (Yes/No)?";
-        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("OMSI main directory not found", "Note #1"), QObject::tr("To continue the application needs the OMSI main directory. Should it be done now?"), QMessageBox::Yes | QMessageBox::No);
+        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("OMSI main directory not found"), QObject::tr("To continue the application needs the OMSI main directory. Should it be done now?"), QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::No)
             return false;
 
@@ -434,14 +516,14 @@ public:
     /// \brief "Module still work in Progress"
     void WIP(QWidget *parent)
     {
-        QMessageBox::warning(parent, QObject::tr("Work in progress", "Note #1"), QObject::tr("Attention: This module is currently work in progress. Only use it for test, never for real modding! Files edited with this module can possibly be destroyed!"));
+        QMessageBox::warning(parent, QObject::tr("Work in progress"), QObject::tr("Attention: This module is currently work in progress. Only use it for test, never for real modding! Files edited with this module can possibly be destroyed!"));
     }
 
     /// \brief universal unsaved-Message (with Save, Discard and Cancel). Returns 'save = 1', 'discard = 0' or 'cancel = -1'
     int unsavedContent(QWidget *parent)
     {
         qDebug() << "Message: Save unsaved content (Save/Discard/Cancel)?";
-        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Unsaved content", "Note #1"), QObject::tr("There is unsaved content."), QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Unsaved content"), QObject::tr("There is unsaved content."), QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
         if (reply == QMessageBox::Save)
         {
             qDebug() << "User pressed Save";
@@ -463,7 +545,7 @@ public:
     bool unsavedContentYesNo(QWidget *parent)
     {
         qDebug() << "Message: Save unsaved content (Yes/No)?";
-        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Unsaved content", "Note #1"), QObject::tr("There is unsaved content. Do you want to save?"), QMessageBox::Yes | QMessageBox::No);
+        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Unsaved content"), QObject::tr("There is unsaved content. Do you want to save?"), QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
             qDebug() << "User pressed Yes";
@@ -479,19 +561,19 @@ public:
     /// \brief If the user wants to open a file via a button and the file doesn't exist, this message es helpful
     void errorOpeningFile(QWidget *parent)
     {
-        QMessageBox::information(parent, QObject::tr("Error while openig file", "Note #1"), QObject::tr("The selected file doesn't exists or is read-protected."));
+        QMessageBox::information(parent, QObject::tr("Error while openig file"), QObject::tr("The selected file doesn't exists or is read-protected."));
     }
 
     /// \brief Could not open a file from OMSI main dir
     void errorWhileOpeningOmsi(QWidget *parent, QString filename)
     {
-        QMessageBox::critical(parent, QObject::tr("Error while opening file", "Note #1"), QString(QObject::tr("There was an error while opening\n%1\nIf OMSI is running, please close it and retry it. Furthermore, check if the file still exists.")).arg(filename));
+        QMessageBox::critical(parent, QObject::tr("Error while opening file"), QString(QObject::tr("There was an error while opening\n%1\nIf OMSI is running, please close it and retry it. Furthermore, check if the file still exists.")).arg(filename));
     }
 
     /// \brief Font module: No chars in font
     void noCharsInFont(QWidget *parent)
     {
-        QMessageBox::warning(parent, QObject::tr("No chars in font", "Note #1"), QObject::tr("There are no chars in the font."));
+        QMessageBox::warning(parent, QObject::tr("No chars in font"), QObject::tr("There are no chars in the font."));
     }
 
     /// \brief Comfirm a deletion of anything
@@ -501,7 +583,7 @@ public:
             return true;
 
         qDebug() << "Message: Save unsaved content (Yes/No)?";
-        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Confirm deletion", "Note #1"), QObject::tr("Should the selection be deleted?"), QMessageBox::Yes | QMessageBox::No);
+        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Confirm deletion"), QObject::tr("Should the selection be deleted?"), QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
             qDebug() << "User pressed Yes";
@@ -517,13 +599,13 @@ public:
     /// \brief There was en error while saving a file
     void errorWhileSaving(QString filename, QWidget *parent = 0)
     {
-        QMessageBox::warning(parent, QObject::tr("Save error", "Note #1"), QString(QObject::tr("There was an save error '%1'. If OMSI is running, please close it and retry it.")).arg(filename));
+        QMessageBox::warning(parent, QObject::tr("Save error"), QString(QObject::tr("There was an save error '%1'. If OMSI is running, please close it and retry it.")).arg(filename));
     }
 
     /// \brief A module is due to narrow time deactivated
     void moduleDeactivated(QWidget *parent = 0)
     {
-        QMessageBox::information(parent, QObject::tr("Module still deactivated", "Note #1"), QObject::tr("Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days."));
+        QMessageBox::information(parent, QObject::tr("Module still deactivated"), QObject::tr("Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days."));
     }
 
 private:

@@ -75,7 +75,7 @@ wStart::wStart(QWidget *parent)
 
     if (checkForUpdate)
     {
-        QStringList update = misc.checkForUpdate();
+        QStringList update = misc.getUpdateInformation();
         set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
 
         if (update.at(0) == "noUpdates")
@@ -138,7 +138,7 @@ void wStart::on_btnFonts_clicked()
 /// \brief Shows "Where should I release my modification" message
 void wStart::on_btnWhereShouldIReleaseMyModification_clicked()
 {
-    QMessageBox::information(this, tr("Where should I release my modification?", "Note #1"), tr("Coming soon!"));
+    QMessageBox::information(this, tr("Where should I release my modification?"), tr("Coming soon!"));
 }
 
 /// \brief Opens verify map module

@@ -54,9 +54,6 @@ void wChangelog::on_btnClose_clicked()
 /// \brief Calls the settings and execute the update
 void wChangelog::on_btnUpdateNow_clicked()
 {
-    WSETTINGS = new wSettings(this, "checkForUpdate");
-    WSETTINGS->setWindowModality(Qt::ApplicationModal);
-    WSETTINGS->show();
-    close();
+    misc.searchForUpdates(this);
 }
 
