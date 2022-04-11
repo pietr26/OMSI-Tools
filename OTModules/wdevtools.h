@@ -37,6 +37,8 @@ private slots:
 
     void on_btnSoundFileLister_clicked();
 
+    void on_btnLineCounterStart_clicked();
+
 private:
     const QString moduleName = "wDevTools";
     Ui::wDevTools *ui;
@@ -58,6 +60,8 @@ private:
     bool pushToOutput(QString result);
 
     void setOutputVisible(bool mode);
+
+    QStringList countLinesFiles;
 
 };
 

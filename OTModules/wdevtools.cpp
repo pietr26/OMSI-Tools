@@ -188,16 +188,21 @@ void wDevTools::setOutputVisible(bool mode)
 /// \brief Counts lines
 void wDevTools::on_btnLineCounter_clicked()
 {
-    QStringList files = QFileDialog::getOpenFileNames(this, "Select files to analyse", set.read("main", "mainDir").toString(), omsiFilesFilter);
-    qInfo().noquote() << "Start to get line count from " + QString::number(files.count()) + " file(s)...";
+    countLinesFiles.append(QFileDialog::getOpenFileNames(this, "Select files to analyse", set.read("main", "mainDir").toString(), omsiFilesFilter));
+    ui->btnLineCounterStart->setText(QString("Start (%1)").arg(countLinesFiles.count()));
+}
+
+void wDevTools::on_btnLineCounterStart_clicked()
+{
+    qInfo().noquote() << "Start to get line count from " + QString::number(countLinesFiles.count()) + " file(s)...";
     unsigned int errorCount = 0;
     unsigned int lines = 0;
     QString result;
 
     unsigned int i = 0;
-    ui->pgbProgress->setMaximum(files.count());
+    ui->pgbProgress->setMaximum(countLinesFiles.count());
 
-    foreach(QString current, files)
+    foreach(QString current, countLinesFiles)
     {
         ui->pgbProgress->setValue(i);
         i++;
@@ -219,7 +224,7 @@ void wDevTools::on_btnLineCounter_clicked()
             }
         }
     }
-    ui->pgbProgress->setValue(files.count());
+    ui->pgbProgress->setValue(countLinesFiles.count());
 
     result = QString::number(lines) + "\n";
     if (errorCount == 0)
@@ -245,6 +250,9 @@ void wDevTools::on_btnLineCounter_clicked()
         qCritical() << "Could not push line count to GUI / to file!";
         qDebug().noquote() << "resultStr:" << result;
     }
+
+    countLinesFiles.clear();
+    ui->btnLineCounterStart->setText("Start");
 }
 
 /// \brief Catches click at 'Output to GUI'
@@ -292,3 +300,4 @@ void wDevTools::on_btnSoundFileLister_clicked()
 
     pushToOutput(resultStr);
 }
+
