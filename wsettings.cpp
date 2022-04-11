@@ -118,9 +118,6 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
         on_btnOmsiPath_clicked();
         QTimer::singleShot(0, this, SLOT(close()));
     }
-    else if (openDirect == "checkForUpdate")
-        QTimer::singleShot(0, this, SLOT(on_btnCheckForUpdates_clicked()));
-
 
     qInfo().noquote() << moduleName + " started";
 }
@@ -164,7 +161,7 @@ void wSettings::on_btnClose_clicked()
 /// \brief Deletes the backup folder
 void wSettings::on_btnDeleteAllBackups_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Delete all backups", "Note #1"), tr("Should all backups be deleted? They will be moved to the recycle bin."));
+    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Delete all backups"), tr("Should all backups be deleted? They will be moved to the recycle bin."));
 
     if (reply == QMessageBox::Yes)
     {
@@ -188,7 +185,7 @@ void wSettings::on_btnOpenBackupFolder_clicked()
 /// \brief Saves and restarts the application
 void wSettings::on_btnRestart_clicked()
 {
-//    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Restart now?", "Note #1"), tr("Should the application be restarted now? Any unsaved content will be discarded."));
+//    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Restart now?"), tr("Should the application be restarted now? Any unsaved content will be discarded."));
 
 //    if (reply == QMessageBox::Yes)
         misc.restart();
@@ -197,72 +194,17 @@ void wSettings::on_btnRestart_clicked()
 /// \brief Checks for updates
 void wSettings::on_btnCheckForUpdates_clicked()
 {
-    QStringList update = misc.checkForUpdate();
-    qDebug().noquote() << "Update from server:" << update;
-
-    if (update.at(0) == "false")
-    {
-        QMessageBox::warning(this, tr("Error while check version", "Note #1"), tr("There was an error while get the newest version. Please check if your computer has a working internet connection, retry it or contact the developer."));
-        qWarning() << "Could not check newest update!";
-    }
-    else if (update.at(0) == "noUpdates")
-    {
-        QMessageBox::information(this, tr("Updating %1", "Note #1").arg(OTName), tr("There aren't any updates available."));
-        qInfo() << "There's no update available.";
-    }
-    else
-    {
-        QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Updates available", "Note #1"), QString("<html>%1<br><br><b>%2:</b> %3<br><b>%4:</b> %5<br><br>%6</html>").arg(tr("There is an update available."), tr("Installed version"), OTVersion, tr("Newest version"), update.at(1), tr("Should the newest version be installed?")));
-        qInfo() << "Updates available!";
-
-        if (reply == QMessageBox::Yes)
-        {
-
-            QDirIterator dirIterator(QApplication::applicationDirPath(), QStringList{"*.*"}, QDir::Files, QDirIterator::Subdirectories);
-            while (dirIterator.hasNext())
-            {
-                QString file = dirIterator.next();
-
-                QDir().mkdir(QDir::tempPath() + "/OMSI-Tools_tempAppDir");
-
-                QString newFilePath = QDir::tempPath() + "/OMSI-Tools_tempAppDir/" + file.remove(0, QApplication::applicationDirPath().count() + 1);
-                QDir().mkpath(QFileInfo(newFilePath).absolutePath());
-
-                qDebug().noquote() << "New path:" << newFilePath;
-                if (QFile(newFilePath).exists())
-                    QFile(newFilePath).remove();
-
-                qDebug().noquote() << "From path:" << QApplication::applicationDirPath() + "/" + file;
-                qDebug() << "-----------------------------------------------------------------";
-                QFile(QApplication::applicationDirPath() + "/" + file).copy(newFilePath);
-            }
-
-            QStringList args;
-            args << "callFromMainApplication";
-            args << QApplication::applicationDirPath();
-            if (!QProcess::startDetached(QDir::tempPath() + "/OMSI-Tools_tempAppDir/OMSI-Tools_Updater.exe", args))
-            {
-                qWarning() << "There was an error while starting the updater (with name 'OMSI-Tools_Updater.exe').";
-                QMessageBox::warning(this, tr("Updating %1", "Note #1").arg(OTName), tr("There was an error while starting the updater. Please retry it or conact the developer."));
-            }
-            else
-            {
-                qInfo() << QString("Updating %1...").arg(OTName);
-                QApplication::quit();
-
-            }
-        }
-    }
+    misc.searchForUpdates(this);
 }
 
 /// \brief Resets the settings
 void wSettings::on_btnResetSettings_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Reset settings", "Note #1"), tr("Should all settings be reset? This action cannot be undone!"));
+    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Reset settings"), tr("Should all settings be reset? This action cannot be undone!"));
     if (reply == QMessageBox::Yes)
     {
         QSettings("HKEY_CURRENT_USER\\SOFTWARE\\" + OTName, QSettings::NativeFormat).remove("");
-        QMessageBox::information(this, tr("Reset settings", "Note #1"), tr("The programm will now restart."));
+        QMessageBox::information(this, tr("Reset settings"), tr("The programm will now restart."));
 
         misc.restart();
     }
@@ -305,14 +247,8 @@ void wSettings::on_cobxLanguage_currentIndexChanged(int index)
 /// \brief Sets OMSI path
 void wSettings::on_btnOmsiPath_clicked()
 {
-    QString mainDir = set.getOmsiPath(this, ui->ledOmsiPath->text());
-    if ((mainDir != "") && (mainDir != ui->ledOmsiPath->text()))
-    {
-        ui->ledOmsiPath->setText(mainDir);
-        setUnsaved(true);
-    }
-
-    set.write("main", "mainDir", mainDir);
+    ui->ledOmsiPath->setText(set.selectOMSIMainDir(this, ui->ledOmsiPath->text()));
+    setUnsaved(true);
 }
 
 /// \brief Saves the autosave duration
@@ -366,7 +302,7 @@ void wSettings::on_btnOpenLogfilePath_clicked()
 /// \brief Shows a promotion to apply to a translator
 void wSettings::on_btnMoreLanguages_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::information(this, tr("More languages", "Note #1"), tr("You want to have more languages to choose from?\nUnfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.").arg(OTName), QMessageBox::Open | QMessageBox::Close);
+    QMessageBox::StandardButton reply = QMessageBox::information(this, tr("More languages"), tr("You want to have more languages to choose from?\nUnfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.").arg(OTName), QMessageBox::Open | QMessageBox::Close);
 
     if (reply == QMessageBox::Open)
         QDesktopServices::openUrl(OTLinks::wipThread);

@@ -29,6 +29,7 @@ private:
     const QString moduleName = "wChangelog";
     OTSettings set;
     OTDownloader dl;
+    OTMiscellaneous misc;
     wSettings *WSETTINGS;
 };
 

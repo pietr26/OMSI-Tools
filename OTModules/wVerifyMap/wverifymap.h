@@ -4,11 +4,11 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
-#include "wsettings.h"
 #include "dignorelist.h"
 #include "ignoreListFunctions.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTWidgets/verifymaptools.h"
+#include "wsettings.h"
 #include <QFileDialog>
 #include <QProgressDialog>
 #include <QTimer>
@@ -103,8 +103,8 @@ private:
     OTSettings set;
     OTMiscellaneous misc;
     ignoreListFunctions iglF;
-    wSettings *WSETTINGS;
     wContentSearch *WCONTENTSEARCH;
+    wSettings *WSETTINGS;
     int cutCount = set.read("main", "mainDir").toString().count() + 1;
 
     void selectAllAndClear();
@@ -129,7 +129,6 @@ private:
     void setDetailButtons();
 
     void enableIgnoreLabels(bool enable);
-
 };
 
 #endif // WVERIFYMAP_H
