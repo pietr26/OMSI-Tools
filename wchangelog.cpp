@@ -24,6 +24,7 @@ wChangelog::wChangelog(QWidget *parent, bool updateAvailable, QString newVersion
         ui->btnUpdateNow->setVisible(false);
         ui->lblNewUpdate->setVisible(false);
         ui->lblNewVersion->setVisible(false);
+        ui->lblCurrentVersion->setVisible(false);
         ui->cbxClearAppDir->setVisible(false);
     }
 
@@ -32,7 +33,7 @@ wChangelog::wChangelog(QWidget *parent, bool updateAvailable, QString newVersion
     ui->lblCurrentVersion->setText("<b>" + tr("Current version:") + "</b> " + OTVersion);
 
     if (newVersion != "")
-        ui->lblCurrentVersion->setText("<b>" + tr("New version:") + "</b> " + newVersion);
+        ui->lblNewVersion->setText("<b>" + tr("New version:") + "</b> " + newVersion);
     else
         ui->lblNewVersion->setVisible(false);
 
