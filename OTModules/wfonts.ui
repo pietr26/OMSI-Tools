@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1009</width>
-    <height>776</height>
+    <height>738</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -55,18 +55,8 @@
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_6">
             <item>
-             <layout class="QGridLayout" name="gridLayout">
-              <item row="6" column="0" colspan="6">
-               <widget class="QLabel" name="lblMaxHeigthOfChars">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="text">
-                 <string>Maximum height of characters:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0" colspan="6">
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="4" column="1" colspan="4">
                <widget class="QLabel" name="lblAlphaTexture">
                 <property name="toolTip">
                  <string/>
@@ -79,50 +69,43 @@
                 </property>
                </widget>
               </item>
-              <item row="5" column="5">
-               <widget class="QPushButton" name="btnAlphaTexture">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
+              <item row="6" column="1" colspan="4">
+               <widget class="QLabel" name="lblMaxHeigthOfChars">
                 <property name="toolTip">
                  <string/>
                 </property>
                 <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+                 <string>Maximum height of characters:</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="0" colspan="6">
-               <widget class="QLabel" name="lblColorTexture">
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="text">
-                 <string>Color texture:</string>
-                </property>
-                <property name="buddy">
-                 <cstring>ledColorTexture</cstring>
-                </property>
-               </widget>
-              </item>
-              <item row="10" column="3" colspan="3">
-               <widget class="QComboBox" name="cobxEncoding">
+              <item row="12" column="1">
+               <widget class="QLabel" name="lblEncoding">
                 <property name="toolTip">
                  <string>Set the encoding for the font file. The encoding UTF-8 is not recommended for OMSI unless it contains characters that are not present in ANSI.</string>
                 </property>
+                <property name="text">
+                 <string>Encoding:</string>
+                </property>
+                <property name="buddy">
+                 <cstring>cobxEncoding</cstring>
+                </property>
                </widget>
               </item>
-              <item row="3" column="5">
+              <item row="8" column="1" colspan="4">
+               <widget class="QLabel" name="lblDistanceBetweenChars">
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="text">
+                 <string>Distance between characters:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="4">
                <widget class="QPushButton" name="btnColorTexture">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -139,28 +122,14 @@
                 </property>
                </widget>
               </item>
-              <item row="9" column="0">
+              <item row="9" column="1" colspan="4">
                <widget class="QSpinBox" name="sbxDistanceBetweenChars">
                 <property name="maximum">
                  <number>10000</number>
                 </property>
                </widget>
               </item>
-              <item row="3" column="0" colspan="5">
-               <widget class="QLineEdit" name="ledColorTexture">
-                <property name="toolTip">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="6">
-               <widget class="QLineEdit" name="ledFontName">
-                <property name="toolTip">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0">
+              <item row="7" column="1" colspan="4">
                <widget class="QSpinBox" name="sbxMaxHeigthOfChars">
                 <property name="buttonSymbols">
                  <enum>QAbstractSpinBox::UpDownArrows</enum>
@@ -182,63 +151,54 @@
                 </property>
                </widget>
               </item>
-              <item row="10" column="0" colspan="3">
-               <widget class="QLabel" name="lblEncoding">
+              <item row="1" column="1" colspan="4">
+               <widget class="QLineEdit" name="ledFontName">
                 <property name="toolTip">
-                 <string>Set the encoding for the font file. The encoding UTF-8 is not recommended for OMSI unless it contains characters that are not present in ANSI.</string>
-                </property>
-                <property name="text">
-                 <string>Encoding:</string>
-                </property>
-                <property name="buddy">
-                 <cstring>cobxEncoding</cstring>
+                 <string/>
                 </property>
                </widget>
               </item>
-              <item row="7" column="1" colspan="5">
-               <spacer name="horizontalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+              <item row="2" column="1" colspan="4">
+               <widget class="QLabel" name="lblColorTexture">
+                <property name="toolTip">
+                 <string/>
                 </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
+                <property name="text">
+                 <string>Color texture:</string>
                 </property>
-               </spacer>
+                <property name="buddy">
+                 <cstring>ledColorTexture</cstring>
+                </property>
+               </widget>
               </item>
-              <item row="9" column="1" colspan="5">
-               <spacer name="horizontalSpacer_6">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="5" column="0" colspan="5">
+              <item row="5" column="1" colspan="3">
                <widget class="QLineEdit" name="ledAlphaTexture">
                 <property name="toolTip">
                  <string/>
                 </property>
                </widget>
               </item>
-              <item row="8" column="0" colspan="6">
-               <widget class="QLabel" name="lblDistanceBetweenChars">
+              <item row="5" column="4">
+               <widget class="QPushButton" name="btnAlphaTexture">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="toolTip">
                  <string/>
                 </property>
                 <property name="text">
-                 <string>Distance between characters:</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="../ressources.qrc">
+                  <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
                 </property>
                </widget>
               </item>
-              <item row="0" column="0" colspan="6">
+              <item row="0" column="1" colspan="4">
                <widget class="QLabel" name="lblFontName">
                 <property name="toolTip">
                  <string/>
@@ -248,6 +208,36 @@
                 </property>
                 <property name="buddy">
                  <cstring>ledFontName</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1" colspan="3">
+               <widget class="QLineEdit" name="ledColorTexture">
+                <property name="toolTip">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="1" rowspan="2" colspan="4">
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="12" column="2" colspan="3">
+               <widget class="QComboBox" name="cobxEncoding">
+                <property name="toolTip">
+                 <string>Set the encoding for the font file. The encoding UTF-8 is not recommended for OMSI unless it contains characters that are not present in ANSI.</string>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QComboBox::AdjustToContents</enum>
                 </property>
                </widget>
               </item>
@@ -437,13 +427,64 @@
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
             <layout class="QGridLayout" name="gridLayout_2">
-             <item row="9" column="0" colspan="4">
+             <item row="7" column="0" colspan="4">
               <widget class="QLineEdit" name="ledComment">
                <property name="enabled">
                 <bool>true</bool>
                </property>
                <property name="clearButtonEnabled">
                 <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="lblCharacter">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="text">
+                <string>Character:</string>
+               </property>
+               <property name="buddy">
+                <cstring>ledCharacter</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0" colspan="4">
+              <widget class="QLabel" name="lblComment">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="text">
+                <string>Comment:</string>
+               </property>
+               <property name="buddy">
+                <cstring>ledComment</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" rowspan="2" colspan="2">
+              <widget class="QLabel" name="lblRightPixel">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="text">
+                <string>Right pixel:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0" rowspan="2" colspan="2">
+              <widget class="QLabel" name="lblHighestPixelInFontRow">
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="text">
+                <string>Highest pixel in row:</string>
                </property>
               </widget>
              </item>
@@ -466,72 +507,6 @@
                </property>
               </widget>
              </item>
-             <item row="8" column="0" colspan="4">
-              <widget class="QLabel" name="lblComment">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="text">
-                <string>Comment:</string>
-               </property>
-               <property name="buddy">
-                <cstring>ledComment</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="3" rowspan="3">
-              <spacer name="horizontalSpacer_7">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="2" column="2" rowspan="3">
-              <widget class="QSpinBox" name="sbxRightPixel">
-               <property name="maximum">
-                <number>10000</number>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QSpinBox" name="sbxLeftPixel">
-               <property name="maximum">
-                <number>10000</number>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="3">
-              <spacer name="horizontalSpacer_4">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="0" column="0" colspan="2">
-              <widget class="QLabel" name="lblCharacter">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="text">
-                <string>Character:</string>
-               </property>
-               <property name="buddy">
-                <cstring>ledCharacter</cstring>
-               </property>
-              </widget>
-             </item>
              <item row="1" column="0" colspan="2">
               <widget class="QLabel" name="lblLeftPixel">
                <property name="toolTip">
@@ -542,48 +517,24 @@
                </property>
               </widget>
              </item>
-             <item row="2" column="0" rowspan="3" colspan="2">
-              <widget class="QLabel" name="lblRightPixel">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="text">
-                <string>Right pixel:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="2" rowspan="3">
+             <item row="4" column="2" rowspan="2" colspan="2">
               <widget class="QSpinBox" name="sbxHighestPixelInFontRow">
                <property name="maximum">
                 <number>10000</number>
                </property>
               </widget>
              </item>
-             <item row="5" column="3" rowspan="3">
-              <spacer name="horizontalSpacer_8">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+             <item row="2" column="2" rowspan="2" colspan="2">
+              <widget class="QSpinBox" name="sbxRightPixel">
+               <property name="maximum">
+                <number>10000</number>
                </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
+              </widget>
              </item>
-             <item row="5" column="0" rowspan="3" colspan="2">
-              <widget class="QLabel" name="lblHighestPixelInFontRow">
-               <property name="font">
-                <font>
-                 <family>Segoe UI</family>
-                </font>
-               </property>
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="text">
-                <string>Highest pixel in row:</string>
+             <item row="1" column="2" colspan="2">
+              <widget class="QSpinBox" name="sbxLeftPixel">
+               <property name="maximum">
+                <number>10000</number>
                </property>
               </widget>
              </item>
@@ -719,7 +670,83 @@
      </layout>
     </item>
     <item>
-     <widget class="QGraphicsView" name="grvAlphatexture"/>
+     <widget class="QGroupBox" name="gbxPreview">
+      <property name="title">
+       <string>Preview</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QComboBox" name="cobxPreviewOptions">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <property name="sizeAdjustPolicy">
+            <enum>QComboBox::AdjustToContents</enum>
+           </property>
+           <item>
+            <property name="text">
+             <string>Alpha texture</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Color texture</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnReloadTexPreview">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>Reload texture preview</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../ressources.qrc">
+             <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGraphicsView" name="grvTexPreview">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <property name="renderHints">
+          <set>QPainter::Antialiasing|QPainter::LosslessImageRendering|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -1072,12 +1099,6 @@
  </widget>
  <tabstops>
   <tabstop>twgFont</tabstop>
-  <tabstop>ledFontName</tabstop>
-  <tabstop>ledColorTexture</tabstop>
-  <tabstop>btnColorTexture</tabstop>
-  <tabstop>ledAlphaTexture</tabstop>
-  <tabstop>btnAlphaTexture</tabstop>
-  <tabstop>cobxEncoding</tabstop>
   <tabstop>lvwChars</tabstop>
   <tabstop>btnDeleteSelection</tabstop>
   <tabstop>btnMoveUp</tabstop>
