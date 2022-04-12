@@ -44,6 +44,9 @@
           <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconAddFile.svg</normaloff>:/rec/data/icons/iconAddFile.svg</iconset>
          </property>
+         <property name="shortcut">
+          <string notr="true">Ctrl+A</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -55,6 +58,9 @@
           <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconAddFolder.svg</normaloff>:/rec/data/icons/iconAddFolder.svg</iconset>
          </property>
+         <property name="shortcut">
+          <string notr="true">Ctrl+Shift+A</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -65,6 +71,9 @@
          <property name="icon">
           <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+         </property>
+         <property name="shortcut">
+          <string notr="true">Del</string>
          </property>
         </widget>
        </item>
@@ -132,7 +141,7 @@
          <normaloff>:/rec/data/icons/iconSave.svg</normaloff>:/rec/data/icons/iconSave.svg</iconset>
        </property>
        <property name="shortcut">
-        <string notr="true">Shift+S</string>
+        <string notr="true">Ctrl+S</string>
        </property>
       </widget>
      </item>
