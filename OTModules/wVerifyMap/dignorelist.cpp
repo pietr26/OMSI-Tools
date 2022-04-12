@@ -22,6 +22,8 @@ dIgnoreList::dIgnoreList(QWidget *parent) :
 
     ui->lwgIgnoreList->addItems(iglF.read());
 
+    ui->btnSave->setShortcut(Qt::Key_Save);
+
     qInfo().noquote() << moduleName + " started";;
 }
 
@@ -112,13 +114,14 @@ void dIgnoreList::on_btnAddFiles_clicked()
 /// \brief Removes selected items
 void dIgnoreList::on_btnRemove_clicked()
 {
-    if (msg.confirmDeletion(this))
-    {
-        qDeleteAll(ui->lwgIgnoreList->selectedItems());
-        ui->lwgIgnoreList->setCurrentRow(ui->lwgIgnoreList->count() - 1);
-        unsaved = true;
-        qDebug() << "Deleted selected files.";
-    }
+    if (ui->lwgIgnoreList->selectedItems().count() != 0)
+        if (msg.confirmDeletion(this))
+        {
+            qDeleteAll(ui->lwgIgnoreList->selectedItems());
+            ui->lwgIgnoreList->setCurrentRow(ui->lwgIgnoreList->count() - 1);
+            unsaved = true;
+            qDebug() << "Deleted selected files.";
+        }
 }
 
 /// \brief Saves and closes the ignoreList dialog
