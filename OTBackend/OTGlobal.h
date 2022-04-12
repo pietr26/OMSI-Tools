@@ -593,8 +593,8 @@ public:
         if (set.read("main", "confirmDeletion") == "false")
             return true;
 
-        qDebug() << "Message: Save unsaved content (Yes/No)?";
-        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Confirm deletion"), QObject::tr("Should the selection be deleted?"), QMessageBox::Yes | QMessageBox::No);
+        qDebug() << "Message: Confirm deletion (Yes/No)?";
+        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Confirm deletion"), QObject::tr("Should the content be deleted?"), QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
             qDebug() << "User pressed Yes";
