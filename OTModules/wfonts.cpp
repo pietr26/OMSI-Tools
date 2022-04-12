@@ -32,7 +32,7 @@ wFonts::wFonts() :
     ui->cobxEncoding->addItem("UTF-8");
 
     // Set only-Numbers
-    ui->ledHighestPixelInFontRow->setValidator(new QIntValidator(0, 10000, this));
+    ui->sbxHighestPixelInFontRow->clear();
     ui->sbxLeftPixel->clear();
     ui->sbxRightPixel->clear();
     ui->sbxMaxHeigthOfChars->clear();
@@ -317,7 +317,7 @@ void wFonts::checkCurrentChar()
     if (ui->sbxLeftPixel->text() == "")
         ui->lblLeftPixel->setStyleSheet("color:red");
 
-    if (ui->ledHighestPixelInFontRow->text() == "")
+    if (ui->sbxHighestPixelInFontRow->text() == "")
         ui->lblHighestPixelInFontRow->setStyleSheet("color:red");
 
     if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture).exists())
@@ -368,7 +368,7 @@ void wFonts::selectAllAndClear(bool onlyChar)
     ui->ledCharacter->clear();
     ui->sbxLeftPixel->clear();
     ui->sbxRightPixel->clear();
-    ui->ledHighestPixelInFontRow->clear();
+    ui->sbxHighestPixelInFontRow->clear();
     ui->ledComment->clear();
 
     reloadCharList();
@@ -407,7 +407,7 @@ void wFonts::enableFontArea(bool status)
     ui->ledCharacter->setEnabled(status);
     ui->sbxLeftPixel->setEnabled(status);
     ui->sbxRightPixel->setEnabled(status);
-    ui->ledHighestPixelInFontRow->setEnabled(status);
+    ui->sbxHighestPixelInFontRow->setEnabled(status);
     ui->ledComment->setEnabled(status);
     ui->btnDeleteSelection->setEnabled(status);
     ui->btnMoveDown->setEnabled(status);
@@ -962,24 +962,6 @@ void wFonts::on_ledCharacter_textChanged(const QString &arg1)
     setUnsaved();
 }
 
-/// \brief Slot for highestPIFR changes
-void wFonts::on_ledHighestPixelInFontRow_textChanged(const QString &arg1)
-{
-    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
-    {
-        if (arg1 == "")
-            font.charList[ui->lvwChars->currentIndex().row()].highestPixelInFontRow = -1;
-        else
-            font.charList[ui->lvwChars->currentIndex().row()].highestPixelInFontRow = arg1.toInt();
-
-        if (!charUIUpdate)
-            reloadCharList();
-    }
-
-    checkCurrentChar();
-    setUnsaved();
-}
-
 /// \brief Slot for comment changes
 void wFonts::on_ledComment_textChanged(const QString &arg1)
 {
@@ -1076,9 +1058,9 @@ void wFonts::reloadCharUI()
         ui->sbxRightPixel->clear();
 
     if (character.highestPixelInFontRow != -1)
-        ui->ledHighestPixelInFontRow->setText(QString::number(character.highestPixelInFontRow));
+        ui->sbxHighestPixelInFontRow->setValue(character.highestPixelInFontRow);
     else
-        ui->ledHighestPixelInFontRow->clear();
+        ui->sbxHighestPixelInFontRow->clear();
 
     ui->ledComment->setText(character.comment);
 
@@ -1282,3 +1264,21 @@ void wFonts::on_sbxRightPixel_textChanged(const QString &arg1)
     checkCurrentChar();
     setUnsaved();
 }
+
+void wFonts::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
+{
+    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    {
+        if (arg1 == "")
+            font.charList[ui->lvwChars->currentIndex().row()].highestPixelInFontRow = -1;
+        else
+            font.charList[ui->lvwChars->currentIndex().row()].highestPixelInFontRow = arg1.toInt();
+
+        if (!charUIUpdate)
+            reloadCharList();
+    }
+
+    checkCurrentChar();
+    setUnsaved();
+}
+

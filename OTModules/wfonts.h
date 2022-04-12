@@ -86,8 +86,6 @@ private slots:
 
     void on_ledCharacter_textChanged(const QString &arg1);
 
-    void on_ledHighestPixelInFontRow_textChanged(const QString &arg1);
-
     void on_ledComment_textChanged(const QString &arg1);
 
     void on_lvwChars_pressed(const QModelIndex &index);
@@ -121,6 +119,8 @@ private slots:
     void on_sbxLeftPixel_textChanged(const QString &arg1);
 
     void on_sbxRightPixel_textChanged(const QString &arg1);
+
+    void on_sbxHighestPixelInFontRow_textChanged(const QString &arg1);
 
 private:
     const QString moduleName = "wFonts";
