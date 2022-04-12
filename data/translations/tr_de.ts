@@ -4,52 +4,52 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="519"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="530"/>
         <source>Attention: This module is currently work in progress. Only use it for test, never for real modding! Files edited with this module can possibly be destroyed!</source>
         <translation>Achtung: Dieses Modul befindet sich momentan noch in der Entwicklung. Es sollte nur zum Test verwendet werden, niemals für richtiges Modding! Dateien, die in diesem Modul bearbeitet werden, werden möglicherweise zerstört!</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="548"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="559"/>
         <source>There is unsaved content. Do you want to save?</source>
         <translation>Einige Inhalte sind noch nicht gespeichert. Soll jetzt gespeichert werden?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="403"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="414"/>
         <source>&quot;Omsi.exe&quot; could not found in the selected directory. Is it the correct path?. Otherwise, problems may appear in some modules. Should a new path be selected?</source>
         <translation>&quot;Omsi.exe&quot; konnte nicht gefunden werden. Handelt es sich um den richtigen Pfad? Sonst kann es in einigen Modulen zu Fehlern kommen. Soll jetzt ein neuer Pfad ausgewählt werden?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="564"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="575"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Die ausgewählte Datei existiert nicht oder ist lesegeschützt.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="398"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="409"/>
         <source>Select the OMSI main directory...</source>
         <translation>OMSI-Hauptverzeichnis auswählen...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="248"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="249"/>
         <source>Successfully created shortcut!</source>
         <translation>Verknüpfung erfolgreich erstellt!</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="253"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="254"/>
         <source>Could not create shortcut in %1.</source>
         <translation>Die Verknüpfung in %1 konnte nicht erstellt werden.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="509"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="520"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Um fortzufahren, benötigt die Anwendung das OMSI-Hauptverzeichnis. Soll es jetzt ausgewählt werden?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="526"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="537"/>
         <source>There is unsaved content.</source>
         <translation>Ungespeicherten Inhalt gefunden.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="570"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="581"/>
         <source>There was an error while opening
 %1
 If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
@@ -57,225 +57,184 @@ If OMSI is running, please close it and retry it. Furthermore, check if the file
 konnte nicht geöffnet werden. Wenn OMSI läuft, schließe es und versuche es erneut. Überprüfe auch, ob die Datei noch existiert.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="576"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="587"/>
         <source>There are no chars in the font.</source>
         <translation>Es gibt keine Zeichen in der Schrift.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="586"/>
-        <source>Should the selection be deleted?</source>
-        <translation>Soll die Auswahl gelöscht werden?</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="602"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="613"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation>&apos;%1&apos; konnte nicht gespeichert werden. Wenn OMSI läuft, bitte schließen und erneut versuchen.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="248"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="249"/>
         <source>Success</source>
         <translation>Erfolgreich</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="253"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="254"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="298"/>
-        <source>Error while check version</source>
-        <translation>Die Version konnte nicht überprüft werden</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="298"/>
-        <source>There was an error while get the newest version. Please check if your computer has a working internet connection, retry it or contact the developer.</source>
-        <translation>Die neuste Version konnte nicht überprüft werden. Bitte überprüfe, ob der Computer eine funktionierende Internetverbindung hat, versuche es erneut oder kontaktiere den Entwickler.</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="303"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="341"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="354"/>
         <source>Updating %1</source>
         <translation>%1 aktualisieren</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="303"/>
-        <source>There aren&apos;t any updates available.</source>
-        <translation>Es sind keine Aktualisierungen verfügbar.</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="308"/>
-        <source>Found update</source>
-        <translation>Aktualisierung gefunden</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="308"/>
-        <source>There is an update available.</source>
-        <translation>Es ist eine Aktualisierung verfügbar.</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="308"/>
-        <source>Installed version</source>
-        <translation>Installierte Version</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="308"/>
-        <source>Newest version</source>
-        <translation>Neuste Version</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="308"/>
-        <source>The update will be installed.</source>
-        <translation>Das Update wird installiert.</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="341"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="354"/>
         <source>There was an error while starting the updater. Please retry it or contact the developer.</source>
         <translation>Der Updater konnte nicht gestartet werden. Bitte versuche es erneut oder kontaktiere den Entwickler.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="403"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="414"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <translation>Konnte &quot;Omsi.exe&quot; nicht finden</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="509"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="520"/>
         <source>OMSI main directory not found</source>
         <translation>OMSI-Hauptverzeichnis nicht gefunden</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="519"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="530"/>
         <source>Work in progress</source>
         <translation>In Entwicklung</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="526"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="548"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="537"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="559"/>
         <source>Unsaved content</source>
         <translation>Ungespeicherter Inhalt</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="564"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="570"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="575"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="581"/>
         <source>Error while opening file</source>
         <translation>Datei konnte nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="576"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="587"/>
         <source>No chars in font</source>
         <translation>Keine Zeichen in Schrift</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="586"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="597"/>
         <source>Confirm deletion</source>
         <translation>Löschen bestätigen</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="602"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="597"/>
+        <source>Should the content be deleted?</source>
+        <translation>Soll der Inhalt gelöscht werden?</translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="613"/>
         <source>Save error</source>
         <translation>Speicherfehler</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="608"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="619"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation>Dieses Modul ist wegen Zeitmangel bei den Entwicklungen leider noch deaktiviert. Bitte halte in den nächsten Tagen nach neuen Aktualisierungen ausschau.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="608"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="619"/>
         <source>Module still deactivated</source>
         <translation>Modul noch deaktiviert</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="621"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="632"/>
         <source>Bytes</source>
         <translation>Bytes</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="621"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="632"/>
         <source>KB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="622"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="633"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="622"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="633"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="623"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="634"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation>TB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="623"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="634"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation>PB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="721"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="732"/>
         <source>January</source>
         <translation>Januar</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="722"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="733"/>
         <source>February</source>
         <translation>Februar</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="723"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="734"/>
         <source>March</source>
         <translation>März</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="724"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="735"/>
         <source>April</source>
         <translation>April</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="725"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="736"/>
         <source>May</source>
         <translation>Mai</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="726"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="737"/>
         <source>June</source>
         <translation>Juni</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="727"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="738"/>
         <source>July</source>
         <translation>Juli</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="728"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="739"/>
         <source>August</source>
         <translation>August</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="729"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="740"/>
         <source>September</source>
         <translation>September</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="730"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="741"/>
         <source>October</source>
         <translation>Oktober</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="731"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="742"/>
         <source>November</source>
         <translation>November</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="732"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="743"/>
         <source>December</source>
         <translation>Dezember</translation>
     </message>
@@ -332,27 +291,27 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Dateien</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/dignorelist.ui" line="52"/>
+        <location filename="../../OTModules/wVerifyMap/dignorelist.ui" line="55"/>
         <source>Folder</source>
         <translation>Ordner</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/dignorelist.ui" line="63"/>
+        <location filename="../../OTModules/wVerifyMap/dignorelist.ui" line="69"/>
         <source>Selection</source>
         <translation>Auswahl</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/dignorelist.ui" line="74"/>
+        <location filename="../../OTModules/wVerifyMap/dignorelist.ui" line="83"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/dignorelist.ui" line="117"/>
+        <location filename="../../OTModules/wVerifyMap/dignorelist.ui" line="126"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/dignorelist.ui" line="128"/>
+        <location filename="../../OTModules/wVerifyMap/dignorelist.ui" line="137"/>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
@@ -362,17 +321,17 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Ignorierliste</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/dignorelist.cpp" line="73"/>
+        <location filename="../../OTModules/wVerifyMap/dignorelist.cpp" line="75"/>
         <source>Select files...</source>
         <translation>Dateien auswählen...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/dignorelist.cpp" line="92"/>
+        <location filename="../../OTModules/wVerifyMap/dignorelist.cpp" line="94"/>
         <source>Could not append ignorelist</source>
         <translation>Konnte Ignorierliste nicht aktualisieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/dignorelist.cpp" line="92"/>
+        <location filename="../../OTModules/wVerifyMap/dignorelist.cpp" line="94"/>
         <source>There was an error while append the files to the ignorelist.</source>
         <translation>Die Ignorierliste konnte nicht aktualisiert werden.</translation>
     </message>
@@ -549,17 +508,27 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
 <context>
     <name>wChangelog</name>
     <message>
-        <location filename="../../wchangelog.ui" line="31"/>
-        <source>There is a new update available:</source>
-        <translation>Es ist eine neue Aktualisierung verfügbar:</translation>
+        <location filename="../../wchangelog.ui" line="35"/>
+        <source>Changelog:</source>
+        <translation>Änderungsprotokoll:</translation>
     </message>
     <message>
-        <location filename="../../wchangelog.ui" line="70"/>
-        <source>Update now</source>
-        <translation>Jetzt aktualisieren</translation>
+        <location filename="../../wchangelog.ui" line="97"/>
+        <source>Clear application directory</source>
+        <translation>Anwendungsverzeichnis aufräumen</translation>
     </message>
     <message>
-        <location filename="../../wchangelog.ui" line="81"/>
+        <location filename="../../wchangelog.ui" line="107"/>
+        <source>Attention: This option deletes the entire application directory including all files (even those that do not originate from the application).</source>
+        <translation>Achtung: Mit dieser Option wird das gesamte Anwendungsverzeichnis mit allen Dateien gelöscht (auch jene, die nicht von der Anwendung stammen).</translation>
+    </message>
+    <message>
+        <location filename="../../wchangelog.ui" line="134"/>
+        <source>Download and install</source>
+        <translation>Herunterladen und installieren</translation>
+    </message>
+    <message>
+        <location filename="../../wchangelog.ui" line="145"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
@@ -574,7 +543,17 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Laden...</translation>
     </message>
     <message>
-        <location filename="../../wchangelog.cpp" line="45"/>
+        <location filename="../../wchangelog.cpp" line="33"/>
+        <source>Current version:</source>
+        <translation>Aktuelle Version:</translation>
+    </message>
+    <message>
+        <location filename="../../wchangelog.cpp" line="36"/>
+        <source>New version:</source>
+        <translation>Neue Version:</translation>
+    </message>
+    <message>
+        <location filename="../../wchangelog.cpp" line="57"/>
         <source>There was an error while get the changelog. Please check if your computer has a working internet connection, retry it or contact the developer.
 Code: %1</source>
         <translation>Das Änderungsprotokoll konnte nicht geladen werden. Bitte überprüfe, ob der Computer eine funktionierende Internetverbindung hat, versuche es erneut oder kontaktiere den Entwickler.
@@ -1653,24 +1632,34 @@ Es wird keine Schrift geöffnet.</translation>
         <translation>Neu starten, um alle Einstellungen anzuwenden.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="305"/>
+        <location filename="../../wsettings.cpp" line="200"/>
+        <source>Finshed</source>
+        <translation>Fertig</translation>
+    </message>
+    <message>
+        <location filename="../../wsettings.cpp" line="200"/>
+        <source>Not updates available.</source>
+        <translation>Keine Aktualisierungen verfügbar.</translation>
+    </message>
+    <message>
+        <location filename="../../wsettings.cpp" line="314"/>
         <source>More languages</source>
         <translation>Mehr Sprachen</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="305"/>
+        <location filename="../../wsettings.cpp" line="314"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation>Du möchtest mehr Sprachen zur Auswahl haben?
 Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut beherrscht, kannst du %1 gerne übersetzen! Melde dich dazu beim Entwickler in der OMSI-WebDisk, auch, wenn du mehr Fragen dazu hast.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="203"/>
+        <location filename="../../wsettings.cpp" line="212"/>
         <source>Should all settings be reset? This action cannot be undone!</source>
         <translation>Sollen alle Einstellungen zurückgesetzt werden? Es kann nicht mehr rückgängig gemacht werden!</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="207"/>
+        <location filename="../../wsettings.cpp" line="216"/>
         <source>The programm will now restart.</source>
         <translation>Das Programm startet jetzt neu.</translation>
     </message>
@@ -1706,8 +1695,8 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
     </message>
     <message>
         <location filename="../../wsettings.ui" line="529"/>
-        <location filename="../../wsettings.cpp" line="203"/>
-        <location filename="../../wsettings.cpp" line="207"/>
+        <location filename="../../wsettings.cpp" line="212"/>
+        <location filename="../../wsettings.cpp" line="216"/>
         <source>Reset settings</source>
         <translation>Einstellungen zurücksetzen</translation>
     </message>
@@ -1720,136 +1709,136 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
 <context>
     <name>wStart</name>
     <message>
-        <location filename="../../wstart.ui" line="41"/>
+        <location filename="../../wstart.ui" line="116"/>
         <source>Content development</source>
         <translation>Modifikationsentwicklung</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="53"/>
+        <location filename="../../wstart.ui" line="128"/>
         <source>Font creation</source>
         <translation>Schrifterstellung</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="67"/>
-        <location filename="../../wstart.ui" line="83"/>
-        <location filename="../../wstart.ui" line="99"/>
-        <location filename="../../wstart.ui" line="115"/>
-        <location filename="../../wstart.ui" line="131"/>
-        <location filename="../../wstart.ui" line="150"/>
-        <location filename="../../wstart.ui" line="166"/>
-        <location filename="../../wstart.ui" line="260"/>
-        <location filename="../../wstart.ui" line="305"/>
-        <location filename="../../wstart.ui" line="325"/>
+        <location filename="../../wstart.ui" line="142"/>
+        <location filename="../../wstart.ui" line="158"/>
+        <location filename="../../wstart.ui" line="174"/>
+        <location filename="../../wstart.ui" line="190"/>
+        <location filename="../../wstart.ui" line="206"/>
+        <location filename="../../wstart.ui" line="225"/>
+        <location filename="../../wstart.ui" line="241"/>
+        <location filename="../../wstart.ui" line="335"/>
+        <location filename="../../wstart.ui" line="380"/>
+        <location filename="../../wstart.ui" line="400"/>
         <source>This module is currently not available.</source>
         <translation>Dieses Modul ist noch nicht verfügbar.</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="105"/>
+        <location filename="../../wstart.ui" line="180"/>
         <source>Money / ticket packs</source>
         <translation>Geld- / Ticketkonfigurationen</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="140"/>
+        <location filename="../../wstart.ui" line="215"/>
         <source>Maps</source>
         <translation>Karten</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="89"/>
+        <location filename="../../wstart.ui" line="164"/>
         <source>Sceneryobjects</source>
         <translation>Szenerieobjekte</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="73"/>
+        <location filename="../../wstart.ui" line="148"/>
         <source>Vehicles</source>
         <translation>Fahrzeuge</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="172"/>
+        <location filename="../../wstart.ui" line="247"/>
         <source>Splines</source>
         <translation>Splines</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="121"/>
+        <location filename="../../wstart.ui" line="196"/>
         <source>Scripts</source>
         <translation>Skripte</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="156"/>
+        <location filename="../../wstart.ui" line="231"/>
         <source>Textures</source>
         <translation>Texturen</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="198"/>
+        <location filename="../../wstart.ui" line="273"/>
         <source>Troubleshooting</source>
         <translation>Fehlersuche</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="213"/>
+        <location filename="../../wstart.ui" line="288"/>
         <source>Verify map</source>
         <translation>Kartenüberprüfung</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="248"/>
+        <location filename="../../wstart.ui" line="323"/>
         <source>Miscellaneous</source>
         <translation>Sonstiges</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="263"/>
+        <location filename="../../wstart.ui" line="338"/>
         <source>Backup</source>
         <translation>Backup</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="296"/>
+        <location filename="../../wstart.ui" line="371"/>
         <source>Finishing</source>
         <translation>Fertigstellung</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="311"/>
+        <location filename="../../wstart.ui" line="386"/>
         <source>Save modifiaction for release...</source>
         <translation>Modifiaktion für Veröffentlichung speichern...</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="375"/>
+        <location filename="../../wstart.ui" line="450"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="386"/>
+        <location filename="../../wstart.ui" line="461"/>
         <source>Create shortcut</source>
         <translation>Verknüpfung erstellen</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="502"/>
+        <location filename="../../wstart.ui" line="79"/>
         <source>View</source>
         <translation>Anzeigen</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="622"/>
+        <location filename="../../wstart.ui" line="625"/>
         <source>Changelog</source>
         <translation>Änderungsprotokoll</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="631"/>
+        <location filename="../../wstart.ui" line="634"/>
         <source>Manual</source>
         <translation>Handbuch</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="544"/>
+        <location filename="../../wstart.ui" line="547"/>
         <source>Specials</source>
         <translation>Extras</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="568"/>
+        <location filename="../../wstart.ui" line="571"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="580"/>
+        <location filename="../../wstart.ui" line="583"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="610"/>
+        <location filename="../../wstart.ui" line="613"/>
         <source>Send feedback</source>
         <translation>Feedback senden</translation>
     </message>
@@ -1869,47 +1858,47 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Neue Aktualisierung verfügbar</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="141"/>
+        <location filename="../../wstart.cpp" line="142"/>
         <source>Coming soon!</source>
         <translation>Folgt!</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="141"/>
+        <location filename="../../wstart.cpp" line="142"/>
         <source>Where should I release my modification?</source>
         <translation>Wo kann ich meine Modifikation veröffentlichen?</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="179"/>
+        <location filename="../../wstart.cpp" line="180"/>
         <source>Simulate crash</source>
         <translation>Absturz simulieren</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="179"/>
+        <location filename="../../wstart.cpp" line="180"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Soll ein Anwendungsabsturz simuliert werden?</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="331"/>
+        <location filename="../../wstart.ui" line="406"/>
         <source>Release modification</source>
         <translation>Modifikation veröffentlichen</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="358"/>
+        <location filename="../../wstart.ui" line="433"/>
         <source>Simulate chrash</source>
         <translation>Absturz simulieren</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="537"/>
+        <location filename="../../wstart.ui" line="540"/>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="550"/>
+        <location filename="../../wstart.ui" line="553"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="227"/>
+        <location filename="../../wstart.ui" line="302"/>
         <source>Content search</source>
         <translation>Inhaltssuche</translation>
     </message>
