@@ -194,7 +194,16 @@ void wSettings::on_btnRestart_clicked()
 /// \brief Checks for updates
 void wSettings::on_btnCheckForUpdates_clicked()
 {
-    misc.searchForUpdates(this);
+    QStringList update = misc.getUpdateInformation();
+
+    if (update.at(0) == "noUpdates")
+        QMessageBox::information(this, tr("Finshed"), tr("Not updates available."));
+    else if (update.at(0) != "false")
+    {
+        WCHANGELOG = new wChangelog(this, true, update.at(1));
+        WCHANGELOG->setWindowModality(Qt::ApplicationModal);
+        WCHANGELOG->show();
+    }
 }
 
 /// \brief Resets the settings

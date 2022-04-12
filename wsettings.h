@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/wdevtools.h"
+#include "wchangelog.h"
 #include <QStandardItemModel>
 
 namespace Ui {
@@ -69,6 +70,7 @@ private:
     OTDiskUsage dUs;
     QTimer *timer;
     wDevTools *WDEVTOOLS;
+    wChangelog *WCHANGELOG;
 
     bool setupFinished = false;
 

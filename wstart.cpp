@@ -86,6 +86,8 @@ wStart::wStart(QWidget *parent)
             ui->statusbar->addPermanentWidget(ui->fraUpdate);
             ui->fraUpdate->setVisible(true);
             ui->lblUpdateVersion->setText(update.at(1));
+
+            updateVersion = update.at(1);
         }
     }
 
@@ -228,7 +230,7 @@ void wStart::on_btnStyleTest_clicked()
 
 void wStart::on_btnView_clicked()
 {
-    WCHANGELOG = new wChangelog(this, true);
+    WCHANGELOG = new wChangelog(this, true, updateVersion);
     WCHANGELOG->setWindowModality(Qt::ApplicationModal);
     WCHANGELOG->show();
 }
