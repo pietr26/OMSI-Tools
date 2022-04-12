@@ -85,6 +85,7 @@ private:
     OTMessage msg;
     OTMiscellaneous misc;
 
+    QString updateVersion;
 };
 
 #endif // WSTART_H

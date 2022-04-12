@@ -1,7 +1,7 @@
 #include "wchangelog.h"
 #include "ui_wchangelog.h"
 
-wChangelog::wChangelog(QWidget *parent, bool updateAvailable) :
+wChangelog::wChangelog(QWidget *parent, bool updateAvailable, QString newVersion) :
     QMainWindow(parent),
     ui(new Ui::wChangelog)
 {
@@ -23,7 +23,18 @@ wChangelog::wChangelog(QWidget *parent, bool updateAvailable) :
     {
         ui->btnUpdateNow->setVisible(false);
         ui->lblNewUpdate->setVisible(false);
+        ui->lblNewVersion->setVisible(false);
+        ui->cbxClearAppDir->setVisible(false);
     }
+
+    ui->lblClearAppDirInfo->setVisible(false);
+
+    ui->lblCurrentVersion->setText("<b>" + tr("Current version:") + "</b> " + OTVersion);
+
+    if (newVersion != "")
+        ui->lblCurrentVersion->setText("<b>" + tr("New version:") + "</b> " + newVersion);
+    else
+        ui->lblNewVersion->setVisible(false);
 
     QTimer::singleShot(0, this, SLOT(downloadChangelog()));
 
@@ -54,6 +65,14 @@ void wChangelog::on_btnClose_clicked()
 /// \brief Calls the settings and execute the update
 void wChangelog::on_btnUpdateNow_clicked()
 {
-    misc.searchForUpdates(this);
+    misc.startUpdate(this, ui->cbxClearAppDir->isChecked());
+}
+
+void wChangelog::on_cbxClearAppDir_stateChanged(int arg1)
+{
+    if (arg1 == 2)
+        ui->lblClearAppDirInfo->setVisible(true);
+    else
+        ui->lblClearAppDirInfo->setVisible(false);
 }
 

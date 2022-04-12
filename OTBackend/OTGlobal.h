@@ -91,6 +91,7 @@ public:
     inline static const QUrl supportThread = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683-omsi-tools-support/");
     inline static const QUrl latestVersion = QUrl("http://omsi-tools.bplaced.net/omsi-tools/versionCheck/latestVersion.txt");
     inline static const QUrl changelog = QUrl("http://omsi-tools.bplaced.net/omsi-tools/changelog/index.html");
+    inline static const QUrl currentDownloadLink = QUrl("http://omsi-tools.bplaced.net/omsi-tools/download/currentDownloadLink.php");
 };
 
 /// \brief Calculates disk usage
@@ -288,66 +289,76 @@ public:
     }
 
     /// \brief Searches for updates and returns information to the user
-    void searchForUpdates(QWidget *parent)
+    void startUpdate(QWidget *parent, bool clearAppDir)
     {
-        QStringList update = getUpdateInformation();
-        qDebug().noquote() << "Update from server:" << update;
+        ////////////////////
+        // TO UPDATER (?) //
+        ////////////////////
 
-        if (update.at(0) == "false")
+//        QStringList update = getUpdateInformation();
+//        qDebug().noquote() << "Update from server:" << update;
+
+//        if (update.at(0) == "false")
+//        {
+//            QMessageBox::warning(parent, QObject::tr("Error while check version"), QObject::tr("There was an error while get the newest version. Please check if your computer has a working internet connection, retry it or contact the developer."));
+//            qWarning() << "Could not check newest update!";
+//        }
+//        else if (update.at(0) == "noUpdates")
+//        {
+//            QMessageBox::information(parent, QObject::tr("Updating %1").arg(OTName), QObject::tr("There aren't any updates available."));
+//            qInfo() << "There's no update available.";
+//        }
+//        else
+//        {
+//            QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Found update"), QString("<html>%1<br><br><b>%2:</b> %3<br><b>%4:</b> %5<br><br>%6</html>").arg(QObject::tr("There is an update available."), QObject::tr("Installed version"), OTVersion, QObject::tr("Newest version"), update.at(1), QObject::tr("The update will be installed.")), QMessageBox::Yes | QMessageBox::Cancel);
+//            qInfo() << "Updates available!";
+
+//            if (reply == QMessageBox::Yes)
+//            {
+
+//            }
+//        }
+
+        qDebug() << "Create tempAppDir and copy files...";
+
+        QDirIterator dirIterator(QApplication::applicationDirPath(), QStringList{"*.*"}, QDir::Files, QDirIterator::Subdirectories);
+        while (dirIterator.hasNext())
         {
-            QMessageBox::warning(parent, QObject::tr("Error while check version"), QObject::tr("There was an error while get the newest version. Please check if your computer has a working internet connection, retry it or contact the developer."));
-            qWarning() << "Could not check newest update!";
+            QString file = dirIterator.next();
+
+            QDir().mkdir(QDir::tempPath() + "/OMSI-Tools_tempAppDir");
+
+            QString newFilePath = QDir::tempPath() + "/OMSI-Tools_tempAppDir/" + file.remove(0, QApplication::applicationDirPath().count() + 1);
+            QDir().mkpath(QFileInfo(newFilePath).absolutePath());
+
+            qDebug().noquote() << "New path:" << newFilePath;
+            if (QFile(newFilePath).exists())
+                QFile(newFilePath).remove();
+
+            qDebug().noquote() << "From path:" << QApplication::applicationDirPath() + "/" + file;
+            qDebug() << "-----------------------------------------------------------------";
+            QFile(QApplication::applicationDirPath() + "/" + file).copy(newFilePath);
         }
-        else if (update.at(0) == "noUpdates")
+        qDebug() << "Finished.";
+
+        QStringList args;
+        args << "callFromMainApplication";
+        args << QApplication::applicationDirPath();
+
+        if (clearAppDir)
+            args << "clearAppDir";
+
+        if (!QProcess::startDetached(QDir::tempPath() + "/OMSI-Tools_tempAppDir/OMSI-Tools_Updater.exe", args))
         {
-            QMessageBox::information(parent, QObject::tr("Updating %1").arg(OTName), QObject::tr("There aren't any updates available."));
-            qInfo() << "There's no update available.";
+            qWarning() << "There was an error while starting the updater (with name 'OMSI-Tools_Updater.exe').";
+            QMessageBox::warning(parent, QObject::tr("Updating %1").arg(OTName), QObject::tr("There was an error while starting the updater. Please retry it or contact the developer."));
         }
         else
         {
-            QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Found update"), QString("<html>%1<br><br><b>%2:</b> %3<br><b>%4:</b> %5<br><br>%6</html>").arg(QObject::tr("There is an update available."), QObject::tr("Installed version"), OTVersion, QObject::tr("Newest version"), update.at(1), QObject::tr("The update will be installed.")), QMessageBox::Yes | QMessageBox::Cancel);
-            qInfo() << "Updates available!";
-
-            if (reply == QMessageBox::Yes)
-            {
-
-                qDebug() << "Create tempAppDir and copy files...";
-                QDirIterator dirIterator(QApplication::applicationDirPath(), QStringList{"*.*"}, QDir::Files, QDirIterator::Subdirectories);
-                while (dirIterator.hasNext())
-                {
-                    QString file = dirIterator.next();
-
-                    QDir().mkdir(QDir::tempPath() + "/OMSI-Tools_tempAppDir");
-
-                    QString newFilePath = QDir::tempPath() + "/OMSI-Tools_tempAppDir/" + file.remove(0, QApplication::applicationDirPath().count() + 1);
-                    QDir().mkpath(QFileInfo(newFilePath).absolutePath());
-
-                    qDebug().noquote() << "New path:" << newFilePath;
-                    if (QFile(newFilePath).exists())
-                        QFile(newFilePath).remove();
-
-                    qDebug().noquote() << "From path:" << QApplication::applicationDirPath() + "/" + file;
-                    qDebug() << "-----------------------------------------------------------------";
-                    QFile(QApplication::applicationDirPath() + "/" + file).copy(newFilePath);
-                }
-                qDebug() << "Finished.";
-
-                QStringList args;
-                args << "callFromMainApplication";
-                args << QApplication::applicationDirPath();
-                if (!QProcess::startDetached(QDir::tempPath() + "/OMSI-Tools_tempAppDir/OMSI-Tools_Updater.exe", args))
-                {
-                    qWarning() << "There was an error while starting the updater (with name 'OMSI-Tools_Updater.exe').";
-                    QMessageBox::warning(parent, QObject::tr("Updating %1").arg(OTName), QObject::tr("There was an error while starting the updater. Please retry it or contact the developer."));
-                }
-                else
-                {
-                    qInfo() << QString("Start Updater...");
-                    QApplication::quit();
-
-                }
-            }
+            qInfo() << "Start Updater...";
+            QApplication::quit();
         }
+
     }
 };
 
