@@ -59,6 +59,10 @@ wFonts::wFonts() :
     connect(ui->lvwChars->selectionModel(), &QItemSelectionModel::currentRowChanged, this, &wFonts::charSelectionChanged);
     reloadValidProperty();
 
+    // First setup - if not, the application will crash in wFonts::resizeEvent()
+    texPreviewScene = new QGraphicsScene(this);
+    ui->grvTexPreview->setScene(texPreviewScene);
+
     qInfo().noquote() << moduleName + " started";
 }
 
@@ -106,6 +110,14 @@ void wFonts::dropEvent(QDropEvent *e)
 
     if (reply == QMessageBox::Yes)
         open(OTFileMethods::open, fileName);
+}
+
+/// \brief Resize slot
+void wFonts::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+
+    resizeTexPreview();
 }
 
 /// \brief Deletes current char
@@ -991,6 +1003,9 @@ void wFonts::on_ledColorTexture_textChanged(const QString &arg1)
     reloadValidProperty();
     checkCurrentChar();
     setUnsaved();
+
+    loadTexPreview();
+    qDebug() << "BLA.";
 }
 
 /// \brief Sets current alpha texture
@@ -1000,6 +1015,8 @@ void wFonts::on_ledAlphaTexture_textChanged(const QString &arg1)
     reloadValidProperty();
     checkCurrentChar();
     setUnsaved();
+
+    loadTexPreview();
 }
 
 /// \brief Sets current maximum height of characters
@@ -1280,5 +1297,42 @@ void wFonts::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
 
     checkCurrentChar();
     setUnsaved();
+}
+
+
+
+void wFonts::loadTexPreview()
+{
+    QString tex;
+    if (ui->cobxPreviewOptions->currentIndex() == 0)
+        tex = set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture;
+    else
+        tex = set.read("main", "mainDir").toString() + "/Fonts/" + font.colorTexture;
+
+    if (QFile(tex).exists())
+    {
+        // alphatexScene->clear(); is not enough - it doesn't reset the draw aera size
+        texPreviewScene = new QGraphicsScene(this);
+        ui->grvTexPreview->setScene(texPreviewScene);
+
+        texPreviewScene->addPixmap(tex);
+        resizeTexPreview();
+    }
+}
+
+void wFonts::resizeTexPreview()
+{
+    ui->grvTexPreview->fitInView(texPreviewScene->sceneRect(), Qt::KeepAspectRatio);
+}
+
+void wFonts::on_cobxPreviewOptions_currentIndexChanged(int index)
+{
+    Q_UNUSED(index);
+    loadTexPreview();
+}
+
+void wFonts::on_btnReloadTexPreview_clicked()
+{
+    loadTexPreview();
 }
 

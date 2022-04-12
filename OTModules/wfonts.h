@@ -17,6 +17,7 @@
 #include <QCloseEvent>
 #include <QTimer>
 #include <QShortcut>
+#include <QGraphicsScene>
 
 namespace Ui {
 class wFonts;
@@ -37,6 +38,8 @@ private slots:
     void dragEnterEvent(QDragEnterEvent *e);
 
     void dropEvent(QDropEvent *e);
+
+    void resizeEvent(QResizeEvent *event);
 
     void on_actionSettings_triggered();
 
@@ -122,6 +125,10 @@ private slots:
 
     void on_sbxHighestPixelInFontRow_textChanged(const QString &arg1);
 
+    void on_cobxPreviewOptions_currentIndexChanged(int index);
+
+    void on_btnReloadTexPreview_clicked();
+
 private:
     const QString moduleName = "wFonts";
     Ui::wFonts *ui;
@@ -176,6 +183,12 @@ private:
     bool charListUpdate = false;
 
     bool charUIUpdate = false;
+
+    QGraphicsScene *texPreviewScene;
+
+    void loadTexPreview();
+
+    void resizeTexPreview();
 };
 
 #endif // WFONTS_H
