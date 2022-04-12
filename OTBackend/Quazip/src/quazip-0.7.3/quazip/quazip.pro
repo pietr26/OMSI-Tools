@@ -93,19 +93,3 @@ symbian {
 INCLUDEPATH += "C:\Users\pietr\OneDrive\Dev\OMSI-Tools\OMSI-Tools\OTBackend\Quazip\src\zlib-1.2.8-master\include"
 LIBS += -L"C:\Users\pietr\OneDrive\Dev\OMSI-Tools\OMSI-Tools\OTBackend\Quazip\src\zlib-1.2.8-master\lib"
 LIBS += -lz
-
-HEADERS += \
-    ../../zlib-1.2.8-master/include/crc32.h \
-    ../../zlib-1.2.8-master/include/deflate.h \
-    ../../zlib-1.2.8-master/include/gzguts.h \
-    ../../zlib-1.2.8-master/include/inffast.h \
-    ../../zlib-1.2.8-master/include/inffixed.h \
-    ../../zlib-1.2.8-master/include/inflate.h \
-    ../../zlib-1.2.8-master/include/inftrees.h \
-    ../../zlib-1.2.8-master/include/trees.h \
-    ../../zlib-1.2.8-master/include/zconf.h \
-    ../../zlib-1.2.8-master/include/zlib.h \
-    ../../zlib-1.2.8-master/include/zutil.h
-
-DISTFILES += \
-    ../../zlib-1.2.8-master/lib/zlib1.dll
