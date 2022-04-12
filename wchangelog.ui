@@ -24,31 +24,55 @@
     <normaloff>:/rec/data/icons/iconSwitch.svg</normaloff>:/rec/data/icons/iconSwitch.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="lblCurrentVersion">
-        <property name="text">
-         <string notr="true">currentVersion</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="lblNewUpdate">
+          <property name="text">
+           <string>Changelog:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QLabel" name="lblNewVersion">
-        <property name="text">
-         <string notr="true">newVersion</string>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-       </widget>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="lblCurrentVersion">
+          <property name="text">
+           <string notr="true">currentVersion</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblNewVersion">
+          <property name="text">
+           <string notr="true">newVersion</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
-    </item>
-    <item>
-     <widget class="QLabel" name="lblNewUpdate">
-      <property name="text">
-       <string>Changelog:</string>
-      </property>
-     </widget>
     </item>
     <item>
      <widget class="QTextEdit" name="teedChangelog">
@@ -107,7 +131,7 @@ p, li { white-space: pre-wrap; }
          </font>
         </property>
         <property name="text">
-         <string>Download and install now</string>
+         <string>Download and install</string>
         </property>
         <property name="icon">
          <iconset resource="ressources.qrc">
@@ -123,6 +147,9 @@ p, li { white-space: pre-wrap; }
         <property name="icon">
          <iconset resource="ressources.qrc">
           <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+        </property>
+        <property name="shortcut">
+         <string notr="true">Esc</string>
         </property>
        </widget>
       </item>
