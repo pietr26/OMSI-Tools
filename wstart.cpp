@@ -83,7 +83,6 @@ wStart::wStart(QWidget *parent)
         else if (update.at(0) != "false")
         {
             ui->lblUpdate->setText(tr("New update available") + " •");
-            ui->statusbar->addPermanentWidget(ui->fraUpdate);
             ui->fraUpdate->setVisible(true);
             ui->lblUpdateVersion->setText(update.at(1));
 
