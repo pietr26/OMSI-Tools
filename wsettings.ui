@@ -55,7 +55,7 @@
             <bool>false</bool>
            </property>
            <property name="sizeAdjustPolicy">
-            <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+            <enum>QComboBox::AdjustToContents</enum>
            </property>
           </widget>
          </item>
@@ -91,6 +91,9 @@
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="sizeAdjustPolicy">
+            <enum>QComboBox::AdjustToContents</enum>
            </property>
           </widget>
          </item>
@@ -366,7 +369,11 @@
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="cobxLogfileMode"/>
+            <widget class="QComboBox" name="cobxLogfileMode">
+             <property name="sizeAdjustPolicy">
+              <enum>QComboBox::AdjustToContents</enum>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
@@ -400,7 +407,11 @@
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="cobxAutoUpdateCheck"/>
+            <widget class="QComboBox" name="cobxAutoUpdateCheck">
+             <property name="sizeAdjustPolicy">
+              <enum>QComboBox::AdjustToContents</enum>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
