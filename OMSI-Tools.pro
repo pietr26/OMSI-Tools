@@ -15,12 +15,12 @@ SOURCES += \
     OTModules/wFbh/wfbh.cpp \
     OTModules/wvehiclelist.cpp \
     OTModules/OTGeneric/wbugreport.cpp \
-    OTModules/OTGeneric//wstyletest.cpp \
+    OTModules/OTInternals/wstyletest.cpp \
     OTWidgets/firstsetup.cpp \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
     OTModules/wVerifyMap/dignorelist.cpp \
-    OTModules/OTGeneric/wdevtools.cpp \
+    OTModules/OTInternals/wdevtools.cpp \
     OTModules/wfonts.cpp \
     OTModules/wVerifyMap/wverifymap.cpp \
     OTModules/OTGeneric/wabout.cpp \
@@ -42,10 +42,10 @@ HEADERS += \
     OTModules/wVerifyMap/dignorelist.h \
     OTModules/wVerifyMap/ignoreListFunctions.h \
     OTModules/OTGeneric/wbugreport.h \
-    OTModules/OTGeneric/wdevtools.h \
+    OTModules/OTInternals/wdevtools.h \
     OTModules/wfonts.h \
     OTModules/wVerifyMap/wverifymap.h \
-    OTModules/OTGeneric/wstyletest.h \
+    OTModules/OTInternals/wstyletest.h \
     OTWidgets/firstsetup.h \
     OTWidgets/verifymaptools.h \
     OTModules/OTGeneric/wabout.h \
@@ -61,10 +61,10 @@ FORMS += \
     OTModules/wvehiclelist.ui \
     OTModules/wVerifyMap/dignorelist.ui \
     OTModules/OTGeneric/wbugreport.ui \
-    OTModules/OTGeneric/wdevtools.ui \
+    OTModules/OTInternals/wdevtools.ui \
     OTModules/wfonts.ui \
     OTModules/wVerifyMap/wverifymap.ui \
-    OTModules/OTGeneric/wstyletest.ui \
+    OTModules/OTInternals/wstyletest.ui \
     OTWidgets/firstsetup.ui \
     OTWidgets/verifymaptools.ui \
     OTModules/OTGeneric/wabout.ui \
