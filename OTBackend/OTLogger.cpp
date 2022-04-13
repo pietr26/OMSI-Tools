@@ -12,7 +12,7 @@ Logger::Logger(QObject *parent) : QObject(parent)
 {
 }
 
-/// \brief Creates the start of a logfile
+/// Creates the start of a logfile
 void Logger::attach(QString filename)
 {
     Logger::filename = QDir::currentPath() + QDir::separator() + filename;
@@ -45,7 +45,7 @@ void Logger::attach(QString filename)
     }
 }
 
-/// \brief Prepares and writes a logfile entry
+/// Prepares and writes a logfile entry
 void Logger::handler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     if (Logger::logging)

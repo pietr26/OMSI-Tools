@@ -63,6 +63,8 @@ public:
     }
 };
 
+// Create OTConfig class?
+
 const QString OTName = "OMSI-Tools";
 const QString OTVersion = "0.11.0-beta";
 const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Beta;
@@ -83,31 +85,30 @@ const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Beta;
 */
 
 
-/// \brief Link collection
+/// [STATIC] Link collection
 class OTLinks
 {
 public:
-    inline static const QUrl wipThread = QUrl("https://reboot.omsi-webdisk.de/community/thread/4783-projekt-omsi-tools-das-allrounder-tool-heute-im-adventskalender/");
-    inline static const QUrl supportThread = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683-omsi-tools-support/");
+    inline static const QUrl wipThread = QUrl("https://reboot.omsi-webdisk.de/community/thread/4783");
+    inline static const QUrl supportThread = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683");
     inline static const QUrl latestVersion = QUrl("http://omsi-tools.bplaced.net/omsi-tools/versionCheck/latestVersion.txt");
     inline static const QUrl changelog = QUrl("http://omsi-tools.bplaced.net/omsi-tools/changelog/index.html");
-    inline static const QUrl currentDownloadLink = QUrl("http://omsi-tools.bplaced.net/omsi-tools/download/currentDownloadLink.php");
+    inline static const QUrl downloadLink = QUrl("http://omsi-tools.bplaced.net/omsi-tools/download/currentDownloadLink.php");
 };
 
-/// \brief Calculates disk usage
+/// Calculates disk usage
 class OTDownloader: public QObject
 {
     Q_OBJECT
-
 public:
-    /// \brief Returns the downloaded file
+    /// [OVERLOADED] Returns the downloaded file
     QString doDownload(const QUrl &url)
     {
         lastSuccess = 0;
         return download(url);
     }
 
-    /// \brief Saves the download file to a local file
+    /// [OVERLOADED] Saves the download file to a local file
     int doDownload(const QUrl &url, const QString filepath)
     {
         lastSuccess = 0;
@@ -119,7 +120,8 @@ public:
     int currentProgress;
     int maxProgress;
     int lastHttpCode;
-    int currentContentLength;
+
+    /// Check if the last connection was successfully. -1: No | 0: NULL | 1: Yes
     int lastSuccess;
 
 private slots:
@@ -132,7 +134,7 @@ private slots:
 private:
     QNetworkAccessManager manager;
 
-    /// \brief Main part of downloading a file
+    /// Main part of downloading a file
     QByteArray download(const QUrl &url)
     {
         qDebug().noquote().nospace() << "Download '" << url.url() << "'";
@@ -144,7 +146,9 @@ private:
 
         connect(reply, &QNetworkReply::downloadProgress, this, &OTDownloader::downloadProgress);
         loop.exec();
-        currentContentLength = reply->header(QNetworkRequest::ContentLengthHeader).toInt();
+
+        // Content length:
+        // reply->header(QNetworkRequest::ContentLengthHeader).toInt();
 
         int httpCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         lastHttpCode = httpCode;
@@ -161,7 +165,7 @@ private:
         return reply->readAll();
     }
 
-    /// \brief Saves the download file to a local file
+    /// Saves the download file to a local file
     void saveToFile(const QString filepath, const QByteArray content)
     {
         QFile file(filepath);
@@ -172,11 +176,11 @@ private:
     }
 };
 
-/// \brief Class for miscellaneous
+/// Class for miscellaneous
 class OTMiscellaneous
 {
 public:
-    /// \brief Restarts the application
+    /// Restarts the application
     void restart()
     {
         qInfo() << "Restart application...";
@@ -184,37 +188,25 @@ public:
         QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
     }
 
-    /// \brief Returns curreent time
+    /// Returns curreent time
     QString getTime(QString format = "hh:mm:ss")
     {
         return QTime::currentTime().toString(format);
     }
 
-    /// \brief Returns current date
+    /// Returns current date
     QString getDate(QString format = "dd.MM.yyyy")
     {
         return QDate::currentDate().toString(format);
     }
 
-    /// \brief Returns an universal file header
-    QString writeFileHeader()
-    {
-        return "File created with " + OTName + " (Ver. " + OTVersion + ") on " + getDate() + ", " + getTime() + "\n\n";
-    }
-
-    void checkBackupFolderExistance()
-    {
-        if (!QDir("backup").exists())
-            QDir().mkdir("backup");
-    }
-
-    /// \brief Open feedback form
-    static void sendFeedback()
+    /// Opens feedback form
+    void sendFeedback()
     {
         QDesktopServices::openUrl(OTLinks::supportThread);
     }
 
-    /// \brief Sizes the window in dependence to the screen geometry
+    /// Sizes the window in dependence to the screen geometry
     QSize sizeWindow(double width, double height)
     {
         QScreen *screen = QGuiApplication::primaryScreen();
@@ -225,50 +217,22 @@ public:
         return windowSize;
     }
 
-    /// \brief Get center position of a widget
+    /// Returns data to move a widget to the screen center
     QPoint centerPosition(QWidget* parent)
     {
         QScreen *screen = QGuiApplication::primaryScreen();
         return screen->geometry().center() - parent->rect().center();
     }
 
-    /// \brief Copies a text
+    /// Puts a string to clipboard
     void copy(QString copytext)
     {
-        qDebug() << "Copy something...";
-
+        qDebug() << "Copy string...";
         QClipboard* clipboard = QApplication::clipboard();
         clipboard->setText(copytext);
     }
 
-    /// \brief Creates a shortcut
-    void createShortcut(QString filepath, QString shortcutLocation, QWidget *parent)
-    {
-        if (QFile(filepath).link(shortcutLocation))
-        {
-            QMessageBox::information(parent, QObject::tr("Success"), QObject::tr("Successfully created shortcut!"));
-            qInfo().noquote() << QString("Created shortcut in '%1'!").arg(shortcutLocation);
-        }
-        else
-        {
-            QMessageBox::warning(parent, QString(QObject::tr("Error")), QObject::tr("Could not create shortcut in %1.").arg(QDir().homePath() + "/Desktop"));
-            qCritical().noquote() << QString("Could not create a shortcut in '%1'!").arg(shortcutLocation);
-        }
-    }
-
-    /// \brief Selects a folder or file in explorer
-    void showInExplorer(QString absolutePath)
-    {
-        // ATTENTION: This will NOT work in the OneDrive folder - I don't know why.
-        QStringList args;
-        args << "/select," << QDir::toNativeSeparators(absolutePath);
-        qDebug() << "Show in explorer:" << absolutePath;
-
-        QProcess *process = new QProcess();
-        process->start("explorer.exe", args);
-    }
-
-    /// \brief Checks for an update - index 0: "false" = error, "noUpdates" = no updates available, else: new version | index 1: latestVersion
+    /// Checks for an update - index 0: "false" = error, "noUpdates" = no updates available, else: new version | index 1: latestVersion
     QStringList getUpdateInformation()
     {
         QStringList list;
@@ -288,37 +252,9 @@ public:
         return list;
     }
 
-    /// \brief Searches for updates and returns information to the user
+    /// Searches for updates and returns information to the user
     void startUpdate(QWidget *parent, bool clearAppDir)
     {
-        ////////////////////
-        // TO UPDATER (?) //
-        ////////////////////
-
-//        QStringList update = getUpdateInformation();
-//        qDebug().noquote() << "Update from server:" << update;
-
-//        if (update.at(0) == "false")
-//        {
-//            QMessageBox::warning(parent, QObject::tr("Error while check version"), QObject::tr("There was an error while get the newest version. Please check if your computer has a working internet connection, retry it or contact the developer."));
-//            qWarning() << "Could not check newest update!";
-//        }
-//        else if (update.at(0) == "noUpdates")
-//        {
-//            QMessageBox::information(parent, QObject::tr("Updating %1").arg(OTName), QObject::tr("There aren't any updates available."));
-//            qInfo() << "There's no update available.";
-//        }
-//        else
-//        {
-//            QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Found update"), QString("<html>%1<br><br><b>%2:</b> %3<br><b>%4:</b> %5<br><br>%6</html>").arg(QObject::tr("There is an update available."), QObject::tr("Installed version"), OTVersion, QObject::tr("Newest version"), update.at(1), QObject::tr("The update will be installed.")), QMessageBox::Yes | QMessageBox::Cancel);
-//            qInfo() << "Updates available!";
-
-//            if (reply == QMessageBox::Yes)
-//            {
-
-//            }
-//        }
-
         qDebug() << "Create tempAppDir and copy files...";
 
         QDirIterator dirIterator(QApplication::applicationDirPath(), QStringList{"*.*"}, QDir::Files, QDirIterator::Subdirectories);
@@ -358,38 +294,78 @@ public:
             qInfo() << "Start Updater...";
             QApplication::quit();
         }
-
     }
 };
 
-/// \brief Class for settings which all modules needs
+/// Class for file operations
+class OTFileOperations
+{
+public:
+    /// Returns an universal file header
+    QString writeFileHeader()
+    {
+        return "File created with " + OTName + " " + OTVersion + " on " + misc.getDate() + ", " + misc.getTime() + "\n\n";
+    }
+
+    /// Checks if the backups folder exists
+    void createBackupFolder()
+    {
+        if (!QDir("backup").exists())
+            QDir().mkdir("backup");
+    }
+
+    /// Creates a shortcut
+    void createShortcut(QString filepath, QString shortcutLocation, QWidget *parent)
+    {
+        if (QFile(filepath).link(shortcutLocation))
+        {
+            QMessageBox::information(parent, QObject::tr("Success"), QObject::tr("Successfully created shortcut!"));
+            qInfo().noquote() << QString("Created shortcut in '%1'!").arg(shortcutLocation);
+        }
+        else
+        {
+            QMessageBox::warning(parent, QString(QObject::tr("Error")), QObject::tr("Could not create shortcut in %1.").arg(QDir().homePath() + "/Desktop"));
+            qCritical().noquote() << QString("Could not create a shortcut in '%1'!").arg(shortcutLocation);
+        }
+    }
+
+    /// Selects a folder or file in explorer
+    void showInExplorer(QString absolutePath)
+    {
+        // ATTENTION: This will NOT work in the OneDrive folder - I don't know why.
+        QStringList args;
+        args << "/select," << QDir::toNativeSeparators(absolutePath);
+        qDebug() << "Show in explorer:" << absolutePath;
+
+        QProcess *process = new QProcess();
+        process->start("explorer.exe", args);
+    }
+
+private:
+    OTMiscellaneous misc;
+};
+
+/// Settings reader, writer etc.
 class OTSettings
 {
 public:
-    // Language names:
-    const QString langEn = "English";
-    const QString langDe = "Deutsch (German)";
-    const QString langFr = "Français (French)";
-    const QString langIt = "Italiano (Italian)";
-    const QString langCz = "Čeština (Czech)";
-
-    /// \brief Writes a setting
+    /// Writes a setting
     void write(QString module, QString name, QVariant value)
     {
         QSettings settings(OTName, module);
         settings.setValue(name, value);
     }
 
-    /// \brief Reads a setting
-    QVariant read(QString module, QString name, bool onlyValue = false)
+    /// Reads a setting
+    QVariant read(QString module, QString name, bool getInterpretedData = true)
     {
         QSettings settings(OTName, module);
         QVariant value = settings.value(name);
-        //qDebug().noquote().nospace() << "Read settings from " << module << ": "<< name << ", value: " << value;
+        qDebug().noquote().nospace() << "Read settings from " << module << ": "<< name << ", value: " << value;
 
-        if (name == "theme" && (!onlyValue))
+        if (getInterpretedData && name == "theme")
         {
-            if (value.toInt() == 1)
+            if  (value.toInt() == 1)
                 return getStyleSheet("Combinear");
             else if (value.toInt() == 2)
                 return getStyleSheet("Darkeum");
@@ -400,7 +376,7 @@ public:
             return value;
     }
 
-    /// \brief Select and control OMSI main dir path. Returns the OMSI path.
+    /// Select and control OMSI main dir path. Returns the OMSI path.
     QString getOmsiPath(QWidget *parent, QString path = "")
     {
         if (path == "")
@@ -419,7 +395,7 @@ public:
         return mainDir;
     }
 
-    /// \brief Returns the whole stylesheet
+    /// Returns the whole stylesheet
     QString getStyleSheet(QString name)
     {
         qDebug() << "Get stylesheet...";
@@ -442,7 +418,7 @@ public:
         return "";
     }
 
-    /// \brief Gets all settings keys and its values
+    /// Gets all settings keys and its values
     QString getAllSettings()
     {
         QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTName, QSettings::NativeFormat);
@@ -455,7 +431,7 @@ public:
         return returnString;
     }
 
-    /// \brief Installs a translator
+    /// Installs a translator
     void loadTranslator()
     {
         QTranslator *translator = new QTranslator();
@@ -493,28 +469,14 @@ public:
             }
         }
     }
-
-    /// \brief Selects OMSI main directory
-    QString selectOMSIMainDir(QWidget *parent, QString startPath = "")
-    {
-        QString mainDir = getOmsiPath(parent, startPath);
-
-        if (mainDir != "")
-        {
-            write("main", "mainDir", mainDir);
-            return mainDir;
-        }
-        else
-            return startPath;
-    }
 };
 
-/// \brief Message class
+/// Message class
 class OTMessage
 {
 public:
-    /// \brief Asks if the user wants to set the main dir
-    bool setMainDirYesNo(QWidget *parent)
+    /// Asks if the user wants to set the main dir
+    bool setMainDir(QWidget *parent)
     {
         qDebug() << "Message: Action needs main directory. Set now (Yes/No)?";
         QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("OMSI main directory not found"), QObject::tr("To continue the application needs the OMSI main directory. Should it be done now?"), QMessageBox::Yes | QMessageBox::No);
@@ -524,13 +486,7 @@ public:
         return true;
     }
 
-    /// \brief "Module still work in Progress"
-    void WIP(QWidget *parent)
-    {
-        QMessageBox::warning(parent, QObject::tr("Work in progress"), QObject::tr("Attention: This module is currently work in progress. Only use it for test, never for real modding! Files edited with this module can possibly be destroyed!"));
-    }
-
-    /// \brief universal unsaved-Message (with Save, Discard and Cancel). Returns 'save = 1', 'discard = 0' or 'cancel = -1'
+    /// universal unsaved-Message (with Save, Discard and Cancel). Returns 'save = 1', 'discard = 0' or 'cancel = -1'
     int unsavedContent(QWidget *parent)
     {
         qDebug() << "Message: Save unsaved content (Save/Discard/Cancel)?";
@@ -552,7 +508,7 @@ public:
         }
     }
 
-    /// \brief universal unsaved-Message (with Yes and No). Returns 'Yes = 1' or 'No = 0'
+    /// universal unsaved-Message (with Yes and No). Returns 'Yes = 1' or 'No = 0'
     bool unsavedContentYesNo(QWidget *parent)
     {
         qDebug() << "Message: Save unsaved content (Yes/No)?";
@@ -569,25 +525,25 @@ public:
         }
     }
 
-    /// \brief If the user wants to open a file via a button and the file doesn't exist, this message es helpful
-    void errorOpeningFile(QWidget *parent)
+    /// If the user wants to open a file via a button and the file doesn't exist, this message es helpful
+    void fileOpenError(QWidget *parent)
     {
         QMessageBox::information(parent, QObject::tr("Error while opening file"), QObject::tr("The selected file doesn't exists or is read-protected."));
     }
 
-    /// \brief Could not open a file from OMSI main dir
-    void errorWhileOpeningOmsi(QWidget *parent, QString filename)
+    /// Could not open a file from OMSI main dir
+    void fileOpenErrorCloseOMSI(QWidget *parent, QString filename)
     {
         QMessageBox::critical(parent, QObject::tr("Error while opening file"), QString(QObject::tr("There was an error while opening\n%1\nIf OMSI is running, please close it and retry it. Furthermore, check if the file still exists.")).arg(filename));
     }
 
-    /// \brief Font module: No chars in font
+    /// Font module: No chars in font
     void noCharsInFont(QWidget *parent)
     {
         QMessageBox::warning(parent, QObject::tr("No chars in font"), QObject::tr("There are no chars in the font."));
     }
 
-    /// \brief Comfirm a deletion of anything
+    /// Comfirm a deletion of anything
     bool confirmDeletion(QWidget *parent)
     {
         if (set.read("main", "confirmDeletion") == "false")
@@ -607,14 +563,14 @@ public:
         }
     }
 
-    /// \brief There was en error while saving a file
-    void errorWhileSaving(QString filename, QWidget *parent = 0)
+    /// There was en error while saving a file
+    void fileSaveError(QString filename, QWidget *parent = 0)
     {
         QMessageBox::warning(parent, QObject::tr("Save error"), QString(QObject::tr("There was an save error '%1'. If OMSI is running, please close it and retry it.")).arg(filename));
     }
 
-    /// \brief A module is due to narrow time deactivated
-    void moduleDeactivated(QWidget *parent = 0)
+    /// A module is due to narrow time deactivated
+    void moduleDisabled(QWidget *parent = 0)
     {
         QMessageBox::information(parent, QObject::tr("Module still deactivated"), QObject::tr("Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days."));
     }
@@ -623,21 +579,14 @@ private:
     OTSettings set;
 };
 
-/// \brief Calculates disk usage
+/// Calculates disk usage
 class OTDiskUsage
 {
 public:
-    OTDiskUsage()
+    /// Returns disk usage of directory 'dirPath'
+    QString formatSize(QString dirPath)
     {
-        units << QObject::tr("Bytes") << QObject::tr("KB", "Short version of 'Kilobyte'") <<
-                 QObject::tr("MB", "Short version of 'Megabyte'") << QObject::tr("GB", "Short version of 'Gigabyte'") <<
-                 QObject::tr("TB", "Short version of 'Terrabyte'") << QObject::tr("PB", "Short version of 'Petabyte'");
-    }
-
-    /// \brief Returns disk usage of 'dirPath'
-    QString formatSize(QString dirPath, bool withUnit = true)
-    {
-        qint64 size = dirSize(dirPath);
+        qint64 size = calcDirSize(dirPath);
 
         int i;
         double outputSize = size;
@@ -649,33 +598,10 @@ public:
             outputSize = outputSize / 1024;
         }
 
-        currentUnit = units[i];
-        QString result;
-        if (withUnit)
-            result = QString("%0 %1").arg(outputSize, 0, 'f', 2).arg(units[i]);
-        else
-            result = QString("%0").arg(outputSize, 0, 'f', 2);
-
-        return result;
+        return QString("%0 %1").arg(outputSize, 0, 'f', 2).arg(units[i]);;
     }
 
-    QString fileSize(QString filename)
-    {
-        qint64 size = QFileInfo(QFile(filename)).size();
-
-        int i;
-        double outputSize = size;
-        for(i = 0; i < units.size() - 1; i++)
-        {
-            if (outputSize < 1024)
-                break;
-
-            outputSize = outputSize / 1024;
-        }
-        QString result = QString("%0 %1").arg(outputSize, 0, 'f', 2).arg(units[i]);
-        return result;
-    }
-
+    /// Formats bytes values into other units if necessary
     QString calculateSize(qint64 size)
     {
         int i;
@@ -691,10 +617,9 @@ public:
         return result;
     }
 
-    QString currentUnit;
-
 private:
-    qint64 dirSize(QString dirPath)
+    /// Calculates size in bytes of a directory
+    qint64 calcDirSize(QString dirPath)
     {
         qint64 size = 0;
         QDir dir(dirPath);
@@ -711,37 +636,50 @@ private:
         QDir::Filters dirFilters = QDir::Dirs | QDir::NoDotAndDotDot | QDir::System | QDir::Hidden;
 
         for (QString childDirPath : dir.entryList(dirFilters))
-            size += dirSize(dirPath + QDir::separator() + childDirPath);
+            size += calcDirSize(dirPath + QDir::separator() + childDirPath);
 
         return size;
     }
 
-    QStringList units;
+    QStringList units = { QObject::tr("Bytes"),
+                          QObject::tr("KB", "Short version of 'Kilobyte'"),
+                          QObject::tr("MB", "Short version of 'Megabyte'"),
+                          QObject::tr("GB", "Short version of 'Gigabyte'"),
+                          QObject::tr("TB", "Short version of 'Terrabyte'"),
+                          QObject::tr("PB", "Short version of 'Petabyte'")};
 };
 
-class OTTranslations
+/// [STATIC] Class for some global needed strings
+class OTStrings
 {
 public:
+    /// Returns a translated month name
     static QString getMonthName(int monthNumber)
     {
+        QMap<int, QString> months = {
+            {1,  QObject::tr("January")},
+            {2,  QObject::tr("February")},
+            {3,  QObject::tr("March")},
+            {4,  QObject::tr("April")},
+            {5,  QObject::tr("May")},
+            {6,  QObject::tr("June")},
+            {7,  QObject::tr("July")},
+            {8,  QObject::tr("August")},
+            {9,  QObject::tr("September")},
+            {10, QObject::tr("October")},
+            {11, QObject::tr("November")},
+            {12, QObject::tr("December")},
+        };
+
         return months[monthNumber];
     }
 
-private:
-    static inline const QMap<int, QString> months = {
-        {1, QObject::tr("January")},
-        {2, QObject::tr("February")},
-        {3, QObject::tr("March")},
-        {4, QObject::tr("April")},
-        {5, QObject::tr("May")},
-        {6, QObject::tr("June")},
-        {7, QObject::tr("July")},
-        {8, QObject::tr("August")},
-        {9, QObject::tr("September")},
-        {10, QObject::tr("October")},
-        {11, QObject::tr("November")},
-        {12, QObject::tr("December")},
-    };
+    // Multilanguage strings
+    static inline const QString langEn = "English";
+    static inline const QString langDe = "Deutsch (German)";
+    static inline const QString langFr = "Français (French)";
+    static inline const QString langIt = "Italiano (Italian)";
+    static inline const QString langCz = "Čeština (Czech)";
 };
 
 #endif // OTGLOBAL_H

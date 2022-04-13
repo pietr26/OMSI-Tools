@@ -8,11 +8,11 @@ firstSetup::firstSetup(QWidget *parent) :
     ui->setupUi(this);
 
     // Very simple: Copy from wsettings.cpp, wSettings::wSettings():
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), set.langEn);
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), set.langDe);
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), set.langFr);
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/it.svg"), set.langIt);
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cz.svg"), set.langCz);
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), OTStrings::langEn);
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), OTStrings::langDe);
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), OTStrings::langFr);
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/it.svg"), OTStrings::langIt);
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cz.svg"), OTStrings::langCz);
 
     // Disable 'it'
     auto* model3 = qobject_cast<QStandardItemModel*>(ui->cobxLanguage->model());

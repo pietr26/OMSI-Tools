@@ -67,6 +67,7 @@ private:
     OTSettings set;
     OTMessage msg;
     OTMiscellaneous misc;
+    OTFileOperations fop;
     OTDiskUsage dUs;
     QTimer *timer;
     wDevTools *WDEVTOOLS;

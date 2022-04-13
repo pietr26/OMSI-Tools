@@ -13,7 +13,7 @@ SOURCES += \
     OTModules/wContentSearch/wDBPanel.cpp \
     OTModules/wContentSearch/wcontentsearch.cpp \
     OTModules/wFbh/wfbh.cpp \
-    OTModules/wVehicleList/wvehiclelist.cpp \
+    OTModules/wvehiclelist.cpp \
     OTModules/wbugrepot.cpp \
     OTModules/wstyletest.cpp \
     OTWidgets/firstsetup.cpp \
@@ -38,7 +38,7 @@ HEADERS += \
     OTModules/wContentSearch/wcontentsearch.h \
     OTModules/wFbh/FbhFunctions.h \
     OTModules/wFbh/wfbh.h \
-    OTModules/wVehicleList/wvehiclelist.h \
+    OTModules/wvehiclelist.h \
     OTModules/wVerifyMap/dignorelist.h \
     OTModules/wVerifyMap/ignoreListFunctions.h \
     OTModules/wbugrepot.h \
@@ -58,7 +58,7 @@ FORMS += \
     OTModules/wContentSearch/wDBPanel.ui \
     OTModules/wContentSearch/wcontentsearch.ui \
     OTModules/wFbh/wfbh.ui \
-    OTModules/wVehicleList/wvehiclelist.ui \
+    OTModules/wvehiclelist.ui \
     OTModules/wVerifyMap/dignorelist.ui \
     OTModules/wbugrepot.ui \
     OTModules/wdevtools.ui \

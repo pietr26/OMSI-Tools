@@ -7,7 +7,7 @@ class ignoreListFunctions
 {
 public:
 
-    /// \brief Writes the ignorelist
+    /// Writes the ignorelist
     void write(QStringList items, bool flushBeforeWrite = false)
     {
         if (flushBeforeWrite)
@@ -35,7 +35,7 @@ public:
         write(returnList);
     }
 
-    /// \brief Returns a QStringList without ignored paths
+    /// Returns a QStringList without ignored paths
     QStringList check(QStringList checkList, int &ignoreCount)
     {
         ignoreList.open(QFile::ReadOnly | QFile::Text);
@@ -62,7 +62,7 @@ public:
         return returnList;
     }
 
-    /// \brief Gets the ignorelist
+    /// Gets the ignorelist
     QStringList read(bool isAlreadyOpen = false)
     {
         if (!isAlreadyOpen)

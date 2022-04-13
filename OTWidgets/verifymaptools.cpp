@@ -24,7 +24,7 @@ verifyMapTools::~verifyMapTools()
     delete ui;
 }
 
-/// \brief Copies missing objects
+/// Copies missing objects
 void verifyMapTools::copy(QListWidget *lwg)
 {
     if (lwg->currentRow() == -1)
@@ -37,7 +37,7 @@ void verifyMapTools::copy(QListWidget *lwg)
     misc.copy(copytext);
 }
 
-/// \brief Ignores the selected path(s)
+/// Ignores the selected path(s)
 void verifyMapTools::ignore(QListWidget *lwg)
 {
     if (lwg->currentRow() == -1)
@@ -50,7 +50,7 @@ void verifyMapTools::ignore(QListWidget *lwg)
     qDeleteAll(lwg->selectedItems());
 }
 
-/// \brief Search for paths in wContentSearch
+/// Search for paths in wContentSearch
 void verifyMapTools::search(QListWidget *lwg)
 {
     QStringList paths;

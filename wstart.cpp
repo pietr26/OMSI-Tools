@@ -99,7 +99,7 @@ wStart::~wStart()
     delete ui;
 }
 
-/// \brief Opens the settings
+/// Opens the settings
 void wStart::on_actionSettings_triggered()
 {
     WSETTINGS = new wSettings(this);
@@ -107,7 +107,7 @@ void wStart::on_actionSettings_triggered()
     WSETTINGS->show();
 }
 
-/// \brief Shows the about message
+/// Shows the about message
 void wStart::on_actionAbout_triggered()
 {
     WABOUT = new wAbout(this);
@@ -115,20 +115,20 @@ void wStart::on_actionAbout_triggered()
     WABOUT->show();
 }
 
-/// \brief Closes the apllication
+/// Closes the apllication
 void wStart::on_actionClose_triggered()
 {
     QApplication::quit();
 }
 
-/// \brief Reopen test, coming soon... https://trello.com/c/8nOzgfSg
+/// Reopen test, coming soon... https://trello.com/c/8nOzgfSg
 void wStart::reopenTest(QObject*)
 {
     show();
     qDebug() << "Show!";
 }
 
-/// \brief Opens the font module
+/// Opens the font module
 void wStart::on_btnFonts_clicked()
 {
     hide();
@@ -136,13 +136,13 @@ void wStart::on_btnFonts_clicked()
     WFONTS->show();
 }
 
-/// \brief Shows "Where should I release my modification" message
+/// Shows "Where should I release my modification" message
 void wStart::on_btnWhereShouldIReleaseMyModification_clicked()
 {
     QMessageBox::information(this, tr("Where should I release my modification?"), tr("Coming soon!"));
 }
 
-/// \brief Opens verify map module
+/// Opens verify map module
 void wStart::on_btnVerifyMap_clicked()
 {
     hide();
@@ -150,7 +150,7 @@ void wStart::on_btnVerifyMap_clicked()
     WVERIFYMAP->show();
 }
 
-/// \brief Opens DevTools
+/// Opens DevTools
 void wStart::on_btnDevTools_clicked()
 {
     close();
@@ -158,7 +158,7 @@ void wStart::on_btnDevTools_clicked()
     WDEVTOOLS->show();
 }
 
-/// \brief Opens database panel for content search
+/// Opens database panel for content search
 void wStart::on_btnDBPanel_clicked()
 {
     close();
@@ -166,7 +166,7 @@ void wStart::on_btnDBPanel_clicked()
     WDBPANEL->show();
 }
 
-/// \brief Opens content search module
+/// Opens content search module
 void wStart::on_btnContentSearch_clicked()
 {
     close();
@@ -174,7 +174,7 @@ void wStart::on_btnContentSearch_clicked()
     WCONTENTSEARCH->show();
 }
 
-/// \brief Starts crash simulation
+/// Starts crash simulation
 void wStart::on_btnSimulateCrash_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Simulate crash"), tr("Should an appliaction crash be simulated?"));
@@ -183,13 +183,13 @@ void wStart::on_btnSimulateCrash_clicked()
         qFatal("Crash simulation started by user");
 }
 
-/// \brief Opens bug report module
+/// Opens bug report module
 void wStart::on_actionSendFeedback_triggered()
 {
-    OTMiscellaneous::sendFeedback();
+    misc.sendFeedback();
 }
 
-/// \brief Opens the changelog
+/// Opens the changelog
 void wStart::on_actionChangelog_triggered()
 {
     WCHANGELOG = new wChangelog(this);
@@ -197,13 +197,13 @@ void wStart::on_actionChangelog_triggered()
     WCHANGELOG->show();
 }
 
-/// \brief Opens the manual, currenty only in german
+/// Opens the manual, currenty only in german
 void wStart::on_actionManual_triggered()
 {
     QDesktopServices::openUrl(QUrl("file:///" + QApplication::applicationDirPath() + "/_docs/OMSI-Tools Lite - Handbuch DE.pdf"));
 }
 
-/// \brief Opens Filebase-Helper
+/// Opens Filebase-Helper
 void wStart::on_btnOpenFbh_clicked()
 {
     hide();
@@ -211,14 +211,14 @@ void wStart::on_btnOpenFbh_clicked()
     WFBH->show();
 }
 
-/// \brief Creates shortcut for Filebase-Helper
+/// Creates shortcut for Filebase-Helper
 void wStart::on_btnCreateShortcut_clicked()
 {
-    misc.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
-    QMessageBox::information(this, "Info", "Die gesetzte Verknüpfung muss jedoch noch modifiziert werden. Wie genau das funktioniert, kannst du im entsprechenden Thread im internen OWD-Forum sehen.");
+    fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
+    QMessageBox::information(this, "Verknüpfung erstellt", "Die gesetzte Verknüpfung muss jedoch noch modifiziert werden. Wie genau das funktioniert, kannst du im entsprechenden Thread im internen OWD-Forum sehen.");
 }
 
-/// \brief Opens style test
+/// Opens style test
 void wStart::on_btnStyleTest_clicked()
 {
     hide();

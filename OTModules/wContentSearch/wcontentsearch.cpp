@@ -93,38 +93,38 @@ wContentSearch::~wContentSearch()
     delete ui;
 }
 
-/// \brief Redirect
+/// Redirect
 void wContentSearch::on_actionSettings_triggered()
 {
     WSETTINGS = new wSettings();
     WSETTINGS->show();
 }
 
-/// \brief Redirect
+/// Redirect
 void wContentSearch::on_actionClose_triggered()
 {
     QApplication::quit();
 }
 
-/// \brief Redirect
+/// Redirect
 void wContentSearch::on_btnRemove_clicked()
 {
     on_actionRemoveSelection_triggered();
 }
 
-/// \brief Redirect
+/// Redirect
 void wContentSearch::on_btnAdd_clicked()
 {
     on_actionAddFile_triggered();
 }
 
-/// \brief Redirect
+/// Redirect
 void wContentSearch::on_btnSearch_clicked()
 {
     on_actionSearch_triggered();
 }
 
-/// \brief Removes current selection from user's input
+/// Removes current selection from user's input
 void wContentSearch::on_actionRemoveSelection_triggered()
 {
     if ((ui->lwgUserSearch->selectedItems().count() != 0) && msg.confirmDeletion(this))
@@ -135,7 +135,7 @@ void wContentSearch::on_actionRemoveSelection_triggered()
     }
 }
 
-/// \brief Adds content from led to user's input
+/// Adds content from led to user's input
 void wContentSearch::on_btnAddToList_clicked()
 {
     if (ui->gbxAddFile->isVisible())
@@ -153,7 +153,7 @@ void wContentSearch::on_btnAddToList_clicked()
     }
 }
 
-/// \brief Searchs for user input
+/// Searchs for user input
 void wContentSearch::reloadTabNames()
 {
     ui->twgExtras->setTabText(0, tr("Links (%1)").arg(ui->lwgLinks->count()));
@@ -219,27 +219,27 @@ void wContentSearch::on_actionSearch_triggered()
     ui->btnClearLists->setVisible(true);
 }
 
-/// \brief Shows add file group box
+/// Shows add file group box
 void wContentSearch::on_actionAddFile_triggered()
 {
     ui->gbxAddFile->setVisible(true);
     ui->ledPath->setFocus();
 }
 
-/// \brief Adds lists to user input
+/// Adds lists to user input
 void wContentSearch::on_btnAddList_clicked()
 {
     ui->gbxAddList->setVisible(true);
     ui->pteAddList->setFocus();
 }
 
-/// \brief Opens bug report module
+/// Opens bug report module
 void wContentSearch::on_actionSendFeedback_triggered()
 {
-    OTMiscellaneous::sendFeedback();
+    misc.sendFeedback();
 }
 
-/// \brief Adds paths from a list to the search list
+/// Adds paths from a list to the search list
 void wContentSearch::on_btnAddListToList_clicked()
 {
     QStringList paths;
@@ -258,7 +258,7 @@ void wContentSearch::on_btnAddListToList_clicked()
     ui->lwgUserSearch->addItems(paths);
 }
 
-/// \brief Opens the selected URL in Browser / file system
+/// Opens the selected URL in Browser / file system
 void wContentSearch::on_btnOpenInBrowser_clicked()
 {
     if (ui->lwgLinks->selectedItems().count() != 0)
@@ -270,7 +270,7 @@ void wContentSearch::on_btnOpenInBrowser_clicked()
     }
 }
 
-/// \brief Copies links
+/// Copies links
 void wContentSearch::on_btnCopy_clicked()
 {
     if (ui->lwgLinks->selectedItems().count() != 0)
@@ -286,13 +286,13 @@ void wContentSearch::on_btnCopy_clicked()
     }
 }
 
-/// \brief Opens feedback
+/// Opens feedback
 void wContentSearch::on_btnReportDeathLink_clicked()
 {
-    OTMiscellaneous::sendFeedback();
+    misc.sendFeedback();
 }
 
-/// \brief Adds paths from a file via fileDialog
+/// Adds paths from a file via fileDialog
 void wContentSearch::on_btnAddFile_clicked()
 {
     QString filename = QFileDialog::getOpenFileName(this, tr("Select file with paths..."), QStandardPaths::displayName(QStandardPaths::DesktopLocation), QString("%1 (*.txt);; %2 (*.*)").arg(tr("Text files"), tr("All files")));
@@ -324,10 +324,10 @@ void wContentSearch::on_btnAddFile_clicked()
             ui->statusbar->showMessage(tr("Process aborted."), 4000);
     }
     else
-        msg.errorOpeningFile(this);
+        msg.fileOpenError(this);
 }
 
-/// \brief Clears view
+/// Clears view
 void wContentSearch::clearView(bool withoutUserInput)
 {
     if (!withoutUserInput)
@@ -344,14 +344,14 @@ void wContentSearch::clearView(bool withoutUserInput)
     qApp->processEvents();
 }
 
-/// \brief Clear all lists from user action
+/// Clear all lists from user action
 void wContentSearch::on_btnClearLists_clicked()
 {
     clearView();
     ui->btnClearLists->setVisible(false);
 }
 
-/// \brief Sets information for selected link
+/// Sets information for selected link
 void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
 {
     QSqlQueryModel *model = new QSqlQueryModel();
