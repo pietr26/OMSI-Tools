@@ -51,27 +51,28 @@ wStart::wStart(QWidget *parent)
                       lastAutoUpdateCheck.toString().remove(0, 4).remove(2, 2).toInt(),
                       lastAutoUpdateCheck.toString().remove(0, 6).toInt());
 
-    if (!checkVersion.isValid())
-    {
+            // On start
+    if (checkVersion == 1)
         checkForUpdate = true;
-        set.write("main", "autoUpdateCheck", 2);
-    }
-    else if (checkVersion == 1)
+
+            // If updates enabled, but there's no lastAutoUpdateCheck
+    else if (!lastAutoUpdateCheck.isValid() && (checkVersion != 0))
         checkForUpdate = true;
-    else if ((!lastAutoUpdateCheck.isValid()) && (checkVersion != 0))
+
+            // Daily
+    else if ((checkVersion == 2) &&
+             (lastAutoUpdateCheck.toString() != misc.getDate("yyyyMMdd")))
         checkForUpdate = true;
-    else if ((checkVersion == 2) && (lastAutoUpdateCheck.toString() != misc.getDate("yyyyMMdd")))
+
+            // Weekly
+    else if ((checkVersion == 3) &&
+             (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addDays(7).toString("yyyyMMdd")))
         checkForUpdate = true;
-    else if (checkVersion == 3)
-    {
-        if (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addDays(7).toString("yyyyMMdd"))
-            checkForUpdate = true;
-    }
-    else if (checkVersion == 4)
-    {
-        if (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addMonths(1).toString("yyyyMMdd"))
-            checkForUpdate = true;
-    }
+
+            // Monthly
+    else if ((checkVersion == 4) &&
+             (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addMonths(1).toString("yyyyMMdd")))
+        checkForUpdate = true;
 
     if (checkForUpdate)
     {

@@ -87,9 +87,6 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
         case 2: ui->cobxLogfileMode->setCurrentIndex(3); break;
     }
 
-    if (!set.read("main", "logfileMode").isValid())
-        ui->cobxLogfileMode->setCurrentIndex(1);
-
     // cobxAutoUpdateCheck
     QStringList updateModes;
     //                0            1                 2              3               4
@@ -103,9 +100,6 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
         case 3: ui->cobxAutoUpdateCheck->setCurrentIndex(3); break;
         case 4: ui->cobxAutoUpdateCheck->setCurrentIndex(4); break;
     }
-
-    if (!set.read("main", "autoUpdateCheck").isValid())
-        ui->cobxAutoUpdateCheck->setCurrentIndex(2);
 
     setupFinished = true;
 

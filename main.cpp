@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
     }
 
     set.write("main", "closeCheck", false);
+    set.setDefaultSettings();
 
     qDebug().noquote() << "Settings" + set.getAllSettings() + "\n================================================\n";
 
