@@ -25,7 +25,7 @@ wVehicleList::~wVehicleList()
     delete ui;
 }
 
-/// \brief Opens the settings
+/// Opens the settings
 void wVehicleList::on_actionSettings_triggered()
 {
     WSETTINGS = new wSettings(this);
@@ -33,13 +33,13 @@ void wVehicleList::on_actionSettings_triggered()
     WSETTINGS->show();
 }
 
-/// \brief Closes the window
+/// Closes the window
 void wVehicleList::on_actionClose_triggered()
 {
     QApplication::quit();
 }
 
-/// \brief database test function
+/// database test function
 void wVehicleList::dbTest()
 {
     if (!QDir("databases").exists())
@@ -57,7 +57,7 @@ void wVehicleList::dbTest()
                    "testInt integer)");
 }
 
-/// \brief Opens the database
+/// Opens the database
 void wVehicleList::openDatabase(QString filename)
 {
     Q_UNUSED(filename);
@@ -67,21 +67,15 @@ void wVehicleList::openDatabase(QString filename)
 
 }
 
-/// \brief Rund database test function (redirect)
+/// Rund database test function (redirect)
 void wVehicleList::on_btnRunDBFunction_clicked()
 {
     dbTest();
 }
 
-/// \brief Opens a database
+/// Opens a database
 void wVehicleList::on_actionOpen_triggered()
 {
     openDatabase(QFileDialog::getOpenFileName(this, tr("Select database"), "vehListDatabases", tr("Databases") + " (*.db)"));
-}
-
-/// \brief Opens bug report module
-void wVehicleList::on_actionSendFeedback_triggered()
-{
-    OTMiscellaneous::sendFeedback();
 }
 
