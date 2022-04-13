@@ -14,20 +14,20 @@ SOURCES += \
     OTModules/wContentSearch/wcontentsearch.cpp \
     OTModules/wFbh/wfbh.cpp \
     OTModules/wvehiclelist.cpp \
-    OTModules/wbugrepot.cpp \
-    OTModules/wstyletest.cpp \
+    OTModules/OTGeneric/wbugreport.cpp \
+    OTModules/OTGeneric//wstyletest.cpp \
     OTWidgets/firstsetup.cpp \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
     OTModules/wVerifyMap/dignorelist.cpp \
-    OTModules/wdevtools.cpp \
+    OTModules/OTGeneric/wdevtools.cpp \
     OTModules/wfonts.cpp \
     OTModules/wVerifyMap/wverifymap.cpp \
-    wabout.cpp \
-    wchangelog.cpp \
-    wsettings.cpp \
-    wstart.cpp \
-    wstartupscreen.cpp
+    OTModules/OTGeneric/wabout.cpp \
+    OTModules/OTGeneric/wchangelog.cpp \
+    OTModules/OTGeneric/wsettings.cpp \
+    OTModules/OTGeneric/wstart.cpp \
+    OTModules/OTGeneric/wstartupscreen.cpp
 
 HEADERS += \
     OTBackend/OTDatabaseHandler.h \
@@ -41,18 +41,18 @@ HEADERS += \
     OTModules/wvehiclelist.h \
     OTModules/wVerifyMap/dignorelist.h \
     OTModules/wVerifyMap/ignoreListFunctions.h \
-    OTModules/wbugrepot.h \
-    OTModules/wdevtools.h \
+    OTModules/OTGeneric/wbugreport.h \
+    OTModules/OTGeneric/wdevtools.h \
     OTModules/wfonts.h \
     OTModules/wVerifyMap/wverifymap.h \
-    OTModules/wstyletest.h \
+    OTModules/OTGeneric/wstyletest.h \
     OTWidgets/firstsetup.h \
     OTWidgets/verifymaptools.h \
-    wabout.h \
-    wchangelog.h \
-    wsettings.h \
-    wstart.h \
-    wstartupscreen.h
+    OTModules/OTGeneric/wabout.h \
+    OTModules/OTGeneric/wchangelog.h \
+    OTModules/OTGeneric/wsettings.h \
+    OTModules/OTGeneric/wstart.h \
+    OTModules/OTGeneric/wstartupscreen.h
 
 FORMS += \
     OTModules/wContentSearch/wDBPanel.ui \
@@ -60,18 +60,18 @@ FORMS += \
     OTModules/wFbh/wfbh.ui \
     OTModules/wvehiclelist.ui \
     OTModules/wVerifyMap/dignorelist.ui \
-    OTModules/wbugrepot.ui \
-    OTModules/wdevtools.ui \
+    OTModules/OTGeneric/wbugreport.ui \
+    OTModules/OTGeneric/wdevtools.ui \
     OTModules/wfonts.ui \
     OTModules/wVerifyMap/wverifymap.ui \
-    OTModules/wstyletest.ui \
+    OTModules/OTGeneric/wstyletest.ui \
     OTWidgets/firstsetup.ui \
     OTWidgets/verifymaptools.ui \
-    wabout.ui \
-    wchangelog.ui \
-    wsettings.ui \
-    wstart.ui \
-    wstartupscreen.ui
+    OTModules/OTGeneric/wabout.ui \
+    OTModules/OTGeneric/wchangelog.ui \
+    OTModules/OTGeneric/wsettings.ui \
+    OTModules/OTGeneric/wstart.ui \
+    OTModules/OTGeneric/wstartupscreen.ui
 
 TRANSLATIONS += \
     data/translations/tr_de.ts \
