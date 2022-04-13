@@ -447,7 +447,7 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
         <source>Approximate lines of code: %1 (%2)</source>
-        <translation>Üngefähre Zeilen Code: %1 (%2)</translation>
+        <translation>Ungefähre Zeilen Code: %1 (%2)</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.ui" line="280"/>
