@@ -15,6 +15,11 @@ wFonts::wFonts() :
 
     setWindowTitle(OTName + " - " + tr("font creation"));
 
+    // Set default settings
+    if (!set.read(moduleName, "texPreview").isValid())
+        set.write(moduleName, "texPreview", 1);
+    // ---
+
     loadRecentFiles();
 
     // Set timer for autosave
@@ -46,6 +51,8 @@ wFonts::wFonts() :
 
     enableFontArea(false);
 
+    loadTexPreview();
+
     strListChars = new QStringListModel();
 
     ui->twgFont->setCurrentIndex(0);
@@ -62,6 +69,8 @@ wFonts::wFonts() :
     // First setup - if not, the application will crash in wFonts::resizeEvent()
     texPreviewScene = new QGraphicsScene(this);
     ui->grvTexPreview->setScene(texPreviewScene);
+
+    setupFinished = true;
 
     qInfo().noquote() << moduleName + " started";
 }
@@ -1304,14 +1313,17 @@ void wFonts::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
 void wFonts::loadTexPreview()
 {
     QString tex;
-    if (ui->cobxPreviewOptions->currentIndex() == 0)
-        tex = set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture;
-    else
+
+    if (set.read(moduleName, "texPreview").toInt() == 0)
         tex = set.read("main", "mainDir").toString() + "/Fonts/" + font.colorTexture;
+    else
+        tex = set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture;
+
+    ui->cobxPreviewOptions->setCurrentIndex(set.read(moduleName, "textPreview").toInt());
 
     if (QFile(tex).exists())
     {
-        // alphatexScene->clear(); is not enough - it doesn't reset the draw aera size
+        // 'QGraphicsScene::clear()' is not enough - it doesn't reset the draw aera size
         texPreviewScene = new QGraphicsScene(this);
         ui->grvTexPreview->setScene(texPreviewScene);
 
@@ -1327,7 +1339,8 @@ void wFonts::resizeTexPreview()
 
 void wFonts::on_cobxPreviewOptions_currentIndexChanged(int index)
 {
-    Q_UNUSED(index);
+    if (setupFinished)
+        set.write(moduleName, "texPreview", index);
     loadTexPreview();
 }
 

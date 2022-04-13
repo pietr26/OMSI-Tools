@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>916</width>
-    <height>781</height>
+    <height>785</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -749,12 +749,12 @@
            </property>
            <item>
             <property name="text">
-             <string>Alpha texture</string>
+             <string>Color texture</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Color texture</string>
+             <string>Alpha texture</string>
             </property>
            </item>
           </widget>
