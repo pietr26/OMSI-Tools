@@ -14,7 +14,7 @@
    <string notr="true">wDevTools</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../ressources.qrc">
+   <iconset resource="../../ressources.qrc">
     <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
   </property>
   <property name="toolTip">
@@ -158,7 +158,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../ressources.qrc"/>
+  <include location="../../ressources.qrc"/>
  </resources>
  <connections/>
 </ui>

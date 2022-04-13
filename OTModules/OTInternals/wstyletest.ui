@@ -14,7 +14,7 @@
    <string notr="true">MainWindow</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../ressources.qrc">
+   <iconset resource="../../ressources.qrc">
     <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -1012,8 +1012,8 @@ p, li { white-space: pre-wrap; }
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>941</width>
-               <height>725</height>
+               <width>240</width>
+               <height>361</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1030,8 +1030,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1043,8 +1043,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>921</width>
-                   <height>74</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1056,8 +1056,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1069,8 +1069,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1085,8 +1085,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1496,7 +1496,7 @@ p, li { white-space: pre-wrap; }
   </action>
  </widget>
  <resources>
-  <include location="../ressources.qrc"/>
+  <include location="../../ressources.qrc"/>
  </resources>
  <connections>
   <connection>

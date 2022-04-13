@@ -902,7 +902,7 @@
     <string>Open an existing OFT file</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+O</string>
+    <string notr="true">Ctrl+O</string>
    </property>
   </action>
   <action name="actionSave">

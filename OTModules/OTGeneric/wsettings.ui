@@ -17,7 +17,7 @@
    <string notr="true">wSettings</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="ressources.qrc">
+   <iconset resource="../../ressources.qrc">
     <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -65,7 +65,7 @@
             <string>More languages...</string>
            </property>
            <property name="icon">
-            <iconset resource="ressources.qrc">
+            <iconset resource="../../ressources.qrc">
              <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
            </property>
           </widget>
@@ -174,7 +174,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="ressources.qrc">
+            <iconset resource="../../ressources.qrc">
              <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
            </property>
           </widget>
@@ -317,7 +317,7 @@
             <string>Open backup folder</string>
            </property>
            <property name="icon">
-            <iconset resource="ressources.qrc">
+            <iconset resource="../../ressources.qrc">
              <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
            </property>
           </widget>
@@ -328,7 +328,7 @@
             <string>Delete all backups</string>
            </property>
            <property name="icon">
-            <iconset resource="ressources.qrc">
+            <iconset resource="../../ressources.qrc">
              <normaloff>:/rec/data/icons/iconToBin.svg</normaloff>:/rec/data/icons/iconToBin.svg</iconset>
            </property>
           </widget>
@@ -376,7 +376,7 @@
             <string>Open logfile path</string>
            </property>
            <property name="icon">
-            <iconset resource="ressources.qrc">
+            <iconset resource="../../ressources.qrc">
              <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
            </property>
           </widget>
@@ -429,7 +429,7 @@
               <string>Check for updates now</string>
              </property>
              <property name="icon">
-              <iconset resource="ressources.qrc">
+              <iconset resource="../../ressources.qrc">
                <normaloff>:/rec/data/icons/iconDownload.svg</normaloff>:/rec/data/icons/iconDownload.svg</iconset>
              </property>
             </widget>
@@ -455,7 +455,7 @@
             <string>Create desktop shortcut</string>
            </property>
            <property name="icon">
-            <iconset resource="ressources.qrc">
+            <iconset resource="../../ressources.qrc">
              <normaloff>:/rec/data/icons/iconLink.svg</normaloff>:/rec/data/icons/iconLink.svg</iconset>
            </property>
           </widget>
@@ -522,7 +522,7 @@
          <string>Reset settings</string>
         </property>
         <property name="icon">
-         <iconset resource="ressources.qrc">
+         <iconset resource="../../ressources.qrc">
           <normaloff>:/rec/data/icons/iconUndo.svg</normaloff>:/rec/data/icons/iconUndo.svg</iconset>
         </property>
        </widget>
@@ -537,7 +537,7 @@
          <string>Restart</string>
         </property>
         <property name="icon">
-         <iconset resource="ressources.qrc">
+         <iconset resource="../../ressources.qrc">
           <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
         </property>
        </widget>
@@ -561,7 +561,7 @@
          <string>Close</string>
         </property>
         <property name="icon">
-         <iconset resource="ressources.qrc">
+         <iconset resource="../../ressources.qrc">
           <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
         </property>
        </widget>
@@ -583,7 +583,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="ressources.qrc"/>
+  <include location="../../ressources.qrc"/>
  </resources>
  <connections/>
 </ui>

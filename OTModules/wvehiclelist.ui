@@ -14,7 +14,7 @@
    <string notr="true">wVehicleList</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
+   <iconset resource="../ressources.qrc">
     <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -397,7 +397,7 @@
        <string>Run DB-Function</string>
       </property>
       <property name="icon">
-       <iconset resource="../../ressources.qrc">
+       <iconset resource="../ressources.qrc">
         <normaloff>:/rec/data/icons/iconDatabase.svg</normaloff>:/rec/data/icons/iconDatabase.svg</iconset>
       </property>
      </widget>
@@ -438,7 +438,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSettings">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
+    <iconset resource="../ressources.qrc">
      <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
    </property>
    <property name="text">
@@ -450,7 +450,7 @@
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
+    <iconset resource="../ressources.qrc">
      <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
    </property>
    <property name="text">
@@ -462,7 +462,7 @@
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
+    <iconset resource="../ressources.qrc">
      <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
    </property>
    <property name="text">
@@ -474,7 +474,7 @@
   </action>
  </widget>
  <resources>
-  <include location="../../ressources.qrc"/>
+  <include location="../ressources.qrc"/>
  </resources>
  <connections/>
 </ui>

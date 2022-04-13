@@ -4,37 +4,32 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="530"/>
-        <source>Attention: This module is currently work in progress. Only use it for test, never for real modding! Files edited with this module can possibly be destroyed!</source>
-        <translation>Attention : Ce module est actuellement en cours de réalisation. Ne l&apos;utilisez que pour des tests, jamais pour un vrai modding ! Les fichiers édités avec ce module peuvent être détruits!</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="559"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="534"/>
         <source>There is unsaved content. Do you want to save?</source>
         <translation>Il y a un contenu non sauvé. Voulez-vous l&apos;enregistrer?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="249"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="322"/>
         <source>Successfully created shortcut!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="254"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="327"/>
         <source>Could not create shortcut in %1.</source>
         <translation type="unfinished">Impossible de créer un raccourci dans %1.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="575"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="550"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="587"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="562"/>
         <source>There are no chars in the font.</source>
         <translation>Il n&apos;y a pas de caractères dans la police.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="632"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="663"/>
         <source>Bytes</source>
         <translation>l&apos;octet</translation>
     </message>
@@ -56,201 +51,196 @@
         <translation>Contrôle de sceneryobjects...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="409"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="385"/>
         <source>Select the OMSI main directory...</source>
         <translation>Sélectionnez le répertoire principal de l&apos;OMSI...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="414"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="390"/>
         <source>&quot;Omsi.exe&quot; could not found in the selected directory. Is it the correct path?. Otherwise, problems may appear in some modules. Should a new path be selected?</source>
         <translation>&quot;Omsi.exe&quot; n&apos;a pas été trouvé dans le répertoire sélectionné. Est-ce le bon chemin ? Sinon, des problèmes peuvent apparaître dans certains modules. Faut-il sélectionner un nouveau chemin ?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="520"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="501"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Pour continuer, l&apos;application a besoin du répertoire principal de l&apos;OMSI. Faut-il le faire maintenant ?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="537"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="512"/>
         <source>There is unsaved content.</source>
         <translation>Il y a des contenus non sauvés.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="581"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="556"/>
         <source>There was an error while opening
 %1
 If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
         <translation>Une erreur s&apos;est produite lors de l&apos;ouverture de %1 Si OMSI est en cours d&apos;exécution, veuillez le fermer et réessayer. En outre, vérifiez si le fichier existe toujours.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="613"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="588"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation>Il y a eu une erreur de sauvegarde &apos;%1&apos;. Si OMSI est en cours d&apos;exécution, veuillez le fermer et réessayer.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="249"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="322"/>
         <source>Success</source>
         <translation type="unfinished">Succès</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="254"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="327"/>
         <source>Error</source>
         <translation type="unfinished">Erreur</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="354"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="290"/>
         <source>Updating %1</source>
         <translation type="unfinished">Mise à jour de %1</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="354"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="290"/>
         <source>There was an error while starting the updater. Please retry it or contact the developer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="414"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="390"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <translation type="unfinished">Impossible de trouver &quot;Omsi.exe&quot;</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="520"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="501"/>
         <source>OMSI main directory not found</source>
         <translation type="unfinished">Le répertoire principal de l&apos;OMSI est introuvable</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="530"/>
-        <source>Work in progress</source>
-        <translation type="unfinished">Travaux en cours</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="537"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="559"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="512"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="534"/>
         <source>Unsaved content</source>
         <translation type="unfinished">Contenu non sauvegardé</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="575"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="581"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="550"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="556"/>
         <source>Error while opening file</source>
         <translation type="unfinished">Erreur lors de l&apos;ouverture d&apos;un fichier</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="587"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="562"/>
         <source>No chars in font</source>
         <translation type="unfinished">Pas de caractères dans la police</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="597"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="572"/>
         <source>Confirm deletion</source>
         <translation type="unfinished">Confirmer la suppression</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="597"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="572"/>
         <source>Should the content be deleted?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="613"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="588"/>
         <source>Save error</source>
         <translation type="unfinished">Erreur de sauvegarde</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="619"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="594"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation>Ce module est malheureusement encore désactivé par manque de temps dans les développements. Merci de rester à l&apos;affût des nouvelles mises à jour dans les prochains jours.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="619"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="594"/>
         <source>Module still deactivated</source>
         <translation type="unfinished">Module encore désactivé</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="632"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="664"/>
         <source>KB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation>Ko</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="633"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="665"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation>Mo</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="633"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="666"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation>Go</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="634"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="667"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation>To</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="634"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="668"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation>Po</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="732"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="679"/>
         <source>January</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="733"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="680"/>
         <source>February</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="734"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="681"/>
         <source>March</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="735"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="682"/>
         <source>April</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="736"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="683"/>
         <source>May</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="737"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="684"/>
         <source>June</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="738"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="685"/>
         <source>July</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="739"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="686"/>
         <source>August</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="740"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="687"/>
         <source>September</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="741"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="688"/>
         <source>October</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="742"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="689"/>
         <source>November</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="743"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="690"/>
         <source>December</source>
         <translation type="unfinished"></translation>
     </message>
@@ -265,12 +255,12 @@ If OMSI is running, please close it and retry it. Furthermore, check if the file
         <translation>Obtenir des objets de paysage et des splines...</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="51"/>
+        <location filename="../../main.cpp" line="53"/>
         <source>Crash detected</source>
         <translation>Crash détecté</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="51"/>
+        <location filename="../../main.cpp" line="53"/>
         <source>%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.
 Open the path of the logfile?</source>
         <translation>%1 semble s&apos;être écrasé lors du dernier lancement. Le fichier journal du dernier lancement a été enregistré séparément. Veuillez contacter le développeur à ce sujet. Ouvrez le chemin du fichier journal ?</translation>
@@ -377,88 +367,88 @@ Open the path of the logfile?</source>
 <context>
     <name>wAbout</name>
     <message>
-        <location filename="../../wabout.cpp" line="19"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="19"/>
         <source>About</source>
         <translation>À propos de</translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="22"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="22"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="26"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
         <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
         <translation>%1 est un outil permettant de créer des modifications pour OMSI 2 - le simulateur de bus. %1 facilite la création de modifications et inclut des fonctionnalités utiles pour améliorer le flux de travail.</translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="26"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
         <source>The Project has been started at January 22, 2021 and it&apos;s still in an early state of development.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="26"/>
-        <source>%1 is licensed under %2.</source>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
+        <source>%1 is licensed under the %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="28"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="28"/>
         <source>Founder &amp; head</source>
         <comment>Meaning of &apos;head&apos;: A management role</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="29"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="29"/>
         <source>Beta test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="30"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="30"/>
         <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="31"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="31"/>
         <source>italian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="32"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="32"/>
         <source>french</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="33"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="33"/>
         <source>czech</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="53"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="53"/>
         <source>Developed with %1 and %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="53"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="53"/>
         <source>More information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="54"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="54"/>
         <source>Build type: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="55"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="55"/>
         <source>Application build: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.cpp" line="56"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
         <source>Approximate lines of code: %1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wabout.ui" line="280"/>
+        <location filename="../../OTModules/OTGeneric/wabout.ui" line="280"/>
         <source>More...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -466,39 +456,39 @@ Open the path of the logfile?</source>
 <context>
     <name>wBugRepot</name>
     <message>
-        <location filename="../../OTModules/wbugrepot.ui" line="28"/>
+        <location filename="../../OTModules/OTGeneric/wbugreport.ui" line="28"/>
         <source>Title</source>
         <translation>Titre</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wbugrepot.ui" line="42"/>
+        <location filename="../../OTModules/OTGeneric/wbugreport.ui" line="42"/>
         <source>Description</source>
         <translation>Description</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wbugrepot.ui" line="62"/>
+        <location filename="../../OTModules/OTGeneric/wbugreport.ui" line="62"/>
         <source>Request</source>
         <translation>Demande</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wbugrepot.ui" line="77"/>
+        <location filename="../../OTModules/OTGeneric/wbugreport.ui" line="77"/>
         <source>New</source>
         <translation>Nouveau</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wbugrepot.ui" line="89"/>
-        <location filename="../../OTModules/wbugrepot.ui" line="92"/>
+        <location filename="../../OTModules/OTGeneric/wbugreport.ui" line="89"/>
+        <location filename="../../OTModules/OTGeneric/wbugreport.ui" line="92"/>
         <source>Send</source>
         <translation>Envoyer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wbugrepot.ui" line="104"/>
-        <location filename="../../OTModules/wbugrepot.ui" line="107"/>
+        <location filename="../../OTModules/OTGeneric/wbugreport.ui" line="104"/>
+        <location filename="../../OTModules/OTGeneric/wbugreport.ui" line="107"/>
         <source>Discard</source>
         <translation>Jeter</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wbugrepot.cpp" line="14"/>
+        <location filename="../../OTModules/OTGeneric/wbugreport.cpp" line="14"/>
         <source>bug reports and feedback</source>
         <translation>rapports de bogues et commentaires</translation>
     </message>
@@ -506,52 +496,52 @@ Open the path of the logfile?</source>
 <context>
     <name>wChangelog</name>
     <message>
-        <location filename="../../wchangelog.ui" line="35"/>
+        <location filename="../../OTModules/OTGeneric/wchangelog.ui" line="35"/>
         <source>Changelog:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wchangelog.ui" line="97"/>
+        <location filename="../../OTModules/OTGeneric/wchangelog.ui" line="97"/>
         <source>Clear application directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wchangelog.ui" line="107"/>
+        <location filename="../../OTModules/OTGeneric/wchangelog.ui" line="107"/>
         <source>Attention: This option deletes the entire application directory including all files (even those that do not originate from the application).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wchangelog.ui" line="134"/>
+        <location filename="../../OTModules/OTGeneric/wchangelog.ui" line="134"/>
         <source>Download and install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wchangelog.ui" line="145"/>
+        <location filename="../../OTModules/OTGeneric/wchangelog.ui" line="145"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../wchangelog.cpp" line="18"/>
+        <location filename="../../OTModules/OTGeneric/wchangelog.cpp" line="18"/>
         <source>changelog</source>
         <translation>journal des modifications</translation>
     </message>
     <message>
-        <location filename="../../wchangelog.cpp" line="20"/>
+        <location filename="../../OTModules/OTGeneric/wchangelog.cpp" line="20"/>
         <source>Loading...</source>
         <translation>Chargement...</translation>
     </message>
     <message>
-        <location filename="../../wchangelog.cpp" line="33"/>
+        <location filename="../../OTModules/OTGeneric/wchangelog.cpp" line="33"/>
         <source>Current version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wchangelog.cpp" line="36"/>
+        <location filename="../../OTModules/OTGeneric/wchangelog.cpp" line="36"/>
         <source>New version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wchangelog.cpp" line="57"/>
+        <location filename="../../OTModules/OTGeneric/wchangelog.cpp" line="57"/>
         <source>There was an error while get the changelog. Please check if your computer has a working internet connection, retry it or contact the developer.
 Code: %1</source>
         <translation>Une erreur s&apos;est produite lors de l&apos;obtention du journal des modifications. Veuillez vérifier si votre ordinateur dispose d&apos;une connexion internet fonctionnelle, réessayez ou contactez le développeur. Code : %1</translation>
@@ -996,408 +986,408 @@ reasons</source>
 <context>
     <name>wFonts</name>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="54"/>
+        <location filename="../../OTModules/wfonts.ui" line="57"/>
         <source>Properties</source>
         <translation>Propriétés</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="250"/>
+        <location filename="../../OTModules/wfonts.ui" line="269"/>
         <source>Characters</source>
         <translation>Personnages</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="722"/>
+        <location filename="../../OTModules/wfonts.ui" line="771"/>
         <source>Reload texture preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="771"/>
+        <location filename="../../OTModules/wfonts.ui" line="826"/>
         <source>Recently opened fonts</source>
         <translation>Polices récemment ouvertes</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="791"/>
+        <location filename="../../OTModules/wfonts.ui" line="846"/>
         <source>Open settings or use special functions</source>
         <translation>Ouvrir des paramètres ou utiliser des fonctions spéciales</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="895"/>
+        <location filename="../../OTModules/wfonts.ui" line="902"/>
+        <source>Open an existing OFT file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wfonts.ui" line="950"/>
         <source>Close current window</source>
         <translation>Fermer la fenêtre actuelle</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="973"/>
+        <location filename="../../OTModules/wfonts.ui" line="1028"/>
         <source>Load template...</source>
         <translation>Charger le modèle...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="976"/>
+        <location filename="../../OTModules/wfonts.ui" line="1031"/>
         <source>Load a template</source>
         <translation>Charger un modèle</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="299"/>
+        <location filename="../../OTModules/wfonts.ui" line="318"/>
         <source>character(s) total</source>
         <translation>caractère(s) total</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="958"/>
+        <location filename="../../OTModules/wfonts.ui" line="1013"/>
         <source>Delete current character</source>
         <translation>Effacer le caractère actuel</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="329"/>
+        <location filename="../../OTModules/wfonts.ui" line="348"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="85"/>
-        <location filename="../../OTModules/wfonts.ui" line="237"/>
+        <location filename="../../OTModules/wfonts.ui" line="183"/>
+        <location filename="../../OTModules/wfonts.ui" line="256"/>
         <source>Set the encoding for the font file. The encoding UTF-8 is not recommended for OMSI unless it contains characters that are not present in ANSI.</source>
         <translation>Définit l&apos;encodage du fichier de police. L&apos;encodage UTF-8 n&apos;est pas recommandé pour OMSI, sauf s&apos;il contient des caractères qui ne sont pas présents dans ANSI.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="994"/>
+        <location filename="../../OTModules/wfonts.ui" line="1049"/>
         <source>Move current character up</source>
         <translation>Déplacer le personnage actuel vers le haut</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1012"/>
+        <location filename="../../OTModules/wfonts.ui" line="1067"/>
         <source>Move current character down</source>
         <translation>Déplacer le caractère actuel vers le bas</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="940"/>
+        <location filename="../../OTModules/wfonts.ui" line="995"/>
         <source>Add a new character</source>
         <translation>Ajouter un nouveau personnage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="414"/>
-        <location filename="../../OTModules/wfonts.ui" line="937"/>
+        <location filename="../../OTModules/wfonts.ui" line="433"/>
+        <location filename="../../OTModules/wfonts.ui" line="992"/>
         <source>New character</source>
         <translation>Nouveau personnage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="425"/>
+        <location filename="../../OTModules/wfonts.ui" line="450"/>
         <source>Character definition</source>
         <translation>Définition du caractère</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="562"/>
+        <location filename="../../OTModules/wfonts.ui" line="602"/>
         <source>Search char</source>
         <translation>Recherche de chars</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="570"/>
+        <location filename="../../OTModules/wfonts.ui" line="610"/>
         <source>Search:</source>
         <translation>Recherche :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="577"/>
+        <location filename="../../OTModules/wfonts.ui" line="620"/>
         <source>Find</source>
         <translation>Trouvez</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="630"/>
+        <location filename="../../OTModules/wfonts.ui" line="673"/>
         <source>Next Result</source>
         <translation>Résultat suivant</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="675"/>
+        <location filename="../../OTModules/wfonts.ui" line="724"/>
         <source>Preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="703"/>
+        <location filename="../../OTModules/wfonts.ui" line="757"/>
         <source>Alpha texture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="708"/>
+        <location filename="../../OTModules/wfonts.ui" line="752"/>
         <source>Color texture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="764"/>
+        <location filename="../../OTModules/wfonts.ui" line="819"/>
         <source>Open, save fonts or close the font module</source>
         <translation>Ouvrir, sauvegarder les polices ou fermer le module de polices</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="767"/>
+        <location filename="../../OTModules/wfonts.ui" line="822"/>
         <source>Font</source>
         <translation>Police</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="794"/>
+        <location filename="../../OTModules/wfonts.ui" line="849"/>
         <source>Specials</source>
         <translation>Spéciaux</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="804"/>
+        <location filename="../../OTModules/wfonts.ui" line="859"/>
         <source>Add, delete or move characters</source>
         <translation>Ajouter, supprimer ou déplacer des caractères</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="807"/>
+        <location filename="../../OTModules/wfonts.ui" line="862"/>
         <source>Edit</source>
         <translation>Modifier</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="818"/>
+        <location filename="../../OTModules/wfonts.ui" line="873"/>
         <source>Check your font for errors</source>
         <translation>Vérifiez l&apos;absence d&apos;erreurs dans votre police</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="821"/>
+        <location filename="../../OTModules/wfonts.ui" line="876"/>
         <source>Debugging</source>
         <translation>Débogage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="827"/>
+        <location filename="../../OTModules/wfonts.ui" line="882"/>
         <source>Help</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="844"/>
+        <location filename="../../OTModules/wfonts.ui" line="899"/>
         <source>Open</source>
         <translation>Ouvrir</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="847"/>
-        <source>Open an existing *.oft file</source>
-        <translation>Ouvrir un fichier *.oft existant</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wfonts.ui" line="862"/>
+        <location filename="../../OTModules/wfonts.ui" line="917"/>
         <source>Save</source>
         <translation>Sauvez</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="865"/>
+        <location filename="../../OTModules/wfonts.ui" line="920"/>
         <source>Save your font</source>
         <translation>Sauvegarder votre police</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="877"/>
+        <location filename="../../OTModules/wfonts.ui" line="932"/>
         <source>Save as...</source>
         <translation>Enregistrer sous...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="880"/>
+        <location filename="../../OTModules/wfonts.ui" line="935"/>
         <source>Save your font via file dialog</source>
         <translation>Sauvegarder votre police via la boîte de dialogue du fichier</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="892"/>
+        <location filename="../../OTModules/wfonts.ui" line="947"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="907"/>
+        <location filename="../../OTModules/wfonts.ui" line="962"/>
         <source>New font</source>
         <translation>Nouvelle police</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="910"/>
+        <location filename="../../OTModules/wfonts.ui" line="965"/>
         <source>Create a new font</source>
         <translation>Créer une nouvelle police</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="922"/>
+        <location filename="../../OTModules/wfonts.ui" line="977"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="925"/>
+        <location filename="../../OTModules/wfonts.ui" line="980"/>
         <source>Open the settings</source>
         <translation>Ouvrez les paramètres</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="955"/>
+        <location filename="../../OTModules/wfonts.ui" line="1010"/>
         <source>Delete character</source>
         <translation>Delete character</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="991"/>
+        <location filename="../../OTModules/wfonts.ui" line="1046"/>
         <source>Move character up</source>
         <translation>Déplacer le personnage vers le haut</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1009"/>
+        <location filename="../../OTModules/wfonts.ui" line="1064"/>
         <source>Move character down</source>
         <translation>Déplacer le personnage vers le bas</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1054"/>
+        <location filename="../../OTModules/wfonts.ui" line="1109"/>
         <source>Copy chars</source>
         <translation>Copier les caractères</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1057"/>
+        <location filename="../../OTModules/wfonts.ui" line="1112"/>
         <source>Copy a list of all chars to clipboard</source>
         <translation>Copier une liste de tous les caractères dans le presse-papiers</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1081"/>
+        <location filename="../../OTModules/wfonts.ui" line="1136"/>
         <source>Show in explorer</source>
         <translation>Afficher dans l&apos;explorateur</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1084"/>
+        <location filename="../../OTModules/wfonts.ui" line="1139"/>
         <source>Shows the font file in the file explorer</source>
         <translation>Affiche le fichier de police dans l&apos;explorateur de fichiers</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1093"/>
+        <location filename="../../OTModules/wfonts.ui" line="1148"/>
         <source>Send feedback</source>
         <translation>Envoyez vos commentaires</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1024"/>
+        <location filename="../../OTModules/wfonts.ui" line="1079"/>
         <source>Reload</source>
         <translation>Rechargez</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="167"/>
+        <location filename="../../OTModules/wfonts.ui" line="160"/>
         <source>Color texture:</source>
         <translation>Texture de la couleur :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="207"/>
+        <location filename="../../OTModules/wfonts.ui" line="147"/>
         <source>Font name:</source>
         <translation>Nom de la police :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="88"/>
+        <location filename="../../OTModules/wfonts.ui" line="186"/>
         <source>Encoding:</source>
         <translation>le codage :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="65"/>
+        <location filename="../../OTModules/wfonts.ui" line="120"/>
         <source>Alpha texture:</source>
         <translation>texture alpha :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="78"/>
+        <location filename="../../OTModules/wfonts.ui" line="173"/>
         <source>Maximum height of characters:</source>
         <translation>Hauteur maximale des caractères :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="101"/>
+        <location filename="../../OTModules/wfonts.ui" line="199"/>
         <source>Distance between characters:</source>
         <translation>Distance entre les personnages :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="472"/>
+        <location filename="../../OTModules/wfonts.ui" line="500"/>
         <source>Right pixel:</source>
         <translation>Pixel de droite :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="446"/>
+        <location filename="../../OTModules/wfonts.ui" line="474"/>
         <source>Character:</source>
         <translation type="unfinished">Caractère :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="487"/>
+        <location filename="../../OTModules/wfonts.ui" line="518"/>
         <source>Highest pixel in row:</source>
         <translation>Le pixel le plus haut de la rangée :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="516"/>
+        <location filename="../../OTModules/wfonts.ui" line="550"/>
         <source>Left pixel:</source>
         <translation>Pixel de gauche :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="459"/>
+        <location filename="../../OTModules/wfonts.ui" line="487"/>
         <source>Comment:</source>
         <translation>Commentaire :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1027"/>
+        <location filename="../../OTModules/wfonts.ui" line="1082"/>
         <source>Reload current font</source>
         <translation>Recharger la police actuelle</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1039"/>
+        <location filename="../../OTModules/wfonts.ui" line="1094"/>
         <source>Find char...</source>
         <translation>Trouver des char...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1042"/>
+        <location filename="../../OTModules/wfonts.ui" line="1097"/>
         <source>Search for a char in the currently opened font</source>
         <translation>Recherche d&apos;un caractère dans la police actuellement ouverte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1069"/>
+        <location filename="../../OTModules/wfonts.ui" line="1124"/>
         <source>Go to next error</source>
         <translation>Passez à l&apos;erreur suivante</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="666"/>
-        <location filename="../../OTModules/wfonts.cpp" line="668"/>
+        <location filename="../../OTModules/wfonts.cpp" line="675"/>
+        <location filename="../../OTModules/wfonts.cpp" line="677"/>
         <source>fonts</source>
         <translation>polices</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="462"/>
-        <location filename="../../OTModules/wfonts.cpp" line="606"/>
+        <location filename="../../OTModules/wfonts.cpp" line="471"/>
+        <location filename="../../OTModules/wfonts.cpp" line="615"/>
         <source>OMSI font file</source>
         <translation>Fichier de police OMSI</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="104"/>
+        <location filename="../../OTModules/wfonts.cpp" line="113"/>
         <source>Invalid format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="109"/>
+        <location filename="../../OTModules/wfonts.cpp" line="118"/>
         <source>Open font file</source>
         <translation type="unfinished">Ouvrir un fichier de police</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="462"/>
+        <location filename="../../OTModules/wfonts.cpp" line="471"/>
         <source>Open font...</source>
         <translation type="unfinished">Ouvrir la police...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="638"/>
+        <location filename="../../OTModules/wfonts.cpp" line="647"/>
         <source>Error: The file could not be saved.</source>
         <translation>Erreur : Le fichier n&apos;a pas pu être enregistré.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="648"/>
+        <location filename="../../OTModules/wfonts.cpp" line="657"/>
         <source>File saved successfully.</source>
         <translation>Fichier enregistré avec succès.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="941"/>
+        <location filename="../../OTModules/wfonts.cpp" line="950"/>
         <source>Invalid selection</source>
         <translation type="unfinished">Sélection non valide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1149"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1158"/>
         <source>The entered character could not be found.</source>
         <translation>Le caractère saisi n&apos;a pas pu être trouvé.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1149"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1158"/>
         <source>Character not found</source>
         <translation type="unfinished">Caractère non trouvé</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1176"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1216"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1185"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1225"/>
         <source>The end of the font was reached, search from top</source>
         <translation>La fin de la police a été atteinte, recherche à partir du haut</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1185"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1205"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1194"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1214"/>
         <source>No other character found according to the search criteria.</source>
         <translation>Aucun autre caractère trouvé selon les critères de recherche.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="752"/>
+        <location filename="../../OTModules/wfonts.cpp" line="761"/>
         <source>Error in character &apos;%1&apos;</source>
         <translation>Erreur dans le caractère &apos;%1&apos;</translation>
     </message>
@@ -1407,81 +1397,81 @@ reasons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="104"/>
+        <location filename="../../OTModules/wfonts.cpp" line="113"/>
         <source>The dropped file is no font file (*.oft)!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="109"/>
+        <location filename="../../OTModules/wfonts.cpp" line="118"/>
         <source>Open drag and drop font file now?
 %1</source>
         <translation>Ouvrir le fichier de police par glisser-déposer maintenant ? %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="506"/>
+        <location filename="../../OTModules/wfonts.cpp" line="515"/>
         <source>Open font</source>
         <translation>Police ouverte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="506"/>
+        <location filename="../../OTModules/wfonts.cpp" line="515"/>
         <source>Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files.
 No font will be opened.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="774"/>
+        <location filename="../../OTModules/wfonts.cpp" line="783"/>
         <source>There aren&apos;t any errors. The font is valid.</source>
         <translation>Il n&apos;y a pas d&apos;erreurs. La police est valide.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="847"/>
+        <location filename="../../OTModules/wfonts.cpp" line="856"/>
         <source>Select color texture...</source>
         <translatorcomment>INFORMATION seitens mir (Bamp): Damit ist keine Aufzählung, sondern das Wort &quot;Farbtextur&quot; bzw. eben &quot;Color texture&quot; gemeint. ;-) // Ursprungsübersetzung entfernt</translatorcomment>
         <translation>Sélectionnez la couleur, la texture...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="847"/>
-        <location filename="../../OTModules/wfonts.cpp" line="866"/>
+        <location filename="../../OTModules/wfonts.cpp" line="856"/>
+        <location filename="../../OTModules/wfonts.cpp" line="875"/>
         <source>Bitmap picture</source>
         <translation>Image bitmap</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="866"/>
+        <location filename="../../OTModules/wfonts.cpp" line="875"/>
         <source>Select alpha texture...</source>
         <translation>Sélectionner la texture alpha...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="941"/>
+        <location filename="../../OTModules/wfonts.cpp" line="950"/>
         <source>The current selection isn&apos;t a valid template.</source>
         <translation>La sélection actuelle n&apos;est pas un modèle valide.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1099"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1108"/>
         <source>Characters copied!</source>
         <translation>Caractères copiés !</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1115"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1124"/>
         <source>The font file (still) doesn&apos;t exist.</source>
         <translation>Le fichier de police n&apos;existe pas (encore).</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="915"/>
+        <location filename="../../OTModules/wfonts.cpp" line="924"/>
         <source>Umlauts</source>
         <translation>voyelle infléchie</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="922"/>
+        <location filename="../../OTModules/wfonts.cpp" line="931"/>
         <source>Select a template</source>
         <translation>Sélectionnez un modèle</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="922"/>
+        <location filename="../../OTModules/wfonts.cpp" line="931"/>
         <source>Template:</source>
         <translation>Modèle :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="606"/>
+        <location filename="../../OTModules/wfonts.cpp" line="615"/>
         <source>Save font</source>
         <translation>Sauvegarder la police</translation>
     </message>
@@ -1489,213 +1479,213 @@ No font will be opened.</source>
 <context>
     <name>wSettings</name>
     <message>
-        <location filename="../../wsettings.ui" line="28"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="28"/>
         <source>General</source>
         <translation>Général</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="65"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="65"/>
         <source>More languages...</source>
         <translation>Plus de langues...</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="130"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="130"/>
         <source>My nickname</source>
         <translation>Mon surnom</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="324"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="317"/>
         <source>Open backup folder</source>
         <translation>Ouvrir le dossier de sauvegarde</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="190"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="190"/>
         <source>Backup</source>
         <translation>Sauvegarde</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="36"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="36"/>
         <source>Language:</source>
         <translation>Langue :</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="80"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="80"/>
         <source>Theme:</source>
         <translation>Thème :</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="120"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="120"/>
         <source>Author:</source>
         <translation>Auteur :</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="154"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="154"/>
         <source>OMSI main directory:</source>
         <translation>Répertoire principal de l&apos;OMSI :</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="209"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="209"/>
         <source>Backup interval:</source>
         <translation>Intervalle de sauvegarde :</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="335"/>
-        <location filename="../../wsettings.cpp" line="164"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="328"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="156"/>
         <source>Delete all backups</source>
         <translation>Supprimer toutes les sauvegardes</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="353"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="346"/>
         <source>Logging</source>
         <translation>Enregistrement</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="367"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="360"/>
         <source>Mode:</source>
         <translation>Mode :</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="397"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="390"/>
         <source>Updates</source>
         <translation>Mises à jour</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="454"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="447"/>
         <source>Miscellaneous</source>
         <translation>Divers</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="486"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="479"/>
         <source>Confirm deletion</source>
         <translation>Confirmer la suppression</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="383"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="376"/>
         <source>Open logfile path</source>
         <translation>Chemin du fichier journal ouvert</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="288"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="288"/>
         <source>Backup disk usage:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="405"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="398"/>
         <source>Check automatically:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="436"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="429"/>
         <source>Check for updates now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="462"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="455"/>
         <source>Create desktop shortcut</source>
         <translation>Créer un raccourci du bureau</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="544"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="537"/>
         <source>Restart</source>
         <translation>Redémarrer</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="568"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="561"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="16"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="16"/>
         <source>settings</source>
         <translation>paramètres</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="64"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="63"/>
         <source>sec.</source>
         <comment>short form from &apos;seconds&apos;</comment>
         <translation>sec.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.ui" line="529"/>
-        <location filename="../../wsettings.cpp" line="212"/>
-        <location filename="../../wsettings.cpp" line="216"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="522"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="204"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="208"/>
         <source>Reset settings</source>
         <translation>Réinitialiser les paramètres</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="55"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="55"/>
         <source>Calculating...</source>
         <translation>Calculer...</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="81"/>
-        <location filename="../../wsettings.cpp" line="97"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="80"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="93"/>
         <source>Off</source>
         <translation>Off</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="81"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="80"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="97"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="93"/>
         <source>On start</source>
         <translation>Au départ</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="97"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="93"/>
         <source>Daily</source>
         <translation>Quotidiennement</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="97"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="93"/>
         <source>Weekly</source>
         <translation>Hebdomadaire</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="97"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="93"/>
         <source>Monthly</source>
         <translation>Mensuel</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="200"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="192"/>
         <source>Finshed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="200"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="192"/>
         <source>Not updates available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="314"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="308"/>
         <source>More languages</source>
         <translation type="unfinished">Plus de langues</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="164"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="156"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
         <translation>Faut-il supprimer toutes les sauvegardes ? Elles seront déplacées vers la corbeille.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="314"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="308"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation>Vous voulez avoir plus de langues parmi lesquelles choisir ? Malheureusement, il n&apos;y a pas plus de langues pour le moment. Mais si vous connaissez bien une langue, vous êtes le bienvenu pour traduire %1 ! Veuillez contacter le développeur à l&apos;OMSI WebDisk, également si vous avez d&apos;autres questions.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="141"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="134"/>
         <source>Restart to apply all settings.</source>
         <translation>Redémarrez pour appliquer tous les paramètres.</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="212"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="204"/>
         <source>Should all settings be reset? This action cannot be undone!</source>
         <translation>Faut-il réinitialiser tous les paramètres ? Cette action ne peut être annulée !</translation>
     </message>
     <message>
-        <location filename="../../wsettings.cpp" line="216"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="208"/>
         <source>The programm will now restart.</source>
         <translation>Le programme va maintenant redémarrer.</translation>
     </message>
@@ -1703,196 +1693,196 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
 <context>
     <name>wStart</name>
     <message>
-        <location filename="../../wstart.ui" line="116"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="116"/>
         <source>Content development</source>
         <translation>Développement du contenu</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="128"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="128"/>
         <source>Font creation</source>
         <translation>Création de polices</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="142"/>
-        <location filename="../../wstart.ui" line="158"/>
-        <location filename="../../wstart.ui" line="174"/>
-        <location filename="../../wstart.ui" line="190"/>
-        <location filename="../../wstart.ui" line="206"/>
-        <location filename="../../wstart.ui" line="225"/>
-        <location filename="../../wstart.ui" line="241"/>
-        <location filename="../../wstart.ui" line="335"/>
-        <location filename="../../wstart.ui" line="380"/>
-        <location filename="../../wstart.ui" line="400"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="142"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="158"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="174"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="190"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="206"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="225"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="241"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="335"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="380"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="400"/>
         <source>This module is currently not available.</source>
         <translation>Ce module n&apos;est actuellement pas disponible.</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="180"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="180"/>
         <source>Money / ticket packs</source>
         <translation>Paquets d&apos;argent / billets</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="215"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="215"/>
         <source>Maps</source>
         <translation>Cartes</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="164"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="164"/>
         <source>Sceneryobjects</source>
         <translation>Objets du paysage</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="148"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="148"/>
         <source>Vehicles</source>
         <translation>Véhicules</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="247"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="247"/>
         <source>Splines</source>
         <translation>Splines</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="196"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="196"/>
         <source>Scripts</source>
         <translation>Scripts</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="231"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="231"/>
         <source>Textures</source>
         <translation>Textures</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="273"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="273"/>
         <source>Troubleshooting</source>
         <translation>Dépannage</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="288"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="288"/>
         <source>Verify map</source>
         <translation>Vérifier la carte</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="323"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="323"/>
         <source>Miscellaneous</source>
         <translation>Divers</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="338"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="338"/>
         <source>Backup</source>
         <translation>Sauvegarde</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="371"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="371"/>
         <source>Finishing</source>
         <translation>Finition</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="386"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="386"/>
         <source>Save modifiaction for release...</source>
         <translation>Sauvegarder la modification pour le lancement...</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="450"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="450"/>
         <source>Open</source>
         <translation type="unfinished">Ouvrir</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="461"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="461"/>
         <source>Create shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="79"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="79"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="625"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="625"/>
         <source>Changelog</source>
         <translation>Changelog</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="634"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="634"/>
         <source>Manual</source>
         <translation>Manuel</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="547"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="547"/>
         <source>Specials</source>
         <translation>Spéciaux</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="571"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="571"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="583"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="583"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="613"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="613"/>
         <source>Send feedback</source>
         <translation>Envoyez vos commentaires</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="41"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="41"/>
         <source>About %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="82"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="83"/>
         <source>No updates available.</source>
         <translation>Aucune mise à jour disponible.</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="85"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="86"/>
         <source>New update available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="142"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="143"/>
         <source>Coming soon!</source>
         <translation>Bientôt disponible!</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="142"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="143"/>
         <source>Where should I release my modification?</source>
         <translation type="unfinished">Où dois-je publier ma modification?</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="180"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="181"/>
         <source>Simulate crash</source>
         <translation>Simuler un accident</translation>
     </message>
     <message>
-        <location filename="../../wstart.cpp" line="180"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="181"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Le crash d&apos;une application doit-il être simulé ?</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="406"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="406"/>
         <source>Release modification</source>
         <translation>Modification de la version</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="433"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="433"/>
         <source>Simulate chrash</source>
         <translation>Simuler un accident</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="540"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="540"/>
         <source>Window</source>
         <translation>Fenêtre</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="553"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="553"/>
         <source>Help</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../../wstart.ui" line="302"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="302"/>
         <source>Content search</source>
         <translation>Recherche de contenu</translation>
     </message>
@@ -1900,12 +1890,12 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
 <context>
     <name>wStartUpScreen</name>
     <message>
-        <location filename="../../wstartupscreen.cpp" line="13"/>
+        <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="13"/>
         <source>Start-up...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wstartupscreen.cpp" line="71"/>
+        <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="71"/>
         <source>Finished.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1913,57 +1903,52 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
 <context>
     <name>wVehicleList</name>
     <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.ui" line="409"/>
+        <location filename="../../OTModules/wvehiclelist.ui" line="397"/>
         <source>Run DB-Function</source>
         <translation>Exécuter la fonction DB</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.ui" line="430"/>
+        <location filename="../../OTModules/wvehiclelist.ui" line="418"/>
         <source>File</source>
         <translation>Fichier</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.ui" line="437"/>
+        <location filename="../../OTModules/wvehiclelist.ui" line="425"/>
         <source>Specials</source>
         <translation>Spéciaux</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.ui" line="443"/>
+        <location filename="../../OTModules/wvehiclelist.ui" line="431"/>
         <source>Help</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.ui" line="458"/>
+        <location filename="../../OTModules/wvehiclelist.ui" line="445"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.ui" line="470"/>
+        <location filename="../../OTModules/wvehiclelist.ui" line="457"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.ui" line="482"/>
+        <location filename="../../OTModules/wvehiclelist.ui" line="469"/>
         <source>Open</source>
         <translation>Ouvrir</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.ui" line="494"/>
-        <source>Send feedback</source>
-        <translation>Envoyez vos commentaires</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.cpp" line="14"/>
+        <location filename="../../OTModules/wvehiclelist.cpp" line="14"/>
         <source>vehicle lists</source>
         <translation>listes de véhicules</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.cpp" line="79"/>
+        <location filename="../../OTModules/wvehiclelist.cpp" line="79"/>
         <source>Select database</source>
         <translation>Sélectionnez la base de données</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVehicleList/wvehiclelist.cpp" line="79"/>
+        <location filename="../../OTModules/wvehiclelist.cpp" line="79"/>
         <source>Databases</source>
         <translation>Bases de données</translation>
     </message>
@@ -1983,7 +1968,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="113"/>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1467"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="536"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="544"/>
         <source>Start verifying</source>
         <translation>Commencer à vérifier</translation>
     </message>
@@ -2119,7 +2104,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="72"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="626"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="622"/>
         <source>Show settings</source>
         <translation>Afficher les paramètres</translation>
     </message>
@@ -2205,7 +2190,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation>vérifier la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="549"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="557"/>
         <source>Select map file...</source>
         <translation>Sélectionner le fichier de la carte...</translation>
     </message>
@@ -2240,37 +2225,37 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation>Envoyez vos commentaires</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="70"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="78"/>
         <source>Press %1 to start the verification.</source>
         <translation>Appuyez sur %1 pour lancer la vérification.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="332"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="340"/>
         <source>Running...</source>
         <translation>Courir...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="339"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="347"/>
         <source>The selected map file doesn&apos;t exist.</source>
         <translation>Le fichier de carte sélectionné n&apos;existe pas.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="339"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="347"/>
         <source>Map file doesn&apos;t exist</source>
         <translation type="unfinished">Le fichier de carte n&apos;existe pas</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="501"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="509"/>
         <source>Verifycation finished.</source>
         <translation>Vérification terminée.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="549"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="557"/>
         <source>OMSI map file</source>
         <translation>Fichier cartographique OMSI</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="631"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="627"/>
         <source>Hide settings</source>
         <translation>Cacher les paramètres</translation>
     </message>

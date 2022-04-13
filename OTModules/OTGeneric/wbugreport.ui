@@ -17,7 +17,7 @@
    <string notr="true">wBugReport</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../ressources.qrc">
+   <iconset resource="../../ressources.qrc">
     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -70,7 +70,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNew">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
    </property>
    <property name="text">
@@ -82,7 +82,7 @@
   </action>
   <action name="actionSend">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconUpload.svg</normaloff>:/rec/data/icons/iconUpload.svg</iconset>
    </property>
    <property name="text">
@@ -97,7 +97,7 @@
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
    </property>
    <property name="text">
@@ -112,7 +112,7 @@
   </action>
  </widget>
  <resources>
-  <include location="../ressources.qrc"/>
+  <include location="../../ressources.qrc"/>
  </resources>
  <connections/>
 </ui>

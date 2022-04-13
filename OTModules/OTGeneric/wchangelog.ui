@@ -20,7 +20,7 @@
    <string notr="true">wChangelog</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="ressources.qrc">
+   <iconset resource="../../ressources.qrc">
     <normaloff>:/rec/data/icons/iconSwitch.svg</normaloff>:/rec/data/icons/iconSwitch.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -134,7 +134,7 @@ p, li { white-space: pre-wrap; }
          <string>Download and install</string>
         </property>
         <property name="icon">
-         <iconset resource="ressources.qrc">
+         <iconset resource="../../ressources.qrc">
           <normaloff>:/rec/data/icons/iconDownload.svg</normaloff>:/rec/data/icons/iconDownload.svg</iconset>
         </property>
        </widget>
@@ -145,7 +145,7 @@ p, li { white-space: pre-wrap; }
          <string>Close</string>
         </property>
         <property name="icon">
-         <iconset resource="ressources.qrc">
+         <iconset resource="../../ressources.qrc">
           <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
         </property>
         <property name="shortcut">
@@ -170,7 +170,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="ressources.qrc"/>
+  <include location="../../ressources.qrc"/>
  </resources>
  <connections/>
 </ui>
