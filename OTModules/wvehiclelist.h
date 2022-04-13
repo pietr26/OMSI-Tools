@@ -29,8 +29,6 @@ private slots:
 
     void on_actionOpen_triggered();
 
-    void on_actionSendFeedback_triggered();
-
 private:
     Ui::wVehicleList *ui;
 
