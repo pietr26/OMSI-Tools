@@ -23,7 +23,7 @@ wAbout::wAbout(QWidget *parent) :
 
     ui->lbladditionalVersion->setText(appBuild + "<br/><br/>");
 
-    ui->lblInformation->setText(tr("%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.").arg(OTName) + "<br/>" + tr("The Project has been started at January 22, 2021 and it's still in an early state of development.") + "<br/><br/>" + tr("%1 is licensed under %2.").arg(OTName, "<a style=\"color: lightblue\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</a>"));
+    ui->lblInformation->setText(tr("%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.").arg(OTName) + "<br/>" + tr("The Project has been started at January 22, 2021 and it's still in an early state of development.") + "<br/><br/>" + tr("%1 is licensed under the %2.").arg(OTName, "<a style=\"color: lightblue\" href=\"https://www.gnu.de/documents/gpl-2.0.en.html\">GNU General Public License v2.0</a>"));
 
     QString credits = QString("<b>%1:</b> Bamp").arg(tr("Founder & head", "Meaning of 'head': A management role")) +
                       QString("<br/><b>%1:</b> Dari19 | der_Nik_ | DerGrafikfehler | Erilambus | fOcUs04 | MeerrettichMeister | PingPong | SGTVP | TobiB").arg(tr("Beta test")) +
