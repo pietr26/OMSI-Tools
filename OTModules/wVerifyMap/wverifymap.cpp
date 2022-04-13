@@ -82,133 +82,133 @@ wVerifyMap::~wVerifyMap()
     delete ui;
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgTilesAll_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgTilesMissing_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgTexturesAll_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgTexturesMissing_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgObjectsAll_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgObjectsMissing_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgSplinesAll_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgSplinesMissing_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgVehiclesAll_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgVehiclesMissing_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgHumansAll_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Copies a entry from listWidget.
+/// Copies a entry from listWidget.
 void wVerifyMap::on_lwgHumansMissing_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.copy(item->text());
 }
 
-/// \brief Shows details for tiles
+/// Shows details for tiles
 void wVerifyMap::on_btnTilesDetails_clicked()
 {
     ui->twgVerfying->setCurrentIndex(1);
 }
 
-/// \brief Shows details for tiles
+/// Shows details for tiles
 void wVerifyMap::on_btnTexturesDetails_clicked()
 {
     ui->twgVerfying->setCurrentIndex(2);
 }
 
-/// \brief Shows details for objects
+/// Shows details for objects
 void wVerifyMap::on_btnObjectsDetails_clicked()
 {
     ui->twgVerfying->setCurrentIndex(3);
 }
 
-/// \brief Shows details for splines
+/// Shows details for splines
 void wVerifyMap::on_btnSplinesDetails_clicked()
 {
     ui->twgVerfying->setCurrentIndex(4);
 }
 
-/// \brief Shows details for vehicles
+/// Shows details for vehicles
 void wVerifyMap::on_btnVehiclesDetails_clicked()
 {
     ui->twgVerfying->setCurrentIndex(5);
 }
 
-/// \brief Shows details for humans
+/// Shows details for humans
 void wVerifyMap::on_btnHumansDetails_clicked()
 {
     ui->twgVerfying->setCurrentIndex(6);
 }
 
-/// \brief Adjusts the size of the window
+/// Adjusts the size of the window
 void wVerifyMap::on_actionAdjustWindowSize_triggered()
 {
     adjustSize();
 }
 
-/// \brief Opens bug report module
+/// Opens bug report module
 void wVerifyMap::on_actionSendFeedback_triggered()
 {
-    OTMiscellaneous::sendFeedback();
+    misc.sendFeedback();
 }
 
-/// \brief Starts verifying
+/// Starts verifying
 void wVerifyMap::on_actionStartVerifying_triggered()
 {
     on_btnStartVerifying_clicked();
 }
 
-/// \brief Selects all items from lwg's and deletes them (and more)
+/// Selects all items from lwg's and deletes them (and more)
 void wVerifyMap::selectAllAndClear()
 {
     qDebug() << "Clear view...";
@@ -286,7 +286,7 @@ void wVerifyMap::selectAllAndClear()
 }
 
 
-/// \brief Reloads progress state
+/// Reloads progress state
 void wVerifyMap::reloadProgress()
 {
     ui->pgbProgress->setMinimum(0);
@@ -295,7 +295,7 @@ void wVerifyMap::reloadProgress()
     ui->statusbar->showMessage(filehandler.progressName);
 }
 
-/// \brief Starts / ends the progress
+/// Starts / ends the progress
 void wVerifyMap::startEndWatchProgress(bool state)
 {
     if (state)
@@ -312,7 +312,7 @@ void wVerifyMap::startEndWatchProgress(bool state)
         ui->pgbProgress->setVisible(true);
 }
 
-/// \brief Starts verifying
+/// Starts verifying
 void wVerifyMap::on_btnStartVerifying_clicked()
 {
     enableIgnoreLabels(true);
@@ -321,8 +321,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
 
     if (set.read("main", "mainDir").toString() == "")
     {
-        if (msg.setMainDirYesNo(this))
-            set.selectOMSIMainDir(this);
+        if (msg.setMainDir(this))
+            set.write("main", "mainDir", set.getOmsiPath(this));
         else
             return;
         cutCount = set.read("main", "mainDir").toString().count() + 1;
@@ -503,7 +503,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     endVerifying();
 }
 
-/// \brief Sets detail buttons
+/// Sets detail buttons
 void wVerifyMap::setDetailButtons()
 {
     qDebug() << "Set detail buttons...";
@@ -527,7 +527,7 @@ void wVerifyMap::setDetailButtons()
         ui->btnHumansDetails->setVisible(true);
 }
 
-/// \brief Ends verifying
+/// Ends verifying
 void wVerifyMap::endVerifying()
 {
     startEndWatchProgress(false);
@@ -537,13 +537,13 @@ void wVerifyMap::endVerifying()
     return;
 }
 
-/// \brief Closes the application
+/// Closes the application
 void wVerifyMap::on_actionClose_triggered()
 {
     QApplication::quit();
 }
 
-/// \brief Shows an getOpenFileName-Dialog and put this path into the map model
+/// Shows an getOpenFileName-Dialog and put this path into the map model
 void wVerifyMap::on_tbnMapPath_clicked()
 {
     QString path = QFileDialog::getOpenFileName(this, tr("Select map file..."), set.read("main", "mainDir").toString() + "/maps", tr("OMSI map file") + " (global.cfg)");
@@ -562,14 +562,14 @@ void wVerifyMap::on_tbnMapPath_clicked()
 
         if (!global.open(QFile::ReadOnly | QFile::Text))
         {
-            msg.errorWhileOpeningOmsi(this, QFileInfo(global).absoluteFilePath());
+            msg.fileOpenErrorCloseOMSI(this, QFileInfo(global).absoluteFilePath());
             return;
         }
     }
     ui->pgbProgress->setVisible(false);
 }
 
-/// \brief Clears the view if map path has changed
+/// Clears the view if map path has changed
 void wVerifyMap::on_ledMapPath_textChanged(const QString &arg1)
 {
     if (arg1 == "")
@@ -581,7 +581,7 @@ void wVerifyMap::on_ledMapPath_textChanged(const QString &arg1)
     selectAllAndClear();
 }
 
-/// \brief Opens the settings
+/// Opens the settings
 void wVerifyMap::on_actionSettings_triggered()
 {
     WSETTINGS = new wSettings(this);
@@ -589,14 +589,14 @@ void wVerifyMap::on_actionSettings_triggered()
     WSETTINGS->show();
 }
 
-/// \brief Opens the ignorelist (UI)
+/// Opens the ignorelist (UI)
 void wVerifyMap::on_actionEditIgnorelist_triggered()
 {
     DIGNORELIST = new dIgnoreList();
     DIGNORELIST->show();
 }
 
-/// \brief Sets the view to the selected verifying depth
+/// Sets the view to the selected verifying depth
 void wVerifyMap::on_cbxAdvancedVerifying_stateChanged(int arg1)
 {
     set.write(moduleName, "advVerifying", arg1);

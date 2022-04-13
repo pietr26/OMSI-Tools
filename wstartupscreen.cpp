@@ -64,7 +64,7 @@ wStartUpScreen::~wStartUpScreen()
     delete ui;
 }
 
-/// \brief Shows first setup section
+/// Shows first setup section
 void wStartUpScreen::finished()
 {
     timer->stop();

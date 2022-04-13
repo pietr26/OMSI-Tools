@@ -47,7 +47,7 @@ wChangelog::~wChangelog()
     delete ui;
 }
 
-/// \brief Downloads current changelog
+/// Downloads current changelog
 void wChangelog::downloadChangelog()
 {
     QString changelog = dl.doDownload(OTLinks::changelog);
@@ -57,13 +57,13 @@ void wChangelog::downloadChangelog()
         ui->teedChangelog->setText(tr("There was an error while get the changelog. Please check if your computer has a working internet connection, retry it or contact the developer.\nCode: %1").arg(dl.lastHttpCode));
 }
 
-/// \brief Closes the window
+/// Closes the window
 void wChangelog::on_btnClose_clicked()
 {
     close();
 }
 
-/// \brief Calls the settings and execute the update
+/// Calls the settings and execute the update
 void wChangelog::on_btnUpdateNow_clicked()
 {
     misc.startUpdate(this, ui->cbxClearAppDir->isChecked());

@@ -8,7 +8,7 @@
 class OTDatabaseHandler
 {
 public:
-    /// \brief Opens a database, executes a databse action and close them
+    /// Opens a database, executes a databse action and close them
     QSqlQuery doAction(QString action)
     {
         QSqlQuery qry;
@@ -23,7 +23,7 @@ public:
         return qry;
     }
 
-    /// \brief Setup a database
+    /// Setup a database
     void setupDatabase(bool firstSetup = false)
     {
         if (firstSetup)
@@ -42,7 +42,7 @@ public:
         db.setDatabaseName(dbPath);
     }
 
-    /// \brief Copys and renames a database
+    /// Copys and renames a database
     void createBackup()
     {
         if (QFile(dbPath).exists())
@@ -57,7 +57,7 @@ private:
 
     OTMiscellaneous misc;
 
-    /// \brief Opens a database
+    /// Opens a database
     bool open()
     {
         if (!db.open())
@@ -66,7 +66,7 @@ private:
         return true;
     }
 
-    /// \brief Executes an action
+    /// Executes an action
     QSqlQuery query(QString action)
     {
         lastError = "";

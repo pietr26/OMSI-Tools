@@ -29,7 +29,7 @@ wDevTools::~wDevTools()
     delete ui;
 }
 
-/// \brief Get list of Items
+/// Get list of Items
 void wDevTools::on_btnGetListOfFiles_clicked()
 {
     qDebug() << "Start to get list of files...";
@@ -60,7 +60,7 @@ void wDevTools::on_btnGetListOfFiles_clicked()
     }
 }
 
-/// \brief Get keywords of files
+/// Get keywords of files
 void wDevTools::on_btnGetKeywords_clicked()
 {
     QStringList files = QFileDialog::getOpenFileNames(this, "Select files to analyse", set.read("main", "mainDir").toString(), omsiFilesFilter);
@@ -129,13 +129,13 @@ void wDevTools::on_btnGetKeywords_clicked()
     }
 }
 
-/// \brief Select the file output path
+/// Select the file output path
 void wDevTools::on_tbnOutputPathSelection_clicked()
 {
     ui->ledOutputPath->setText(QFileDialog::getExistingDirectory(this, "Select path..."));
 }
 
-/// \brief Pushes text to view
+/// Pushes text to view
 bool wDevTools::pushToOutput(QString result)
 {
     try
@@ -168,7 +168,7 @@ bool wDevTools::pushToOutput(QString result)
 
 }
 
-/// \brief Controls visible of elements
+/// Controls visible of elements
 void wDevTools::setOutputVisible(bool mode)
 {
     if (mode)
@@ -185,7 +185,7 @@ void wDevTools::setOutputVisible(bool mode)
     }
 }
 
-/// \brief Counts lines
+/// Counts lines
 void wDevTools::on_btnLineCounter_clicked()
 {
     countLinesFiles.append(QFileDialog::getOpenFileNames(this, "Select files to analyse", set.read("main", "mainDir").toString(), omsiFilesFilter));
@@ -255,19 +255,19 @@ void wDevTools::on_btnLineCounterStart_clicked()
     ui->btnLineCounterStart->setText("Start");
 }
 
-/// \brief Catches click at 'Output to GUI'
+/// Catches click at 'Output to GUI'
 void wDevTools::on_rbnOutputToGUI_clicked()
 {
     setOutputVisible(true);
 }
 
-/// \brief Catches click at 'Output to File'
+/// Catches click at 'Output to File'
 void wDevTools::on_rbnOutputToFile_clicked()
 {
     setOutputVisible(false);
 }
 
-/// \brief Lists alls sound files from a sound.cfg
+/// Lists alls sound files from a sound.cfg
 void wDevTools::on_btnSoundFileLister_clicked()
 {
     QStringList files = QFileDialog::getOpenFileNames(this, "Select files to analyse", set.read("main", "mainDir").toString(), "OMSI sound files (*.cfg)");

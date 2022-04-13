@@ -7,17 +7,18 @@
 #include <QFile>
 #include "OTBackend/OTLogger.h"
 
-/// \brief Test area for anything
+/// Test area for anything
 void testArea()
 {
 
 }
 
-/// \brief Main function
+/// Main function
 int main(int argc, char *argv[])
 {
     OTSettings set;
     OTMiscellaneous misc;
+    OTFileOperations fop;
 
     QString newName;
     bool isCrash = false;
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
         QMessageBox::StandardButton reply = QMessageBox::question(NULL, QObject::tr("Crash detected"), QObject::tr("%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.\nOpen the path of the logfile?").arg(OTName));
 
         if (reply == QMessageBox::Yes)
-            misc.showInExplorer(newName);
+            fop.showInExplorer(newName);
     }
     else
         qDebug() << "No crash detected.";

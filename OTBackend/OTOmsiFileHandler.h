@@ -121,7 +121,7 @@ public:
     }
 };
 
-/// \brief Contains all informations about a font character
+/// Contains all informations about a font character
 class OTCharacterModel
 {
 public:
@@ -141,7 +141,7 @@ public:
     QString comment;
 };
 
-/// \brief Contains all informations about a font
+/// Contains all informations about a font
 class OTFontModel
 {
 public:
@@ -194,7 +194,7 @@ public:
 
     QStringList preDefiniedLocalVariables;
 
-    /// \brief Returns a QStringList with all variables - needs an absoulute path
+    /// Returns a QStringList with all variables - needs an absoulute path
     QStringList readVarlist(QString path)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
@@ -212,7 +212,7 @@ public:
         return variables;
     }
 
-    /// \brief verify a list of sceneryobjects
+    /// verify a list of sceneryobjects
     void verifyObjects(QStringList &objects)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
@@ -492,7 +492,7 @@ public:
         }
     }
 
-    /// \brief verify a list of splines
+    /// verify a list of splines
     void verifySplines(QStringList &splines)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
@@ -572,7 +572,7 @@ public:
         }
     }
 
-    /// \brief Checks if a texture exists
+    /// Checks if a texture exists
     bool checkTexture(QString fullPath, QString relPath)
     {
         QString tempPath = fullPath;
@@ -596,19 +596,19 @@ public:
         return true;
     }
 
-    /// \brief Sets the map path
+    /// Sets the map path
     void setMapPath(QString path)
     {
         mapPath = path;
     }
 
-    /// \brief Resturns the map path
+    /// Resturns the map path
     QString getMapPath()
     {
         return mapPath;
     }
 
-    /// \brief Returns results from global.cfg
+    /// Returns results from global.cfg
     QString readGlobal(QString param, QWidget *parent = 0, int readLine = 1)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
@@ -618,7 +618,7 @@ public:
         QFile global(mapPath);
         if (!global.open(QFile::ReadOnly | QFile::Text))
         {
-            msg.errorWhileOpeningOmsi(parent, mapPath);
+            msg.fileOpenErrorCloseOMSI(parent, mapPath);
             qDebug().noquote() << "Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
             return "ERR";
         }
@@ -644,7 +644,7 @@ public:
         return "?";
     }
 
-    /// \brief Gets tiles from a map
+    /// Gets tiles from a map
     void getTiles(QWidget *parent = 0)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
@@ -652,7 +652,7 @@ public:
         QFile global(mapPath);
         if (!global.open(QFile::ReadOnly | QFile::Text))
         {
-            msg.errorWhileOpeningOmsi(parent, mapPath);
+            msg.fileOpenErrorCloseOMSI(parent, mapPath);
             return;
         }
 
@@ -708,7 +708,7 @@ public:
         global.close();
     }
 
-    /// \brief Gets items from a map
+    /// Gets items from a map
     void getItems(QStringList &tiles)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
@@ -844,7 +844,7 @@ public:
 
     }
 
-    /// \brief Get vehicles of a map
+    /// Get vehicles of a map
     void getVehicles(QWidget *parent = 0)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
@@ -867,7 +867,7 @@ public:
             QFile aiListFile(aiList);
             if (!aiListFile.open(QFile::ReadOnly | QFile::Text))
             {
-                msg.errorWhileOpeningOmsi(parent, "ailists.cfg");
+                msg.fileOpenErrorCloseOMSI(parent, "ailists.cfg");
                 return;
             }
 
@@ -945,7 +945,7 @@ public:
         }
     }
 
-    /// \brief Get humans of a map
+    /// Get humans of a map
     void getHumans(QWidget *parent = 0)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
@@ -962,7 +962,7 @@ public:
             QFile humans(filePath);
             if (!humans.open(QFile::ReadOnly | QFile::Text))
             {
-                msg.errorWhileOpeningOmsi(parent, QFileInfo(humans).absoluteFilePath());
+                msg.fileOpenErrorCloseOMSI(parent, QFileInfo(humans).absoluteFilePath());
                 return;
             }
 
@@ -996,7 +996,7 @@ public:
         }
     }
 
-    /// \brief Checks if the texture layers of a map exists
+    /// Checks if the texture layers of a map exists
     void checkTextureLayers(QWidget *parent = 0)
     {
         QStringList globalTextures;
@@ -1004,7 +1004,7 @@ public:
         QFile global(getMapPath());
         if (!global.open(QFile::ReadOnly | QFile::Text))
         {
-            msg.errorWhileOpeningOmsi(parent, getMapPath());
+            msg.fileOpenErrorCloseOMSI(parent, getMapPath());
             return;
         }
 
@@ -1041,7 +1041,7 @@ public:
         }
     }
 
-    /// \brief Opens a font
+    /// Opens a font
     OTFontModel openFont(QString path, bool utf8encoding = false)
     {
         OTFontModel font;
@@ -1129,7 +1129,7 @@ public:
         return font;
     }
 
-    /// \brief Saves a font
+    /// Saves a font
     bool saveFont(OTFontModel font, bool utf8encoding = false)
     {
         QFile file(font.path);
@@ -1148,7 +1148,7 @@ public:
             out.setEncoding(QStringConverter::Utf8);
         }
 
-        out << misc.writeFileHeader();
+        out << fop.writeFileHeader();
 
         QString extraHashs = "##";
 
@@ -1209,6 +1209,7 @@ public:
 private:
     OTSettings set;
     OTMiscellaneous misc;
+    OTFileOperations fop;
     QString mapPath;
     OTMessage msg;
     int cutCount = set.read("main", "mainDir").toString().count() + 1;

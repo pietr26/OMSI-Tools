@@ -42,7 +42,7 @@ void dIgnoreList::closeEvent(QCloseEvent *event)
     qInfo().noquote() << moduleName + " is closing...";
 }
 
-///// \brief Saves the ignoreList
+///// Saves the ignoreList
 void dIgnoreList::save()
 {
     qDebug() << "Save ignorelist...";
@@ -63,13 +63,13 @@ void dIgnoreList::save()
     qInfo() << "Ignorelist successfully saved!";
 }
 
-/// \brief Closes ignoreList dialog
+/// Closes ignoreList dialog
 void dIgnoreList::on_btnCancel_clicked()
 {
     close();
 }
 
-/// \brief Adds files to lwgIgnoreList
+/// Adds files to lwgIgnoreList
 void dIgnoreList::on_btnAddFiles_clicked()
 {
     QStringList files = QFileDialog::getOpenFileNames(this, tr("Select files..."), set.read("main", "mainDir").toString());
@@ -111,7 +111,7 @@ void dIgnoreList::on_btnAddFiles_clicked()
     qInfo() << "Successfully added files!";
 }
 
-/// \brief Removes selected items
+/// Removes selected items
 void dIgnoreList::on_btnRemove_clicked()
 {
     if (ui->lwgIgnoreList->selectedItems().count() != 0)
@@ -124,14 +124,14 @@ void dIgnoreList::on_btnRemove_clicked()
         }
 }
 
-/// \brief Saves and closes the ignoreList dialog
+/// Saves and closes the ignoreList dialog
 void dIgnoreList::on_btnSave_clicked()
 {
     save();
     close();
 }
 
-/// \brief Removes all items from the ignoreList
+/// Removes all items from the ignoreList
 void dIgnoreList::on_btnRemoveAll_clicked()
 {
     if (msg.confirmDeletion(this))

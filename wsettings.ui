@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>707</width>
-    <height>701</height>
+    <height>713</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -293,13 +293,6 @@
             <widget class="QLabel" name="lblDiskUsageSize">
              <property name="text">
               <string notr="true">size</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="lblDiskUsageUnit">
-             <property name="text">
-              <string notr="true">unit</string>
              </property>
             </widget>
            </item>

@@ -25,7 +25,7 @@ wBugRepot::~wBugRepot()
     delete ui;
 }
 
-/// \brief Image upload finished
+/// Image upload finished
 void wBugRepot::replyFinished(QNetworkReply *test)
 {
     QString replyContent = test->readAll();
@@ -39,7 +39,7 @@ void wBugRepot::replyFinished(QNetworkReply *test)
     qDebug() << replyContent;
 }
 
-/// \brief Closes the window
+/// Closes the window
 void wBugRepot::on_actionClose_triggered()
 {
     close();
@@ -76,7 +76,7 @@ QHttpMultiPart *buildMultpart(const QVariantMap & data, const QMap<QString, QStr
     return multipart;
 }
 
-/// \brief Sends the feeback
+/// Sends the feeback
 void wBugRepot::on_actionSend_triggered()
 {
     qDebug() << "Send feeback...";

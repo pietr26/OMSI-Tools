@@ -25,7 +25,7 @@ wFonts::wFonts() :
         autosaveDuration = 15;
     timer->start(autosaveDuration * 1000);
 
-    misc.checkBackupFolderExistance();
+    fop.createBackupFolder();
 
     // Set Comboboxes
     ui->cobxEncoding->addItem("ANSI");
@@ -112,7 +112,7 @@ void wFonts::dropEvent(QDropEvent *e)
         open(OTFileMethods::open, fileName);
 }
 
-/// \brief Resize slot
+/// Resize slot
 void wFonts::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
@@ -120,62 +120,62 @@ void wFonts::resizeEvent(QResizeEvent *event)
     resizeTexPreview();
 }
 
-/// \brief Deletes current char
+/// Deletes current char
 void wFonts::on_btnDeleteSelection_clicked()
 {
     wFonts::on_actionDeleteSelection_triggered();
 }
 
-/// \brief Creates a new char
+/// Creates a new char
 void wFonts::on_btnNewChar_clicked()
 {
     on_actionNewChar_triggered();
 }
 
-/// \brief Moves current char up
+/// Moves current char up
 void wFonts::on_btnMoveUp_clicked()
 {
     on_actionMoveCharUp_triggered();
 }
 
-/// \brief Moves current char down
+/// Moves current char down
 void wFonts::on_btnMoveDown_clicked()
 {
     on_actionMoveCharDown_triggered();
 }
 
-/// \brief Opens a font
+/// Opens a font
 void wFonts::on_actionOpen_triggered()
 {
     open(OTFileMethods::open);
 }
 
-/// \brief Reloads a font
+/// Reloads a font
 void wFonts::on_actionReload_triggered()
 {
     if (font.path != "")
         open(OTFileMethods::reOpen, font.path);
 }
 
-/// \brief Saves a font
+/// Saves a font
 void wFonts::on_actionSave_triggered()
 {
     save(OTFileMethods::save, font.path);
 }
 
-/// \brief Saves a font in a specific path
+/// Saves a font in a specific path
 void wFonts::on_actionSaveAs_triggered()
 {
     save(OTFileMethods::saveAs, font.path);
 }
 
-/// \brief Enables or diables the whole window
+/// Enables or diables the whole window
 void wFonts::enableView(bool status)
 {
     centralWidget()->setEnabled(status);
 }
 
-/// \brief Loads recent files from settings
+/// Loads recent files from settings
 void wFonts::loadRecentFiles()
 {
     qDebug() << "Read recent files...";
@@ -221,7 +221,7 @@ void wFonts::loadRecentFiles()
     }
 }
 
-/// \brief Saves recent files to settings
+/// Saves recent files to settings
 void wFonts::saveRecentFiles(QString absoluteNewFilePath)
 {
     qDebug() << "Save recent files...";
@@ -240,7 +240,7 @@ void wFonts::saveRecentFiles(QString absoluteNewFilePath)
     loadRecentFiles();
 }
 
-/// \brief Sets unsaved state for current session
+/// Sets unsaved state for current session
 void wFonts::setUnsaved(bool state)
 {
     if (state)
@@ -249,7 +249,7 @@ void wFonts::setUnsaved(bool state)
         unsaved = false;
 }
 
-/// \brief Check current char for errors
+/// Check current char for errors
 void wFonts::reloadValidProperty()
 {
     ui->lblFontName->setStyleSheet("");
@@ -288,7 +288,7 @@ void wFonts::reloadValidProperty()
     }
 }
 
-/// \brief Checks current char
+/// Checks current char
 void wFonts::checkCurrentChar()
 {
     if (font.charList.count() == 0)
@@ -350,7 +350,7 @@ void wFonts::checkCurrentChar()
     }
 }
 
-/// \brief Saves the font automatically
+/// Saves the font automatically
 void wFonts::autosave()
 {
     if ((set.read("main", "autosave") == "true") && (font.charList.count() != 0))
@@ -360,7 +360,7 @@ void wFonts::autosave()
     }
 }
 
-/// \brief Clear the whole font
+/// Clear the whole font
 void wFonts::selectAllAndClear(bool onlyChar)
 {
     if (!onlyChar)
@@ -388,7 +388,7 @@ void wFonts::selectAllAndClear(bool onlyChar)
     enableFontArea(false);
 }
 
-/// \brief Moves cursor / chars up / down
+/// Moves cursor / chars up / down
 void wFonts::move(int selection, QString action)
 {
     if ((selection == 0 && action == "UP") || (selection > font.charList.count() - 1 && action == "DOWN"))
@@ -413,7 +413,7 @@ void wFonts::move(int selection, QString action)
     ui->lvwChars->setCurrentIndex(strListChars->index(moving));
 }
 
-/// \brief Enables or disables any objects for char editing
+/// Enables or disables any objects for char editing
 void wFonts::enableFontArea(bool status)
 {
     ui->ledCharacter->setEnabled(status);
@@ -440,7 +440,7 @@ void wFonts::enableFontArea(bool status)
     }
 }
 
-/// \brief Opens a font
+/// Opens a font
 void wFonts::open(OTFileMethods::fileMethods method, QString filen)
 {
     if (unsaved)
@@ -497,7 +497,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen)
     if (tempFont.error)
     {
         if (method != OTFileMethods::silentOpen)
-            msg.errorWhileOpeningOmsi(this, tempFont.path);
+            msg.fileOpenErrorCloseOMSI(this, tempFont.path);
         return;
     }
     else if (tempFont.moreThanOneFont)
@@ -546,7 +546,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen)
     qDebug() << "Font opened.";
 }
 
-/// \brief Updates the UI charlist
+/// Updates the UI charlist
 void wFonts::reloadCharList(bool addChar)
 {
     charListUpdate = true;
@@ -579,7 +579,7 @@ void wFonts::reloadCharList(bool addChar)
     charListUpdate = false;
 }
 
-/// \brief Saves a font
+/// Saves a font
 QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
 {
     if (font.charList.count() != 0)
@@ -659,7 +659,7 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
     return "";
 }
 
-/// \brief Set window title to current font path
+/// Set window title to current font path
 void wFonts::setTitle(QString filen)
 {
     if (filen == "empty")
@@ -668,7 +668,7 @@ void wFonts::setTitle(QString filen)
         wFonts::setWindowTitle(OTName + " - " + tr("fonts") + " (" + filen + ")");
 }
 
-/// \brief Ceates a new font
+/// Ceates a new font
 void wFonts::on_actionNewFont_triggered()
 {
     if (unsaved)
@@ -691,14 +691,14 @@ void wFonts::on_actionNewFont_triggered()
     setUnsaved(false);
 }
 
-/// \brief Shows find char section
+/// Shows find char section
 void wFonts::on_actionFindChar_triggered()
 {
     ui->gbxSearchChar->setVisible(true);
     ui->ledSearch->setFocus();
 }
 
-/// \brief Jumps to next invalid char
+/// Jumps to next invalid char
 void wFonts::on_actionGoToNextError_triggered()
 {
     qDebug() << "Go to next error...";
@@ -775,7 +775,7 @@ void wFonts::on_actionGoToNextError_triggered()
     qInfo() << "Could not found any errors.";
 }
 
-/// \brief Deletes selected char
+/// Deletes selected char
 void wFonts::on_actionDeleteSelection_triggered()
 {
     if (msg.confirmDeletion(this))
@@ -798,7 +798,7 @@ void wFonts::on_actionDeleteSelection_triggered()
     }
 }
 
-/// \brief Shows the settings
+/// Shows the settings
 void wFonts::on_actionSettings_triggered()
 {
     WSETTINGS = new wSettings(this);
@@ -806,7 +806,7 @@ void wFonts::on_actionSettings_triggered()
     WSETTINGS->show();
 }
 
-/// \brief Moves char up
+/// Moves char up
 void wFonts::on_actionMoveCharUp_triggered()
 {
     if (font.charList.count() != 0)
@@ -816,7 +816,7 @@ void wFonts::on_actionMoveCharUp_triggered()
     }
 }
 
-/// \brief Moves char down
+/// Moves char down
 void wFonts::on_actionMoveCharDown_triggered()
 {
     if (ui->lvwChars->currentIndex().row() != font.charList.count() - 1)
@@ -826,7 +826,7 @@ void wFonts::on_actionMoveCharDown_triggered()
     }
 }
 
-/// \brief Closes the module
+/// Closes the module
 void wFonts::on_actionClose_triggered()
 {
     if (unsaved)
@@ -841,7 +841,7 @@ void wFonts::on_actionClose_triggered()
     close();
 }
 
-/// \brief Shows fileDialog for color texture
+/// Shows fileDialog for color texture
 void wFonts::on_btnColorTexture_clicked()
 {
      QString filename = QFileDialog::getOpenFileName(this, tr("Select color texture..."), set.read("main", "mainDir").toString() + "/Fonts", tr("Bitmap picture") + " (*.bmp)");
@@ -860,7 +860,7 @@ void wFonts::on_btnColorTexture_clicked()
      ui->ledColorTexture->setText(font.colorTexture);
 }
 
-/// \brief Shows fileDialog for alpha texture
+/// Shows fileDialog for alpha texture
 void wFonts::on_btnAlphaTexture_clicked()
 {
     QString filename = QFileDialog::getOpenFileName(this, tr("Select alpha texture..."), set.read("main", "mainDir").toString() + "/Fonts", tr("Bitmap picture") + " (*.bmp)");
@@ -878,7 +878,7 @@ void wFonts::on_btnAlphaTexture_clicked()
     ui->ledAlphaTexture->setText(font.alphaTexture);
 }
 
-/// \brief Adds a new char
+/// Adds a new char
 void wFonts::on_actionNewChar_triggered()
 {
     qDebug() << "Add new char...";
@@ -894,7 +894,7 @@ void wFonts::on_actionNewChar_triggered()
     ui->ledCharacter->setFocus();
 }
 
-/// \brief Loads a template
+/// Loads a template
 void wFonts::on_actionLoadTemplate_triggered()
 {
     if (unsaved)
@@ -949,7 +949,7 @@ void wFonts::on_actionLoadTemplate_triggered()
     delete selection;
 }
 
-/// \brief Switches the encding of the font
+/// Switches the encding of the font
 void wFonts::on_cobxEncoding_currentTextChanged()
 {
     if (ui->cobxEncoding->currentIndex() == 1)
@@ -960,7 +960,7 @@ void wFonts::on_cobxEncoding_currentTextChanged()
     setUnsaved();
 }
 
-/// \brief Slot for character changes
+/// Slot for character changes
 void wFonts::on_ledCharacter_textChanged(const QString &arg1)
 {
     if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
@@ -974,7 +974,7 @@ void wFonts::on_ledCharacter_textChanged(const QString &arg1)
     setUnsaved();
 }
 
-/// \brief Slot for comment changes
+/// Slot for comment changes
 void wFonts::on_ledComment_textChanged(const QString &arg1)
 {
     if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
@@ -987,7 +987,7 @@ void wFonts::on_ledComment_textChanged(const QString &arg1)
     setUnsaved();
 }
 
-/// \brief Sets current font name
+/// Sets current font name
 void wFonts::on_ledFontName_textChanged(const QString &arg1)
 {
     font.name = arg1;
@@ -996,7 +996,7 @@ void wFonts::on_ledFontName_textChanged(const QString &arg1)
     setUnsaved();
 }
 
-/// \brief Sets current color texture
+/// Sets current color texture
 void wFonts::on_ledColorTexture_textChanged(const QString &arg1)
 {
     font.colorTexture = arg1;
@@ -1008,7 +1008,7 @@ void wFonts::on_ledColorTexture_textChanged(const QString &arg1)
     qDebug() << "BLA.";
 }
 
-/// \brief Sets current alpha texture
+/// Sets current alpha texture
 void wFonts::on_ledAlphaTexture_textChanged(const QString &arg1)
 {
     font.alphaTexture = arg1;
@@ -1019,7 +1019,7 @@ void wFonts::on_ledAlphaTexture_textChanged(const QString &arg1)
     loadTexPreview();
 }
 
-/// \brief Sets current maximum height of characters
+/// Sets current maximum height of characters
 void wFonts::on_sbxMaxHeigthOfChars_textChanged(const QString &arg1)
 {
     font.maxHeightOfChars = arg1.toInt();
@@ -1028,7 +1028,7 @@ void wFonts::on_sbxMaxHeigthOfChars_textChanged(const QString &arg1)
     setUnsaved();
 }
 
-/// \brief Sets current distance between characters
+/// Sets current distance between characters
 void wFonts::on_sbxDistanceBetweenChars_textChanged(const QString &arg1)
 {
     font.distanceBetweenChars = arg1.toInt();
@@ -1037,7 +1037,7 @@ void wFonts::on_sbxDistanceBetweenChars_textChanged(const QString &arg1)
     setUnsaved();
 }
 
-/// \brief Changes UI to current character
+/// Changes UI to current character
 void wFonts::on_lvwChars_pressed(const QModelIndex &index)
 {
     Q_UNUSED(index);
@@ -1046,7 +1046,7 @@ void wFonts::on_lvwChars_pressed(const QModelIndex &index)
     reloadCharUI();
 }
 
-/// \brief Is connected with a change in the char view
+/// Is connected with a change in the char view
 void wFonts::charSelectionChanged(const QModelIndex &newSel, const QModelIndex &oldSel)
 {
     Q_UNUSED(newSel);
@@ -1056,7 +1056,7 @@ void wFonts::charSelectionChanged(const QModelIndex &newSel, const QModelIndex &
         on_lvwChars_pressed(QModelIndex());
 }
 
-/// \brief Reloads the char properties
+/// Reloads the char properties
 void wFonts::reloadCharUI()
 {
     charUIUpdate = true;
@@ -1085,7 +1085,7 @@ void wFonts::reloadCharUI()
     charUIUpdate = false;
 }
 
-/// \brief Copy a list of all chars
+/// Copy a list of all chars
 void wFonts::on_actionCopyChars_triggered()
 {
     qInfo() << "Copy chars...";
@@ -1100,7 +1100,7 @@ void wFonts::on_actionCopyChars_triggered()
 
 }
 
-/// \brief Shows current font file in explorer
+/// Shows current font file in explorer
 void wFonts::on_actionShowInExplorer_triggered()
 {
     if (QFile(font.path).exists())
@@ -1115,7 +1115,7 @@ void wFonts::on_actionShowInExplorer_triggered()
         ui->statusbar->showMessage(tr("The font file (still) doesn't exist."), 4000);
 }
 
-/// \brief Finds a char
+/// Finds a char
 void wFonts::on_btnFind_clicked()
 {
     if (font.charList.count() == 0)
@@ -1152,7 +1152,7 @@ void wFonts::on_btnFind_clicked()
     ui->btnNextResult->setEnabled(false);
 }
 
-/// \brief Finds next search result
+/// Finds next search result
 void wFonts::on_btnNextResult_clicked()
 {
     qDebug() << "Go to next search result";
@@ -1220,14 +1220,14 @@ void wFonts::on_btnNextResult_clicked()
     }
 }
 
-/// \brief Hides the search box
+/// Hides the search box
 void wFonts::on_btnCloseSearch_clicked()
 {
     ui->gbxSearchChar->setVisible(false);
     currentSearch = "";
 }
 
-/// \brief Enables or disables the search elements
+/// Enables or disables the search elements
 void wFonts::on_ledSearch_textChanged(const QString &arg1)
 {
     ui->btnFind->setEnabled(arg1.count() == 1);
@@ -1235,16 +1235,16 @@ void wFonts::on_ledSearch_textChanged(const QString &arg1)
     currentSearch = arg1;
 }
 
-/// \brief Searchs a char
+/// Searchs a char
 void wFonts::on_ledSearch_returnPressed()
 {
     on_btnFind_clicked();
 }
 
-/// \brief Opens bug report module
+/// Opens bug report module
 void wFonts::on_actionSendFeedback_triggered()
 {
-    OTMiscellaneous::sendFeedback();
+    misc.sendFeedback();
 }
 
 

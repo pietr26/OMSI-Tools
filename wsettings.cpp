@@ -25,11 +25,11 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
 
     // cobxLanguage
     int languageIndex = set.read("main", "language").toInt();
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), set.langEn); // 0
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), set.langDe); // 1
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), set.langFr); // 2
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/it.svg"), set.langIt); // 3
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cz.svg"), set.langCz); // 4
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), OTStrings::langEn); // 0
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), OTStrings::langDe); // 1
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), OTStrings::langFr); // 2
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/it.svg"), OTStrings::langIt); // 3
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cz.svg"), OTStrings::langCz); // 4
 
     // Disable 'it'
     auto* model3 = qobject_cast<QStandardItemModel*>(ui->cobxLanguage->model());
@@ -53,7 +53,6 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
 
     // lblDiskUsage
     ui->lblDiskUsageSize->setText(tr("Calculating..."));
-    ui->lblDiskUsageUnit->setText("");
     refreshDiskUsage();
 
     // sbxAutosaveDuration
@@ -134,7 +133,7 @@ void wSettings::closeEvent (QCloseEvent *event)
     qInfo().noquote() << moduleName + " is closing...";
 }
 
-/// \brief Sets unsaved
+/// Sets unsaved
 void wSettings::setUnsaved(bool visible)
 {
     if (visible)
@@ -145,20 +144,19 @@ void wSettings::setUnsaved(bool visible)
     ui->btnRestart->setVisible(visible);
 }
 
-/// \brief Refreshes disk usage for backup folder
+/// Refreshes disk usage for backup folder
 void wSettings::refreshDiskUsage()
 {
-    ui->lblDiskUsageSize->setText(dUs.formatSize("backup", false));
-    ui->lblDiskUsageUnit->setText(dUs.currentUnit);
+    ui->lblDiskUsageSize->setText(dUs.formatSize("backup"));
 }
 
-/// \brief Closes the application
+/// Closes the application
 void wSettings::on_btnClose_clicked()
 {
     close();
 }
 
-/// \brief Deletes the backup folder
+/// Deletes the backup folder
 void wSettings::on_btnDeleteAllBackups_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Delete all backups"), tr("Should all backups be deleted? They will be moved to the recycle bin."));
@@ -172,7 +170,7 @@ void wSettings::on_btnDeleteAllBackups_clicked()
     }
 }
 
-/// \brief Opens the backup folder
+/// Opens the backup folder
 void wSettings::on_btnOpenBackupFolder_clicked()
 {
     QDir().mkdir("backup");
@@ -182,7 +180,7 @@ void wSettings::on_btnOpenBackupFolder_clicked()
     QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 }
 
-/// \brief Saves and restarts the application
+/// Saves and restarts the application
 void wSettings::on_btnRestart_clicked()
 {
 //    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Restart now?"), tr("Should the application be restarted now? Any unsaved content will be discarded."));
@@ -191,7 +189,7 @@ void wSettings::on_btnRestart_clicked()
         misc.restart();
 }
 
-/// \brief Checks for updates
+/// Checks for updates
 void wSettings::on_btnCheckForUpdates_clicked()
 {
     QStringList update = misc.getUpdateInformation();
@@ -206,7 +204,7 @@ void wSettings::on_btnCheckForUpdates_clicked()
     }
 }
 
-/// \brief Resets the settings
+/// Resets the settings
 void wSettings::on_btnResetSettings_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Reset settings"), tr("Should all settings be reset? This action cannot be undone!"));
@@ -219,13 +217,13 @@ void wSettings::on_btnResetSettings_clicked()
     }
 }
 
-/// \brief Creates a desktop shortcut
+/// Creates a desktop shortcut
 void wSettings::on_btnCreateDesktopShortcut_clicked()
 {
-    misc.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/%1.lnk").arg(OTName), this);
+    fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/%1.lnk").arg(OTName), this);
 }
 
-/// \brief Changes and saves the theme (live)
+/// Changes and saves the theme (live)
 void wSettings::on_cobxTheme_currentIndexChanged(int index)
 {
     if (setupFinished)
@@ -243,7 +241,7 @@ void wSettings::on_cobxTheme_currentIndexChanged(int index)
     }
 }
 
-/// \brief Saves the language
+/// Saves the language
 void wSettings::on_cobxLanguage_currentIndexChanged(int index)
 {
     if (setupFinished)
@@ -253,14 +251,16 @@ void wSettings::on_cobxLanguage_currentIndexChanged(int index)
     }
 }
 
-/// \brief Sets OMSI path
+/// Sets OMSI path
 void wSettings::on_btnOmsiPath_clicked()
 {
-    ui->ledOmsiPath->setText(set.selectOMSIMainDir(this, ui->ledOmsiPath->text()));
+    QString mainDir = set.getOmsiPath(this, ui->ledOmsiPath->text());
+    ui->ledOmsiPath->setText(mainDir);
+    set.write("main", "mainDir", mainDir);
     setUnsaved(true);
 }
 
-/// \brief Saves the autosave duration
+/// Saves the autosave duration
 void wSettings::on_sbxAutosaveDuration_valueChanged(int arg1)
 {
     if (setupFinished)
@@ -270,7 +270,7 @@ void wSettings::on_sbxAutosaveDuration_valueChanged(int arg1)
     }
 }
 
-/// \brief Saves deletion confirmation
+/// Saves deletion confirmation
 void wSettings::on_cbxConfirmDeletion_clicked()
 {
     if (setupFinished)
@@ -280,7 +280,7 @@ void wSettings::on_cbxConfirmDeletion_clicked()
     }
 }
 
-/// \brief Saves the author's name
+/// Saves the author's name
 void wSettings::on_ledAuthor_textChanged(const QString &arg1)
 {
     if (setupFinished)
@@ -290,7 +290,7 @@ void wSettings::on_ledAuthor_textChanged(const QString &arg1)
     }
 }
 
-/// \brief Turns autosave on / off
+/// Turns autosave on / off
 void wSettings::on_gbxAutosave_clicked()
 {
     if (ui->gbxAutosave->isChecked())
@@ -302,13 +302,13 @@ void wSettings::on_gbxAutosave_clicked()
     setUnsaved(true);
 }
 
-/// \brief Opens the logfile path in explorer
+/// Opens the logfile path in explorer
 void wSettings::on_btnOpenLogfilePath_clicked()
 {
-    misc.showInExplorer(qApp->applicationDirPath() + "/logfile.txt");
+    fop.showInExplorer(qApp->applicationDirPath() + "/logfile.txt");
 }
 
-/// \brief Shows a promotion to apply to a translator
+/// Shows a promotion to apply to a translator
 void wSettings::on_btnMoreLanguages_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::information(this, tr("More languages"), tr("You want to have more languages to choose from?\nUnfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.").arg(OTName), QMessageBox::Open | QMessageBox::Close);
@@ -317,7 +317,7 @@ void wSettings::on_btnMoreLanguages_clicked()
         QDesktopServices::openUrl(OTLinks::wipThread);
 }
 
-/// \brief Saves the update check
+/// Saves the update check
 void wSettings::on_cobxAutoUpdateCheck_currentIndexChanged(int index)
 {
     if (setupFinished)
@@ -327,7 +327,7 @@ void wSettings::on_cobxAutoUpdateCheck_currentIndexChanged(int index)
     }
 }
 
-/// \brief Saves the logfile mode
+/// Saves the logfile mode
 void wSettings::on_cobxLogfileMode_currentIndexChanged(int index)
 {
     if (setupFinished)

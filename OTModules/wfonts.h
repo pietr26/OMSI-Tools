@@ -136,6 +136,7 @@ private:
     OTMessage msg;
     OTSettings set;
     OTMiscellaneous misc;
+    OTFileOperations fop;
     OTOMSIFileHandler filehandler;
     QTimer *timer;
 
