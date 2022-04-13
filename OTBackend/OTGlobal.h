@@ -66,7 +66,7 @@ public:
 // Create OTConfig class?
 
 const QString OTName = "OMSI-Tools";
-const QString OTVersion = "0.11.0-beta";
+const QString OTVersion = "1.0.0-beta";
 const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Beta;
 
 // Unsaved code for closeEvents:
