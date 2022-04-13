@@ -68,10 +68,6 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
 
     qInfo().noquote() << moduleName + " started";
 
-    //#ifndef QT_DEBUG
-    //    msg.moduleDeactivated(this);
-    //    QTimer::singleShot(1, this, SLOT(close()));
-    //#endif
 
     // Preview:
     {
