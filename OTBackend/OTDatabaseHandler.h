@@ -1,6 +1,6 @@
 #ifndef OTDATABASEHANDLER_H
 #define OTDATABASEHANDLER_H
-#include "OTBackend/OTGlobal.h"
+#include "OTGlobal.h"
 #include <QtSql>
 #include <QSqlDriver>
 #include <QDebug>

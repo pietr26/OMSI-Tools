@@ -2,7 +2,7 @@
 #define WFONTS_H
 
 #include <QMainWindow>
-#include "wsettings.h"
+#include "OTModules/OTGeneric/wsettings.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
 #include <QListWidgetItem>

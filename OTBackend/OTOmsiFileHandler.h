@@ -1,6 +1,6 @@
 #ifndef OTOMSIFILEHANDLER_H
 #define OTOMSIFILEHANDLER_H
-#include "OTBackend/OTGlobal.h"
+#include "OTGlobal.h"
 #include <QTextStream>
 #include <QFile>
 #include <QDebug>

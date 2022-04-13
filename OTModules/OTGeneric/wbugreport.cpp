@@ -1,5 +1,5 @@
-#include "wbugrepot.h"
-#include "ui_wbugrepot.h"
+#include "wbugreport.h"
+#include "ui_wbugreport.h"
 
 wBugRepot::wBugRepot(QWidget *parent) :
     QMainWindow(parent),

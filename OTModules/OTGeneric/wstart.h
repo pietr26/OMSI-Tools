@@ -2,21 +2,21 @@
 #define WSTART_H
 
 #include <QMainWindow>
-#include "wsettings.h"
+#include "OTModules/OTGeneric/wsettings.h"
 #include "OTModules/wfonts.h"
 #include "OTModules/wVerifyMap/wverifymap.h"
 #include "OTBackend/OTGlobal.h"
-#include "wabout.h"
-#include "OTModules/wdevtools.h"
+#include "OTModules/OTGeneric/wabout.h"
+#include "OTModules/OTInternals/wdevtools.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTModules/wContentSearch/wDBPanel.h"
-#include "wchangelog.h"
+#include "OTModules/OTGeneric/wchangelog.h"
 #include <QMessageBox>
 #include <QDebug>
 #include <QTimer>
 #include <QCloseEvent>
 #include <OTModules/wFbh/wfbh.h>
-#include <OTModules/wstyletest.h>
+#include <OTModules/OTInternals/wstyletest.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class wStart; }
