@@ -13,6 +13,14 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 
     setWindowTitle(OTName + " - " + tr("map verify"));
 
+    // Set default settings
+    if (!set.read(moduleName, "advVerifying").isValid())
+        set.write(moduleName, "advVerifying", false);
+
+    if (!set.read(moduleName, "onlyMapTextures").isValid())
+        set.write(moduleName, "onlyMapTextures", false);
+
+    // ---
     ui->hlaTiles->insertWidget(1, new verifyMapTools(ui->lwgHumansAll, ui->lwgHumansMissing, this));
     ui->hlaTextures->insertWidget(1, new verifyMapTools(ui->lwgTexturesAll, ui->lwgTexturesMissing, this));
     ui->hlaObjects->insertWidget(1, new verifyMapTools(ui->lwgObjectsAll, ui->lwgObjectsMissing, this));
@@ -391,9 +399,9 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.stuffobj.existing.humans = iglF.check(filehandler.stuffobj.existing.humans, ignoredHumans);
 
     // TEX:
-    if ((set.read(moduleName, "onlyMapTextures") == "false") || (!set.read(moduleName, "onlyMapTextures").isValid()))
+    if (ui->cbxAdvancedVerifying->isChecked() && !set.read(moduleName, "onlyMapTextures").toBool())
     {
-        qDebug() << "Read ALL Textures...";
+        qDebug() << "Read all textures...";
         filehandler.stuffobj.missing.textures = iglF.check(filehandler.stuffobj.missing.textures, ignoredTextures);
         filehandler.stuffobj.existing.textures = iglF.check(filehandler.stuffobj.existing.textures, ignoredTextures);
     }
@@ -422,7 +430,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->ledMissingTiles->setText(QString::number(ui->lwgTilesMissing->count()));
 
         // TEX:
-        if ((set.read(moduleName, "onlyMapTextures") == "false") || (!set.read(moduleName, "onlyMapTextures").isValid()))
+        if (ui->cbxAdvancedVerifying->isChecked() && !set.read(moduleName, "onlyMapTextures").toBool())
         {
             ui->lwgTexturesAll->addItems(filehandler.stuffobj.missing.textures);
             ui->lwgTexturesAll->addItems(filehandler.stuffobj.existing.textures);
@@ -605,18 +613,6 @@ void wVerifyMap::on_cbxAdvancedVerifying_stateChanged(int arg1)
         ui->cbxOnlyMapTextures->setEnabled(true);
     else
         ui->cbxOnlyMapTextures->setEnabled(false);
-
-    // maybe reset label names
-    //    bool type;
-    //    if (arg1 > 0)
-    //    {
-    //        type = true;
-    //    }
-    //    else
-    //    {
-    //        type = false;
-    //    }
-
 }
 
 void wVerifyMap::on_btnShowSettings_clicked()

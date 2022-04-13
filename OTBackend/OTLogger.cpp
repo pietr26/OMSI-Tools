@@ -10,17 +10,16 @@ bool hardcoreDebugLogfile;
 
 Logger::Logger(QObject *parent) : QObject(parent)
 {
+
 }
 
 /// Creates the start of a logfile
 void Logger::attach(QString filename)
 {
-    Logger::filename = QDir::currentPath() + QDir::separator() + filename;
     OTSettings set;
-    if (set.read("main", "logfileMode").isValid())
-        logfileMode = set.read("main", "logfileMode").toInt();
-    else
-        logfileMode = 0;
+
+    Logger::filename = QDir::currentPath() + QDir::separator() + filename;
+    logfileMode = set.read("main", "logfileMode").toInt();
 
     Logger::logging = true;
     qInstallMessageHandler(Logger::handler);

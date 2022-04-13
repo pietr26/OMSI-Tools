@@ -469,6 +469,25 @@ public:
             }
         }
     }
+
+    /// Sets default needed settings
+    void setDefaultSettings()
+    {
+        if (!read("main", "autoUpdateCheck").isValid())
+            write("main", "autoUpdateCheck", 2);
+
+        if (!read("main", "logfileMode").isValid())
+            write("main", "logfileMode", 0);
+
+        if (!read("main", "autosave").isValid())
+            write("main", "autosave", true);
+
+        if (!read("main", "autosaveDuration").isValid())
+            write("main", "autosaveDuration", 15);
+
+        if (!read("main", "confirmDeletion").isValid())
+            write("main", "confirmDeletion", true);
+    }
 };
 
 /// Message class
