@@ -190,6 +190,8 @@ private:
     void loadTexPreview();
 
     void resizeTexPreview();
+
+    bool setupFinished = false;
 };
 
 #endif // WFONTS_H
