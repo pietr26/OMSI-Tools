@@ -6,7 +6,7 @@
 #include "OTWidgets/firstsetup.h"
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
-#include "wstart.h"
+#include "OTModules/OTGeneric/wstart.h"
 
 namespace Ui {
 class wStartUpScreen;

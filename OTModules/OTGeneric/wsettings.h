@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
-#include "OTModules/wdevtools.h"
-#include "wchangelog.h"
+#include "OTModules/OTInternals/wdevtools.h"
+#include "OTModules/OTGeneric/wchangelog.h"
 #include <QStandardItemModel>
 
 namespace Ui {

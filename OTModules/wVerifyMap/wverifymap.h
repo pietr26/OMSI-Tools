@@ -8,7 +8,7 @@
 #include "ignoreListFunctions.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTWidgets/verifymaptools.h"
-#include "wsettings.h"
+#include "OTModules/OTGeneric/wsettings.h"
 #include <QFileDialog>
 #include <QProgressDialog>
 #include <QTimer>

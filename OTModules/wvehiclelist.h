@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTDatabaseHandler.h"
-#include "wsettings.h"
+#include "OTModules/OTGeneric/wsettings.h"
 #include <QtSql>
 #include <QInputDialog>
 

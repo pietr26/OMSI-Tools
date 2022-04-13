@@ -1,4 +1,4 @@
-#include "wstartupscreen.h"
+#include "OTModules/OTGeneric/wstartupscreen.h"
 #include "OTBackend/OTGlobal.h"
 
 #include <QApplication>
