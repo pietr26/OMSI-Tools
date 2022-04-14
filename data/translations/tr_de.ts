@@ -9,11 +9,6 @@
         <translation>Einige Inhalte sind noch nicht gespeichert. Soll jetzt gespeichert werden?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="390"/>
-        <source>&quot;Omsi.exe&quot; could not found in the selected directory. Is it the correct path?. Otherwise, problems may appear in some modules. Should a new path be selected?</source>
-        <translation>&quot;Omsi.exe&quot; konnte nicht gefunden werden. Handelt es sich um den richtigen Pfad? Sonst kann es in einigen Modulen zu Fehlern kommen. Soll jetzt ein neuer Pfad ausgewählt werden?</translation>
-    </message>
-    <message>
         <location filename="../../OTBackend/OTGlobal.h" line="550"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Die ausgewählte Datei existiert nicht oder ist lesegeschützt.</translation>
@@ -85,6 +80,11 @@ konnte nicht geöffnet werden. Wenn OMSI läuft, schließe es und versuche es er
         <location filename="../../OTBackend/OTGlobal.h" line="390"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <translation>Konnte &quot;Omsi.exe&quot; nicht finden</translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="390"/>
+        <source>%1 could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
+        <translation>%1 konnte im ausgewählten Verzeichnis nicht gefunden werden. Ist der Pfad korrekt? Andernfalls kann es in anderen Modulen zu Problemen kommen. Soll ein neue Pfad ausgewählt werden?</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="501"/>
@@ -786,7 +786,7 @@ Code: %1</translation>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="103"/>
         <source>Link(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Link(s)</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="113"/>

@@ -56,11 +56,6 @@
         <translation>Sélectionnez le répertoire principal de l&apos;OMSI...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="390"/>
-        <source>&quot;Omsi.exe&quot; could not found in the selected directory. Is it the correct path?. Otherwise, problems may appear in some modules. Should a new path be selected?</source>
-        <translation>&quot;Omsi.exe&quot; n&apos;a pas été trouvé dans le répertoire sélectionné. Est-ce le bon chemin ? Sinon, des problèmes peuvent apparaître dans certains modules. Faut-il sélectionner un nouveau chemin ?</translation>
-    </message>
-    <message>
         <location filename="../../OTBackend/OTGlobal.h" line="501"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Pour continuer, l&apos;application a besoin du répertoire principal de l&apos;OMSI. Faut-il le faire maintenant ?</translation>
@@ -106,6 +101,11 @@ If OMSI is running, please close it and retry it. Furthermore, check if the file
         <location filename="../../OTBackend/OTGlobal.h" line="390"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <translation type="unfinished">Impossible de trouver &quot;Omsi.exe&quot;</translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="390"/>
+        <source>%1 could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="501"/>
