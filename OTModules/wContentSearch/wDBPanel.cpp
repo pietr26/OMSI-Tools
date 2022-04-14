@@ -78,7 +78,6 @@ wDBPanel::~wDBPanel()
     delete strListModelDuplicates;
     delete strListModelItems;
 
-    qInfo().noquote() << moduleName + " is closing...";
     delete ui;
 }
 

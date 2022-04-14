@@ -38,8 +38,6 @@ void dIgnoreList::closeEvent(QCloseEvent *event)
     if (unsaved)
         if (msg.unsavedContentYesNo(this))
             save();
-
-    qInfo().noquote() << moduleName + " is closing...";
 }
 
 ///// Saves the ignoreList

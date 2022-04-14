@@ -77,7 +77,6 @@ wFonts::wFonts() :
 
 wFonts::~wFonts()
 {
-    qInfo().noquote() << moduleName + " is closing...";
     delete ui;
     delete strListChars;
 }

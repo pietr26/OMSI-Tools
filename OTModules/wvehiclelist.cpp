@@ -21,7 +21,6 @@ wVehicleList::wVehicleList(QWidget *parent) :
 
 wVehicleList::~wVehicleList()
 {
-    qInfo().noquote() << moduleName + " is closing...";
     delete ui;
 }
 
