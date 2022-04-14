@@ -26,12 +26,12 @@
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="322"/>
         <source>Successfully created shortcut!</source>
-        <translation type="unfinished"></translation>
+        <translation>Zástupce byl úspěšně vytvořen!</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="327"/>
         <source>Could not create shortcut in %1.</source>
-        <translation type="unfinished">Nepodařilo se vytvořit zástupce v %1.</translation>
+        <translation>Nepodařilo se vytvořit zástupce v %1.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="501"/>
@@ -63,16 +63,6 @@ Pokud OMSI běží, zavřete jej prosím a spusťe znovu. Dále zkontrolujte, zd
         <translation>Nastala chyba &apos;%1&apos; při ukládání. Pokud OMSI stále běží, zavřete jej prosím a zkuste znovu.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="322"/>
-        <source>Success</source>
-        <translation type="unfinished">Úspěšně</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="327"/>
-        <source>Error</source>
-        <translation type="unfinished">Chyba</translation>
-    </message>
-    <message>
         <location filename="../../OTBackend/OTGlobal.h" line="290"/>
         <source>Updating %1</source>
         <translation type="unfinished">Aktualizuji %1</translation>
@@ -81,6 +71,16 @@ Pokud OMSI běží, zavřete jej prosím a spusťe znovu. Dále zkontrolujte, zd
         <location filename="../../OTBackend/OTGlobal.h" line="290"/>
         <source>There was an error while starting the updater. Please retry it or contact the developer.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="322"/>
+        <source>Success</source>
+        <translation type="unfinished">Úspěšně</translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="327"/>
+        <source>Error</source>
+        <translation type="unfinished">Chyba</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="390"/>
@@ -335,6 +335,11 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../OTWidgets/firstsetup.ui" line="28"/>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../OTWidgets/firstsetup.ui" line="35"/>
         <source>OMSI main directory</source>
         <translation type="unfinished"></translation>
@@ -342,11 +347,6 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
     <message>
         <location filename="../../OTWidgets/firstsetup.ui" line="92"/>
         <source>Continue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTWidgets/firstsetup.ui" line="28"/>
-        <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -357,14 +357,14 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <location filename="../../OTWidgets/verifymaptools.ui" line="90"/>
         <location filename="../../OTWidgets/verifymaptools.ui" line="108"/>
         <source>From left list</source>
-        <translation type="unfinished"></translation>
+        <translation>Z levého seznamu</translation>
     </message>
     <message>
         <location filename="../../OTWidgets/verifymaptools.ui" line="81"/>
         <location filename="../../OTWidgets/verifymaptools.ui" line="99"/>
         <location filename="../../OTWidgets/verifymaptools.ui" line="117"/>
         <source>From right list</source>
-        <translation type="unfinished"></translation>
+        <translation>Z pravého seznamu</translation>
     </message>
 </context>
 <context>
@@ -377,12 +377,7 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="22"/>
         <source>Version</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
-        <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
-        <translation>%1 je pomůcka pro vytváření modifikací do hry OMSI 2 - the bus simulator. %1 obsahuje spoustu užiteckých funkcí pro urychlení práce a umožňuje vytváření modifikací mnohem jednodušeji.</translation>
+        <translation type="unfinished">Verze</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
@@ -427,12 +422,12 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="53"/>
-        <source>Developed with %1 and %2</source>
+        <source>More information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="53"/>
-        <source>More information</source>
+        <source>Developed with %1 and %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -449,6 +444,11 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
         <source>Approximate lines of code: %1 (%2)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
+        <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
+        <translation>%1 je pomůcka pro vytváření modifikací do hry OMSI 2 - the bus simulator. %1 obsahuje spoustu užiteckých funkcí pro urychlení práce a umožňuje vytváření modifikací mnohem jednodušeji.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.ui" line="280"/>
@@ -570,40 +570,40 @@ Kód chyby: %1</translation>
         <translation>Přidat do seznamu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="304"/>
         <source>Open in browser</source>
         <translation>Otevřít v prohlížeči</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="110"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="475"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="481"/>
         <source>Remove selection</source>
         <translation>Odstranit vybrané</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="392"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="424"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="398"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="430"/>
         <source>Search</source>
         <translation>Vyhledat</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="65"/>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="155"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="487"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="493"/>
         <source>Add list</source>
         <translation>Přidat seznam</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="25"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="460"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="463"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="466"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="469"/>
         <source>Add path</source>
         <translation>Přidat cestu</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="88"/>
         <source>Search input:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyhledat obsah:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="217"/>
@@ -611,52 +611,58 @@ Kód chyby: %1</translation>
         <translation>Vymazat seznamy</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="234"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="233"/>
         <source>Search!</source>
         <translation>Vyhledat!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="256"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="255"/>
         <source>Results:</source>
+        <translation>Výsledky:</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="285"/>
+        <source>Information for selected link:</source>
+        <extracomment>Use plural form for &apos;Information&apos;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="309"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="315"/>
         <source>Copy</source>
         <translation>Kopírovat</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="322"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="328"/>
         <source>Press this button if a link provided by the program no longer works or does not contain a file.</source>
         <translation>Zmáčkněte toto tlačítko, pokud zobrazený odkaz programem nefunguje nebo neobsahuje soubor.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="325"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="331"/>
         <source>Report invalid link</source>
         <translation>Nahlásit nefunkční odkaz</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="403"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="409"/>
         <source>Specials</source>
         <translation>Speciální</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="409"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="415"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="436"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="442"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="448"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="454"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="499"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="505"/>
         <source>Send feedback</source>
         <translation>Poslat zpětnou vazbu</translation>
     </message>
@@ -674,80 +680,80 @@ Kód chyby: %1</translation>
         <translation>Nastala chyba při spouštění databáze odkazů. Zkuste to prosím znovu nebo kontaktujte vývojáře.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="269"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="265"/>
         <source>Open URL(s)...</source>
         <translation>Otevřít odkaz(y)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="285"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="281"/>
         <source>Copy URL(s)...</source>
         <translation>Kopírovat odkaz(y)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="294"/>
         <source>Text files</source>
         <translation>Textové soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="294"/>
         <source>All files</source>
         <translation>Všechny soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="159"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="155"/>
         <source>Links (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Odkazy (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="160"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="156"/>
         <source>Not found (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nenalezeno (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="161"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="157"/>
         <source>Standard content (%1)</source>
         <comment>Please use plural; Optional original text: &apos;Standard files&apos;</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Standardní obsah (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="162"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="158"/>
         <source>Direct links (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Přímé odkazy (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="294"/>
         <source>Select file with paths...</source>
         <translation type="unfinished">Vybrat soubor s cestou...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="321"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="317"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation>%1 cesta(y) budou přidány do seznamu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="321"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="317"/>
         <source>Add files</source>
         <translation type="unfinished">Přidat soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="324"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="320"/>
         <source>Process aborted.</source>
         <translation>Proces zrušen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="363"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="359"/>
         <source>Downloading might not work with Google Chrome.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stahování nemusí fungovat v prohlížeči Google Chrome.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="365"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="361"/>
         <source>Direct download link - the download will start directly after opening the URL.</source>
-        <translation type="unfinished"></translation>
+        <translation>Přímý odkaz ke stažení - stahování bude zahájeno ihned po otevření odkazu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="367"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="363"/>
         <source>Archive password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Heslo archivu:</translation>
     </message>
 </context>
 <context>
@@ -755,236 +761,226 @@ Kód chyby: %1</translation>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="25"/>
         <source>Settings</source>
-        <translation type="unfinished">Nastavení</translation>
+        <translation>Nastavení</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="31"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Jméno:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="41"/>
         <source>Your name</source>
-        <translation type="unfinished"></translation>
+        <translation>Tvoje jméno</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="68"/>
         <source>Welcome:</source>
-        <translation type="unfinished"></translation>
+        <extracomment>Context: &apos;I welcome someone&apos; / &apos;I greet someone&apos; (Noun)</extracomment>
+        <translation>Vítejte:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="97"/>
         <source>Content link (or file ID)</source>
-        <translation type="unfinished"></translation>
+        <translation>Odkaz na obsah (nebo ID souboru)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="103"/>
-        <source>Link / file ID</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="113"/>
+        <source>Output language</source>
+        <translation>Výstupní jazyk</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="119"/>
-        <source>Output language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="125"/>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>Němčina</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="139"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="133"/>
         <source>English</source>
+        <translation>Angličtina</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="159"/>
+        <source>Files</source>
+        <translation>Soubory</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="172"/>
+        <source>Missing pictures</source>
+        <translation>Chybí obrázky</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="179"/>
+        <source>Missing english description</source>
+        <translation>Chybí anglický popis</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="186"/>
+        <source>Missing description</source>
+        <translation>Chybí popis</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="193"/>
+        <source>Missing preview picture</source>
+        <translation>Chybí náhledový obrázek</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="200"/>
+        <source>External download</source>
+        <translation>Externí stažení</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="210"/>
+        <source>Copyright violation</source>
+        <translation>Porušení autorských práv</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="220"/>
+        <source>No file (presentation)</source>
+        <translation>Žádný soubor (prezentace)</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="227"/>
+        <source>No file (screenshot)</source>
+        <translation>Žádný soubor (screenshot)</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="234"/>
+        <source>Installation instruction</source>
+        <translation>Instrukce pro instalaci</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="241"/>
+        <source>Archive damaged</source>
+        <translation>Archiv je poškozený</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="248"/>
+        <source>No reference to OMSI</source>
+        <translation>Žádná souvislost s OMSI</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="255"/>
+        <source>No added value</source>
+        <translation>Žádná přidaná hodnota</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="267"/>
+        <source>Trademark violation</source>
+        <translation>Porušení ochranné známky</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="279"/>
+        <source>Information: Removed contact details</source>
+        <translation>Informace: Odstraněny konkaktní údaje</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="306"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="474"/>
+        <source>Admonition for warning</source>
+        <translation>Napomenutí jako varování</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="552"/>
+        <source>Count: 0</source>
+        <translation>Počet: 0</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="700"/>
+        <source>Close</source>
+        <translation>Zavřít</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="329"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="486"/>
+        <source>Deselect all</source>
+        <translation>Odznačit vše</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="103"/>
+        <source>Link(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="165"/>
-        <source>Files</source>
-        <translation type="unfinished">Soubory</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="178"/>
-        <source>Missing pictures</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="185"/>
-        <source>Missing english description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="192"/>
-        <source>Missing description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="199"/>
-        <source>Missing preview picture</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="206"/>
-        <source>External download</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="216"/>
-        <source>Copyright violation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="226"/>
-        <source>No file (presentation)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="233"/>
-        <source>No file (screenshot)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="240"/>
-        <source>Installation instruction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="247"/>
-        <source>Archive damaged</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="254"/>
-        <source>No reference to OMSI</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="261"/>
-        <source>No added value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="273"/>
-        <source>Trademark violation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="285"/>
-        <source>Information: Removed contact details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="312"/>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="480"/>
-        <source>Admonition for warning</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="319"/>
-        <source>Select all</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="558"/>
-        <source>Count: 0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="706"/>
-        <source>Close</source>
-        <translation type="unfinished">Zavřít</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="335"/>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="492"/>
-        <source>Deselect all</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="171"/>
         <source>Invalid folder structure</source>
-        <translation type="unfinished"></translation>
+        <translation>Neplatná struktura složky</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="352"/>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="512"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="346"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="506"/>
         <source>Copy!</source>
-        <translation type="unfinished"></translation>
+        <translation>Zkopírovat!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="375"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="369"/>
         <source>Reviews</source>
-        <translation type="unfinished"></translation>
+        <translation>Hodnocení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="383"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="377"/>
         <source>Title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Název:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="406"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="400"/>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Popis:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="431"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="425"/>
         <source>Violation against review rules</source>
-        <translation type="unfinished"></translation>
+        <translation>Porušení pravidel hodnocení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="463"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="457"/>
         <source>Embed review rules in spoiler</source>
-        <translation type="unfinished"></translation>
+        <translation>Pravidla hodnocení ve spoileru</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="529"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="523"/>
         <source>Define copyright violation</source>
-        <translation type="unfinished"></translation>
+        <translation>Definujte porušení autorských práv</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="565"/>
-        <source>Add example
-reasons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="577"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="571"/>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlastní</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="588"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="582"/>
         <source>Selection</source>
-        <translation type="unfinished">Výběr</translation>
+        <translation>Výběr</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="619"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="613"/>
         <source>All</source>
-        <translation type="unfinished">Všechny</translation>
+        <translation>Všechny</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="628"/>
+        <source>Add item</source>
+        <translation>Přidat položky</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="634"/>
-        <source>Add item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="640"/>
         <source>Path:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cesta:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="662"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="656"/>
         <source>Information:</source>
-        <translation type="unfinished"></translation>
+        <translation>Informace:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="672"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="666"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="703"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="697"/>
         <source>Schließen</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavřit</translation>
     </message>
 </context>
 <context>
@@ -1116,11 +1112,6 @@ reasons</source>
         <translation>Definice znaku</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="771"/>
-        <source>Reload texture preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../OTModules/wfonts.ui" line="819"/>
         <source>Open, save fonts or close the font module</source>
         <translation>Otevřete, uložte fonty nebo zavřete modul</translation>
@@ -1192,13 +1183,18 @@ reasons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../OTModules/wfonts.ui" line="752"/>
+        <source>Color texture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../OTModules/wfonts.ui" line="757"/>
         <source>Alpha texture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="752"/>
-        <source>Color texture</source>
+        <location filename="../../OTModules/wfonts.ui" line="771"/>
+        <source>Reload texture preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1376,11 +1372,6 @@ reasons</source>
         <translation>Konec fontu byl dosažen, hledejte ze shora</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="16"/>
-        <source>font creation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../OTModules/wfonts.cpp" line="113"/>
         <source>The dropped file is no font file (*.oft)!</source>
         <translation>Zvolený soubor není ve formátu fontu (*.oft)!</translation>
@@ -1454,6 +1445,11 @@ No font will be opened.</source>
         <location filename="../../OTModules/wfonts.cpp" line="924"/>
         <source>Umlauts</source>
         <translation>Přehlásky</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wfonts.cpp" line="16"/>
+        <source>font creation</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.cpp" line="113"/>
@@ -1753,6 +1749,11 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Skripty</translation>
     </message>
     <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="79"/>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="231"/>
         <source>Textures</source>
         <translation>Textury</translation>
@@ -1790,17 +1791,12 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="450"/>
         <source>Open</source>
-        <translation type="unfinished">Otevřít</translation>
+        <translation>Otevřít</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="461"/>
         <source>Create shortcut</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="79"/>
-        <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytvořit zástupce</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="625"/>
@@ -1835,7 +1831,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="41"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Informace %1</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="83"/>
@@ -2042,7 +2038,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="156"/>
         <source>(not recommended for quick verification)</source>
-        <translation type="unfinished"></translation>
+        <translation>(není doporučeno pro rychlé ověření)</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="993"/>
