@@ -10,6 +10,7 @@ DEFINES += QT_MESSAGELOGCONTEXT
 
 SOURCES += \
     OTBackend/OTLogger.cpp \
+    OTModules/OTGeneric/wfeedback.cpp \
     OTModules/wContentSearch/wDBPanel.cpp \
     OTModules/wContentSearch/wcontentsearch.cpp \
     OTModules/wFbh/wfbh.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     OTBackend/OTGlobal.h \
     OTBackend/OTLogger.h \
     OTBackend/OTOmsiFileHandler.h \
+    OTModules/OTGeneric/wfeedback.h \
     OTModules/wContentSearch/wDBPanel.h \
     OTModules/wContentSearch/wcontentsearch.h \
     OTModules/wFbh/FbhFunctions.h \
@@ -55,6 +57,7 @@ HEADERS += \
     OTModules/OTGeneric/wstartupscreen.h
 
 FORMS += \
+    OTModules/OTGeneric/wfeedback.ui \
     OTModules/wContentSearch/wDBPanel.ui \
     OTModules/wContentSearch/wcontentsearch.ui \
     OTModules/wFbh/wfbh.ui \
