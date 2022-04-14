@@ -9,11 +9,6 @@
         <translation>Máte zde neuložený obsah. Chcete obsah uložit?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="390"/>
-        <source>&quot;Omsi.exe&quot; could not found in the selected directory. Is it the correct path?. Otherwise, problems may appear in some modules. Should a new path be selected?</source>
-        <translation>&quot;Omsi.exe&quot; nebylo nalezeno ve vybraném adresáři. Je tento adresář správný? Díky tomu se mohou objevit potíže v některých modulech. Chcete vybrat nový adresář?</translation>
-    </message>
-    <message>
         <location filename="../../OTBackend/OTGlobal.h" line="550"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Tento zvolený soubor neexistuje nebo má ochranu proti čtění.</translation>
@@ -86,6 +81,11 @@ Pokud OMSI běží, zavřete jej prosím a spusťe znovu. Dále zkontrolujte, zd
         <location filename="../../OTBackend/OTGlobal.h" line="390"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <translation type="unfinished">&quot;Omsi.exe&quot; nenalezeno</translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="390"/>
+        <source>%1 could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="501"/>
