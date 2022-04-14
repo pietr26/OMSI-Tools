@@ -21,7 +21,6 @@ wBugRepot::wBugRepot(QWidget *parent) :
 
 wBugRepot::~wBugRepot()
 {
-    qInfo().noquote() << moduleName + " is closing...";
     delete ui;
 }
 

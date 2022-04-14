@@ -85,7 +85,6 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
 
 wContentSearch::~wContentSearch()
 {
-    qInfo().noquote() << moduleName + " is closing...";
     delete ui;
 }
 

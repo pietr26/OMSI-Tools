@@ -86,7 +86,6 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 
 wVerifyMap::~wVerifyMap()
 {
-    qInfo().noquote() << moduleName + " is closing...";
     delete ui;
 }
 

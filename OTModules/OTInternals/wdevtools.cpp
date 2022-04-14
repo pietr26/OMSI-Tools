@@ -25,7 +25,6 @@ wDevTools::wDevTools(QWidget *parent) :
 
 wDevTools::~wDevTools()
 {
-    qInfo().noquote() << moduleName + " is closing...";
     delete ui;
 }
 

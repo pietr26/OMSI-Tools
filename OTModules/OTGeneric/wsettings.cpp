@@ -123,8 +123,6 @@ wSettings::~wSettings()
 void wSettings::closeEvent (QCloseEvent *event)
 {
     Q_UNUSED(event);
-
-    qInfo().noquote() << moduleName + " is closing...";
 }
 
 /// Sets unsaved
