@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>692</width>
-    <height>1236</height>
+    <height>1232</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,7 +65,7 @@
        <item>
         <widget class="QLabel" name="lblWelcome">
          <property name="text">
-          <string>Welcome:</string>
+          <string extracomment="Context: 'I welcome someone' / 'I greet someone' (Noun)">Welcome:</string>
          </property>
          <property name="buddy">
           <cstring>cobxWelcome</cstring>
@@ -100,7 +100,7 @@
          <item>
           <widget class="QPlainTextEdit" name="pteLinks">
            <property name="placeholderText">
-            <string notr="true">Link(s)</string>
+            <string>Link(s)</string>
            </property>
           </widget>
          </item>
@@ -310,7 +310,7 @@
         <item>
          <widget class="QPushButton" name="btnFSelectAll">
           <property name="text">
-           <string>Select all</string>
+           <string notr="true">Select all</string>
           </property>
           <property name="icon">
            <iconset resource="../../ressources.qrc">
@@ -556,7 +556,7 @@
            <item>
             <widget class="QPushButton" name="btnInputExampleReasons">
              <property name="text">
-              <string>Add example
+              <string notr="true">Add example
 reasons</string>
              </property>
              <property name="icon">
