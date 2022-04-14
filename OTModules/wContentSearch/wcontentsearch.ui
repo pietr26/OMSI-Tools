@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1072</width>
-    <height>817</height>
+    <height>889</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -226,7 +226,6 @@
        <widget class="QPushButton" name="btnSearch">
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -277,6 +276,13 @@
             </property>
             <property name="wordWrap">
              <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lblLinkInfo">
+            <property name="text">
+             <string extracomment="Use plural form for 'Information'">Information for selected link:</string>
             </property>
            </widget>
           </item>
