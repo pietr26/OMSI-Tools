@@ -562,8 +562,8 @@ Code: %1</source>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="25"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="460"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="463"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="466"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="469"/>
         <source>Add path</source>
         <translation type="unfinished"></translation>
     </message>
@@ -573,26 +573,26 @@ Code: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="304"/>
         <source>Open in browser</source>
         <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="110"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="475"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="481"/>
         <source>Remove selection</source>
         <translation>Supprimer la sélection</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="392"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="424"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="398"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="430"/>
         <source>Search</source>
         <translation>Recherche</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="65"/>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="155"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="487"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="493"/>
         <source>Add list</source>
         <translation>Ajouter une liste</translation>
     </message>
@@ -607,52 +607,58 @@ Code: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="234"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="233"/>
         <source>Search!</source>
         <translation>Chercher !</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="256"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="255"/>
         <source>Results:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="309"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="285"/>
+        <source>Information for selected link:</source>
+        <extracomment>Use plural form for &apos;Information&apos;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="315"/>
         <source>Copy</source>
         <translation>Copie</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="322"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="328"/>
         <source>Press this button if a link provided by the program no longer works or does not contain a file.</source>
         <translation>Appuyez sur ce bouton si un lien fourni par le programme ne fonctionne plus ou ne contient pas de fichier.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="325"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="331"/>
         <source>Report invalid link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="403"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="409"/>
         <source>Specials</source>
         <translation>Spéciaux</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="409"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="415"/>
         <source>Help</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="436"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="442"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="448"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="454"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="499"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="505"/>
         <source>Send feedback</source>
         <translation>Envoyez vos commentaires</translation>
     </message>
@@ -670,78 +676,78 @@ Code: %1</source>
         <translation>Une erreur s&apos;est produite lors de l&apos;ouverture de la base de données des liens. Veuillez réessayer ou contacter le développeur.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="269"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="265"/>
         <source>Open URL(s)...</source>
         <translation>URL(s) ouverte(s)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="285"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="281"/>
         <source>Copy URL(s)...</source>
         <translation>Copier l&apos;URL (s)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="294"/>
         <source>Text files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="294"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="159"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="155"/>
         <source>Links (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="160"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="156"/>
         <source>Not found (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="161"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="157"/>
         <source>Standard content (%1)</source>
         <comment>Please use plural; Optional original text: &apos;Standard files&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="162"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="158"/>
         <source>Direct links (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="294"/>
         <source>Select file with paths...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="321"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="317"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="321"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="317"/>
         <source>Add files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="324"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="320"/>
         <source>Process aborted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="363"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="359"/>
         <source>Downloading might not work with Google Chrome.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="365"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="361"/>
         <source>Direct download link - the download will start directly after opening the URL.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="367"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="363"/>
         <source>Archive password:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -766,6 +772,7 @@ Code: %1</source>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="68"/>
         <source>Welcome:</source>
+        <extracomment>Context: &apos;I welcome someone&apos; / &apos;I greet someone&apos; (Noun)</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -775,210 +782,199 @@ Code: %1</source>
     </message>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="103"/>
-        <source>Link / file ID</source>
+        <source>Link(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="119"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="113"/>
         <source>Output language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="125"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="119"/>
         <source>German</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="139"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="133"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="165"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="159"/>
         <source>Files</source>
         <translation type="unfinished">Fichiers</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="178"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="172"/>
         <source>Missing pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="185"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="179"/>
         <source>Missing english description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="192"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="186"/>
         <source>Missing description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="199"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="193"/>
         <source>Missing preview picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="206"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="200"/>
         <source>External download</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="216"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="210"/>
         <source>Copyright violation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="226"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="220"/>
         <source>No file (presentation)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="233"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="227"/>
         <source>No file (screenshot)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="240"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="234"/>
         <source>Installation instruction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="247"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="241"/>
         <source>Archive damaged</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="254"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="248"/>
         <source>No reference to OMSI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="261"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="255"/>
         <source>No added value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="273"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="267"/>
         <source>Trademark violation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="285"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="279"/>
         <source>Information: Removed contact details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="312"/>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="480"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="306"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="474"/>
         <source>Admonition for warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="319"/>
-        <source>Select all</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="558"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="552"/>
         <source>Count: 0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="706"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="700"/>
         <source>Close</source>
         <translation type="unfinished">Fermer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="335"/>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="492"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="329"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="486"/>
         <source>Deselect all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="171"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="165"/>
         <source>Invalid folder structure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="352"/>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="512"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="346"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="506"/>
         <source>Copy!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="375"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="369"/>
         <source>Reviews</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="383"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="377"/>
         <source>Title:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="406"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="400"/>
         <source>Description:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="431"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="425"/>
         <source>Violation against review rules</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="463"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="457"/>
         <source>Embed review rules in spoiler</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="529"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="523"/>
         <source>Define copyright violation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="565"/>
-        <source>Add example
-reasons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="577"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="571"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="588"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="582"/>
         <source>Selection</source>
         <translation type="unfinished">Sélection</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="619"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="613"/>
         <source>All</source>
         <translation type="unfinished">Tous</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="634"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="628"/>
         <source>Add item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="640"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="634"/>
         <source>Path:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="662"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="656"/>
         <source>Information:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="672"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="666"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="703"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="697"/>
         <source>Schließen</source>
         <translation type="unfinished"></translation>
     </message>
