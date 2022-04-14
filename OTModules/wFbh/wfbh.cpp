@@ -42,7 +42,7 @@ wFbh::wFbh(QWidget *parent)
     ui->btnFSelectAll->setVisible(false);
 #endif
 
-    ui->ledLink->setFocus();
+    ui->pteLinks->setFocus();
 
     qInfo().noquote() << moduleName + " started";
 }
@@ -51,8 +51,6 @@ wFbh::~wFbh()
 {
     delete ui;
 }
-
-
 
 void wFbh::on_actionClose_triggered()
 {
@@ -73,27 +71,50 @@ void wFbh::getLanguage()
         language = en;
 }
 
-QString wFbh::URLParser(QString text)
+QString wFbh::urlParser(QString links, bool review)
 {
-    bool isNumber = false;
-    int fileID = text.toInt(&isNumber);
+    QString pteContent = ui->pteLinks->toPlainText();
+    QTextStream in(&links, QIODevice::ReadOnly);
 
-    if (isNumber)
-        return "https://reboot.omsi-webdisk.de/file/" + QString::number(fileID) + "-";
+    QString result;
 
-    else if (text.endsWith("#overview", Qt::CaseInsensitive) || text.endsWith("#versions", Qt::CaseInsensitive) || text.endsWith("#comments", Qt::CaseInsensitive))
-        text.chop(9);
+    while (!in.atEnd())
+    {
+        QString line = in.readLine();
 
-    else if (text.endsWith("#overwiew/", Qt::CaseInsensitive) || text.endsWith("#versions/", Qt::CaseInsensitive) || text.endsWith("#comments/", Qt::CaseInsensitive))
-        text.chop(10);
+        if (review)
+            return line;
 
-    else if (text.endsWith("#reviews", Qt::CaseInsensitive))
-        text.chop(8);
+        bool isNumber = false;
+        int fileID = line.toInt(&isNumber);
 
-    else if (text.endsWith("#reviews/", Qt::CaseInsensitive))
-        text.chop(9);
+        if (isNumber)
+            result += QString("<p>https://reboot.omsi-webdisk.de/file/%1-</p>").arg(QString::number(fileID));
 
-    return text;
+        else if (line.endsWith("#overview", Qt::CaseInsensitive) ||
+                 line.endsWith("#versions", Qt::CaseInsensitive) ||
+                 line.endsWith("#comments", Qt::CaseInsensitive))
+            line.chop(9);
+
+        else if (line.endsWith("#overview/", Qt::CaseInsensitive) ||
+                 line.endsWith("#versions/", Qt::CaseInsensitive) ||
+                 line.endsWith("#comments/", Qt::CaseInsensitive))
+            line.chop(10);
+
+        else if (!review)
+        {
+            if (line.endsWith("#reviews", Qt::CaseInsensitive))
+                line.chop(8);
+
+            else if (line.endsWith("#reviews/", Qt::CaseInsensitive))
+                line.chop(9);
+        }
+
+        if (!isNumber)
+            result += QString("<p>%1</p>").arg(line);
+    }
+
+    return result;
 }
 
 void wFbh::setFVisible(bool visible)
@@ -207,12 +228,12 @@ void wFbh::on_btnFCopy_clicked()
     QString copytext;
     getLanguage();
 
-    QString fileURL = URLParser(ui->ledLink->text());
+    QString fileURLs = urlParser(ui->pteLinks->toPlainText());
     // Header:
     if (language == de)
-        copytext = "<p>" + ui->cobxWelcome->currentText() + r.Header.de + "<p>" + fileURL + "</p><p><br></p>" + r.Header2.de;
+        copytext = "<p>" + ui->cobxWelcome->currentText() + r.Header.de + "<p>" + fileURLs + "</p><p><br></p>" + r.Header2.de;
     else
-        copytext = r.Header.en + "<p>" + fileURL + "</p><p><br></p>" + r.Header2.en;
+        copytext = r.Header.en + "<p>" + fileURLs + "</p><p><br></p>" + r.Header2.en;
 
     if (ui->cbxFDescription->isChecked())
     {
@@ -412,11 +433,11 @@ void wFbh::on_btnRCopy_clicked()
 
     if (language == de)
     {
-        copytext = "<p>" + ui->cobxWelcome->currentText() + r.rHeader.de + "<p>" + ui->ledLink->text() + "</p><p><br></p>";
+        copytext = "<p>" + ui->cobxWelcome->currentText() + r.rHeader.de + "<p>" + urlParser(ui->pteLinks->toPlainText()) + "</p><p><br></p>";
         copytext += "<woltlab-quote data-author=\"";
         copytext += ui->ledRTitle->text();
         copytext += "\" data-link=\"";
-        copytext += ui->ledLink->text();
+        copytext += urlParser(ui->pteLinks->toPlainText(), true);
         copytext += "\">";
         copytext += ui->pteRDescription->toPlainText();
         copytext += "</woltlab-quote>";
@@ -440,11 +461,11 @@ void wFbh::on_btnRCopy_clicked()
     }
     else
     {
-        copytext = r.rHeader.en + "<p>" + ui->ledLink->text() + "</p><p><br></p>";
+        copytext = r.rHeader.en + "<p>" + urlParser(ui->pteLinks->toPlainText()) + "</p><p><br></p>";
         copytext += "<woltlab-quote data-author=\"";
         copytext += ui->ledRTitle->text();
         copytext += "\" data-link=\"";
-        copytext += ui->ledLink->text();
+        copytext += urlParser(ui->pteLinks->toPlainText());
         copytext += "\">";
         copytext += ui->pteRDescription->toPlainText();
         copytext += "</woltlab-quote>";

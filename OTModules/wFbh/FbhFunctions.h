@@ -224,20 +224,20 @@ public:
         {
             switch (index)
             {
-                case 1: return Footer1.de; break;
-                case 2: return Footer2.de; break;
-                case 3: return Footer3.de; break;
-                case 4: return Footer4.de; break;
+                case 2:  return Footer2.de; break;
+                case 3:  return Footer3.de; break;
+                case 4:  return Footer4.de; break;
+                default: return Footer1.de; break;
             }
         }
         else
         {
             switch (index)
             {
-                case 1: return Footer1.en; break;
-                case 2: return Footer2.en; break;
-                case 3: return Footer3.en; break;
-                case 4: return Footer4.en; break;
+                case 2:  return Footer2.en; break;
+                case 3:  return Footer3.en; break;
+                case 4:  return Footer4.en; break;
+                default: return Footer1.en; break;
             }
         }
 

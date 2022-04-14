@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>692</width>
-    <height>1264</height>
+    <height>1236</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -98,15 +98,9 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
-          <widget class="QLineEdit" name="ledLink">
+          <widget class="QPlainTextEdit" name="pteLinks">
            <property name="placeholderText">
-            <string>Link / file ID</string>
-           </property>
-           <property name="cursorMoveStyle">
-            <enum>Qt::LogicalMoveStyle</enum>
-           </property>
-           <property name="clearButtonEnabled">
-            <bool>true</bool>
+            <string notr="true">Link(s)</string>
            </property>
           </widget>
          </item>
@@ -713,7 +707,6 @@ reasons</string>
  <tabstops>
   <tabstop>ledName</tabstop>
   <tabstop>cobxWelcome</tabstop>
-  <tabstop>ledLink</tabstop>
   <tabstop>rbtnEnglish</tabstop>
   <tabstop>cbxFFolderStructure</tabstop>
   <tabstop>cbxFPictures</tabstop>

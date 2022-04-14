@@ -68,7 +68,7 @@ private:
 
     void getLanguage();
 
-    QString URLParser(QString text);
+    QString urlParser(QString text, bool review = false);
 
     void setFVisible(bool visible);
 
