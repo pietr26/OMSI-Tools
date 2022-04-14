@@ -387,7 +387,7 @@ public:
         if (mainDir != "" && !QFileInfo(QFile(mainDir + "/Omsi.exe")).exists())
         {
             qWarning().noquote() << "'" + mainDir + "' isn't an OMSI path!";
-            QMessageBox::StandardButton reply = QMessageBox::warning(parent, QObject::tr("Could not found \"Omsi.exe\""), QObject::tr("\"Omsi.exe\" could not found in the selected directory. Is it the correct path?. Otherwise, problems may appear in some modules. Should a new path be selected?"), QMessageBox::Yes | QMessageBox::No);
+            QMessageBox::StandardButton reply = QMessageBox::warning(parent, QObject::tr("Could not found \"Omsi.exe\""), QObject::tr("%1 could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?").arg("'Omsi.exe'"), QMessageBox::Yes | QMessageBox::No);
             if (reply == QMessageBox::Yes)
                 return getOmsiPath(parent);
         }
