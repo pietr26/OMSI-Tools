@@ -306,7 +306,7 @@ void wSettings::on_btnMoreLanguages_clicked()
     QMessageBox::StandardButton reply = QMessageBox::information(this, tr("More languages"), tr("You want to have more languages to choose from?\nUnfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.").arg(OTName), QMessageBox::Open | QMessageBox::Close);
 
     if (reply == QMessageBox::Open)
-        QDesktopServices::openUrl(OTLinks::wipThread);
+        QDesktopServices::openUrl(OTLinks::showroom);
 }
 
 /// Saves the update check

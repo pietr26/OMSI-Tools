@@ -58,18 +58,16 @@ public:
         case Lite:          return "Lite";          break;
         case Prerelease:    return "Prerelease";    break;
         case Release:       return "Release";       break;
-        default:            return "?";             break;
+        default:            return "undefined";     break;
         }
     }
 };
-
-// Create OTConfig class?
 
 const QString OTName = "OMSI-Tools";
 const QString OTVersion = "1.0.0-beta";
 const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Beta;
 
-// Unsaved code for closeEvents:
+/// Unsaved code snippet for closeEvents:
 /*
     if (unsaved)
     {
@@ -89,11 +87,12 @@ const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Beta;
 class OTLinks
 {
 public:
-    inline static const QUrl wipThread = QUrl("https://reboot.omsi-webdisk.de/community/thread/4783");
-    inline static const QUrl supportThread = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683");
+    inline static const QUrl showroom = QUrl("https://reboot.omsi-webdisk.de/community/thread/4783");
+    inline static const QUrl support = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683");
     inline static const QUrl latestVersion = QUrl("http://omsi-tools.bplaced.net/omsi-tools/versionCheck/latestVersion.txt");
     inline static const QUrl changelog = QUrl("http://omsi-tools.bplaced.net/omsi-tools/changelog/index.html");
-    inline static const QUrl downloadLink = QUrl("http://omsi-tools.bplaced.net/omsi-tools/download/currentDownloadLink.php");
+    inline static const QUrl download = QUrl("http://omsi-tools.bplaced.net/omsi-tools/download/currentDownloadLink.php");
+    inline static const QUrl survey = QUrl("https://forms.office.com/r/QbbQBQCa21");
 };
 
 /// Calculates disk usage
@@ -198,12 +197,6 @@ public:
     QString getDate(QString format = "dd.MM.yyyy")
     {
         return QDate::currentDate().toString(format);
-    }
-
-    /// Opens feedback form
-    void sendFeedback()
-    {
-        QDesktopServices::openUrl(OTLinks::supportThread);
     }
 
     /// Sizes the window in dependence to the screen geometry

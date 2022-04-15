@@ -2,6 +2,7 @@
 #define WSTART_H
 
 #include <QMainWindow>
+#include <QCloseEvent>
 #include "OTModules/OTGeneric/wsettings.h"
 #include "OTModules/wfonts.h"
 #include "OTModules/wVerifyMap/wverifymap.h"
@@ -11,12 +12,9 @@
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTModules/wContentSearch/wDBPanel.h"
 #include "OTModules/OTGeneric/wchangelog.h"
-#include <QMessageBox>
-#include <QDebug>
-#include <QTimer>
-#include <QCloseEvent>
-#include <OTModules/wFbh/wfbh.h>
-#include <OTModules/OTInternals/wstyletest.h>
+#include "OTModules/wFbh/wfbh.h"
+#include "OTModules/OTInternals/wstyletest.h"
+#include "OTModules/OTGeneric/wfeedback.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class wStart; }
@@ -80,6 +78,7 @@ private:
     wAbout *WABOUT;
     wFbh *WFBH;
     wStyleTest *WSTYLETEST;
+    wFeedback *WFEEDBACK;
 
     OTSettings set;
     OTMessage msg;

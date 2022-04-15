@@ -1252,9 +1252,10 @@ void wFonts::on_ledSearch_returnPressed()
 /// Opens bug report module
 void wFonts::on_actionSendFeedback_triggered()
 {
-    misc.sendFeedback();
+    wFeedback *WFEEDBACK = new wFeedback(this);
+    WFEEDBACK->setWindowModality(Qt::ApplicationModal);
+    WFEEDBACK->show();
 }
-
 
 void wFonts::on_sbxLeftPixel_textChanged(const QString &arg1)
 {

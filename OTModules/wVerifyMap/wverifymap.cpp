@@ -206,7 +206,9 @@ void wVerifyMap::on_actionAdjustWindowSize_triggered()
 /// Opens bug report module
 void wVerifyMap::on_actionSendFeedback_triggered()
 {
-    misc.sendFeedback();
+    wFeedback *WFEEDBACK = new wFeedback(this);
+    WFEEDBACK->setWindowModality(Qt::ApplicationModal);
+    WFEEDBACK->show();
 }
 
 /// Starts verifying
