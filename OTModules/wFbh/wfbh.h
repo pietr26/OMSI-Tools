@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "FbhFunctions.h"
 #include "OTBackend/OTGlobal.h"
+#include "OTModules/OTGeneric/wsettings.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -53,9 +54,12 @@ private slots:
 
     void on_lwgCopyrightItems_currentRowChanged(int currentRow);
 
+    void on_actionSettings_triggered();
+
 private:
     Ui::wFbh *ui;
     const QString moduleName = "wFbh";
+    wSettings *WSETTINGS;
     OTSettings set;
     OTMiscellaneous misc;
     reasons r;

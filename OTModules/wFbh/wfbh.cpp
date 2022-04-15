@@ -32,6 +32,9 @@ wFbh::wFbh(QWidget *parent)
     ui->gbxAddElement->setVisible(false);
 
     setWindowTitle("Filebase-Helper (" + OTVersion + ")");
+
+    ui->actionSettings->setText(tr("Settings (%1)").arg(OTName));
+
     finishedSetup = true;
 
 #ifdef QT_DEBUG
@@ -494,5 +497,13 @@ void wFbh::on_btnRCopy_clicked()
 void wFbh::on_btnRClear_clicked()
 {
     ui->cbxRAdmonition->setChecked(false);
+}
+
+/// Opens settings (MainApp)
+void wFbh::on_actionSettings_triggered()
+{
+    WSETTINGS = new wSettings(this);
+    WSETTINGS->setWindowModality(Qt::ApplicationModal);
+    WSETTINGS->show();
 }
 

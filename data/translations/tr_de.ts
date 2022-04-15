@@ -785,7 +785,13 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Anzahl: 0</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="700"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="706"/>
+        <source>Window</source>
+        <translation>Fenster</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="721"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="724"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
@@ -872,9 +878,9 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="697"/>
-        <source>Schließen</source>
-        <translation></translation>
+        <location filename="../../OTModules/wFbh/wfbh.cpp" line="36"/>
+        <source>Settings (%1)</source>
+        <translation>Einstellungen (%1)</translation>
     </message>
 </context>
 <context>
