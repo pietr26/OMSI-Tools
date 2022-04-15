@@ -69,5 +69,7 @@
         <file>data/icons/iconFbh.png</file>
         <file>data/icons/iconFlowie.svg</file>
         <file>data/icons/iconDownload_blue.svg</file>
+        <file>data/icons/iconComment.svg</file>
+        <file>data/icons/iconGitHub.svg</file>
     </qresource>
 </RCC>

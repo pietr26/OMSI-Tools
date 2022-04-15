@@ -5,6 +5,7 @@
 #include "OTModules/OTGeneric/wsettings.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
+#include <OTModules/OTGeneric/wfeedback.h>
 #include <QListWidgetItem>
 #include <QItemSelectionModel>
 #include <QFileDialog>
@@ -192,6 +193,8 @@ private:
     void resizeTexPreview();
 
     bool setupFinished = false;
+
+    void reloadTotalCharLabel();
 };
 
 #endif // WFONTS_H

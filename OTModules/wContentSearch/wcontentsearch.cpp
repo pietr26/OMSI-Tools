@@ -231,7 +231,9 @@ void wContentSearch::on_btnAddList_clicked()
 /// Opens bug report module
 void wContentSearch::on_actionSendFeedback_triggered()
 {
-    misc.sendFeedback();
+    wFeedback *WFEEDBACK = new wFeedback(this);
+    WFEEDBACK->setWindowModality(Qt::ApplicationModal);
+    WFEEDBACK->show();
 }
 
 /// Adds paths from a list to the search list
@@ -261,7 +263,7 @@ void wContentSearch::on_btnOpenInBrowser_clicked()
         foreach (QListWidgetItem *current, ui->lwgLinks->selectedItems())
             QDesktopServices::openUrl(QUrl(current->text()));
 
-        ui->statusbar->showMessage(tr("Open URL(s)..."), 2000);
+        ui->statusbar->showMessage(tr("Open selected URLs..."), 2000);
     }
 }
 
@@ -277,14 +279,16 @@ void wContentSearch::on_btnCopy_clicked()
         QClipboard* clipboard = QApplication::clipboard();
         clipboard->setText(copytext);
 
-        ui->statusbar->showMessage(tr("Copy URL(s)..."), 2000);
+        ui->statusbar->showMessage(tr("Copied selected URLs."), 2000);
     }
 }
 
 /// Opens feedback
 void wContentSearch::on_btnReportDeathLink_clicked()
 {
-    misc.sendFeedback();
+    wFeedback *WFEEDBACK = new wFeedback(this);
+    WFEEDBACK->setWindowModality(Qt::ApplicationModal);
+    WFEEDBACK->show();
 }
 
 /// Adds paths from a file via fileDialog

@@ -9,6 +9,7 @@
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTWidgets/verifymaptools.h"
 #include "OTModules/OTGeneric/wsettings.h"
+#include <OTModules/OTGeneric/wfeedback.h>
 #include <QFileDialog>
 #include <QProgressDialog>
 #include <QTimer>
