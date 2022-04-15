@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>692</width>
-    <height>1232</height>
+    <height>1246</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,7 +38,7 @@
        <item>
         <widget class="QLineEdit" name="ledName">
          <property name="placeholderText">
-          <string>Your name</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -94,13 +94,13 @@
       <item>
        <widget class="QGroupBox" name="gbxLink">
         <property name="title">
-         <string>Content link (or file ID)</string>
+         <string>Link(s) or file ID(s)</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
           <widget class="QPlainTextEdit" name="pteLinks">
            <property name="placeholderText">
-            <string>Link(s)</string>
+            <string/>
            </property>
           </widget>
          </item>
