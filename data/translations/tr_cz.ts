@@ -1756,38 +1756,43 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Vytvořit zástupce</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="626"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="629"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="632"/>
         <source>Release notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="647"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="650"/>
         <source>Source code on GitHub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="638"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="659"/>
+        <source>Restart</source>
+        <translation type="unfinished">Restartovat</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="641"/>
         <source>Manual</source>
         <translation>Manuál</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="547"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="548"/>
         <source>Specials</source>
         <translation>Speciální</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="572"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="575"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="584"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="587"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="614"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="617"/>
         <source>Send feedback</source>
         <translation>Poslat zpětnou vazbu</translation>
     </message>
@@ -1842,7 +1847,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Okno</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="553"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="554"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>

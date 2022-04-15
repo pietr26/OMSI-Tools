@@ -1751,15 +1751,20 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Verknüpfung erstellen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="626"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="629"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="632"/>
         <source>Release notes</source>
         <translation>Versionhinweise</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="647"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="650"/>
         <source>Source code on GitHub</source>
         <translation>Quellcode auf GitHub</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="659"/>
+        <source>Restart</source>
+        <translation>Neu starten</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="79"/>
@@ -1767,27 +1772,27 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Anzeigen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="638"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="641"/>
         <source>Manual</source>
         <translation>Handbuch</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="547"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="548"/>
         <source>Specials</source>
         <translation>Extras</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="572"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="575"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="584"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="587"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="614"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="617"/>
         <source>Send feedback</source>
         <translation>Feedback senden</translation>
     </message>
@@ -1842,7 +1847,7 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="553"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="554"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>

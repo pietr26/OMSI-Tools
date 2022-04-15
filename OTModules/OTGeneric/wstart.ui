@@ -539,6 +539,7 @@
     <property name="title">
      <string>Window</string>
     </property>
+    <addaction name="actionRestart"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
    </widget>
@@ -554,9 +555,11 @@
     </property>
     <addaction name="actionManual"/>
     <addaction name="actionSendFeedback"/>
+    <addaction name="separator"/>
     <addaction name="actionReleaseNotes"/>
-    <addaction name="actionAbout"/>
     <addaction name="actionSourceCodeOnGitHub"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSettings"/>
@@ -593,7 +596,7 @@
      <normaloff>:/rec/data/icons/iconInfo.svg</normaloff>:/rec/data/icons/iconInfo.svg</iconset>
    </property>
    <property name="text">
-    <string notr="true">About</string>
+    <string notr="true">about</string>
    </property>
    <property name="iconText">
     <string notr="true">About</string>
@@ -645,6 +648,15 @@
    </property>
    <property name="text">
     <string>Source code on GitHub</string>
+   </property>
+  </action>
+  <action name="actionRestart">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Restart</string>
    </property>
   </action>
  </widget>

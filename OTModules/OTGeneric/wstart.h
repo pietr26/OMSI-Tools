@@ -67,6 +67,8 @@ private slots:
 
     void on_actionReleaseNotes_triggered();
 
+    void on_actionRestart_triggered();
+
 private:
     const QString moduleName = "wStart";
     Ui::wStart *ui;
