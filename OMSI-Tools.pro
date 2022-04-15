@@ -24,7 +24,7 @@ SOURCES += \
     OTModules/wfonts.cpp \
     OTModules/wVerifyMap/wverifymap.cpp \
     OTModules/OTGeneric/wabout.cpp \
-    OTModules/OTGeneric/wchangelog.cpp \
+    OTModules/OTGeneric/wreleasenotes.cpp \
     OTModules/OTGeneric/wsettings.cpp \
     OTModules/OTGeneric/wstart.cpp \
     OTModules/OTGeneric/wstartupscreen.cpp
@@ -49,7 +49,7 @@ HEADERS += \
     OTWidgets/firstsetup.h \
     OTWidgets/verifymaptools.h \
     OTModules/OTGeneric/wabout.h \
-    OTModules/OTGeneric/wchangelog.h \
+    OTModules/OTGeneric/wreleasenotes.h \
     OTModules/OTGeneric/wsettings.h \
     OTModules/OTGeneric/wstart.h \
     OTModules/OTGeneric/wstartupscreen.h
@@ -68,7 +68,7 @@ FORMS += \
     OTWidgets/firstsetup.ui \
     OTWidgets/verifymaptools.ui \
     OTModules/OTGeneric/wabout.ui \
-    OTModules/OTGeneric/wchangelog.ui \
+    OTModules/OTGeneric/wreleasenotes.ui \
     OTModules/OTGeneric/wsettings.ui \
     OTModules/OTGeneric/wstart.ui \
     OTModules/OTGeneric/wstartupscreen.ui

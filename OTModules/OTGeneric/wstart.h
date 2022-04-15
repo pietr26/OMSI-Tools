@@ -11,7 +11,7 @@
 #include "OTModules/OTInternals/wdevtools.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTModules/wContentSearch/wDBPanel.h"
-#include "OTModules/OTGeneric/wchangelog.h"
+#include "OTModules/OTGeneric/wreleasenotes.h"
 #include "OTModules/wFbh/wfbh.h"
 #include "OTModules/OTInternals/wstyletest.h"
 #include "OTModules/OTGeneric/wfeedback.h"
@@ -53,8 +53,6 @@ private slots:
 
     void on_actionSendFeedback_triggered();
 
-    void on_actionChangelog_triggered();
-
     void on_actionManual_triggered();
 
     void on_btnOpenFbh_clicked();
@@ -67,6 +65,8 @@ private slots:
 
     void on_actionSourceCodeOnGitHub_triggered();
 
+    void on_actionReleaseNotes_triggered();
+
 private:
     const QString moduleName = "wStart";
     Ui::wStart *ui;
@@ -76,7 +76,7 @@ private:
     wDevTools *WDEVTOOLS;
     wDBPanel *WDBPANEL;
     wContentSearch *WCONTENTSEARCH;
-    wChangelog *WCHANGELOG;
+    wReleaseNotes *WRELEASENOTES;
     wAbout *WABOUT;
     wFbh *WFBH;
     wStyleTest *WSTYLETEST;

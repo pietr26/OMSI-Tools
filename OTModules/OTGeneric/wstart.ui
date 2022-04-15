@@ -554,7 +554,7 @@
     </property>
     <addaction name="actionManual"/>
     <addaction name="actionSendFeedback"/>
-    <addaction name="actionChangelog"/>
+    <addaction name="actionReleaseNotes"/>
     <addaction name="actionAbout"/>
     <addaction name="actionSourceCodeOnGitHub"/>
    </widget>
@@ -617,13 +617,16 @@
     <string notr="true">F1</string>
    </property>
   </action>
-  <action name="actionChangelog">
+  <action name="actionReleaseNotes">
    <property name="icon">
     <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconSwitch.svg</normaloff>:/rec/data/icons/iconSwitch.svg</iconset>
    </property>
    <property name="text">
-    <string>Changelog</string>
+    <string>Release notes</string>
+   </property>
+   <property name="toolTip">
+    <string>Release notes</string>
    </property>
   </action>
   <action name="actionManual">

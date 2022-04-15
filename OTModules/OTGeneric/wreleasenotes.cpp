@@ -1,9 +1,9 @@
-#include "wchangelog.h"
-#include "ui_wchangelog.h"
+#include "wreleasenotes.h"
+#include "ui_wreleasenotes.h"
 
-wChangelog::wChangelog(QWidget *parent, bool updateAvailable, QString newVersion) :
+wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newVersion) :
     QMainWindow(parent),
-    ui(new Ui::wChangelog)
+    ui(new Ui::wReleaseNotes)
 {
     qInfo().noquote() << "Starting " + moduleName + "...";
 
@@ -15,9 +15,9 @@ wChangelog::wChangelog(QWidget *parent, bool updateAvailable, QString newVersion
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
 
-    setWindowTitle(OTName + " - " + tr("changelog"));
+    setWindowTitle(OTName + " - " + tr("release notes"));
 
-    ui->teedChangelog->setText(tr("Loading..."));
+    ui->teedReleaseNotes->setText(tr("Loading..."));
 
     if (!updateAvailable)
     {
@@ -37,39 +37,39 @@ wChangelog::wChangelog(QWidget *parent, bool updateAvailable, QString newVersion
     else
         ui->lblNewVersion->setVisible(false);
 
-    QTimer::singleShot(0, this, SLOT(downloadChangelog()));
+    QTimer::singleShot(0, this, SLOT(downloadReleaseNotes()));
 
     qInfo().noquote() << moduleName + " started";
 }
 
-wChangelog::~wChangelog()
+wReleaseNotes::~wReleaseNotes()
 {
     delete ui;
 }
 
-/// Downloads current changelog
-void wChangelog::downloadChangelog()
+/// Downloads current release notes
+void wReleaseNotes::downloadReleaseNotes()
 {
-    QString changelog = dl.doDownload(OTLinks::changelog);
+    QString releaseNotes = dl.doDownload(OTLinks::releaseNotes);
     if ((dl.lastHttpCode != 0) || (dl.lastHttpCode >= 300))
-        ui->teedChangelog->setHtml(changelog);
+        ui->teedReleaseNotes->setHtml(releaseNotes);
     else
-        ui->teedChangelog->setText(tr("There was an error while get the changelog. Please check if your computer has a working internet connection, retry it or contact the developer.\nCode: %1").arg(dl.lastHttpCode));
+        ui->teedReleaseNotes->setText(tr("The release notes couldn't be downloaded. Please check if your computer has a working internet connection, retry it or contact the developer.\nHTTP %1").arg(dl.lastHttpCode));
 }
 
 /// Closes the window
-void wChangelog::on_btnClose_clicked()
+void wReleaseNotes::on_btnClose_clicked()
 {
     close();
 }
 
 /// Calls the settings and execute the update
-void wChangelog::on_btnUpdateNow_clicked()
+void wReleaseNotes::on_btnUpdateNow_clicked()
 {
     misc.startUpdate(this, ui->cbxClearAppDir->isChecked());
 }
 
-void wChangelog::on_cbxClearAppDir_stateChanged(int arg1)
+void wReleaseNotes::on_cbxClearAppDir_stateChanged(int arg1)
 {
     if (arg1 == 2)
         ui->lblClearAppDirInfo->setVisible(true);

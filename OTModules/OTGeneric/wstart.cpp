@@ -192,12 +192,12 @@ void wStart::on_actionSendFeedback_triggered()
     WFEEDBACK->show();
 }
 
-/// Opens the changelog
-void wStart::on_actionChangelog_triggered()
+/// Opens the release notes
+void wStart::on_actionReleaseNotes_triggered()
 {
-    WCHANGELOG = new wChangelog(this);
-    WCHANGELOG->setWindowModality(Qt::ApplicationModal);
-    WCHANGELOG->show();
+    WRELEASENOTES = new wReleaseNotes(this);
+    WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
+    WRELEASENOTES->show();
 }
 
 /// Opens the manual, currenty only in german
@@ -229,12 +229,12 @@ void wStart::on_btnStyleTest_clicked()
     WSTYLETEST->show();
 }
 
-/// Opens wChangelog to show latest update notes
+/// Opens wReleaseNotes to show latest update notes
 void wStart::on_btnView_clicked()
 {
-    WCHANGELOG = new wChangelog(this, true, updateVersion);
-    WCHANGELOG->setWindowModality(Qt::ApplicationModal);
-    WCHANGELOG->show();
+    WRELEASENOTES = new wReleaseNotes(this);
+    WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
+    WRELEASENOTES->show();
 }
 
 /// Opens link to github repository
@@ -242,4 +242,3 @@ void wStart::on_actionSourceCodeOnGitHub_triggered()
 {
     QDesktopServices::openUrl(OTLinks::github);
 }
-
