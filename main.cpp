@@ -10,7 +10,11 @@
 /// Test area for anything
 void testArea()
 {
+    // qDebug() << "+&+& TEST AREA &+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&";
 
+
+
+    // qDebug() << "+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&";
 }
 
 /// Main function
