@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>692</width>
-    <height>1246</height>
+    <width>697</width>
+    <height>1294</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -692,15 +692,57 @@ reasons</string>
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>697</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuWindow">
+    <property name="title">
+     <string>Window</string>
+    </property>
+    <addaction name="actionSettings"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuWindow"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionClose">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+   </property>
    <property name="text">
-    <string>Schließen</string>
+    <string>Close</string>
    </property>
    <property name="toolTip">
     <string>Close</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">settings</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">settings</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">settings</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+E</string>
    </property>
   </action>
  </widget>

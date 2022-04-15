@@ -783,7 +783,13 @@ Open the path of the logfile?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="700"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="706"/>
+        <source>Window</source>
+        <translation type="unfinished">Fenêtre</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="721"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="724"/>
         <source>Close</source>
         <translation type="unfinished">Fermer</translation>
     </message>
@@ -870,8 +876,8 @@ Open the path of the logfile?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="697"/>
-        <source>Schließen</source>
+        <location filename="../../OTModules/wFbh/wfbh.cpp" line="36"/>
+        <source>Settings (%1)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

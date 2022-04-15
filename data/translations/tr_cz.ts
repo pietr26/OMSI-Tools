@@ -781,7 +781,13 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <translation>Počet: 0</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="700"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="706"/>
+        <source>Window</source>
+        <translation type="unfinished">Okno</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="721"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="724"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
@@ -873,9 +879,9 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <translation>Přidat</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="697"/>
-        <source>Schließen</source>
-        <translation>Zavřit</translation>
+        <location filename="../../OTModules/wFbh/wfbh.cpp" line="36"/>
+        <source>Settings (%1)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
