@@ -24,6 +24,10 @@ int main(int argc, char *argv[])
     OTMiscellaneous misc;
     OTFileOperations fop;
 
+    
+    QCoreApplication::setApplicationVersion(OTVersion);
+
+    // If application crashed, save logfile
     QString newName;
     bool isCrash = false;
     if (set.read("main", "closeCheck") == "false")
@@ -34,6 +38,7 @@ int main(int argc, char *argv[])
         QFile::copy("logfile.txt", newName);
     }
 
+    // Initialize logger
     if ((set.read("main", "logfileMode") != -1))
     {
         Logger::attach();
