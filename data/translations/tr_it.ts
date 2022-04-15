@@ -1745,14 +1745,19 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="626"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="629"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="632"/>
         <source>Release notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="647"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="650"/>
         <source>Source code on GitHub</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="659"/>
+        <source>Restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1761,27 +1766,27 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="638"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="641"/>
         <source>Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="547"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="548"/>
         <source>Specials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="572"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="575"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="584"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="587"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="614"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="617"/>
         <source>Send feedback</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1836,7 +1841,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="553"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="554"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>

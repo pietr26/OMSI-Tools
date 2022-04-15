@@ -242,3 +242,10 @@ void wStart::on_actionSourceCodeOnGitHub_triggered()
 {
     QDesktopServices::openUrl(OTLinks::github);
 }
+
+/// Restarts application
+void wStart::on_actionRestart_triggered()
+{
+    misc.restart();
+}
+
