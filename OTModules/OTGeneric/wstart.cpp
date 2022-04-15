@@ -229,11 +229,17 @@ void wStart::on_btnStyleTest_clicked()
     WSTYLETEST->show();
 }
 
-
+/// Opens wChangelog to show latest update notes
 void wStart::on_btnView_clicked()
 {
     WCHANGELOG = new wChangelog(this, true, updateVersion);
     WCHANGELOG->setWindowModality(Qt::ApplicationModal);
     WCHANGELOG->show();
+}
+
+/// Opens link to github repository
+void wStart::on_actionSourceCodeOnGitHub_triggered()
+{
+    QDesktopServices::openUrl(OTLinks::github);
 }
 

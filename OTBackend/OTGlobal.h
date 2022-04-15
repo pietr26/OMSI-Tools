@@ -93,6 +93,7 @@ public:
     inline static const QUrl changelog = QUrl("http://omsi-tools.bplaced.net/omsi-tools/changelog/index.html");
     inline static const QUrl download = QUrl("http://omsi-tools.bplaced.net/omsi-tools/download/currentDownloadLink.php");
     inline static const QUrl survey = QUrl("https://forms.office.com/r/QbbQBQCa21");
+    inline static const QUrl github = QUrl("https://github.com/pietr26/OMSI-Tools");
 };
 
 /// Calculates disk usage

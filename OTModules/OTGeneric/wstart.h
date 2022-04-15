@@ -65,6 +65,8 @@ private slots:
 
     void on_btnView_clicked();
 
+    void on_actionSourceCodeOnGitHub_triggered();
+
 private:
     const QString moduleName = "wStart";
     Ui::wStart *ui;

@@ -556,6 +556,7 @@
     <addaction name="actionSendFeedback"/>
     <addaction name="actionChangelog"/>
     <addaction name="actionAbout"/>
+    <addaction name="actionSourceCodeOnGitHub"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSettings"/>
@@ -632,6 +633,15 @@
    </property>
    <property name="text">
     <string>Manual</string>
+   </property>
+  </action>
+  <action name="actionSourceCodeOnGitHub">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconGitHub.svg</normaloff>:/rec/data/icons/iconGitHub.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Source code on GitHub</string>
    </property>
   </action>
  </widget>
