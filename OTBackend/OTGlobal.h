@@ -348,6 +348,7 @@ public:
     {
         QSettings settings(OTName, module);
         settings.setValue(name, value);
+        qDebug().noquote().nospace() << "Write settings to " << module << ": "<< name << ", value: " << value;
     }
 
     /// Reads a setting
