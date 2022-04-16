@@ -10,6 +10,7 @@ wStyleTest::wStyleTest(QWidget *parent) :
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
+    adjustSize();
     resize(misc.sizeWindow(0.4, 1));
     qDebug() << "UI set";
 
