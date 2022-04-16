@@ -16,6 +16,9 @@ wStyleTest::wStyleTest(QWidget *parent) :
     setWindowTitle(OTName + " - style test");
 
     // StyleTest stuff
+    ui->statusbar->addPermanentWidget(ui->lblPermWidget1);
+    ui->statusbar->addPermanentWidget(ui->lblPermWidget2);
+
     ui->listWidget->item(4)->setFlags(ui->listWidget->item(4)->flags() & ~Qt::ItemIsSelectable);
     ui->listWidget->setCurrentRow(4);
 
@@ -48,13 +51,16 @@ void wStyleTest::on_horizontalSlider_valueChanged(int value)
 void wStyleTest::loadStyleSheet()
 {
     QFile themePath(ui->ledStyle->text());
-    if (themePath.open(QFile::ReadOnly | QFile::Text))
+
+    if (QFileInfo(themePath).exists() && themePath.open(QFile::ReadOnly | QFile::Text))
     {
         QTextStream in(&themePath);
         QString content = in.readAll();
         themePath.close();
         setStyleSheet(content);
     }
+    else
+        setStyleSheet("");
 
     set.write(moduleName, "testStylesheet", ui->ledStyle->text());
 }

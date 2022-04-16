@@ -248,6 +248,20 @@
             </property>
            </spacer>
           </item>
+          <item>
+           <widget class="QLabel" name="lblPermWidget1">
+            <property name="text">
+             <string>Permanent widget 1</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lblPermWidget2">
+            <property name="text">
+             <string>Permanent widget 2</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
         <widget class="QWidget" name="tab_7">
@@ -1012,8 +1026,8 @@ p, li { white-space: pre-wrap; }
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>240</width>
-               <height>361</height>
+               <width>941</width>
+               <height>725</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1043,8 +1057,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>28</height>
+                   <width>921</width>
+                   <height>74</height>
                   </rect>
                  </property>
                  <attribute name="label">
