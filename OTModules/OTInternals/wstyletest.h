@@ -24,6 +24,12 @@ private slots:
 
     void on_toolButton_clicked();
 
+    void on_btnSetThemeNone_clicked();
+
+    void on_btnSetThemeCombinear_clicked();
+
+    void on_btnSetThemeDarkeum_clicked();
+
 private:
     const QString moduleName = "wStyleTest";
     Ui::wStyleTest *ui;
