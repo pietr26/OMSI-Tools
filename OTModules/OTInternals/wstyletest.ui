@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1004</width>
-    <height>987</height>
+    <width>572</width>
+    <height>1022</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_26">
+   <layout class="QVBoxLayout" name="verticalLayout_9">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_8">
       <item>
@@ -36,9 +36,47 @@
        </layout>
       </item>
       <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_16">
+        <item>
+         <spacer name="horizontalSpacer_11">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSetThemeNone">
+          <property name="text">
+           <string>None</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSetThemeCombinear">
+          <property name="text">
+           <string>Combinear</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSetThemeDarkeum">
+          <property name="text">
+           <string>Darkeum</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
        <widget class="QTabWidget" name="twgMain">
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab_6">
          <attribute name="title">
@@ -1026,7 +1064,7 @@ p, li { white-space: pre-wrap; }
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>941</width>
+               <width>509</width>
                <height>725</height>
               </rect>
              </property>
@@ -1044,8 +1082,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>28</height>
+                   <width>100</width>
+                   <height>30</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1057,7 +1095,7 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>921</width>
+                   <width>489</width>
                    <height>74</height>
                   </rect>
                  </property>
@@ -1070,8 +1108,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>28</height>
+                   <width>100</width>
+                   <height>30</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1083,8 +1121,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>28</height>
+                   <width>100</width>
+                   <height>30</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1099,8 +1137,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>28</height>
+                   <width>100</width>
+                   <height>30</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1425,7 +1463,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1004</width>
+     <width>572</width>
      <height>24</height>
     </rect>
    </property>

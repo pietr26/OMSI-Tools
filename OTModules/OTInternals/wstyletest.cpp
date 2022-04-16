@@ -66,9 +66,22 @@ void wStyleTest::loadStyleSheet()
     set.write(moduleName, "testStylesheet", ui->ledStyle->text());
 }
 
-
 void wStyleTest::on_toolButton_clicked()
 {
     ui->toolButton->showMenu();
 }
 
+void wStyleTest::on_btnSetThemeNone_clicked()
+{
+    ui->ledStyle->clear();
+}
+
+void wStyleTest::on_btnSetThemeCombinear_clicked()
+{
+    ui->ledStyle->setText("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/Combinear.qss");
+}
+
+void wStyleTest::on_btnSetThemeDarkeum_clicked()
+{
+    ui->ledStyle->setText("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/Darkeum.qss");
+}
