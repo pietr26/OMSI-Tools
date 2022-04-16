@@ -24,9 +24,6 @@ int main(int argc, char *argv[])
     OTMiscellaneous misc;
     OTFileOperations fop;
 
-    
-    QCoreApplication::setApplicationVersion(OTVersion);
-
     // If application crashed, save logfile
     QString newName;
     bool isCrash = false;
