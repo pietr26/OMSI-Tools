@@ -835,14 +835,12 @@ QProgressBar
     text-align: center;
 	color: #000;
 	font-weight: bold;
-
 }
-
 
 QProgressBar::chunk
 {
     background-color: #b78620;
     width: 20px;
     margin: 1.5px;
-
 }
+

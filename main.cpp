@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QFile>
 #include "OTBackend/OTLogger.h"
+#include "OTBackend/OTStyleDraw.h"
 
 /// Test area for anything
 void testArea()
@@ -50,6 +51,8 @@ int main(int argc, char *argv[])
     qInfo().noquote() << "Starting " + OTName + "...";
 
     QApplication a(argc, argv);
+
+    QApplication::setStyle(new OTStyleDraw);
 
     set.loadTranslator();
 
