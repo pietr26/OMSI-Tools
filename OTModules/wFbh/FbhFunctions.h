@@ -81,8 +81,8 @@ public:
 class cEinbauanleitung
 {
 public:
-    const QString de = "<li><strong>Anleitung:</strong> Bei deinem Datei-Eintrag handelt es sich um eine Einbauanleitung. Bitte veröffentliche diese im entsprechendem Forum <a href=\"https://reboot.omsi-webdisk.de/community/board/171-tutorials/\"><strong>Tutorials</strong></a>.";
-    const QString en = "<li><strong>Instruction:</strong> Your file entry is an installation guide. Please publish them in the appropriate forum <a href=\"https://reboot.omsi-webdisk.de/community/board/171-tutorials/\"><strong>tutorials</strong></a>.";
+    const QString de = "<li><strong>Anleitung:</strong> Bei deinem Datei-Eintrag handelt es sich um eine (Einbau)anleitung. Bitte veröffentliche diese im entsprechendem Forum <a href=\"https://reboot.omsi-webdisk.de/community/board/171-tutorials/\"><strong>Tutorials</strong></a>.";
+    const QString en = "<li><strong>Instruction:</strong> Your file entry is an (installation) guide. Please publish them in the appropriate forum <a href=\"https://reboot.omsi-webdisk.de/community/board/171-tutorials/\"><strong>tutorials</strong></a>.";
 };
 
 class cArchivDefekt
