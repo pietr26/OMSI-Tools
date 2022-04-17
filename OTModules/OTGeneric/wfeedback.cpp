@@ -12,6 +12,8 @@ wFeedback::wFeedback(QWidget *parent) :
     //adjustSize();
     qDebug() << "UI set";
 
+    setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
+
     // Load settings
     setStyleSheet(set.read("main","theme").toString());
     setWindowTitle(OTName + " - " + tr("feedback"));
@@ -29,10 +31,12 @@ wFeedback::~wFeedback()
 void wFeedback::on_btnOpenSupportThread_clicked()
 {
     QDesktopServices::openUrl(OTLinks::support);
+    close();
 }
 
 void wFeedback::on_btnOpenSurvey_clicked()
 {
     QDesktopServices::openUrl(OTLinks::survey);
+    close();
 }
 
