@@ -34,6 +34,7 @@ HEADERS += \
     OTBackend/OTGlobal.h \
     OTBackend/OTLogger.h \
     OTBackend/OTOmsiFileHandler.h \
+    OTBackend/OTStyleDraw.h \
     OTModules/OTGeneric/wfeedback.h \
     OTModules/wContentSearch/wDBPanel.h \
     OTModules/wContentSearch/wcontentsearch.h \
