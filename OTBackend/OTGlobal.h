@@ -548,7 +548,7 @@ public:
     /// Could not open a file from OMSI main dir
     void fileOpenErrorCloseOMSI(QWidget *parent, QString filename)
     {
-        QMessageBox::critical(parent, QObject::tr("Error while opening file"), QString(QObject::tr("There was an error while opening\n%1\nIf OMSI is running, please close it and retry it. Furthermore, check if the file still exists.")).arg(filename));
+        QMessageBox::critical(parent, QObject::tr("Error while opening file"), QString(QObject::tr("There was an error while opening '%1'. If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.")).arg(filename));
     }
 
     /// Font module: No chars in font

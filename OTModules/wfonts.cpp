@@ -203,6 +203,9 @@ void wFonts::loadRecentFiles()
     int i = 1;
     foreach (QString current, recentFiles)
     {
+        if (!QFile(current).exists())
+            continue;
+
         QAction *action = new QAction();
 
         action->setData(current);
@@ -227,6 +230,9 @@ void wFonts::loadRecentFiles()
         ui->menuRecentlyOpenedFonts->addAction(action);
         i++;
     }
+
+    if (i == 1)
+        ui->menuRecentlyOpenedFonts->setEnabled(false);
 }
 
 /// Saves recent files to settings
@@ -234,6 +240,15 @@ void wFonts::saveRecentFiles(QString absoluteNewFilePath)
 {
     qDebug() << "Save recent files...";
     QStringList recentFiles = set.read(moduleName, "recentFiles").toStringList();
+
+    int i = 0;
+    foreach (QString current, recentFiles)
+    {
+        if (!QFile(current).exists())
+            recentFiles.removeAt(i);
+        else
+            i++;
+    }
 
     if (recentFiles.contains(absoluteNewFilePath))
         recentFiles.removeAt(recentFiles.indexOf(absoluteNewFilePath));
@@ -451,6 +466,13 @@ void wFonts::enableFontArea(bool status)
 /// Opens a font
 void wFonts::open(OTFileMethods::fileMethods method, QString filen)
 {
+    if (filen != "" && !QFile(filen).exists())
+    {
+        if (method != OTFileMethods::silentOpen)
+            msg.fileOpenErrorCloseOMSI(this, filen);
+        return;
+    }
+
     if (unsaved)
     {
         int msgResult = msg.unsavedContent(this);
