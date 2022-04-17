@@ -657,7 +657,7 @@ public:
         }
 
         QString line;
-        QTextStream in (&global);
+        QTextStream in(&global);
         QString halfTilePath = mapPath;
         halfTilePath = halfTilePath.remove(QRegularExpression("global.cfg"));
         QStringList tiles;
@@ -721,6 +721,8 @@ public:
 
         foreach (QString path, tiles)
         {
+            qDebug().noquote() << QString("Tile: %1").arg(path);
+
             i++;
             currentProgress = i;
             qApp->processEvents();
@@ -731,6 +733,7 @@ public:
             tile.open(QFile::ReadOnly | QFile::Text);
 
             QTextStream in(&tile);
+            in.setEncoding(QStringConverter::System);
             QString line;
 
             while (!in.atEnd())
@@ -838,10 +841,8 @@ public:
                     stuffobj.existing.sceneryobjects << fullPath;
 
                 firstVehicle.close();
-
             }
         }
-
     }
 
     /// Get vehicles of a map
@@ -1208,7 +1209,6 @@ public:
 
 private:
     OTSettings set;
-    OTMiscellaneous misc;
     OTFileOperations fop;
     QString mapPath;
     OTMessage msg;
