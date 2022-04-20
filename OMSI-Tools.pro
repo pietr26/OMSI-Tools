@@ -89,3 +89,6 @@ RC_ICONS = data/icons/iconOMSI-Tools.ico
 
 RESOURCES += \
     ressources.qrc
+
+DISTFILES += \
+    devNotes
