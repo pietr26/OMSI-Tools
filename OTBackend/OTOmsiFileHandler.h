@@ -204,6 +204,7 @@ public:
         if (varnamelist.open (QFile::ReadOnly | QFile::Text))
         {
             QTextStream in(&varnamelist);
+            in.setEncoding(QStringConverter::System);
             while (!in.atEnd())
                 variables << in.readLine().toUpper();
         }
@@ -227,8 +228,8 @@ public:
             currentProgress = i;
             qApp->processEvents();
 
-            if (current.contains("Aufzug.sco"))
-                qDebug().noquote() << "Here is " << current << "!";
+//            if (current.contains("Aufzug.sco"))
+//                qDebug().noquote() << "Here is " << current << "!";
 
             QFile object(set.read("main", "mainDir").toString() + "/" + current);
             object.open(QFile::ReadOnly | QFile::Text);
@@ -236,6 +237,8 @@ public:
             if (object.exists())
             {
                 QTextStream inFirst(&object);
+                inFirst.setEncoding(QStringConverter::System);
+
                 QString line;
                 QStringList variables;
 
@@ -318,6 +321,7 @@ public:
                 object.open(QFile::ReadOnly | QFile::Text);
 
                 QTextStream in(&object);
+                in.setEncoding(QStringConverter::System);
 
                 while (!in.atEnd())
                 {
@@ -404,7 +408,8 @@ public:
                             if (!checkTexture(QDir(QFileInfo(object).dir()).absolutePath() + "/texture/" + line, line))
                             {
                                 qWarning().noquote() << "Error in object '" + current + "':" << "Texture '" + line + "' could not be found!";
-                                stuffobj.missing.textures << path;
+                                // old: path
+                                stuffobj.missing.textures << QDir(QFileInfo(object).dir()).absolutePath() + "/texture/" + line;
                                 qDebug().noquote() << "ABSOLUTE PATH:" << QFileInfo(QFileInfo(object).dir().absolutePath() + "/texture/" + line).absoluteFilePath();
                                 qDebug() << "\n----------------------------------------------------------------------------------------------";
                             }
@@ -516,6 +521,7 @@ public:
             if (spline.exists())
             {
                 QTextStream in(&spline);
+                in.setEncoding(QStringConverter::System);
                 QString line;
                 unsigned int profileCounter = 0;
                 int lineCount = 0;
@@ -547,7 +553,8 @@ public:
                         {
                             qWarning().noquote() << "Error in spline '" + current + "':" << "texture '" + line + "' could not be found!";
                             qDebug().noquote() << "ABSOLUTE PATH:" << QFileInfo(QFileInfo(spline).dir().absolutePath() + "/texture/" + line).absoluteFilePath();
-                            stuffobj.missing.textures << texPath;
+                            // old: texPath
+                            stuffobj.missing.textures << fullPath;
                             stuffobj.missing.splines << current;
                             qDebug() << "\n----------------------------------------------------------------------------------------------";
                         }
@@ -624,6 +631,7 @@ public:
         }
 
         QTextStream in(&global);
+        in.setEncoding(QStringConverter::System);
         QString line = "";
 
         // Reading global.cfg
@@ -658,6 +666,8 @@ public:
 
         QString line;
         QTextStream in(&global);
+        in.setEncoding(QStringConverter::System);
+
         QString halfTilePath = mapPath;
         halfTilePath = halfTilePath.remove(QRegularExpression("global.cfg"));
         QStringList tiles;
@@ -813,6 +823,7 @@ public:
             QFile parklist(current);
 
             QTextStream in(&parklist);
+            in.setEncoding(QStringConverter::System);
             QString line;
             int lineCounter = 0;
 
@@ -873,6 +884,7 @@ public:
             }
 
             QTextStream in(&aiListFile);
+            in.setEncoding(QStringConverter::System);
 
             QString line;
             int lineCounter = 0;
@@ -968,6 +980,8 @@ public:
             }
 
             QTextStream in(&humans);
+            in.setEncoding(QStringConverter::System);
+
             QString line;
             int lineCounter = 0;
 
@@ -1010,6 +1024,7 @@ public:
         }
 
         QTextStream in(&global);
+        in.setEncoding(QStringConverter::System);
 
         while (!in.atEnd())
         {
@@ -1058,6 +1073,7 @@ public:
         }
 
         QTextStream in(&file);
+        in.setEncoding(QStringConverter::System);
 
         if (utf8encoding)
         {
