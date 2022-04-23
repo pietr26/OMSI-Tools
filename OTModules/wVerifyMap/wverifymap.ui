@@ -127,37 +127,20 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_12">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QCheckBox" name="cbxAdvancedVerifying">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="toolTip">
-            <string>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</string>
-           </property>
-           <property name="text">
-            <string>Advanced verifying</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="font">
-            <font>
-             <pointsize>8</pointsize>
-             <italic>true</italic>
-            </font>
-           </property>
-           <property name="text">
-            <string>(not recommended for quick verification)</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QCheckBox" name="cbxAdvancedVerifying">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</string>
+         </property>
+         <property name="text">
+          <string>Advanced verifying (not recommended for quick verification)</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="cbxOnlyMapTextures">
