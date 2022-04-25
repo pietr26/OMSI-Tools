@@ -1609,6 +1609,11 @@ HTTP %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="202"/>
+        <source>Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="306"/>
         <source>More languages</source>
         <translation type="unfinished"></translation>
@@ -1617,11 +1622,6 @@ HTTP %1</source>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="306"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="202"/>
-        <source>Should all settings be reset? This action cannot be undone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

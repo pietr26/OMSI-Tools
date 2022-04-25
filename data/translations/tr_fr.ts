@@ -1617,6 +1617,11 @@ HTTP %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="202"/>
+        <source>Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="306"/>
         <source>More languages</source>
         <translation type="unfinished">Plus de langues</translation>
@@ -1636,11 +1641,6 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="132"/>
         <source>Restart to apply all settings.</source>
         <translation>Redémarrez pour appliquer tous les paramètres.</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="202"/>
-        <source>Should all settings be reset? This action cannot be undone!</source>
-        <translation>Faut-il réinitialiser tous les paramètres ? Cette action ne peut être annulée !</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="206"/>
