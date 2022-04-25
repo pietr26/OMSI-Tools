@@ -1588,6 +1588,11 @@ HTTP %1</translation>
         <translation>Keine Aktualisierungen verfügbar.</translation>
     </message>
     <message>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="202"/>
+        <source>Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected</source>
+        <translation>Sollen alle Einstellungen zurückgesetzt werden? Dies kann nicht wieder rückgängig gemacht werden. Es werden alle Einstellungen gelöscht. Dateien wie Backups sind davon jedoch nicht betroffen.</translation>
+    </message>
+    <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="306"/>
         <source>More languages</source>
         <translation>Mehr Sprachen</translation>
@@ -1598,11 +1603,6 @@ HTTP %1</translation>
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation>Du möchtest mehr Sprachen zur Auswahl haben?
 Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut beherrscht, kannst du %1 gerne übersetzen! Melde dich dazu beim Entwickler in der OMSI-WebDisk, auch, wenn du mehr Fragen dazu hast.</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="202"/>
-        <source>Should all settings be reset? This action cannot be undone!</source>
-        <translation>Sollen alle Einstellungen zurückgesetzt werden? Es kann nicht mehr rückgängig gemacht werden!</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="206"/>
