@@ -199,8 +199,8 @@ void wSettings::on_btnCheckForUpdates_clicked()
 /// Resets the settings
 void wSettings::on_btnResetSettings_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Reset settings"), tr("Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected"));
-    if (reply == QMessageBox::Yes)
+    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Reset settings"), tr("Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected"), QMessageBox::Reset | QMessageBox::Cancel);
+    if (reply == QMessageBox::Reset)
     {
         QSettings("HKEY_CURRENT_USER\\SOFTWARE\\" + OTName, QSettings::NativeFormat).remove("");
         QMessageBox::information(this, tr("Reset settings"), tr("The programm will now restart."));
