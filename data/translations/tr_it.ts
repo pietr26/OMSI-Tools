@@ -365,88 +365,92 @@ Open the path of the logfile?</source>
 <context>
     <name>wAbout</name>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="19"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="20"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="22"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="23"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="27"/>
         <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="27"/>
         <source>The Project has been started at January 22, 2021 and it&apos;s still in an early state of development.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="27"/>
         <source>%1 is licensed under the %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="28"/>
-        <source>Founder &amp; head</source>
-        <comment>Meaning of &apos;head&apos;: A management role</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="29"/>
-        <source>Beta test</source>
+        <source>Development</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="30"/>
-        <source>Translators</source>
+        <source>Web design</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="31"/>
-        <source>italian</source>
+        <source>Beta test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="32"/>
-        <source>french</source>
+        <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="33"/>
+        <source>italian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="34"/>
+        <source>french</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="35"/>
         <source>czech</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="53"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
         <source>Developed with %1 and %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="53"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
         <source>More information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="54"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="57"/>
         <source>Build type: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="55"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="58"/>
         <source>Application build: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="59"/>
         <source>Approximate lines of code: %1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.ui" line="280"/>
+        <location filename="../../OTModules/OTGeneric/wabout.ui" line="324"/>
         <source>More...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -884,6 +888,16 @@ Open the path of the logfile?</source>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.cpp" line="19"/>
         <source>feedback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="33"/>
+        <source>Open support thread</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="62"/>
+        <source>Open survey</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1610,7 +1624,7 @@ HTTP %1</source>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="202"/>
-        <source>Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected</source>
+        <source>Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

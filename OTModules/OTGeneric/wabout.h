@@ -24,6 +24,7 @@ private slots:
 private:
     Ui::wAbout *ui;
     OTSettings set;
+    OTMiscellaneous misc;
     const QString moduleName = "wAbout";
 
 #ifdef QT_DEBUG

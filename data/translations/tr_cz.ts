@@ -366,88 +366,92 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
 <context>
     <name>wAbout</name>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="19"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="20"/>
         <source>About</source>
         <translation>O programu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="22"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="23"/>
         <source>Version</source>
         <translation>Verze</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="27"/>
         <source>The Project has been started at January 22, 2021 and it&apos;s still in an early state of development.</source>
         <translation>Projekt byl zahájen 22.ledna 2021 a je stále v počáteční fázi vývoje.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="27"/>
         <source>%1 is licensed under the %2.</source>
         <translation>%1 je licencován pod %2.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="28"/>
-        <source>Founder &amp; head</source>
-        <comment>Meaning of &apos;head&apos;: A management role</comment>
-        <translation>Zakladatel &amp; vedoucí projektu</translation>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="29"/>
+        <source>Development</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="29"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="30"/>
+        <source>Web design</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="31"/>
         <source>Beta test</source>
         <translation>Beta testování</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="30"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="32"/>
         <source>Translators</source>
         <translation>Překladatelé</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="31"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="33"/>
         <source>italian</source>
         <translation>Italština</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="32"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="34"/>
         <source>french</source>
         <translation>Francouzština</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="33"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="35"/>
         <source>czech</source>
         <translation>Čeština</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="53"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
         <source>More information</source>
         <translation>Více informací</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="53"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
         <source>Developed with %1 and %2</source>
         <translation>Vytvořeno s %1 a %2</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="54"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="57"/>
         <source>Build type: %1</source>
         <translation>Typ sestavy: %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="55"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="58"/>
         <source>Application build: %1</source>
         <translation>Typ aplikace: %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="59"/>
         <source>Approximate lines of code: %1 (%2)</source>
         <translation>Přibližný počet řádků kódu: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="27"/>
         <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
         <translation>%1 je pomůcka pro vytváření modifikací do hry OMSI 2 - the bus simulator. %1 obsahuje spoustu užiteckých funkcí pro urychlení práce a umožňuje vytváření modifikací mnohem jednodušeji.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.ui" line="280"/>
+        <location filename="../../OTModules/OTGeneric/wabout.ui" line="324"/>
         <source>More...</source>
         <translation>Více...</translation>
     </message>
@@ -886,6 +890,16 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <location filename="../../OTModules/OTGeneric/wfeedback.cpp" line="19"/>
         <source>feedback</source>
         <translation>Zpětná vazba</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="33"/>
+        <source>Open support thread</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="62"/>
+        <source>Open survey</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1614,7 +1628,7 @@ HTTP %1</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="202"/>
-        <source>Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected</source>
+        <source>Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
