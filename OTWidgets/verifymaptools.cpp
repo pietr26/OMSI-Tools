@@ -27,8 +27,10 @@ verifyMapTools::~verifyMapTools()
 /// Copies missing objects
 void verifyMapTools::copy(QListWidget *lwg)
 {
-    if (lwg->currentRow() == -1)
+    if (lwg->count() == 0)
         return;
+    else if (lwg->currentRow() == -1)
+        lwg->selectAll();
 
     QString copytext = "";
     foreach (QListWidgetItem* current, lwg->selectedItems())
@@ -40,12 +42,13 @@ void verifyMapTools::copy(QListWidget *lwg)
 /// Ignores the selected path(s)
 void verifyMapTools::ignore(QListWidget *lwg)
 {
-    if (lwg->currentRow() == -1)
+    if (lwg->count() == 0)
         return;
+    else if (lwg->currentRow() == -1)
+        lwg->selectAll();
 
-    for (int i = 0; i < lwg->count(); i++)
-        if (lwg->item(i)->isSelected())
-            iglF.write(lwg->item(i)->text());
+    foreach (QListWidgetItem* current, lwg->selectedItems())
+        iglF.write(current->text());
 
     qDeleteAll(lwg->selectedItems());
 }
@@ -53,6 +56,11 @@ void verifyMapTools::ignore(QListWidget *lwg)
 /// Search for paths in wContentSearch
 void verifyMapTools::search(QListWidget *lwg)
 {
+    if (lwg->count() == 0)
+        return;
+    else if (lwg->currentRow() == -1)
+        lwg->selectAll();
+
     QStringList paths;
     foreach(QListWidgetItem* current, lwg->selectedItems())
         paths << current->text();
@@ -65,57 +73,47 @@ void verifyMapTools::search(QListWidget *lwg)
     }
 }
 
-
 void verifyMapTools::on_tbnCopy_clicked()
 {
     ui->tbnCopy->showMenu();
 }
-
 
 void verifyMapTools::on_tbnSearch_clicked()
 {
     ui->tbnSearch->showMenu();
 }
 
-
 void verifyMapTools::on_tbnIgnore_clicked()
 {
     ui->tbnIgnore->showMenu();
 }
-
 
 void verifyMapTools::on_actionCopyFromAll_triggered()
 {
     copy(listWidgetAllParent);
 }
 
-
 void verifyMapTools::on_actionCopyFromMissing_triggered()
 {
     copy(listWidgetMissingParent);
 }
-
 
 void verifyMapTools::on_actionSearchFromAll_triggered()
 {
     search(listWidgetAllParent);
 }
 
-
 void verifyMapTools::on_actionSearchFromMissing_triggered()
 {
     search(listWidgetMissingParent);
 }
-
 
 void verifyMapTools::on_actionIgnoreFromAll_triggered()
 {
     ignore(listWidgetAllParent);
 }
 
-
 void verifyMapTools::on_actionIgnoreFromMissing_triggered()
 {
     ignore(listWidgetMissingParent);
 }
-
