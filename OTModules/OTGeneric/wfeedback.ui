@@ -30,7 +30,7 @@
        </font>
       </property>
       <property name="text">
-       <string notr="true">Open support thread</string>
+       <string>Open support thread</string>
       </property>
       <property name="icon">
        <iconset resource="../../ressources.qrc">
@@ -59,7 +59,7 @@
        </font>
       </property>
       <property name="text">
-       <string notr="true">Open survey</string>
+       <string>Open survey</string>
       </property>
       <property name="icon">
        <iconset resource="../../ressources.qrc">
