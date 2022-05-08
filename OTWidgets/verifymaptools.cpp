@@ -29,7 +29,7 @@ void verifyMapTools::copy(QListWidget *lwg)
 {
     if (lwg->count() == 0)
         return;
-    else if (lwg->currentRow() == -1)
+    else if (lwg->selectedItems().count() == 0)
         lwg->selectAll();
 
     QString copytext = "";
@@ -44,7 +44,7 @@ void verifyMapTools::ignore(QListWidget *lwg)
 {
     if (lwg->count() == 0)
         return;
-    else if (lwg->currentRow() == -1)
+    else if (lwg->selectedItems().count() == 0)
         lwg->selectAll();
 
     foreach (QListWidgetItem* current, lwg->selectedItems())
@@ -58,7 +58,7 @@ void verifyMapTools::search(QListWidget *lwg)
 {
     if (lwg->count() == 0)
         return;
-    else if (lwg->currentRow() == -1)
+    else if (lwg->selectedItems().count() == 0)
         lwg->selectAll();
 
     QStringList paths;
