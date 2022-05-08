@@ -11,7 +11,7 @@ wFbh::wFbh(QWidget *parent)
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
-    resize(misc.sizeWindow(0.4, 0.5));
+    resize(misc.sizeWindow(0.4, 0.8));
     move(misc.centerPosition(this));
     qDebug() << "UI set";
 
