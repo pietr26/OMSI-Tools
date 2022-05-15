@@ -32,10 +32,6 @@ wFonts::wFonts() :
 
     fop.createBackupFolder();
 
-    // Set Comboboxes
-    ui->cobxEncoding->addItem("ANSI");
-    ui->cobxEncoding->addItem("UTF-8");
-
     // Set only-Numbers
     ui->sbxHighestPixelInFontRow->clear();
     ui->sbxLeftPixel->clear();
@@ -977,17 +973,6 @@ void wFonts::on_actionLoadTemplate_triggered()
     }
 
     delete selection;
-}
-
-/// Switches the encding of the font
-void wFonts::on_cobxEncoding_currentTextChanged()
-{
-    if (ui->cobxEncoding->currentIndex() == 1)
-        utf8encoding = true;
-    else
-        utf8encoding = false;
-
-    setUnsaved();
 }
 
 /// Slot for character changes
