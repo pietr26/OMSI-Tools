@@ -1073,13 +1073,13 @@ public:
         }
 
         QTextStream in(&file);
-        in.setEncoding(QStringConverter::System);
+        in.setEncoding(QStringConverter::Utf16);
 
-        if (utf8encoding)
-        {
-            qDebug() << "Set encoding to UTF-8";
-            in.setEncoding(QStringConverter::Utf8);
-        }
+//        if (utf8encoding)
+//        {
+//            qDebug() << "Set encoding to UTF-8";
+//            in.setEncoding(QStringConverter::Utf8);
+//        }
 
         QString line;
         int fontCounter = 0;
@@ -1158,12 +1158,13 @@ public:
         }
 
         QTextStream out(&file);
+        out.setEncoding(QStringConverter::Utf16);
 
-        if (utf8encoding)
-        {
-            qDebug() << "Set encoding to UTF-8";
-            out.setEncoding(QStringConverter::Utf8);
-        }
+//        if (utf8encoding)
+//        {
+//            qDebug() << "Set encoding to UTF-8";
+//            out.setEncoding(QStringConverter::Utf8);
+//        }
 
         out << fop.writeFileHeader();
 
