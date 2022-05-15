@@ -1020,7 +1020,6 @@ void wFonts::on_ledColorTexture_textChanged(const QString &arg1)
     setUnsaved();
 
     loadTexPreview();
-    qDebug() << "BLA.";
 }
 
 /// Sets current alpha texture
@@ -1326,7 +1325,7 @@ void wFonts::loadTexPreview()
     else
         tex = set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture;
 
-    ui->cobxPreviewOptions->setCurrentIndex(set.read(moduleName, "textPreview").toInt());
+    ui->cobxPreviewOptions->setCurrentIndex(set.read(moduleName, "texPreview").toInt());
 
     if (QFile(tex).exists())
     {
