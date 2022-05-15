@@ -70,8 +70,6 @@ private slots:
 
     void on_actionSave_triggered();
 
-    void on_cobxEncoding_currentTextChanged();
-
     void on_actionReload_triggered();
 
     void autosave();
