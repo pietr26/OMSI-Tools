@@ -76,6 +76,16 @@ int main(int argc, char *argv[])
         QDir(QDir::tempPath() + "/OMSI-Tools_tempAppDir").removeRecursively();
     }
 
+    // Start counter
+    int startCount;
+    if (set.read("main", "startCount").isValid())
+    {
+        startCount = set.read("main", "startCount").toInt();
+        set.write("main", "startCount", startCount + 1);
+    }
+    else
+        set.write("main", "startCount", 1);
+
     wStartUpScreen *WSTARTUPSCREEN;
     wFbh *WFBH;
 
