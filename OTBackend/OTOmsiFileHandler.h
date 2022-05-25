@@ -1073,7 +1073,7 @@ public:
         }
 
         QTextStream in(&file);
-        in.setEncoding(QStringConverter::Utf16);
+        //in.setEncoding(QStringConverter::Utf16);
 
 //        if (utf8encoding)
 //        {
@@ -1158,7 +1158,7 @@ public:
         }
 
         QTextStream out(&file);
-        out.setEncoding(QStringConverter::Utf16);
+        out.setEncoding(QStringConverter::System);
 
 //        if (utf8encoding)
 //        {
