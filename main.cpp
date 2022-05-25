@@ -43,10 +43,11 @@ int main(int argc, char *argv[])
         Logger::logging = true;
     }
 
+    // Print all settings to the logfile
+    qDebug().noquote() << "Settings" + set.getAllSettings() + "\n================================================\n";
+
     set.write("main", "closeCheck", false);
     set.setDefaultSettings();
-
-    qDebug().noquote() << "Settings" + set.getAllSettings() + "\n================================================\n";
 
     qInfo().noquote() << "Starting " + OTName + "...";
 

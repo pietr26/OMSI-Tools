@@ -91,6 +91,8 @@ wStart::wStart(QWidget *parent)
         }
     }
 
+    startCounterMsgSender();
+
     qInfo().noquote() << moduleName + " started";
 }
 
@@ -244,6 +246,20 @@ void wStart::on_actionSourceCodeOnGitHub_triggered()
 }
 
 /// Restarts application
+void wStart::startCounterMsgSender()
+{
+    unsigned int count = set.read("main", "startCount").toInt();
+
+    if ((count >= 5) && (set.read("main\\startCountMessages", "feedbackForm").toString() != "true"))
+    {
+        QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Feedback"), tr("You are welcome to give us feedback about %1 so we can improve our software.").arg(OTName), QMessageBox::Yes | QMessageBox::No);
+        set.write("main\\startCountMessages", "feedbackForm", true);
+
+        if (reply == QMessageBox::Yes)
+            QDesktopServices::openUrl(OTLinks::survey);
+    }
+}
+
 void wStart::on_actionRestart_triggered()
 {
     misc.restart();

@@ -90,6 +90,7 @@ private:
     OTFileOperations fop;
 
     QString updateVersion;
+    void startCounterMsgSender();
 };
 
 #endif // WSTART_H

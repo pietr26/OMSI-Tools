@@ -253,12 +253,12 @@
         <translation>Sammle Szenerieobjekte und Splines...</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="62"/>
+        <location filename="../../main.cpp" line="63"/>
         <source>Crash detected</source>
         <translation>Absturz erkannt</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="62"/>
+        <location filename="../../main.cpp" line="63"/>
         <source>%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.
 Open the path of the logfile?</source>
         <translation>%1 scheint beim letzten Start abgestürzt zu sein. Die Logfile des letzten Starts wurde gesondert abgespeichert. Bitte kontaktiere den Entwickler mit der Logfile.
@@ -910,377 +910,366 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="269"/>
+        <location filename="../../OTModules/wfonts.ui" line="239"/>
         <source>Characters</source>
         <translation>Zeichen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="846"/>
+        <location filename="../../OTModules/wfonts.ui" line="816"/>
         <source>Open settings or use special functions</source>
         <translation>Einstellungen oder Funktionen öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="950"/>
+        <location filename="../../OTModules/wfonts.ui" line="920"/>
         <source>Close current window</source>
         <translation>Fenster schließen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1028"/>
+        <location filename="../../OTModules/wfonts.ui" line="998"/>
         <source>Load template...</source>
         <translation>Vorlage laden...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1031"/>
+        <location filename="../../OTModules/wfonts.ui" line="1001"/>
         <source>Load a template</source>
         <translation>Eine Vorlage laden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1013"/>
+        <location filename="../../OTModules/wfonts.ui" line="983"/>
         <source>Delete current character</source>
         <translation>Aktuelles Zeichen löschen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="348"/>
+        <location filename="../../OTModules/wfonts.ui" line="318"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="160"/>
+        <location filename="../../OTModules/wfonts.ui" line="153"/>
         <source>Color texture:</source>
         <translation>Farbtextur:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="147"/>
+        <location filename="../../OTModules/wfonts.ui" line="179"/>
         <source>Font name:</source>
         <translation>Schriftname:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="186"/>
-        <source>Encoding:</source>
-        <translation>Kodierung:</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wfonts.ui" line="120"/>
+        <location filename="../../OTModules/wfonts.ui" line="199"/>
         <source>Alpha texture:</source>
         <translation>Alphatextur:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="173"/>
+        <location filename="../../OTModules/wfonts.ui" line="166"/>
         <source>Maximum height of characters:</source>
         <translation>Maximale Zeichenhöhe:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="199"/>
+        <location filename="../../OTModules/wfonts.ui" line="75"/>
         <source>Distance between characters:</source>
         <translation>Abstand zwischen Zeichen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="500"/>
+        <location filename="../../OTModules/wfonts.ui" line="470"/>
         <source>Right pixel:</source>
         <translation>Rechter Pixel:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="474"/>
+        <location filename="../../OTModules/wfonts.ui" line="444"/>
         <source>Character:</source>
         <translation>Zeichen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="518"/>
+        <location filename="../../OTModules/wfonts.ui" line="488"/>
         <source>Highest pixel in row:</source>
         <translation>Höchster Pixel in Reihe:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="550"/>
+        <location filename="../../OTModules/wfonts.ui" line="520"/>
         <source>Left pixel:</source>
         <translation>Linker Pixel:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="487"/>
+        <location filename="../../OTModules/wfonts.ui" line="457"/>
         <source>Comment:</source>
         <translation>Kommentar:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1049"/>
+        <location filename="../../OTModules/wfonts.ui" line="1019"/>
         <source>Move current character up</source>
         <translation>Aktuelles Zeichen nach oben verschieben</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1067"/>
+        <location filename="../../OTModules/wfonts.ui" line="1037"/>
         <source>Move current character down</source>
         <translation>Aktuelles Zeichen nach unten verschieben</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="995"/>
+        <location filename="../../OTModules/wfonts.ui" line="965"/>
         <source>Add a new character</source>
         <translation>Neues Zeichen hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="433"/>
-        <location filename="../../OTModules/wfonts.ui" line="992"/>
+        <location filename="../../OTModules/wfonts.ui" line="403"/>
+        <location filename="../../OTModules/wfonts.ui" line="962"/>
         <source>New character</source>
         <translation>Neues Zeichen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="450"/>
+        <location filename="../../OTModules/wfonts.ui" line="420"/>
         <source>Character definition</source>
         <translation>Zeichendefinition</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="771"/>
+        <location filename="../../OTModules/wfonts.ui" line="741"/>
         <source>Reload texture preview</source>
         <translation>Texturvorschau neu laden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="819"/>
+        <location filename="../../OTModules/wfonts.ui" line="789"/>
         <source>Open, save fonts or close the font module</source>
         <translation>Schriften öffnen, speichern oder das Fenster schließen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="822"/>
+        <location filename="../../OTModules/wfonts.ui" line="792"/>
         <source>Font</source>
         <translation>Schrift</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="902"/>
+        <location filename="../../OTModules/wfonts.ui" line="872"/>
         <source>Open an existing OFT file</source>
         <translation>Vorhandene OFT-Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1109"/>
+        <location filename="../../OTModules/wfonts.ui" line="1079"/>
         <source>Copy chars</source>
         <translation>Zeichen kopieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1112"/>
+        <location filename="../../OTModules/wfonts.ui" line="1082"/>
         <source>Copy a list of all chars to clipboard</source>
         <translation>Eine Liste aller zeichen in die Zwischenablage kopieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1136"/>
+        <location filename="../../OTModules/wfonts.ui" line="1106"/>
         <source>Show in explorer</source>
         <translation>Zeige im Explorer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1139"/>
+        <location filename="../../OTModules/wfonts.ui" line="1109"/>
         <source>Shows the font file in the file explorer</source>
         <translation>Zeigt die Schriftdatei im Explorer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="849"/>
+        <location filename="../../OTModules/wfonts.ui" line="819"/>
         <source>Specials</source>
         <translation>Extras</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="183"/>
-        <location filename="../../OTModules/wfonts.ui" line="256"/>
-        <source>Set the encoding for the font file. The encoding UTF-8 is not recommended for OMSI unless it contains characters that are not present in ANSI.</source>
-        <translation>Die Kodierung für die Schriftdatei wählen. Die Kodierung UTF-8 ist für OMSI nicht empohlen, außer wenn sie Zeichen enthält, welche sich nicht im ANSI-Zeichensatz befinden.</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wfonts.ui" line="602"/>
+        <location filename="../../OTModules/wfonts.ui" line="572"/>
         <source>Search char</source>
         <translation>Zeichen suchen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="610"/>
+        <location filename="../../OTModules/wfonts.ui" line="580"/>
         <source>Search:</source>
         <translation>Suche:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="620"/>
+        <location filename="../../OTModules/wfonts.ui" line="590"/>
         <source>Find</source>
         <translation>Finden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="673"/>
+        <location filename="../../OTModules/wfonts.ui" line="643"/>
         <source>Next Result</source>
         <translation>Nächstes Ergebnis</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="724"/>
+        <location filename="../../OTModules/wfonts.ui" line="694"/>
         <source>Preview</source>
         <translation>Vorschau</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="757"/>
+        <location filename="../../OTModules/wfonts.ui" line="727"/>
         <source>Alpha texture</source>
         <translation>Alphatextur</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="752"/>
+        <location filename="../../OTModules/wfonts.ui" line="722"/>
         <source>Color texture</source>
         <translation>Farbtextur</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="318"/>
+        <location filename="../../OTModules/wfonts.ui" line="288"/>
         <source>character(s) total</source>
         <translation>Zeichen gesamt</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="826"/>
+        <location filename="../../OTModules/wfonts.ui" line="796"/>
         <source>Recently opened fonts</source>
         <translation>Kürzlich geöffnete Schriften</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="859"/>
+        <location filename="../../OTModules/wfonts.ui" line="829"/>
         <source>Add, delete or move characters</source>
         <translation>Zeichen hinzufügen, löschen oder verschieben</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="862"/>
+        <location filename="../../OTModules/wfonts.ui" line="832"/>
         <source>Edit</source>
         <translation>Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="873"/>
+        <location filename="../../OTModules/wfonts.ui" line="843"/>
         <source>Check your font for errors</source>
         <translation>Font auf Fehler überprüfen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="876"/>
+        <location filename="../../OTModules/wfonts.ui" line="846"/>
         <source>Debugging</source>
         <translation>Fehlerüberprüfung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="882"/>
+        <location filename="../../OTModules/wfonts.ui" line="852"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="899"/>
+        <location filename="../../OTModules/wfonts.ui" line="869"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="917"/>
+        <location filename="../../OTModules/wfonts.ui" line="887"/>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="920"/>
+        <location filename="../../OTModules/wfonts.ui" line="890"/>
         <source>Save your font</source>
         <translation>Schrift speichern</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="932"/>
+        <location filename="../../OTModules/wfonts.ui" line="902"/>
         <source>Save as...</source>
         <translation>Speichern unter...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="935"/>
+        <location filename="../../OTModules/wfonts.ui" line="905"/>
         <source>Save your font via file dialog</source>
         <translation>Schrift über einen Dateidialog speichern</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="947"/>
+        <location filename="../../OTModules/wfonts.ui" line="917"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="962"/>
+        <location filename="../../OTModules/wfonts.ui" line="932"/>
         <source>New font</source>
         <translation>Neue Schrift</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="965"/>
+        <location filename="../../OTModules/wfonts.ui" line="935"/>
         <source>Create a new font</source>
         <translation>Neue Schrift erstellen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="977"/>
+        <location filename="../../OTModules/wfonts.ui" line="947"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="980"/>
+        <location filename="../../OTModules/wfonts.ui" line="950"/>
         <source>Open the settings</source>
         <translation>EInstellungen öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1010"/>
+        <location filename="../../OTModules/wfonts.ui" line="980"/>
         <source>Delete character</source>
         <translation>Zeichen löschen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1046"/>
+        <location filename="../../OTModules/wfonts.ui" line="1016"/>
         <source>Move character up</source>
         <translation>Zeichen nach oben verschieben</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1064"/>
+        <location filename="../../OTModules/wfonts.ui" line="1034"/>
         <source>Move character down</source>
         <translation>Zeichen nach unten verschieben</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1079"/>
+        <location filename="../../OTModules/wfonts.ui" line="1049"/>
         <source>Reload</source>
         <translation>Neu laden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1082"/>
+        <location filename="../../OTModules/wfonts.ui" line="1052"/>
         <source>Reload current font</source>
         <translation>Lädt die aktuelle Schrift neu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1094"/>
+        <location filename="../../OTModules/wfonts.ui" line="1064"/>
         <source>Find char...</source>
         <translation>Zeichen finden...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1097"/>
+        <location filename="../../OTModules/wfonts.ui" line="1067"/>
         <source>Search for a char in the currently opened font</source>
         <translation>Suche nach einem Zeichen in der aktuellen Schrift</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1124"/>
+        <location filename="../../OTModules/wfonts.ui" line="1094"/>
         <source>Go to next error</source>
         <translation>Zum nächsten Fehler springen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1148"/>
+        <location filename="../../OTModules/wfonts.ui" line="1118"/>
         <source>Send feedback</source>
         <translation>Feedback senden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="696"/>
-        <location filename="../../OTModules/wfonts.cpp" line="698"/>
+        <location filename="../../OTModules/wfonts.cpp" line="692"/>
+        <location filename="../../OTModules/wfonts.cpp" line="694"/>
         <source>fonts</source>
         <translation>Schriften</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="636"/>
+        <location filename="../../OTModules/wfonts.cpp" line="632"/>
         <source>Save font</source>
         <translation>Schrift speichern</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="668"/>
+        <location filename="../../OTModules/wfonts.cpp" line="664"/>
         <source>Error: The file could not be saved.</source>
         <translation>Fehler: Die Datei konnte nicht gespeichert werden.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="678"/>
+        <location filename="../../OTModules/wfonts.cpp" line="674"/>
         <source>File saved successfully.</source>
         <translation>Datei erfolgreich gespeichert.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1179"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1163"/>
         <source>The entered character could not be found.</source>
         <translation>Das eingegebene Zeichen konnte nicht gefunden werden.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1179"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1163"/>
         <source>Character not found</source>
         <translation>Zeichen nicht gefunden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1215"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1235"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1199"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1219"/>
         <source>No other character found according to the search criteria.</source>
         <translation>Nach den Suchkriterien konnte kein anderes Zeichen gefunden werden.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1206"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1246"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1190"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1230"/>
         <source>The end of the font was reached, search from top</source>
         <translation>Das Ende der Schrift wurde erreicht, Suche von oben fortgesetzt</translation>
     </message>
@@ -1290,108 +1279,108 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Schrifterstellung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="112"/>
+        <location filename="../../OTModules/wfonts.cpp" line="108"/>
         <source>The dropped file is no font file (*.oft)!</source>
         <translation>Die abgelegte Datei ist keine Schriftdatei (*.oft)!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="117"/>
+        <location filename="../../OTModules/wfonts.cpp" line="113"/>
         <source>Open drag and drop font file now?
 %1</source>
         <translation>Drag &amp; drop-Schriftdatei jetzt öffnen?
 %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="536"/>
+        <location filename="../../OTModules/wfonts.cpp" line="532"/>
         <source>Open font</source>
         <translation>Schrift öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="536"/>
+        <location filename="../../OTModules/wfonts.cpp" line="532"/>
         <source>Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files.
 No font will be opened.</source>
         <translation>Achtung: Die ausgewählte Schriftdatei enthält mehr als eine Schrift. Die Anwendung kann keine Multi-Schriften lesen. Bitte teile jede Schrift in eine seperate Datei auf.
 Es wird keine Schrift geöffnet.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="782"/>
+        <location filename="../../OTModules/wfonts.cpp" line="778"/>
         <source>Error in character &apos;%1&apos;</source>
         <translation>Fehler im Zeichen &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="804"/>
+        <location filename="../../OTModules/wfonts.cpp" line="800"/>
         <source>There aren&apos;t any errors. The font is valid.</source>
         <translation>Die Schrift enthält keine Fehler.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="877"/>
+        <location filename="../../OTModules/wfonts.cpp" line="873"/>
         <source>Select color texture...</source>
         <translation>Farbtextur auswählen...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="896"/>
+        <location filename="../../OTModules/wfonts.cpp" line="892"/>
         <source>Select alpha texture...</source>
         <translation>Alphatextur auswählen...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="971"/>
+        <location filename="../../OTModules/wfonts.cpp" line="967"/>
         <source>The current selection isn&apos;t a valid template.</source>
         <translation>Die aktuelle Auswahl ist keine gültige Vorlage.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="971"/>
+        <location filename="../../OTModules/wfonts.cpp" line="967"/>
         <source>Invalid selection</source>
         <translation>Ungültige Auswahl</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1129"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1113"/>
         <source>Characters copied!</source>
         <translation>Zeichen kopiert!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1145"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1129"/>
         <source>The font file (still) doesn&apos;t exist.</source>
         <translation>Die Schriftdatei existiert (noch) nicht.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="945"/>
+        <location filename="../../OTModules/wfonts.cpp" line="941"/>
         <source>Umlauts</source>
         <translation>Umlaute</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="492"/>
-        <location filename="../../OTModules/wfonts.cpp" line="636"/>
+        <location filename="../../OTModules/wfonts.cpp" line="488"/>
+        <location filename="../../OTModules/wfonts.cpp" line="632"/>
         <source>OMSI font file</source>
         <translation>OMSI-Schrift</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="112"/>
+        <location filename="../../OTModules/wfonts.cpp" line="108"/>
         <source>Invalid format</source>
         <translation>Ungültiges Format</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="117"/>
+        <location filename="../../OTModules/wfonts.cpp" line="113"/>
         <source>Open font file</source>
         <translation>Schriftdatei öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="492"/>
+        <location filename="../../OTModules/wfonts.cpp" line="488"/>
         <source>Open font...</source>
         <translation>Schrift öffnen...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="877"/>
-        <location filename="../../OTModules/wfonts.cpp" line="896"/>
+        <location filename="../../OTModules/wfonts.cpp" line="873"/>
+        <location filename="../../OTModules/wfonts.cpp" line="892"/>
         <source>Bitmap picture</source>
         <translation>Bitmap-Bild</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="952"/>
+        <location filename="../../OTModules/wfonts.cpp" line="948"/>
         <source>Select a template</source>
         <translation>Eine Vorlage auswählen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="952"/>
+        <location filename="../../OTModules/wfonts.cpp" line="948"/>
         <source>Template:</source>
         <translation>Vorlage:</translation>
     </message>
@@ -1829,24 +1818,34 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Neue Aktualisierung verfügbar</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="143"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="145"/>
         <source>Coming soon!</source>
         <translation>Folgt!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="143"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="145"/>
         <source>Where should I release my modification?</source>
         <translation>Wo kann ich meine Modifikation veröffentlichen?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="181"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="183"/>
         <source>Simulate crash</source>
         <translation>Absturz simulieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="181"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="183"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Soll ein Anwendungsabsturz simuliert werden?</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="255"/>
+        <source>Feedback</source>
+        <translation>Feedback</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="255"/>
+        <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
+        <translation>Wir würden uns freuen, wenn du an einer Umfrage über %1 teilnimmst, um unsere Software zu verbessern.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="406"/>
