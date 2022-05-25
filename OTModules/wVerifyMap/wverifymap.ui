@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>642</width>
-    <height>722</height>
+    <height>568</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -67,13 +67,13 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_5">
       <item>
-       <widget class="QPushButton" name="btnShowSettings">
+       <widget class="QPushButton" name="btnVerifycationSettings">
         <property name="text">
-         <string>Show settings</string>
+         <string>Verifycation settings</string>
         </property>
         <property name="icon">
          <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconTabClosed.svg</normaloff>:/rec/data/icons/iconTabClosed.svg</iconset>
+          <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
         </property>
        </widget>
       </item>
@@ -119,38 +119,6 @@
        </widget>
       </item>
      </layout>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="gbxSettings">
-      <property name="title">
-       <string>Settings</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_12">
-       <item>
-        <widget class="QCheckBox" name="cbxAdvancedVerifying">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="toolTip">
-          <string>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</string>
-         </property>
-         <property name="text">
-          <string>Advanced verifying (not recommended for quick verification)</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="cbxOnlyMapTextures">
-         <property name="text">
-          <string>Show only map textures</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
     </item>
     <item>
      <widget class="QTabWidget" name="twgVerfying">
