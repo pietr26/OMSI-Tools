@@ -20,6 +20,10 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     if (!set.read(moduleName, "onlyMapTextures").isValid())
         set.write(moduleName, "onlyMapTextures", false);
 
+    if (set.read(moduleName, "mapPath") != "")
+            filehandler.setMapPath(set.read(moduleName, "mapPath").toString());
+        qDebug() << "Map path loaded";
+
     // ---
     ui->hlaTiles->insertWidget(1, new verifyMapTools(ui->lwgTilesAll, ui->lwgTilesMissing, this));
     ui->hlaTextures->insertWidget(1, new verifyMapTools(ui->lwgTexturesAll, ui->lwgTexturesMissing, this));
@@ -30,24 +34,6 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
-
-    if (set.read(moduleName, "advVerifying").toInt() == 2)
-        ui->cbxAdvancedVerifying->setChecked(true);
-    qDebug() << "advVerifying checkbox loaded";
-
-    if (set.read(moduleName, "mapPath") != "")
-        filehandler.setMapPath(set.read(moduleName, "mapPath").toString());
-    qDebug() << "Map path loaded";
-
-    if (set.read(moduleName, "onlyMapTextures") != "")
-        ui->cbxOnlyMapTextures->setChecked(set.read(moduleName, "onlyMapTextures").toBool());
-
-    if (ui->cbxAdvancedVerifying->isChecked())
-        ui->cbxOnlyMapTextures->setEnabled(true);
-    else
-        ui->cbxOnlyMapTextures->setEnabled(false);
-
-    qDebug() << "Only global textures checkbox loaded";
 
     // Load Description and picture from the map
     if ((filehandler.getMapPath() != "") && (QFile(filehandler.getMapPath()).exists()))
@@ -68,8 +54,6 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     ui->btnSplinesDetails->setVisible(false);
     ui->btnVehiclesDetails->setVisible(false);
     ui->btnHumansDetails->setVisible(false);
-
-    ui->gbxSettings->setVisible(false);
 
     // Connect S&S
     connect(watchProgress, SIGNAL(timeout()), this, SLOT(reloadProgress()));
@@ -372,7 +356,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
 
 
     // SCO and SLI (advanced)
-    if (ui->cbxAdvancedVerifying->isChecked())
+    if (set.read(moduleName, "advVerifying").toBool())
     {
         qInfo() << "Checking sceneryobjects...";
         filehandler.verifyObjects(filehandler.stuffobj.existing.sceneryobjects);
@@ -400,7 +384,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.stuffobj.existing.humans = iglF.check(filehandler.stuffobj.existing.humans, ignoredHumans);
 
     // TEX:
-    if (ui->cbxAdvancedVerifying->isChecked() && !set.read(moduleName, "onlyMapTextures").toBool())
+    if (set.read(moduleName, "advVerifying").toBool() && !set.read(moduleName, "onlyMapTextures").toBool())
     {
         qDebug() << "Read all textures...";
         filehandler.stuffobj.missing.textures = iglF.check(filehandler.stuffobj.missing.textures, ignoredTextures);
@@ -431,7 +415,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->ledMissingTiles->setText(QString::number(ui->lwgTilesMissing->count()));
 
         // TEX:
-        if (ui->cbxAdvancedVerifying->isChecked() && !set.read(moduleName, "onlyMapTextures").toBool())
+        if (set.read(moduleName, "advVerifying").toBool() && !set.read(moduleName, "onlyMapTextures").toBool())
         {
             ui->lwgTexturesAll->addItems(filehandler.stuffobj.missing.textures);
             ui->lwgTexturesAll->addItems(filehandler.stuffobj.existing.textures);
@@ -605,41 +589,6 @@ void wVerifyMap::on_actionEditIgnorelist_triggered()
     DIGNORELIST->show();
 }
 
-/// Sets the view to the selected verifying depth
-void wVerifyMap::on_cbxAdvancedVerifying_stateChanged(int arg1)
-{
-    set.write(moduleName, "advVerifying", arg1);
-
-    if (ui->cbxAdvancedVerifying->isChecked())
-        ui->cbxOnlyMapTextures->setEnabled(true);
-    else
-        ui->cbxOnlyMapTextures->setEnabled(false);
-}
-
-void wVerifyMap::on_btnShowSettings_clicked()
-{
-    if (ui->gbxSettings->isVisible())
-    {
-        ui->btnShowSettings->setText(tr("Show settings"));
-        ui->btnShowSettings->setIcon(QIcon(":/rec/data/icons/iconTabClosed.svg"));
-    }
-    else
-    {
-        ui->btnShowSettings->setText(tr("Hide settings"));
-        ui->btnShowSettings->setIcon(QIcon(":/rec/data/icons/iconTabOpened.svg"));
-    }
-
-    ui->gbxSettings->setVisible(!ui->gbxSettings->isVisible());
-}
-
-void wVerifyMap::on_cbxOnlyMapTextures_stateChanged(int arg1)
-{
-    if (arg1 == 2)
-        set.write(moduleName, "onlyMapTextures", true);
-    else
-        set.write(moduleName, "onlyMapTextures", false);
-}
-
 void wVerifyMap::enableIgnoreLabels(bool enable)
 {
     QString str;
@@ -656,3 +605,10 @@ void wVerifyMap::enableIgnoreLabels(bool enable)
     ui->lblIgnoredVehicles->setText(str);
     ui->lblIgnoredHumans->setText(str);
 }
+
+void wVerifyMap::on_btnVerifycationSettings_clicked()
+{
+    WVERIFYCATIONSETTINGS = new wVerifycationSettings(this);
+    WVERIFYCATIONSETTINGS->show();
+}
+

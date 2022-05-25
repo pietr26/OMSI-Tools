@@ -9,7 +9,8 @@
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTWidgets/verifymaptools.h"
 #include "OTModules/OTGeneric/wsettings.h"
-#include <OTModules/OTGeneric/wfeedback.h>
+#include "OTModules/OTGeneric/wfeedback.h"
+#include "OTModules/wVerifyMap/wverifycationsettings.h"
 #include <QFileDialog>
 #include <QProgressDialog>
 #include <QTimer>
@@ -65,8 +66,6 @@ private slots:
 
     void reloadProgress();
 
-    void on_cbxAdvancedVerifying_stateChanged(int arg1);
-
     void on_lwgTilesAll_itemDoubleClicked(QListWidgetItem *item);
 
     void on_lwgTilesMissing_itemDoubleClicked(QListWidgetItem *item);
@@ -93,9 +92,7 @@ private slots:
 
     void on_actionSendFeedback_triggered();
 
-    void on_btnShowSettings_clicked();
-
-    void on_cbxOnlyMapTextures_stateChanged(int arg1);
+    void on_btnVerifycationSettings_clicked();
 
 private:
     const QString moduleName = "wVerifyMap";
@@ -106,6 +103,8 @@ private:
     ignoreListFunctions iglF;
     wContentSearch *WCONTENTSEARCH;
     wSettings *WSETTINGS;
+    wVerifycationSettings *WVERIFYCATIONSETTINGS;
+
     int cutCount = set.read("main", "mainDir").toString().count() + 1;
 
     void selectAllAndClear();
