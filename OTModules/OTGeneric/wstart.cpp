@@ -33,6 +33,17 @@ wStart::wStart(QWidget *parent)
     ui->gbxDevTools->setVisible(isNoRelease);
     ui->actionSendFeedback->setVisible(isNoRelease);
 
+    // Disable unused buttons
+    ui->btnVehicles->setVisible(false);
+    ui->btnSceneryobjects->setVisible(false);
+    ui->btnMoneyTicketpacks->setVisible(false);
+    ui->btnScripts->setVisible(false);
+    ui->btnMaps->setVisible(false);
+    ui->btnTextures->setVisible(false);
+    ui->btnSplines->setVisible(false);
+    ui->btnBackup->setVisible(false);
+    ui->gbxFinishing->setVisible(false);
+
     if (!QFile("Fbh.unlock").exists())
         ui->gbxFbh->setVisible(false);
 
@@ -41,6 +52,8 @@ wStart::wStart(QWidget *parent)
     ui->actionAbout->setText(tr("About %1").arg(OTName));
 
     ui->fraUpdate->setVisible(false);
+
+    adjustSize();
 
     QVariant checkVersion = set.read("main", "autoUpdateCheck");
     QVariant lastAutoUpdateCheck = set.read("main", "lastAutoUpdateCheck").toString();
@@ -134,7 +147,7 @@ void wStart::reopenTest(QObject*)
 /// Opens the font module
 void wStart::on_btnFonts_clicked()
 {
-    hide();
+    close();
     WFONTS = new wFonts();
     WFONTS->show();
 }
@@ -148,7 +161,7 @@ void wStart::on_btnWhereShouldIReleaseMyModification_clicked()
 /// Opens verify map module
 void wStart::on_btnVerifyMap_clicked()
 {
-    hide();
+    close();
     WVERIFYMAP = new wVerifyMap();
     WVERIFYMAP->show();
 }
@@ -263,5 +276,12 @@ void wStart::startCounterMsgSender()
 void wStart::on_actionRestart_triggered()
 {
     misc.restart();
+}
+
+void wStart::on_btnCleanup_clicked()
+{
+    close();
+    WCLEANUP = new wCleanup();
+    WCLEANUP->show();
 }
 
