@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QCloseEvent>
+#include <OTModules/wcleanup.h>
 #include "OTModules/OTGeneric/wsettings.h"
 #include "OTModules/wfonts.h"
 #include "OTModules/wVerifyMap/wverifymap.h"
@@ -69,6 +70,8 @@ private slots:
 
     void on_actionRestart_triggered();
 
+    void on_btnCleanup_clicked();
+
 private:
     const QString moduleName = "wStart";
     Ui::wStart *ui;
@@ -83,6 +86,7 @@ private:
     wFbh *WFBH;
     wStyleTest *WSTYLETEST;
     wFeedback *WFEEDBACK;
+    wCleanup *WCLEANUP;
 
     OTSettings set;
     OTMessage msg;
