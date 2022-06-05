@@ -194,7 +194,7 @@ public:
 
     QStringList preDefiniedLocalVariables;
 
-    /// Returns a QStringList with all variables - needs an absoulute path
+    /// Returns a QStringList with all variables - needs an absolute path
     QStringList readVarlist(QString path)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
@@ -228,8 +228,8 @@ public:
             currentProgress = i;
             qApp->processEvents();
 
-//            if (current.contains("Aufzug.sco"))
-//                qDebug().noquote() << "Here is " << current << "!";
+            //            if (current.contains("Aufzug.sco"))
+            //                qDebug().noquote() << "Here is " << current << "!";
 
             QFile object(set.read("main", "mainDir").toString() + "/" + current);
             object.open(QFile::ReadOnly | QFile::Text);
@@ -512,8 +512,8 @@ public:
             currentProgress = i;
             qApp->processEvents();
 
-//            if (current == "Splines\\ADDON_Bad_Huegelsdorf\\Ueberland\\str_land_2spur_6m.sli")
-//                qDebug().noquote() << "Here is " << current << "!";
+            //            if (current == "Splines\\ADDON_Bad_Huegelsdorf\\Ueberland\\str_land_2spur_6m.sli")
+            //                qDebug().noquote() << "Here is " << current << "!";
 
             QFile spline(set.read("main", "mainDir").toString() + "/" + current);
             spline.open(QFile::ReadOnly | QFile::Text);
@@ -1058,7 +1058,7 @@ public:
     }
 
     /// Opens a font
-    OTFontModel openFont(QString path, bool utf8encoding = false)
+    OTFontModel openFont(QString path)
     {
         OTFontModel font;
         font.path = path;
@@ -1075,11 +1075,11 @@ public:
         QTextStream in(&file);
         //in.setEncoding(QStringConverter::Utf16);
 
-//        if (utf8encoding)
-//        {
-//            qDebug() << "Set encoding to UTF-8";
-//            in.setEncoding(QStringConverter::Utf8);
-//        }
+        //        if (utf8encoding)
+        //        {
+        //            qDebug() << "Set encoding to UTF-8";
+        //            in.setEncoding(QStringConverter::Utf8);
+        //        }
 
         QString line;
         int fontCounter = 0;
@@ -1093,12 +1093,12 @@ public:
                 {
                     fontCounter++;
                     // ... and save it to model
-                    font.name = in.readLine();
-                    font.colorTexture = in.readLine();
-                    font.alphaTexture = in.readLine();
-                    QString maxHeightOfChars = in.readLine();
+                    font.name = in.readLine().toUtf8();
+                    font.colorTexture = in.readLine().toUtf8();
+                    font.alphaTexture = in.readLine().toUtf8();
+                    QString maxHeightOfChars = in.readLine().toUtf8();
                     font.maxHeightOfChars = (maxHeightOfChars == "") ? -1 : maxHeightOfChars.toInt();
-                    QString distanceBetweenChars = in.readLine();
+                    QString distanceBetweenChars = in.readLine().toUtf8();
                     font.distanceBetweenChars = (distanceBetweenChars == "") ? -1 : distanceBetweenChars.toInt();
                 }
 
@@ -1106,18 +1106,18 @@ public:
                 {
                     OTCharacterModel character;
 
-                    character.character = in.readLine();
+                    character.character = in.readLine().toUtf8();
 
-                    QString leftPixel = in.readLine();
+                    QString leftPixel = in.readLine().toUtf8();
                     character.leftPixel = (leftPixel == "") ? -1 : leftPixel.toInt();
 
-                    QString rightPixel = in.readLine();
+                    QString rightPixel = in.readLine().toUtf8();
                     character.rightPixel = (rightPixel == "") ? -1 : rightPixel.toInt();
 
-                    QString highestPixelInFontRow = in.readLine();
+                    QString highestPixelInFontRow = in.readLine().toUtf8();
                     character.highestPixelInFontRow = (highestPixelInFontRow == "") ? -1 : highestPixelInFontRow.toInt();
 
-                    line = in.readLine();
+                    line = in.readLine().toUtf8();
 
                     if (line == "[char]")
                         continue;
@@ -1128,7 +1128,7 @@ public:
                 }
 
                 // Attention: This code needs to be here. Else there will be some problems with a [char] directly below a previous char entry.
-                line = in.readLine();
+                line = in.readLine().toUtf8();
             }
         }
         catch (...)
@@ -1147,7 +1147,7 @@ public:
     }
 
     /// Saves a font
-    bool saveFont(OTFontModel font, bool utf8encoding = false)
+    bool saveFont(OTFontModel font)
     {
         QFile file(font.path);
 
@@ -1160,11 +1160,11 @@ public:
         QTextStream out(&file);
         out.setEncoding(QStringConverter::System);
 
-//        if (utf8encoding)
-//        {
-//            qDebug() << "Set encoding to UTF-8";
-//            out.setEncoding(QStringConverter::Utf8);
-//        }
+        //        if (utf8encoding)
+        //        {
+        //            qDebug() << "Set encoding to UTF-8";
+        //            out.setEncoding(QStringConverter::Utf8);
+        //        }
 
         out << fop.writeFileHeader();
 
