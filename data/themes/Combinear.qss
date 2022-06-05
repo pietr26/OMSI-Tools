@@ -808,39 +808,24 @@ QScrollBar::up-arrow:vertical
     image: url(://arrow-up.png);
     width: 6px;
     height: 6px;
-
 }
-
 
 QScrollBar::down-arrow:vertical
 {
     image: url(://arrow-down.png);
     width: 6px;
     height: 6px;
-
 }
-
 
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
 {
     background: none;
-
 }
-
 
 /*-----QProgressBar-----*/
 QProgressBar
 {
     border: 1px solid #666666;
     text-align: center;
-	color: #000;
-	font-weight: bold;
+	border-radius: 3px;
 }
-
-QProgressBar::chunk
-{
-    background-color: #b78620;
-    width: 20px;
-    margin: 1.5px;
-}
-
