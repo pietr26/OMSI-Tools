@@ -38,8 +38,6 @@ private slots:
 
     void on_btnFonts_clicked();
 
-    void on_btnWhereShouldIReleaseMyModification_clicked();
-
     void on_btnVerifyMap_clicked();
 
     void on_btnDevTools_clicked();

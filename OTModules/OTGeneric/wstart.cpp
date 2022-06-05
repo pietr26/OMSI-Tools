@@ -152,12 +152,6 @@ void wStart::on_btnFonts_clicked()
     WFONTS->show();
 }
 
-/// Shows "Where should I release my modification" message
-void wStart::on_btnWhereShouldIReleaseMyModification_clicked()
-{
-    QMessageBox::information(this, tr("Where should I release my modification?"), tr("Coming soon!"));
-}
-
 /// Opens verify map module
 void wStart::on_btnVerifyMap_clicked()
 {
@@ -284,4 +278,3 @@ void wStart::on_btnCleanup_clicked()
     WCLEANUP = new wCleanup();
     WCLEANUP->show();
 }
-
