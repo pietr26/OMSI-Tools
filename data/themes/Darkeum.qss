@@ -1075,35 +1075,17 @@ QScrollBar::down-arrow:vertical
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
 {
     background: none;
-
 }
-
 
 /*-----QProgressBar-----*/
 QProgressBar
 {
 	background-color: #383838;
 	color: #ffffff;
-	border: 1px solid #607cff;
+	border: 1px solid #000000;
 	border-radius: 3px;
 	text-align: center;
-
 }
-
-
-QProgressBar::chunk {
-	background-color: #607cff;
-	color: #fff;
-
-}
-
-
-QProgressBar::chunk:disabled {
-	background-color: #656565;
-	border: 1px solid #aaa;
-	color: #656565;
-}
-
 
 /*-----QStatusBar-----*/
 QStatusBar
@@ -1111,7 +1093,4 @@ QStatusBar
 	background-color: #0a0a0a;
 	color: #ffffff;
 	border-color: #051a39;
-
 }
-
-
