@@ -76,7 +76,7 @@
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="385"/>
         <source>%1 could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
-        <translation>%1 konnte im ausgewählten Verzeichnis nicht gefunden werden. Ist der Pfad korrekt? Andernfalls kann es in anderen Modulen zu Problemen kommen. Soll ein neue Pfad ausgewählt werden?</translation>
+        <translation>%1 konnte im ausgewählten Verzeichnis nicht gefunden werden. Ist der Pfad korrekt? Andernfalls kann es in anderen Modulen zu Problemen kommen. Soll ein neuer Pfad ausgewählt werden?</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="496"/>
@@ -226,29 +226,29 @@
         <translation>Dezember</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="916"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="942"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="996"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="917"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="943"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="997"/>
         <source>[Empty line]</source>
         <translation>[Leere Zeile]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="221"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="222"/>
         <source>Checking sceneryobjects...</source>
         <translation>Überprüfe Szenerieobjekte...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="838"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="839"/>
         <source>[Empty line in parklist %1]</source>
         <translation>[Leere Zeile in Parkplatzliste %1]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="505"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="506"/>
         <source>Checking splines...</source>
         <translation>Überprüfe Splines...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="726"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="727"/>
         <source>Get sceneryobjects and splines...</source>
         <translation>Sammle Szenerieobjekte und Splines...</translation>
     </message>
@@ -459,17 +459,17 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
 <context>
     <name>wCleanup</name>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="45"/>
+        <location filename="../../OTModules/wcleanup.ui" line="47"/>
         <source>Analyze!</source>
         <translation>Analysieren!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="67"/>
+        <location filename="../../OTModules/wcleanup.ui" line="96"/>
         <source>Sceneryobjects</source>
         <translation>Szenerieobjekte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="82"/>
+        <location filename="../../OTModules/wcleanup.ui" line="111"/>
         <source>Splines</source>
         <translation>Splines</translation>
     </message>
@@ -477,6 +477,41 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <location filename="../../OTModules/wcleanup.cpp" line="17"/>
         <source>cleanup</source>
         <translation>Aufräumer</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="30"/>
+        <source>Initialize...</source>
+        <translation>Initialisieren...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="50"/>
+        <source>Read maps (%1 of %2)...</source>
+        <translation>Lese Karten (%1 von %2)...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="63"/>
+        <source>Analyze sceneryobject folder...</source>
+        <translation>Analysiere Szenerieobjekt-Ordner...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="71"/>
+        <source>Comparing sceneryobjects...</source>
+        <translation>Vergleiche Szenerieobjekte...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="89"/>
+        <source>Analyze spline folder...</source>
+        <translation>Analysiere Spline-Ordner...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="97"/>
+        <source>Comparing splines...</source>
+        <translation>Vergleiche Splines...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="114"/>
+        <source>Done.</source>
+        <translation>Fertig.</translation>
     </message>
 </context>
 <context>

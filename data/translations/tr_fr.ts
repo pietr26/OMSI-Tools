@@ -34,19 +34,19 @@
         <translation>l&apos;octet</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="838"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="839"/>
         <source>[Empty line in parklist %1]</source>
         <translation>[Ligne vide dans la parklist %1]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="916"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="942"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="996"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="917"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="943"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="997"/>
         <source>[Empty line]</source>
         <translation>[Ligne vide]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="221"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="222"/>
         <source>Checking sceneryobjects...</source>
         <translation>Contrôle de sceneryobjects...</translation>
     </message>
@@ -243,12 +243,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="505"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="506"/>
         <source>Checking splines...</source>
         <translation>Vérification des cannelures...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="726"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="727"/>
         <source>Get sceneryobjects and splines...</source>
         <translation>Obtenir des objets de paysage et des splines...</translation>
     </message>
@@ -458,23 +458,58 @@ Open the path of the logfile?</source>
 <context>
     <name>wCleanup</name>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="45"/>
+        <location filename="../../OTModules/wcleanup.ui" line="47"/>
         <source>Analyze!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="67"/>
+        <location filename="../../OTModules/wcleanup.ui" line="96"/>
         <source>Sceneryobjects</source>
         <translation type="unfinished">Objets du paysage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="82"/>
+        <location filename="../../OTModules/wcleanup.ui" line="111"/>
         <source>Splines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="17"/>
         <source>cleanup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="30"/>
+        <source>Initialize...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="50"/>
+        <source>Read maps (%1 of %2)...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="63"/>
+        <source>Analyze sceneryobject folder...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="71"/>
+        <source>Comparing sceneryobjects...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="89"/>
+        <source>Analyze spline folder...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="97"/>
+        <source>Comparing splines...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="114"/>
+        <source>Done.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
