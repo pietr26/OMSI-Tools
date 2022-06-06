@@ -1083,7 +1083,6 @@ QProgressBar
 	background-color: #383838;
 	color: #ffffff;
 	border: 1px solid #000000;
-	border-radius: 3px;
 	text-align: center;
 }
 
