@@ -459,6 +459,24 @@ void wFonts::enableFontArea(bool status)
     }
 }
 
+// Gets encoding from UI
+QStringConverter::Encoding wFonts::getEncoding()
+{
+    switch (ui->cobxEncoding->currentIndex())
+    {
+        case 0: return QStringConverter::Latin1; break;
+        case 1: return QStringConverter::Utf8; break;
+        case 2: return QStringConverter::Utf16; break;
+        case 3: return QStringConverter::Utf16LE; break;
+        case 4: return QStringConverter::Utf16BE; break;
+        case 5: return QStringConverter::Utf32; break;
+        case 6: return QStringConverter::Utf32LE; break;
+        case 7: return QStringConverter::Utf32BE; break;
+    }
+
+    return QStringConverter::Encoding();
+}
+
 /// Opens a font
 void wFonts::open(OTFileMethods::fileMethods method, QString filen)
 {
@@ -519,7 +537,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen)
         tempFont.path = filen;
 
     selectAllAndClear();
-    tempFont = filehandler.openFont(tempFont.path, utf8encoding);
+    tempFont = filehandler.openFont(tempFont.path, getEncoding());
     if (tempFont.error)
     {
         if (method != OTFileMethods::silentOpen)
@@ -656,7 +674,7 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
 
         qDebug() << "Direct path:" << tempFont.path;
 
-        if (!filehandler.saveFont(tempFont, utf8encoding))
+        if (!filehandler.saveFont(tempFont))
         {
             if (method != OTFileMethods::backupSave)
             {

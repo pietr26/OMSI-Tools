@@ -193,6 +193,7 @@ private:
     bool setupFinished = false;
 
     void reloadTotalCharLabel();
+    QStringConverter::Encoding getEncoding();
 };
 
 #endif // WFONTS_H
