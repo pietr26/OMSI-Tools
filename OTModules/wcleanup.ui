@@ -18,7 +18,7 @@
     <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
@@ -35,49 +35,20 @@
        </spacer>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="QPushButton" name="btnAnalyze">
-          <property name="font">
-           <font>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Analyze!</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../ressources.qrc">
-            <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QProgressBar" name="pgbProgress">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximum">
-           <number>6</number>
-          </property>
-          <property name="value">
-           <number>0</number>
-          </property>
-          <property name="textVisible">
-           <bool>false</bool>
-          </property>
-          <property name="textDirection">
-           <enum>QProgressBar::TopToBottom</enum>
-          </property>
-          <property name="format">
-           <string notr="true">%p%</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <widget class="QPushButton" name="btnAnalyze">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Analyze!</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../ressources.qrc">
+          <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -91,39 +62,124 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QGroupBox" name="gbxObjects">
-        <property name="title">
-         <string>Sceneryobjects</string>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <item>
-          <widget class="QListWidget" name="lwgObjects"/>
-         </item>
-        </layout>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="lblObjects">
+          <property name="text">
+           <string>Sceneryobjects</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="lwgObjects">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::ExtendedSelection</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QGroupBox" name="gbxSplines">
-        <property name="title">
-         <string>Splines</string>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
-         <item>
-          <widget class="QListWidget" name="lwgSplines"/>
-         </item>
-        </layout>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="lblSplines">
+          <property name="text">
+           <string>Splines</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="lwgSplines">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::ExtendedSelection</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
+    <item>
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbxActions">
+      <property name="title">
+       <string>Actions for selected folders</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QRadioButton" name="rbtnMoveToFolder">
+           <property name="text">
+            <string>Move to folder</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbtnDelete">
+           <property name="text">
+            <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnStartAction">
+         <property name="font">
+          <font>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string notr="true">btnStartAction</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../ressources.qrc">
+           <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="pgbProgress">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="textDirection">
+       <enum>QProgressBar::TopToBottom</enum>
+      </property>
+      <property name="format">
+       <string notr="true">%p%</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -133,8 +189,78 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuSpecials">
+    <property name="title">
+     <string>Specials</string>
+    </property>
+    <addaction name="actionSettings"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionSendFeedback"/>
+   </widget>
+   <widget class="QMenu" name="menuAnalyzer">
+    <property name="title">
+     <string>Analyzer</string>
+    </property>
+    <addaction name="actionAnalyze"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuAnalyzer"/>
+   <addaction name="menuSpecials"/>
+   <addaction name="menuHelp"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAnalyze">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Analyze</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionSendFeedback">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Send feedback</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">F1</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../ressources.qrc"/>
