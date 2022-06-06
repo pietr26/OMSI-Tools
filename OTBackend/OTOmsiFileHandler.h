@@ -1061,7 +1061,7 @@ public:
     }
 
     /// Opens a font
-    OTFontModel openFont(QString path)
+    OTFontModel openFont(QString path, QStringConverter::Encoding encoding)
     {
         OTFontModel font;
         font.path = path;
@@ -1076,13 +1076,7 @@ public:
         }
 
         QTextStream in(&file);
-        //in.setEncoding(QStringConverter::Utf16);
-
-        //        if (utf8encoding)
-        //        {
-        //            qDebug() << "Set encoding to UTF-8";
-        //            in.setEncoding(QStringConverter::Utf8);
-        //        }
+        in.setEncoding(encoding);
 
         QString line;
         int fontCounter = 0;
@@ -1161,13 +1155,7 @@ public:
         }
 
         QTextStream out(&file);
-        out.setEncoding(QStringConverter::System);
-
-        //        if (utf8encoding)
-        //        {
-        //            qDebug() << "Set encoding to UTF-8";
-        //            out.setEncoding(QStringConverter::Utf8);
-        //        }
+        out.setEncoding(QStringConverter::Utf16LE);
 
         out << fop.writeFileHeader();
 
