@@ -2,10 +2,10 @@
 #define WCLEANUP_H
 
 #include <QMainWindow>
-#include <OTModules/OTGeneric/wsettings.h>
+#include "OTModules/OTGeneric/wsettings.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
-#include <OTModules/OTGeneric/wfeedback.h>
+#include "OTModules/OTGeneric/wfeedback.h"
 
 namespace Ui {
 class wCleanup;
