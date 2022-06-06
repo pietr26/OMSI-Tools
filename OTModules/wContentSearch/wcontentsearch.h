@@ -5,7 +5,7 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTDatabaseHandler.h"
 #include "OTModules/OTGeneric/wsettings.h"
-#include <OTModules/OTGeneric/wfeedback.h>
+#include "OTModules/OTGeneric/wfeedback.h"
 
 namespace Ui {
 class wContentSearch;
@@ -28,17 +28,11 @@ private slots:
 
     void on_actionRemoveSelection_triggered();
 
-    void on_btnAddToList_clicked();
-
     void on_btnOpenInBrowser_clicked();
 
     void on_actionSearch_triggered();
 
     void on_btnSearch_clicked();
-
-    void on_actionAddFile_triggered();
-
-    void on_btnAdd_clicked();
 
     void on_btnAddList_clicked();
 
