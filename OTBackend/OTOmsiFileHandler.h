@@ -719,7 +719,7 @@ public:
     }
 
     /// Gets items from a map
-    void getItems(QStringList &tiles)
+    void getItems(QStringList &tiles, bool includeParklists = true)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
 
@@ -791,67 +791,70 @@ public:
             }
         }
 
-        // parklists
-        QStringList parklists;
-        parklists << getMapPath().remove("global.cfg") + "parklist_p.txt";
-
-        for (int i = 1; i > 100; i++)
+        if (includeParklists)
         {
-            QString additionalParklist = getMapPath().remove("global.cfg") + "parklist_p_" + QString::number(i) + ".txt";
-            if (QFile(additionalParklist).exists())
-                parklists << additionalParklist;
-        }
+            // PARKLISTS
+            QStringList parklists;
+            parklists << getMapPath().remove("global.cfg") + "parklist_p.txt";
 
-        // chronologies - normal:
-        const QString directory(QFileInfo(mapPath).absolutePath() + "/Chrono");
-        QDirIterator chronoDirIterator(directory, QStringList("parklist_p.txt"), QDir::Files, QDirIterator::Subdirectories);
-
-        QStringList chronoParklists;
-        while (chronoDirIterator.hasNext())
-            chronoParklists << QFileInfo(chronoDirIterator.next()).absoluteFilePath();
-
-        // chronologies - extra parklists:
-        QDirIterator chronoDirIterator2(directory, QStringList("parklist_p_*.txt"), QDir::Files, QDirIterator::Subdirectories);
-
-        while (chronoDirIterator2.hasNext())
-            chronoParklists << QFileInfo(chronoDirIterator2.next()).absoluteFilePath();
-
-        parklists << chronoParklists;
-
-        foreach (QString current, parklists)
-        {
-            QFile parklist(current);
-
-            QTextStream in(&parklist);
-            in.setEncoding(QStringConverter::System);
-            QString line;
-            int lineCounter = 0;
-
-            while (!in.atEnd())
+            for (int i = 1; i > 100; i++)
             {
-                line = in.readLine();
-                lineCounter++;
+                QString additionalParklist = getMapPath().remove("global.cfg") + "parklist_p_" + QString::number(i) + ".txt";
+                if (QFile(additionalParklist).exists())
+                    parklists << additionalParklist;
+            }
 
-                if (line == "")
+            // chronologies - normal:
+            const QString directory(QFileInfo(mapPath).absolutePath() + "/Chrono");
+            QDirIterator chronoDirIterator(directory, QStringList("parklist_p.txt"), QDir::Files, QDirIterator::Subdirectories);
+
+            QStringList chronoParklists;
+            while (chronoDirIterator.hasNext())
+                chronoParklists << QFileInfo(chronoDirIterator.next()).absoluteFilePath();
+
+            // chronologies - extra parklists:
+            QDirIterator chronoDirIterator2(directory, QStringList("parklist_p_*.txt"), QDir::Files, QDirIterator::Subdirectories);
+
+            while (chronoDirIterator2.hasNext())
+                chronoParklists << QFileInfo(chronoDirIterator2.next()).absoluteFilePath();
+
+            parklists << chronoParklists;
+
+            foreach (QString current, parklists)
+            {
+                QFile parklist(current);
+
+                QTextStream in(&parklist);
+                in.setEncoding(QStringConverter::System);
+                QString line;
+                int lineCounter = 0;
+
+                while (!in.atEnd())
                 {
-                    qWarning().noquote() << "Error in parklist '" + current.remove(getMapPath().remove("global.cfg")) + "': Line " + QString::number(lineCounter) + " is empty!";
-                    stuffobj.missing.sceneryobjects << QObject::tr("[Empty line in parklist %1]").arg(current.remove(getMapPath().remove("global.cfg")));
+                    line = in.readLine();
+                    lineCounter++;
 
-                    continue;
+                    if (line == "")
+                    {
+                        qWarning().noquote() << "Error in parklist '" + current.remove(getMapPath().remove("global.cfg")) + "': Line " + QString::number(lineCounter) + " is empty!";
+                        stuffobj.missing.sceneryobjects << QObject::tr("[Empty line in parklist %1]").arg(current.remove(getMapPath().remove("global.cfg")));
+
+                        continue;
+                    }
+
+                    QFile firstVehicle(mainDir + "/" + line);
+                    QString fullPath = QString(QFileInfo(firstVehicle).absoluteFilePath()).remove(0, cutCount);
+
+                    if (!firstVehicle.exists())
+                    {
+                        qWarning().noquote() << "Sceneryobject '" + QFileInfo(firstVehicle).absoluteFilePath() + "' is missing!";
+                        stuffobj.missing.sceneryobjects << fullPath;
+                    }
+                    else
+                        stuffobj.existing.sceneryobjects << fullPath;
+
+                    firstVehicle.close();
                 }
-
-                QFile firstVehicle(mainDir + "/" + line);
-                QString fullPath = QString(QFileInfo(firstVehicle).absoluteFilePath()).remove(0, cutCount);
-
-                if (!firstVehicle.exists())
-                {
-                    qWarning().noquote() << "Sceneryobject '" + QFileInfo(firstVehicle).absoluteFilePath() + "' is missing!";
-                    stuffobj.missing.sceneryobjects << fullPath;
-                }
-                else
-                    stuffobj.existing.sceneryobjects << fullPath;
-
-                firstVehicle.close();
             }
         }
     }
