@@ -20,11 +20,11 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
-     <widget class="QGroupBox" name="gbxAddFile">
+     <widget class="QGroupBox" name="gbxAddList">
       <property name="title">
-       <string>Add path</string>
+       <string>Add list</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
+      <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
         <widget class="QLabel" name="lblInputInfo">
          <property name="text">
@@ -32,39 +32,6 @@
          </property>
         </widget>
        </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLineEdit" name="ledPath"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnAddToList">
-           <property name="text">
-            <string>Add to list</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../../ressources.qrc">
-             <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-           </property>
-           <property name="shortcut">
-            <string notr="true">Return</string>
-           </property>
-           <property name="checkable">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="gbxAddList">
-      <property name="title">
-       <string>Add list</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
         <widget class="QPlainTextEdit" name="pteAddList"/>
        </item>
@@ -132,60 +99,38 @@
        </spacer>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QPushButton" name="btnAdd">
-          <property name="text">
-           <string>Add file</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../../ressources.qrc">
-            <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-          </property>
-          <property name="autoExclusive">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_6">
-          <item>
-           <widget class="QPushButton" name="btnAddList">
-            <property name="text">
-             <string>Add list</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
-            </property>
-            <property name="checkable">
-             <bool>false</bool>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnAddFile">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
+       <widget class="QPushButton" name="btnAddList">
+        <property name="text">
+         <string>Add files</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../ressources.qrc">
+          <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnAddFile">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../ressources.qrc">
+          <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -390,7 +335,7 @@
      <x>0</x>
      <y>0</y>
      <width>1072</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSearch">
@@ -400,7 +345,6 @@
     <addaction name="actionSearch"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
-    <addaction name="actionAddFile"/>
     <addaction name="actionAddList"/>
     <addaction name="actionRemoveSelection"/>
    </widget>
@@ -430,7 +374,7 @@
     <string>Search</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+O</string>
+    <string notr="true">Ctrl+R</string>
    </property>
   </action>
   <action name="actionClose">
@@ -455,21 +399,6 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+E</string>
-   </property>
-  </action>
-  <action name="actionAddFile">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconAddFile.svg</normaloff>:/rec/data/icons/iconAddFile.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Add path</string>
-   </property>
-   <property name="toolTip">
-    <string>Add path</string>
-   </property>
-   <property name="shortcut">
-    <string notr="true">Ctrl+N</string>
    </property>
   </action>
   <action name="actionRemoveSelection">

@@ -28,7 +28,6 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
         ui->lwgUserSearch->addItems(paths);
     }
 
-    ui->gbxAddFile->setVisible(false);
     ui->gbxAddList->setVisible(false);
     ui->btnClearLists->setVisible(false);
 
@@ -108,12 +107,6 @@ void wContentSearch::on_btnRemove_clicked()
 }
 
 /// Redirect
-void wContentSearch::on_btnAdd_clicked()
-{
-    on_actionAddFile_triggered();
-}
-
-/// Redirect
 void wContentSearch::on_btnSearch_clicked()
 {
     on_actionSearch_triggered();
@@ -124,27 +117,9 @@ void wContentSearch::on_actionRemoveSelection_triggered()
 {
     if ((ui->lwgUserSearch->selectedItems().count() != 0) && msg.confirmDeletion(this))
     {
-        ui->gbxAddFile->setVisible(false);
+        ui->gbxAddList->setVisible(false);
         qDeleteAll(ui->lwgUserSearch->selectedItems());
         qDebug() << "Deleted selected files.";
-    }
-}
-
-/// Adds content from led to user's input
-void wContentSearch::on_btnAddToList_clicked()
-{
-    if (ui->gbxAddFile->isVisible())
-    {
-        QString content = ui->ledPath->text();
-
-        if (content != "")
-        {
-            content.replace("\\", "/");
-            ui->lwgUserSearch->addItem(content);
-        }
-
-        ui->gbxAddFile->setVisible(false);
-        ui->ledPath->clear();
     }
 }
 
@@ -212,13 +187,6 @@ void wContentSearch::on_actionSearch_triggered()
     reloadTabNames();
 
     ui->btnClearLists->setVisible(true);
-}
-
-/// Shows add file group box
-void wContentSearch::on_actionAddFile_triggered()
-{
-    ui->gbxAddFile->setVisible(true);
-    ui->ledPath->setFocus();
 }
 
 /// Adds lists to user input
