@@ -226,29 +226,29 @@
         <translation>Dezember</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="917"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="943"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="997"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="916"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="942"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="996"/>
         <source>[Empty line]</source>
         <translation>[Leere Zeile]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="222"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="221"/>
         <source>Checking sceneryobjects...</source>
         <translation>Überprüfe Szenerieobjekte...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="839"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="838"/>
         <source>[Empty line in parklist %1]</source>
         <translation>[Leere Zeile in Parkplatzliste %1]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="506"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="505"/>
         <source>Checking splines...</source>
         <translation>Überprüfe Splines...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="727"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="726"/>
         <source>Get sceneryobjects and splines...</source>
         <translation>Sammle Szenerieobjekte und Splines...</translation>
     </message>
@@ -459,19 +459,34 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
 <context>
     <name>wCleanup</name>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="47"/>
+        <location filename="../../OTModules/wcleanup.ui" line="45"/>
         <source>Analyze!</source>
         <translation>Analysieren!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="96"/>
+        <location filename="../../OTModules/wcleanup.ui" line="69"/>
         <source>Sceneryobjects</source>
         <translation>Szenerieobjekte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="111"/>
+        <location filename="../../OTModules/wcleanup.ui" line="83"/>
         <source>Splines</source>
         <translation>Splines</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.ui" line="104"/>
+        <source>Actions for selected folders</source>
+        <translation>Aktionen für ausgewählte Ordner</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.ui" line="112"/>
+        <source>Move to folder</source>
+        <translation>In einen Ordner verschieben</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.ui" line="122"/>
+        <source>Delete</source>
+        <translation>Löschen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="17"/>
@@ -479,39 +494,74 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Aufräumer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="30"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="35"/>
         <source>Initialize...</source>
         <translation>Initialisieren...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="50"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="61"/>
         <source>Read maps (%1 of %2)...</source>
         <translation>Lese Karten (%1 von %2)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="63"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="75"/>
         <source>Analyze sceneryobject folder...</source>
         <translation>Analysiere Szenerieobjekt-Ordner...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="71"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="83"/>
         <source>Comparing sceneryobjects...</source>
         <translation>Vergleiche Szenerieobjekte...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="89"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="101"/>
         <source>Analyze spline folder...</source>
         <translation>Analysiere Spline-Ordner...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="97"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="109"/>
         <source>Comparing splines...</source>
         <translation>Vergleiche Splines...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="114"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="126"/>
         <source>Done.</source>
         <translation>Fertig.</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="144"/>
+        <source>Select destination folder...</source>
+        <translation>Zielordner auswählen...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="156"/>
+        <source>Moved selected folders to %1.</source>
+        <translation>Ordner in %1 verschoben.</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="160"/>
+        <source>Delete files permanently</source>
+        <translation>Dateien entgültig löschen</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="160"/>
+        <source>Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?</source>
+        <translation>Bitte bedenke, dass diese Option alle Dateien ENTGÜLTIG löschen wird. Nach dem Löschen gibt es keine Möglichkeit, sie wiederherzustellen. Fortfahren?</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="167"/>
+        <source>Deleted selected folders.</source>
+        <translation>Ausgewählte Ordner gelöscht.</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="182"/>
+        <source>Select destination folder &amp;&amp; move</source>
+        <translation>Zielordner wählen &amp;&amp; verschieben</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="187"/>
+        <source>Delete permanently</source>
+        <translation>Entgültig löschen</translation>
     </message>
 </context>
 <context>
