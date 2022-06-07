@@ -65,7 +65,7 @@ public:
 
 const QString OTName = "OMSI-Tools";
 const QString OTVersion = "1.0.0-beta";
-const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Dev;
+const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Beta;
 
 /// Unsaved code snippet for closeEvents:
 /*
