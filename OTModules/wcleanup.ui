@@ -201,15 +201,15 @@
     </property>
     <addaction name="actionSendFeedback"/>
    </widget>
-   <widget class="QMenu" name="menuAnalyzer">
+   <widget class="QMenu" name="menuAnalysis">
     <property name="title">
-     <string>Analyzer</string>
+     <string>Analysis</string>
     </property>
     <addaction name="actionAnalyze"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
    </widget>
-   <addaction name="menuAnalyzer"/>
+   <addaction name="menuAnalysis"/>
    <addaction name="menuSpecials"/>
    <addaction name="menuHelp"/>
   </widget>

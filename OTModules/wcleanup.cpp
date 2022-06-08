@@ -39,6 +39,17 @@ void wCleanup::on_actionAnalyze_triggered()
     qInfo() << "Starting...";
     ui->statusbar->showMessage(tr("Initialize..."));
 
+    if (set.read("main", "mainDir").toString() == "")
+    {
+        if (msg.setMainDir(this))
+            set.write("main", "mainDir", set.getOmsiPath(this));
+        else
+        {
+            ui->statusbar->showMessage(tr("No OMSI Main Directory selected."), 10000);
+            return;
+        }
+    }
+
     ui->pgbProgress->setVisible(true);
     ui->pgbProgress->setMaximum(6);
     ui->pgbProgress->setValue(1);
