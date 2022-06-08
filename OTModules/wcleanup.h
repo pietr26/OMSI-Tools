@@ -44,7 +44,6 @@ private:
     int cutCount = 0;
 
     OTSettings set;
-    OTMessage msg;
     OTOMSIFileHandler filehandler;
     wSettings *WSETTINGS;
 };
