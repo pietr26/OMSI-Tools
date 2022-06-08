@@ -241,7 +241,7 @@
                <widget class="QComboBox" name="cobxEncoding">
                 <item>
                  <property name="text">
-                  <string>Latin1 / ANSI</string>
+                  <string notr="true">Latin1 / ANSI</string>
                  </property>
                 </item>
                 <item>
