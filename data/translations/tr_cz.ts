@@ -490,7 +490,7 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="206"/>
-        <source>Analyzer</source>
+        <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -534,77 +534,82 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="69"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="48"/>
+        <source>No OMSI Main Directory selected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="80"/>
         <source>Read maps (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="85"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="96"/>
         <source>Analyze sceneryobject folder...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="93"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="104"/>
         <source>Comparing sceneryobjects...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="114"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="125"/>
         <source>Analyze spline folder...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="122"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="133"/>
         <source>Comparing splines...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="141"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="152"/>
         <source>Done.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="163"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="174"/>
         <source>Select destination folder...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="170"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="181"/>
         <source>Move sceneryobjects...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="195"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="206"/>
         <source>Move splines...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="218"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="229"/>
         <source>Moved selected folders to &apos;%1&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="222"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="233"/>
         <source>Delete files permanently</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="222"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="233"/>
         <source>Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="237"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="248"/>
         <source>Deleted selected folders.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="255"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="266"/>
         <source>Select destination folder &amp;&amp; move</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="260"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="271"/>
         <source>Delete permanently</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1050,42 +1055,42 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <translation>Vlastnosti</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="295"/>
+        <location filename="../../OTModules/wfonts.ui" line="290"/>
         <source>Characters</source>
         <translation>Znaky</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="872"/>
+        <location filename="../../OTModules/wfonts.ui" line="867"/>
         <source>Open settings or use special functions</source>
         <translation>Otevřít nastavení nebo použít speciální funkce</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="976"/>
+        <location filename="../../OTModules/wfonts.ui" line="971"/>
         <source>Close current window</source>
         <translation>Zavřít aktuální okno</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1054"/>
+        <location filename="../../OTModules/wfonts.ui" line="1049"/>
         <source>Load template...</source>
         <translation>Načíst šablonu...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1057"/>
+        <location filename="../../OTModules/wfonts.ui" line="1052"/>
         <source>Load a template</source>
         <translation>Načíst šablonu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="344"/>
+        <location filename="../../OTModules/wfonts.ui" line="339"/>
         <source>character(s) total</source>
         <translation>znaků celkově</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1039"/>
+        <location filename="../../OTModules/wfonts.ui" line="1034"/>
         <source>Delete current character</source>
         <translation>Odstranit aktuální znak</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="374"/>
+        <location filename="../../OTModules/wfonts.ui" line="369"/>
         <source>Delete</source>
         <translation>Odstranit</translation>
     </message>
@@ -1115,93 +1120,93 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <translation>Mezera mezi znaky:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="526"/>
+        <location filename="../../OTModules/wfonts.ui" line="521"/>
         <source>Right pixel:</source>
         <translation>Pravý pixel:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="500"/>
+        <location filename="../../OTModules/wfonts.ui" line="495"/>
         <source>Character:</source>
         <translation>Znak:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="544"/>
+        <location filename="../../OTModules/wfonts.ui" line="539"/>
         <source>Highest pixel in row:</source>
         <translation>Nejvyšší znak v řádku:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="576"/>
+        <location filename="../../OTModules/wfonts.ui" line="571"/>
         <source>Left pixel:</source>
         <translation>Levý pixel:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="513"/>
+        <location filename="../../OTModules/wfonts.ui" line="508"/>
         <source>Comment:</source>
         <translation>Komentář:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1075"/>
+        <location filename="../../OTModules/wfonts.ui" line="1070"/>
         <source>Move current character up</source>
         <translation>Posunout aktuální znak výše</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1093"/>
+        <location filename="../../OTModules/wfonts.ui" line="1088"/>
         <source>Move current character down</source>
         <translation>Posunout aktuální znak níže</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1021"/>
+        <location filename="../../OTModules/wfonts.ui" line="1016"/>
         <source>Add a new character</source>
         <translation>Přidat nový znak</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="459"/>
-        <location filename="../../OTModules/wfonts.ui" line="1018"/>
+        <location filename="../../OTModules/wfonts.ui" line="454"/>
+        <location filename="../../OTModules/wfonts.ui" line="1013"/>
         <source>New character</source>
         <translation>Nový znak</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="476"/>
+        <location filename="../../OTModules/wfonts.ui" line="471"/>
         <source>Character definition</source>
         <translation>Definice znaku</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="845"/>
+        <location filename="../../OTModules/wfonts.ui" line="840"/>
         <source>Open, save fonts or close the font module</source>
         <translation>Otevřete, uložte fonty nebo zavřete modul</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="848"/>
+        <location filename="../../OTModules/wfonts.ui" line="843"/>
         <source>Font</source>
         <translation>Font</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="928"/>
+        <location filename="../../OTModules/wfonts.ui" line="923"/>
         <source>Open an existing OFT file</source>
         <translation>Otevřít existující OFT soubor</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1135"/>
+        <location filename="../../OTModules/wfonts.ui" line="1130"/>
         <source>Copy chars</source>
         <translation>Kopírovat znaky</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1138"/>
+        <location filename="../../OTModules/wfonts.ui" line="1133"/>
         <source>Copy a list of all chars to clipboard</source>
         <translation>Kopírovat seznam všech znaků</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1162"/>
+        <location filename="../../OTModules/wfonts.ui" line="1157"/>
         <source>Show in explorer</source>
         <translation>Zobrazit v průzkumníkovi</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1165"/>
+        <location filename="../../OTModules/wfonts.ui" line="1160"/>
         <source>Shows the font file in the file explorer</source>
         <translation>Zobrazit soubor fontu v průkumníkovi souborů</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="875"/>
+        <location filename="../../OTModules/wfonts.ui" line="870"/>
         <source>Specials</source>
         <translation>Speciální</translation>
     </message>
@@ -1211,226 +1216,216 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="244"/>
-        <source>standard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wfonts.ui" line="249"/>
-        <source>Latin1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wfonts.ui" line="628"/>
+        <location filename="../../OTModules/wfonts.ui" line="623"/>
         <source>Search char</source>
         <translation>Vyhledat znak</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="636"/>
+        <location filename="../../OTModules/wfonts.ui" line="631"/>
         <source>Search:</source>
         <translation>Vyhledat:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="646"/>
+        <location filename="../../OTModules/wfonts.ui" line="641"/>
         <source>Find</source>
         <translation>Vyhledat</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="699"/>
+        <location filename="../../OTModules/wfonts.ui" line="694"/>
         <source>Next Result</source>
         <translation>Další výsledek</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="750"/>
+        <location filename="../../OTModules/wfonts.ui" line="745"/>
         <source>Preview</source>
         <translation>Náhled</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="778"/>
+        <location filename="../../OTModules/wfonts.ui" line="773"/>
         <source>Color texture</source>
         <translation>Barevná textura</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="783"/>
+        <location filename="../../OTModules/wfonts.ui" line="778"/>
         <source>Alpha texture</source>
         <translation>Alpha textura</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="797"/>
+        <location filename="../../OTModules/wfonts.ui" line="792"/>
         <source>Reload texture preview</source>
         <translation>Obnovit náhled textury</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="852"/>
+        <location filename="../../OTModules/wfonts.ui" line="847"/>
         <source>Recently opened fonts</source>
         <translation>Nedávno otevřené fonty</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="885"/>
+        <location filename="../../OTModules/wfonts.ui" line="880"/>
         <source>Add, delete or move characters</source>
         <translation>Přidat, odstranit nebo posunout znaky</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="888"/>
+        <location filename="../../OTModules/wfonts.ui" line="883"/>
         <source>Edit</source>
         <translation>Upravit</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="899"/>
+        <location filename="../../OTModules/wfonts.ui" line="894"/>
         <source>Check your font for errors</source>
         <translation>Zkontrolovat font na chyby</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="902"/>
+        <location filename="../../OTModules/wfonts.ui" line="897"/>
         <source>Debugging</source>
         <translation>Debugování</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="908"/>
+        <location filename="../../OTModules/wfonts.ui" line="903"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="925"/>
+        <location filename="../../OTModules/wfonts.ui" line="920"/>
         <source>Open</source>
         <translation>Otevřít</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="943"/>
+        <location filename="../../OTModules/wfonts.ui" line="938"/>
         <source>Save</source>
         <translation>Uložit</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="946"/>
+        <location filename="../../OTModules/wfonts.ui" line="941"/>
         <source>Save your font</source>
         <translation>Uložit vlastní font</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="958"/>
+        <location filename="../../OTModules/wfonts.ui" line="953"/>
         <source>Save as...</source>
         <translation>Uložit jako...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="961"/>
+        <location filename="../../OTModules/wfonts.ui" line="956"/>
         <source>Save your font via file dialog</source>
         <translation>Uložit font pomocí dialogového okna</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="973"/>
+        <location filename="../../OTModules/wfonts.ui" line="968"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="988"/>
+        <location filename="../../OTModules/wfonts.ui" line="983"/>
         <source>New font</source>
         <translation>Nový font</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="991"/>
+        <location filename="../../OTModules/wfonts.ui" line="986"/>
         <source>Create a new font</source>
         <translation>Vytvořit nový font</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1003"/>
+        <location filename="../../OTModules/wfonts.ui" line="998"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1006"/>
+        <location filename="../../OTModules/wfonts.ui" line="1001"/>
         <source>Open the settings</source>
         <translation>Otevřít nastavení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1036"/>
+        <location filename="../../OTModules/wfonts.ui" line="1031"/>
         <source>Delete character</source>
         <translation>Odstranit znak</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1072"/>
+        <location filename="../../OTModules/wfonts.ui" line="1067"/>
         <source>Move character up</source>
         <translation>Posunout znak výše</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1090"/>
+        <location filename="../../OTModules/wfonts.ui" line="1085"/>
         <source>Move character down</source>
         <translation>Posunout znak níže</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1105"/>
+        <location filename="../../OTModules/wfonts.ui" line="1100"/>
         <source>Reload</source>
         <translation>Načíst</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1108"/>
+        <location filename="../../OTModules/wfonts.ui" line="1103"/>
         <source>Reload current font</source>
         <translation>Načíst aktuální font</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1120"/>
+        <location filename="../../OTModules/wfonts.ui" line="1115"/>
         <source>Find char...</source>
         <translation>Vyhledat znak...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1123"/>
+        <location filename="../../OTModules/wfonts.ui" line="1118"/>
         <source>Search for a char in the currently opened font</source>
         <translation>Vyhledat znak v aktuálně otevřeném fontu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1150"/>
+        <location filename="../../OTModules/wfonts.ui" line="1145"/>
         <source>Go to next error</source>
         <translation>Jít na další chybu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1174"/>
+        <location filename="../../OTModules/wfonts.ui" line="1169"/>
         <source>Send feedback</source>
         <translation>Poslat zpětnou vazbu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="692"/>
-        <location filename="../../OTModules/wfonts.cpp" line="694"/>
+        <location filename="../../OTModules/wfonts.cpp" line="710"/>
+        <location filename="../../OTModules/wfonts.cpp" line="712"/>
         <source>fonts</source>
         <translation>fonty</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="488"/>
-        <location filename="../../OTModules/wfonts.cpp" line="632"/>
+        <location filename="../../OTModules/wfonts.cpp" line="506"/>
+        <location filename="../../OTModules/wfonts.cpp" line="650"/>
         <source>OMSI font file</source>
         <translation>Soubor fontu pro OMSI</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="632"/>
+        <location filename="../../OTModules/wfonts.cpp" line="650"/>
         <source>Save font</source>
         <translation>Uložit font</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="664"/>
+        <location filename="../../OTModules/wfonts.cpp" line="682"/>
         <source>Error: The file could not be saved.</source>
         <translation>Chyba: Soubor nemohl být uložen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="674"/>
+        <location filename="../../OTModules/wfonts.cpp" line="692"/>
         <source>File saved successfully.</source>
         <translation>Soubor byl úspěšně uložen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1163"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1181"/>
         <source>The entered character could not be found.</source>
         <translation>Zadaný znak nelze najít.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1163"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1181"/>
         <source>Character not found</source>
         <translation>Znak nebyl nalezen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1199"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1219"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1217"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1237"/>
         <source>No other character found according to the search criteria.</source>
         <translation>Žádný jiný znak nebyl nalezen v závislosti na hledaných kritériích.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1190"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1230"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1208"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1248"/>
         <source>The end of the font was reached, search from top</source>
         <translation>Konec fontu byl dosažen, hledejte ze shora</translation>
     </message>
@@ -1447,65 +1442,65 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="532"/>
+        <location filename="../../OTModules/wfonts.cpp" line="550"/>
         <source>Open font</source>
         <translation>Otevřít font</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="532"/>
+        <location filename="../../OTModules/wfonts.cpp" line="550"/>
         <source>Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files.
 No font will be opened.</source>
         <translation>Upozornění: Vybraný soubor fontu obsahuje více než jeden font. Aplikace nedokáže přečíst vícero fontů naráz.Rozdělte prosím jednotlivé fonty do samostatných souborů.
 Žádný font nebude otevřen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="778"/>
+        <location filename="../../OTModules/wfonts.cpp" line="796"/>
         <source>Error in character &apos;%1&apos;</source>
         <translation>Chyba ve znaku &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="800"/>
+        <location filename="../../OTModules/wfonts.cpp" line="818"/>
         <source>There aren&apos;t any errors. The font is valid.</source>
         <translation>Nenašly se nějaké chyby. Font je v pořádku.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="873"/>
+        <location filename="../../OTModules/wfonts.cpp" line="891"/>
         <source>Select color texture...</source>
         <translation>Vyberte barvu textury...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="873"/>
-        <location filename="../../OTModules/wfonts.cpp" line="892"/>
+        <location filename="../../OTModules/wfonts.cpp" line="891"/>
+        <location filename="../../OTModules/wfonts.cpp" line="910"/>
         <source>Bitmap picture</source>
         <translation>Bitmap obrázek</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="892"/>
+        <location filename="../../OTModules/wfonts.cpp" line="910"/>
         <source>Select alpha texture...</source>
         <translation>Vybrat alpha texturu...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="967"/>
+        <location filename="../../OTModules/wfonts.cpp" line="985"/>
         <source>The current selection isn&apos;t a valid template.</source>
         <translation>Současný výběr není spravná šablona.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="967"/>
+        <location filename="../../OTModules/wfonts.cpp" line="985"/>
         <source>Invalid selection</source>
         <translation>Neplatný výběr</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1113"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1131"/>
         <source>Characters copied!</source>
         <translation>Znaky zkopírovány!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1129"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1147"/>
         <source>The font file (still) doesn&apos;t exist.</source>
         <translation>Soubor fontu (stále) neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="941"/>
+        <location filename="../../OTModules/wfonts.cpp" line="959"/>
         <source>Umlauts</source>
         <translation>Přehlásky</translation>
     </message>
@@ -1525,17 +1520,17 @@ No font will be opened.</source>
         <translation>Otevřít font</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="488"/>
+        <location filename="../../OTModules/wfonts.cpp" line="506"/>
         <source>Open font...</source>
         <translation>Otevřít font...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="948"/>
+        <location filename="../../OTModules/wfonts.cpp" line="966"/>
         <source>Select a template</source>
         <translation>Vybrat šablonu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="948"/>
+        <location filename="../../OTModules/wfonts.cpp" line="966"/>
         <source>Template:</source>
         <translation>Šablona:</translation>
     </message>
