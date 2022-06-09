@@ -5,7 +5,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     QMainWindow(parent),
     ui(new Ui::wContentSearch)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
@@ -65,7 +65,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
 
     ui->twgExtras->setTabVisible(3, false);
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 
 
     // Preview:

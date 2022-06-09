@@ -5,7 +5,7 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wVerifyMap)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
     qDebug() << "Set up UI...";
     ui->setupUi(this);
     //adjustSize();
@@ -14,14 +14,14 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     setWindowTitle(OTName + " - " + tr("map verify"));
 
     // Set default settings
-    if (!set.read(moduleName, "advVerifying").isValid())
-        set.write(moduleName, "advVerifying", false);
+    if (!set.read(objectName(), "advVerifying").isValid())
+        set.write(objectName(), "advVerifying", false);
 
-    if (!set.read(moduleName, "onlyMapTextures").isValid())
-        set.write(moduleName, "onlyMapTextures", false);
+    if (!set.read(objectName(), "onlyMapTextures").isValid())
+        set.write(objectName(), "onlyMapTextures", false);
 
-    if (set.read(moduleName, "mapPath") != "")
-            filehandler.setMapPath(set.read(moduleName, "mapPath").toString());
+    if (set.read(objectName(), "mapPath") != "")
+            filehandler.setMapPath(set.read(objectName(), "mapPath").toString());
         qDebug() << "Map path loaded";
 
     // ---
@@ -63,7 +63,7 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 
     ui->twgVerfying->setCurrentIndex(0);
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 
     ui->lwgTilesAll->installEventFilter(this);
 }
@@ -356,7 +356,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
 
 
     // SCO and SLI (advanced)
-    if (set.read(moduleName, "advVerifying").toBool())
+    if (set.read(objectName(), "advVerifying").toBool())
     {
         qInfo() << "Checking sceneryobjects...";
         filehandler.verifyObjects(filehandler.stuffobj.existing.sceneryobjects);
@@ -384,7 +384,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.stuffobj.existing.humans = iglF.check(filehandler.stuffobj.existing.humans, ignoredHumans);
 
     // TEX:
-    if (set.read(moduleName, "advVerifying").toBool() && !set.read(moduleName, "onlyMapTextures").toBool())
+    if (set.read(objectName(), "advVerifying").toBool() && !set.read(objectName(), "onlyMapTextures").toBool())
     {
         qDebug() << "Read all textures...";
         filehandler.stuffobj.missing.textures = iglF.check(filehandler.stuffobj.missing.textures, ignoredTextures);
@@ -415,7 +415,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->ledMissingTiles->setText(QString::number(ui->lwgTilesMissing->count()));
 
         // TEX:
-        if (set.read(moduleName, "advVerifying").toBool() && !set.read(moduleName, "onlyMapTextures").toBool())
+        if (set.read(objectName(), "advVerifying").toBool() && !set.read(objectName(), "onlyMapTextures").toBool())
         {
             ui->lwgTexturesAll->addItems(filehandler.stuffobj.missing.textures);
             ui->lwgTexturesAll->addItems(filehandler.stuffobj.existing.textures);
@@ -570,7 +570,7 @@ void wVerifyMap::on_ledMapPath_textChanged(const QString &arg1)
     else
         ui->btnStartVerifying->setEnabled(true);
 
-    set.write(moduleName, "mapPath", arg1);
+    set.write(objectName(), "mapPath", arg1);
     selectAllAndClear();
 }
 

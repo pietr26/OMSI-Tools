@@ -5,7 +5,7 @@ wDBPanel::wDBPanel(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wDBPanel)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
     qDebug() << "Set up UI...";
     ui->setupUi(this);
     adjustSize();
@@ -68,9 +68,9 @@ wDBPanel::wDBPanel(QWidget *parent) :
     else
         dbHandler.setupDatabase();
 
-    ui->ledDirectory->setText(set.read(moduleName, "tempPath").toString());
+    ui->ledDirectory->setText(set.read(objectName(), "tempPath").toString());
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 }
 
 wDBPanel::~wDBPanel()
@@ -281,7 +281,7 @@ void wDBPanel::on_actionClose_triggered()
 /// Slot for directory changes
 void wDBPanel::on_ledDirectory_textChanged(const QString &arg1)
 {
-    set.write(moduleName, "tempPath", arg1);
+    set.write(objectName(), "tempPath", arg1);
     cutCount = arg1.count() + 1;
 
     if (arg1 == "")
@@ -301,7 +301,7 @@ void wDBPanel::on_lvwDuplicates_clicked(const QModelIndex &index)
 /// Opens a folder to scan
 void wDBPanel::on_btnOpenFolder_clicked()
 {
-    ui->ledDirectory->setText(QFileDialog::getExistingDirectory(this, "", set.read(moduleName, "tempPath").toString()));
+    ui->ledDirectory->setText(QFileDialog::getExistingDirectory(this, "", set.read(objectName(), "tempPath").toString()));
 }
 
 /// Removes current from duplicate list

@@ -5,7 +5,7 @@ wStart::wStart(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::wStart)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
@@ -106,12 +106,12 @@ wStart::wStart(QWidget *parent)
 
     startCounterMsgSender();
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 }
 
 wStart::~wStart()
 {
-    qInfo().noquote() << moduleName << "is closing...";
+    qInfo().noquote() << objectName() << "is closing...";
     delete ui;
 }
 

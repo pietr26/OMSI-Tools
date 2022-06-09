@@ -5,7 +5,7 @@ wFeedback::wFeedback(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wFeedback)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
@@ -20,7 +20,7 @@ wFeedback::wFeedback(QWidget *parent) :
 
     ui->btnOpenSupportThread->setIconSize(QSize(50, 50));
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 }
 
 wFeedback::~wFeedback()

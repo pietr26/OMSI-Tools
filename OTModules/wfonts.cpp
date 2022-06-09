@@ -6,7 +6,7 @@ wFonts::wFonts() :
     QMainWindow(),
     ui(new Ui::wFonts)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
@@ -16,8 +16,8 @@ wFonts::wFonts() :
     setWindowTitle(OTName + " - " + tr("font creation"));
 
     // Set default settings
-    if (!set.read(moduleName, "texPreview").isValid())
-        set.write(moduleName, "texPreview", 1);
+    if (!set.read(objectName(), "texPreview").isValid())
+        set.write(objectName(), "texPreview", 1);
     // ---
 
     loadRecentFiles();
@@ -68,7 +68,7 @@ wFonts::wFonts() :
 
     setupFinished = true;
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 }
 
 wFonts::~wFonts()
@@ -183,7 +183,7 @@ void wFonts::enableView(bool status)
 void wFonts::loadRecentFiles()
 {
     qDebug() << "Read recent files...";
-    QStringList recentFiles = set.read(moduleName, "recentFiles").toStringList();
+    QStringList recentFiles = set.read(objectName(), "recentFiles").toStringList();
 
     if (recentFiles.isEmpty())
     {
@@ -235,7 +235,7 @@ void wFonts::loadRecentFiles()
 void wFonts::saveRecentFiles(QString absoluteNewFilePath)
 {
     qDebug() << "Save recent files...";
-    QStringList recentFiles = set.read(moduleName, "recentFiles").toStringList();
+    QStringList recentFiles = set.read(objectName(), "recentFiles").toStringList();
 
     int i = 0;
     foreach (QString current, recentFiles)
@@ -254,7 +254,7 @@ void wFonts::saveRecentFiles(QString absoluteNewFilePath)
     while (recentFiles.count() > maxRecentFileCount)
         recentFiles.removeLast();
 
-    set.write(moduleName, "recentFiles", recentFiles);
+    set.write(objectName(), "recentFiles", recentFiles);
 
     loadRecentFiles();
 }
@@ -1338,12 +1338,12 @@ void wFonts::loadTexPreview()
 {
     QString tex;
 
-    if (set.read(moduleName, "texPreview").toInt() == 0)
+    if (set.read(objectName(), "texPreview").toInt() == 0)
         tex = set.read("main", "mainDir").toString() + "/Fonts/" + font.colorTexture;
     else
         tex = set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture;
 
-    ui->cobxPreviewOptions->setCurrentIndex(set.read(moduleName, "texPreview").toInt());
+    ui->cobxPreviewOptions->setCurrentIndex(set.read(objectName(), "texPreview").toInt());
 
     if (QFile(tex).exists())
     {
@@ -1364,7 +1364,7 @@ void wFonts::resizeTexPreview()
 void wFonts::on_cobxPreviewOptions_currentIndexChanged(int index)
 {
     if (setupFinished)
-        set.write(moduleName, "texPreview", index);
+        set.write(objectName(), "texPreview", index);
     loadTexPreview();
 }
 

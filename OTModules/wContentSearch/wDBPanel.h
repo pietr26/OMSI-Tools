@@ -50,7 +50,6 @@ private slots:
 private:
     Ui::wDBPanel *ui;
 
-    const QString moduleName = "wDBPanel";
     OTSettings set;
     OTMiscellaneous misc;
 

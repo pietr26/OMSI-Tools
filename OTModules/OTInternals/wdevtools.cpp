@@ -5,7 +5,7 @@ wDevTools::wDevTools(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wDevTools)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
@@ -20,7 +20,7 @@ wDevTools::wDevTools(QWidget *parent) :
 
     setOutputVisible(true);
 
-    qInfo().noquote() << moduleName + " started - Note: Internal module, may contains bugs.";
+    qInfo().noquote() << objectName() + " started - Note: Internal module, may contains bugs.";
 }
 
 wDevTools::~wDevTools()

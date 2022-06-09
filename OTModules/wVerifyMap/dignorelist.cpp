@@ -5,7 +5,7 @@ dIgnoreList::dIgnoreList(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::dIgnoreList)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
@@ -24,7 +24,7 @@ dIgnoreList::dIgnoreList(QWidget *parent) :
 
     ui->btnSave->setShortcut(Qt::Key_Save);
 
-    qInfo().noquote() << moduleName + " started";;
+    qInfo().noquote() << objectName() + " started";;
 }
 
 dIgnoreList::~dIgnoreList()

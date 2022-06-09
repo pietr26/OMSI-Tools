@@ -95,7 +95,6 @@ private slots:
     void on_btnVerifycationSettings_clicked();
 
 private:
-    const QString moduleName = "wVerifyMap";
     Ui::wVerifyMap *ui;
     OTMessage msg;
     OTSettings set;

@@ -34,7 +34,6 @@ private:
 
     wSettings *WSETTINGS;
 
-    const QString moduleName = "wVehicleList";
     OTSettings set;
 
     void dbTest();

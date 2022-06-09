@@ -58,7 +58,6 @@ private slots:
 
 private:
     Ui::wFbh *ui;
-    const QString moduleName = "wFbh";
     wSettings *WSETTINGS;
     OTSettings set;
     OTMiscellaneous misc;

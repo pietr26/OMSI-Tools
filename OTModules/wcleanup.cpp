@@ -5,7 +5,7 @@ wCleanup::wCleanup(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wCleanup)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
@@ -21,7 +21,7 @@ wCleanup::wCleanup(QWidget *parent) :
     ui->gbxActions->setVisible(false);
     on_rbtnMoveToFolder_clicked();
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 }
 
 wCleanup::~wCleanup()

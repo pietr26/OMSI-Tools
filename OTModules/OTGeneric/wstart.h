@@ -71,7 +71,6 @@ private slots:
     void on_btnCleanup_clicked();
 
 private:
-    const QString moduleName = "wStart";
     Ui::wStart *ui;
     wSettings *WSETTINGS;
     wFonts *WFONTS;

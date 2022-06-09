@@ -36,7 +36,6 @@ private slots:
     void on_btnRemoveAll_clicked();
 
 private:
-    const QString moduleName = "dIgnoreList";
     Ui::dIgnoreList *ui;
     OTSettings set;
     OTMessage msg;

@@ -5,7 +5,7 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     QMainWindow(),
     ui(new Ui::wSettings)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
     Q_UNUSED(parent);
 
     qDebug() << "Set up UI...";
@@ -112,7 +112,7 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
         QTimer::singleShot(0, this, SLOT(close()));
     }
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 }
 
 wSettings::~wSettings()

@@ -13,20 +13,20 @@ wVerifycationSettings::wVerifycationSettings(QWidget *parent) :
     setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
 
     // Set default settings
-    if (!set.read(moduleName, "advVerifying").isValid())
-        set.write(moduleName, "advVerifying", false);
+    if (!set.read(objectName(), "advVerifying").isValid())
+        set.write(objectName(), "advVerifying", false);
 
-    if (!set.read(moduleName, "onlyMapTextures").isValid())
-        set.write(moduleName, "onlyMapTextures", false);
+    if (!set.read(objectName(), "onlyMapTextures").isValid())
+        set.write(objectName(), "onlyMapTextures", false);
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
 
-    if (set.read(moduleName, "advVerifying").toInt() == 2)
+    if (set.read(objectName(), "advVerifying").toInt() == 2)
         ui->cbxAdvancedVerifying->setChecked(true);
 
-    if (set.read(moduleName, "onlyMapTextures") != "")
-        ui->cbxOnlyMapTextures->setChecked(set.read(moduleName, "onlyMapTextures").toBool());
+    if (set.read(objectName(), "onlyMapTextures") != "")
+        ui->cbxOnlyMapTextures->setChecked(set.read(objectName(), "onlyMapTextures").toBool());
 
     if (ui->cbxAdvancedVerifying->isChecked())
         ui->cbxOnlyMapTextures->setEnabled(true);
@@ -47,7 +47,7 @@ void wVerifycationSettings::on_btnClose_clicked()
 /// Sets the view to the selected verifying depth
 void wVerifycationSettings::on_cbxAdvancedVerifying_stateChanged(int arg1)
 {
-    set.write(moduleName, "advVerifying", arg1);
+    set.write(objectName(), "advVerifying", arg1);
 
     if (ui->cbxAdvancedVerifying->isChecked())
         ui->cbxOnlyMapTextures->setEnabled(true);
@@ -58,7 +58,7 @@ void wVerifycationSettings::on_cbxAdvancedVerifying_stateChanged(int arg1)
 void wVerifycationSettings::on_cbxOnlyMapTextures_stateChanged(int arg1)
 {
     if (arg1 == 2)
-        set.write(moduleName, "onlyMapTextures", true);
+        set.write(objectName(), "onlyMapTextures", true);
     else
-        set.write(moduleName, "onlyMapTextures", false);
+        set.write(objectName(), "onlyMapTextures", false);
 }

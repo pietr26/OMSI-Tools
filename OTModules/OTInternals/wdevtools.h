@@ -40,7 +40,6 @@ private slots:
     void on_btnLineCounterStart_clicked();
 
 private:
-    const QString moduleName = "wDevTools";
     Ui::wDevTools *ui;
     OTSettings set;
     OTMiscellaneous misc;

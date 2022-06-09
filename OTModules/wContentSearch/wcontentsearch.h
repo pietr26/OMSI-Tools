@@ -56,7 +56,6 @@ private:
     OTMessage msg;
     OTMiscellaneous misc;
     wSettings *WSETTINGS;
-    const QString moduleName = "wContentSearch";
 
     OTDatabaseHandler dbHandler;
     QString dbPath = ":/rec/contentSearchDatabases/current.db";

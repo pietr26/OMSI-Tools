@@ -129,7 +129,6 @@ private slots:
     void on_btnReloadTexPreview_clicked();
 
 private:
-    const QString moduleName = "wFonts";
     Ui::wFonts *ui;
     wSettings *WSETTINGS;
     OTMessage msg;
