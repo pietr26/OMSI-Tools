@@ -5,7 +5,7 @@ wAbout::wAbout(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wAbout)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
@@ -37,7 +37,7 @@ wAbout::wAbout(QWidget *parent) :
     ui->lblInformation->setText(generalInformation + "<br/><br/><br/>");
     ui->lblCredits->setText(credits);
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 }
 
 wAbout::~wAbout()

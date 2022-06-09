@@ -25,7 +25,6 @@ private slots:
 
 private:
     Ui::wVerifycationSettings *ui;
-    const QString moduleName = "wVerifyMap";
     OTSettings set;
 };
 

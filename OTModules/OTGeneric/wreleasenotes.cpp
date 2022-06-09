@@ -5,7 +5,7 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
     QMainWindow(parent),
     ui(new Ui::wReleaseNotes)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
@@ -39,7 +39,7 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
 
     QTimer::singleShot(0, this, SLOT(downloadReleaseNotes()));
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 }
 
 wReleaseNotes::~wReleaseNotes()

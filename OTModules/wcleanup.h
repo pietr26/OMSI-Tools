@@ -39,7 +39,6 @@ private slots:
 
 private:
     Ui::wCleanup *ui;
-    const QString moduleName = "wCleanup";
 
     int cutCount = 0;
 

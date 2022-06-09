@@ -62,7 +62,6 @@ private slots:
     void on_cobxLogfileMode_currentIndexChanged(int index);
 
 private:
-    const QString moduleName = "wSettings";
     Ui::wSettings *ui;
     OTSettings set;
     OTMessage msg;

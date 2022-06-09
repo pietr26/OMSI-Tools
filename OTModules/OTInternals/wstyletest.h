@@ -31,7 +31,6 @@ private slots:
     void on_btnSetThemeDarkeum_clicked();
 
 private:
-    const QString moduleName = "wStyleTest";
     Ui::wStyleTest *ui;
     OTSettings set;
     OTMiscellaneous misc;

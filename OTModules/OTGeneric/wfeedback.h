@@ -23,7 +23,6 @@ private slots:
 
 private:
     Ui::wFeedback *ui;
-    const QString moduleName = "wFeedback";
     OTSettings set;
     //OTMiscellaneous misc;
 };

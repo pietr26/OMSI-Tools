@@ -5,7 +5,7 @@ wVehicleList::wVehicleList(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wVehicleList)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
     qDebug() << "Set up UI...";
     ui->setupUi(this);
     //adjustSize();
@@ -16,7 +16,7 @@ wVehicleList::wVehicleList(QWidget *parent) :
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 }
 
 wVehicleList::~wVehicleList()

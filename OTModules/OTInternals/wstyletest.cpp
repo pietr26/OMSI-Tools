@@ -5,7 +5,7 @@ wStyleTest::wStyleTest(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wStyleTest)
 {
-    qInfo().noquote() << "Starting " + moduleName + "...";
+    qInfo().noquote() << "Starting " + objectName() + "...";
     Q_UNUSED(parent);
 
     qDebug() << "Set up UI...";
@@ -33,9 +33,9 @@ wStyleTest::wStyleTest(QWidget *parent) :
 
     connect(timer, &QTimer::timeout, this, &wStyleTest::loadStyleSheet);
     timer->start(1000);
-    ui->ledStyle->setText(set.read(moduleName, "testStylesheet").toString());
+    ui->ledStyle->setText(set.read(objectName(), "testStylesheet").toString());
 
-    qInfo().noquote() << moduleName + " started";
+    qInfo().noquote() << objectName() + " started";
 }
 
 wStyleTest::~wStyleTest()
@@ -63,7 +63,7 @@ void wStyleTest::loadStyleSheet()
     else
         setStyleSheet("");
 
-    set.write(moduleName, "testStylesheet", ui->ledStyle->text());
+    set.write(objectName(), "testStylesheet", ui->ledStyle->text());
 }
 
 void wStyleTest::on_toolButton_clicked()

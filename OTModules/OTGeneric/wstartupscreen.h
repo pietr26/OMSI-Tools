@@ -28,7 +28,6 @@ private slots:
     void on_btnClose_clicked();
 
 private:
-    const QString moduleName = "wStartUpScreen";
     Ui::wStartUpScreen *ui;
     OTSettings set;
     wStart *WSTART;

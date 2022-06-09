@@ -27,7 +27,6 @@ private slots:
 
 private:
     Ui::wReleaseNotes *ui;
-    const QString moduleName = "wReleaseNotes";
     OTSettings set;
     OTDownloader dl;
     OTMiscellaneous misc;
