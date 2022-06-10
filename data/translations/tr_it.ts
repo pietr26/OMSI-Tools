@@ -396,56 +396,61 @@ Open the path of the logfile?</source>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="30"/>
-        <source>Web design</source>
+        <source>Management, application development</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="31"/>
-        <source>Beta test</source>
+        <source>Web development</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="32"/>
+        <source>Beta testers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="42"/>
         <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="33"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="43"/>
         <source>italian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="34"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="44"/>
         <source>french</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="35"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="45"/>
         <source>czech</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="66"/>
         <source>Developed with %1 and %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="56"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="66"/>
         <source>More information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="57"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="67"/>
         <source>Build type: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="58"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="68"/>
         <source>Application build: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="59"/>
+        <location filename="../../OTModules/OTGeneric/wabout.cpp" line="69"/>
         <source>Approximate lines of code: %1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>
