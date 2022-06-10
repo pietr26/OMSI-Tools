@@ -89,7 +89,7 @@ wStart::wStart(QWidget *parent)
 
     if (checkForUpdate)
     {
-        QStringList update = misc.getUpdateInformation();
+        update = misc.getUpdateInformation();
         set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
 
         if (update.at(0) == "noUpdates")
@@ -241,7 +241,7 @@ void wStart::on_btnStyleTest_clicked()
 /// Opens wReleaseNotes to show latest update notes
 void wStart::on_btnView_clicked()
 {
-    WRELEASENOTES = new wReleaseNotes(this);
+    WRELEASENOTES = new wReleaseNotes(this, true, update.at(1));
     WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
     WRELEASENOTES->show();
 }
