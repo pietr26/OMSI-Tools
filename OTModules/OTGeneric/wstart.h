@@ -92,6 +92,8 @@ private:
 
     QString updateVersion;
     void startCounterMsgSender();
+
+    QStringList update;
 };
 
 #endif // WSTART_H
