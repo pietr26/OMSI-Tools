@@ -26,13 +26,23 @@ wAbout::wAbout(QWidget *parent) :
 
     QString generalInformation = tr("%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.").arg(OTName) + "<br/>" + tr("The Project has been started at January 22, 2021 and it's still in an early state of development.") + "<br/><br/>" + tr("%1 is licensed under the %2.").arg(OTName, "<a style=\"color: lightblue\" href=\"https://www.gnu.de/documents/gpl-2.0.en.html\">GNU General Public License v2.0</a>");
 
-    QString credits = QString("<b>%1:</b> Bamp").arg(tr("Development")) +
-                      QString("<br/><b>%1:</b> ma7t3").arg(tr("Web design")) +
-                      QString("<br/><br/><b>%1:</b> Dari19 | der_Nik_ | DerGrafikfehler | Erilambus | fOcUs04 | MeerrettichMeister | PingPong | ma7t3 | TobiB").arg(tr("Beta test")) +
-                      QString("<br/><br/><b>%1:</b><br/>").arg(tr("Translators")) +
-                      QString("Dari19 (%1)<br/>").arg(tr("italian")) +
-                      QString("PG_97 (%1)<br/>").arg(tr("french")) +
-                      QString("tfc (%1)").arg(tr("czech"));
+    QString credits = QString("<b>%1:</b>").arg(tr("Development")) +
+                      QString("<ul><li>Bamp <i>(%1)</i></li>").arg(tr("Management, application development")) +
+                      QString("<li>ma7t3 <i>(%1)</i></li></ul>").arg(tr("Web development")) +
+                      QString("<b>%1:</b>").arg(tr("Beta testers")) +
+                      QString("<ul><li>Dari19</li>"
+                              "<li>der_Nik_</li>"
+                              "<li>DerGrafikfehler</li>"
+                              "<li>Erilambus</li>"
+                              "<li>fOcUs04</li>"
+                              "<li>MeerrettichMeister</li>"
+                              "<li>PingPong</li>"
+                              "<li>ma7t3</li>"
+                              "<li>TobiB</li></ul>") +
+                      QString("<b>%1:</b>").arg(tr("Translators")) +
+                      QString("<ul><li>Dari19 <i>(%1)</i></li>").arg(tr("italian")) +
+                      QString("<li>PG_97 <i>(%1)</i></li>").arg(tr("french")) +
+                      QString("<li>tfc <i>(%1)</i></li></ul>").arg(tr("czech"));
 
     ui->lblInformation->setText(generalInformation + "<br/><br/><br/>");
     ui->lblCredits->setText(credits);
