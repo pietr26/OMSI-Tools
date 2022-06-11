@@ -130,6 +130,8 @@ private slots:
 
     void on_actionKeepPixelRowForNewCharacter_triggered();
 
+    void on_actionDelete_triggered();
+
 private:
     Ui::wFonts *ui;
     wSettings *WSETTINGS;

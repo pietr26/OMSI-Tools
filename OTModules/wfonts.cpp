@@ -1391,3 +1391,16 @@ void wFonts::on_actionKeepPixelRowForNewCharacter_triggered()
         set.write(objectName(), "keepPixelRow", ui->actionKeepPixelRowForNewCharacter->isChecked());
 }
 
+
+void wFonts::on_actionDelete_triggered()
+{
+    QMessageBox::StandardButton reply = QMessageBox::information(this, tr("Delete font"), tr("The font will be moved to the trash."), QMessageBox::Yes | QMessageBox::No);
+
+    if (reply == QMessageBox::Yes)
+    {
+        QString fontPath = font.path;
+        selectAllAndClear();
+        QFile::moveToTrash(fontPath);
+    }
+}
+

@@ -861,6 +861,7 @@
     <addaction name="menuRecentlyOpenedFonts"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
+    <addaction name="actionDelete"/>
    </widget>
    <widget class="QMenu" name="menuSpecials">
     <property name="toolTip">
@@ -1179,6 +1180,15 @@
    </property>
    <property name="text">
     <string>Keep pixel row for new character</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconToBin.svg</normaloff>:/rec/data/icons/iconToBin.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Delete</string>
    </property>
   </action>
  </widget>
