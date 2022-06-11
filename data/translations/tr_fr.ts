@@ -573,47 +573,57 @@ Open the path of the logfile?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="174"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="159"/>
+        <source>The main directory analysis is finished. View the results.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="159"/>
+        <source>Analysis finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="176"/>
         <source>Select destination folder...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="181"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="183"/>
         <source>Move sceneryobjects...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="206"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="208"/>
         <source>Move splines...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="229"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="231"/>
         <source>Moved selected folders to &apos;%1&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="233"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="235"/>
         <source>Delete files permanently</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="233"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="235"/>
         <source>Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="248"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="250"/>
         <source>Deleted selected folders.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="266"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="268"/>
         <source>Select destination folder &amp;&amp; move</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="271"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="273"/>
         <source>Delete permanently</source>
         <translation type="unfinished"></translation>
     </message>
