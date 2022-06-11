@@ -327,6 +327,13 @@
       </item>
      </layout>
     </item>
+    <item>
+     <widget class="QProgressBar" name="pgbProgress">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">

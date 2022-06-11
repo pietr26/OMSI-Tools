@@ -31,6 +31,9 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     ui->gbxAddList->setVisible(false);
     ui->btnClearLists->setVisible(false);
 
+    ui->statusbar->addPermanentWidget(ui->pgbProgress);
+    ui->pgbProgress->setVisible(false);
+
     if (!database.open())
     {
         qCritical() << "Could not open link database!";
@@ -138,8 +141,15 @@ void wContentSearch::on_actionSearch_triggered()
 
     QStringList linkIDs;
 
+    ui->pgbProgress->setVisible(true);
+    ui->pgbProgress->setValue(0);
+    ui->pgbProgress->setMaximum(ui->lwgUserSearch->count());
+
     for (int i = 0; i < ui->lwgUserSearch->count(); i++)
     {
+        ui->pgbProgress->setValue(i + 1);
+        qApp->processEvents();
+
         QString current = ui->lwgUserSearch->item(i)->text();
 
         QSqlQueryModel *model = new QSqlQueryModel();
@@ -316,6 +326,7 @@ void wContentSearch::on_btnClearLists_clicked()
 {
     clearView();
     ui->btnClearLists->setVisible(false);
+    ui->pgbProgress->setVisible(false);
 }
 
 /// Sets information for selected link
