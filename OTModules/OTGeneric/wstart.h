@@ -70,6 +70,8 @@ private slots:
 
     void on_btnCleanup_clicked();
 
+    void on_actionCheckForUpdates_triggered();
+
 private:
     Ui::wStart *ui;
     wSettings *WSETTINGS;
