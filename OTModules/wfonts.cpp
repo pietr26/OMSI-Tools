@@ -20,6 +20,8 @@ wFonts::wFonts() :
         set.write(objectName(), "texPreview", 1);
     // ---
 
+    ui->actionKeepPixelRowForNewCharacter->setChecked(set.read(objectName(), "keepPixelRow").toBool());
+
     loadRecentFiles();
 
     // Set timer for autosave
@@ -928,6 +930,12 @@ void wFonts::on_actionNewChar_triggered()
     qDebug() << "Add new char...";
     enableFontArea(true);
 
+    int prevPixelRow;
+    if(ui->sbxHighestPixelInFontRow->text() == "")
+        prevPixelRow = -1;
+    else
+        prevPixelRow = ui->sbxHighestPixelInFontRow->value();
+
     font.charList.append(OTCharacterModel());
     reloadCharList(true);
     setUnsaved();
@@ -936,6 +944,9 @@ void wFonts::on_actionNewChar_triggered()
 
     ui->twgFont->setCurrentIndex(1);
     ui->ledCharacter->setFocus();
+
+    if ((set.read(objectName(), "keepPixelRow").toBool() == true) && (prevPixelRow != -1))
+        ui->sbxHighestPixelInFontRow->setValue(prevPixelRow);
 }
 
 /// Loads a template
@@ -1371,5 +1382,12 @@ void wFonts::on_cobxPreviewOptions_currentIndexChanged(int index)
 void wFonts::on_btnReloadTexPreview_clicked()
 {
     loadTexPreview();
+}
+
+
+void wFonts::on_actionKeepPixelRowForNewCharacter_triggered()
+{
+    if (setupFinished)
+        set.write(objectName(), "keepPixelRow", ui->actionKeepPixelRowForNewCharacter->isChecked());
 }
 

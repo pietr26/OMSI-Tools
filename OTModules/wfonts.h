@@ -128,6 +128,8 @@ private slots:
 
     void on_btnReloadTexPreview_clicked();
 
+    void on_actionKeepPixelRowForNewCharacter_triggered();
+
 private:
     Ui::wFonts *ui;
     wSettings *WSETTINGS;
