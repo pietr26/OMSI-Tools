@@ -541,7 +541,7 @@
     <addaction name="separator"/>
     <addaction name="actionClose"/>
    </widget>
-   <widget class="QMenu" name="menuSettings">
+   <widget class="QMenu" name="menuSpecials">
     <property name="title">
      <string>Specials</string>
     </property>
@@ -555,12 +555,13 @@
     <addaction name="actionSendFeedback"/>
     <addaction name="separator"/>
     <addaction name="actionReleaseNotes"/>
+    <addaction name="actionCheckForUpdates"/>
     <addaction name="actionSourceCodeOnGitHub"/>
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuSettings"/>
+   <addaction name="menuSpecials"/>
    <addaction name="menuInfo"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -655,6 +656,21 @@
    </property>
    <property name="text">
     <string>Restart</string>
+   </property>
+  </action>
+  <action name="actionCheckForUpdates">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconDownload.svg</normaloff>:/rec/data/icons/iconDownload.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Check for updates</string>
+   </property>
+   <property name="iconText">
+    <string>Check for updates</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
    </property>
   </action>
  </widget>

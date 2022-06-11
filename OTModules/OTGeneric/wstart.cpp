@@ -278,3 +278,18 @@ void wStart::on_btnCleanup_clicked()
     WCLEANUP = new wCleanup();
     WCLEANUP->show();
 }
+
+void wStart::on_actionCheckForUpdates_triggered()
+{
+    QStringList update = misc.getUpdateInformation();
+
+    if (update.at(0) == "noUpdates")
+        QMessageBox::information(this, tr("Finshed"), tr("No updates available."));
+    else if (update.at(0) != "false")
+    {
+        WRELEASENOTES = new wReleaseNotes(this, true, update.at(1));
+        WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
+        WRELEASENOTES->show();
+    }
+}
+

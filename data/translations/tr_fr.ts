@@ -1770,11 +1770,6 @@ HTTP %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="190"/>
-        <source>Not updates available.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="306"/>
         <source>More languages</source>
         <translation type="unfinished">Plus de langues</translation>
@@ -1783,6 +1778,11 @@ HTTP %1</source>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="154"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
         <translation>Faut-il supprimer toutes les sauvegardes ? Elles seront déplacées vers la corbeille.</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="190"/>
+        <source>No updates available.</source>
+        <translation type="unfinished">Aucune mise à jour disponible.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="202"/>
@@ -1908,20 +1908,31 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="627"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="630"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="628"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="631"/>
         <source>Release notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="648"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="649"/>
         <source>Source code on GitHub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="657"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="658"/>
         <source>Restart</source>
         <translation type="unfinished">Redémarrer</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="667"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="670"/>
+        <source>Check for updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="673"/>
+        <source>Ctrl+F</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="79"/>
@@ -1929,7 +1940,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="639"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="640"/>
         <source>Manual</source>
         <translation>Manuel</translation>
     </message>
@@ -1944,17 +1955,17 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="573"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="574"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="585"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="586"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="615"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="616"/>
         <source>Send feedback</source>
         <translation>Envoyez vos commentaires</translation>
     </message>
@@ -1965,6 +1976,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="96"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="287"/>
         <source>No updates available.</source>
         <translation>Aucune mise à jour disponible.</translation>
     </message>
@@ -1991,6 +2003,11 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="262"/>
         <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="287"/>
+        <source>Finshed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
