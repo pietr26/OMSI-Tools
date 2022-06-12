@@ -82,11 +82,10 @@ void wCleanup::on_actionAnalyze_triggered()
 
         filehandler.setMapPath(current);
         filehandler.getTiles();
-        filehandler.getItems(filehandler.stuffobj.existing.tiles, false);
-    }
+        filehandler.getItems(filehandler.stuffobj.existing.tiles, false, false);
 
-    filehandler.stuffobj.existing.sceneryobjects.removeDuplicates();
-    filehandler.stuffobj.existing.splines.removeDuplicates();
+        filehandler.stuffobj.existing.removeDuplicates();
+    }
 
     // Sceneryobjects
     if (!filehandler.stuffobj.existing.sceneryobjects.isEmpty())
@@ -116,6 +115,7 @@ void wCleanup::on_actionAnalyze_triggered()
                 ui->lwgObjects->addItem(current.remove(0, cutCount));
         }
     }
+
 
     // Splines:
     if (!filehandler.stuffobj.existing.splines.isEmpty())
