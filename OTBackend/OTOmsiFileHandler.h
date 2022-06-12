@@ -719,7 +719,7 @@ public:
     }
 
     /// Gets items from a map
-    void getItems(QStringList &tiles, bool includeParklists = true)
+    void getItems(QStringList &tiles, bool checkMissing = true, bool includeParklists = true)
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
 
@@ -766,8 +766,11 @@ public:
 
                     if (!object.exists())
                     {
-                        qWarning().noquote() << "Sceneryobject '" + QFileInfo(object).absoluteFilePath() + "' is missing!";
-                        stuffobj.missing.sceneryobjects << fullPath;
+                        if (checkMissing)
+                        {
+                            qWarning().noquote() << "Sceneryobject '" + QFileInfo(object).absoluteFilePath() + "' is missing!";
+                            stuffobj.missing.sceneryobjects << fullPath;
+                        }
                     }
                     else
                         stuffobj.existing.sceneryobjects << fullPath;
@@ -782,8 +785,11 @@ public:
 
                     if (!spline.exists())
                     {
-                        qWarning().noquote() << "Spline '" + QFileInfo(spline).absoluteFilePath() + "' is missing!";
-                        stuffobj.missing.splines << fullPath;
+                        if (checkMissing)
+                        {
+                            qWarning().noquote() << "Spline '" + QFileInfo(spline).absoluteFilePath() + "' is missing!";
+                            stuffobj.missing.splines << fullPath;
+                        }
                     }
                     else
                         stuffobj.existing.splines << fullPath;
@@ -836,8 +842,11 @@ public:
 
                     if (line == "")
                     {
-                        qWarning().noquote() << "Error in parklist '" + current.remove(getMapPath().remove("global.cfg")) + "': Line " + QString::number(lineCounter) + " is empty!";
-                        stuffobj.missing.sceneryobjects << QObject::tr("[Empty line in parklist %1]").arg(current.remove(getMapPath().remove("global.cfg")));
+                        if (checkMissing)
+                        {
+                            qWarning().noquote() << "Error in parklist '" + current.remove(getMapPath().remove("global.cfg")) + "': Line " + QString::number(lineCounter) + " is empty!";
+                            stuffobj.missing.sceneryobjects << QObject::tr("[Empty line in parklist %1]").arg(current.remove(getMapPath().remove("global.cfg")));
+                        }
 
                         continue;
                     }
@@ -847,8 +856,11 @@ public:
 
                     if (!firstVehicle.exists())
                     {
-                        qWarning().noquote() << "Sceneryobject '" + QFileInfo(firstVehicle).absoluteFilePath() + "' is missing!";
-                        stuffobj.missing.sceneryobjects << fullPath;
+                        if (checkMissing)
+                        {
+                            qWarning().noquote() << "Sceneryobject '" + QFileInfo(firstVehicle).absoluteFilePath() + "' is missing!";
+                            stuffobj.missing.sceneryobjects << fullPath;
+                        }
                     }
                     else
                         stuffobj.existing.sceneryobjects << fullPath;
