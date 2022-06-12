@@ -2,6 +2,7 @@
 #define WCLEANUP_H
 
 #include <QMainWindow>
+#include <QtConcurrent>
 #include "OTModules/OTGeneric/wsettings.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
