@@ -38,12 +38,10 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     ui->cobxLanguage->setCurrentIndex(languageIndex);
 
     // cobxTheme:
-    int themeIndex = set.read("main", "theme", true).toInt();
     ui->cobxTheme->addItem(QString("Standard"));
     ui->cobxTheme->addItem(QString("Combinear"));
     ui->cobxTheme->addItem(QString("Darkeum"));
-
-    ui->cobxTheme->setCurrentIndex(themeIndex);
+    ui->cobxTheme->setCurrentIndex(set.read("main", "theme", false).toInt());
 
     // cbxAutoSave
     if (set.read("main", "autosave") == "true")
