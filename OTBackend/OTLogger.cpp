@@ -39,7 +39,7 @@ void Logger::attach(QString filename)
     {
         QTextStream out(&file);
 
-        out << QString("========================\n   %1 Logfile\n========================\n" + OTVersion + " | %2\n\n").arg(OTName, debugInfo);
+        out << QString("========================\n   %1 Logfile\n========================\n" + OTVersion + " | Qt " + qVersion() + " | %2\n\n").arg(OTName, debugInfo);
         file.close();
     }
 }
