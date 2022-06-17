@@ -224,18 +224,23 @@ public:
 
         foreach (QString current, objects)
         {
+            qDebug() << "CURRENT:" << current;
+
             i++;
+            qDebug().noquote() << "No." << i;
             currentProgress = i;
             qApp->processEvents();
 
             //            if (current.contains("Aufzug.sco"))
             //                qDebug().noquote() << "Here is " << current << "!";
 
+            qDebug() << "01" << current;
             QFile object(set.read("main", "mainDir").toString() + "/" + current);
             object.open(QFile::ReadOnly | QFile::Text);
 
             if (object.exists())
             {
+                qDebug() << "02" << current;
                 QTextStream inFirst(&object);
                 inFirst.setEncoding(QStringConverter::System);
 
@@ -253,9 +258,11 @@ public:
                 {
                     line = inFirst.readLine();
 
+                    qDebug() << "03" << current;
                     // varnamelists:
                     if (line == "[varnamelist]")
                     {
+                        qDebug() << "03-1" << current;
                         QStringList varnameFiles;
                         int count = inFirst.readLine().toInt();
                         for (int i = 0; i < count; i++)
@@ -275,12 +282,14 @@ public:
                             }
                             else
                                 variables = readVarlist(varlist);
+                            qDebug() << "03-1E" << current;
                         }
                     }
 
                     // stringvarnamelists:
                     else if (line == "[stringvarnamelist]")
                     {
+                        qDebug() << "03-2" << current;
                         QStringList stringvarnameFiles;
                         int count = inFirst.readLine().toInt();
                         for (int i = 0; i < count; i++)
@@ -301,35 +310,45 @@ public:
                             else
                                 stringvariables = readVarlist(stringvarlist);
                         }
+                        qDebug() << "03-2E" << current;
                     }
 
                     // matl for textTextures
                     else if (line == "[matl]")
                     {
+                        qDebug() << "03-3" << current;
                         line = inFirst.readLine();
                         currentTexture = line;
                     }
 
                     // useTextTexture
                     else if (line == "[useTextTexture]")
+                    {
+                        qDebug() << "03-4" << current;
                         textTextures << currentTexture;
+                    }
                 }
 
+                qDebug() << "04" << current;
                 textTextures.removeDuplicates();
 
                 object.close();
                 object.open(QFile::ReadOnly | QFile::Text);
+
+                qDebug() << "05" << current;
 
                 QTextStream in(&object);
                 in.setEncoding(QStringConverter::System);
 
                 while (!in.atEnd())
                 {
+                    qDebug() << "06" << current;
                     line = in.readLine();
 
                     // visible:
                     if (line == "[visible]")
                     {
+                        qDebug() << "06-1" << current;
                         line = in.readLine();
 
                         while (line.at(line.count() - 1) == ' ')
@@ -342,11 +361,13 @@ public:
                             qDebug().noquote() << "In List:" << variables << "(+ local pre-defined variables)";
                             stuffobj.missing.sceneryobjects << current;
                         }
+                        qDebug() << "06-1E" << current;
                     }
 
                     // scripts:
                     else if (line == "[script]")
                     {
+                        qDebug() << "06-2" << current;
                         for (int i = 0; i < in.readLine().toInt(); i++)
                         {
                             QString scriptPath = in.readLine();
@@ -359,11 +380,13 @@ public:
                                 stuffobj.missing.sceneryobjects << current;
                             }
                         }
+                        qDebug() << "06-2E" << current;
                     }
 
                     // constfiles:
                     else if (line == "[constfile]")
                     {
+                        qDebug() << "06-3" << current;
                         for (int i = 0; i < in.readLine().toInt(); i++)
                         {
                             QString constfilePath = in.readLine();
@@ -376,11 +399,13 @@ public:
                                 stuffobj.missing.sceneryobjects << current;
                             }
                         }
+                        qDebug() << "06-3E" << current;
                     }
 
                     // Meshes:
                     else if (line == "[mesh]" || line == "[collision_mesh]" || line == "[crossing_heightdeformation]" || line == "[terrainhole]")
                     {
+                        qDebug() << "06-4" << current;
                         line = in.readLine();
                         while (line.at(line.count() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
@@ -391,11 +416,13 @@ public:
                             qWarning().noquote() << "Error in object '" + current + "':" << "Mesh '" + line + "' could not be found!";
                             stuffobj.missing.sceneryobjects << current;
                         }
+                        qDebug() << "06-4E" << current;
                     }
 
                     // Materials:
                     else if (line == "[matl]" || line == "[matl_nightmap]" || line == "[matl_lightmap]" || line == "[matl_envmap]" || line == "[matl_envmap_mask]")
                     {
+                        qDebug() << "06-5" << current;
                         line = in.readLine();
 
                         while (line.at(line.count() - 1) == ' ')
@@ -416,11 +443,13 @@ public:
                             else
                                 stuffobj.existing.textures << path;
                         }
+                        qDebug() << "06-5E" << current;
                     }
 
                     // Extra for matl_change:
                     else if (line == "[matl_change]")
                     {
+                        qDebug() << "06-6" << current;
                         line = in.readLine();
                         while (line.at(line.count() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
@@ -447,11 +476,13 @@ public:
                         }
                         else
                             stuffobj.existing.sceneryobjects << current;
+                        qDebug() << "06-6E" << current;
                     }
 
                     // passengercabin:
                     else if (line == "[passengercabin]")
                     {
+                        qDebug() << "06-7" << current;
                         line = in.readLine();
                         while (line.at(line.count() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
@@ -462,11 +493,13 @@ public:
                             qWarning().noquote() << "Error in object '" + current + "':" << "Passengercabin '" + line + "' could not be found!";
                             stuffobj.missing.sceneryobjects << current;
                         }
+                        qDebug() << "06-7E" << current;
                     }
 
                     // matl_freetex:
                     else if (line == "[matl_freetex]")
                     {
+                        qDebug() << "06-8" << current;
                         line = in.readLine();
                         while (line.at(line.count() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
@@ -490,10 +523,15 @@ public:
                             qDebug().noquote() << "In List:" << stringvariables;
                             stuffobj.missing.sceneryobjects << current;
                         }
+                        qDebug() << "06-8E" << current;
                     }
+                    qDebug() << "06E" << current;
+                    qDebug() << "END.";
                 }
                 object.close();
             }
+            qDebug() << "02E" << current;
+            qDebug() << "End. Next...";
         }
     }
 
