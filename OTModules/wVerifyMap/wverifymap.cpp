@@ -354,6 +354,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.stuffobj.missing.splines = iglF.check(filehandler.stuffobj.missing.splines, ignoredSplines);
     filehandler.stuffobj.existing.splines = iglF.check(filehandler.stuffobj.existing.splines, ignoredSplines);
 
+    filehandler.stuffobj.removeDuplicates();
 
     // SCO and SLI (advanced)
     if (set.read(objectName(), "advVerifying").toBool())
