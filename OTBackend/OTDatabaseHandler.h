@@ -69,7 +69,7 @@ private:
     /// Executes an action
     QSqlQuery query(QString action)
     {
-        lastError = "";
+        lastError.clear();
         QSqlQuery query;
         query.prepare(action);
 
