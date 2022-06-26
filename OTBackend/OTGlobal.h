@@ -100,7 +100,7 @@ public:
 class OTDownloader: public QObject
 {
     Q_OBJECT
-public:
+public slots:
     /// [OVERLOADED] Returns the downloaded file
     QString doDownload(const QUrl &url)
     {
@@ -116,6 +116,7 @@ public:
         return lastHttpCode;
     }
 
+public:
     QNetworkReply *reply;
     int currentProgress;
     int maxProgress;
@@ -153,6 +154,7 @@ private:
         int httpCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         lastHttpCode = httpCode;
 
+        qDebug() << "Download finished.";
         qDebug() << "HTTP Status code:" << httpCode;
         if (httpCode >= 300 || httpCode == 0)
         {
