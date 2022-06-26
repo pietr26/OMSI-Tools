@@ -29,6 +29,17 @@ wStart::wStart(QWidget *parent)
     else
         isNoRelease = true;
 
+    /// Funktioniert so semi. Lambda wird zwar im Thread ausgeführt, dennoch funktioniert das Connect fürn progress nicht (mehr).
+//    OTDownloader *dl = new OTDownloader();
+//    QThread *thread = new QThread(this);
+//    dl->moveToThread(thread);
+
+//    connect(thread, &QThread::started, [=]() {
+//        dl->doDownload(QUrl(dl->doDownload(OTLinks::download).remove("\t")), QDir().tempPath() + "/OMSI-Tools_update.zip");
+//    });
+
+//    thread->start();
+
     ui->btnSimulateCrash->setVisible(isNoRelease);
     ui->gbxDevTools->setVisible(isNoRelease);
     ui->actionSendFeedback->setVisible(isNoRelease);
@@ -107,6 +118,8 @@ wStart::wStart(QWidget *parent)
     startCounterMsgSender();
 
     qInfo().noquote() << objectName() + " started";
+
+    //QTimer::singleShot(1, this, SLOT(on_btnVerifyMap_clicked()));
 }
 
 wStart::~wStart()
