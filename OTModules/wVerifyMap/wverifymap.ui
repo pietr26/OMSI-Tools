@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>642</width>
-    <height>568</height>
+    <width>640</width>
+    <height>657</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,54 +26,47 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QGroupBox" name="gbxMapPath">
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="title">
-       <string>Map path</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLineEdit" name="ledMapPath">
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="tbnMapPath">
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="text">
-          <string>...</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
      <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QComboBox" name="cobxMapName">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="readOnly" stdset="0">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnReloadMaps">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../ressources.qrc">
+          <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
       <item>
        <widget class="QPushButton" name="btnVerifycationSettings">
         <property name="text">
-         <string>Verifycation settings</string>
+         <string/>
         </property>
         <property name="icon">
          <iconset resource="../../ressources.qrc">
           <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -96,7 +89,7 @@
       <item>
        <widget class="QPushButton" name="btnStartVerifying">
         <property name="enabled">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <property name="font">
          <font>
@@ -168,21 +161,8 @@
           <property name="sizeConstraint">
            <enum>QLayout::SetDefaultConstraint</enum>
           </property>
-          <item row="5" column="1">
-           <widget class="QLineEdit" name="ledTotalObjects">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="6">
-           <widget class="QPushButton" name="btnHumansDetails">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+          <item row="5" column="6">
+           <widget class="QPushButton" name="btnObjectsDetails">
             <property name="toolTip">
              <string/>
             </property>
@@ -192,53 +172,6 @@
             <property name="icon">
              <iconset resource="../../ressources.qrc">
               <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLineEdit" name="ledTotalTiles">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="3" colspan="3">
-           <layout class="QHBoxLayout" name="horizontalLayout_9">
-            <item>
-             <widget class="QLineEdit" name="ledMissingVehicles">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="lblTotal">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string>Total:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="3" colspan="3">
-           <widget class="QLineEdit" name="ledMissingTextures">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="toolTip">
-             <string/>
             </property>
            </widget>
           </item>
@@ -255,84 +188,16 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="lblTiles">
+          <item row="6" column="0">
+           <widget class="QLabel" name="lblSplines">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
-             <string>Tiles:</string>
+             <string>Splines:</string>
             </property>
             <property name="buddy">
-             <cstring>ledTotalTiles</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2" rowspan="7">
-           <widget class="Line" name="line_2">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0" rowspan="2" colspan="7">
-           <widget class="QLineEdit" name="ledMapName">
-            <property name="font">
-             <font>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="3" colspan="3">
-           <layout class="QHBoxLayout" name="horizontalLayout_7">
-            <item>
-             <widget class="QLineEdit" name="ledMissingObjects">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="7" column="0">
-           <widget class="QLabel" name="lblVehicles">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string>Vehicles:</string>
-            </property>
-            <property name="buddy">
-             <cstring>ledTotalVehicles</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QLineEdit" name="ledTotalSplines">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
+             <cstring>ledTotalSplines</cstring>
             </property>
            </widget>
           </item>
@@ -341,6 +206,40 @@
             <property name="enabled">
              <bool>true</bool>
             </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="ledTotalTiles">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="6">
+           <widget class="QPushButton" name="btnSplinesDetails">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="ledTotalObjects">
             <property name="toolTip">
              <string/>
             </property>
@@ -362,122 +261,16 @@
             </property>
            </widget>
           </item>
-          <item row="6" column="6">
-           <widget class="QPushButton" name="btnSplinesDetails">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="lblSplines">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string>Splines:</string>
-            </property>
-            <property name="buddy">
-             <cstring>ledTotalSplines</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="lblTextures">
+          <item row="7" column="3" colspan="3">
+           <widget class="QLineEdit" name="ledMissingVehicles">
             <property name="enabled">
              <bool>true</bool>
             </property>
             <property name="toolTip">
              <string/>
             </property>
-            <property name="text">
-             <string>Textures:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="3" colspan="4">
-           <widget class="QLabel" name="lblMissing">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string>Missing (or invalid):</string>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="3" colspan="3">
-           <layout class="QHBoxLayout" name="horizontalLayout_12">
-            <item>
-             <widget class="QLineEdit" name="ledMissingHumans">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="6" column="3" colspan="3">
-           <layout class="QHBoxLayout" name="horizontalLayout_8">
-            <item>
-             <widget class="QLineEdit" name="ledMissingSplines">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="3" column="3" colspan="3">
-           <layout class="QHBoxLayout" name="horizontalLayout_6">
-            <item>
-             <widget class="QLineEdit" name="ledMissingTiles">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="5" column="6">
-           <widget class="QPushButton" name="btnObjectsDetails">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLineEdit" name="ledTotalTextures">
-            <property name="enabled">
+            <property name="readOnly">
              <bool>true</bool>
-            </property>
-            <property name="toolTip">
-             <string/>
             </property>
            </widget>
           </item>
@@ -527,8 +320,8 @@
             </property>
            </widget>
           </item>
-          <item row="8" column="0">
-           <widget class="QLabel" name="lblHumans">
+          <item row="7" column="0">
+           <widget class="QLabel" name="lblVehicles">
             <property name="enabled">
              <bool>true</bool>
             </property>
@@ -536,10 +329,10 @@
              <string/>
             </property>
             <property name="text">
-             <string>Humans:</string>
+             <string>Vehicles:</string>
             </property>
             <property name="buddy">
-             <cstring>ledTotalHumans</cstring>
+             <cstring>ledTotalVehicles</cstring>
             </property>
            </widget>
           </item>
@@ -557,6 +350,168 @@
             <property name="icon">
              <iconset resource="../../ressources.qrc">
               <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="6">
+           <widget class="QPushButton" name="btnHumansDetails">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="3" colspan="3">
+           <widget class="QLineEdit" name="ledMissingSplines">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="lblTextures">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>Textures:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="lblTiles">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>Tiles:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ledTotalTiles</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="3" colspan="3">
+           <widget class="QLineEdit" name="ledMissingTextures">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="ledTotalSplines">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="3" colspan="3">
+           <widget class="QLineEdit" name="ledMissingObjects">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="3" colspan="3">
+           <widget class="QLineEdit" name="ledMissingHumans">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="lblHumans">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>Humans:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ledTotalHumans</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="ledTotalTextures">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="3" colspan="3">
+           <widget class="QLineEdit" name="ledMissingTiles">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" rowspan="2">
+           <widget class="QLabel" name="lblTotal">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>Total:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3" rowspan="2" colspan="4">
+           <widget class="QLabel" name="lblMissing">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>Missing (or invalid):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2" rowspan="8">
+           <widget class="Line" name="line_2">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
             </property>
            </widget>
           </item>
@@ -1288,7 +1243,7 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>0</height>
+        <height>280</height>
        </size>
       </property>
       <property name="sizeIncrement">
@@ -1352,8 +1307,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>642</width>
-     <height>24</height>
+     <width>640</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMap">

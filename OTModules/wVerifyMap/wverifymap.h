@@ -6,7 +6,6 @@
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "dignorelist.h"
 #include "ignoreListFunctions.h"
-#include "OTModules/wmapselection.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTWidgets/verifymaptools.h"
 #include "OTModules/OTGeneric/wsettings.h"
@@ -38,10 +37,6 @@ public:
 private slots:
 
     void on_actionClose_triggered();
-
-    void on_tbnMapPath_clicked();
-
-    void on_ledMapPath_textChanged(const QString &arg1);
 
     void on_btnStartVerifying_clicked();
 
@@ -95,7 +90,9 @@ private slots:
 
     void on_btnVerifycationSettings_clicked();
 
-    void recieveMapSelection(QPair<QString, QString> mapInfo);
+    void on_cobxMapName_currentIndexChanged(int index);
+
+    void on_btnReloadMaps_clicked();
 
 private:
     Ui::wVerifyMap *ui;
@@ -106,7 +103,6 @@ private:
     wContentSearch *WCONTENTSEARCH;
     wSettings *WSETTINGS;
     wVerifycationSettings *WVERIFYCATIONSETTINGS;
-    wMapSelection *WMAPSELECTION;
 
     int cutCount = set.read("main", "mainDir").toString().count() + 1;
 
@@ -132,6 +128,13 @@ private:
     void setDetailButtons();
 
     void enableIgnoreLabels(bool enable);
+
+    void loadMapList();
+
+    QList<QPair<QString, QString>> mapList;
+
+    bool mapListSetupFinished = false;
+    void enableView(bool enable);
 };
 
 #endif // WVERIFYMAP_H

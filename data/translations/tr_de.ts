@@ -226,9 +226,9 @@
         <translation>Dezember</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="963"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="989"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1043"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="960"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="986"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1040"/>
         <source>[Empty line]</source>
         <translation>[Leere Zeile]</translation>
     </message>
@@ -238,7 +238,7 @@
         <translation>Überprüfe Szenerieobjekte...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="880"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="877"/>
         <source>[Empty line in parklist %1]</source>
         <translation>[Leere Zeile in Parkplatzliste %1]</translation>
     </message>
@@ -248,7 +248,7 @@
         <translation>Überprüfe Splines...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="758"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="755"/>
         <source>Get sceneryobjects and splines...</source>
         <translation>Sammle Szenerieobjekte und Splines...</translation>
     </message>
@@ -1559,9 +1559,14 @@ Es wird keine Schrift geöffnet.</translation>
 <context>
     <name>wMapSelection</name>
     <message>
-        <location filename="../../OTModules/wmapselection.ui" line="76"/>
+        <location filename="../../OTModules/wmapselection.ui" line="59"/>
         <source>Confirm</source>
         <translation>Bestätigen</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wmapselection.ui" line="66"/>
+        <source>Return</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../OTModules/wmapselection.cpp" line="13"/>
@@ -2138,229 +2143,219 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
 <context>
     <name>wVerifyMap</name>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="34"/>
-        <source>Map path</source>
-        <translation>Kartenpfad</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="56"/>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="113"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1418"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="530"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="74"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1390"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="519"/>
         <source>Start verifying</source>
         <translation>Überprüfung starten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="157"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="118"/>
         <source>Overview and statistics about the map</source>
         <translation>Übersicht und Statistiken der Karte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="160"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="121"/>
         <source>Overview</source>
         <translation>Übersicht</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1175"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1147"/>
         <source>Humans</source>
         <translation>Menschen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="569"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="541"/>
         <source>Tiles</source>
         <translation>Kacheln</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="72"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="33"/>
         <source>Verifycation settings</source>
         <translation>Überprüfungseinstellungen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="827"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="799"/>
         <source>Sceneryobjects</source>
         <translation>Szenerieobjekte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="947"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="919"/>
         <source>Splines</source>
         <translation>Splines</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1061"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1033"/>
         <source>Vehicles</source>
         <translation>Fahrzeuge</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="674"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="797"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="914"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1031"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1145"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1259"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="646"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="769"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="886"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1003"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1117"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1231"/>
         <source>ignored</source>
         <translation>ignoriert</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="824"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="796"/>
         <source>Sceneryobjects on the map</source>
         <translation>Szenerieobjekte der Karte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="944"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="916"/>
         <source>Splines on the map</source>
         <translation>Splines der Karte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1058"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1030"/>
         <source>AI vehicles on the map</source>
         <translation>KI-Fahrzeuge der Karte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1172"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1144"/>
         <source>Humans on the map</source>
         <translation>Menschen der Karte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1361"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1333"/>
         <source>Map</source>
         <translation>Karte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1370"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1342"/>
         <source>Specials</source>
         <translation>Extras</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1379"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1351"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1394"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1366"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1406"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1378"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1430"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1402"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="231"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="293"/>
         <source>Total:</source>
         <translation>Gesamt:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="264"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="280"/>
         <source>Tiles:</source>
         <translation>Kacheln:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="322"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="254"/>
         <source>Vehicles:</source>
         <translation>Fahrzeuge:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="358"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="197"/>
         <source>Sceneryobjects:</source>
         <translation>Szenerieobjekte:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="385"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="151"/>
         <source>Splines:</source>
         <translation>Splines:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="401"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="270"/>
         <source>Textures:</source>
         <translation>Texturen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="411"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="355"/>
         <source>Missing (or invalid):</source>
         <translation>Fehlend (oder ungültig):</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="539"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="382"/>
         <source>Humans:</source>
         <translation>Menschen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="582"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="554"/>
         <source>All tiles:</source>
         <translation>Alle Kacheln:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="635"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="607"/>
         <source>Missing tiles:</source>
         <translation>Fehlende Kacheln:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="723"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="695"/>
         <source>All textures:</source>
         <translation>Alle Texturen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="758"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="730"/>
         <source>Missing textures:</source>
         <translation>Fehlende Texturen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="840"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="812"/>
         <source>All sceneryobjects:</source>
         <translation>Alle Szenerieobjekte:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="875"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="847"/>
         <source>Missing / invalid sceneryobjects:</source>
         <translation>Fehlende / ungültige Szenerieobjekte:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="960"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="932"/>
         <source>All splines:</source>
         <translation>Alle Splines:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="992"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="964"/>
         <source>Missing / invalid splines:</source>
         <translation>Fehlende / ungültige Splines:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1074"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1046"/>
         <source>All vehicles:</source>
         <translation>Alle Fahrzeuge:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1106"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1078"/>
         <source>Missing vehicles:</source>
         <translation>Fehlende Fahrzeuge:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1188"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1160"/>
         <source>All humans:</source>
         <translation>Alle Menschen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1220"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1192"/>
         <source>Missing humans:</source>
         <translation>Fehlende Menschen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1442"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1414"/>
         <source>Edit ignorelist</source>
         <translation>Ignorierliste bearbeiten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1466"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1438"/>
         <source>Send feedback</source>
         <translation>Feedback senden</translation>
     </message>
@@ -2370,39 +2365,44 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Kartenüberprüfung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="710"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="682"/>
         <source>Textures</source>
         <translation>Texturen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1454"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1426"/>
         <source>Adjust window size</source>
         <translation>Fenstergröße anpassen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="62"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="48"/>
         <source>Press %1 to start the verification.</source>
         <translation>Drücke %1 zum Starten der Überprüfung.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="325"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="314"/>
         <source>Running...</source>
         <translation>Läuft...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="332"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="321"/>
         <source>The selected map file doesn&apos;t exist.</source>
         <translation>Die ausgewählte Kartendatei existiert nicht.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="332"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="321"/>
         <source>Map file doesn&apos;t exist</source>
         <translation>Karte existiert nicht</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="495"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="484"/>
         <source>Verifycation finished.</source>
         <translation>Überprüfung abgeschlossen.</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="602"/>
+        <source>Reloaded map list.</source>
+        <translation>Kartenliste neu geladen.</translation>
     </message>
 </context>
 <context>
