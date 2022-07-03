@@ -629,13 +629,10 @@ public:
         while (mapFolder.hasNext())
         {
             QPair<QString, QString> pair;
-            pair.first = mapFolder.next();
-            pair.second = readGlobal("name", pair.first + "/global.cfg", 0, true);
+            pair.first = mapFolder.next() + "/global.cfg";
+            pair.second = readGlobal("name", pair.first, 0, true);
             if ((pair.second != "ERR") && (pair.second != "?"))
-            {
-                pair.first.remove(0, set.read("main", "mainDir").toString().count() + 1);
                 returnList.append(pair);
-            }
         }
 
         return returnList;
