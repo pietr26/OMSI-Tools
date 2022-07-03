@@ -226,14 +226,14 @@
         <translation>Prosinec</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="853"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="880"/>
         <source>[Empty line in parklist %1]</source>
         <translation>[Prázdný řádek v seznamu zaparkovaných vozidel %1]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="936"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="962"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1016"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="963"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="989"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1043"/>
         <source>[Empty line]</source>
         <translation>[Prázdný řádek]</translation>
     </message>
@@ -248,7 +248,7 @@
         <translation>Kontroluji spliny...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="731"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="758"/>
         <source>Get sceneryobjects and splines...</source>
         <translation>Získávám Sceneryobjects a Splines...</translation>
     </message>
@@ -1557,6 +1557,19 @@ No font will be opened.</source>
     </message>
 </context>
 <context>
+    <name>wMapSelection</name>
+    <message>
+        <location filename="../../OTModules/wmapselection.ui" line="76"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wmapselection.cpp" line="13"/>
+        <source>Select map...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>wReleaseNotes</name>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="35"/>
@@ -1996,7 +2009,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="107"/>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="300"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="305"/>
         <source>No updates available.</source>
         <translation>Není dostupná žádná nová aktualizace.</translation>
     </message>
@@ -2006,27 +2019,27 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Nová aktualizace k dispozici</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="203"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="208"/>
         <source>Simulate crash</source>
         <translation>Simulovat pád aplikace</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="203"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="208"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Měl by být simulován pád aplikace?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="275"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="280"/>
         <source>Feedback</source>
         <translation>Zpětná vazba</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="275"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="280"/>
         <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
         <translation>Můžete nám poskytnout zpětnou vazbu %1 pro další vylepšení našeho softwaru.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="300"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="305"/>
         <source>Finshed</source>
         <translation type="unfinished">Dokončeno</translation>
     </message>
@@ -2357,11 +2370,6 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Ověřit mapu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="543"/>
-        <source>Select map file...</source>
-        <translation>Vyberte mapový soubor...</translation>
-    </message>
-    <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="710"/>
         <source>Textures</source>
         <translation>Textury</translation>
@@ -2395,11 +2403,6 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="495"/>
         <source>Verifycation finished.</source>
         <translation>Ověření bylo dokončeno.</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="543"/>
-        <source>OMSI map file</source>
-        <translation>Mapový soubor OMSI</translation>
     </message>
 </context>
 <context>
