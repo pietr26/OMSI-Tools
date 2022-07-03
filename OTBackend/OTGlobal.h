@@ -67,6 +67,15 @@ const QString OTName = "OMSI-Tools";
 const QString OTVersion = "1.0.1-beta";
 const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Dev;
 
+const QList<QPair<QString, unsigned int>> OTFacts(
+            {
+                QPair<QString, unsigned int>("0,5s", 500),
+                QPair<QString, unsigned int>("1s", 1000),
+                QPair<QString, unsigned int>("3s", 3000),
+                QPair<QString, unsigned int>("5s", 5000)
+            }
+            );
+
 /// Unsaved code snippet for closeEvents:
 /*
     if (unsaved)

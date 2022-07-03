@@ -19,6 +19,7 @@ SOURCES += \
     OTModules/wmapselection.cpp \
     OTModules/wvehiclelist.cpp \
     OTModules/OTInternals/wstyletest.cpp \
+    OTWidgets/fadeinouttext.cpp \
     OTWidgets/firstsetup.cpp \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
@@ -53,6 +54,7 @@ HEADERS += \
     OTModules/wfonts.h \
     OTModules/wVerifyMap/wverifymap.h \
     OTModules/OTInternals/wstyletest.h \
+    OTWidgets/fadeinouttext.h \
     OTWidgets/firstsetup.h \
     OTWidgets/verifymaptools.h \
     OTModules/OTGeneric/wabout.h \
@@ -75,6 +77,7 @@ FORMS += \
     OTModules/wfonts.ui \
     OTModules/wVerifyMap/wverifymap.ui \
     OTModules/OTInternals/wstyletest.ui \
+    OTWidgets/fadeinouttext.ui \
     OTWidgets/firstsetup.ui \
     OTWidgets/verifymaptools.ui \
     OTModules/OTGeneric/wabout.ui \
