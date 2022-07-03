@@ -117,6 +117,9 @@ wStart::wStart(QWidget *parent)
 
     startCounterMsgSender();
 
+    fadeInOutText *facts = new fadeInOutText(OTFacts);
+    ui->vlaFacts->addWidget(facts);
+
     qInfo().noquote() << objectName() + " started";
 
     //QTimer::singleShot(1, this, SLOT(on_btnVerifyMap_clicked()));
