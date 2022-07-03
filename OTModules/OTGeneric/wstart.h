@@ -17,6 +17,7 @@
 #include "OTModules/wFbh/wfbh.h"
 #include "OTModules/OTInternals/wstyletest.h"
 #include "OTModules/OTGeneric/wfeedback.h"
+#include "OTWidgets/fadeinouttext.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class wStart; }
