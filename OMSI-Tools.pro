@@ -16,6 +16,7 @@ SOURCES += \
     OTModules/wFbh/wfbh.cpp \
     OTModules/wVerifyMap/wverifycationsettings.cpp \
     OTModules/wcleanup.cpp \
+    OTModules/wmapselection.cpp \
     OTModules/wvehiclelist.cpp \
     OTModules/OTInternals/wstyletest.cpp \
     OTWidgets/firstsetup.cpp \
@@ -44,6 +45,7 @@ HEADERS += \
     OTModules/wFbh/wfbh.h \
     OTModules/wVerifyMap/wverifycationsettings.h \
     OTModules/wcleanup.h \
+    OTModules/wmapselection.h \
     OTModules/wvehiclelist.h \
     OTModules/wVerifyMap/dignorelist.h \
     OTModules/wVerifyMap/ignoreListFunctions.h \
@@ -66,6 +68,7 @@ FORMS += \
     OTModules/wFbh/wfbh.ui \
     OTModules/wVerifyMap/wverifycationsettings.ui \
     OTModules/wcleanup.ui \
+    OTModules/wmapselection.ui \
     OTModules/wvehiclelist.ui \
     OTModules/wVerifyMap/dignorelist.ui \
     OTModules/OTInternals/wdevtools.ui \

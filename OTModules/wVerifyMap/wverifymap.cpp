@@ -43,7 +43,7 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
         {
             ui->ledMapPath->setText(filehandler.getMapPath());
             ui->lblPicture->setPixmap(QPixmap(filehandler.getMapPath().remove(QRegularExpression("global.cfg")) + "/picture.jpg"));
-            ui->ledMapName->setText(filehandler.readGlobal("name", this));
+            ui->ledMapName->setText(filehandler.readGlobal("name", "", this));
         }
     }
 
@@ -322,6 +322,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     }
 
     ui->btnStartVerifying->setEnabled(false);
+    ui->btnVerifycationSettings->setEnabled(false);
     ui->btnStartVerifying->setText(tr("Running..."));
     startEndWatchProgress(true);
 
@@ -528,6 +529,8 @@ void wVerifyMap::endVerifying()
 
     ui->btnStartVerifying->setEnabled(true);
     ui->btnStartVerifying->setText(tr("Start verifying"));
+    ui->btnVerifycationSettings->setEnabled(true);
+
     return;
 }
 
@@ -540,27 +543,26 @@ void wVerifyMap::on_actionClose_triggered()
 /// Shows an getOpenFileName-Dialog and put this path into the map model
 void wVerifyMap::on_tbnMapPath_clicked()
 {
-    QString path = QFileDialog::getOpenFileName(this, tr("Select map file..."), set.read("main", "mainDir").toString() + "/maps", tr("OMSI map file") + " (global.cfg)");
-    if (path != "")
-    {
-        filehandler.setMapPath(path);
-        qDebug().noquote() << "New map path:" << path;
+    WMAPSELECTION = new wMapSelection(this, set.read(objectName(), "mapPath").toString());
+    WMAPSELECTION->setWindowModality(Qt::ApplicationModal);
+    WMAPSELECTION->show();
 
-        // Set view
-        ui->ledMapPath->setText(path);
-        ui->ledMapName->setText(filehandler.readGlobal("name", this));
-        ui->lblPicture->setPixmap(QPixmap(filehandler.getMapPath().remove(QRegularExpression("global.cfg")) + "/picture.jpg"));
+    connect(WMAPSELECTION, &wMapSelection::returnMapInfo, this, &wVerifyMap::recieveMapSelection);
+}
 
-        // Check if global.cfg exists:
-        QFile global(filehandler.getMapPath());
+void wVerifyMap::recieveMapSelection(QPair<QString, QString> mapInfo)
+{
+    WMAPSELECTION->close();
+    WMAPSELECTION->deleteLater();
 
-        if (!global.open(QFile::ReadOnly | QFile::Text))
-        {
-            msg.fileOpenErrorCloseOMSI(this, QFileInfo(global).absoluteFilePath());
-            return;
-        }
-    }
     ui->pgbProgress->setVisible(false);
+
+    filehandler.setMapPath(mapInfo.second);
+    qDebug().noquote() << "New map path:" << mapInfo.second;
+
+    ui->ledMapPath->setText(mapInfo.second);
+    ui->ledMapName->setText(mapInfo.first.remove(QRegularExpression("maps/")));
+    ui->lblPicture->setPixmap(QPixmap(mapInfo.second.remove(QRegularExpression("global.cfg")) + "/picture.jpg"));
 }
 
 /// Clears the view if map path has changed

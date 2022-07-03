@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QCloseEvent>
+#include <QFutureWatcher>
 #include <OTModules/wcleanup.h>
 #include "OTModules/OTGeneric/wsettings.h"
 #include "OTModules/wfonts.h"
@@ -71,6 +72,8 @@ private slots:
     void on_btnCleanup_clicked();
 
     void on_actionCheckForUpdates_triggered();
+
+    void testDLFinished();
 
 private:
     Ui::wStart *ui;

@@ -34,14 +34,14 @@
         <translation>l&apos;octet</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="853"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="880"/>
         <source>[Empty line in parklist %1]</source>
         <translation>[Ligne vide dans la parklist %1]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="936"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="962"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1016"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="963"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="989"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1043"/>
         <source>[Empty line]</source>
         <translation>[Ligne vide]</translation>
     </message>
@@ -248,7 +248,7 @@
         <translation>Vérification des cannelures...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="731"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="758"/>
         <source>Get sceneryobjects and splines...</source>
         <translation>Obtenir des objets de paysage et des splines...</translation>
     </message>
@@ -1555,6 +1555,19 @@ No font will be opened.</source>
     </message>
 </context>
 <context>
+    <name>wMapSelection</name>
+    <message>
+        <location filename="../../OTModules/wmapselection.ui" line="76"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wmapselection.cpp" line="13"/>
+        <source>Select map...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>wReleaseNotes</name>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="35"/>
@@ -1992,7 +2005,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="107"/>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="300"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="305"/>
         <source>No updates available.</source>
         <translation>Aucune mise à jour disponible.</translation>
     </message>
@@ -2002,27 +2015,27 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="203"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="208"/>
         <source>Simulate crash</source>
         <translation>Simuler un accident</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="203"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="208"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Le crash d&apos;une application doit-il être simulé ?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="275"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="280"/>
         <source>Feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="275"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="280"/>
         <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="300"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="305"/>
         <source>Finshed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2343,11 +2356,6 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation>vérifier la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="543"/>
-        <source>Select map file...</source>
-        <translation>Sélectionner le fichier de la carte...</translation>
-    </message>
-    <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="710"/>
         <source>Textures</source>
         <translation>Textures</translation>
@@ -2391,11 +2399,6 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="495"/>
         <source>Verifycation finished.</source>
         <translation>Vérification terminée.</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="543"/>
-        <source>OMSI map file</source>
-        <translation>Fichier cartographique OMSI</translation>
     </message>
 </context>
 <context>

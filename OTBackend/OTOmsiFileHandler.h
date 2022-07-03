@@ -620,18 +620,45 @@ public:
         return mapPath;
     }
 
-    /// Returns results from global.cfg
-    QString readGlobal(QString param, QWidget *parent = 0, int readLine = 1)
+    /// Returns a list of all maps
+    QList<QPair<QString, QString>> listMaps()
     {
+        QList<QPair<QString, QString>> returnList;
+
+        QDirIterator mapFolder(set.read("main", "mainDir").toString() + "/maps", QDir::Dirs | QDir::NoDotAndDotDot);
+        while (mapFolder.hasNext())
+        {
+            QPair<QString, QString> pair;
+            pair.first = mapFolder.next();
+            pair.second = readGlobal("name", pair.first + "/global.cfg", 0, true);
+            if ((pair.second != "ERR") && (pair.second != "?"))
+            {
+                pair.first.remove(0, set.read("main", "mainDir").toString().count() + 1);
+                returnList.append(pair);
+            }
+        }
+
+        return returnList;
+    }
+
+    /// Returns results from global.cfg
+    QString readGlobal(QString param, QString mapFolderPath = "", QWidget *parent = 0, bool beQuiet = false, int readLine = 1)
+    {
+        if (mapFolderPath == "")
+            mapFolderPath = getMapPath();
+
         cutCount = set.read("main", "mainDir").toString().count() + 1;
 
         param = "[" + param + "]";
 
-        QFile global(mapPath);
+        QFile global(mapFolderPath);
         if (!global.open(QFile::ReadOnly | QFile::Text))
         {
-            msg.fileOpenErrorCloseOMSI(parent, mapPath);
-            qDebug().noquote() << "Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
+            if (!beQuiet)
+            {
+                msg.fileOpenErrorCloseOMSI(parent, mapFolderPath);
+                qDebug().noquote() << "Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
+            }
             return "ERR";
         }
 

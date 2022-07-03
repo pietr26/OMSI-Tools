@@ -6,6 +6,7 @@
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "dignorelist.h"
 #include "ignoreListFunctions.h"
+#include "OTModules/wmapselection.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTWidgets/verifymaptools.h"
 #include "OTModules/OTGeneric/wsettings.h"
@@ -94,6 +95,8 @@ private slots:
 
     void on_btnVerifycationSettings_clicked();
 
+    void recieveMapSelection(QPair<QString, QString> mapInfo);
+
 private:
     Ui::wVerifyMap *ui;
     OTMessage msg;
@@ -103,6 +106,7 @@ private:
     wContentSearch *WCONTENTSEARCH;
     wSettings *WSETTINGS;
     wVerifycationSettings *WVERIFYCATIONSETTINGS;
+    wMapSelection *WMAPSELECTION;
 
     int cutCount = set.read("main", "mainDir").toString().count() + 1;
 
