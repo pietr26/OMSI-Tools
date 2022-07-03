@@ -1,4 +1,4 @@
-#include "wverifymap.h"
+﻿#include "wverifymap.h"
 #include "ui_wverifymap.h"
 
 wVerifyMap::wVerifyMap(QWidget *parent) :
@@ -20,9 +20,8 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     if (!set.read(objectName(), "onlyMapTextures").isValid())
         set.write(objectName(), "onlyMapTextures", false);
 
-    if (set.read(objectName(), "mapPath") != "")
-            filehandler.setMapPath(set.read(objectName(), "mapPath").toString());
-        qDebug() << "Map path loaded";
+    loadMapList();
+    on_cobxMapName_currentIndexChanged(ui->cobxMapName->currentIndex());
 
     // ---
     ui->hlaTiles->insertWidget(1, new verifyMapTools(ui->lwgTilesAll, ui->lwgTilesMissing, this));
@@ -34,18 +33,6 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
-
-    // Load Description and picture from the map
-    if ((filehandler.getMapPath() != "") && (QFile(filehandler.getMapPath()).exists()))
-    {
-        QFile global(filehandler.getMapPath());
-        if (global.open(QFile::ReadOnly | QFile::Text))
-        {
-            ui->ledMapPath->setText(filehandler.getMapPath());
-            ui->lblPicture->setPixmap(QPixmap(filehandler.getMapPath().remove(QRegularExpression("global.cfg")) + "/picture.jpg"));
-            ui->ledMapName->setText(filehandler.readGlobal("name", "", this));
-        }
-    }
 
     // Hide detail buttons
     ui->btnTilesDetails->setVisible(false);
@@ -276,6 +263,8 @@ void wVerifyMap::selectAllAndClear()
     ui->lblIgnoredSplines->setText("-");
     ui->lblIgnoredVehicles->setText("-");
     ui->lblIgnoredHumans->setText("-");
+
+    ui->pgbProgress->setVisible(false);
 }
 
 
@@ -306,6 +295,19 @@ void wVerifyMap::startEndWatchProgress(bool state)
 }
 
 /// Starts verifying
+void wVerifyMap::enableView(bool enable)
+{
+    ui->btnStartVerifying->setEnabled(enable);
+    ui->btnVerifycationSettings->setEnabled(enable);
+    ui->cobxMapName->setEnabled(enable);
+    ui->btnReloadMaps->setEnabled(enable);
+
+    if (enable)
+        ui->btnStartVerifying->setText(tr("Start verifying"));
+    else
+        ui->btnStartVerifying->setText(tr("Running..."));
+}
+
 void wVerifyMap::on_btnStartVerifying_clicked()
 {
     enableIgnoreLabels(true);
@@ -321,11 +323,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         cutCount = set.read("main", "mainDir").toString().count() + 1;
     }
 
-    ui->btnStartVerifying->setEnabled(false);
-    ui->btnVerifycationSettings->setEnabled(false);
-    ui->btnStartVerifying->setText(tr("Running..."));
+    enableView(false);
     startEndWatchProgress(true);
-
     ui->twgVerfying->setCurrentIndex(0);
 
     if (!QFile::exists(filehandler.getMapPath()))
@@ -526,55 +525,13 @@ void wVerifyMap::setDetailButtons()
 void wVerifyMap::endVerifying()
 {
     startEndWatchProgress(false);
-
-    ui->btnStartVerifying->setEnabled(true);
-    ui->btnStartVerifying->setText(tr("Start verifying"));
-    ui->btnVerifycationSettings->setEnabled(true);
-
-    return;
+    enableView(true);
 }
 
 /// Closes the application
 void wVerifyMap::on_actionClose_triggered()
 {
     QApplication::quit();
-}
-
-/// Shows an getOpenFileName-Dialog and put this path into the map model
-void wVerifyMap::on_tbnMapPath_clicked()
-{
-    WMAPSELECTION = new wMapSelection(this, set.read(objectName(), "mapPath").toString());
-    WMAPSELECTION->setWindowModality(Qt::ApplicationModal);
-    WMAPSELECTION->show();
-
-    connect(WMAPSELECTION, &wMapSelection::returnMapInfo, this, &wVerifyMap::recieveMapSelection);
-}
-
-void wVerifyMap::recieveMapSelection(QPair<QString, QString> mapInfo)
-{
-    WMAPSELECTION->close();
-    WMAPSELECTION->deleteLater();
-
-    ui->pgbProgress->setVisible(false);
-
-    filehandler.setMapPath(mapInfo.second);
-    qDebug().noquote() << "New map path:" << mapInfo.second;
-
-    ui->ledMapPath->setText(mapInfo.second);
-    ui->ledMapName->setText(mapInfo.first.remove(QRegularExpression("maps/")));
-    ui->lblPicture->setPixmap(QPixmap(mapInfo.second.remove(QRegularExpression("global.cfg")) + "/picture.jpg"));
-}
-
-/// Clears the view if map path has changed
-void wVerifyMap::on_ledMapPath_textChanged(const QString &arg1)
-{
-    if (arg1 == "")
-        ui->btnStartVerifying->setEnabled(false);
-    else
-        ui->btnStartVerifying->setEnabled(true);
-
-    set.write(objectName(), "mapPath", arg1);
-    selectAllAndClear();
 }
 
 /// Opens the settings
@@ -613,5 +570,49 @@ void wVerifyMap::on_btnVerifycationSettings_clicked()
 {
     WVERIFYCATIONSETTINGS = new wVerifycationSettings(this);
     WVERIFYCATIONSETTINGS->show();
+}
+
+void wVerifyMap::loadMapList()
+{
+    mapListSetupFinished = false;
+    ui->cobxMapName->clear();
+    qDebug() << "Reload map list...";
+    mapList = filehandler.listMaps();
+    qDebug().noquote() << "Map count:" << mapList.count();
+
+    for (int i = 0; i < mapList.count(); i++)
+        ui->cobxMapName->addItem(mapList[i].second);
+
+    for (int i = 0; i < mapList.count(); i++)
+    {
+        if (mapList[i].first == set.read(objectName(), "mapPath").toString())
+        {
+            ui->cobxMapName->setCurrentIndex(i);
+            i = mapList.count();
+        }
+    }
+    mapListSetupFinished = true;
+}
+
+void wVerifyMap::on_cobxMapName_currentIndexChanged(int index)
+{
+    if (!mapListSetupFinished)
+        return;
+
+    set.write(objectName(), "mapPath", mapList[index].first);
+    selectAllAndClear();
+    filehandler.setMapPath(mapList[index].first);
+
+    QString picture = mapList[index].first.remove(QRegularExpression("global.cfg")) + "picture.jpg";
+    if (QFile(picture).exists())
+        ui->lblPicture->setPixmap(QPixmap(picture));
+    else
+        ui->lblPicture->setPixmap(QPixmap(":/rec/data/icons/iconUnvisible.svg").scaled(185, 140));
+}
+
+void wVerifyMap::on_btnReloadMaps_clicked()
+{
+    loadMapList();
+    ui->statusbar->showMessage(tr("Reloaded map list."), 5000);
 }
 
