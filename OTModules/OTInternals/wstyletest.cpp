@@ -31,8 +31,7 @@ wStyleTest::wStyleTest(QWidget *parent) :
     model2->item(4)->setEnabled(false);
     ui->comboBox->setCurrentIndex(4);
 
-    connect(timer, &QTimer::timeout, this, &wStyleTest::loadStyleSheet);
-    timer->start(1000);
+    connect(&fileWatcher, &QFileSystemWatcher::fileChanged, this, &wStyleTest::loadStyleSheet);
     ui->ledStyle->setText(set.read(objectName(), "testStylesheet").toString());
 
     qInfo().noquote() << objectName() + " started";
@@ -40,7 +39,6 @@ wStyleTest::wStyleTest(QWidget *parent) :
 
 wStyleTest::~wStyleTest()
 {
-    delete timer;
     delete ui;
 }
 
@@ -49,9 +47,11 @@ void wStyleTest::on_horizontalSlider_valueChanged(int value)
     ui->progressBar->setValue(value);
 }
 
-void wStyleTest::loadStyleSheet()
+void wStyleTest::loadStyleSheet(QString file)
 {
+    Q_UNUSED(file);
     QFile themePath(ui->ledStyle->text());
+    qDebug().noquote() << "Change style to:" << ui->ledStyle->text();
 
     if (QFileInfo(themePath).exists() && themePath.open(QFile::ReadOnly | QFile::Text))
     {
@@ -62,8 +62,6 @@ void wStyleTest::loadStyleSheet()
     }
     else
         setStyleSheet("");
-
-    set.write(objectName(), "testStylesheet", ui->ledStyle->text());
 }
 
 void wStyleTest::on_toolButton_clicked()
@@ -85,3 +83,18 @@ void wStyleTest::on_btnSetThemeDarkeum_clicked()
 {
     ui->ledStyle->setText("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/Darkeum.qss");
 }
+
+void wStyleTest::on_ledStyle_textChanged(const QString &arg1)
+{
+    Q_UNUSED(arg1);
+
+    if (!fileWatcher.files().isEmpty())
+        fileWatcher.removePaths(fileWatcher.files());
+
+    if (!ui->ledStyle->text().isEmpty())
+        fileWatcher.addPath(ui->ledStyle->text());
+
+    set.write(objectName(), "testStylesheet", ui->ledStyle->text());
+    loadStyleSheet(ui->ledStyle->text());
+}
+
