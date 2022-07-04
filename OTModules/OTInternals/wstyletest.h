@@ -20,7 +20,7 @@ public:
 private slots:
     void on_horizontalSlider_valueChanged(int value);
 
-    void loadStyleSheet();
+    void loadStyleSheet(QString file);
 
     void on_toolButton_clicked();
 
@@ -30,11 +30,14 @@ private slots:
 
     void on_btnSetThemeDarkeum_clicked();
 
+    void on_ledStyle_textChanged(const QString &arg1);
+
 private:
     Ui::wStyleTest *ui;
     OTSettings set;
     OTMiscellaneous misc;
-    QTimer *timer = new QTimer(this);
+
+    QFileSystemWatcher fileWatcher;
 };
 
 #endif // WSTYLETEST_H
