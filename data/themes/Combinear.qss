@@ -588,7 +588,6 @@ QListView::item:selected:!active
 
 }
 
-
 QListView::item:selected:active 
 {
 	background-color: #b78620;
@@ -597,14 +596,12 @@ QListView::item:selected:active
 
 }
 
-
 QListView::item:hover
 {
     background-color: #262626;
     border: none;
     color: white;
 }
-
 
 /*-----QCheckBox-----*/
 QCheckBox
@@ -618,7 +615,6 @@ QCheckBox::disabled
 {
 	color: #656565;
 }
-
 
 /*-----QRadioButton-----*/
 QRadioButton 
@@ -660,7 +656,7 @@ QSlider::add-page:horizontal
 }
 
 
-QSlider::handle:horizontal 
+QSlider::handle:horizontal
 {
 	background-color: #b78620;
 	width: 14px;
