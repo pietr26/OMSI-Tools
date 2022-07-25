@@ -98,3 +98,31 @@ void wStyleTest::on_ledStyle_textChanged(const QString &arg1)
     loadStyleSheet(ui->ledStyle->text());
 }
 
+
+void wStyleTest::on_btnReloadStylePrefs_clicked()
+{
+    QFile modularStyle("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/Dark_modular_test.qss");
+
+    if (!modularStyle.open(QFile::ReadOnly | QFile::Text))
+    {
+        qWarning() << "Error while open modular style!";
+        return;
+    }
+
+    QTextStream in(&modularStyle);
+
+    QString style = in.readAll();
+    style = style.replace("%<%Main%>%", ui->ledMain->text())
+                 .replace("%<%MainSC%>%", ui->ledMainSC->text())
+                 .replace("%<%Dis%>%", ui->ledDis->text())
+                 .replace("%<%DisD%>%", ui->ledDisD->text())
+                 .replace("%<%Acc1%>%", ui->ledAcc1->text())
+                 .replace("%<%Acc2%>%", ui->ledAcc2->text())
+                 .replace("%<%Acc3%>%", ui->ledAcc3->text());
+
+    setStyleSheet(style);
+
+    modularStyle.close();
+
+}
+
