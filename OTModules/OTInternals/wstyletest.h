@@ -32,6 +32,8 @@ private slots:
 
     void on_ledStyle_textChanged(const QString &arg1);
 
+    void on_btnReloadStylePrefs_clicked();
+
 private:
     Ui::wStyleTest *ui;
     OTSettings set;
