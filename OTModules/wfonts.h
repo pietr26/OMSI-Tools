@@ -132,6 +132,8 @@ private slots:
 
     void on_actionDelete_triggered();
 
+    void on_actionDuplicateCharacter_triggered();
+
 private:
     Ui::wFonts *ui;
     wSettings *WSETTINGS;

@@ -80,7 +80,7 @@
         </property>
         <widget class="QWidget" name="tab_2">
          <attribute name="title">
-          <string>[Modular style prefs]</string>
+          <string notr="true">[Modular style prefs]</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
@@ -88,98 +88,98 @@
             <item row="0" column="0">
              <widget class="QLabel" name="lblMain">
               <property name="text">
-               <string>Main</string>
+               <string notr="true">Main</string>
               </property>
              </widget>
             </item>
             <item row="0" column="1">
              <widget class="QLineEdit" name="ledMain">
               <property name="text">
-               <string>#555</string>
+               <string notr="true">#555</string>
               </property>
              </widget>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="lblMainSC">
               <property name="text">
-               <string>MainSC</string>
+               <string notr="true">MainSC</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
              <widget class="QLineEdit" name="ledMainSC">
               <property name="text">
-               <string>blue</string>
+               <string notr="true">blue</string>
               </property>
              </widget>
             </item>
             <item row="2" column="0">
              <widget class="QLabel" name="lblDis">
               <property name="text">
-               <string>Dis</string>
+               <string notr="true">Dis</string>
               </property>
              </widget>
             </item>
             <item row="2" column="1">
              <widget class="QLineEdit" name="ledDis">
               <property name="text">
-               <string>green</string>
+               <string notr="true">green</string>
               </property>
              </widget>
             </item>
             <item row="3" column="0">
              <widget class="QLabel" name="lblDisD">
               <property name="text">
-               <string>DisD</string>
+               <string notr="true">DisD</string>
               </property>
              </widget>
             </item>
             <item row="3" column="1">
              <widget class="QLineEdit" name="ledDisD">
               <property name="text">
-               <string>yellow</string>
+               <string notr="true">yellow</string>
               </property>
              </widget>
             </item>
             <item row="4" column="0">
              <widget class="QLabel" name="lblAcc1">
               <property name="text">
-               <string>Acc1</string>
+               <string notr="true">Acc1</string>
               </property>
              </widget>
             </item>
             <item row="4" column="1">
              <widget class="QLineEdit" name="ledAcc1">
               <property name="text">
-               <string>blue</string>
+               <string notr="true">blue</string>
               </property>
              </widget>
             </item>
             <item row="5" column="0">
              <widget class="QLabel" name="lblAcc2">
               <property name="text">
-               <string>Acc2</string>
+               <string notr="true">Acc2</string>
               </property>
              </widget>
             </item>
             <item row="5" column="1">
              <widget class="QLineEdit" name="ledAcc2">
               <property name="text">
-               <string>orange</string>
+               <string notr="true">orange</string>
               </property>
              </widget>
             </item>
             <item row="6" column="0">
              <widget class="QLabel" name="lblAcc3">
               <property name="text">
-               <string>Acc3</string>
+               <string notr="true">Acc3</string>
               </property>
              </widget>
             </item>
             <item row="6" column="1">
              <widget class="QLineEdit" name="ledAcc3">
               <property name="text">
-               <string>DeepPink</string>
+               <string notr="true">DeepPink</string>
               </property>
              </widget>
             </item>
@@ -193,7 +193,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Reload!</string>
+             <string notr="true">Reload!</string>
             </property>
            </widget>
           </item>
@@ -1218,8 +1218,8 @@ hr { height: 1px; border-width: 0; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1244,8 +1244,8 @@ hr { height: 1px; border-width: 0; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1257,8 +1257,8 @@ hr { height: 1px; border-width: 0; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1273,8 +1273,8 @@ hr { height: 1px; border-width: 0; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">

@@ -628,79 +628,79 @@ void wFonts::reloadCharList(bool addChar)
 /// Saves a font
 QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
 {
-    if (font.charList.count() != 0)
+    qDebug() << "Save font...";
+
+    // Get file name via file dialog if no file was open
+    if (method != OTFileMethods::backupSave)
     {
-        qDebug() << "Save font...";
-
-        // Get file name via file dialog if no file was open
-        if (method != OTFileMethods::backupSave)
+        QString dir;
+        if (font.path == "")
         {
-            QString dir;
-            if (font.path == "")
-            {
-                if (font.name == "" || font.name == " ")
-                    dir = set.read("main", "mainDir").toString() + "/Fonts";
-                else
-                    dir = set.read("main", "mainDir").toString() + "/Fonts/" + font.name + ".oft";
-            }
+            if (font.name == "" || font.name == " ")
+                dir = set.read("main", "mainDir").toString() + "/Fonts";
             else
-                dir = font.path;
-
-            if (filen == "" || method == OTFileMethods::saveAs)
-            {
-                qDebug() << "Save font with file dialog";
-                filen = QFileDialog::getSaveFileName(this, tr("Save font"), dir, tr("OMSI font file") +  " (*.oft)");
-            }
-            if (filen == "")
-                return "";
-
-            font.path = filen;
-        }
-
-        if ((method != OTFileMethods::backupSave) && (font.path == ""))
-            return "";
-
-        if (method != OTFileMethods::backupSave)
-        {
-            QFile file(font.path);
-
-            // Cut out only file name and put it into the window title
-            QFileInfo fileInfo(QFile(font.path).fileName());
-            QString filenameWithoutPath(fileInfo.fileName());
-            setTitle(filenameWithoutPath);
-        }
-
-        OTFontModel tempFont = font;
-        if (method == OTFileMethods::backupSave)
-            tempFont.path = QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + " " + font.name + ".oft");
-
-        qDebug() << "Direct path:" << tempFont.path;
-
-        if (!filehandler.saveFont(tempFont))
-        {
-            if (method != OTFileMethods::backupSave)
-            {
-                qWarning() << "Font could not be saved!";
-                ui->statusbar->showMessage(tr("Error: The file could not be saved."), 4000);
-            }
-            return "";
-        }
-
-
-        if (method != OTFileMethods::backupSave)
-        {
-            saveRecentFiles(QDir().absoluteFilePath(font.path));
-
-            ui->statusbar->showMessage(tr("File saved successfully."), 4000);
-            qInfo() << "File successfully saved!";
-            qDebug().noquote() << "File: '" + QFileInfo(tempFont.path).absoluteFilePath() + "'";
-            setUnsaved(false);
+                dir = set.read("main", "mainDir").toString() + "/Fonts/" + font.name + ".oft";
         }
         else
-            qDebug().noquote() << "Backup file successfully saved: '" + QFileInfo(tempFont.path).absoluteFilePath() + "'";
+            dir = font.path;
+
+        if (filen == "" || method == OTFileMethods::saveAs)
+        {
+            qDebug() << "Save font with file dialog";
+            filen = QFileDialog::getSaveFileName(this, tr("Save font"), dir, tr("OMSI font file") +  " (*.oft)");
+        }
+        if (filen == "")
+            return "";
+
+        font.path = filen;
+    }
+
+    if ((method != OTFileMethods::backupSave) && (font.path == ""))
+        return "";
+
+    if (method != OTFileMethods::backupSave)
+    {
+        QFile file(font.path);
+
+        // Cut out only file name and put it into the window title
+        QFileInfo fileInfo(QFile(font.path).fileName());
+        QString filenameWithoutPath(fileInfo.fileName());
+        setTitle(filenameWithoutPath);
+    }
+
+    OTFontModel tempFont = font;
+    if (method == OTFileMethods::backupSave)
+    {
+        if ((font.name != "") || (font.name != " "))
+            tempFont.path = QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + " " + font.name + ".oft");
+        else
+            tempFont.path = QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + ".oft");
+    }
+
+    qDebug() << "Direct path:" << tempFont.path;
+
+    if (!filehandler.saveFont(tempFont))
+    {
+        if (method != OTFileMethods::backupSave)
+        {
+            qWarning() << "Font could not be saved!";
+            ui->statusbar->showMessage(tr("Error: The file could not be saved."), 4000);
+        }
+        return "";
+    }
+
+
+    if (method != OTFileMethods::backupSave)
+    {
+        saveRecentFiles(QDir().absoluteFilePath(font.path));
+
+        ui->statusbar->showMessage(tr("File saved successfully."), 4000);
+        qInfo() << "File successfully saved!";
+        qDebug().noquote() << "File: '" + QFileInfo(tempFont.path).absoluteFilePath() + "'";
+        setUnsaved(false);
     }
     else
-        msg.noCharsInFont(this);
+        qDebug().noquote() << "Backup file successfully saved: '" + QFileInfo(tempFont.path).absoluteFilePath() + "'";
 
     return "";
 }
@@ -946,7 +946,10 @@ void wFonts::on_actionNewChar_triggered()
     ui->ledCharacter->setFocus();
 
     if ((set.read(objectName(), "keepPixelRow").toBool() == true) && (prevPixelRow != -1))
+    {
         ui->sbxHighestPixelInFontRow->setValue(prevPixelRow);
+        on_sbxHighestPixelInFontRow_textChanged(QString::number(prevPixelRow));
+    }
 }
 
 /// Loads a template
@@ -1024,8 +1027,8 @@ void wFonts::on_ledComment_textChanged(const QString &arg1)
     if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
     {
         font.charList[ui->lvwChars->currentIndex().row()].comment = arg1;
-        if (!charUIUpdate)
-            reloadCharList();
+//        if (!charUIUpdate)
+//            reloadCharList();
     }
 
     setUnsaved();
@@ -1301,8 +1304,8 @@ void wFonts::on_sbxLeftPixel_textChanged(const QString &arg1)
         else
             font.charList[ui->lvwChars->currentIndex().row()].leftPixel = arg1.toInt();
 
-        if (!charUIUpdate)
-            reloadCharList();
+//        if (!charUIUpdate)
+//            reloadCharList();
     }
 
     checkCurrentChar();
@@ -1318,8 +1321,8 @@ void wFonts::on_sbxRightPixel_textChanged(const QString &arg1)
         else
             font.charList[ui->lvwChars->currentIndex().row()].rightPixel = arg1.toInt();
 
-        if (!charUIUpdate)
-            reloadCharList();
+//        if (!charUIUpdate)
+//            reloadCharList();
     }
 
     checkCurrentChar();
@@ -1335,8 +1338,8 @@ void wFonts::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
         else
             font.charList[ui->lvwChars->currentIndex().row()].highestPixelInFontRow = arg1.toInt();
 
-        if (!charUIUpdate)
-            reloadCharList();
+//        if (!charUIUpdate)
+//            reloadCharList();
     }
 
     checkCurrentChar();
@@ -1404,3 +1407,24 @@ void wFonts::on_actionDelete_triggered()
     }
 }
 
+void wFonts::on_actionDuplicateCharacter_triggered()
+{
+    int currentRow = ui->lvwChars->currentIndex().row();
+    on_actionNewChar_triggered();
+    qApp->processEvents();
+
+    ui->ledCharacter->setText(font.charList.at(currentRow).character);
+    on_ledCharacter_textChanged(font.charList.at(currentRow).character);
+
+    ui->sbxLeftPixel->setValue(font.charList.at(currentRow).leftPixel);
+    on_sbxLeftPixel_textChanged(QString::number(font.charList.at(currentRow).leftPixel));
+
+    ui->sbxRightPixel->setValue(font.charList.at(currentRow).rightPixel);
+    on_sbxRightPixel_textChanged(QString::number(font.charList.at(currentRow).rightPixel));
+
+    ui->sbxHighestPixelInFontRow->setValue(font.charList.at(currentRow).highestPixelInFontRow);
+    on_sbxHighestPixelInFontRow_textChanged(QString::number(font.charList.at(currentRow).highestPixelInFontRow));
+
+    ui->ledComment->setText(font.charList.at(currentRow).comment);
+    on_ledComment_textChanged(font.charList.at(currentRow).comment);
+}
