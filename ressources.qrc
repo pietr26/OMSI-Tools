@@ -71,5 +71,6 @@
         <file>data/icons/iconDownload_blue.svg</file>
         <file>data/icons/iconComment.svg</file>
         <file>data/icons/iconGitHub.svg</file>
+        <file>data/icons/iconDuplicate.svg</file>
     </qresource>
 </RCC>

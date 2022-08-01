@@ -47,7 +47,7 @@
            <enum>QTabWidget::Rounded</enum>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <property name="elideMode">
            <enum>Qt::ElideLeft</enum>
@@ -81,6 +81,11 @@
               </item>
               <item row="5" column="1" colspan="2">
                <widget class="QLineEdit" name="ledAlphaTexture">
+                <property name="font">
+                 <font>
+                  <family>Consolas</family>
+                 </font>
+                </property>
                 <property name="toolTip">
                  <string/>
                 </property>
@@ -88,6 +93,11 @@
               </item>
               <item row="7" column="1" colspan="3">
                <widget class="QSpinBox" name="sbxMaxHeigthOfChars">
+                <property name="font">
+                 <font>
+                  <family>Consolas</family>
+                 </font>
+                </property>
                 <property name="buttonSymbols">
                  <enum>QAbstractSpinBox::UpDownArrows</enum>
                 </property>
@@ -110,6 +120,11 @@
               </item>
               <item row="3" column="1" colspan="2">
                <widget class="QLineEdit" name="ledColorTexture">
+                <property name="font">
+                 <font>
+                  <family>Consolas</family>
+                 </font>
+                </property>
                 <property name="toolTip">
                  <string/>
                 </property>
@@ -189,6 +204,11 @@
               </item>
               <item row="9" column="1" colspan="3">
                <widget class="QSpinBox" name="sbxDistanceBetweenChars">
+                <property name="font">
+                 <font>
+                  <family>Consolas</family>
+                 </font>
+                </property>
                 <property name="maximum">
                  <number>10000</number>
                 </property>
@@ -289,444 +309,478 @@
            <attribute name="title">
             <string>Characters</string>
            </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <layout class="QVBoxLayout" name="verticalLayout_3">
               <item>
-               <spacer name="horizontalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblCharCount">
+                  <property name="font">
+                   <font>
+                    <family>Calibri</family>
+                    <pointsize>9</pointsize>
+                    <italic>true</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="text">
+                   <string notr="true">0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblCharCountText">
+                  <property name="font">
+                   <font>
+                    <family>Calibri</family>
+                    <pointsize>9</pointsize>
+                    <italic>true</italic>
+                   </font>
+                  </property>
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="text">
+                   <string>character(s) total</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
-               <widget class="QLabel" name="lblCharCount">
+               <widget class="QListView" name="lvwChars">
                 <property name="font">
                  <font>
-                  <family>Calibri</family>
-                  <pointsize>9</pointsize>
-                  <italic>true</italic>
-                  <bold>true</bold>
+                  <family>Consolas</family>
                  </font>
                 </property>
-                <property name="toolTip">
-                 <string/>
+                <property name="tabKeyNavigation">
+                 <bool>false</bool>
                 </property>
-                <property name="text">
-                 <string notr="true">0</string>
+                <property name="dragEnabled">
+                 <bool>true</bool>
+                </property>
+                <property name="dragDropMode">
+                 <enum>QAbstractItemView::NoDragDrop</enum>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SingleSelection</enum>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="lblCharCountText">
-                <property name="font">
-                 <font>
-                  <family>Calibri</family>
-                  <pointsize>9</pointsize>
-                  <italic>true</italic>
-                 </font>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="text">
-                 <string>character(s) total</string>
-                </property>
-               </widget>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <item>
+                 <widget class="QPushButton" name="btnDeleteSelection">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="text">
+                   <string>Delete</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../ressources.qrc">
+                    <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btnMoveUp">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <kerning>true</kerning>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../ressources.qrc">
+                    <normaloff>:/rec/data/icons/iconUp.svg</normaloff>:/rec/data/icons/iconUp.svg</iconset>
+                  </property>
+                  <property name="autoRepeat">
+                   <bool>true</bool>
+                  </property>
+                  <property name="autoRepeatInterval">
+                   <number>25</number>
+                  </property>
+                  <property name="autoDefault">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btnMoveDown">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../ressources.qrc">
+                    <normaloff>:/rec/data/icons/iconDown.svg</normaloff>:/rec/data/icons/iconDown.svg</iconset>
+                  </property>
+                  <property name="autoRepeat">
+                   <bool>true</bool>
+                  </property>
+                  <property name="autoRepeatInterval">
+                   <number>25</number>
+                  </property>
+                  <property name="autoDefault">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
             <item>
-             <widget class="QListView" name="lvwChars">
-              <property name="tabKeyNavigation">
-               <bool>false</bool>
-              </property>
-              <property name="dragEnabled">
-               <bool>true</bool>
-              </property>
-              <property name="dragDropMode">
-               <enum>QAbstractItemView::NoDragDrop</enum>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SingleSelection</enum>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <layout class="QVBoxLayout" name="verticalLayout_4">
               <item>
-               <widget class="QPushButton" name="btnDeleteSelection">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
+               <widget class="QPushButton" name="btnNewChar">
                 <property name="text">
-                 <string>Delete</string>
+                 <string>New character</string>
                 </property>
                 <property name="icon">
                  <iconset resource="../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+                  <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
                 </property>
                </widget>
               </item>
               <item>
-               <spacer name="horizontalSpacer_3">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+               <widget class="QGroupBox" name="gbxCharEdit">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
+                <property name="title">
+                 <string>Character definition</string>
                 </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnMoveUp">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="font">
-                 <font>
-                  <kerning>true</kerning>
-                 </font>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconUp.svg</normaloff>:/rec/data/icons/iconUp.svg</iconset>
-                </property>
-                <property name="autoRepeat">
-                 <bool>true</bool>
-                </property>
-                <property name="autoRepeatInterval">
-                 <number>25</number>
-                </property>
-                <property name="autoDefault">
-                 <bool>false</bool>
-                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_2">
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_2">
+                   <property name="sizeConstraint">
+                    <enum>QLayout::SetDefaultConstraint</enum>
+                   </property>
+                   <item row="7" column="0" colspan="4">
+                    <widget class="QLineEdit" name="ledComment">
+                     <property name="enabled">
+                      <bool>true</bool>
+                     </property>
+                     <property name="clearButtonEnabled">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0" colspan="2">
+                    <widget class="QLabel" name="lblCharacter">
+                     <property name="toolTip">
+                      <string/>
+                     </property>
+                     <property name="text">
+                      <string>Character:</string>
+                     </property>
+                     <property name="buddy">
+                      <cstring>ledCharacter</cstring>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="0" colspan="4">
+                    <widget class="QLabel" name="lblComment">
+                     <property name="toolTip">
+                      <string/>
+                     </property>
+                     <property name="text">
+                      <string>Comment:</string>
+                     </property>
+                     <property name="buddy">
+                      <cstring>ledComment</cstring>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0" rowspan="2" colspan="2">
+                    <widget class="QLabel" name="lblRightPixel">
+                     <property name="toolTip">
+                      <string/>
+                     </property>
+                     <property name="text">
+                      <string>Right pixel:</string>
+                     </property>
+                     <property name="buddy">
+                      <cstring>sbxRightPixel</cstring>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0" rowspan="2" colspan="2">
+                    <widget class="QLabel" name="lblHighestPixelInFontRow">
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                      </font>
+                     </property>
+                     <property name="toolTip">
+                      <string/>
+                     </property>
+                     <property name="text">
+                      <string>Highest pixel in row:</string>
+                     </property>
+                     <property name="buddy">
+                      <cstring>sbxHighestPixelInFontRow</cstring>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2" colspan="2">
+                    <widget class="QLineEdit" name="ledCharacter">
+                     <property name="enabled">
+                      <bool>true</bool>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Consolas</family>
+                      </font>
+                     </property>
+                     <property name="toolTip">
+                      <string/>
+                     </property>
+                     <property name="maxLength">
+                      <number>1</number>
+                     </property>
+                     <property name="cursorMoveStyle">
+                      <enum>Qt::LogicalMoveStyle</enum>
+                     </property>
+                     <property name="clearButtonEnabled">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0" colspan="2">
+                    <widget class="QLabel" name="lblLeftPixel">
+                     <property name="toolTip">
+                      <string/>
+                     </property>
+                     <property name="text">
+                      <string>Left pixel:</string>
+                     </property>
+                     <property name="buddy">
+                      <cstring>sbxLeftPixel</cstring>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="2" rowspan="2" colspan="2">
+                    <widget class="QSpinBox" name="sbxHighestPixelInFontRow">
+                     <property name="font">
+                      <font>
+                       <family>Consolas</family>
+                      </font>
+                     </property>
+                     <property name="maximum">
+                      <number>10000</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2" rowspan="2" colspan="2">
+                    <widget class="QSpinBox" name="sbxRightPixel">
+                     <property name="font">
+                      <font>
+                       <family>Consolas</family>
+                      </font>
+                     </property>
+                     <property name="maximum">
+                      <number>10000</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2" colspan="2">
+                    <widget class="QSpinBox" name="sbxLeftPixel">
+                     <property name="font">
+                      <font>
+                       <family>Consolas</family>
+                      </font>
+                     </property>
+                     <property name="maximum">
+                      <number>10000</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Maximum</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="btnMoveDown">
-                <property name="enabled">
-                 <bool>true</bool>
+               <widget class="QGroupBox" name="gbxSearchChar">
+                <property name="title">
+                 <string>Search char</string>
                 </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconDown.svg</normaloff>:/rec/data/icons/iconDown.svg</iconset>
-                </property>
-                <property name="autoRepeat">
-                 <bool>true</bool>
-                </property>
-                <property name="autoRepeatInterval">
-                 <number>25</number>
-                </property>
-                <property name="autoDefault">
-                 <bool>false</bool>
-                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_3">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="lblSearch">
+                     <property name="text">
+                      <string>Search:</string>
+                     </property>
+                     <property name="buddy">
+                      <cstring>ledSearch</cstring>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="btnFind">
+                     <property name="text">
+                      <string>Find</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="../ressources.qrc">
+                       <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+                     </property>
+                     <property name="autoDefault">
+                      <bool>false</bool>
+                     </property>
+                     <property name="default">
+                      <bool>false</bool>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QPushButton" name="btnCloseSearch">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="../ressources.qrc">
+                       <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLineEdit" name="ledSearch">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Consolas</family>
+                      </font>
+                     </property>
+                     <property name="maxLength">
+                      <number>1</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="btnNextResult">
+                     <property name="text">
+                      <string>Next Result</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="../ressources.qrc">
+                       <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+                     </property>
+                     <property name="shortcut">
+                      <string notr="true">F3</string>
+                     </property>
+                     <property name="autoDefault">
+                      <bool>false</bool>
+                     </property>
+                     <property name="default">
+                      <bool>false</bool>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2" rowspan="2">
+                    <spacer name="horizontalSpacer_5">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
             </item>
            </layout>
           </widget>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
-         <widget class="QPushButton" name="btnNewChar">
-          <property name="text">
-           <string>New character</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../ressources.qrc">
-            <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="gbxCharEdit">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="title">
-           <string>Character definition</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
-           <item>
-            <layout class="QGridLayout" name="gridLayout_2">
-             <property name="sizeConstraint">
-              <enum>QLayout::SetDefaultConstraint</enum>
-             </property>
-             <item row="7" column="0" colspan="4">
-              <widget class="QLineEdit" name="ledComment">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="clearButtonEnabled">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0" colspan="2">
-              <widget class="QLabel" name="lblCharacter">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="text">
-                <string>Character:</string>
-               </property>
-               <property name="buddy">
-                <cstring>ledCharacter</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="6" column="0" colspan="4">
-              <widget class="QLabel" name="lblComment">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="text">
-                <string>Comment:</string>
-               </property>
-               <property name="buddy">
-                <cstring>ledComment</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" rowspan="2" colspan="2">
-              <widget class="QLabel" name="lblRightPixel">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="text">
-                <string>Right pixel:</string>
-               </property>
-               <property name="buddy">
-                <cstring>sbxRightPixel</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0" rowspan="2" colspan="2">
-              <widget class="QLabel" name="lblHighestPixelInFontRow">
-               <property name="font">
-                <font>
-                 <family>Segoe UI</family>
-                </font>
-               </property>
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="text">
-                <string>Highest pixel in row:</string>
-               </property>
-               <property name="buddy">
-                <cstring>sbxHighestPixelInFontRow</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2" colspan="2">
-              <widget class="QLineEdit" name="ledCharacter">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="maxLength">
-                <number>1</number>
-               </property>
-               <property name="cursorMoveStyle">
-                <enum>Qt::LogicalMoveStyle</enum>
-               </property>
-               <property name="clearButtonEnabled">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0" colspan="2">
-              <widget class="QLabel" name="lblLeftPixel">
-               <property name="toolTip">
-                <string/>
-               </property>
-               <property name="text">
-                <string>Left pixel:</string>
-               </property>
-               <property name="buddy">
-                <cstring>sbxLeftPixel</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="2" rowspan="2" colspan="2">
-              <widget class="QSpinBox" name="sbxHighestPixelInFontRow">
-               <property name="maximum">
-                <number>10000</number>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="2" rowspan="2" colspan="2">
-              <widget class="QSpinBox" name="sbxRightPixel">
-               <property name="maximum">
-                <number>10000</number>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2" colspan="2">
-              <widget class="QSpinBox" name="sbxLeftPixel">
-               <property name="maximum">
-                <number>10000</number>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Maximum</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="gbxSearchChar">
-          <property name="title">
-           <string>Search char</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_5">
-           <item>
-            <layout class="QGridLayout" name="gridLayout_3">
-             <item row="0" column="0">
-              <widget class="QLabel" name="lblSearch">
-               <property name="text">
-                <string>Search:</string>
-               </property>
-               <property name="buddy">
-                <cstring>ledSearch</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QPushButton" name="btnFind">
-               <property name="text">
-                <string>Find</string>
-               </property>
-               <property name="icon">
-                <iconset resource="../ressources.qrc">
-                 <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-               </property>
-               <property name="autoDefault">
-                <bool>false</bool>
-               </property>
-               <property name="default">
-                <bool>false</bool>
-               </property>
-               <property name="flat">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QPushButton" name="btnCloseSearch">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset resource="../ressources.qrc">
-                 <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
-               </property>
-               <property name="flat">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="ledSearch">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maxLength">
-                <number>1</number>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QPushButton" name="btnNextResult">
-               <property name="text">
-                <string>Next Result</string>
-               </property>
-               <property name="icon">
-                <iconset resource="../ressources.qrc">
-                 <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
-               </property>
-               <property name="shortcut">
-                <string notr="true">F3</string>
-               </property>
-               <property name="autoDefault">
-                <bool>false</bool>
-               </property>
-               <property name="default">
-                <bool>false</bool>
-               </property>
-               <property name="flat">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2" rowspan="2">
-              <spacer name="horizontalSpacer_5">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
-           </item>
-          </layout>
          </widget>
         </item>
        </layout>
@@ -886,6 +940,7 @@
     <addaction name="separator"/>
     <addaction name="actionNewChar"/>
     <addaction name="actionDeleteSelection"/>
+    <addaction name="actionDuplicateCharacter"/>
     <addaction name="separator"/>
     <addaction name="actionMoveCharUp"/>
     <addaction name="actionMoveCharDown"/>
@@ -1018,7 +1073,7 @@
     <string>Add a new character</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+Q</string>
+    <string notr="true">Ctrl+Tab</string>
    </property>
   </action>
   <action name="actionDeleteSelection">
@@ -1181,6 +1236,9 @@
    <property name="text">
     <string>Keep pixel row for new character</string>
    </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+K</string>
+   </property>
   </action>
   <action name="actionDelete">
    <property name="icon">
@@ -1189,6 +1247,24 @@
    </property>
    <property name="text">
     <string>Delete</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Del</string>
+   </property>
+  </action>
+  <action name="actionDuplicateCharacter">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconDuplicate.svg</normaloff>:/rec/data/icons/iconDuplicate.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Duplicate character</string>
+   </property>
+   <property name="toolTip">
+    <string>Duplicate character</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
    </property>
   </action>
  </widget>

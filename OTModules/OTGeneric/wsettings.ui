@@ -185,6 +185,13 @@
      </widget>
     </item>
     <item>
+     <widget class="QGroupBox" name="gbxTheme">
+      <property name="title">
+       <string>Theme</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QGroupBox" name="gbxAutosave">
       <property name="title">
        <string>Backup</string>
@@ -576,7 +583,7 @@
      <x>0</x>
      <y>0</y>
      <width>707</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

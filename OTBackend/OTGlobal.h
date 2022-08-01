@@ -705,6 +705,12 @@ public:
     static inline const QString langFr = "Français (French)";
     static inline const QString langIt = "Italiano (Italian)";
     static inline const QString langCz = "Čeština (Czech)";
+
+    // Fun facts (funFact, time in ms)
+//    static inline const QList<QPair<QString, unsigned int>> funFacts = { QPair("English", 4),
+//                                                                         QPair("English", 4),
+//                                                                         (true) ? QPair("English", 4) :,
+//                                                                       };
 };
 
 #endif // OTGLOBAL_H
