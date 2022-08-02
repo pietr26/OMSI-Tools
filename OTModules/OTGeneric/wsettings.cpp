@@ -359,86 +359,73 @@ void wSettings::reloadThemePreview()
         ui->lblThemeButton->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Button").toString()));
     else
         ui->lblThemeButton->setStyleSheet("");
+
+    setStyleSheet(set.getStyleSheet());
 }
 
 void wSettings::on_btnThemeMain_clicked()
 {
-    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select main color")).name();
+    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Main").toString()), this, tr("Select main color")).name();
     set.write("main\\themeData", "Main", hex);
-
     reloadThemePreview();
-    setStyleSheet(set.getStyleSheet());
 }
 
 void wSettings::on_btnThemeMainSC_clicked()
 {
-    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select border color")).name();
+    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "MainSC").toString()), this, tr("Select border color")).name();
     set.write("main\\themeData", "MainSC", hex);
-
     reloadThemePreview();
-    setStyleSheet(set.getStyleSheet());
+
 }
 
 void wSettings::on_btnThemeDis_clicked()
 {
-    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select disabled color")).name();
+    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Dis").toString()), this, tr("Select disabled color")).name();
     set.write("main\\themeData", "Dis", hex);
-
     reloadThemePreview();
-    setStyleSheet(set.getStyleSheet());
+
 }
 
 void wSettings::on_btnThemeDisD_clicked()
 {
-    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select disabled background color")).name();
+    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "DisD").toString()), this, tr("Select disabled background color")).name();
     set.write("main\\themeData", "DisD", hex);
-
     reloadThemePreview();
-    setStyleSheet(set.getStyleSheet());
 }
 
 void wSettings::on_btnThemeAcc1_clicked()
 {
-    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select accent color")).name();
+    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc1").toString()), this, tr("Select accent color")).name();
     set.write("main\\themeData", "Acc1", hex);
-
     reloadThemePreview();
-    setStyleSheet(set.getStyleSheet());
+
 }
 
 void wSettings::on_btnThemeAcc2_clicked()
 {
-    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select main accent color")).name();
+    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc2").toString()), this, tr("Select main accent color")).name();
     set.write("main\\themeData", "Acc2", hex);
-
     reloadThemePreview();
-    setStyleSheet(set.getStyleSheet());
 }
 
 void wSettings::on_btnThemeAcc3_clicked()
 {
-    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select font color")).name();
+    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc3").toString()), this, tr("Select font color")).name();
     set.write("main\\themeData", "Acc3", hex);
-
     reloadThemePreview();
-    setStyleSheet(set.getStyleSheet());
 }
 
 void wSettings::on_btnThemeButton_clicked()
 {
-    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select button color")).name();
+    QString hex = QColorDialog::getColor(set.read("main\\themeData", "Button").toString(), this, tr("Select button color")).name();
     set.write("main\\themeData", "Button", hex);
-
     reloadThemePreview();
-    setStyleSheet(set.getStyleSheet());
 }
 
 void wSettings::on_btnLoadTheme_clicked()
 {
     set.setDefaultTheme(ui->cobxTheme->currentIndex());
-    setStyleSheet(set.getStyleSheet());
     reloadThemePreview();
-
     setUnsaved(true);
 }
 

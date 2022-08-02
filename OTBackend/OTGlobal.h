@@ -404,14 +404,9 @@ public:
                              .replace("%<%Acc2%>%", read("main\\themeData", "Acc2").toString())
                              .replace("%<%Acc3%>%", read("main\\themeData", "Acc3").toString())
                              .replace("%<%Button%>%", read("main\\themeData", "Button").toString());
-            qDebug() << theme;
             return theme;
         }
-        else
-        {
-            qDebug() << "No theme!";
-            return "";
-        }
+        return "";
     }
 
     void setDefaultTheme(int theme)
@@ -426,11 +421,24 @@ public:
         else if (theme == 1) // number ex. Cominear
         {
             remove("main\\themeData", "");
+            write("main\\themeData", "Main", "#F0F0F0");
+            write("main\\themeData", "MainSC", "#000");
+
+            write("main\\themeData", "Dis", "#787878");
+            write("main\\themeData", "DisD", "#F0F0F0");
+
+            write("main\\themeData", "Acc1", "#000");
+            write("main\\themeData", "Acc2", "#90C8F6");
+            write("main\\themeData", "Acc3", "#000");
+
+            write("main\\themeData", "Button", "#F0F0F0");
+
             write("main\\themeData", "useStandardTheme", false);
         }
         // modernDark (ex. Combinear)
         else if (theme == 2) // number ex. Darkeum
         {
+            remove("main\\themeData", "");
             write("main\\themeData", "Main", "#3a3a3a");
             write("main\\themeData", "MainSC", "#262626");
 
