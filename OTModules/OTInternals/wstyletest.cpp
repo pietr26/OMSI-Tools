@@ -118,7 +118,8 @@ void wStyleTest::on_btnReloadStylePrefs_clicked()
                  .replace("%<%DisD%>%", ui->ledDisD->text())
                  .replace("%<%Acc1%>%", ui->ledAcc1->text())
                  .replace("%<%Acc2%>%", ui->ledAcc2->text())
-                 .replace("%<%Acc3%>%", ui->ledAcc3->text());
+                 .replace("%<%Acc3%>%", ui->ledAcc3->text())
+                 .replace("%<%Button%>%", ui->ledButton->text());
 
     setStyleSheet(style);
 

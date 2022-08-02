@@ -6,6 +6,7 @@
 #include "OTModules/OTInternals/wdevtools.h"
 #include "OTModules/OTGeneric/wreleasenotes.h"
 #include <QStandardItemModel>
+#include <QColorDialog>
 
 namespace Ui {
 class wSettings;
@@ -26,8 +27,6 @@ private slots:
     void on_btnDeleteAllBackups_clicked();
 
     void on_btnOpenBackupFolder_clicked();
-
-    void on_cobxTheme_currentIndexChanged(int index);
 
     void refreshDiskUsage();
 
@@ -51,8 +50,6 @@ private slots:
 
     void on_ledAuthor_textChanged(const QString &arg1);
 
-    void on_gbxAutosave_clicked();
-
     void on_btnOpenLogfilePath_clicked();
 
     void on_btnMoreLanguages_clicked();
@@ -60,6 +57,26 @@ private slots:
     void on_cobxAutoUpdateCheck_currentIndexChanged(int index);
 
     void on_cobxLogfileMode_currentIndexChanged(int index);
+
+    void on_btnThemeMain_clicked();
+
+    void on_btnThemeMainSC_clicked();
+
+    void on_btnThemeDis_clicked();
+
+    void on_btnThemeDisD_clicked();
+
+    void on_btnThemeAcc1_clicked();
+
+    void on_btnThemeAcc2_clicked();
+
+    void on_btnThemeAcc3_clicked();
+
+    void on_btnLoadTheme_clicked();
+
+    void on_btnThemeButton_clicked();
+
+    void on_cbxBackupEnabled_clicked(bool checked);
 
 private:
     Ui::wSettings *ui;
@@ -75,6 +92,8 @@ private:
     bool setupFinished = false;
 
     void setUnsaved(bool visible);
+
+    void reloadThemePreview();
 };
 
 #endif // WSETTINGS_H

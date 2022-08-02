@@ -39,15 +39,16 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
 
     // cobxTheme:
     ui->cobxTheme->addItem(QString("Standard"));
-    ui->cobxTheme->addItem(QString("Combinear"));
-    ui->cobxTheme->addItem(QString("Darkeum"));
-    ui->cobxTheme->setCurrentIndex(set.read("main", "theme", false).toInt());
+    ui->cobxTheme->addItem(QString("Modern light"));
+    ui->cobxTheme->addItem(QString("Modern dark"));
+
+    reloadThemePreview();
 
     // cbxAutoSave
     if (set.read("main", "autosave") == "true")
-        ui->gbxAutosave->setChecked(true);
+        ui->cbxBackupEnabled->setChecked(true);
     else if (set.read("main", "autosave") == "false")
-        ui->gbxAutosave->setChecked(false);
+        ui->cbxBackupEnabled->setChecked(false);
 
     // lblDiskUsage
     ui->lblDiskUsageSize->setText(tr("Calculating..."));
@@ -59,6 +60,8 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
         ui->sbxAutosaveDuration->setValue(set.read("main", "autosaveDuration").toInt());
 
     ui->sbxAutosaveDuration->setSuffix(" " + tr("sec.", "short form from 'seconds'"));
+
+    ui->tabBackup->setEnabled(set.read("main", "autosave").toBool());
 
     // ledAuthor
     ui->ledAuthor->setText(set.read("main", "author").toString());
@@ -200,9 +203,8 @@ void wSettings::on_btnResetSettings_clicked()
     QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Reset settings"), tr("Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected."), QMessageBox::Reset | QMessageBox::Cancel);
     if (reply == QMessageBox::Reset)
     {
-        QSettings("HKEY_CURRENT_USER\\SOFTWARE\\" + OTName, QSettings::NativeFormat).remove("");
+        set.removeAll();
         QMessageBox::information(this, tr("Reset settings"), tr("The programm will now restart."));
-
         misc.restart();
     }
 }
@@ -211,24 +213,6 @@ void wSettings::on_btnResetSettings_clicked()
 void wSettings::on_btnCreateDesktopShortcut_clicked()
 {
     fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/%1.lnk").arg(OTName), this);
-}
-
-/// Changes and saves the theme (live)
-void wSettings::on_cobxTheme_currentIndexChanged(int index)
-{
-    if (setupFinished)
-    {
-        if (index == 2)
-            setStyleSheet(set.getStyleSheet("Darkeum"));
-        else if (index == 1)
-            setStyleSheet(set.getStyleSheet("Combinear"));
-        else
-            setStyleSheet("");
-
-        set.write("main", "theme", index);
-
-        setUnsaved(true);
-    }
 }
 
 /// Saves the language
@@ -280,15 +264,12 @@ void wSettings::on_ledAuthor_textChanged(const QString &arg1)
     }
 }
 
-/// Turns autosave on / off
-void wSettings::on_gbxAutosave_clicked()
+/// Turns backup on / off
+void wSettings::on_cbxBackupEnabled_clicked(bool checked)
 {
-    if (ui->gbxAutosave->isChecked())
-        ui->sbxAutosaveDuration->setEnabled(true);
-    else
-        ui->sbxAutosaveDuration->setEnabled(false);
+    ui->tabBackup->setEnabled(checked);
 
-    set.write("main", "autosave", ui->gbxAutosave->isChecked());
+    set.write("main", "autosave", ui->cbxBackupEnabled->isChecked());
     setUnsaved(true);
 }
 
@@ -336,3 +317,128 @@ void wSettings::on_cobxLogfileMode_currentIndexChanged(int index)
         setUnsaved(true);
     }
 }
+
+void wSettings::reloadThemePreview()
+{
+    if (!set.read("main\\themeData", "Main").toString().isEmpty())
+        ui->lblThemeMain->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Main").toString()));
+    else
+        ui->lblThemeMain->setStyleSheet("");
+
+    if (!set.read("main\\themeData", "MainSC").toString().isEmpty())
+        ui->lblThemeMainSC->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "MainSC").toString()));
+    else
+        ui->lblThemeMainSC->setStyleSheet("");
+
+    if (!set.read("main\\themeData", "Dis").toString().isEmpty())
+        ui->lblThemeDis->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Dis").toString()));
+    else
+        ui->lblThemeDis->setStyleSheet("");
+
+    if (!set.read("main\\themeData", "DisD").toString().isEmpty())
+        ui->lblThemeDisD->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "DisD").toString()));
+    else
+        ui->lblThemeDisD->setStyleSheet("");
+
+    if (!set.read("main\\themeData", "Acc1").toString().isEmpty())
+        ui->lblThemeAcc1->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Acc1").toString()));
+    else
+        ui->lblThemeAcc1->setStyleSheet("");
+
+    if (!set.read("main\\themeData", "Acc2").toString().isEmpty())
+        ui->lblThemeAcc2->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Acc2").toString()));
+    else
+        ui->lblThemeAcc2->setStyleSheet("");
+
+    if (!set.read("main\\themeData", "Acc3").toString().isEmpty())
+        ui->lblThemeAcc3->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Acc3").toString()));
+    else
+        ui->lblThemeAcc3->setStyleSheet("");
+
+    if (!set.read("main\\themeData", "Button").toString().isEmpty())
+        ui->lblThemeButton->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Button").toString()));
+    else
+        ui->lblThemeButton->setStyleSheet("");
+}
+
+void wSettings::on_btnThemeMain_clicked()
+{
+    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select main color")).name();
+    set.write("main\\themeData", "Main", hex);
+
+    reloadThemePreview();
+    setStyleSheet(set.getStyleSheet());
+}
+
+void wSettings::on_btnThemeMainSC_clicked()
+{
+    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select border color")).name();
+    set.write("main\\themeData", "MainSC", hex);
+
+    reloadThemePreview();
+    setStyleSheet(set.getStyleSheet());
+}
+
+void wSettings::on_btnThemeDis_clicked()
+{
+    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select disabled color")).name();
+    set.write("main\\themeData", "Dis", hex);
+
+    reloadThemePreview();
+    setStyleSheet(set.getStyleSheet());
+}
+
+void wSettings::on_btnThemeDisD_clicked()
+{
+    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select disabled background color")).name();
+    set.write("main\\themeData", "DisD", hex);
+
+    reloadThemePreview();
+    setStyleSheet(set.getStyleSheet());
+}
+
+void wSettings::on_btnThemeAcc1_clicked()
+{
+    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select accent color")).name();
+    set.write("main\\themeData", "Acc1", hex);
+
+    reloadThemePreview();
+    setStyleSheet(set.getStyleSheet());
+}
+
+void wSettings::on_btnThemeAcc2_clicked()
+{
+    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select main accent color")).name();
+    set.write("main\\themeData", "Acc2", hex);
+
+    reloadThemePreview();
+    setStyleSheet(set.getStyleSheet());
+}
+
+void wSettings::on_btnThemeAcc3_clicked()
+{
+    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select font color")).name();
+    set.write("main\\themeData", "Acc3", hex);
+
+    reloadThemePreview();
+    setStyleSheet(set.getStyleSheet());
+}
+
+void wSettings::on_btnThemeButton_clicked()
+{
+    QString hex = QColorDialog::getColor(Qt::white, this, tr("Select button color")).name();
+    set.write("main\\themeData", "Button", hex);
+
+    reloadThemePreview();
+    setStyleSheet(set.getStyleSheet());
+}
+
+void wSettings::on_btnLoadTheme_clicked()
+{
+    set.setDefaultTheme(ui->cobxTheme->currentIndex());
+    setStyleSheet(set.getStyleSheet());
+    reloadThemePreview();
+
+    setUnsaved(true);
+}
+

@@ -72,5 +72,7 @@
         <file>data/icons/iconComment.svg</file>
         <file>data/icons/iconGitHub.svg</file>
         <file>data/icons/iconDuplicate.svg</file>
+        <file>data/themes/Modular.qss</file>
+        <file>data/icons/iconZip.svg</file>
     </qresource>
 </RCC>

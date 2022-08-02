@@ -369,17 +369,82 @@ public:
         QVariant value = settings.value(name);
         qDebug().noquote().nospace() << "Read settings from " << module << ": "<< name << ", value: " << value;
 
-        if (getInterpretedData && name == "theme")
-        {
-            if  (value.toInt() == 1)
-                return getStyleSheet("Combinear");
-            else if (value.toInt() == 2)
-                return getStyleSheet("Darkeum");
-            else
-                return "";
-        }
+        if (getInterpretedData && (name == "theme"))
+            return getStyleSheet();
         else
             return value;
+    }
+
+    void remove(QString module, QString name)
+    {
+        QSettings(OTName, module).remove(name);
+    }
+
+    void removeAll()
+    {
+        QSettings("HKEY_CURRENT_USER\\SOFTWARE\\" + OTName, QSettings::NativeFormat).remove("");
+    }
+
+    /// Returns the whole stylesheet
+    QString getStyleSheet()
+    {
+        QFile modularTheme(":/rec/data/themes/Modular.qss");
+
+        if (!modularTheme.open(QFile::ReadOnly | QFile::Text))
+            return "";
+
+        if (!read("main\\themeData", "useStandardTheme").toBool())
+        {
+            QString theme = modularTheme.readAll();
+            theme.replace("%<%Main%>%", read("main\\themeData", "Main").toString())
+                             .replace("%<%MainSC%>%", read("main\\themeData", "MainSC").toString())
+                             .replace("%<%Dis%>%", read("main\\themeData", "Dis").toString())
+                             .replace("%<%DisD%>%", read("main\\themeData", "DisD").toString())
+                             .replace("%<%Acc1%>%", read("main\\themeData", "Acc1").toString())
+                             .replace("%<%Acc2%>%", read("main\\themeData", "Acc2").toString())
+                             .replace("%<%Acc3%>%", read("main\\themeData", "Acc3").toString())
+                             .replace("%<%Button%>%", read("main\\themeData", "Button").toString());
+            qDebug() << theme;
+            return theme;
+        }
+        else
+        {
+            qDebug() << "No theme!";
+            return "";
+        }
+    }
+
+    void setDefaultTheme(int theme)
+    {
+        // Standard
+        if (theme == 0)
+        {
+            remove("main\\themeData", "");
+            write("main\\themeData", "useStandardTheme", true);
+        }
+        // modernLight
+        else if (theme == 1) // number ex. Cominear
+        {
+            remove("main\\themeData", "");
+            write("main\\themeData", "useStandardTheme", false);
+        }
+        // modernDark (ex. Combinear)
+        else if (theme == 2) // number ex. Darkeum
+        {
+            write("main\\themeData", "Main", "#3a3a3a");
+            write("main\\themeData", "MainSC", "#262626");
+
+            write("main\\themeData", "Dis", "#656565");
+            write("main\\themeData", "DisD", "#404040");
+
+            write("main\\themeData", "Acc1", "#111");
+            write("main\\themeData", "Acc2", "#b78620");
+            write("main\\themeData", "Acc3", "#fff");
+
+            write("main\\themeData", "Button", "#525252");
+
+            write("main\\themeData", "useStandardTheme", false);
+        }
     }
 
     /// Select and control OMSI main dir path. Returns the OMSI path.
@@ -399,29 +464,6 @@ public:
         }
 
         return mainDir;
-    }
-
-    /// Returns the whole stylesheet
-    QString getStyleSheet(QString name)
-    {
-        qDebug() << "Get stylesheet...";
-        if (name != "")
-        {
-            QFile themePath(":/rec/data/themes/" + name + ".qss");
-            if (!themePath.open(QFile::ReadOnly | QFile::Text))
-                write("main", "theme", "");
-            else
-            {
-                QTextStream in(&themePath);
-                QString content = in.readAll();
-                themePath.close();
-                qDebug().noquote() << "Load stylesheet '" + QFileInfo(themePath).absoluteFilePath() + "'";
-                return content;
-            }
-
-            qDebug().noquote() << "Could not find stlyesheet '" + QFileInfo(themePath).absoluteFilePath() + "'!";
-        }
-        return "";
     }
 
     /// Gets all settings keys and its values
