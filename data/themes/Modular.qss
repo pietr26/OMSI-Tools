@@ -109,7 +109,7 @@ QToolButton::flat
 /*-----QLineEdit-----*/
 QLineEdit
 {
-	background-color: %<%Acc1%>%;
+	background-color: %<%Button%>%;
 	border-radius: 3px;
 	padding: 2px;
 	border: 1px solid %<%Acc1%>%;
@@ -128,7 +128,7 @@ QLineEdit::disabled
 /*-----QPlainTExtEdit-----*/
 QPlainTextEdit
 {
-	background-color: %<%Acc1%>%;
+	background-color: %<%Button%>%;
 	border-radius: 3px;
 	padding: 2px;
 	border: 1px solid %<%Acc1%>%;
@@ -147,7 +147,7 @@ QPlainTextEdit::disabled
 /*-----QTextEdit-----*/
 QTextEdit
 {
-	background-color: %<%Acc1%>%;
+	background-color: %<%Button%>%;
 	border-radius: 3px;
 	padding: 2px;
 	border: 1px solid %<%Acc1%>%;
@@ -239,9 +239,10 @@ QSpinBox,
 QDoubleSpinBox,
 QDateTimeEdit 
 {
-	background-color: %<%Acc1%>%;
+	background-color: %<%Button%>%;
 	padding: 3px;
     border-radius: 3px;
+	border-color: %<%Acc1%>%;
 }
 
 QSpinBox::hover,
@@ -317,7 +318,7 @@ QTableCornerButton::section
 /*-----QTreeWidget-----*/
 QTreeView
 {
-	background-color: %<%Acc1%>%;
+	background-color: %<%Button%>%;
 	border: 1px solid %<%MainSC%>%;
 }
 
@@ -339,7 +340,7 @@ QTreeView::item:!selected:hover
 /*-----QListView-----*/
 QListView 
 {
-	background-color: %<%Acc1%>%;
+	background-color: %<%Button%>%;
 	border: 1px solid %<%MainSC%>%;
 }
 
@@ -503,5 +504,6 @@ QScrollBar::sub-line:vertical
 QProgressBar
 {
 	border: 1px solid %<%MainSC%>%;
+	border-radius: 3px;
     text-align: center;
 }
