@@ -43,6 +43,7 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     ui->cobxTheme->addItem(QString("Modern dark"));
 
     reloadThemePreview();
+    ui->gbxThemeAdvanced->setEnabled(!set.read("main\\themeData", "useStandardTheme").toBool());
 
     // cbxAutoSave
     if (set.read("main", "autosave") == "true")
@@ -427,5 +428,7 @@ void wSettings::on_btnLoadTheme_clicked()
     set.setDefaultTheme(ui->cobxTheme->currentIndex());
     reloadThemePreview();
     setUnsaved(true);
+
+    ui->gbxThemeAdvanced->setEnabled(!set.read("main\\themeData", "useStandardTheme").toBool());
 }
 
