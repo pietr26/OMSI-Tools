@@ -11,7 +11,7 @@ wFbh::wFbh(QWidget *parent)
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
-    resize(misc.sizeWindow(0.4, 0.8));
+    adjustSize();
     move(misc.centerPosition(this));
     qDebug() << "UI set";
 
@@ -217,6 +217,9 @@ void wFbh::on_cbxFCopyright_stateChanged(int arg1)
         ui->gbxCopyright->setVisible(true);
     else
         ui->gbxCopyright->setVisible(false);
+
+    qApp->processEvents();
+    adjustSize();
 }
 
 void wFbh::on_cobxWelcome_currentIndexChanged(int index)
