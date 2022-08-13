@@ -289,9 +289,6 @@ void wVerifyMap::startEndWatchProgress(bool state)
         ui->pgbProgress->setMaximum(100);
         ui->pgbProgress->setValue(100);
     }
-
-    if (state)
-        ui->pgbProgress->setVisible(true);
 }
 
 /// Starts verifying
@@ -334,6 +331,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         return endVerifying();
     }
     selectAllAndClear();
+    ui->pgbProgress->setVisible(true);
 
     // MAP:
     qInfo() << "Get tiles...";
