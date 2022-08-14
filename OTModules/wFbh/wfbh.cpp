@@ -244,9 +244,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFDescription->isChecked())
     {
         if (language == de)
-            copytext += r.FehlendeBeschreibung.de;
+            copytext += r.MissingDescription.de;
         else
-            copytext += r.FehlendeBeschreibung.en;
+            copytext += r.MissingDescription.en;
 
         setFooterSelection(1);
     }
@@ -254,9 +254,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFPictures->isChecked())
     {
         if (language == de)
-            copytext += r.FehlendeBilder.de;
+            copytext += r.MissingPictures.de;
         else
-            copytext += r.FehlendeBilder.en;
+            copytext += r.MissingPictures.en;
 
         setFooterSelection(1);
     }
@@ -264,9 +264,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFEnglishDescription->isChecked())
     {
         if (language == de)
-            copytext += r.EnBeschreibung.de;
+            copytext += r.EnDescription.de;
         else
-            copytext += r.EnBeschreibung.en;
+            copytext += r.EnDescription.en;
 
         setFooterSelection(1);
     }
@@ -274,9 +274,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFExternal->isChecked())
     {
         if (language == de)
-            copytext += r.ExternerDownload.de;
+            copytext += r.ExternalDownload.de;
         else
-            copytext += r.ExternerDownload.en;
+            copytext += r.ExternalDownload.en;
 
         setFooterSelection(4);
     }
@@ -284,9 +284,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFFolderStructure->isChecked())
     {
         if (language == de)
-            copytext += r.Ordnerstruktur.de;
+            copytext += r.Filestructure.de;
         else
-            copytext += r.Ordnerstruktur.en;
+            copytext += r.Filestructure.en;
 
         setFooterSelection(1);
     }
@@ -304,9 +304,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFPresentation->isChecked())
     {
         if (language == de)
-            copytext += r.Projektvorstellung.de;
+            copytext += r.Projectpresentation.de;
         else
-            copytext += r.Projektvorstellung.en;
+            copytext += r.Projectpresentation.en;
 
         setFooterSelection(4);
     }
@@ -314,17 +314,17 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFCopyright->isChecked())
     {
         if (language == de)
-            copytext += r.Urheberrechtsverletzung.deStart;
+            copytext += r.Copyrightviolation.deStart;
         else
-            copytext += r.Urheberrechtsverletzung.enStart;
+            copytext += r.Copyrightviolation.enStart;
 
         for (int i = 0; i < ui->lwgCopyrightItems->count(); i++)
             copytext += "<li>" + ui->lwgCopyrightItems->item(i)->text() + "</li>";
 
         if (language == de)
-            copytext += r.Urheberrechtsverletzung.deEnd;
+            copytext += r.Copyrightviolation.deEnd;
         else
-            copytext += r.Urheberrechtsverletzung.enEnd;
+            copytext += r.Copyrightviolation.enEnd;
 
         setFooterSelection(1);
     }
@@ -332,9 +332,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFPreviewPicture->isChecked())
     {
         if (language == de)
-            copytext += r.FehlendesVorschaubild.de;
+            copytext += r.MissingPreviewPicture.de;
         else
-            copytext += r.FehlendesVorschaubild.en;
+            copytext += r.MissingPreviewPicture.en;
 
         setFooterSelection(1);
     }
@@ -342,9 +342,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFInstruction->isChecked())
     {
         if (language == de)
-            copytext += r.Einbauanleitung.de;
+            copytext += r.Installationinstruction.de;
         else
-            copytext += r.Einbauanleitung.en;
+            copytext += r.Installationinstruction.en;
 
         setFooterSelection(3);
     }
@@ -352,9 +352,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFArchiveDamaged->isChecked())
     {
         if (language == de)
-            copytext += r.ArchivDefekt.de;
+            copytext += r.ArchiveDamaged.de;
         else
-            copytext += r.ArchivDefekt.en;
+            copytext += r.ArchiveDamaged.en;
 
         setFooterSelection(1);
     }
@@ -362,9 +362,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFNoRef->isChecked())
     {
         if (language == de)
-            copytext += r.KeinBezug.de;
+            copytext += r.NoReference.de;
         else
-            copytext += r.KeinBezug.en;
+            copytext += r.NoReference.en;
 
         setFooterSelection(3);
     }
@@ -372,9 +372,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFNoValue->isChecked())
     {
         if (language == de)
-            copytext += r.KeinMehrwert.de;
+            copytext += r.NoValue.de;
         else
-            copytext += r.KeinMehrwert.en;
+            copytext += r.NoValue.en;
 
         setFooterSelection(4);
     }
@@ -382,9 +382,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFTrademark->isChecked())
     {
         if (language == de)
-            copytext += r.Markenrecht.de;
+            copytext += r.Trademarkviolation.de;
         else
-            copytext += r.Markenrecht.en;
+            copytext += r.Trademarkviolation.en;
 
         setFooterSelection(2);
     }
@@ -392,9 +392,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFContactDetails->isChecked())
     {
         if (language == de)
-            copytext += r.Kontaktdaten.de;
+            copytext += r.Contactdetails.de;
         else
-            copytext += r.Kontaktdaten.en;
+            copytext += r.Contactdetails.en;
 
         setFooterSelection(0);
     }
@@ -404,9 +404,9 @@ void wFbh::on_btnFCopy_clicked()
     if (ui->cbxFAdmonition->isChecked())
     {
         if (language == de)
-            copytext += r.Verwarnung.de;
+            copytext += r.Admonition.de;
         else
-            copytext += r.Verwarnung.en;
+            copytext += r.Admonition.en;
     }
 
     // Footer:
@@ -451,9 +451,9 @@ void wFbh::on_btnRCopy_clicked()
         if (ui->cbxRRules->isChecked() == true)
             copytext += r.rRegeln.de;
 
-        // Androhung der Verwarnung:
+        // Androhung der Admonition:
         if(ui->cbxRAdmonition->isChecked())
-            copytext += r.Verwarnung.de;
+            copytext += r.Admonition.de;
 
         copytext += "<p><br></p><p>Viele Grüße";
         if (ui->ledName->text() != "")
@@ -479,9 +479,9 @@ void wFbh::on_btnRCopy_clicked()
         if (ui->cbxRRules->isChecked() == true)
             copytext += r.rRegeln.en;
 
-        // Androhung der Verwarnung:
+        // Androhung der Admonition:
         if (ui->cbxRAdmonition->isChecked())
-            copytext += r.Verwarnung.en;
+            copytext += r.Admonition.en;
 
         copytext += "<p><br></p><p>Best regards";
         if (ui->ledName->text() != "")

@@ -3,10 +3,10 @@
 
 #include <QString>
 
-class cVerwarnung
+class cAdmonition
 {
 public:
-    const QString de = "<p>Bitte beachte, dass es bei wiederholten Verstößen zu Ermahnungen oder Verwarnungen kommen kann.</p>";
+    const QString de = "<p>Bitte beachte, dass es bei wiederholten Verstößen zu Ermahnungen oder Admonitionen kommen kann.</p>";
     const QString en = "<p>Please note that repeated violations may result in admonitions or warnings.</p>";
 };
 
@@ -24,53 +24,53 @@ public:
     const QString en = "<p>Unfortunately, we could not unlock them because they do not comply with our upload conditions.</p><ul>";
 };
 
-class cOrdnerstruktur
+class cFilestructure
 {
 public:
-    const QString de = "<li><strong>Ordnerstruktur:</strong> Alle Archive müssen den vollständigen OMSI-Pfad enthalten. Die erste Ebene muss entweder mit [tt]\\OMSI 2\\Vehicles[/tt] (o.ä.) oder direkt mit den Unterordnern [tt]\\Vehicles[/tt] (o.ä.) beginnen. Mit dem kostenlosen Programm \"Omsipfad\" lässt sich auf einfache Weise ein Archiv mit korrekter Ordnerstruktur erstellen: <a href=\"https://reboot.omsi-webdisk.de/file/5089-omsipfad-omsipath/\"><strong>Download</strong></a><strong></strong> | <a href=\"https://reboot.omsi-webdisk.de/wiki/entry/74-omsipfad-ordnerstruktur-fuer-den-upload-erstellen/\"><strong>Erklärung</strong></a></li>";
+    const QString de = "<li><strong>Filestructure:</strong> Alle Archive müssen den vollständigen OMSI-Pfad enthalten. Die erste Ebene muss entweder mit [tt]\\OMSI 2\\Vehicles[/tt] (o.ä.) oder direkt mit den Unterordnern [tt]\\Vehicles[/tt] (o.ä.) beginnen. Mit dem kostenlosen Programm \"Omsipfad\" lässt sich auf einfache Weise ein Archiv mit korrekter Filestructure erstellen: <a href=\"https://reboot.omsi-webdisk.de/file/5089-omsipfad-omsipath/\"><strong>Download</strong></a><strong></strong> | <a href=\"https://reboot.omsi-webdisk.de/wiki/entry/74-omsipfad-FileStructure-fuer-den-upload-erstellen/\"><strong>Erklärung</strong></a></li>";
     const QString en = "<li><strong>Folder structure:</strong> All archives must contain the complete OMSI path. The first level must start either with [tt]\\OMSI 2\\Vehicles[/tt] (or similar) or directly with the subfolders [tt]\\Vehicles[/tt] (or similar). With the free program \"Omsipath\" you can easily create an archive with a correct folder structure: <a href=\"https://reboot.omsi-webdisk.de/file/5089-omsipfad-omsipath/\"><strong>Download</strong></a><strong></strong> | <a href=\"https://reboot.omsi-webdisk.de/wiki/entry/76-omsipfad-create-folder-structure-for-the-upload/\"><strong>Explanation</strong></a></li>";
 };
 
-class cFehlendeBilder
+class cMissingPictures
 {
 public:
     const QString de = "<li><strong>Bilder:</strong> Es fehlen Bilder. Bei allen Datei-Einträgen, bei denen es etwas zu sehen gibt, müssen diese vorhanden sein. Lade diese über die Dateianhangs-Funktion bei der Bearbeitung deines Datei-Eintrags hoch.<br><a href=\"https://reboot.omsi-webdisk.de/wiki/entry/64-hochladen-von-dateien-in-der-filebase/#3.5.1-Bilder-einbinden\"><strong>Infos zu Bildern</strong></a></li>";
     const QString en = "<li><strong>Pictures:</strong> Pictures are missing. All file entries with something to see require pictures. Upload them using the file attachments tab when editing your file entry.<br><a href=\"https://reboot.omsi-webdisk.de/wiki/entry/85-uploading-files-to-the-filebase/#3.5.1-Integrating-pictures\"><strong>Info about pictures</strong></a></li>";
 };
 
-class cEnBeschreibung
+class cEnDescription
 {
 public:
     const QString de = "<li><strong>Englische Beschreibung:</strong> Es fehlt eine englische Beschreibung. Bei allen Dateien außerhalb der Kategorien \"Repaints\", \"Tauschbörse\" und \"Sonstiges aller Art\" ist eine englische Beschreibung verpflichtend.<br>Falls du Hilfe bei der Übersetzung benötigst, helfen unsere <a href=\"https://reboot.omsi-webdisk.de/ticket/ticket-add/?categoryID=255\"><strong>Übersetzer (Ticketsystem)</strong></a> oder Online-Dienste wie <a href=\"https://www.deepl.com/translator/\" data-sc-dereferer=\"covered\"><strong>DeepL</strong></a>.<br><a href=\"https://reboot.omsi-webdisk.de/net/article/92-filebase-englische-beschreibungen/\"><strong>Ankündigung zu englischen Datei-Beschreibungen</strong></a></li>";
     const QString en = "<li><strong>English description:</strong> An English description is missing. For all files outside the categories \"Repaints\", \"Programs & Tools\" and \"Miscellaneous of all kinds\" an English description is necessary.<br>In case you need help with the translation, our <a href=\"https://reboot.omsi-webdisk.de/ticket/ticket-add/?categoryID=255\"><strong>Translators (Ticketing system)</strong></a> or online services like <a href=\"https://www.deepl.com/translator/\" data-sc-dereferer=\"covered\"><strong>DeepL</strong></a> can help you.<br><a href=\"https://reboot.omsi-webdisk.de/net/article/93-filebase-english-descriptions/\"><strong>Announcement on English file descriptions</strong></a></li>";
 };
 
-class cFehlendeBeschreibung
+class cMissingDescription
 {
 public:
     const QString de = "<li><strong>Beschreibung:</strong> Es fehlt eine Beschreibung. Bitte füge deinem Datei-Eintrag eine Beschreibung hinzu, damit bei den Endbenutzern keine Unklarheiten aufkommen.</li>";
     const QString en = "<li><strong>Description:</strong> A description is missing. Please add a description to your file entry so that there is no ambiguity for the end users.</li>";
 };
 
-class cFehlendesVorschaubild
+class cMissingPreviewPicture
 {
 public:
     const QString de = "<li><strong>Vorschaubild:</strong> Es fehlt ein Vorschaubild. Bei allen Datei-Einträgen, wo man etwas sehen kann, muss ein Vorschaubild vorhanden sein.</li>";
     const QString en = "<li><strong>Preview picture:</strong> A preview picture is missing. All file entries with something to see must have a preview picture.</li>";
 };
 
-class cExternerDownload
+class cExternalDownload
 {
 public:
     const QString de = "<li><strong>Externer Downloadlink:</strong> Du hast deine Datei auf einem externen Hoster hochgeladen. Bitte lade deine Datei direkt in der WebDisk hoch. Diese Regel geht aus einem Userentscheid im Mai 2020 heraus, alle Infos dazu findest du <a href=\"https://reboot.omsi-webdisk.de/community/thread/1069-externe-downloads-external-downloads/\"><strong>hier</strong></a>.<br>Überschreitet deine Datei die maximale Dateigröße, gib uns Bescheid. Dann laden wir dir dein Archiv gerne in deine Datei hoch.</li>";
     const QString en = "<li><strong>External download link:</strong> You have uploaded your file to an external hoster. Please upload your file directly to WebDisk. This rule is the result of a user decision in May 2020, you can find all the info about it <a href=\"https://reboot.omsi-webdisk.de/community/thread/1069-externe-downloads-external-downloads/\"><strong>here</strong></a>.<br>If your file is bigger than the maximum file size, please let us know. Then we will upload your archive to your file.</li>";
 };
 
-class cUrheberrechtsverletzung
+class cCopyrightviolation
 {
 public:
     // li ... br ol
-    const QString deStart = "<li><strong>Urheberrechtsverletzung:</strong> In deinem Datei-Eintrag wird / werden eine / mehrere Urheberrechtsverletzung(en) vermutet.<ol>";
+    const QString deStart = "<li><strong>Copyrightviolation:</strong> In deinem Datei-Eintrag wird / werden eine / mehrere Copyrightviolation(en) vermutet.<ol>";
     const QString enStart = "<li><strong>Copyright violation:</strong> Your file entry is suspected of copyright violation(s).<ol>";
 
     // /ol ... /li
@@ -78,52 +78,52 @@ public:
     const QString enEnd = "</ol>Please provide us with written evidence (e.g. as a screenshot in best size) that you have received the author's agreement to the respective conditions or edit your file in such a way that the above reasons are fulfilled.<br><a href=\"https://reboot.omsi-webdisk.de/net/article/2-what-do-the-listed-licenses-copyrights-mean/\"><strong>Copyright information</strong></a></li>";
 };
 
-class cEinbauanleitung
+class cInstallationinstruction
 {
 public:
     const QString de = "<li><strong>Anleitung:</strong> Bei deinem Datei-Eintrag handelt es sich um eine (Einbau)anleitung. Bitte veröffentliche diese im entsprechendem Forum <a href=\"https://reboot.omsi-webdisk.de/community/board/171-tutorials/\"><strong>Tutorials</strong></a>.";
     const QString en = "<li><strong>Instruction:</strong> Your file entry is an (installation) guide. Please publish them in the appropriate forum <a href=\"https://reboot.omsi-webdisk.de/community/board/171-tutorials/\"><strong>tutorials</strong></a>.";
 };
 
-class cArchivDefekt
+class cArchiveDamaged
 {
 public:
     const QString de = "<li><strong>Archiv leer / beschädigt:</strong> Dein hochgeladenes Archiv in deinem Datei-Eintrag ist leer oder beschädigt. Bitte überprüfe dein gepacktes Archiv und lade es als neue Version in deinem Datei-Eintrag erneut hoch.<br>Für eine gute Kompressionsrate ohne Fehler empfehlen wird das kostenlose Programm <a href=\"https://www.7-zip.de/\"><strong>7-Zip</strong></a>.</li>";
     const QString en = "<li><strong>Archive empty / damaged:</strong> Your uploaded archive in your file entry is empty or damaged. Please check your packed archive and upload it again as a new version in your file entry.<br>For a good compression rate without errors we recommend the free program <a href=\"https://7-zip.org/\"><strong>7-Zip</strong></a>.</li>";
 };
 
-class cKeinBezug
+class cNoReference
 {
 public:
     const QString de = "<li><strong>Kein OMSI-Bezug:</strong> Dein Datei-Eintrag steht in keinem Bezug mit OMSI. In unserer Filebase sind nur Datei-Einträge erlaubt, welche dieses Kriterium erfüllen.</li>";
     const QString en = "<li><strong>No relation to OMSI:</strong> Your file entry is not related to OMSI. Only file entries that fulfill this criteria are allowed in our filebase.</li>";
 };
 
-class cKeinMehrwert
+class cNoValue
 {
 public:
     const QString de = "<li><strong>Datei ohne Mehrwert:</strong> Dein Datei-Eintrag hat keinen Mehrwert. In dieser Form hat deine hochgeladene Datei für Endbenutzer keinen Verwendungszweck.</li>";
     const QString en = "<li><strong>File without added value:</strong> Your file entry has no added value. In this form, your uploaded file has no purpose for end users.</li>";
 };
 
-class cKontaktdaten
+class cContactdetails
 {
 public:
-    const QString de = "<li><strong>Kontaktdaten:</strong> Wir haben die Kontaktdaten aus deinem Datei-Eintrag entfernt. Wir können nicht sicherstellen, ob dies wirklich deine Kontaktdaten sind. Abgesehen davon könnten diese Opfer von Spam und / oder Missbrauch werden.</li>";
+    const QString de = "<li><strong>Contactdetails:</strong> Wir haben die Contactdetails aus deinem Datei-Eintrag entfernt. Wir können nicht sicherstellen, ob dies wirklich deine Contactdetails sind. Abgesehen davon könnten diese Opfer von Spam und / oder Missbrauch werden.</li>";
     const QString en = "<li><strong>Contact information:</strong> We have removed the contact information from your file entry. We cannot ensure that this is really your contact information. Apart from that, they could become victims of spam and / or abuse.</li>";
 };
 
-class cMarkenrecht
+class cTrademarkviolation
 {
 public:
     const QString de = "";
     const QString en = "";
 };
 
-class cProjektvorstellung
+class cProjectpresentation
 {
 public:
-    const QString de = "<li><strong>Projektvorstellung:</strong> Offensichtlich möchtest du dein Projekt vorstellen. Dazu nutze bitte den <a href=\"https://reboot.omsi-webdisk.de/community/board/184-wip-in-entwicklung/\"><strong>Forenbereich für Projektvorstellungen</strong></a>. Dort kannst du dann ein neues Thema eröffnen und dein Projekt vorstellen. Bitte beachte, dass die Vorstellung auch Bilder beinhalten sollte, die du dort unter \"Dateianhänge und Bilder\" hochladen kannst.<br>Die Filebase ist nur für fertige Projekte bzw. für Projekte einem Verwendungszweck für den Endbenutzer gedacht.</li>";
+    const QString de = "<li><strong>Projectpresentation:</strong> Offensichtlich möchtest du dein Projekt vorstellen. Dazu nutze bitte den <a href=\"https://reboot.omsi-webdisk.de/community/board/184-wip-in-entwicklung/\"><strong>Forenbereich für Projectpresentationen</strong></a>. Dort kannst du dann ein neues Thema eröffnen und dein Projekt vorstellen. Bitte beachte, dass die Vorstellung auch Bilder beinhalten sollte, die du dort unter \"Dateianhänge und Bilder\" hochladen kannst.<br>Die Filebase ist nur für fertige Projekte bzw. für Projekte einem Verwendungszweck für den Endbenutzer gedacht.</li>";
     const QString en = "<li><strong>Project presentation:</strong> Obviously you want to present your project. For this please use the <a href=\"https://reboot.omsi-webdisk.de/community/board/184-wip-in-entwicklung/\"><strong>forum area for project presentations</strong></a>. There you can open a new topic and present your project. Please note that the presentation should also include pictures, which you can upload there under \"File attachments and pictures\".<br>The filebase is intended only for finished projects or for projects with a purpose for the end user.</li>";
 };
 
@@ -151,7 +151,7 @@ public:
 class cFooter2
 {
 public:
-    const QString de = "<p><br></p><p>Deine Datei befindet sich im Anhang. Es gibt für dich keine Verwarnungen oder Sanktionen. Diese sind beim Wiederholungsfall jedoch nicht ausgeschlossen.</p><p><br></p><p>Viele Grüße";
+    const QString de = "<p><br></p><p>Deine Datei befindet sich im Anhang. Es gibt für dich keine Admonitionen oder Sanktionen. Diese sind beim Wiederholungsfall jedoch nicht ausgeschlossen.</p><p><br></p><p>Viele Grüße";
     const QString en = "<p><br></p><p>Your file is attached. There are no warnings or sanctions for you. However, these are not excluded in case of repetition.</p><p><br></p><p>Best regards";
 };
 
@@ -198,24 +198,24 @@ private:
     cFooter4 Footer4;
 
 public:
-    cVerwarnung Verwarnung;
+    cAdmonition Admonition;
     cHeader Header;
     cHeader2 Header2;
-    cOrdnerstruktur Ordnerstruktur;
-    cFehlendeBilder FehlendeBilder;
-    cEnBeschreibung EnBeschreibung;
-    cFehlendeBeschreibung FehlendeBeschreibung;
-    cFehlendesVorschaubild FehlendesVorschaubild;
-    cExternerDownload ExternerDownload;
-    cUrheberrechtsverletzung Urheberrechtsverletzung;
-    cProjektvorstellung Projektvorstellung;
+    cFilestructure Filestructure;
+    cMissingPictures MissingPictures;
+    cEnDescription EnDescription;
+    cMissingDescription MissingDescription;
+    cMissingPreviewPicture MissingPreviewPicture;
+    cExternalDownload ExternalDownload;
+    cCopyrightviolation Copyrightviolation;
+    cProjectpresentation Projectpresentation;
     cScreenshot Screenshot;
-    cEinbauanleitung Einbauanleitung;
-    cArchivDefekt ArchivDefekt;
-    cKeinBezug KeinBezug;
-    cKeinMehrwert KeinMehrwert;
-    cKontaktdaten Kontaktdaten;
-    cMarkenrecht Markenrecht;
+    cInstallationinstruction Installationinstruction;
+    cArchiveDamaged ArchiveDamaged;
+    cNoReference NoReference;
+    cNoValue NoValue;
+    cContactdetails Contactdetails;
+    cTrademarkviolation Trademarkviolation;
 
 
     QString getFooter(int index, QString language)
