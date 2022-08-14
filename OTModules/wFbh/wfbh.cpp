@@ -11,8 +11,6 @@ wFbh::wFbh(QWidget *parent)
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
-    adjustSize();
-    move(misc.centerPosition(this));
     qDebug() << "UI set";
 
     // Load settings
@@ -46,6 +44,10 @@ wFbh::wFbh(QWidget *parent)
 #endif
 
     ui->pteLinks->setFocus();
+
+    qApp->processEvents();
+    adjustSize();
+    move(misc.centerPosition(this));
 
     qInfo().noquote() << objectName() + " started";
 }
