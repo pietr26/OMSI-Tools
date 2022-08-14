@@ -543,6 +543,9 @@ public:
 
         if (!read("main", "confirmDeletion").isValid())
             write("main", "confirmDeletion", true);
+
+        if (!read("main\\themeData", "useStandardTheme").isValid())
+            write("main\\themeData", "useStandardTheme", true);
     }
 };
 
