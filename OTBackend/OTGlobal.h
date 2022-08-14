@@ -458,8 +458,8 @@ public:
     /// Select and control OMSI main dir path. Returns the OMSI path.
     QString getOmsiPath(QWidget *parent, QString path = "")
     {
-        if (path == "")
-            path = "C:/Program Files (x86)/Steam/steamapps/common/OMSI 2";
+        if (path.isEmpty())
+            path = QSettings("HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\aerosoft\\OMSI 2", QSettings::NativeFormat).value("Product_Path").toString();
 
         QString mainDir = QFileDialog::getExistingDirectory(parent, QObject::tr("Select the OMSI main directory..."), path);
 
@@ -539,7 +539,7 @@ public:
             write("main", "autosave", true);
 
         if (!read("main", "autosaveDuration").isValid())
-            write("main", "autosaveDuration", 15);
+            write("main", "autosaveDuration", 30);
 
         if (!read("main", "confirmDeletion").isValid())
             write("main", "confirmDeletion", true);
