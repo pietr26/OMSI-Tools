@@ -74,5 +74,6 @@
         <file>data/icons/iconDuplicate.svg</file>
         <file>data/themes/Modular.qss</file>
         <file>data/icons/iconZip.svg</file>
+        <file>data/icons/iconWiki.svg</file>
     </qresource>
 </RCC>

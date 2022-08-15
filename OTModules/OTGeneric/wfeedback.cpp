@@ -1,7 +1,7 @@
 #include "wfeedback.h"
 #include "ui_wfeedback.h"
 
-wFeedback::wFeedback(QWidget *parent) :
+wFeedback::wFeedback(QWidget *parent, QUrl wikiEntry) :
     QMainWindow(parent),
     ui(new Ui::wFeedback)
 {
@@ -18,7 +18,8 @@ wFeedback::wFeedback(QWidget *parent) :
     setStyleSheet(set.read("main","theme").toString());
     setWindowTitle(OTName + " - " + tr("feedback"));
 
-    ui->btnOpenSupportThread->setIconSize(QSize(50, 50));
+    if (wikiEntry.isEmpty())
+        ui->btnWikiEntry->setEnabled(false);
 
     qInfo().noquote() << objectName() + " started";
 }

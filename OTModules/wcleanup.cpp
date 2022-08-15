@@ -285,7 +285,7 @@ void wCleanup::on_actionSettings_triggered()
 
 void wCleanup::on_actionSendFeedback_triggered()
 {
-    wFeedback *WFEEDBACK = new wFeedback(this);
+    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::cleanup);
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }

@@ -217,7 +217,7 @@ void wStart::on_btnSimulateCrash_clicked()
 /// Opens bug report module
 void wStart::on_actionSendFeedback_triggered()
 {
-    WFEEDBACK = new wFeedback(this);
+    WFEEDBACK = new wFeedback(this, OTLinks::wiki::general);
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }
