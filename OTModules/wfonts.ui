@@ -47,7 +47,7 @@
            <enum>QTabWidget::Rounded</enum>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <property name="elideMode">
            <enum>Qt::ElideLeft</enum>
@@ -108,13 +108,13 @@
                  <bool>false</bool>
                 </property>
                 <property name="minimum">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <property name="maximum">
                  <number>10000</number>
                 </property>
                 <property name="value">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                </widget>
               </item>
