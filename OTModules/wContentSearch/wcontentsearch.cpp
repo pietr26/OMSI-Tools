@@ -209,7 +209,7 @@ void wContentSearch::on_btnAddList_clicked()
 /// Opens bug report module
 void wContentSearch::on_actionSendFeedback_triggered()
 {
-    wFeedback *WFEEDBACK = new wFeedback(this);
+    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::contentSearch);
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }

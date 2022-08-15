@@ -1424,7 +1424,7 @@
      <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
    </property>
    <property name="text">
-    <string>Send feedback</string>
+    <string>Help</string>
    </property>
    <property name="shortcut">
     <string notr="true">F1</string>

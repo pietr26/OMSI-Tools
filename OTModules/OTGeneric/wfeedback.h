@@ -13,7 +13,7 @@ class wFeedback : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit wFeedback(QWidget *parent = nullptr);
+    explicit wFeedback(QWidget *parent = nullptr, QUrl wikiEntry = QUrl());
     ~wFeedback();
 
 private slots:

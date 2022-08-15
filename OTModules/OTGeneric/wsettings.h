@@ -5,6 +5,7 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/OTInternals/wdevtools.h"
 #include "OTModules/OTGeneric/wreleasenotes.h"
+#include "OTModules/OTGeneric/wfeedback.h"
 #include <QStandardItemModel>
 #include <QColorDialog>
 
@@ -78,6 +79,8 @@ private slots:
 
     void on_cbxBackupEnabled_clicked(bool checked);
 
+    void on_actionSendFeedback_triggered();
+
 private:
     Ui::wSettings *ui;
     OTSettings set;
@@ -88,6 +91,7 @@ private:
     QTimer *timer;
     wDevTools *WDEVTOOLS;
     wReleaseNotes *WRELEASENOTES;
+    wFeedback *WFEEDBACK;
 
     bool setupFinished = false;
 

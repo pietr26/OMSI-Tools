@@ -1290,7 +1290,7 @@ void wFonts::on_ledSearch_returnPressed()
 /// Opens bug report module
 void wFonts::on_actionSendFeedback_triggered()
 {
-    wFeedback *WFEEDBACK = new wFeedback(this);
+    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::fonts);
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }

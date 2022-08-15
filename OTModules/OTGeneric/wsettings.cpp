@@ -432,3 +432,11 @@ void wSettings::on_btnLoadTheme_clicked()
     ui->gbxThemeAdvanced->setEnabled(!set.read("main\\themeData", "useStandardTheme").toBool());
 }
 
+
+void wSettings::on_actionSendFeedback_triggered()
+{
+    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::settings);
+    WFEEDBACK->setWindowModality(Qt::ApplicationModal);
+    WFEEDBACK->show();
+}
+

@@ -103,6 +103,17 @@ public:
     inline static const QUrl download = QUrl("https://update.omsi-tools.de/downloadLink/index.php");
     inline static const QUrl survey = QUrl("https://forms.office.com/r/QbbQBQCa21");
     inline static const QUrl github = QUrl("https://github.com/pietr26/OMSI-Tools");
+
+    class wiki
+    {
+    public:
+        inline static const QUrl general = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Main_Page");
+        inline static const QUrl fonts = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Font_creation");
+        inline static const QUrl cleanup = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Cleaner");
+        inline static const QUrl contentSearch = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Content_search");
+        inline static const QUrl verifyMap = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Map_verifycation");
+        inline static const QUrl settings = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Settings");
+    };
 };
 
 /// Calculates disk usage

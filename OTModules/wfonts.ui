@@ -47,7 +47,7 @@
            <enum>QTabWidget::Rounded</enum>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <property name="elideMode">
            <enum>Qt::ElideLeft</enum>
@@ -541,7 +541,7 @@
                       <string/>
                      </property>
                      <property name="text">
-                      <string>Right pixel:</string>
+                      <string>Rightmost pixel:</string>
                      </property>
                      <property name="buddy">
                       <cstring>sbxRightPixel</cstring>
@@ -596,7 +596,7 @@
                       <string/>
                      </property>
                      <property name="text">
-                      <string>Left pixel:</string>
+                      <string>Leftmost pixel:</string>
                      </property>
                      <property name="buddy">
                       <cstring>sbxLeftPixel</cstring>
@@ -1223,7 +1223,7 @@
      <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
    </property>
    <property name="text">
-    <string>Send feedback</string>
+    <string>Help</string>
    </property>
    <property name="shortcut">
     <string notr="true">F1</string>
