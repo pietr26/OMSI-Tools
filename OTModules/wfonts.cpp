@@ -461,7 +461,7 @@ void wFonts::enableFontArea(bool status)
     }
 }
 
-// Gets encoding from UI
+/// Gets encoding from UI
 QStringConverter::Encoding wFonts::getEncoding()
 {
     switch (ui->cobxEncoding->currentIndex())
@@ -1295,6 +1295,7 @@ void wFonts::on_actionSendFeedback_triggered()
     WFEEDBACK->show();
 }
 
+/// Saves left pixel value
 void wFonts::on_sbxLeftPixel_textChanged(const QString &arg1)
 {
     if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
@@ -1312,6 +1313,7 @@ void wFonts::on_sbxLeftPixel_textChanged(const QString &arg1)
     setUnsaved();
 }
 
+/// Saves right pixel value
 void wFonts::on_sbxRightPixel_textChanged(const QString &arg1)
 {
     if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
@@ -1329,6 +1331,7 @@ void wFonts::on_sbxRightPixel_textChanged(const QString &arg1)
     setUnsaved();
 }
 
+/// Saves highest pixel value
 void wFonts::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
 {
     if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
@@ -1346,8 +1349,7 @@ void wFonts::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
     setUnsaved();
 }
 
-
-
+/// Reloads texture preview
 void wFonts::loadTexPreview()
 {
     QString tex;
@@ -1370,11 +1372,13 @@ void wFonts::loadTexPreview()
     }
 }
 
+/// Resizes texture preview
 void wFonts::resizeTexPreview()
 {
     ui->grvTexPreview->fitInView(texPreviewScene->sceneRect(), Qt::KeepAspectRatio);
 }
 
+/// Shows the texture according to the selection
 void wFonts::on_cobxPreviewOptions_currentIndexChanged(int index)
 {
     if (setupFinished)
@@ -1382,19 +1386,20 @@ void wFonts::on_cobxPreviewOptions_currentIndexChanged(int index)
     loadTexPreview();
 }
 
+/// Wrapped to loadTexPreview();
 void wFonts::on_btnReloadTexPreview_clicked()
 {
     loadTexPreview();
 }
 
-
+/// Activates keep pixel row for new char function
 void wFonts::on_actionKeepPixelRowForNewCharacter_triggered()
 {
     if (setupFinished)
         set.write(objectName(), "keepPixelRow", ui->actionKeepPixelRowForNewCharacter->isChecked());
 }
 
-
+/// Deletes a characters
 void wFonts::on_actionDelete_triggered()
 {
     QMessageBox::StandardButton reply = QMessageBox::information(this, tr("Delete font"), tr("The font will be moved to the trash."), QMessageBox::Yes | QMessageBox::No);
@@ -1407,6 +1412,7 @@ void wFonts::on_actionDelete_triggered()
     }
 }
 
+/// Duplicates a character
 void wFonts::on_actionDuplicateCharacter_triggered()
 {
     int currentRow = ui->lvwChars->currentIndex().row();

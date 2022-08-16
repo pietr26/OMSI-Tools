@@ -29,6 +29,7 @@ wMapSelection::~wMapSelection()
     delete ui;
 }
 
+/// Loads the map list
 void wMapSelection::loadList()
 {
     ui->lwgMaps->clear();
@@ -39,6 +40,7 @@ void wMapSelection::loadList()
         ui->lwgMaps->addItem(maps[i].second + " (" + maps[i].first + ")");
 }
 
+/// Applies the selected map
 void wMapSelection::on_btnConfirm_clicked()
 {
     if (ui->lwgMaps->selectedItems().count() == 0)
@@ -49,11 +51,13 @@ void wMapSelection::on_btnConfirm_clicked()
     returnMapInfo(pair);
 }
 
+/// Reloads the list (button)
 void wMapSelection::on_btnReloadList_clicked()
 {
     loadList();
 }
 
+/// Wrapped to on_btnConfirm_clicked()
 void wMapSelection::on_lwgMaps_itemDoubleClicked(QListWidgetItem *item)
 {
     Q_UNUSED(item);

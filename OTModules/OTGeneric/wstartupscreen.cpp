@@ -91,11 +91,13 @@ void wStartUpScreen::finished()
     }
 }
 
+/// Closes the window (only available on first setup!)
 void wStartUpScreen::on_btnClose_clicked()
 {
     close();
 }
 
+/// Slot: Opens home screen
 void wStartUpScreen::openWStart()
 {
     WSTART = new wStart();

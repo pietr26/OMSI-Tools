@@ -29,15 +29,16 @@ wFeedback::~wFeedback()
     delete ui;
 }
 
+/// Opens support thread
 void wFeedback::on_btnOpenSupportThread_clicked()
 {
     QDesktopServices::openUrl(OTLinks::support);
     close();
 }
 
+/// Opens survey
 void wFeedback::on_btnOpenSurvey_clicked()
 {
     QDesktopServices::openUrl(OTLinks::survey);
     close();
 }
-

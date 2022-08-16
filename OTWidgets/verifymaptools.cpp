@@ -73,46 +73,55 @@ void verifyMapTools::search(QListWidget *lwg)
     }
 }
 
+/// Shows menu for copy button
 void verifyMapTools::on_tbnCopy_clicked()
 {
     ui->tbnCopy->showMenu();
 }
 
+/// Shows menu for search button
 void verifyMapTools::on_tbnSearch_clicked()
 {
     ui->tbnSearch->showMenu();
 }
 
+/// Shows menu for ignore button
 void verifyMapTools::on_tbnIgnore_clicked()
 {
     ui->tbnIgnore->showMenu();
 }
 
+/// Copies all file paths
 void verifyMapTools::on_actionCopyFromAll_triggered()
 {
     copy(listWidgetAllParent);
 }
 
+/// Copies missing file paths
 void verifyMapTools::on_actionCopyFromMissing_triggered()
 {
     copy(listWidgetMissingParent);
 }
 
+/// Searchs all file paths
 void verifyMapTools::on_actionSearchFromAll_triggered()
 {
     search(listWidgetAllParent);
 }
 
+/// Searchs missing file paths
 void verifyMapTools::on_actionSearchFromMissing_triggered()
 {
     search(listWidgetMissingParent);
 }
 
+/// Ignores all file paths
 void verifyMapTools::on_actionIgnoreFromAll_triggered()
 {
     ignore(listWidgetAllParent);
 }
 
+/// Ignores missing file paths
 void verifyMapTools::on_actionIgnoreFromMissing_triggered()
 {
     ignore(listWidgetMissingParent);

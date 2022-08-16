@@ -346,4 +346,3 @@ void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
 
     ui->pteInformation->setPlainText(information);
 }
-

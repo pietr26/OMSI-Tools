@@ -1,6 +1,11 @@
 #include "wvehiclelist.h"
 #include "ui_wvehiclelist.h"
 
+/////////////////////////////////////////////////
+/// ATTENTION ///////////////////////////////////
+/// This module is outdated. ////////////////////
+/////////////////////////////////////////////////
+
 wVehicleList::wVehicleList(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wVehicleList)

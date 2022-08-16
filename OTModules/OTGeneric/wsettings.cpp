@@ -319,6 +319,7 @@ void wSettings::on_cobxLogfileMode_currentIndexChanged(int index)
     }
 }
 
+/// Reloads theme preview
 void wSettings::reloadThemePreview()
 {
     if (!set.read("main\\themeData", "Main").toString().isEmpty())
@@ -364,6 +365,7 @@ void wSettings::reloadThemePreview()
     setStyleSheet(set.getStyleSheet());
 }
 
+/// Opens color dialog for main color
 void wSettings::on_btnThemeMain_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Main").toString()), this, tr("Select main color")).name();
@@ -371,6 +373,7 @@ void wSettings::on_btnThemeMain_clicked()
     reloadThemePreview();
 }
 
+/// Opens color dialog for Main (simple contrast) color
 void wSettings::on_btnThemeMainSC_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "MainSC").toString()), this, tr("Select border color")).name();
@@ -379,6 +382,7 @@ void wSettings::on_btnThemeMainSC_clicked()
 
 }
 
+/// Opens color dialog for disables color
 void wSettings::on_btnThemeDis_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Dis").toString()), this, tr("Select disabled color")).name();
@@ -387,6 +391,7 @@ void wSettings::on_btnThemeDis_clicked()
 
 }
 
+/// Opens color dialog for disables (darker) color
 void wSettings::on_btnThemeDisD_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "DisD").toString()), this, tr("Select disabled background color")).name();
@@ -394,6 +399,7 @@ void wSettings::on_btnThemeDisD_clicked()
     reloadThemePreview();
 }
 
+/// Opens color dialog for accent 1 color
 void wSettings::on_btnThemeAcc1_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc1").toString()), this, tr("Select accent color")).name();
@@ -402,6 +408,7 @@ void wSettings::on_btnThemeAcc1_clicked()
 
 }
 
+/// Opens color dialog for accent 2 color
 void wSettings::on_btnThemeAcc2_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc2").toString()), this, tr("Select main accent color")).name();
@@ -409,6 +416,7 @@ void wSettings::on_btnThemeAcc2_clicked()
     reloadThemePreview();
 }
 
+/// Opens color dialog for accent 3 color
 void wSettings::on_btnThemeAcc3_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc3").toString()), this, tr("Select font color")).name();
@@ -416,6 +424,7 @@ void wSettings::on_btnThemeAcc3_clicked()
     reloadThemePreview();
 }
 
+/// Opens color dialog for button color
 void wSettings::on_btnThemeButton_clicked()
 {
     QString hex = QColorDialog::getColor(set.read("main\\themeData", "Button").toString(), this, tr("Select button color")).name();
@@ -423,6 +432,7 @@ void wSettings::on_btnThemeButton_clicked()
     reloadThemePreview();
 }
 
+/// Loads a default theme
 void wSettings::on_btnLoadTheme_clicked()
 {
     set.setDefaultTheme(ui->cobxTheme->currentIndex());
@@ -432,7 +442,7 @@ void wSettings::on_btnLoadTheme_clicked()
     ui->gbxThemeAdvanced->setEnabled(!set.read("main\\themeData", "useStandardTheme").toBool());
 }
 
-
+/// Opens help dialog
 void wSettings::on_actionSendFeedback_triggered()
 {
     wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::settings);
