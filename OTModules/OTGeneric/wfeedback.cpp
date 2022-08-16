@@ -21,6 +21,8 @@ wFeedback::wFeedback(QWidget *parent, QUrl wikiEntry) :
     if (wikiEntry.isEmpty())
         ui->btnWikiEntry->setEnabled(false);
 
+    wikiurl = wikiEntry;
+
     qInfo().noquote() << objectName() + " started";
 }
 
@@ -42,3 +44,10 @@ void wFeedback::on_btnOpenSurvey_clicked()
     QDesktopServices::openUrl(OTLinks::survey);
     close();
 }
+
+void wFeedback::on_btnWikiEntry_clicked()
+{
+    QDesktopServices::openUrl(wikiurl);
+    close();
+}
+
