@@ -57,17 +57,20 @@ wFbh::~wFbh()
     delete ui;
 }
 
+/// Closes the window
 void wFbh::on_actionClose_triggered()
 {
-    QApplication::quit();
+    close();
 }
 
+/// Saves new name
 void wFbh::on_ledName_textChanged(const QString &arg1)
 {
     if (finishedSetup)
         set.write(objectName(), "name", arg1);
 }
 
+/// Switches language
 void wFbh::getLanguage()
 {
     if (ui->rbtnGerman->isChecked())
@@ -76,6 +79,7 @@ void wFbh::getLanguage()
         language = en;
 }
 
+/// URL parser - returns HTML
 QString wFbh::urlParser(QString links, bool review)
 {
     QString pteContent = ui->pteLinks->toPlainText();
@@ -122,6 +126,7 @@ QString wFbh::urlParser(QString links, bool review)
     return result;
 }
 
+/// (Un)checks all checkboxes
 void wFbh::setFVisible(bool visible)
 {
     ui->cbxFDescription->setChecked(visible);
@@ -142,6 +147,7 @@ void wFbh::setFVisible(bool visible)
     ui->cbxFContactDetails->setChecked(visible);
 }
 
+/// Selects footer for message
 void wFbh::setFooterSelection(int selectValue)
 {
     if (selectedFooter >= selectValue)
@@ -150,24 +156,28 @@ void wFbh::setFooterSelection(int selectValue)
         selectedFooter = selectValue;
 }
 
+/// Shows line edits for entering a reason for copyright violations
 void wFbh::on_btnAdd_clicked()
 {
     ui->gbxAddElement->setVisible(true);
     ui->ledPath->setFocus();
 }
 
+/// Removes a reason for copyright violations
 void wFbh::on_btnRemove_clicked()
 {
     qDeleteAll(ui->lwgCopyrightItems->selectedItems());
     ui->lwgCopyrightItems->setCurrentRow(ui->lwgCopyrightItems->count() - 1);
 }
 
+/// Remove all reasons for copyright violations
 void wFbh::on_btnRemoveAll_clicked()
 {
     ui->lwgCopyrightItems->selectAll();
     qDeleteAll(ui->lwgCopyrightItems->selectedItems());
 }
 
+/// Adds a reason for copyright violations
 void wFbh::on_btnAddElement_clicked()
 {
     QString item = "[tt]" + ui->ledPath->text() + "[/tt]: " + ui->ledInfos->text();
@@ -183,6 +193,7 @@ void wFbh::on_btnAddElement_clicked()
     ui->ledInfos->clear();
 }
 
+/// Inserts example reasions (debug)
 void wFbh::on_btnInputExampleReasons_clicked()
 {
     ui->lwgCopyrightItems->addItem(QString("[tt]Beispielpfad %1[/tt]: Beispielgrund %1").arg(QString::number(1 + ui->lwgCopyrightItems->count())));
@@ -191,6 +202,7 @@ void wFbh::on_btnInputExampleReasons_clicked()
     ui->lwgCopyrightItems->setCurrentRow(ui->lwgCopyrightItems->count() - 1);
 }
 
+/// Updates rason count
 void wFbh::on_lwgCopyrightItems_currentRowChanged(int currentRow)
 {
     Q_UNUSED(currentRow);
@@ -200,11 +212,13 @@ void wFbh::on_lwgCopyrightItems_currentRowChanged(int currentRow)
         ui->lblReasonCount->setText("Anzahl: 0");
 }
 
+/// Checks all file checkboxes (debug)
 void wFbh::on_btnFSelectAll_clicked()
 {
     setFVisible(true);
 }
 
+/// Enables / disables file trademark combobox
 void wFbh::on_cbxFTrademark_stateChanged(int arg1)
 {
     if (arg1 == 2)
@@ -213,6 +227,7 @@ void wFbh::on_cbxFTrademark_stateChanged(int arg1)
         ui->cobxFTrademark->setEnabled(false);
 }
 
+/// Shows / hides file copyright violation section
 void wFbh::on_cbxFCopyright_stateChanged(int arg1)
 {
     if (arg1 == 2)
@@ -224,12 +239,14 @@ void wFbh::on_cbxFCopyright_stateChanged(int arg1)
     adjustSize();
 }
 
+/// Sets welcome text
 void wFbh::on_cobxWelcome_currentIndexChanged(int index)
 {
     if (finishedSetup)
         set.write(objectName(), "welcome", index);
 }
 
+/// Copies file message
 void wFbh::on_btnFCopy_clicked()
 {
     selectedFooter = 0;
@@ -429,11 +446,13 @@ void wFbh::on_btnFCopy_clicked()
     misc.copy(copytext);
 }
 
+/// Unnchecks all file checkboxes
 void wFbh::on_btnFClear_clicked()
 {
     setFVisible(false);
 }
 
+/// Copies review message
 void wFbh::on_btnRCopy_clicked()
 {
     QString copytext;
@@ -499,6 +518,7 @@ void wFbh::on_btnRCopy_clicked()
     misc.copy(copytext);
 }
 
+/// Unchecks all review checkboxes
 void wFbh::on_btnRClear_clicked()
 {
     ui->cbxRAdmonition->setChecked(false);

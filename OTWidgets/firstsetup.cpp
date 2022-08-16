@@ -24,7 +24,7 @@ firstSetup::~firstSetup()
     delete ui;
 }
 
-
+/// Saves settings and restarts application
 void firstSetup::on_btnContinue_clicked()
 {
     set.write("main", "language", ui->cobxLanguage->currentIndex());
@@ -33,7 +33,7 @@ void firstSetup::on_btnContinue_clicked()
     misc.restart();
 }
 
-
+/// Opens dialog for selectiin main directory
 void firstSetup::on_btnSelectMainDir_clicked()
 {
     QString mainDir = set.getOmsiPath(this);

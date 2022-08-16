@@ -273,7 +273,7 @@ void wStart::on_actionSourceCodeOnGitHub_triggered()
     QDesktopServices::openUrl(OTLinks::github);
 }
 
-/// Restarts application
+/// Shows a message at a defined start count
 void wStart::startCounterMsgSender()
 {
     unsigned int count = set.read("main", "startCount").toInt();
@@ -288,11 +288,13 @@ void wStart::startCounterMsgSender()
     }
 }
 
+/// Restarts application
 void wStart::on_actionRestart_triggered()
 {
     misc.restart();
 }
 
+/// Opens cleanup module
 void wStart::on_btnCleanup_clicked()
 {
     close();
@@ -300,6 +302,7 @@ void wStart::on_btnCleanup_clicked()
     WCLEANUP->show();
 }
 
+/// Checks for updates
 void wStart::on_actionCheckForUpdates_triggered()
 {
     QStringList update = misc.getUpdateInformation();

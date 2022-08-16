@@ -547,6 +547,7 @@ void wVerifyMap::on_actionEditIgnorelist_triggered()
     DIGNORELIST->show();
 }
 
+/// Styles ignore labels
 void wVerifyMap::enableIgnoreLabels(bool enable)
 {
     QString str;
@@ -564,12 +565,14 @@ void wVerifyMap::enableIgnoreLabels(bool enable)
     ui->lblIgnoredHumans->setText(str);
 }
 
+/// Shows the verifycation settings
 void wVerifyMap::on_btnVerifycationSettings_clicked()
 {
     WVERIFYCATIONSETTINGS = new wVerifycationSettings(this);
     WVERIFYCATIONSETTINGS->show();
 }
 
+/// Loads map list
 void wVerifyMap::loadMapList()
 {
     mapListSetupFinished = false;
@@ -592,6 +595,7 @@ void wVerifyMap::loadMapList()
     mapListSetupFinished = true;
 }
 
+/// Sets UI for a new map
 void wVerifyMap::on_cobxMapName_currentIndexChanged(int index)
 {
     if (!mapListSetupFinished)
@@ -608,6 +612,7 @@ void wVerifyMap::on_cobxMapName_currentIndexChanged(int index)
         ui->lblPicture->setPixmap(QPixmap(":/rec/data/icons/iconUnvisible.svg").scaled(185, 140));
 }
 
+/// Reloads map list
 void wVerifyMap::on_btnReloadMaps_clicked()
 {
     loadMapList();

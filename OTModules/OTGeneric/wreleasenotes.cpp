@@ -69,6 +69,7 @@ void wReleaseNotes::on_btnUpdateNow_clicked()
     misc.startUpdate(this, ui->cbxClearAppDir->isChecked());
 }
 
+/// Sets information text for application directory cleanup
 void wReleaseNotes::on_cbxClearAppDir_stateChanged(int arg1)
 {
     if (arg1 == 2)

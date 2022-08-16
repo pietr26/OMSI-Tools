@@ -55,12 +55,13 @@ wAbout::~wAbout()
     delete ui;
 }
 
+/// Closes the window
 void wAbout::on_btnClose_clicked()
 {
     close();
 }
 
-
+/// Shows detailed information (framework etc.)
 void wAbout::on_btnMore_clicked()
 {
     QMessageBox::about(this, tr("More information"), tr("Developed with %1 and %2").arg("Qt 6.3.1", "MinGW 11.2.0") + "\n\n" +
@@ -68,4 +69,3 @@ void wAbout::on_btnMore_clicked()
                                                                          tr("Application build: %1").arg(appBuild) + "\n\n" +
                                                                          tr("Approximate lines of code: %1 (%2)").arg("18 000", OTStrings::getMonthName(4) + " 2022"));
 }
-
