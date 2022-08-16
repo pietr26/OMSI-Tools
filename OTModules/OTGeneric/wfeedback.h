@@ -21,10 +21,13 @@ private slots:
 
     void on_btnOpenSurvey_clicked();
 
+    void on_btnWikiEntry_clicked();
+
 private:
     Ui::wFeedback *ui;
     OTSettings set;
-    //OTMiscellaneous misc;
+
+    QUrl wikiurl;
 };
 
 #endif // WFEEDBACK_H
