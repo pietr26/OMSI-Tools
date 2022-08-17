@@ -14,7 +14,6 @@ SOURCES += \
     OTModules/wContentSearch/wDBPanel.cpp \
     OTModules/wContentSearch/wcontentsearch.cpp \
     OTModules/wFbh/wfbh.cpp \
-    OTModules/wVerifyMap/wverifycationsettings.cpp \
     OTModules/wcleanup.cpp \
     OTModules/wmapselection.cpp \
     OTModules/wvehiclelist.cpp \
@@ -44,7 +43,6 @@ HEADERS += \
     OTModules/wContentSearch/wcontentsearch.h \
     OTModules/wFbh/FbhFunctions.h \
     OTModules/wFbh/wfbh.h \
-    OTModules/wVerifyMap/wverifycationsettings.h \
     OTModules/wcleanup.h \
     OTModules/wmapselection.h \
     OTModules/wvehiclelist.h \
@@ -68,7 +66,6 @@ FORMS += \
     OTModules/wContentSearch/wDBPanel.ui \
     OTModules/wContentSearch/wcontentsearch.ui \
     OTModules/wFbh/wfbh.ui \
-    OTModules/wVerifyMap/wverifycationsettings.ui \
     OTModules/wcleanup.ui \
     OTModules/wmapselection.ui \
     OTModules/wvehiclelist.ui \

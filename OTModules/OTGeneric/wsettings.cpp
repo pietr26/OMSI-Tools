@@ -107,11 +107,37 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
 
     setUnsaved(false);
 
-    // Open direct modes
+    ui->twgSettings->setTabVisible(4, false);
+
+    // Open direct modes:
+    // Main directory selection
     if (openDirect == "mainDirSelection")
     {
         on_btnOmsiPath_clicked();
         QTimer::singleShot(0, this, SLOT(close()));
+    }
+    // wVerifyMap settings
+    else if (openDirect == "wVerifyMap")
+    {
+        ui->twgSettings->setTabVisible(4, true);
+        ui->twgSettings->setCurrentIndex(4);
+        qApp->processEvents();
+        ui->gbxMapVerifycation->setStyleSheet(highlightedGroupBox);
+        QFont bold;
+        bold.setWeight(QFont::Bold);
+        ui->gbxMapVerifycation->setFont(bold);
+
+        if (!set.read("wVerifyMap", "advVerifying").isValid())
+            set.write("wVerifyMap", "advVerifying", false);
+        else
+            ui->cbxAdvancedVerifying->setChecked(set.read("wVerifyMap", "advVerifying").toBool());
+
+        if (!set.read("wVerifyMap", "onlyMapTextures").isValid())
+            set.write("wVerifyMap", "onlyMapTextures", false);
+        else
+            ui->cbxOnlyMapTextures->setChecked(set.read("wVerifyMap", "onlyMapTextures").toBool());
+
+        ui->cbxOnlyMapTextures->setEnabled(ui->cbxAdvancedVerifying->isChecked());
     }
 
     qInfo().noquote() << objectName() + " started";
@@ -450,3 +476,27 @@ void wSettings::on_actionSendFeedback_triggered()
     WFEEDBACK->show();
 }
 
+/// Saves advanced verifying setting
+void wSettings::on_cbxAdvancedVerifying_stateChanged(int arg1)
+{
+    qInfo() << arg1;
+    if (arg1 == 2)
+    {
+        set.write("wVerifyMap", "advVerifying", true);
+        ui->cbxOnlyMapTextures->setEnabled(true);
+    }
+    else
+    {
+        set.write("wVerifyMap", "advVerifying", false);
+        ui->cbxOnlyMapTextures->setEnabled(false);
+    }
+}
+
+/// Saves only map textures setting
+void wSettings::on_cbxOnlyMapTextures_stateChanged(int arg1)
+{
+    if (arg1 == 2)
+        set.write("wVerifyMap", "onlyMapTextures", true);
+    else
+        set.write("wVerifyMap", "onlyMapTextures", false);
+}

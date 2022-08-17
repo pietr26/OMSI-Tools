@@ -81,6 +81,10 @@ private slots:
 
     void on_actionSendFeedback_triggered();
 
+    void on_cbxAdvancedVerifying_stateChanged(int arg1);
+
+    void on_cbxOnlyMapTextures_stateChanged(int arg1);
+
 private:
     Ui::wSettings *ui;
     OTSettings set;
@@ -98,6 +102,8 @@ private:
     void setUnsaved(bool visible);
 
     void reloadThemePreview();
+
+    const QString highlightedGroupBox = "QGroupBox { border: 1px solid yellow; margin-top: 1.5ex; } QGroupBox::title { subcontrol-origin: margin; }";
 };
 
 #endif // WSETTINGS_H
