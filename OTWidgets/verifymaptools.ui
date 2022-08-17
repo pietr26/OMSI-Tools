@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>46</width>
-    <height>107</height>
+    <width>42</width>
+    <height>70</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -42,20 +42,6 @@
      <property name="icon">
       <iconset resource="../ressources.qrc">
        <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-     </property>
-     <property name="autoRaise">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QToolButton" name="tbnIgnore">
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="../ressources.qrc">
-       <normaloff>:/rec/data/icons/iconUnvisible.svg</normaloff>:/rec/data/icons/iconUnvisible.svg</iconset>
      </property>
      <property name="autoRaise">
       <bool>false</bool>

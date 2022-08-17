@@ -246,22 +246,6 @@ void wVerifyMap::selectAllAndClear()
     ui->btnVehiclesDetails->setVisible(false);
     ui->btnHumansDetails->setVisible(false);
 
-    // Set ingore-Int's to 0:
-    ignoredTiles = 0;
-    ignoredTextures = 0;
-    ignoredObjects = 0;
-    ignoredSplines = 0;
-    ignoredVehicles = 0;
-    ignoredHumans = 0;
-
-    // Reset the ignore-Labels
-    ui->lblIgnoredTiles->setText("-");
-    ui->lblIgnoredTextures->setText("-");
-    ui->lblIgnoredObjects->setText("-");
-    ui->lblIgnoredSplines->setText("-");
-    ui->lblIgnoredVehicles->setText("-");
-    ui->lblIgnoredHumans->setText("-");
-
     ui->pgbProgress->setVisible(false);
 }
 
@@ -305,8 +289,6 @@ void wVerifyMap::enableView(bool enable)
 
 void wVerifyMap::on_btnStartVerifying_clicked()
 {
-    enableIgnoreLabels(true);
-
     qInfo() << "Start verifying...";
 
     if (set.read("main", "mainDir").toString() == "")
@@ -336,19 +318,10 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.getTiles(this);
     qDebug() << "Got tiles.";
 
-    filehandler.stuffobj.missing.tiles = iglF.check(filehandler.stuffobj.missing.tiles, ignoredTiles);
-    filehandler.stuffobj.existing.tiles = iglF.check(filehandler.stuffobj.existing.tiles, ignoredTiles);
-
     // SCO and SLI:
     qInfo() << "Get sceneryobjects / splines...";
     filehandler.getItems(filehandler.stuffobj.existing.tiles);
     qDebug() << "Got sceneryobjects / splines.";
-
-    filehandler.stuffobj.missing.sceneryobjects = iglF.check(filehandler.stuffobj.missing.sceneryobjects, ignoredObjects);
-    filehandler.stuffobj.existing.sceneryobjects = iglF.check(filehandler.stuffobj.existing.sceneryobjects, ignoredObjects);
-
-    filehandler.stuffobj.missing.splines = iglF.check(filehandler.stuffobj.missing.splines, ignoredSplines);
-    filehandler.stuffobj.existing.splines = iglF.check(filehandler.stuffobj.existing.splines, ignoredSplines);
 
     filehandler.stuffobj.removeDuplicates();
 
@@ -369,32 +342,15 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.getVehicles(this);
     qDebug() << "Got vehicles.";
 
-    filehandler.stuffobj.missing.vehicles = iglF.check(filehandler.stuffobj.missing.vehicles, ignoredVehicles);
-    filehandler.stuffobj.existing.vehicles = iglF.check(filehandler.stuffobj.existing.vehicles, ignoredVehicles);
-
     // HUM:
     qInfo() << "Get humans...";
     filehandler.getHumans(this);
     qDebug() << "Got humans.";
 
-    filehandler.stuffobj.missing.humans = iglF.check(filehandler.stuffobj.missing.humans, ignoredHumans);
-    filehandler.stuffobj.existing.humans = iglF.check(filehandler.stuffobj.existing.humans, ignoredHumans);
-
-    // TEX:
-    if (set.read(objectName(), "advVerifying").toBool() && !set.read(objectName(), "onlyMapTextures").toBool())
-    {
-        qDebug() << "Read all textures...";
-        filehandler.stuffobj.missing.textures = iglF.check(filehandler.stuffobj.missing.textures, ignoredTextures);
-        filehandler.stuffobj.existing.textures = iglF.check(filehandler.stuffobj.existing.textures, ignoredTextures);
-    }
-
     // GLOBAL TEX:
     qInfo() << "Get map textures...";
     filehandler.checkTextureLayers(this);
     qDebug() << "Got map textures.";
-
-    filehandler.stuffobj.missing.globalTextures = iglF.check(filehandler.stuffobj.missing.globalTextures, ignoredTextures);
-    filehandler.stuffobj.existing.globalTextures = iglF.check(filehandler.stuffobj.existing.globalTextures, ignoredTextures);
 
     // SET UI:
     {
@@ -476,14 +432,6 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         // ----------
 
         setDetailButtons();
-
-        ui->lblIgnoredTiles->setText(QString::number(ignoredTiles));
-        ui->lblIgnoredTextures->setText(QString::number(ignoredTextures));
-        ui->lblIgnoredObjects->setText(QString::number(ignoredObjects));
-        ui->lblIgnoredSplines->setText(QString::number(ignoredSplines));
-        ui->lblIgnoredVehicles->setText(QString::number(ignoredVehicles));
-        ui->lblIgnoredHumans->setText(QString::number(ignoredHumans));
-
         filehandler.stuffobj.clear();
     }
 
@@ -536,31 +484,6 @@ void wVerifyMap::on_actionSettings_triggered()
     WSETTINGS = new wSettings(this);
     WSETTINGS->setWindowModality(Qt::ApplicationModal);
     WSETTINGS->show();
-}
-
-/// Opens the ignorelist (UI)
-void wVerifyMap::on_actionEditIgnorelist_triggered()
-{
-    DIGNORELIST = new dIgnoreList();
-    DIGNORELIST->show();
-}
-
-/// Styles ignore labels
-void wVerifyMap::enableIgnoreLabels(bool enable)
-{
-    QString str;
-
-    if (enable)
-        str = "-";
-    else
-        str = "?";
-
-    ui->lblIgnoredTiles->setText(str);
-    ui->lblIgnoredTextures->setText(str);
-    ui->lblIgnoredObjects->setText(str);
-    ui->lblIgnoredSplines->setText(str);
-    ui->lblIgnoredVehicles->setText(str);
-    ui->lblIgnoredHumans->setText(str);
 }
 
 /// Shows the verifycation settings

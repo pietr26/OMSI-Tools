@@ -14,9 +14,6 @@ verifyMapTools::verifyMapTools(QListWidget *lwgAllParent, QListWidget *lwgMissin
 
     ui->tbnSearch->addAction(ui->actionSearchFromAll);
     ui->tbnSearch->addAction(ui->actionSearchFromMissing);
-
-    ui->tbnIgnore->addAction(ui->actionIgnoreFromAll);
-    ui->tbnIgnore->addAction(ui->actionIgnoreFromMissing);
 }
 
 verifyMapTools::~verifyMapTools()
@@ -37,20 +34,6 @@ void verifyMapTools::copy(QListWidget *lwg)
         copytext += current->text() + "\n";
 
     misc.copy(copytext);
-}
-
-/// Ignores the selected path(s)
-void verifyMapTools::ignore(QListWidget *lwg)
-{
-    if (lwg->count() == 0)
-        return;
-    else if (lwg->selectedItems().count() == 0)
-        lwg->selectAll();
-
-    foreach (QListWidgetItem* current, lwg->selectedItems())
-        iglF.write(current->text());
-
-    qDeleteAll(lwg->selectedItems());
 }
 
 /// Search for paths in wContentSearch
@@ -85,12 +68,6 @@ void verifyMapTools::on_tbnSearch_clicked()
     ui->tbnSearch->showMenu();
 }
 
-/// Shows menu for ignore button
-void verifyMapTools::on_tbnIgnore_clicked()
-{
-    ui->tbnIgnore->showMenu();
-}
-
 /// Copies all file paths
 void verifyMapTools::on_actionCopyFromAll_triggered()
 {
@@ -113,16 +90,4 @@ void verifyMapTools::on_actionSearchFromAll_triggered()
 void verifyMapTools::on_actionSearchFromMissing_triggered()
 {
     search(listWidgetMissingParent);
-}
-
-/// Ignores all file paths
-void verifyMapTools::on_actionIgnoreFromAll_triggered()
-{
-    ignore(listWidgetAllParent);
-}
-
-/// Ignores missing file paths
-void verifyMapTools::on_actionIgnoreFromMissing_triggered()
-{
-    ignore(listWidgetMissingParent);
 }
