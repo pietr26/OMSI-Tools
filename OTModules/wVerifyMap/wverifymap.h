@@ -4,8 +4,6 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
-#include "dignorelist.h"
-#include "ignoreListFunctions.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTWidgets/verifymaptools.h"
 #include "OTModules/OTGeneric/wsettings.h"
@@ -50,8 +48,6 @@ private slots:
     void on_btnVehiclesDetails_clicked();
 
     void on_btnHumansDetails_clicked();
-
-    void on_actionEditIgnorelist_triggered();
 
     void on_actionStartVerifying_triggered();
 
@@ -98,22 +94,12 @@ private:
     OTMessage msg;
     OTSettings set;
     OTMiscellaneous misc;
-    ignoreListFunctions iglF;
     wContentSearch *WCONTENTSEARCH;
     wSettings *WSETTINGS;
 
     int cutCount = set.read("main", "mainDir").toString().count() + 1;
 
     void selectAllAndClear();
-
-    dIgnoreList *DIGNORELIST;
-
-    int ignoredTiles = 0;
-    int ignoredTextures = 0;
-    int ignoredObjects = 0;
-    int ignoredSplines = 0;
-    int ignoredHumans = 0;
-    int ignoredVehicles = 0;
 
     OTOMSIFileHandler filehandler;
 
@@ -124,8 +110,6 @@ private:
     void endVerifying();
 
     void setDetailButtons();
-
-    void enableIgnoreLabels(bool enable);
 
     void loadMapList();
 
