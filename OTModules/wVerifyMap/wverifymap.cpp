@@ -566,8 +566,9 @@ void wVerifyMap::enableIgnoreLabels(bool enable)
 /// Shows the verifycation settings
 void wVerifyMap::on_btnVerifycationSettings_clicked()
 {
-    WVERIFYCATIONSETTINGS = new wVerifycationSettings(this);
-    WVERIFYCATIONSETTINGS->show();
+    WSETTINGS = new wSettings(this, "wVerifyMap");
+    WSETTINGS->setWindowModality(Qt::ApplicationModal);
+    WSETTINGS->show();
 }
 
 /// Loads map list

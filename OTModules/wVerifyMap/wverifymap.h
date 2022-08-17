@@ -10,7 +10,6 @@
 #include "OTWidgets/verifymaptools.h"
 #include "OTModules/OTGeneric/wsettings.h"
 #include "OTModules/OTGeneric/wfeedback.h"
-#include "OTModules/wVerifyMap/wverifycationsettings.h"
 #include <QFileDialog>
 #include <QProgressDialog>
 #include <QTimer>
@@ -102,7 +101,6 @@ private:
     ignoreListFunctions iglF;
     wContentSearch *WCONTENTSEARCH;
     wSettings *WSETTINGS;
-    wVerifycationSettings *WVERIFYCATIONSETTINGS;
 
     int cutCount = set.read("main", "mainDir").toString().count() + 1;
 
