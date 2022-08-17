@@ -45,9 +45,7 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     // Connect S&S
     connect(watchProgress, SIGNAL(timeout()), this, SLOT(reloadProgress()));
     ui->pgbProgress->setVisible(false);
-
     ui->statusbar->showMessage(QString(tr("Press %1 to start the verification.")).arg("\"" + ui->btnStartVerifying->text() + "\""));
-
     ui->twgVerfying->setCurrentIndex(0);
 
     qInfo().noquote() << objectName() + " started";
