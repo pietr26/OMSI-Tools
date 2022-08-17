@@ -179,9 +179,9 @@ private:
 
     void setUnsaved(bool state = true);
 
-    void reloadValidProperty();
+    void checkPropValidity();
 
-    void checkCurrentChar();
+    void checkCharValidity();
 
     QString currentSearch;
 

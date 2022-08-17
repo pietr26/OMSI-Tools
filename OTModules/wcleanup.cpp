@@ -47,7 +47,7 @@ void wCleanup::on_actionAnalyze_triggered()
             set.write("main", "mainDir", set.getOmsiPath(this));
         else
         {
-            ui->statusbar->showMessage(tr("No OMSI Main Directory selected."), 10000);
+            ui->statusbar->showMessage(tr("No main directory selected."), 10000);
             return;
         }
     }
@@ -72,24 +72,24 @@ void wCleanup::on_actionAnalyze_triggered()
     while (mapFolder.hasNext())
         globals << mapFolder.next();
 
+    qInfo() << globals;
     qInfo() << "Read maps...";
 
     ui->pgbProgress->setMaximum(ui->pgbProgress->maximum() + globals.count());
-    int i = 0;
-    foreach (QString current, globals)
+
+    for (int i = 0; i < globals.count(); i++)
     {
-        i++;
-        ui->statusbar->showMessage(tr("Read maps (%1 of %2)...").arg(i).arg(globals.count()));
+        ui->statusbar->showMessage(tr("Read maps (%1 of %2)...").arg(i + 1).arg(globals.count()));
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
 
-        filehandler.setMapPath(current);
+        filehandler.setMapPath(globals.at(i));
         filehandler.getTiles();
         filehandler.getItems(filehandler.stuffobj.existing.tiles, false, false);
 
         filehandler.stuffobj.existing.removeDuplicates();
     }
 
-    // Sceneryobjects
+    // Sceneryobjects:
     if (!filehandler.stuffobj.existing.sceneryobjects.isEmpty())
     {
         qInfo() << "Analyze sceneryobjects...";
@@ -117,7 +117,6 @@ void wCleanup::on_actionAnalyze_triggered()
                 ui->lwgObjects->addItem(current.remove(0, cutCount));
         }
     }
-
 
     // Splines:
     if (!filehandler.stuffobj.existing.splines.isEmpty())

@@ -62,7 +62,7 @@ wFonts::wFonts() :
     setUnsaved(false);
     ui->lvwChars->setModel(strListChars);
     connect(ui->lvwChars->selectionModel(), &QItemSelectionModel::currentRowChanged, this, &wFonts::charSelectionChanged);
-    reloadValidProperty();
+    checkPropValidity();
 
     // First setup - if not, the application will crash in wFonts::resizeEvent()
     texPreviewScene = new QGraphicsScene(this);
@@ -270,8 +270,8 @@ void wFonts::setUnsaved(bool state)
         unsaved = false;
 }
 
-/// Check current char for errors
-void wFonts::reloadValidProperty()
+/// Checks font props for errors
+void wFonts::checkPropValidity()
 {
     ui->lblFontName->setStyleSheet("");
     ui->lblColorTexture->setStyleSheet("");
@@ -310,7 +310,7 @@ void wFonts::reloadValidProperty()
 }
 
 /// Checks current char
-void wFonts::checkCurrentChar()
+void wFonts::checkCharValidity()
 {
     if (font.charList.count() == 0)
         return;
@@ -785,7 +785,7 @@ void wFonts::on_actionGoToNextError_triggered()
             }
         }
 
-        if (font.charList.at(i).character.isEmpty()               || chars.contains(font.charList.at(i).character) ||
+        if (font.charList.at(i).character.isEmpty() || chars.contains(font.charList.at(i).character) ||
            font.charList.at(i).leftPixel == -1 ||
            font.charList.at(i).rightPixel == -1 ||
            font.charList.at(i).highestPixelInFontRow == -1 ||
@@ -1017,7 +1017,7 @@ void wFonts::on_ledCharacter_textChanged(const QString &arg1)
             reloadCharList();
     }
 
-    checkCurrentChar();
+    checkCharValidity();
     setUnsaved();
 }
 
@@ -1027,8 +1027,6 @@ void wFonts::on_ledComment_textChanged(const QString &arg1)
     if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
     {
         font.charList[ui->lvwChars->currentIndex().row()].comment = arg1;
-//        if (!charUIUpdate)
-//            reloadCharList();
     }
 
     setUnsaved();
@@ -1038,8 +1036,8 @@ void wFonts::on_ledComment_textChanged(const QString &arg1)
 void wFonts::on_ledFontName_textChanged(const QString &arg1)
 {
     font.name = arg1;
-    reloadValidProperty();
-    checkCurrentChar();
+    checkPropValidity();
+    checkCharValidity();
     setUnsaved();
 }
 
@@ -1047,8 +1045,8 @@ void wFonts::on_ledFontName_textChanged(const QString &arg1)
 void wFonts::on_ledColorTexture_textChanged(const QString &arg1)
 {
     font.colorTexture = arg1;
-    reloadValidProperty();
-    checkCurrentChar();
+    checkPropValidity();
+    checkCharValidity();
     setUnsaved();
 
     loadTexPreview();
@@ -1058,8 +1056,8 @@ void wFonts::on_ledColorTexture_textChanged(const QString &arg1)
 void wFonts::on_ledAlphaTexture_textChanged(const QString &arg1)
 {
     font.alphaTexture = arg1;
-    reloadValidProperty();
-    checkCurrentChar();
+    checkPropValidity();
+    checkCharValidity();
     setUnsaved();
 
     loadTexPreview();
@@ -1069,8 +1067,8 @@ void wFonts::on_ledAlphaTexture_textChanged(const QString &arg1)
 void wFonts::on_sbxMaxHeigthOfChars_textChanged(const QString &arg1)
 {
     font.maxHeightOfChars = arg1.toInt();
-    reloadValidProperty();
-    checkCurrentChar();
+    checkPropValidity();
+    checkCharValidity();
     setUnsaved();
 }
 
@@ -1078,8 +1076,8 @@ void wFonts::on_sbxMaxHeigthOfChars_textChanged(const QString &arg1)
 void wFonts::on_sbxDistanceBetweenChars_textChanged(const QString &arg1)
 {
     font.distanceBetweenChars = arg1.toInt();
-    reloadValidProperty();
-    checkCurrentChar();
+    checkPropValidity();
+    checkCharValidity();
     setUnsaved();
 }
 
@@ -1127,7 +1125,7 @@ void wFonts::reloadCharUI()
 
     ui->ledComment->setText(character.comment);
 
-    checkCurrentChar();
+    checkCharValidity();
     charUIUpdate = false;
 }
 
@@ -1309,7 +1307,7 @@ void wFonts::on_sbxLeftPixel_textChanged(const QString &arg1)
 //            reloadCharList();
     }
 
-    checkCurrentChar();
+    checkCharValidity();
     setUnsaved();
 }
 
@@ -1322,12 +1320,9 @@ void wFonts::on_sbxRightPixel_textChanged(const QString &arg1)
             font.charList[ui->lvwChars->currentIndex().row()].rightPixel = -1;
         else
             font.charList[ui->lvwChars->currentIndex().row()].rightPixel = arg1.toInt();
-
-//        if (!charUIUpdate)
-//            reloadCharList();
     }
 
-    checkCurrentChar();
+    checkCharValidity();
     setUnsaved();
 }
 
@@ -1340,12 +1335,9 @@ void wFonts::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
             font.charList[ui->lvwChars->currentIndex().row()].highestPixelInFontRow = -1;
         else
             font.charList[ui->lvwChars->currentIndex().row()].highestPixelInFontRow = arg1.toInt();
-
-//        if (!charUIUpdate)
-//            reloadCharList();
     }
 
-    checkCurrentChar();
+    checkCharValidity();
     setUnsaved();
 }
 
