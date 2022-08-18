@@ -14,7 +14,7 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     setWindowTitle(OTName + " - " + ui->lblStatus->text());
 
     timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(finished()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateCheck()));
     timer->start(startUpScreenDuration);
 
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
@@ -64,7 +64,67 @@ wStartUpScreen::~wStartUpScreen()
     delete ui;
 }
 
-/// Shows first setup section
+/// Update check (if enabled)
+void wStartUpScreen::updateCheck()
+{
+    timer->stop();
+
+    ui->lblStatus->setText(tr("Check for updates..."));
+    qApp->processEvents();
+
+    QVariant checkVersion = set.read("main", "autoUpdateCheck");
+    QVariant lastAutoUpdateCheck = set.read("main", "lastAutoUpdateCheck").toString();
+    bool checkForUpdate = false;
+
+    QDate lastCheck;
+    lastCheck.setDate(lastAutoUpdateCheck.toString().remove(4, 4).toInt(),
+                      lastAutoUpdateCheck.toString().remove(0, 4).remove(2, 2).toInt(),
+                      lastAutoUpdateCheck.toString().remove(0, 6).toInt());
+
+            // On start
+    if (checkVersion == 1)
+        checkForUpdate = true;
+
+            // If updates enabled, but there's no lastAutoUpdateCheck
+    else if (!lastAutoUpdateCheck.isValid() && (checkVersion != 0))
+        checkForUpdate = true;
+
+            // Daily
+    else if ((checkVersion == 2) &&
+             (lastAutoUpdateCheck.toString() != misc.getDate("yyyyMMdd")))
+        checkForUpdate = true;
+
+            // Weekly
+    else if ((checkVersion == 3) &&
+             (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addDays(7).toString("yyyyMMdd")))
+        checkForUpdate = true;
+
+            // Monthly
+    else if ((checkVersion == 4) &&
+             (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addMonths(1).toString("yyyyMMdd")))
+        checkForUpdate = true;
+
+    if (checkForUpdate)
+    {
+        update = misc.getUpdateInformation();
+        set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
+
+        if (update.at(0) != "false")
+        {
+            ui->lblStatus->setText(tr("Found update"));
+            ui->btnClose->setEnabled(true);
+
+            NEWUPDATE = new newUpdate(update, this);
+            ui->vlaFirstSetup->addWidget(NEWUPDATE);
+
+            connect(NEWUPDATE, &newUpdate::goToStartScreen, this, &wStartUpScreen::finished);
+        }
+    }
+    else
+        finished();
+}
+
+/// Finished first setup
 void wStartUpScreen::finished()
 {
     timer->stop();

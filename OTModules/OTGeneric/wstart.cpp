@@ -62,58 +62,7 @@ wStart::wStart(QWidget *parent)
 
     ui->actionAbout->setText(tr("About %1").arg(OTName));
 
-    ui->fraUpdate->setVisible(false);
 
-    adjustSize();
-
-    QVariant checkVersion = set.read("main", "autoUpdateCheck");
-    QVariant lastAutoUpdateCheck = set.read("main", "lastAutoUpdateCheck").toString();
-    bool checkForUpdate = false;
-
-    QDate lastCheck;
-    lastCheck.setDate(lastAutoUpdateCheck.toString().remove(4, 4).toInt(),
-                      lastAutoUpdateCheck.toString().remove(0, 4).remove(2, 2).toInt(),
-                      lastAutoUpdateCheck.toString().remove(0, 6).toInt());
-
-            // On start
-    if (checkVersion == 1)
-        checkForUpdate = true;
-
-            // If updates enabled, but there's no lastAutoUpdateCheck
-    else if (!lastAutoUpdateCheck.isValid() && (checkVersion != 0))
-        checkForUpdate = true;
-
-            // Daily
-    else if ((checkVersion == 2) &&
-             (lastAutoUpdateCheck.toString() != misc.getDate("yyyyMMdd")))
-        checkForUpdate = true;
-
-            // Weekly
-    else if ((checkVersion == 3) &&
-             (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addDays(7).toString("yyyyMMdd")))
-        checkForUpdate = true;
-
-            // Monthly
-    else if ((checkVersion == 4) &&
-             (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addMonths(1).toString("yyyyMMdd")))
-        checkForUpdate = true;
-
-    if (checkForUpdate)
-    {
-        update = misc.getUpdateInformation();
-        set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
-
-        if (update.at(0) == "noUpdates")
-            ui->statusbar->showMessage(tr("No updates available."), 30000);
-        else if (update.at(0) != "false")
-        {
-            ui->lblUpdate->setText(tr("New update available") + " •");
-            ui->fraUpdate->setVisible(true);
-            ui->lblUpdateVersion->setText(update.at(1));
-
-            updateVersion = update.at(1);
-        }
-    }
 
     startCounterMsgSender();
 
@@ -257,14 +206,6 @@ void wStart::on_btnStyleTest_clicked()
     hide();
     WSTYLETEST = new wStyleTest();
     WSTYLETEST->show();
-}
-
-/// Opens wReleaseNotes to show latest update notes
-void wStart::on_btnView_clicked()
-{
-    WRELEASENOTES = new wReleaseNotes(this, true, update.at(1));
-    WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
-    WRELEASENOTES->show();
 }
 
 /// Opens link to github repository

@@ -20,6 +20,7 @@ SOURCES += \
     OTModules/OTInternals/wstyletest.cpp \
     OTWidgets/fadeinouttext.cpp \
     OTWidgets/firstsetup.cpp \
+    OTWidgets/newupdate.cpp \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
     OTModules/OTInternals/wdevtools.cpp \
@@ -51,6 +52,7 @@ HEADERS += \
     OTModules/OTInternals/wstyletest.h \
     OTWidgets/fadeinouttext.h \
     OTWidgets/firstsetup.h \
+    OTWidgets/newupdate.h \
     OTWidgets/verifymaptools.h \
     OTModules/OTGeneric/wabout.h \
     OTModules/OTGeneric/wreleasenotes.h \
@@ -72,6 +74,7 @@ FORMS += \
     OTModules/OTInternals/wstyletest.ui \
     OTWidgets/fadeinouttext.ui \
     OTWidgets/firstsetup.ui \
+    OTWidgets/newupdate.ui \
     OTWidgets/verifymaptools.ui \
     OTModules/OTGeneric/wabout.ui \
     OTModules/OTGeneric/wreleasenotes.ui \

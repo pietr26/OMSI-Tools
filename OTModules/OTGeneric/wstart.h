@@ -62,8 +62,6 @@ private slots:
 
     void on_btnStyleTest_clicked();
 
-    void on_btnView_clicked();
-
     void on_actionSourceCodeOnGitHub_triggered();
 
     void on_actionReleaseNotes_triggered();
@@ -96,10 +94,7 @@ private:
     OTMiscellaneous misc;
     OTFileOperations fop;
 
-    QString updateVersion;
     void startCounterMsgSender();
-
-    QStringList update;
 };
 
 #endif // WSTART_H

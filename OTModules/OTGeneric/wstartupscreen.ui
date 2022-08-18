@@ -10,9 +10,6 @@
     <height>687</height>
    </rect>
   </property>
-  <property name="cursor">
-   <cursorShape>BusyCursor</cursorShape>
-  </property>
   <property name="windowTitle">
    <string notr="true">wStartUpScreen</string>
   </property>
