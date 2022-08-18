@@ -7,6 +7,7 @@
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
 #include "OTModules/OTGeneric/wstart.h"
+#include "OTWidgets/newupdate.h"
 
 namespace Ui {
 class wStartUpScreen;
@@ -27,11 +28,15 @@ private slots:
 
     void on_btnClose_clicked();
 
+    void updateCheck();
+
 private:
     Ui::wStartUpScreen *ui;
     OTSettings set;
+    OTMiscellaneous misc;
     wStart *WSTART;
     firstSetup *FIRSTSETUP;
+    newUpdate *NEWUPDATE;
 
     QTimer *timer;
 
@@ -40,6 +45,9 @@ private:
 #else
     const int startUpScreenDuration = 3000;
 #endif
+
+    QString updateVersion;
+    QStringList update;
 };
 
 #endif // WSTARTUPSCREEN_H

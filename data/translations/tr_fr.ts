@@ -253,12 +253,12 @@
         <translation>Obtenir des objets de paysage et des splines...</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="61"/>
+        <location filename="../../main.cpp" line="75"/>
         <source>Crash detected</source>
         <translation>Crash détecté</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="61"/>
+        <location filename="../../main.cpp" line="75"/>
         <source>%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.
 Open the path of the logfile?</source>
         <translation>%1 semble s&apos;être écrasé lors du dernier lancement. Le fichier journal du dernier lancement a été enregistré séparément. Veuillez contacter le développeur à ce sujet. Ouvrez le chemin du fichier journal ?</translation>
@@ -290,18 +290,36 @@ AW Bamp: Damit ist ein &quot;erstes Einrichten&quot; oder, ja, genau, eine erste
     </message>
 </context>
 <context>
+    <name>newUpdate</name>
+    <message>
+        <location filename="../../OTWidgets/newupdate.ui" line="67"/>
+        <source>New update available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/newupdate.ui" line="190"/>
+        <source>Show details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/newupdate.ui" line="197"/>
+        <source>Update later</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>verifyMapTools</name>
     <message>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="72"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="90"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="108"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="58"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="76"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="94"/>
         <source>From left list</source>
         <translation>De la liste de gauche</translation>
     </message>
     <message>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="81"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="99"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="117"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="67"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="85"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="103"/>
         <source>From right list</source>
         <translation>De la liste de droite</translation>
     </message>
@@ -1927,158 +1945,153 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
 <context>
     <name>wStart</name>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="116"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="41"/>
         <source>Content development</source>
         <translation>Développement du contenu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="128"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="53"/>
         <source>Font creation</source>
         <translation>Création de polices</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="142"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="158"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="174"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="190"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="206"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="225"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="241"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="335"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="391"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="411"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="67"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="83"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="99"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="115"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="131"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="150"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="166"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="260"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="316"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="336"/>
         <source>This module is currently not available.</source>
         <translation>Ce module n&apos;est actuellement pas disponible.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="180"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="105"/>
         <source>Money / ticket packs</source>
         <translation>Paquets d&apos;argent / billets</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="215"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="140"/>
         <source>Maps</source>
         <translation>Cartes</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="164"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="89"/>
         <source>Sceneryobjects</source>
         <translation>Objets du paysage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="148"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="73"/>
         <source>Vehicles</source>
         <translation>Véhicules</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="247"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="172"/>
         <source>Splines</source>
         <translation>Splines</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="196"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="121"/>
         <source>Scripts</source>
         <translation>Scripts</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="231"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="156"/>
         <source>Textures</source>
         <translation>Textures</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="273"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="198"/>
         <source>Troubleshooting</source>
         <translation>Dépannage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="288"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="213"/>
         <source>Verify map</source>
         <translation>Vérifier la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="338"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="263"/>
         <source>Backup</source>
         <translation>Sauvegarde</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="349"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="274"/>
         <source>Cleanup</source>
         <translation>Nettoyage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="382"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="307"/>
         <source>Finishing</source>
         <translation>Finition</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="397"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="322"/>
         <source>Save modifiaction for release...</source>
         <translation>Sauvegarder la modification pour le lancement...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="448"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="373"/>
         <source>Open</source>
         <translation>Ouvrir</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="459"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="384"/>
         <source>Create shortcut</source>
         <translation>Créer un raccourci</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="631"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="634"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="556"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="559"/>
         <source>Release notes</source>
         <translation>Notes de mise à jour</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="652"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="577"/>
         <source>Source code on GitHub</source>
         <translation>Code source sur GitHub</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="661"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="586"/>
         <source>Restart</source>
         <translation>Redémarrer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="670"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="673"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="595"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="598"/>
         <source>Check for updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="676"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="601"/>
         <source>Ctrl+F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="79"/>
-        <source>View</source>
-        <translation>Voir</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="643"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="568"/>
         <source>Manual</source>
         <translation>Manuel</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="549"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="474"/>
         <source>Specials</source>
         <translation>Spéciaux</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="323"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="248"/>
         <source>Disk memory</source>
         <translation>Mémoire du disque</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="577"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="502"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="589"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="514"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
@@ -2088,64 +2101,58 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation>À propos de %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="107"/>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="311"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="252"/>
         <source>No updates available.</source>
         <translation>Aucune mise à jour disponible.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="110"/>
-        <source>New update available</source>
-        <translation>Nouvelle mise à jour disponible</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="211"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="160"/>
         <source>Simulate crash</source>
         <translation>Simuler un accident</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="211"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="160"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Le crash d&apos;une application doit-il être simulé ?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="283"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="224"/>
         <source>Feedback</source>
         <translation>Commentaires</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="283"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="224"/>
         <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
         <translation>Nous vous invitons à nous faire part de vos commentaires sur %1 afin que nous puissions améliorer notre logiciel.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="311"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="252"/>
         <source>Finshed</source>
         <translation type="unfinished">Enveloppé</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="417"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="342"/>
         <source>Release modification</source>
         <translation>Modification de la version</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="431"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="356"/>
         <source>Simulate chrash</source>
         <translation>Simuler un accident</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="541"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="466"/>
         <source>Window</source>
         <translation>Fenêtre</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="555"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="619"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="480"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="544"/>
         <source>Help</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="302"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="227"/>
         <source>Content search</source>
         <translation>Recherche de contenu</translation>
     </message>
@@ -2158,7 +2165,17 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation>jeune pousse...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="71"/>
+        <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="72"/>
+        <source>Check for updates...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="114"/>
+        <source>Found update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="133"/>
         <source>Finished.</source>
         <translation>Fini.</translation>
     </message>
@@ -2221,7 +2238,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="106"/>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1151"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="301"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="285"/>
         <source>Start verifying</source>
         <translation>Commencer à vérifier</translation>
     </message>
@@ -2396,27 +2413,27 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation>Appuyez sur %1 pour lancer la vérification.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="303"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="287"/>
         <source>Running...</source>
         <translation>Courir...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="327"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="309"/>
         <source>The selected map file doesn&apos;t exist.</source>
         <translation>Le fichier de carte sélectionné n&apos;existe pas.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="327"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="309"/>
         <source>Map file doesn&apos;t exist</source>
         <translation>Le fichier de carte n&apos;existe pas</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="491"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="439"/>
         <source>Verifycation finished.</source>
         <translation>Vérification terminée.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="618"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="541"/>
         <source>Reloaded map list.</source>
         <translation type="unfinished"></translation>
     </message>

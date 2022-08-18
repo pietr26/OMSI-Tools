@@ -16,6 +16,20 @@ void testArea()
     //qDebug() << "+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&";
 }
 
+/// Cleanup actions after updates
+void updateCleanup()
+{
+    qInfo() << "Update installed, remove old files...";
+
+    // Necessary for every update:
+    QDir(QDir::tempPath() + "/OMSI-Tools_tempAppDir").removeRecursively();
+
+    // Necessary for specified versions:
+
+    // 001: >  1.0.0-lite - Remove unused image libaries
+    // Moved to Updater (permission conflicts)
+}
+
 /// Main function
 int main(int argc, char *argv[])
 {
@@ -70,18 +84,11 @@ int main(int argc, char *argv[])
 
     // If the application was updated, remove the temporary directory in the temp folder
     if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "updateInstalled"))
-    {
-        qInfo() << "Update installed, remove old files...";
-        QDir(QDir::tempPath() + "/OMSI-Tools_tempAppDir").removeRecursively();
-    }
+        updateCleanup();
 
     // Start counter
-    int startCount;
     if (set.read("main", "startCount").isValid())
-    {
-        startCount = set.read("main", "startCount").toInt();
-        set.write("main", "startCount", startCount + 1);
-    }
+        set.write("main", "startCount", set.read("main", "startCount").toInt() + 1);
     else
         set.write("main", "startCount", 1);
 
@@ -107,4 +114,3 @@ int main(int argc, char *argv[])
 
     return exec;
 }
-
