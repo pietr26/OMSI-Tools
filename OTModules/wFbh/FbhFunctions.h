@@ -6,7 +6,7 @@
 class cAdmonition
 {
 public:
-    const QString de = "<p>Bitte beachte, dass es bei wiederholten Verstößen zu Ermahnungen oder Admonitionen kommen kann.</p>";
+    const QString de = "<p>Bitte beachte, dass es bei wiederholten Verstößen zu Ermahnungen oder Verwarnungen kommen kann.</p>";
     const QString en = "<p>Please note that repeated violations may result in admonitions or warnings.</p>";
 };
 
