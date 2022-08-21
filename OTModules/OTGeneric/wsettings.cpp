@@ -122,7 +122,7 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
         ui->twgSettings->setTabVisible(4, true);
         ui->twgSettings->setCurrentIndex(4);
         qApp->processEvents();
-        ui->gbxMapVerifycation->setStyleSheet(highlightedGroupBox);
+
         QFont bold;
         bold.setWeight(QFont::Bold);
         ui->gbxMapVerifycation->setFont(bold);
