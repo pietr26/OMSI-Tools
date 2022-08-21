@@ -102,8 +102,6 @@ private:
     void setUnsaved(bool visible);
 
     void reloadThemePreview();
-
-    const QString highlightedGroupBox = "QGroupBox { border: 1px solid yellow; margin-top: 1.5ex; } QGroupBox::title { subcontrol-origin: margin; }";
 };
 
 #endif // WSETTINGS_H
