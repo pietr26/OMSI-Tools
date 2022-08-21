@@ -27,7 +27,7 @@ public:
 class cFilestructure
 {
 public:
-    const QString de = "<li><strong>Filestructure:</strong> Alle Archive müssen den vollständigen OMSI-Pfad enthalten. Die erste Ebene muss entweder mit [tt]\\OMSI 2\\Vehicles[/tt] (o.ä.) oder direkt mit den Unterordnern [tt]\\Vehicles[/tt] (o.ä.) beginnen. Mit dem kostenlosen Programm \"Omsipfad\" lässt sich auf einfache Weise ein Archiv mit korrekter Filestructure erstellen: <a href=\"https://reboot.omsi-webdisk.de/file/5089-omsipfad-omsipath/\"><strong>Download</strong></a><strong></strong> | <a href=\"https://reboot.omsi-webdisk.de/wiki/entry/74-omsipfad-FileStructure-fuer-den-upload-erstellen/\"><strong>Erklärung</strong></a></li>";
+    const QString de = "<li><strong>Ordnerstruktur:</strong> Alle Archive müssen den vollständigen OMSI-Pfad enthalten. Die erste Ebene muss entweder mit [tt]\\OMSI 2\\Vehicles[/tt] (o.ä.) oder direkt mit den Unterordnern [tt]\\Vehicles[/tt] (o.ä.) beginnen. Mit dem kostenlosen Programm \"Omsipfad\" lässt sich auf einfache Weise ein Archiv mit korrekter Ordnerstruktur erstellen: <a href=\"https://reboot.omsi-webdisk.de/file/5089-omsipfad-omsipath/\"><strong>Download</strong></a><strong></strong> | <a href=\"https://reboot.omsi-webdisk.de/wiki/entry/74-omsipfad-OrdnerstrukturOrdnerstruktur-fuer-den-upload-erstellen/\"><strong>Erklärung</strong></a></li>";
     const QString en = "<li><strong>Folder structure:</strong> All archives must contain the complete OMSI path. The first level must start either with [tt]\\OMSI 2\\Vehicles[/tt] (or similar) or directly with the subfolders [tt]\\Vehicles[/tt] (or similar). With the free program \"Omsipath\" you can easily create an archive with a correct folder structure: <a href=\"https://reboot.omsi-webdisk.de/file/5089-omsipfad-omsipath/\"><strong>Download</strong></a><strong></strong> | <a href=\"https://reboot.omsi-webdisk.de/wiki/entry/76-omsipfad-create-folder-structure-for-the-upload/\"><strong>Explanation</strong></a></li>";
 };
 
@@ -70,7 +70,7 @@ class cCopyrightviolation
 {
 public:
     // li ... br ol
-    const QString deStart = "<li><strong>Copyrightviolation:</strong> In deinem Datei-Eintrag wird / werden eine / mehrere Copyrightviolation(en) vermutet.<ol>";
+    const QString deStart = "<li><strong>Urheberrechtsverletzung:</strong> In deinem Datei-Eintrag wird / werden eine / mehrere Urheberrechtsverletzung(en) vermutet.<ol>";
     const QString enStart = "<li><strong>Copyright violation:</strong> Your file entry is suspected of copyright violation(s).<ol>";
 
     // /ol ... /li
@@ -109,7 +109,7 @@ public:
 class cContactdetails
 {
 public:
-    const QString de = "<li><strong>Contactdetails:</strong> Wir haben die Contactdetails aus deinem Datei-Eintrag entfernt. Wir können nicht sicherstellen, ob dies wirklich deine Contactdetails sind. Abgesehen davon könnten diese Opfer von Spam und / oder Missbrauch werden.</li>";
+    const QString de = "<li><strong>Kontaktdaten:</strong> Wir haben die Kontaktdaten aus deinem Datei-Eintrag entfernt. Wir können nicht sicherstellen, ob dies wirklich deine Kontaktdaten sind. Abgesehen davon könnten diese Opfer von Spam und / oder Missbrauch werden.</li>";
     const QString en = "<li><strong>Contact information:</strong> We have removed the contact information from your file entry. We cannot ensure that this is really your contact information. Apart from that, they could become victims of spam and / or abuse.</li>";
 };
 
@@ -123,7 +123,7 @@ public:
 class cProjectpresentation
 {
 public:
-    const QString de = "<li><strong>Projectpresentation:</strong> Offensichtlich möchtest du dein Projekt vorstellen. Dazu nutze bitte den <a href=\"https://reboot.omsi-webdisk.de/community/board/184-wip-in-entwicklung/\"><strong>Forenbereich für Projectpresentationen</strong></a>. Dort kannst du dann ein neues Thema eröffnen und dein Projekt vorstellen. Bitte beachte, dass die Vorstellung auch Bilder beinhalten sollte, die du dort unter \"Dateianhänge und Bilder\" hochladen kannst.<br>Die Filebase ist nur für fertige Projekte bzw. für Projekte einem Verwendungszweck für den Endbenutzer gedacht.</li>";
+    const QString de = "<li><strong>Projektvorstellung:</strong> Offensichtlich möchtest du dein Projekt vorstellen. Dazu nutze bitte den <a href=\"https://reboot.omsi-webdisk.de/community/board/184-wip-in-entwicklung/\"><strong>Forenbereich für Projektvorstellungen</strong></a>. Dort kannst du dann ein neues Thema eröffnen und dein Projekt vorstellen. Bitte beachte, dass die Vorstellung auch Bilder beinhalten sollte, die du dort unter \"Dateianhänge und Bilder\" hochladen kannst.<br>Die Filebase ist nur für fertige Projekte bzw. für Projekte einem Verwendungszweck für den Endbenutzer gedacht.</li>";
     const QString en = "<li><strong>Project presentation:</strong> Obviously you want to present your project. For this please use the <a href=\"https://reboot.omsi-webdisk.de/community/board/184-wip-in-entwicklung/\"><strong>forum area for project presentations</strong></a>. There you can open a new topic and present your project. Please note that the presentation should also include pictures, which you can upload there under \"File attachments and pictures\".<br>The filebase is intended only for finished projects or for projects with a purpose for the end user.</li>";
 };
 
