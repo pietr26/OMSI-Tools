@@ -12,6 +12,7 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     qDebug() << "UI set";
 
     setWindowTitle(OTName + " - " + tr("map verify"));
+    ui->statusbar->addPermanentWidget(ui->pgbProgress);
 
     // Set default settings
     if (!set.read(objectName(), "advVerifying").isValid())
@@ -329,8 +330,17 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     if (set.read(objectName(), "advVerifying").toBool())
     {
         qInfo() << "Checking sceneryobjects...";
-        filehandler.verifyObjects(filehandler.stuffobj.existing.sceneryobjects);
-        qDebug() << "Checked sceneryobjects.";
+        //filehandler.verifyObjects(filehandler.stuffobj.existing.sceneryobjects);
+
+        //QFuture<void> future = QtConcurrent::run(&OTOMSIFileHandler::verifyObjects, &filehandler, filehandler.stuffobj.existing.sceneryobjects);
+        QFuture<void> future = QtConcurrent::run([=]() {
+            filehandler.verifyObjects(filehandler.stuffobj.existing.sceneryobjects);
+        });
+
+        QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
+        watcher->setFuture(future);
+
+        connect(watcher, &QFutureWatcher<void>::finished, this, [=]() { qDebug() << "Checked sceneryobjects."; });
 
         qInfo() << "Checking splines...";
         filehandler.verifySplines(filehandler.stuffobj.existing.splines);

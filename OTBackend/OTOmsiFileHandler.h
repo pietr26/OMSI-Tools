@@ -507,14 +507,14 @@ public:
     {
         cutCount = set.read("main", "mainDir").toString().count() + 1;
 
-        progressName = QObject::tr("Checking splines...");
-        maxProgress = splines.count();
+        /*progressName = QObject::tr("Checking splines...");
+        maxProgress = splines.count();*/
         int i = 0;
 
         foreach (QString current, splines)
         {
             i++;
-            currentProgress = i;
+            /*currentProgress = i;*/
             qApp->processEvents();
 
             //            if (current == "Splines\\ADDON_Bad_Huegelsdorf\\Ueberland\\str_land_2spur_6m.sli")

@@ -31,7 +31,7 @@
        <widget class="QComboBox" name="cobxMapName">
         <property name="font">
          <font>
-          <bold>true</bold>
+          <bold>false</bold>
          </font>
         </property>
         <property name="toolTip">
@@ -1053,26 +1053,23 @@
     </item>
     <item>
      <widget class="QProgressBar" name="pgbProgress">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
       <property name="maximum">
-       <number>0</number>
+       <number>100</number>
       </property>
       <property name="value">
        <number>0</number>
       </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="invertedAppearance">
+      <property name="textVisible">
        <bool>false</bool>
+      </property>
+      <property name="textDirection">
+       <enum>QProgressBar::TopToBottom</enum>
       </property>
       <property name="format">
        <string notr="true">%p%</string>
