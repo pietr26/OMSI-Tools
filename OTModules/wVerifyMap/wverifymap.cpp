@@ -326,6 +326,10 @@ void wVerifyMap::on_btnStartVerifying_clicked()
 
     filehandler.stuffobj.removeDuplicates();
 
+    QFuture<void> scoFuture;
+    QFutureWatcher<void> *scoFutureWatcher  = new QFutureWatcher<void>(this);
+    QEventLoop *loop = new QEventLoop();
+
     // SCO and SLI (advanced)
     if (set.read(objectName(), "advVerifying").toBool())
     {
@@ -333,14 +337,12 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         //filehandler.verifyObjects(filehandler.stuffobj.existing.sceneryobjects);
 
         //QFuture<void> future = QtConcurrent::run(&OTOMSIFileHandler::verifyObjects, &filehandler, filehandler.stuffobj.existing.sceneryobjects);
-        QFuture<void> future = QtConcurrent::run([=]() {
+        scoFuture = QtConcurrent::run([=]() {
             filehandler.verifyObjects(filehandler.stuffobj.existing.sceneryobjects);
         });
 
-        QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
-        watcher->setFuture(future);
-
-        connect(watcher, &QFutureWatcher<void>::finished, this, [=]() { qDebug() << "Checked sceneryobjects."; });
+        scoFutureWatcher->setFuture(scoFuture);
+        connect(scoFutureWatcher, &QFutureWatcher<void>::finished, this, [=]() { qDebug() << "Checked sceneryobjects."; loop->quit(); });
 
         qInfo() << "Checking splines...";
         filehandler.verifySplines(filehandler.stuffobj.existing.splines);
@@ -361,6 +363,12 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     qInfo() << "Get map textures...";
     filehandler.checkTextureLayers(this);
     qDebug() << "Got map textures.";
+
+    if (set.read(objectName(), "advVerifying").toBool())
+        loop->exec();
+
+    scoFutureWatcher->deleteLater();
+    loop->deleteLater();
 
     // SET UI:
     {
@@ -451,6 +459,13 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     endVerifying();
 }
 
+/// Ends verifying
+void wVerifyMap::endVerifying()
+{
+    startEndWatchProgress(false);
+    enableView(true);
+}
+
 /// Sets detail buttons
 void wVerifyMap::setDetailButtons()
 {
@@ -473,13 +488,6 @@ void wVerifyMap::setDetailButtons()
 
     if (!(ui->ledMissingHumans->text() == "" || ui->ledMissingHumans->text() == "0"))
         ui->btnHumansDetails->setVisible(true);
-}
-
-/// Ends verifying
-void wVerifyMap::endVerifying()
-{
-    startEndWatchProgress(false);
-    enableView(true);
 }
 
 /// Closes the application
