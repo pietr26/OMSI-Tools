@@ -226,29 +226,24 @@
         <translation>Dezember</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="960"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="986"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1040"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="923"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="949"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1003"/>
         <source>[Empty line]</source>
         <translation>[Leere Zeile]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="221"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="224"/>
         <source>Checking sceneryobjects...</source>
         <translation>Überprüfe Szenerieobjekte...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="877"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="835"/>
         <source>[Empty line in parklist %1]</source>
         <translation>[Leere Zeile in Parkplatzliste %1]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="510"/>
-        <source>Checking splines...</source>
-        <translation>Überprüfe Splines...</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="755"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="760"/>
         <source>Get sceneryobjects and splines...</source>
         <translation>Sammle Szenerieobjekte und Splines...</translation>
     </message>
@@ -303,6 +298,7 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
     <message>
         <location filename="../../OTWidgets/newupdate.ui" line="197"/>
         <source>Update later</source>
+        <extracomment>Verb; Context: &quot;The user will update the application later.&quot;</extracomment>
         <translation>Später aktualisieren</translation>
     </message>
 </context>
@@ -2099,32 +2095,32 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Über %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="252"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="261"/>
         <source>No updates available.</source>
         <translation>Keine Aktualisierungen verfügbar.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="160"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="164"/>
         <source>Simulate crash</source>
         <translation>Absturz simulieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="160"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="164"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Soll ein Anwendungsabsturz simuliert werden?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="224"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="228"/>
         <source>Feedback</source>
         <translation>Feedback</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="224"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="228"/>
         <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
         <translation>Wir würden uns freuen, wenn du an einer Umfrage über %1 teilnimmst, um unsere Software zu verbessern.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="252"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="261"/>
         <source>Finshed</source>
         <translation>Fertig</translation>
     </message>
@@ -2173,7 +2169,7 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Aktualisierung gefunden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="133"/>
+        <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="131"/>
         <source>Finished.</source>
         <translation>Fertig.</translation>
     </message>
@@ -2235,8 +2231,8 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
     <name>wVerifyMap</name>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="106"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1151"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="285"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1148"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="286"/>
         <source>Start verifying</source>
         <translation>Überprüfung starten</translation>
     </message>
@@ -2320,33 +2316,33 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Menschen der Karte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1095"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1092"/>
         <source>Map</source>
         <translation>Karte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1104"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1101"/>
         <source>Specials</source>
         <translation>Extras</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1112"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1187"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1109"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1184"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1127"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1124"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1139"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1136"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1163"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1160"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
@@ -2401,37 +2397,37 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Texturen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1175"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1172"/>
         <source>Adjust window size</source>
         <translation>Fenstergröße anpassen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="48"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="49"/>
         <source>Press %1 to start the verification.</source>
         <translation>Drücke %1 zum Starten der Überprüfung.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="287"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="288"/>
         <source>Running...</source>
         <translation>Läuft...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="309"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="310"/>
         <source>The selected map file doesn&apos;t exist.</source>
         <translation>Die ausgewählte Kartendatei existiert nicht.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="309"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="310"/>
         <source>Map file doesn&apos;t exist</source>
         <translation>Karte existiert nicht</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="439"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="457"/>
         <source>Verifycation finished.</source>
         <translation>Überprüfung abgeschlossen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="541"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="561"/>
         <source>Reloaded map list.</source>
         <translation>Kartenliste neu geladen.</translation>
     </message>
