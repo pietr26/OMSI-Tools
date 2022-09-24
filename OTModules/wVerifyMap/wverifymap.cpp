@@ -517,8 +517,10 @@ void wVerifyMap::loadMapList()
 {
     mapListSetupFinished = false;
     ui->cobxMapName->clear();
+
     qDebug() << "Reload map list...";
     mapList = filehandler.listMaps();
+
     qDebug().noquote() << "Map count:" << mapList.count();
 
     for (int i = 0; i < mapList.count(); i++)
@@ -538,7 +540,7 @@ void wVerifyMap::loadMapList()
 /// Sets UI for a new map
 void wVerifyMap::on_cobxMapName_currentIndexChanged(int index)
 {
-    if (!mapListSetupFinished)
+    if ((!mapListSetupFinished) || mapList.isEmpty())
         return;
 
     set.write(objectName(), "mapPath", mapList[index].first);
