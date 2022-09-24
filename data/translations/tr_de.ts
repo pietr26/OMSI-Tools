@@ -682,22 +682,27 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Die Link-Datenbank konnte nicht geöffnet werden. Bitte erneut versuchen oder den Entwickler kontaktieren.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="244"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="142"/>
+        <source>No files available for searching.</source>
+        <translation>Keine Dateien zum Suchen vorhanden.</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="249"/>
         <source>Open selected URLs...</source>
         <translation>Öffne ausgewählte URLs...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="260"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="265"/>
         <source>Copied selected URLs.</source>
         <translation>Ausgewählte URLs kopiert.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="280"/>
         <source>Text files</source>
         <translation>Textdateien</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="280"/>
         <source>All files</source>
         <translation>Alle Dateien</translation>
     </message>
@@ -723,38 +728,38 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Direktlinks (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="280"/>
         <source>Select file with paths...</source>
         <translation>Datei mit Pfaden auswählen...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="303"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation>%1 Pfad(e) werden zur Liste hinzugefügt.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="104"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="303"/>
         <source>Add files</source>
         <translation>Dateien hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="301"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="306"/>
         <source>Process aborted.</source>
         <translation>Vorgang abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="341"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="346"/>
         <source>Downloading might not work with Google Chrome.</source>
         <translation>Mit Google Chrome funktioniert das Herunterladen eventuell nicht.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="343"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="348"/>
         <source>Direct download link - the download will start directly after opening the URL.</source>
         <translation>Direktdownload - Der Download startet direkt, nachdem die URL geöffnet wurde.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="345"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="350"/>
         <source>Archive password:</source>
         <translation>Archivpasswort:</translation>
     </message>
@@ -2095,32 +2100,32 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Über %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="261"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="274"/>
         <source>No updates available.</source>
         <translation>Keine Aktualisierungen verfügbar.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="164"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="179"/>
         <source>Simulate crash</source>
         <translation>Absturz simulieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="164"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="179"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Soll ein Anwendungsabsturz simuliert werden?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="228"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="243"/>
         <source>Feedback</source>
         <translation>Feedback</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="228"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="243"/>
         <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
         <translation>Wir würden uns freuen, wenn du an einer Umfrage über %1 teilnimmst, um unsere Software zu verbessern.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="261"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="274"/>
         <source>Finshed</source>
         <translation>Fertig</translation>
     </message>

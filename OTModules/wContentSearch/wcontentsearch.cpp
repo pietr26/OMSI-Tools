@@ -137,6 +137,11 @@ void wContentSearch::reloadTabNames()
 
 void wContentSearch::on_actionSearch_triggered()
 {
+    if (ui->lwgUserSearch->count() == 0)
+    {
+        ui->statusbar->showMessage(tr("No files available for searching."), 5000);
+        return;
+    }
     clearView(true);
 
     QStringList linkIDs;
