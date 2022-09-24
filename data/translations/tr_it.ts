@@ -681,22 +681,27 @@ Open the path of the logfile?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="244"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="142"/>
+        <source>No files available for searching.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="249"/>
         <source>Open selected URLs...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="260"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="265"/>
         <source>Copied selected URLs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="280"/>
         <source>Text files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="280"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -722,38 +727,38 @@ Open the path of the logfile?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="280"/>
         <source>Select file with paths...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="303"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="104"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="303"/>
         <source>Add files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="301"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="306"/>
         <source>Process aborted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="341"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="346"/>
         <source>Downloading might not work with Google Chrome.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="343"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="348"/>
         <source>Direct download link - the download will start directly after opening the URL.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="345"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="350"/>
         <source>Archive password:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2090,32 +2095,32 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="261"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="274"/>
         <source>No updates available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="164"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="179"/>
         <source>Simulate crash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="164"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="179"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="228"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="243"/>
         <source>Feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="228"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="243"/>
         <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="261"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="274"/>
         <source>Finshed</source>
         <translation type="unfinished"></translation>
     </message>
