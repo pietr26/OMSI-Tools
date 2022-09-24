@@ -5,6 +5,9 @@
 #include <QFile>
 #include <QDebug>
 #include <QApplication>
+#include <QtConcurrent>
+#include <QFuture>
+#include <QFutureWatcher>
 
 class OTVerifyStuff
 {
@@ -753,78 +756,31 @@ public:
         cutCount = set.read("main", "mainDir").toString().count() + 1;
 
         progressName = QObject::tr("Get sceneryobjects and splines...");
-        maxProgress = tiles.count();
-        int i = 0;
+
+        QStringList a = tiles.mid(0, (tiles.count() / 2));
+        QStringList b = tiles.mid(tiles.count() / 2, tiles.count() - 1);
+
+        // List a
+        QFuture<void> aFuture;
+        QFutureWatcher<void> *aFutureWatcher  = new QFutureWatcher<void>();
+        QEventLoop *aLoop = new QEventLoop();
+
+        aFuture = QtConcurrent::run([=]() { getItemsFromTileList(a, checkMissing, "a"); });
+
+        qInfo() << "A:";
+        qInfo() << QObject::connect(aFutureWatcher, &QFutureWatcher<void>::finished, [=]() { qDebug() << "List a finished."; aLoop->quit(); });
+
+        // List b
+        QFuture<void> bFuture;
+        QFutureWatcher<void> *bFutureWatcher  = new QFutureWatcher<void>();
+        QEventLoop *bLoop = new QEventLoop();
+
+        bFuture = QtConcurrent::run([=]() { getItemsFromTileList(b, checkMissing, "b"); });
+
+        qInfo() << "B:";
+        qInfo() << QObject::connect(bFutureWatcher, &QFutureWatcher<void>::finished, [=]() { qDebug() << "List b finished."; bLoop->quit(); });
 
         QString mainDir = set.read("main", "mainDir").toString();
-
-        foreach (QString path, tiles)
-        {
-            qDebug().noquote() << QString("Tile: %1").arg(path);
-
-            i++;
-            currentProgress = i;
-            qApp->processEvents();
-
-            path = getMapPath().remove("global.cfg") + path;
-
-            QFile tile(path);
-            tile.open(QFile::ReadOnly | QFile::Text);
-
-            QTextStream in(&tile);
-            in.setEncoding(QStringConverter::System);
-            QString line;
-
-            while (!in.atEnd())
-            {
-                line = in.readLine();
-
-                if (line == "[object]" || line == "[splineAttachement]" || line == "[attachObj]" || line == "[splineAttachement_repeater]")
-                {
-                    if (line == "[splineAttachement_repeater]")
-                    {
-                        in.readLine();
-                        in.readLine();
-                    }
-
-                    in.readLine();
-                    line = in.readLine();
-
-                    QFile object(mainDir + "/" + line);
-                    QString fullPath = QString(QFileInfo(object).absoluteFilePath()).remove(0, cutCount);
-
-                    if (!object.exists())
-                    {
-                        if (checkMissing)
-                        {
-                            qWarning().noquote() << "Sceneryobject '" + QFileInfo(object).absoluteFilePath() + "' is missing!";
-                            stuffobj.missing.sceneryobjects << fullPath;
-                        }
-                    }
-                    else
-                        stuffobj.existing.sceneryobjects << fullPath;
-                }
-                else if (line == "[spline]" || line == "[spline_h]")
-                {
-                    in.readLine();
-                    line = in.readLine();
-
-                    QFile spline(mainDir + "/" + line);
-                    QString fullPath = QString(QFileInfo(spline).absoluteFilePath()).remove(0, cutCount);
-
-                    if (!spline.exists())
-                    {
-                        if (checkMissing)
-                        {
-                            qWarning().noquote() << "Spline '" + QFileInfo(spline).absoluteFilePath() + "' is missing!";
-                            stuffobj.missing.splines << fullPath;
-                        }
-                    }
-                    else
-                        stuffobj.existing.splines << fullPath;
-                }
-            }
-        }
 
         if (includeParklists)
         {
@@ -898,6 +854,11 @@ public:
                 }
             }
         }
+
+        aLoop->exec();
+        bLoop->exec();
+
+
     }
 
     /// Get vehicles of a map
@@ -1262,6 +1223,82 @@ private:
     QString mapPath;
     OTMessage msg;
     int cutCount = set.read("main", "mainDir").toString().count() + 1;
+
+    void getItemsFromTileList(QStringList tileList, bool checkMissing, QString bla)
+    {
+        QString mainDir = set.read("main", "mainDir").toString();
+
+        maxProgress = tileList.count();
+        int i = 0;
+
+        foreach (QString path, tileList)
+        {
+            qDebug().noquote() << bla + " /// " + QString("Tile: %1").arg(path);
+
+            i++;
+            currentProgress = i;
+            //qApp->processEvents();
+
+            path = getMapPath().remove("global.cfg") + path;
+
+            QFile tile(path);
+            tile.open(QFile::ReadOnly | QFile::Text);
+
+            QTextStream in(&tile);
+            in.setEncoding(QStringConverter::System);
+            QString line;
+
+            while (!in.atEnd())
+            {
+                line = in.readLine();
+
+                if (line == "[object]" || line == "[splineAttachement]" || line == "[attachObj]" || line == "[splineAttachement_repeater]")
+                {
+                    if (line == "[splineAttachement_repeater]")
+                    {
+                        in.readLine();
+                        in.readLine();
+                    }
+
+                    in.readLine();
+                    line = in.readLine();
+
+                    QFile object(mainDir + "/" + line);
+                    QString fullPath = QString(QFileInfo(object).absoluteFilePath()).remove(0, cutCount);
+
+                    if (!object.exists())
+                    {
+                        if (checkMissing)
+                        {
+                            qWarning().noquote() << "Sceneryobject '" + QFileInfo(object).absoluteFilePath() + "' is missing!";
+                            stuffobj.missing.sceneryobjects << fullPath;
+                        }
+                    }
+                    else
+                        stuffobj.existing.sceneryobjects << fullPath;
+                }
+                else if (line == "[spline]" || line == "[spline_h]")
+                {
+                    in.readLine();
+                    line = in.readLine();
+
+                    QFile spline(mainDir + "/" + line);
+                    QString fullPath = QString(QFileInfo(spline).absoluteFilePath()).remove(0, cutCount);
+
+                    if (!spline.exists())
+                    {
+                        if (checkMissing)
+                        {
+                            qWarning().noquote() << "Spline '" + QFileInfo(spline).absoluteFilePath() + "' is missing!";
+                            stuffobj.missing.splines << fullPath;
+                        }
+                    }
+                    else
+                        stuffobj.existing.splines << fullPath;
+                }
+            }
+        }
+    }
 };
 
 #endif // OTOMSIFILEHANDLER_H
