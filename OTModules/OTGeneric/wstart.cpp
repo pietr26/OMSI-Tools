@@ -122,9 +122,28 @@ void wStart::on_btnFonts_clicked()
     WFONTS->show();
 }
 
-/// Opens verify map module
+bool wStart::checkMainDir()
+{
+checkMainDir:
+    if (set.read("main", "mainDir").toString().isEmpty())
+    {
+        if (msg.setMainDir(this))
+        {
+            set.write("main", "mainDir", set.getOmsiPath(this));
+            goto checkMainDir;
+        }
+        else
+            return false;
+    }
+
+    return true;
+}
+
 void wStart::on_btnVerifyMap_clicked()
 {
+    if (!checkMainDir())
+        return;
+
     close();
     WVERIFYMAP = new wVerifyMap();
     WVERIFYMAP->show();
@@ -238,6 +257,9 @@ void wStart::on_actionRestart_triggered()
 /// Opens cleanup module
 void wStart::on_btnCleanup_clicked()
 {
+    if (!checkMainDir())
+        return;
+
     close();
     WCLEANUP = new wCleanup();
     WCLEANUP->show();

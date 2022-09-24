@@ -95,6 +95,7 @@ private:
     OTFileOperations fop;
 
     void startCounterMsgSender();
+    bool checkMainDir();
 };
 
 #endif // WSTART_H

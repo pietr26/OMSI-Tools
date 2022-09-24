@@ -628,6 +628,8 @@ public:
     {
         QList<QPair<QString, QString>> returnList;
 
+        if (!QDir(set.read("main", "mainDir").toString() + "/maps").exists())
+            return returnList;
         QDirIterator mapFolder(set.read("main", "mainDir").toString() + "/maps", QDir::Dirs | QDir::NoDotAndDotDot);
         while (mapFolder.hasNext())
         {
