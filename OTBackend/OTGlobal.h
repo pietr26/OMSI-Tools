@@ -70,7 +70,7 @@ const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Dev;
 const QList<QPair<QString, unsigned int>> OTFacts(
             {
                 QPair<QString, unsigned int>("0,5s", 500),
-                QPair<QString, unsigned int>("1s", 1000),
+                QPair<QString, unsigned int>("1s - <a href='https://google.de'>click me</a>", 1000),
                 QPair<QString, unsigned int>("3s", 3000),
                 QPair<QString, unsigned int>("5s", 5000)
             }
