@@ -552,12 +552,12 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="235"/>
         <source>Delete files permanently</source>
-        <translation>Dateien entgültig löschen</translation>
+        <translation>Dateien endgültig löschen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="235"/>
         <source>Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?</source>
-        <translation>Bitte bedenke, dass diese Option alle Dateien ENTGÜLTIG löschen wird. Nach dem Löschen gibt es keine Möglichkeit, sie wiederherzustellen. Fortfahren?</translation>
+        <translation>Bitte bedenke, dass diese Option alle Dateien ENDGÜLTIG löschen wird. Nach dem Löschen gibt es keine Möglichkeit, sie wiederherzustellen. Fortfahren?</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="250"/>
@@ -572,7 +572,7 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="275"/>
         <source>Delete permanently</source>
-        <translation>Entgültig löschen</translation>
+        <translation>Endgültig löschen</translation>
     </message>
 </context>
 <context>
