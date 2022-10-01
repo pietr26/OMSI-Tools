@@ -253,7 +253,7 @@ void wFonts::saveRecentFiles(QString absoluteNewFilePath)
 
     recentFiles.prepend(absoluteNewFilePath);
 
-    while (recentFiles.count() > maxRecentFileCount)
+    while (recentFiles.size() > maxRecentFileCount)
         recentFiles.removeLast();
 
     set.write(objectName(), "recentFiles", recentFiles);
@@ -312,7 +312,7 @@ void wFonts::checkPropValidity()
 /// Checks current char
 void wFonts::checkCharValidity()
 {
-    if (font.charList.count() == 0)
+    if (font.charList.size() == 0)
         return;
 
     ui->lblCharacter->setStyleSheet("");
@@ -374,7 +374,7 @@ void wFonts::checkCharValidity()
 /// Saves the font automatically
 void wFonts::autosave()
 {
-    if ((set.read("main", "autosave") == "true") && (font.charList.count() != 0))
+    if ((set.read("main", "autosave") == "true") && (font.charList.size() != 0))
     {
         qDebug() << "Autosave called";
         save(OTFileMethods::backupSave);
@@ -412,7 +412,7 @@ void wFonts::selectAllAndClear(bool onlyChar)
 /// Moves cursor / chars up / down
 void wFonts::move(int selection, QString action)
 {
-    if ((selection == 0 && action == "UP") || (selection > font.charList.count() - 1 && action == "DOWN"))
+    if ((selection == 0 && action == "UP") || (selection > font.charList.size() - 1 && action == "DOWN"))
         return;
 
     int moving;
@@ -574,9 +574,9 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen)
     reloadCharList();
     ui->lvwChars->setCurrentIndex(strListChars->index(0));
 
-    if (font.charList.count() != 0)
+    if (font.charList.size() != 0)
     {
-        qDebug().noquote() << QString("Font contains %1 chars.").arg(font.charList.count());
+        qDebug().noquote() << QString("Font contains %1 chars.").arg(font.charList.size());
         enableFontArea(true);
         reloadCharUI();
     }
@@ -621,7 +621,7 @@ void wFonts::reloadCharList(bool addChar)
         ui->lvwChars->setCurrentIndex(strListChars->index(strListChars->rowCount() - 1));
 
 
-    ui->lblCharCount->setText(QString::number(font.charList.count()));
+    ui->lblCharCount->setText(QString::number(font.charList.size()));
     charListUpdate = false;
 }
 
@@ -754,7 +754,7 @@ void wFonts::on_actionGoToNextError_triggered()
 
     bool secondRound = false;
     int i = 0;
-    if (currentPos == font.charList.count() - 1)
+    if (currentPos == font.charList.size() - 1)
         secondRound = true;
     else if (currentPos == 0)
         i = 1;
@@ -803,11 +803,11 @@ void wFonts::on_actionGoToNextError_triggered()
 
         // Wenn es voll ist (1. Runde) ODER wenn in der 2. Runde die vorherige Position erreicht wurde:
         // Überprüfung beenden, da Font keine Fehler enthält.
-        if ((secondRound && (i == font.charList.count() - 1)) || (secondRound && (i == currentPos)))
+        if ((secondRound && (i == font.charList.size() - 1)) || (secondRound && (i == currentPos)))
             goto end;
 
         // Wenn es voll ist / 2. Runde
-        if (!secondRound && (i == font.charList.count() - 1))
+        if (!secondRound && (i == font.charList.size() - 1))
         {
             i = 0;
             secondRound = true;
@@ -833,9 +833,9 @@ void wFonts::on_actionDeleteSelection_triggered()
 
         ui->twgFont->setCurrentIndex(1);
 
-        qDebug() << "Font charlist count:" << font.charList.count();
+        qDebug() << "Font charlist count:" << font.charList.size();
 
-        if (font.charList.count() == 0)
+        if (font.charList.size() == 0)
             selectAllAndClear(true);
         else
             reloadCharUI();
@@ -855,7 +855,7 @@ void wFonts::on_actionSettings_triggered()
 /// Moves char up
 void wFonts::on_actionMoveCharUp_triggered()
 {
-    if (font.charList.count() != 0)
+    if (font.charList.size() != 0)
     {
         move(ui->lvwChars->currentIndex().row(), "UP");
         ui->twgFont->setCurrentIndex(1);
@@ -865,7 +865,7 @@ void wFonts::on_actionMoveCharUp_triggered()
 /// Moves char down
 void wFonts::on_actionMoveCharDown_triggered()
 {
-    if (ui->lvwChars->currentIndex().row() != font.charList.count() - 1)
+    if (ui->lvwChars->currentIndex().row() != font.charList.size() - 1)
     {
         move(ui->lvwChars->currentIndex().row(), "DOWN");
         ui->twgFont->setCurrentIndex(1);
@@ -895,7 +895,7 @@ void wFonts::on_btnColorTexture_clicked()
      if (filename == "")
          return;
 
-     font.colorTexture = filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").count() + 1);
+     font.colorTexture = filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").size() + 1);
 
      if (ui->ledColorTexture->text() != font.colorTexture)
      {
@@ -913,7 +913,7 @@ void wFonts::on_btnAlphaTexture_clicked()
     if (filename == "")
         return;
 
-    font.alphaTexture = filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").count() + 1);
+    font.alphaTexture = filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").size() + 1);
 
     if (ui->ledAlphaTexture->text() != font.alphaTexture)
     {
@@ -1010,7 +1010,7 @@ void wFonts::on_actionLoadTemplate_triggered()
 /// Slot for character changes
 void wFonts::on_ledCharacter_textChanged(const QString &arg1)
 {
-    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    if (font.charList.size() != 0 && ui->lvwChars->currentIndex().row() != -1)
     {
         font.charList[ui->lvwChars->currentIndex().row()].character = arg1;
         if (!charUIUpdate)
@@ -1024,7 +1024,7 @@ void wFonts::on_ledCharacter_textChanged(const QString &arg1)
 /// Slot for comment changes
 void wFonts::on_ledComment_textChanged(const QString &arg1)
 {
-    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    if (font.charList.size() != 0 && ui->lvwChars->currentIndex().row() != -1)
     {
         font.charList[ui->lvwChars->currentIndex().row()].comment = arg1;
     }
@@ -1162,7 +1162,7 @@ void wFonts::on_actionShowInExplorer_triggered()
 /// Finds a char
 void wFonts::on_btnFind_clicked()
 {
-    if (font.charList.count() == 0)
+    if (font.charList.size() == 0)
     {
         msg.noCharsInFont(this);
         return;
@@ -1177,7 +1177,7 @@ void wFonts::on_btnFind_clicked()
     // Search for char
     ui->lvwChars->setCurrentIndex(strListChars->index(0));
 
-    for (int i = 0; i < font.charList.count(); i++)
+    for (int i = 0; i < font.charList.size(); i++)
     {
         if (font.charList.at(i).character == input)
         {
@@ -1202,7 +1202,7 @@ void wFonts::on_btnNextResult_clicked()
     qDebug() << "Go to next search result";
     if (currentSearch != "")
     {
-        if (font.charList.count() == 1)
+        if (font.charList.size() == 1)
             return;
 
         int i = ui->lvwChars->currentIndex().row();
@@ -1213,7 +1213,7 @@ void wFonts::on_btnNextResult_clicked()
 
         bool secondRound = false;
 
-        if (i >= tempList.count())
+        if (i >= tempList.size())
         {
             i = 0;
             qDebug() << "Search: End of font, go to top";
@@ -1223,7 +1223,7 @@ void wFonts::on_btnNextResult_clicked()
 
         while (true)
         {
-            if (i > tempList.count() - 1)
+            if (i > tempList.size() - 1)
             {
                 qDebug() << "Search: Not other char found";
                 ui->statusbar->showMessage(tr("No other character found according to the search criteria."), 4000);
@@ -1238,7 +1238,7 @@ void wFonts::on_btnNextResult_clicked()
                 goto end;
             }
 
-            if (!secondRound && (i == tempList.count() - 1))
+            if (!secondRound && (i == tempList.size() - 1))
             {
                 i = -1;
                 secondRound = true;
@@ -1274,8 +1274,8 @@ void wFonts::on_btnCloseSearch_clicked()
 /// Enables or disables the search elements
 void wFonts::on_ledSearch_textChanged(const QString &arg1)
 {
-    ui->btnFind->setEnabled(arg1.count() == 1);
-    ui->btnNextResult->setEnabled(arg1.count() == 1);
+    ui->btnFind->setEnabled(arg1.size() == 1);
+    ui->btnNextResult->setEnabled(arg1.size() == 1);
     currentSearch = arg1;
 }
 
@@ -1296,7 +1296,7 @@ void wFonts::on_actionSendFeedback_triggered()
 /// Saves left pixel value
 void wFonts::on_sbxLeftPixel_textChanged(const QString &arg1)
 {
-    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    if (font.charList.size() != 0 && ui->lvwChars->currentIndex().row() != -1)
     {
         if (arg1 == "")
             font.charList[ui->lvwChars->currentIndex().row()].leftPixel = -1;
@@ -1314,7 +1314,7 @@ void wFonts::on_sbxLeftPixel_textChanged(const QString &arg1)
 /// Saves right pixel value
 void wFonts::on_sbxRightPixel_textChanged(const QString &arg1)
 {
-    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    if (font.charList.size() != 0 && ui->lvwChars->currentIndex().row() != -1)
     {
         if (arg1 == "")
             font.charList[ui->lvwChars->currentIndex().row()].rightPixel = -1;
@@ -1329,7 +1329,7 @@ void wFonts::on_sbxRightPixel_textChanged(const QString &arg1)
 /// Saves highest pixel value
 void wFonts::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
 {
-    if (font.charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    if (font.charList.size() != 0 && ui->lvwChars->currentIndex().row() != -1)
     {
         if (arg1 == "")
             font.charList[ui->lvwChars->currentIndex().row()].highestPixelInFontRow = -1;

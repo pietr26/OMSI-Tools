@@ -57,7 +57,7 @@ private:
     QStringListModel *strListModelDuplicates;
     QStringListModel *strListModelItems;
 
-    int cutCount = set.read("main", "mainDir").toString().count() + 1;
+    int cutCount = set.read("main", "mainDir").toString().size() + 1;
 
     QString dbPath = "C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/contentSearchDatabases/current.db";
     OTDatabaseHandler dbHandler;

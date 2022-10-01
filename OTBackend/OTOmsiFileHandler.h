@@ -200,7 +200,7 @@ public:
     /// Returns a QStringList with all variables - needs an absolute path
     QStringList readVarlist(QString path)
     {
-        cutCount = set.read("main", "mainDir").toString().count() + 1;
+        cutCount = set.read("main", "mainDir").toString().size() + 1;
 
         QStringList variables;
         QFile varnamelist(path);
@@ -219,10 +219,10 @@ public:
     /// verify a list of sceneryobjects
     void verifyObjects(QStringList &objects)
     {
-        cutCount = set.read("main", "mainDir").toString().count() + 1;
+        cutCount = set.read("main", "mainDir").toString().size() + 1;
 
         progressName = QObject::tr("Checking sceneryobjects...");
-        maxProgress = objects.count();
+        maxProgress = objects.size();
         int i = 0;
 
         foreach (QString current, objects)
@@ -271,7 +271,7 @@ public:
                         {
                             QString varlist = currentDir + "/" + currentVarlist;
 
-                            while (varlist.at(varlist.count() - 1) == ' ')
+                            while (varlist.at(varlist.size() - 1) == ' ')
                                 varlist.remove(varlist.length() - 1, 1);
 
                             if (!QFile(varlist).exists())
@@ -296,7 +296,7 @@ public:
                         {
                             QString stringvarlist = currentDir + "/" + currentVarlist;
 
-                            while (stringvarlist.at(stringvarlist.count() - 1) == ' ')
+                            while (stringvarlist.at(stringvarlist.size() - 1) == ' ')
                                 stringvarlist.remove(stringvarlist.length() - 1, 1);
 
                             if (!QFile(stringvarlist).exists())
@@ -340,7 +340,7 @@ public:
                     {
                         line = in.readLine();
 
-                        while (line.at(line.count() - 1) == ' ')
+                        while (line.at(line.size() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
 
                         // Check if varname exists
@@ -358,7 +358,7 @@ public:
                         for (int i = 0; i < in.readLine().toInt(); i++)
                         {
                             QString scriptPath = in.readLine();
-                            while (scriptPath.at(scriptPath.count() - 1) == ' ')
+                            while (scriptPath.at(scriptPath.size() - 1) == ' ')
                                 scriptPath.remove(scriptPath.length() - 1, 1);
 
                             if (!QFile(currentDir + "/" + scriptPath).exists())
@@ -375,7 +375,7 @@ public:
                         for (int i = 0; i < in.readLine().toInt(); i++)
                         {
                             QString constfilePath = in.readLine();
-                            while (constfilePath.at(constfilePath.count() - 1) == ' ')
+                            while (constfilePath.at(constfilePath.size() - 1) == ' ')
                                 constfilePath.remove(constfilePath.length() - 1, 1);
 
                             if (!QFile(currentDir + "/" + constfilePath).exists())
@@ -390,7 +390,7 @@ public:
                     else if (line == "[mesh]" || line == "[collision_mesh]" || line == "[crossing_heightdeformation]" || line == "[terrainhole]")
                     {
                         line = in.readLine();
-                        while (line.at(line.count() - 1) == ' ')
+                        while (line.at(line.size() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
 
                         QString fullPath = QDir(QFileInfo(object).dir()).absolutePath() + "/model/" + line;
@@ -406,7 +406,7 @@ public:
                     {
                         line = in.readLine();
 
-                        while (line.at(line.count() - 1) == ' ')
+                        while (line.at(line.size() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
 
                         if (!textTextures.contains(line))
@@ -430,7 +430,7 @@ public:
                     else if (line == "[matl_change]")
                     {
                         line = in.readLine();
-                        while (line.at(line.count() - 1) == ' ')
+                        while (line.at(line.size() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
 
                         QString path = QFileInfo(QFileInfo(object).dir().absolutePath() + "/texture/" + line).absoluteFilePath().remove(0, cutCount);
@@ -461,7 +461,7 @@ public:
                     else if (line == "[passengercabin]")
                     {
                         line = in.readLine();
-                        while (line.at(line.count() - 1) == ' ')
+                        while (line.at(line.size() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
 
                         QString fullPath = QDir(QFileInfo(object).dir()).absolutePath() + "/" + line;
@@ -476,7 +476,7 @@ public:
                     else if (line == "[matl_freetex]")
                     {
                         line = in.readLine();
-                        while (line.at(line.count() - 1) == ' ')
+                        while (line.at(line.size() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
 
                         QString path = QFileInfo(QFileInfo(object).dir().absolutePath() + "/texture/" + line).absoluteFilePath().remove(0, cutCount);
@@ -508,10 +508,10 @@ public:
     /// verify a list of splines
     void verifySplines(QStringList &splines)
     {
-        cutCount = set.read("main", "mainDir").toString().count() + 1;
+        cutCount = set.read("main", "mainDir").toString().size() + 1;
 
         /*progressName = QObject::tr("Checking splines...");
-        maxProgress = splines.count();*/
+        maxProgress = splines.size();*/
         int i = 0;
 
         foreach (QString current, splines)
@@ -552,7 +552,7 @@ public:
                             continue;
                         }
 
-                        while (line.at(line.count() - 1) == ' ')
+                        while (line.at(line.size() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
 
                         QString fullPath = QDir(QFileInfo(spline).dir()).absolutePath() + "/" + line;
@@ -649,7 +649,7 @@ public:
         if (mapFolderPath == "")
             mapFolderPath = getMapPath();
 
-        cutCount = set.read("main", "mainDir").toString().count() + 1;
+        cutCount = set.read("main", "mainDir").toString().size() + 1;
 
         param = "[" + param + "]";
 
@@ -689,7 +689,7 @@ public:
     /// Gets tiles from a map
     void getTiles(QWidget *parent = 0)
     {
-        cutCount = set.read("main", "mainDir").toString().count() + 1;
+        cutCount = set.read("main", "mainDir").toString().size() + 1;
 
         QFile global(mapPath);
         if (!global.open(QFile::ReadOnly | QFile::Text))
@@ -755,12 +755,12 @@ public:
     /// Gets items from a map
     void getItems(QStringList &tiles, bool checkMissing = true, bool includeParklists = true)
     {
-        cutCount = set.read("main", "mainDir").toString().count() + 1;
+        cutCount = set.read("main", "mainDir").toString().size() + 1;
 
         progressName = QObject::tr("Get sceneryobjects and splines...");
 
-        QStringList a = tiles.mid(0, (tiles.count() / 2));
-        QStringList b = tiles.mid(tiles.count() / 2, tiles.count() - 1);
+        QStringList a = tiles.mid(0, (tiles.size() / 2));
+        QStringList b = tiles.mid(tiles.size() / 2, tiles.size() - 1);
 
         // List a
         QFuture<void> aFuture;
@@ -866,7 +866,7 @@ public:
     /// Get vehicles of a map
     void getVehicles(QWidget *parent = 0)
     {
-        cutCount = set.read("main", "mainDir").toString().count() + 1;
+        cutCount = set.read("main", "mainDir").toString().size() + 1;
 
         QStringList aiLists;
         aiLists << getMapPath().remove("global.cfg") + "ailists.cfg";
@@ -925,8 +925,8 @@ public:
                         }
 
                         // Cut all numbers, tabs and spaces
-                        while (line.at(line.count() - 1).isNumber() || (line.at(line.count() - 1) == '\x9') || (line.at(line.count() - 1) == ' '))
-                            line.remove(line.count() - 1, 1);
+                        while (line.at(line.size() - 1).isNumber() || (line.at(line.size() - 1) == '\x9') || (line.at(line.size() - 1) == ' '))
+                            line.remove(line.size() - 1, 1);
 
                         QFile vehicle(set.read("main", "mainDir").toString() + "/" + line);
 
@@ -968,7 +968,7 @@ public:
     /// Get humans of a map
     void getHumans(QWidget *parent = 0)
     {
-        cutCount = set.read("main", "mainDir").toString().count() + 1;
+        cutCount = set.read("main", "mainDir").toString().size() + 1;
 
         for (int i = 0; i < 2; i++)
         {
@@ -1172,7 +1172,7 @@ public:
         // Header No. 2
         out << "####################" << extraHashs << "\n";
         out << "Font name:\t\t\t" << font.name << "\n";
-        out << "Total characters:\t" << font.charList.count() << "\n";
+        out << "Total characters:\t" << font.charList.size() << "\n";
         out << "Author:\t\t\t\t" << set.read("main", "author").toString() << "\n";
         out << "####################" << extraHashs << "\n";
         out << "\n";
@@ -1224,13 +1224,13 @@ private:
     OTFileOperations fop;
     QString mapPath;
     OTMessage msg;
-    int cutCount = set.read("main", "mainDir").toString().count() + 1;
+    int cutCount = set.read("main", "mainDir").toString().size() + 1;
 
     void getItemsFromTileList(QStringList tileList, bool checkMissing, QString bla)
     {
         QString mainDir = set.read("main", "mainDir").toString();
 
-        maxProgress = tileList.count();
+        maxProgress = tileList.size();
         int i = 0;
 
         foreach (QString path, tileList)

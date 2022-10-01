@@ -209,7 +209,7 @@ void wDBPanel::on_btnStart_clicked()
 
     while (dirIterator.hasNext())
     {
-        ui->lblProgress->setText("0 / " + QString::number(files.count()));
+        ui->lblProgress->setText("0 / " + QString::number(files.size()));
         qApp->processEvents();
 
         files << QFileInfo(dirIterator.next()).absoluteFilePath().remove(0, cutCount);
@@ -223,7 +223,7 @@ void wDBPanel::on_btnStart_clicked()
 
     dbHandler.createBackup();
 
-    ui->pgbProgress->setMaximum(files.count());
+    ui->pgbProgress->setMaximum(files.size());
     ui->pgbProgress->setValue(0);
     unsigned int i = 0;
 
@@ -234,11 +234,11 @@ void wDBPanel::on_btnStart_clicked()
 
     foreach (QString current, files)
     {
-        reloadTimeMeasurement(files.count() - i);
+        reloadTimeMeasurement(files.size() - i);
         i++;
         qApp->processEvents();
 
-        ui->lblProgress->setText(QString::number(i) + " / " + QString::number(files.count()));
+        ui->lblProgress->setText(QString::number(i) + " / " + QString::number(files.size()));
         ui->pgbProgress->setValue(i);
 
         QSqlQueryModel *qryModel = new QSqlQueryModel;
@@ -265,7 +265,7 @@ void wDBPanel::on_btnStart_clicked()
     setEnabled(true);
     reloadSelectGroupBoxes();
 
-    ui->statusbar->showMessage(QString("Finished - Needed %1 sec for %2 files").arg(QString::number(timer.elapsed() / 1000), QString::number(files.count())));
+    ui->statusbar->showMessage(QString("Finished - Needed %1 sec for %2 files").arg(QString::number(timer.elapsed() / 1000), QString::number(files.size())));
 
     qInfo() << "database comparision / appending finished.";
 }
@@ -280,7 +280,7 @@ void wDBPanel::on_actionClose_triggered()
 void wDBPanel::on_ledDirectory_textChanged(const QString &arg1)
 {
     set.write(objectName(), "tempPath", arg1);
-    cutCount = arg1.count() + 1;
+    cutCount = arg1.size() + 1;
 
     if (arg1 == "")
         ui->btnStart->setEnabled(false);

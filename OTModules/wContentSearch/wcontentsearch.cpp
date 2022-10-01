@@ -118,7 +118,7 @@ void wContentSearch::on_btnSearch_clicked()
 /// Removes current selection from user's input
 void wContentSearch::on_actionRemoveSelection_triggered()
 {
-    if ((ui->lwgUserSearch->selectedItems().count() != 0) && msg.confirmDeletion(this))
+    if ((ui->lwgUserSearch->selectedItems().size() != 0) && msg.confirmDeletion(this))
     {
         ui->gbxAddList->setVisible(false);
         qDeleteAll(ui->lwgUserSearch->selectedItems());
@@ -241,7 +241,7 @@ void wContentSearch::on_btnAddListToList_clicked()
 /// Opens the selected URL in Browser / file system
 void wContentSearch::on_btnOpenInBrowser_clicked()
 {
-    if (ui->lwgLinks->selectedItems().count() != 0)
+    if (ui->lwgLinks->selectedItems().size() != 0)
     {
         foreach (QListWidgetItem *current, ui->lwgLinks->selectedItems())
             QDesktopServices::openUrl(QUrl(current->text()));
@@ -253,7 +253,7 @@ void wContentSearch::on_btnOpenInBrowser_clicked()
 /// Copies links
 void wContentSearch::on_btnCopy_clicked()
 {
-    if (ui->lwgLinks->selectedItems().count() != 0)
+    if (ui->lwgLinks->selectedItems().size() != 0)
     {
         QString copytext;
         foreach (QListWidgetItem *current, ui->lwgLinks->selectedItems())
@@ -300,7 +300,7 @@ void wContentSearch::on_btnAddFile_clicked()
         }
         file.close();
 
-        if (QMessageBox::information(this, tr("Add files"), tr("%1 path(s) will be added to the list.").arg(pathsFromFile.count()), QMessageBox::Cancel | QMessageBox::Yes) == QMessageBox::Yes)
+        if (QMessageBox::information(this, tr("Add files"), tr("%1 path(s) will be added to the list.").arg(pathsFromFile.size()), QMessageBox::Cancel | QMessageBox::Yes) == QMessageBox::Yes)
             ui->lwgUserSearch->addItems(pathsFromFile);
         else
             ui->statusbar->showMessage(tr("Process aborted."), 4000);

@@ -64,7 +64,7 @@ void wCleanup::on_actionAnalyze_triggered()
     ui->lwgSplines->clear();
     filehandler.stuffobj.clear();
 
-    cutCount = set.read("main", "mainDir").toString().count() + 1;
+    cutCount = set.read("main", "mainDir").toString().size() + 1;
 
     QStringList globals;
 
@@ -75,11 +75,11 @@ void wCleanup::on_actionAnalyze_triggered()
     qInfo() << globals;
     qInfo() << "Read maps...";
 
-    ui->pgbProgress->setMaximum(ui->pgbProgress->maximum() + globals.count());
+    ui->pgbProgress->setMaximum(ui->pgbProgress->maximum() + globals.size());
 
-    for (int i = 0; i < globals.count(); i++)
+    for (int i = 0; i < globals.size(); i++)
     {
-        ui->statusbar->showMessage(tr("Read maps (%1 of %2)...").arg(i + 1).arg(globals.count()));
+        ui->statusbar->showMessage(tr("Read maps (%1 of %2)...").arg(i + 1).arg(globals.size()));
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
 
         filehandler.setMapPath(globals.at(i));
@@ -183,7 +183,7 @@ void wCleanup::on_btnStartAction_clicked()
         ui->statusbar->showMessage(tr("Move sceneryobjects..."));
         qInfo() << QString("Move selected sceneryobjects to '%1'...").arg(destinationFolder);
 
-        for (int i = 0; i < ui->lwgObjects->selectedItems().count(); i++)
+        for (int i = 0; i < ui->lwgObjects->selectedItems().size(); i++)
         {
             qApp->processEvents();
 
@@ -208,7 +208,7 @@ void wCleanup::on_btnStartAction_clicked()
         ui->statusbar->showMessage(tr("Move splines..."));
         qInfo() << QString("Move selected splines to '%1'...").arg(destinationFolder);
 
-        for (int i = 0; i < ui->lwgSplines->selectedItems().count(); i++)
+        for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
         {
             qApp->processEvents();
 
@@ -236,12 +236,12 @@ void wCleanup::on_btnStartAction_clicked()
 
         if (reply == QMessageBox::Yes)
         {
-            for (int i = 0; i < ui->lwgObjects->selectedItems().count(); i++)
+            for (int i = 0; i < ui->lwgObjects->selectedItems().size(); i++)
                 QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text()).removeRecursively();
 
             qDeleteAll(ui->lwgObjects->selectedItems());
 
-            for (int i = 0; i < ui->lwgSplines->selectedItems().count(); i++)
+            for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
                 QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text()).removeRecursively();
 
             qDeleteAll(ui->lwgSplines->selectedItems());

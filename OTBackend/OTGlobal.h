@@ -280,7 +280,7 @@ public:
 
             QDir().mkdir(QDir::tempPath() + "/OMSI-Tools_tempAppDir");
 
-            QString newFilePath = QDir::tempPath() + "/OMSI-Tools_tempAppDir/" + file.remove(0, QApplication::applicationDirPath().count() + 1);
+            QString newFilePath = QDir::tempPath() + "/OMSI-Tools_tempAppDir/" + file.remove(0, QApplication::applicationDirPath().size() + 1);
             QDir().mkpath(QFileInfo(newFilePath).absolutePath());
 
             qDebug().noquote() << "New path:" << newFilePath;
