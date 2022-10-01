@@ -97,7 +97,7 @@ private:
     wContentSearch *WCONTENTSEARCH;
     wSettings *WSETTINGS;
 
-    int cutCount = set.read("main", "mainDir").toString().count() + 1;
+    int cutCount = set.read("main", "mainDir").toString().size() + 1;
 
     void selectAllAndClear();
 

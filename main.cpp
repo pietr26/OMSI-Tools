@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
     testArea();
 
     // If the application was updated, remove the temporary directory in the temp folder
-    if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "updateInstalled"))
+    if ((QCoreApplication::arguments().size() >= 2) && (QCoreApplication::arguments().at(1) == "updateInstalled"))
         updateCleanup();
 
     // Start counter
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
     wStartUpScreen *WSTARTUPSCREEN;
     wFbh *WFBH;
 
-    if ((QCoreApplication::arguments().count() >= 2) && (QCoreApplication::arguments().at(1) == "openFbh"))
+    if ((QCoreApplication::arguments().size() >= 2) && (QCoreApplication::arguments().at(1) == "openFbh"))
     {
         WFBH = new wFbh();
         WFBH->show();

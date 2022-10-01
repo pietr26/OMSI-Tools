@@ -37,7 +37,7 @@ void wDevTools::on_btnGetListOfFiles_clicked()
     QString resultStr;
 
     unsigned int i = 0;
-    ui->pgbProgress->setMaximum(files.count());
+    ui->pgbProgress->setMaximum(files.size());
 
     foreach (QString current, files)
     {
@@ -48,7 +48,7 @@ void wDevTools::on_btnGetListOfFiles_clicked()
         current.remove(0, cutCount);
         resultStr += current + "\n";
     }
-    ui->pgbProgress->setValue(files.count());
+    ui->pgbProgress->setValue(files.size());
 
     if (pushToOutput(resultStr))
         qInfo() << "Successfully got filelist!";
@@ -64,13 +64,13 @@ void wDevTools::on_btnGetKeywords_clicked()
 {
     QStringList files = QFileDialog::getOpenFileNames(this, "Select files to analyse", set.read("main", "mainDir").toString(), omsiFilesFilter);
 
-    qInfo().noquote() << "Start to get keywords from " + QString::number(files.count()) + " files...";
+    qInfo().noquote() << "Start to get keywords from " + QString::number(files.size()) + " files...";
 
     unsigned int errorCount = 0;
     QStringList result;
 
     unsigned int i = 0;
-    ui->pgbProgress->setMaximum(files.count());
+    ui->pgbProgress->setMaximum(files.size());
 
     foreach (QString current, files)
     {
@@ -93,7 +93,7 @@ void wDevTools::on_btnGetKeywords_clicked()
             }
         }
     }
-    ui->pgbProgress->setValue(files.count());
+    ui->pgbProgress->setValue(files.size());
 
     result.removeDuplicates();
     result.sort();
@@ -188,18 +188,18 @@ void wDevTools::setOutputVisible(bool mode)
 void wDevTools::on_btnLineCounter_clicked()
 {
     countLinesFiles.append(QFileDialog::getOpenFileNames(this, "Select files to analyse", set.read("main", "mainDir").toString(), omsiFilesFilter));
-    ui->btnLineCounterStart->setText(QString("Start (%1)").arg(countLinesFiles.count()));
+    ui->btnLineCounterStart->setText(QString("Start (%1)").arg(countLinesFiles.size()));
 }
 
 void wDevTools::on_btnLineCounterStart_clicked()
 {
-    qInfo().noquote() << "Start to get line count from " + QString::number(countLinesFiles.count()) + " file(s)...";
+    qInfo().noquote() << "Start to get line count from " + QString::number(countLinesFiles.size()) + " file(s)...";
     unsigned int errorCount = 0;
     unsigned int lines = 0;
     QString result;
 
     unsigned int i = 0;
-    ui->pgbProgress->setMaximum(countLinesFiles.count());
+    ui->pgbProgress->setMaximum(countLinesFiles.size());
 
     foreach(QString current, countLinesFiles)
     {
@@ -223,7 +223,7 @@ void wDevTools::on_btnLineCounterStart_clicked()
             }
         }
     }
-    ui->pgbProgress->setValue(countLinesFiles.count());
+    ui->pgbProgress->setValue(countLinesFiles.size());
 
     result = QString::number(lines) + "\n";
     if (errorCount == 0)

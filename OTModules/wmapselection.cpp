@@ -16,10 +16,10 @@ wMapSelection::wMapSelection(QWidget *parent, QString lastMap) :
 
     loadList();
 
-    qDebug() << lastMap.remove(0, set.read("main", "mainDir").toString().count() + 1).remove(QRegularExpression("/global.cfg"));
+    qDebug() << lastMap.remove(0, set.read("main", "mainDir").toString().size() + 1).remove(QRegularExpression("/global.cfg"));
     for (int i = 0; i < ui->lwgMaps->count(); i++)
     {
-        if (ui->lwgMaps->item(i)->text().contains(lastMap.remove(0, set.read("main", "mainDir").toString().count() + 1).remove(QRegularExpression("/global.cfg"))))
+        if (ui->lwgMaps->item(i)->text().contains(lastMap.remove(0, set.read("main", "mainDir").toString().size() + 1).remove(QRegularExpression("/global.cfg"))))
             ui->lwgMaps->setCurrentRow(i);
     }
 }
@@ -34,16 +34,16 @@ void wMapSelection::loadList()
 {
     ui->lwgMaps->clear();
     maps = filehandler.listMaps();
-    qDebug() << "Map count:" << maps.count();
+    qDebug() << "Map count:" << maps.size();
 
-    for (int i = 0; i < maps.count(); i++)
+    for (int i = 0; i < maps.size(); i++)
         ui->lwgMaps->addItem(maps[i].second + " (" + maps[i].first + ")");
 }
 
 /// Applies the selected map
 void wMapSelection::on_btnConfirm_clicked()
 {
-    if (ui->lwgMaps->selectedItems().count() == 0)
+    if (ui->lwgMaps->selectedItems().size() == 0)
         return;
 
     QPair<QString, QString> pair = maps[ui->lwgMaps->currentRow()];

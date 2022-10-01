@@ -298,7 +298,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
             set.write("main", "mainDir", set.getOmsiPath(this));
         else
             return;
-        cutCount = set.read("main", "mainDir").toString().count() + 1;
+        cutCount = set.read("main", "mainDir").toString().size() + 1;
     }
 
     enableView(false);
@@ -521,17 +521,17 @@ void wVerifyMap::loadMapList()
     qDebug() << "Reload map list...";
     mapList = filehandler.listMaps();
 
-    qDebug().noquote() << "Map count:" << mapList.count();
+    qDebug().noquote() << "Map count:" << mapList.size();
 
-    for (int i = 0; i < mapList.count(); i++)
+    for (int i = 0; i < mapList.size(); i++)
         ui->cobxMapName->addItem(mapList[i].second);
 
-    for (int i = 0; i < mapList.count(); i++)
+    for (int i = 0; i < mapList.size(); i++)
     {
         if (mapList[i].first == set.read(objectName(), "mapPath").toString())
         {
             ui->cobxMapName->setCurrentIndex(i);
-            i = mapList.count();
+            i = mapList.size();
         }
     }
     mapListSetupFinished = true;

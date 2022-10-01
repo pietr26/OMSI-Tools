@@ -54,7 +54,7 @@ private:
                      "Situations (*.osn);;"
                      "Weather (*.owt);;"
                      "All files (*.*)";
-    int cutCount = set.read("main", "mainDir").toString().count() + 1;
+    int cutCount = set.read("main", "mainDir").toString().size() + 1;
 
     bool pushToOutput(QString result);
 
