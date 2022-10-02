@@ -4,32 +4,32 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="604"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="610"/>
         <source>There is unsaved content. Do you want to save?</source>
         <translation>Il y a un contenu non sauvé. Voulez-vous l&apos;enregistrer?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="338"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="330"/>
         <source>Successfully created shortcut!</source>
         <translation>Le raccourci a été créé avec succès !</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="343"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="335"/>
         <source>Could not create shortcut in %1.</source>
         <translation>Impossible de créer un raccourci dans %1.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="620"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="626"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Le fichier sélectionné n&apos;existe pas ou est protégé en lecture.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="632"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="638"/>
         <source>There are no chars in the font.</source>
         <translation>Il n&apos;y a pas de caractères dans la police.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="733"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="739"/>
         <source>Bytes</source>
         <translation>l&apos;octet</translation>
     </message>
@@ -51,194 +51,224 @@
         <translation>Contrôle de sceneryobjects...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="475"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="467"/>
         <source>Select the OMSI main directory...</source>
         <translation>Sélectionnez le répertoire principal de l&apos;OMSI...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="571"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="577"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Pour continuer, l&apos;application a besoin du répertoire principal de l&apos;OMSI. Faut-il le faire maintenant ?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="582"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="588"/>
         <source>There is unsaved content.</source>
         <translation>Il y a des contenus non sauvés.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="658"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="664"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation>Il y a eu une erreur de sauvegarde &apos;%1&apos;. Si OMSI est en cours d&apos;exécution, veuillez le fermer et réessayer.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="338"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="330"/>
         <source>Success</source>
         <translation>Succès</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="343"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="335"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="306"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="298"/>
         <source>Updating %1</source>
         <translation>Mise à jour de %1</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="306"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="298"/>
         <source>There was an error while starting the updater. Please retry it or contact the developer.</source>
         <translation>Une erreur s&apos;est produite lors du lancement de la mise à jour. Veuillez réessayer ou contacter le développeur.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="480"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="472"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <translation>Impossible de trouver &quot;Omsi.exe&quot;</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="480"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="472"/>
         <source>%1 could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
         <translation>%1 n&apos;a pas été trouvé dans le répertoire sélectionné. S&apos;agit-il du bon chemin ? Sinon, des problèmes peuvent apparaître dans certains modules. Faut-il sélectionner un nouveau chemin ?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="571"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="559"/>
+        <source>The source code of %1 is about %2 lines long.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="560"/>
+        <source>%1 was born from a simple console application called &quot;Font Creator&quot;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="561"/>
+        <source>With the updater of %1 you can install updates with one click. It is available through the settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="562"/>
+        <source>In the &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;Wiki of %1&lt;/a&gt; you can find useful explanations about all topics.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="564"/>
+        <source>Check out the latest developments in the &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;presentation thread in the OMSI-WebDisk&lt;/a&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="565"/>
+        <source>Your hard disk is crowded? Clean up your main directory with %1&apos; cleanup tool.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="577"/>
         <source>OMSI main directory not found</source>
         <translation>Le répertoire principal de l&apos;OMSI est introuvable</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="582"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="604"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="588"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="610"/>
         <source>Unsaved content</source>
         <translation>Contenu non sauvegardé</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="620"/>
         <location filename="../../OTBackend/OTGlobal.h" line="626"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="632"/>
         <source>Error while opening file</source>
         <translation>Erreur lors de l&apos;ouverture d&apos;un fichier</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="626"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="632"/>
         <source>There was an error while opening &apos;%1&apos;. If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
         <translation>Une erreur s&apos;est produite lors de l&apos;ouverture de &apos;%1&apos;. Si OMSI est en cours d&apos;exécution, veuillez le fermer et réessayer. En outre, vérifiez si le fichier existe toujours.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="632"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="638"/>
         <source>No chars in font</source>
         <translation>Pas de caractères dans la police</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="642"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="648"/>
         <source>Confirm deletion</source>
         <translation>Confirmer la suppression</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="642"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="648"/>
         <source>Should the content be deleted?</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="658"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="664"/>
         <source>Save error</source>
         <translation>Erreur de sauvegarde</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="664"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="670"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation>Ce module est malheureusement encore désactivé par manque de temps dans les développements. Merci de rester à l&apos;affût des nouvelles mises à jour dans les prochains jours.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="664"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="670"/>
         <source>Module still deactivated</source>
         <translation>Module encore désactivé</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="734"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="740"/>
         <source>KB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation>Ko</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="735"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="741"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation>Mo</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="736"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="742"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation>Go</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="737"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="743"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation>To</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="738"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="744"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation>Po</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="749"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="755"/>
         <source>January</source>
         <translation>Janvier</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="750"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="756"/>
         <source>February</source>
         <translation>Février</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="751"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="757"/>
         <source>March</source>
         <translation>Mars</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="752"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="758"/>
         <source>April</source>
         <translation>avril</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="753"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="759"/>
         <source>May</source>
         <translation>Mai</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="754"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="760"/>
         <source>June</source>
         <translation>Juin</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="755"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="761"/>
         <source>July</source>
         <translation>Juillet</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="756"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="762"/>
         <source>August</source>
         <translation>Août</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="757"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="763"/>
         <source>September</source>
         <translation>Septembre</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="758"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="764"/>
         <source>October</source>
         <translation>octobre</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="759"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="765"/>
         <source>November</source>
         <translation>Novembre</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="760"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="766"/>
         <source>December</source>
         <translation>Décembre</translation>
     </message>

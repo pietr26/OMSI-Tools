@@ -40,7 +40,14 @@ void fadeInOutText::hideText()
 /// Shows a random text (slot)
 void fadeInOutText::showText()
 {
-    int randomIndex = QRandomGenerator::global()->bounded(0, texts.size());
+    int randomIndex;
+
+    do {
+        randomIndex = QRandomGenerator::global()->bounded(0, texts.size());
+    } while (prevRandomIndex == randomIndex);
+
+
+    prevRandomIndex = randomIndex;
     ui->lblText->setText(texts[randomIndex].first);
 
     labelAnimation->setStartValue(0);
