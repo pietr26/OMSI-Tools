@@ -66,15 +66,7 @@ public:
 const QString OTName = "OMSI-Tools";
 const QString OTVersion = "1.0.1-beta";
 const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Dev;
-
-const QList<QPair<QString, unsigned int>> OTFacts(
-            {
-                QPair<QString, unsigned int>("0,5s", 500),
-                QPair<QString, unsigned int>("1s - <a style='color: lightblue' href='https://google.de'>click me</a>", 1000),
-                QPair<QString, unsigned int>("3s", 3000),
-                QPair<QString, unsigned int>("5s", 5000)
-            }
-            );
+const QString OTSourceCodeLength = "18 000";
 
 /// Unsaved code snippet for closeEvents:
 /*
@@ -559,6 +551,20 @@ public:
             write("main\\themeData", "useStandardTheme", true);
     }
 };
+
+const QList<QPair<QString, unsigned int>> OTFacts(
+            {
+                // Link HTML: <a style='color: lightblue' href='LINK'>TEXT</a>
+
+                QPair<QString, unsigned int>(QObject::tr("The source code of %1 is about %2 lines long.").arg(OTName, OTSourceCodeLength), 8000),
+                QPair<QString, unsigned int>(QObject::tr("%1 was born from a simple console application called \"Font Creator\".").arg(OTName), 10000),
+                QPair<QString, unsigned int>(QObject::tr("With the updater of %1 you can install updates with one click. It is available through the settings.").arg(OTName), 13000),
+                QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.").arg(OTName, OTLinks::wiki::general.toString()), 11000),
+                //QPair<QString, unsigned int>(QObject::tr("You have started %1 already %2 times.").arg(OTName, OTSettings::read("main", "startCount").toString()), 7000),
+                QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.").arg(OTLinks::showroom.toString()), 11000),
+                QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTName), 10000)
+            }
+            );
 
 /// Message class
 class OTMessage

@@ -34,6 +34,8 @@ private:
 
     QRandomGenerator *randGen;
 
+    int prevRandomIndex = -1;
+
     unsigned int fadeInOutTime;
 };
 
