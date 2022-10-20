@@ -13,6 +13,13 @@ void testArea()
 {
     //qDebug() << "+&+& TEST AREA &+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&";
 
+    // Copies all directories (and subdirectories) without content
+    OTSettings set;
+    int cutCount = set.read("main", "mainDir").toString().size() + 1;
+    QDirIterator makePaths(set.read("main", "mainDir").toString(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+    while (makePaths.hasNext())
+        QDir().mkpath("C:/Users/pietr/Desktop/testOMSI/" + makePaths.next().remove(0, cutCount));
+
     //qDebug() << "+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&";
 }
 
