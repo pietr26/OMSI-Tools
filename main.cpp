@@ -14,11 +14,11 @@ void testArea()
     //qDebug() << "+&+& TEST AREA &+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&";
 
     // Copies all directories (and subdirectories) without content
-    OTSettings set;
-    int cutCount = set.read("main", "mainDir").toString().size() + 1;
-    QDirIterator makePaths(set.read("main", "mainDir").toString(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-    while (makePaths.hasNext())
-        QDir().mkpath("C:/Users/pietr/Desktop/testOMSI/" + makePaths.next().remove(0, cutCount));
+//    OTSettings set;
+//    int cutCount = set.read("main", "mainDir").toString().size() + 1;
+//    QDirIterator makePaths(set.read("main", "mainDir").toString(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+//    while (makePaths.hasNext())
+//        QDir().mkpath("C:/Users/pietr/Desktop/testOMSI/" + makePaths.next().remove(0, cutCount));
 
     //qDebug() << "+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&";
 }
@@ -31,7 +31,7 @@ void updateCleanup()
     // Necessary for every update:
     QDir(QDir::tempPath() + "/OMSI-Tools_tempAppDir").removeRecursively();
 
-    // Necessary for specified versions:
+    // Necessary for specified versionsf:
 
     // 001: >  1.0.0-lite - Remove unused image libaries
     // Moved to Updater (permission conflicts)
