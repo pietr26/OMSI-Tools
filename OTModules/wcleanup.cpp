@@ -175,85 +175,96 @@ void wCleanup::on_btnStartAction_clicked()
     {
         QString destinationFolder = QFileDialog::getExistingDirectory(this, tr("Select destination folder..."));
 
-        if (destinationFolder.isEmpty())
-            return;
-
-        // Sceneryobjects
-        ui->pgbProgress->setValue(1);
-        ui->statusbar->showMessage(tr("Move sceneryobjects..."));
-        qInfo() << QString("Move selected sceneryobjects to '%1'...").arg(destinationFolder);
-
-        for (int i = 0; i < ui->lwgObjects->selectedItems().size(); i++)
+        if (!destinationFolder.isEmpty())
         {
-            qApp->processEvents();
+            // Sceneryobjects
+            ui->pgbProgress->setValue(1);
+            ui->statusbar->showMessage(tr("Move sceneryobjects..."));
+            qInfo() << QString("Move selected sceneryobjects to '%1'...").arg(destinationFolder);
 
-            QDirIterator makePaths(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-            while (makePaths.hasNext())
-                QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
-
-
-            QDirIterator moveFiles(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text(), QDir::Files, QDirIterator::Subdirectories);
-            while (moveFiles.hasNext())
-            {
-                QString current = moveFiles.next().remove(0, cutCount);
-                QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
-            }
-
-            QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text()).removeRecursively();
-        }
-        qDeleteAll(ui->lwgObjects->selectedItems());
-
-        // Splines
-        ui->pgbProgress->setValue(2);
-        ui->statusbar->showMessage(tr("Move splines..."));
-        qInfo() << QString("Move selected splines to '%1'...").arg(destinationFolder);
-
-        for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
-        {
-            qApp->processEvents();
-
-            QDirIterator makePaths(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-            while (makePaths.hasNext())
-                QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
-
-            QDirIterator moveFiles(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text(), QDir::Files, QDirIterator::Subdirectories);
-            while (moveFiles.hasNext())
-            {
-                QString current = moveFiles.next().remove(0, cutCount);
-                QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
-            }
-
-            QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text()).removeRecursively();
-        }
-        qDeleteAll(ui->lwgSplines->selectedItems());
-
-        ui->pgbProgress->setValue(3);
-        ui->statusbar->showMessage(tr("Moved selected folders to '%1'.").arg(destinationFolder), 10000);
-    }
-    else if (ui->rbtnDelete->isChecked())
-    {
-        QMessageBox::StandardButton reply = QMessageBox::warning(this, tr("Delete files permanently"), tr("Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?"), QMessageBox::Yes | QMessageBox::No);
-
-        if (reply == QMessageBox::Yes)
-        {
             for (int i = 0; i < ui->lwgObjects->selectedItems().size(); i++)
-                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text()).removeRecursively();
+            {
+                ui->statusbar->showMessage(tr("Move sceneryobjects (%1 of %2)...").arg(i + 1, ui->lwgObjects->selectedItems().size()));
 
+                QDirIterator makePaths(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+                while (makePaths.hasNext())
+                    QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
+
+
+                QDirIterator moveFiles(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text(), QDir::Files, QDirIterator::Subdirectories);
+                while (moveFiles.hasNext())
+                {
+                    qApp->processEvents();
+
+                    QString current = moveFiles.next().remove(0, cutCount);
+                    QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
+                }
+
+                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text()).removeRecursively();
+            }
             qDeleteAll(ui->lwgObjects->selectedItems());
 
-            for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
-                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text()).removeRecursively();
+            // Splines
+            ui->pgbProgress->setValue(2);
+            qInfo() << QString("Move selected splines to '%1'...").arg(destinationFolder);
 
+            for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
+            {
+                ui->statusbar->showMessage(tr("Move splines (%1 of %2)...").arg(i + 1, ui->lwgSplines->selectedItems().size()));
+
+                QDirIterator makePaths(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+                while (makePaths.hasNext())
+                    QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
+
+                QDirIterator moveFiles(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text(), QDir::Files, QDirIterator::Subdirectories);
+                while (moveFiles.hasNext())
+                {
+                    qApp->processEvents();
+
+                    QString current = moveFiles.next().remove(0, cutCount);
+                    QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
+                }
+
+                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text()).removeRecursively();
+            }
             qDeleteAll(ui->lwgSplines->selectedItems());
+
+            ui->pgbProgress->setValue(3);
+            ui->statusbar->showMessage(tr("Moved selected folders to '%1'.").arg(destinationFolder), 10000);
+        }
+        else if (ui->rbtnDelete->isChecked())
+        {
+            QMessageBox::StandardButton reply = QMessageBox::warning(this, tr("Delete files permanently"), tr("Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?"), QMessageBox::Yes | QMessageBox::No);
+
+            if (reply == QMessageBox::Yes)
+            {
+                for (int i = 0; i < ui->lwgObjects->selectedItems().size(); i++)
+                {
+                    qApp->processEvents();
+                    ui->statusbar->showMessage(tr("Delete sceneryobjects (%1 of %2)...").arg(i + 1, ui->lwgObjects->selectedItems().size()));
+                    QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text()).removeRecursively();
+                }
+
+                qDeleteAll(ui->lwgObjects->selectedItems());
+
+                for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
+                {
+                    qApp->processEvents();
+                    ui->statusbar->showMessage(tr("Delete splines (%1 of %2)...").arg(i + 1, ui->lwgSplines->selectedItems().size()));
+                    QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text()).removeRecursively();
+                }
+
+                qDeleteAll(ui->lwgSplines->selectedItems());
+            }
+
+            ui->statusbar->showMessage(tr("Deleted selected folders."), 10000);
         }
 
-        ui->statusbar->showMessage(tr("Deleted selected folders."), 10000);
+        qInfo() << "Finished.";
+
+        if ((ui->lwgObjects->count() == 0) && (ui->lwgSplines->count() == 0))
+            ui->gbxActions->setVisible(false);
     }
-
-    qInfo() << "Finished.";
-
-    if ((ui->lwgObjects->count() == 0) && (ui->lwgSplines->count() == 0))
-        ui->gbxActions->setVisible(false);
 
     ui->lwgObjects->setEnabled(true);
     ui->lwgSplines->setEnabled(true);

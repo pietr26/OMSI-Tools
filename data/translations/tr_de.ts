@@ -278,12 +278,12 @@
         <translation>Sammle Szenerieobjekte und Splines...</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="75"/>
+        <location filename="../../main.cpp" line="82"/>
         <source>Crash detected</source>
         <translation>Absturz erkannt</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="75"/>
+        <location filename="../../main.cpp" line="82"/>
         <source>%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.
 Open the path of the logfile?</source>
         <translation>%1 scheint beim letzten Start abgestürzt zu sein. Die Logfile des letzten Starts wurde gesondert abgespeichert. Bitte kontaktiere den Entwickler mit der Logfile.
@@ -561,42 +561,57 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <translation>Zielordner auswählen...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="183"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="182"/>
         <source>Move sceneryobjects...</source>
-        <translation>Verschieben Szenerieobjekte...</translation>
+        <translation>Verschiebe Szenerieobjekte...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="208"/>
-        <source>Move splines...</source>
-        <translation>Verschiebe Splines...</translation>
+        <location filename="../../OTModules/wcleanup.cpp" line="187"/>
+        <source>Move sceneryobjects (%1 of %2)...</source>
+        <translation>Verschiebe Szenerieobjekte (%1 von %2)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="231"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="213"/>
+        <source>Move splines (%1 of %2)...</source>
+        <translation>Verschiebe Splines (%1 von %2)...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="233"/>
         <source>Moved selected folders to &apos;%1&apos;.</source>
         <translation>Ordner in &apos;%1&apos; verschoben.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="235"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="237"/>
         <source>Delete files permanently</source>
         <translation>Dateien endgültig löschen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="235"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="237"/>
         <source>Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?</source>
         <translation>Bitte bedenke, dass diese Option alle Dateien ENDGÜLTIG löschen wird. Nach dem Löschen gibt es keine Möglichkeit, sie wiederherzustellen. Fortfahren?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="250"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="244"/>
+        <source>Delete sceneryobjects (%1 of %2)...</source>
+        <translation>Lösche Szenerieobjekte (%1 von %2)...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="253"/>
+        <source>Delete splines (%1 of %2)...</source>
+        <translation>Löschen Splines (%1 von %2)...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="260"/>
         <source>Deleted selected folders.</source>
         <translation>Ausgewählte Ordner gelöscht.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="269"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="280"/>
         <source>Select destination folder &amp;&amp; move</source>
         <translation>Zielordner wählen &amp;&amp; verschieben</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="275"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="286"/>
         <source>Delete permanently</source>
         <translation>Endgültig löschen</translation>
     </message>
