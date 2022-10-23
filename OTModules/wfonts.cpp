@@ -762,7 +762,7 @@ void wFonts::on_actionGoToNextError_triggered()
         i = currentPos + 1;
 
     QStringList chars;
-    while (true)
+    forever
     {
         bool rightPixelTooBig = false;
         bool leftPixelTooBig = false;
@@ -1221,12 +1221,12 @@ void wFonts::on_btnNextResult_clicked()
             secondRound = true;
         }
 
-        while (true)
+        forever
         {
             if (i > tempList.size() - 1)
             {
                 qDebug() << "Search: Not other char found";
-                ui->statusbar->showMessage(tr("No other character found according to the search criteria."), 4000);
+                ui->stat11usbar->showMessage(tr("No other character found according to the search criteria."), 4000);
                 reloadCharUI();
                 return;
             }
