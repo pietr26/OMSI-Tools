@@ -72,7 +72,7 @@ void wCleanup::on_actionAnalyze_triggered()
     while (mapFolder.hasNext())
         globals << mapFolder.next();
 
-    qInfo() << globals;
+    qDebug() << globals;
     qInfo() << "Read maps...";
 
     ui->pgbProgress->setMaximum(ui->pgbProgress->maximum() + globals.size());
@@ -89,15 +89,17 @@ void wCleanup::on_actionAnalyze_triggered()
         filehandler.stuffobj.existing.removeDuplicates();
     }
 
+    const QString mainDir = set.read("main", "mainDir").toString();
+
     // Sceneryobjects:
     if (!filehandler.stuffobj.existing.sceneryobjects.isEmpty())
     {
-        qInfo() << "Analyze sceneryobjects...";
+        qInfo() << "Analyse sceneryobjects...";
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
-        ui->statusbar->showMessage(tr("Analyze sceneryobject folder..."));
+        ui->statusbar->showMessage(tr("Analyse sceneryobject folder..."));
 
         QStringList scoFolders;
-        QDirIterator scoFolder(set.read("main", "mainDir").toString() + "/Sceneryobjects", QDir::Dirs | QDir::NoDotAndDotDot);
+        QDirIterator scoFolder(mainDir + "/Sceneryobjects", QDir::Dirs | QDir::NoDotAndDotDot);
         while (scoFolder.hasNext())
             scoFolders << scoFolder.next();
 
@@ -110,7 +112,7 @@ void wCleanup::on_actionAnalyze_triggered()
 
             int i = 0;
             while (iterator.hasNext())
-                if (QString(set.read("main", "mainDir").toString() + "/" + iterator.next()).contains(current, Qt::CaseInsensitive))
+                if (QString(mainDir + "/" + iterator.next()).contains(current, Qt::CaseInsensitive))
                     i++;
 
             if (i == 0)
@@ -121,12 +123,12 @@ void wCleanup::on_actionAnalyze_triggered()
     // Splines:
     if (!filehandler.stuffobj.existing.splines.isEmpty())
     {
-        qInfo() << "Analyze splines...";
+        qInfo() << "Analyse splines...";
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
-        ui->statusbar->showMessage(tr("Analyze spline folder..."));
+        ui->statusbar->showMessage(tr("Analyse spline folder..."));
 
         QStringList sliFolders;
-        QDirIterator sliFolder(set.read("main", "mainDir").toString() + "/Splines", QDir::Dirs | QDir::NoDotAndDotDot);
+        QDirIterator sliFolder(mainDir + "/Splines", QDir::Dirs | QDir::NoDotAndDotDot);
         while (sliFolder.hasNext())
             sliFolders << sliFolder.next();
 
@@ -139,7 +141,7 @@ void wCleanup::on_actionAnalyze_triggered()
 
             int i = 0;
             while (iterator.hasNext())
-                if (QString(QFileInfo(set.read("main", "mainDir").toString() + "/" + iterator.next()).absolutePath()).contains(current, Qt::CaseInsensitive))
+                if (QString(QFileInfo(mainDir + "/" + iterator.next()).absolutePath()).contains(current, Qt::CaseInsensitive))
                     i++;
 
             if (i == 0)
@@ -232,39 +234,40 @@ void wCleanup::on_btnStartAction_clicked()
             ui->pgbProgress->setValue(3);
             ui->statusbar->showMessage(tr("Moved selected folders to '%1'.").arg(destinationFolder), 10000);
         }
-        else if (ui->rbtnDelete->isChecked())
+    }
+    else if (ui->rbtnDelete->isChecked())
+    {
+        QMessageBox::StandardButton reply = QMessageBox::warning(this, tr("Delete files permanently"), tr("Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?"), QMessageBox::Yes | QMessageBox::No);
+
+        if (reply == QMessageBox::Yes)
         {
-            QMessageBox::StandardButton reply = QMessageBox::warning(this, tr("Delete files permanently"), tr("Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?"), QMessageBox::Yes | QMessageBox::No);
-
-            if (reply == QMessageBox::Yes)
+            for (int i = 0; i < ui->lwgObjects->selectedItems().size(); i++)
             {
-                for (int i = 0; i < ui->lwgObjects->selectedItems().size(); i++)
-                {
-                    qApp->processEvents();
-                    ui->statusbar->showMessage(tr("Delete sceneryobjects (%1 of %2)...").arg(i + 1, ui->lwgObjects->selectedItems().size()));
-                    QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text()).removeRecursively();
-                }
-
-                qDeleteAll(ui->lwgObjects->selectedItems());
-
-                for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
-                {
-                    qApp->processEvents();
-                    ui->statusbar->showMessage(tr("Delete splines (%1 of %2)...").arg(i + 1, ui->lwgSplines->selectedItems().size()));
-                    QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text()).removeRecursively();
-                }
-
-                qDeleteAll(ui->lwgSplines->selectedItems());
+                qApp->processEvents();
+                ui->statusbar->showMessage(tr("Delete sceneryobjects (%1 of %2)...").arg(i + 1, ui->lwgObjects->selectedItems().size()));
+                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text()).removeRecursively();
             }
 
-            ui->statusbar->showMessage(tr("Deleted selected folders."), 10000);
+            qDeleteAll(ui->lwgObjects->selectedItems());
+
+            for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
+            {
+                qApp->processEvents();
+                ui->statusbar->showMessage(tr("Delete splines (%1 of %2)...").arg(i + 1, ui->lwgSplines->selectedItems().size()));
+                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text()).removeRecursively();
+            }
+
+            qDeleteAll(ui->lwgSplines->selectedItems());
         }
 
-        qInfo() << "Finished.";
-
-        if ((ui->lwgObjects->count() == 0) && (ui->lwgSplines->count() == 0))
-            ui->gbxActions->setVisible(false);
+        ui->statusbar->showMessage(tr("Deleted selected folders."), 10000);
     }
+
+    qInfo() << "Finished.";
+
+    if ((ui->lwgObjects->count() == 0) && (ui->lwgSplines->count() == 0))
+        ui->gbxActions->setVisible(false);
+
 
     ui->lwgObjects->setEnabled(true);
     ui->lwgSplines->setEnabled(true);

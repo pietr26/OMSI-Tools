@@ -42,7 +42,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Analyze!</string>
+         <string>Analyse!</string>
         </property>
         <property name="icon">
          <iconset resource="../ressources.qrc">
@@ -219,7 +219,7 @@
      <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
    </property>
    <property name="text">
-    <string>Analyze</string>
+    <string>Analyse</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+R</string>
