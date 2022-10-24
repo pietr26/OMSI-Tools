@@ -1226,7 +1226,7 @@ void wFonts::on_btnNextResult_clicked()
             if (i > tempList.size() - 1)
             {
                 qDebug() << "Search: Not other char found";
-                ui->stat11usbar->showMessage(tr("No other character found according to the search criteria."), 4000);
+                ui->statusbar->showMessage(tr("No other character found according to the search criteria."), 4000);
                 reloadCharUI();
                 return;
             }
