@@ -762,25 +762,31 @@ public:
         QStringList a = tiles.mid(0, (tiles.size() / 2));
         QStringList b = tiles.mid(tiles.size() / 2, tiles.size() - 1);
 
+        maxProgress = tiles.size();
+        currentProgress = 0;
+
         // List a
         QFuture<void> aFuture;
-        QFutureWatcher<void> *aFutureWatcher  = new QFutureWatcher<void>();
+        QFutureWatcher<void> *aFutureWatcher = new QFutureWatcher<void>();
+
         QEventLoop *aLoop = new QEventLoop();
 
         aFuture = QtConcurrent::run([=]() { getItemsFromTileList(a, checkMissing, "a"); });
 
-        qInfo() << "A:";
-        qInfo() << QObject::connect(aFutureWatcher, &QFutureWatcher<void>::finished, [=]() { qDebug() << "List a finished."; aLoop->quit(); });
+        QObject::connect(aFutureWatcher, &QFutureWatcher<void>::finished, [=]() { qDebug() << "List a finished."; aLoop->quit(); });
+        aFutureWatcher->setFuture(aFuture);
+
 
         // List b
         QFuture<void> bFuture;
-        QFutureWatcher<void> *bFutureWatcher  = new QFutureWatcher<void>();
+        QFutureWatcher<void> *bFutureWatcher = new QFutureWatcher<void>();
+
         QEventLoop *bLoop = new QEventLoop();
 
         bFuture = QtConcurrent::run([=]() { getItemsFromTileList(b, checkMissing, "b"); });
 
-        qInfo() << "B:";
-        qInfo() << QObject::connect(bFutureWatcher, &QFutureWatcher<void>::finished, [=]() { qDebug() << "List b finished."; bLoop->quit(); });
+        QObject::connect(bFutureWatcher, &QFutureWatcher<void>::finished, [=]() { qDebug() << "List b finished."; bLoop->quit(); });
+        bFutureWatcher->setFuture(bFuture);
 
         QString mainDir = set.read("main", "mainDir").toString();
 
@@ -858,9 +864,8 @@ public:
         }
 
         aLoop->exec();
-        bLoop->exec();
-
-
+        if (!bFuture.isFinished()) // If the Future is already finished, bLoop->exec(); would wait infinite time for an quit comman (which was already called)
+            bLoop->exec();
     }
 
     /// Get vehicles of a map
@@ -1226,20 +1231,19 @@ private:
     OTMessage msg;
     int cutCount = set.read("main", "mainDir").toString().size() + 1;
 
-    void getItemsFromTileList(QStringList tileList, bool checkMissing, QString bla)
+    QMutex mutex;
+
+    void getItemsFromTileList(QStringList tileList, bool checkMissing, QString thread)
     {
         QString mainDir = set.read("main", "mainDir").toString();
 
-        maxProgress = tileList.size();
-        int i = 0;
-
         foreach (QString path, tileList)
         {
-            qDebug().noquote() << bla + " /// " + QString("Tile: %1").arg(path);
+            qDebug().noquote() << thread + ": " + QString("Tile: %1").arg(path);
 
-            i++;
-            currentProgress = i;
-            //qApp->processEvents();
+            mutex.lock();
+            currentProgress++;
+            mutex.unlock();
 
             path = getMapPath().remove("global.cfg") + path;
 
@@ -1273,11 +1277,18 @@ private:
                         if (checkMissing)
                         {
                             qWarning().noquote() << "Sceneryobject '" + QFileInfo(object).absoluteFilePath() + "' is missing!";
+
+                            mutex.lock();
                             stuffobj.missing.sceneryobjects << fullPath;
+                            mutex.unlock();
                         }
                     }
                     else
+                    {
+                        mutex.lock();
                         stuffobj.existing.sceneryobjects << fullPath;
+                        mutex.unlock();
+                    }
                 }
                 else if (line == "[spline]" || line == "[spline_h]")
                 {
@@ -1292,11 +1303,18 @@ private:
                         if (checkMissing)
                         {
                             qWarning().noquote() << "Spline '" + QFileInfo(spline).absoluteFilePath() + "' is missing!";
+
+                            mutex.lock();
                             stuffobj.missing.splines << fullPath;
+                            mutex.unlock();
                         }
                     }
                     else
+                    {
+                        mutex.lock();
                         stuffobj.existing.splines << fullPath;
+                        mutex.unlock();
+                    }
                 }
             }
         }

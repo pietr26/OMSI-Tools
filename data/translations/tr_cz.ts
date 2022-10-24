@@ -256,14 +256,14 @@
         <translation>Prosinec</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="835"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="841"/>
         <source>[Empty line in parklist %1]</source>
         <translation>[Prázdný řádek v seznamu zaparkovaných vozidel %1]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="923"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="949"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1003"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="928"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="954"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1008"/>
         <source>[Empty line]</source>
         <translation>[Prázdný řádek]</translation>
     </message>
@@ -450,11 +450,6 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
 <context>
     <name>wCleanup</name>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="45"/>
-        <source>Analyze!</source>
-        <translation>Analyzovat!</translation>
-    </message>
-    <message>
         <location filename="../../OTModules/wcleanup.ui" line="69"/>
         <source>Sceneryobjects</source>
         <translation>Sceneryobjects</translation>
@@ -486,8 +481,8 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="222"/>
-        <source>Analyze</source>
-        <translation>Analyzovat</translation>
+        <source>Analyse</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="234"/>
@@ -503,6 +498,11 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <location filename="../../OTModules/wcleanup.ui" line="194"/>
         <source>Specials</source>
         <translation>Speciální</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.ui" line="45"/>
+        <source>Analyse!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="200"/>
@@ -531,87 +531,87 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
         <translation>Čtu mapy (%1 z %2)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="97"/>
-        <source>Analyze sceneryobject folder...</source>
-        <translation>Analyzovat složku Sceneryobjects...</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="105"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="107"/>
         <source>Comparing sceneryobjects...</source>
         <translation>Porovnávám Sceneryobjects...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="126"/>
-        <source>Analyze spline folder...</source>
-        <translation>Analyzovat složku splines...</translation>
+        <location filename="../../OTModules/wcleanup.cpp" line="99"/>
+        <source>Analyse sceneryobject folder...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="134"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="128"/>
+        <source>Analyse spline folder...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="136"/>
         <source>Comparing splines...</source>
         <translation>Porovnávám splines...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="153"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="155"/>
         <source>Done.</source>
         <translation>Hotovo.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="176"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="178"/>
         <source>Select destination folder...</source>
         <translation>Vyberte cílovou složku...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="182"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="184"/>
         <source>Move sceneryobjects...</source>
         <translation>Přesunout Sceneryobjects...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="187"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="189"/>
         <source>Move sceneryobjects (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="213"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="215"/>
         <source>Move splines (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="233"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="235"/>
         <source>Moved selected folders to &apos;%1&apos;.</source>
         <translation>Byly přesunuty vybrané složky do &apos;%1&apos;.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="237"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="240"/>
         <source>Delete files permanently</source>
         <translation>Odsranit soubory natrvalo</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="237"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="240"/>
         <source>Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?</source>
         <translation>Berte prosím na vědomí, že tato možnost odstraní všechny soubory PERMANENTNĚ. Po odstranění nelze soubory obnovit. Chcete pokračovat?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="244"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="247"/>
         <source>Delete sceneryobjects (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="253"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="256"/>
         <source>Delete splines (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="260"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="263"/>
         <source>Deleted selected folders.</source>
         <translation>Vybrané složky byly odstraněny.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="280"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="283"/>
         <source>Select destination folder &amp;&amp; move</source>
         <translation>Vyberte cílovou složku &amp;&amp; přesuňte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="286"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="289"/>
         <source>Delete permanently</source>
         <translation>Odstranit natrvalo</translation>
     </message>

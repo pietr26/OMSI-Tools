@@ -34,14 +34,14 @@
         <translation>l&apos;octet</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="835"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="841"/>
         <source>[Empty line in parklist %1]</source>
         <translation>[Ligne vide dans la parklist %1]</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="923"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="949"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1003"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="928"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="954"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1008"/>
         <source>[Empty line]</source>
         <translation>[Ligne vide]</translation>
     </message>
@@ -451,11 +451,6 @@ AW Bamp: Damit ist ein &quot;erstes Einrichten&quot; oder, ja, genau, eine erste
 <context>
     <name>wCleanup</name>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="45"/>
-        <source>Analyze!</source>
-        <translation>Analyse !</translation>
-    </message>
-    <message>
         <location filename="../../OTModules/wcleanup.ui" line="69"/>
         <source>Sceneryobjects</source>
         <translation>Objets du paysage</translation>
@@ -487,8 +482,8 @@ AW Bamp: Damit ist ein &quot;erstes Einrichten&quot; oder, ja, genau, eine erste
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="222"/>
-        <source>Analyze</source>
-        <translation>Analyse</translation>
+        <source>Analyse</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="234"/>
@@ -504,6 +499,11 @@ AW Bamp: Damit ist ein &quot;erstes Einrichten&quot; oder, ja, genau, eine erste
         <location filename="../../OTModules/wcleanup.ui" line="194"/>
         <source>Specials</source>
         <translation>Spéciaux</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.ui" line="45"/>
+        <source>Analyse!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="200"/>
@@ -532,87 +532,87 @@ AW Bamp: Damit ist ein &quot;erstes Einrichten&quot; oder, ja, genau, eine erste
         <translation>Lire les cartes (%1 de %2)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="97"/>
-        <source>Analyze sceneryobject folder...</source>
-        <translation>Analyser le dossier sceneryobject...</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="105"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="107"/>
         <source>Comparing sceneryobjects...</source>
         <translation>Comparaison des objets du paysage...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="126"/>
-        <source>Analyze spline folder...</source>
-        <translation>Analyser le dossier spline...</translation>
+        <location filename="../../OTModules/wcleanup.cpp" line="99"/>
+        <source>Analyse sceneryobject folder...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="134"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="128"/>
+        <source>Analyse spline folder...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="136"/>
         <source>Comparing splines...</source>
         <translation>Comparer les splines...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="153"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="155"/>
         <source>Done.</source>
         <translation>Claqué.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="176"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="178"/>
         <source>Select destination folder...</source>
         <translation>Sélectionner le dossier de destination...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="182"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="184"/>
         <source>Move sceneryobjects...</source>
         <translation>Déplacer les objets du décor...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="187"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="189"/>
         <source>Move sceneryobjects (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="213"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="215"/>
         <source>Move splines (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="233"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="235"/>
         <source>Moved selected folders to &apos;%1&apos;.</source>
         <translation>Déplacement des dossiers sélectionnés vers &apos;%1&apos;.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="237"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="240"/>
         <source>Delete files permanently</source>
         <translation>Supprimer des fichiers de façon permanente</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="237"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="240"/>
         <source>Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?</source>
         <translation>Veuillez garder à l&apos;esprit que cette option supprimera tous les fichiers de manière PERMANENTE. Après la suppression, il n&apos;y a aucune possibilité de les restaurer. Continuer ?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="244"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="247"/>
         <source>Delete sceneryobjects (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="253"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="256"/>
         <source>Delete splines (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="260"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="263"/>
         <source>Deleted selected folders.</source>
         <translation>Suppression des dossiers sélectionnés.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="280"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="283"/>
         <source>Select destination folder &amp;&amp; move</source>
         <translation>Sélectionnez le dossier de destination et déplacez-le</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="286"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="289"/>
         <source>Delete permanently</source>
         <translation>Supprimer définitivement</translation>
     </message>
