@@ -219,7 +219,9 @@ public:
     /// verify a list of sceneryobjects
     void verifyObjects(QStringList &objects)
     {
-        cutCount = set.read("main", "mainDir").toString().size() + 1;
+        const QString mainDir = set.read("main", "mainDir").toString();
+
+        cutCount = mainDir.size() + 1;
 
         progressName = QObject::tr("Checking sceneryobjects...");
         maxProgress = objects.size();
@@ -227,17 +229,15 @@ public:
 
         foreach (QString current, objects)
         {
-            qDebug() << "CURRENT:" << current;
-
             i++;
-            qDebug().noquote() << "No." << i;
+            qDebug().noquote().nospace() << "Object " << i << ": " << current;
             currentProgress = i;
             qApp->processEvents();
 
             //            if (current.contains("Aufzug.sco"))
             //                qDebug().noquote() << "Here is " << current << "!";
 
-            QFile object(set.read("main", "mainDir").toString() + "/" + current);
+            QFile object(mainDir + "/" + current);
             object.open(QFile::ReadOnly | QFile::Text);
 
             if (object.exists())
@@ -418,7 +418,7 @@ public:
                                 qWarning().noquote() << "Error in object '" + current + "':" << "Texture '" + line + "' could not be found!";
                                 // old: path
                                 stuffobj.missing.textures << QDir(QFileInfo(object).dir()).absolutePath() + "/texture/" + line;
-                                qDebug().noquote() << "ABSOLUTE PATH:" << QFileInfo(QFileInfo(object).dir().absolutePath() + "/texture/" + line).absoluteFilePath();
+                                qDebug().noquote() << "Abs:" << QFileInfo(QFileInfo(object).dir().absolutePath() + "/texture/" + line).absoluteFilePath();
                                 qDebug() << "\n----------------------------------------------------------------------------------------------";
                             }
                             else
@@ -508,7 +508,9 @@ public:
     /// verify a list of splines
     void verifySplines(QStringList &splines)
     {
-        cutCount = set.read("main", "mainDir").toString().size() + 1;
+        const QString mainDir = set.read("main", "mainDir").toString();
+
+        cutCount = mainDir.size() + 1;
 
         /*progressName = QObject::tr("Checking splines...");
         maxProgress = splines.size();*/
@@ -523,7 +525,7 @@ public:
             //            if (current == "Splines\\ADDON_Bad_Huegelsdorf\\Ueberland\\str_land_2spur_6m.sli")
             //                qDebug().noquote() << "Here is " << current << "!";
 
-            QFile spline(set.read("main", "mainDir").toString() + "/" + current);
+            QFile spline(mainDir + "/" + current);
             spline.open(QFile::ReadOnly | QFile::Text);
 
             if (spline.exists())
@@ -590,10 +592,12 @@ public:
     /// Checks if a texture exists
     bool checkTexture(QString fullPath, QString relPath)
     {
+        const QString mainDir = set.read("main", "mainDir").toString();
+
         QString tempPath = fullPath;
         QString newPath = tempPath.remove(fullPath.length() - 3, 3) + "dds";
-        QFile sharedTexture(set.read("main", "mainDir").toString() + "/Texture/" + relPath);
-        QFile mainDirTexture(set.read("main", "mainDir").toString() + "/" + relPath);
+        QFile sharedTexture(mainDir + "/Texture/" + relPath);
+        QFile mainDirTexture(mainDir + "/" + relPath);
 
         if (!QFile(fullPath).exists())                  // if the 'real' texture exists
             if (!sharedTexture.exists())                // make shared texture check
@@ -603,8 +607,8 @@ public:
                         qDebug().noquote() << "Texture doesn't exist:";
                         qDebug().noquote() << "Full:" << fullPath;
                         qDebug().noquote() << "Rel:" << relPath;
-                        qDebug().noquote() << "Shared:" << set.read("main", "mainDir").toString() + "/Texture/" + relPath;
-                        qDebug().noquote() << "mainDirTex:" << set.read("main", "mainDir").toString() + "/" + relPath;
+                        qDebug().noquote() << "Shared:" << mainDir + "/Texture/" + relPath;
+                        qDebug().noquote() << "mainDirTex:" << mainDir + "/" + relPath;
                         return false;
                     }
 
@@ -627,10 +631,11 @@ public:
     QList<QPair<QString, QString>> listMaps()
     {
         QList<QPair<QString, QString>> returnList;
+        const QString mapFolderPath = set.read("main", "mainDir").toString() + "/maps";
 
-        if (!QDir(set.read("main", "mainDir").toString() + "/maps").exists())
+        if (!QDir(mapFolderPath).exists())
             return returnList;
-        QDirIterator mapFolder(set.read("main", "mainDir").toString() + "/maps", QDir::Dirs | QDir::NoDotAndDotDot);
+        QDirIterator mapFolder(mapFolderPath, QDir::Dirs | QDir::NoDotAndDotDot);
         while (mapFolder.hasNext())
         {
             QPair<QString, QString> pair;
@@ -755,12 +760,20 @@ public:
     /// Gets items from a map
     void getItems(QStringList &tiles, bool checkMissing = true, bool includeParklists = true)
     {
-        cutCount = set.read("main", "mainDir").toString().size() + 1;
+        const QString mainDir = set.read("main", "mainDir").toString();
+
+        cutCount = mainDir.size() + 1;
 
         progressName = QObject::tr("Get sceneryobjects and splines...");
 
-        QStringList a = tiles.mid(0, (tiles.size() / 2));
-        QStringList b = tiles.mid(tiles.size() / 2, tiles.size() - 1);
+        QStringList a, b;
+        if (tiles.size() == 1)
+            a = tiles;
+        else
+        {
+            a = tiles.mid(0, (tiles.size() / 2));
+            b = tiles.mid(tiles.size() / 2, tiles.size() - 1);
+        }
 
         maxProgress = tiles.size();
         currentProgress = 0;
@@ -768,27 +781,37 @@ public:
         // List a
         QFuture<void> aFuture;
         QFutureWatcher<void> *aFutureWatcher = new QFutureWatcher<void>();
-
         QEventLoop *aLoop = new QEventLoop();
 
+        QElapsedTimer elTimer;
+        elTimer.start();
         aFuture = QtConcurrent::run([=]() { getItemsFromTileList(a, checkMissing, "a"); });
+        QObject::connect(aFutureWatcher, &QFutureWatcher<void>::finished, [=]()
+        {
+            qDebug().noquote() << QString("getItemThread a finished (%1s)").arg(elTimer.elapsed() / 1000);
+            aLoop->quit();
+        });
 
-        QObject::connect(aFutureWatcher, &QFutureWatcher<void>::finished, [=]() { qDebug() << "List a finished."; aLoop->quit(); });
         aFutureWatcher->setFuture(aFuture);
-
 
         // List b
         QFuture<void> bFuture;
         QFutureWatcher<void> *bFutureWatcher = new QFutureWatcher<void>();
-
         QEventLoop *bLoop = new QEventLoop();
 
-        bFuture = QtConcurrent::run([=]() { getItemsFromTileList(b, checkMissing, "b"); });
+        if (tiles.size() > 1)
+        {
+            bFuture = QtConcurrent::run([=]() { getItemsFromTileList(b, checkMissing, "b"); });
+            QObject::connect(bFutureWatcher, &QFutureWatcher<void>::finished, [=]()
+            {
+                qDebug().noquote() << QString("getItemThread b finished (%1s)").arg(elTimer.elapsed() / 1000);
+                bLoop->quit();
+            });
 
-        QObject::connect(bFutureWatcher, &QFutureWatcher<void>::finished, [=]() { qDebug() << "List b finished."; bLoop->quit(); });
-        bFutureWatcher->setFuture(bFuture);
+            bFutureWatcher->setFuture(bFuture);
+        }
 
-        QString mainDir = set.read("main", "mainDir").toString();
+        // ---
 
         if (includeParklists)
         {
@@ -864,14 +887,21 @@ public:
         }
 
         aLoop->exec();
-        if (!bFuture.isFinished()) // If the Future is already finished, bLoop->exec(); would wait infinite time for an quit comman (which was already called)
+        if (!bFuture.isFinished()) // If the Future is already finished, bLoop->exec(); would wait infinite time for an quit command (which was already called)
             bLoop->exec();
+
+        aFutureWatcher->deleteLater();
+        aLoop->deleteLater();
+        bFutureWatcher->deleteLater();
+        bLoop->deleteLater();
     }
 
     /// Get vehicles of a map
     void getVehicles(QWidget *parent = 0)
     {
-        cutCount = set.read("main", "mainDir").toString().size() + 1;
+        const QString mainDir = set.read("main", "mainDir").toString();
+
+        cutCount = mainDir.size() + 1;
 
         QStringList aiLists;
         aiLists << getMapPath().remove("global.cfg") + "ailists.cfg";
@@ -933,7 +963,7 @@ public:
                         while (line.at(line.size() - 1).isNumber() || (line.at(line.size() - 1) == '\x9') || (line.at(line.size() - 1) == ' '))
                             line.remove(line.size() - 1, 1);
 
-                        QFile vehicle(set.read("main", "mainDir").toString() + "/" + line);
+                        QFile vehicle(mainDir + "/" + line);
 
                         if (!vehicle.exists())
                         {
@@ -955,7 +985,7 @@ public:
                         continue;
                     }
 
-                    QFile vehicle(set.read("main", "mainDir").toString() + "/" + line);
+                    QFile vehicle(mainDir + "/" + line);
 
                     if (!vehicle.exists())
                     {
@@ -973,7 +1003,9 @@ public:
     /// Get humans of a map
     void getHumans(QWidget *parent = 0)
     {
-        cutCount = set.read("main", "mainDir").toString().size() + 1;
+        const QString mainDir = set.read("main", "mainDir").toString();
+
+        cutCount = mainDir.size() + 1;
 
         for (int i = 0; i < 2; i++)
         {
@@ -1009,7 +1041,7 @@ public:
                     continue;
                 }
 
-                QFile human(set.read("main", "mainDir").toString() + "/" + line);
+                QFile human(mainDir + "/" + line);
 
                 if (!human.exists())
                 {
@@ -1026,6 +1058,8 @@ public:
     /// Checks if the texture layers of a map exists
     void checkTextureLayers(QWidget *parent = 0)
     {
+        const QString mainDir = set.read("main", "mainDir").toString();
+
         QStringList globalTextures;
 
         QFile global(getMapPath());
@@ -1058,14 +1092,14 @@ public:
 
         foreach (QString current, globalTextures)
         {
-            QFile texture(set.read("main", "mainDir").toString() + "/" + current);
+            QFile texture(mainDir + "/" + current);
             if (!texture.exists())
             {
                 qWarning().noquote() << "Texture '" + QFileInfo(texture).absoluteFilePath() + "' is missing!";
-                stuffobj.missing.globalTextures << QString(QFileInfo(texture).absoluteFilePath()).remove(0, set.read("main", "mainDir").toString().length() + 1);
+                stuffobj.missing.globalTextures << QString(QFileInfo(texture).absoluteFilePath()).remove(0, mainDir.length() + 1);
             }
             else
-                stuffobj.existing.globalTextures << QString(QFileInfo(texture).absoluteFilePath()).remove(0, set.read("main", "mainDir").toString().length() + 1);
+                stuffobj.existing.globalTextures << QString(QFileInfo(texture).absoluteFilePath()).remove(0, mainDir.length() + 1);
         }
     }
 
@@ -1235,11 +1269,11 @@ private:
 
     void getItemsFromTileList(QStringList tileList, bool checkMissing, QString thread)
     {
-        QString mainDir = set.read("main", "mainDir").toString();
+        const QString mainDir = set.read("main", "mainDir").toString();
 
         foreach (QString path, tileList)
         {
-            qDebug().noquote() << thread + ": " + QString("Tile: %1").arg(path);
+            qDebug().noquote().nospace() << "getItemThread " << thread << ": " << path;
 
             mutex.lock();
             currentProgress++;
