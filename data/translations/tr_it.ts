@@ -256,24 +256,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="841"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="864"/>
         <source>[Empty line in parklist %1]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="928"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="954"/>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1008"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="958"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="984"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1040"/>
         <source>[Empty line]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="224"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="226"/>
         <source>Checking sceneryobjects...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="760"/>
+        <location filename="../../OTBackend/OTOmsiFileHandler.h" line="767"/>
         <source>Get sceneryobjects and splines...</source>
         <translation type="unfinished"></translation>
     </message>
