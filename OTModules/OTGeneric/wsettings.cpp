@@ -148,7 +148,7 @@ wSettings::~wSettings()
     delete ui;
 }
 
-void wSettings::closeEvent (QCloseEvent *event)
+void wSettings::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
 }
@@ -479,7 +479,6 @@ void wSettings::on_actionSendFeedback_triggered()
 /// Saves advanced verifying setting
 void wSettings::on_cbxAdvancedVerifying_stateChanged(int arg1)
 {
-    qInfo() << arg1;
     if (arg1 == 2)
     {
         set.write("wVerifyMap", "advVerifying", true);
