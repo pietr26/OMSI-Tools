@@ -55,23 +55,23 @@ void Logger::handler(QtMsgType type, const QMessageLogContext &context, const QS
             case QtDebugMsg:
                 if (logfileMode <= 0)
                     return;
-                logText = QString("  [Debug]      %1").arg(msg);
+                logText = QString("      [Debug]   %1").arg(msg);
                 break;
 
             case QtInfoMsg:
-                logText = QString("  [Info]       %1").arg(msg);
+                logText = QString("    [Info]      %1").arg(msg);
                 break;
 
             case QtWarningMsg:
-                logText = QString("  [Warning]    %1").arg(msg);
+                logText = QString("  [Warning]     %1").arg(msg);
                 break;
 
             case QtCriticalMsg:
-                logText = QString("[Critical]     %1").arg(msg);
+                logText = QString("[Critical]      %1").arg(msg);
                 break;
 
             case QtFatalMsg:
-                logText = QString("[Fatal]        %1").arg("Application closed due to a fatal error: " + msg);
+                logText = QString("[Fatal]         %1").arg("Application closed due to a fatal error: " + msg);
                 break;
         }
 
