@@ -21,6 +21,22 @@ void testArea()
 //        QDir().mkpath("C:/Users/pietr/Desktop/testOMSI/" + makePaths.next().remove(0, cutCount));
 
     //qDebug() << "+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&";
+
+    // Get suffixes from all files in a directory
+//    QStringList list;
+//    QDirIterator dir("C:/Program Files (x86)/Steam/steamapps/common/OMSI 2", QDir::Files, QDirIterator::Subdirectories);
+
+//    while (dir.hasNext())
+//        list << QFileInfo(dir.next()).completeSuffix();
+
+//    list.removeDuplicates();
+//    list.sort();
+
+//    QFile suffixes("C:/Users/pietr/Desktop/suffixes_complete.txt");
+//    suffixes.open(QFile::WriteOnly);
+//    QTextStream out(&suffixes);
+//    out << list.join("\n");
+//    suffixes.close();
 }
 
 /// Cleanup actions after updates
