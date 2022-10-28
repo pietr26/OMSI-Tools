@@ -6,6 +6,7 @@ wMessageViewer::wMessageViewer(OTInAppMessage messageData, QWidget *parent) :
     ui(new Ui::wMessageViewer)
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::Dialog);
 
     if (set.read("main", "language") == "1")
     {
