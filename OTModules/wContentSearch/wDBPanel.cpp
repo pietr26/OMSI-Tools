@@ -133,14 +133,16 @@ QString wDBPanel::checkLinkID()
         QString dbAction = QString("INSERT INTO links (link, directLinks, information) VALUES ('%1'").arg(link);
 
         if (directLinks.isEmpty())
-            dbAction.append(QString(", NULL)"));
+            dbAction.append(QString(", NULL"));
         else
-            dbAction.append(QString(", '%1')").arg(directLinks));
+            dbAction.append(QString(", '%1'").arg(directLinks));
 
         if (information.isEmpty())
-            dbAction.append(QString(", NULL)"));
+            dbAction.append(QString(", NULL"));
         else
-            dbAction.append(QString(", '%1')").arg(information));
+            dbAction.append(QString(", '%1'").arg(information));
+
+        dbAction.append(")");
 
         isEmpty = true;
         dbHandler.doAction(dbAction);
@@ -249,7 +251,7 @@ void wDBPanel::on_btnStart_clicked()
             if (!ui->rbtnStandardContent->isChecked())
                 currentLinkID = checkLinkID();
             else
-                currentLinkID = "NULL";
+                currentLinkID = "'std'";
 
             dbHandler.doAction(QString("INSERT INTO paths (path, linkID) VALUES ('%1', %2)").arg(current, currentLinkID));
         }
