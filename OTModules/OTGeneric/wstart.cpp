@@ -69,6 +69,8 @@ wStart::wStart(QWidget *parent)
     fadeInOutText *facts = new fadeInOutText(OTFacts);
     ui->vlaFacts->addWidget(facts);
 
+    loadMessages();
+
     qInfo().noquote() << objectName() + " started";
 
     //QTimer::singleShot(1, this, SLOT(on_btnVerifyMap_clicked()));
@@ -83,6 +85,57 @@ wStart::~wStart()
 {
     qInfo().noquote() << objectName() << "is closing...";
     delete ui;
+}
+
+/// Loads the messages
+void wStart::loadMessages()
+{
+    OTDownloader dl;
+    QStringList messages = dl.doDownload(OTLinks::inAppMessages).split("\n");
+
+    for (int i = 0; i < messages.size(); i++)
+    {
+        if (messages.at(i) == "[news]")
+        {
+            OTInAppMessage messageData;
+            i++; messageData.ID = messages.at(i);
+            i++; messageData.publicity = QVariant(messages.at(i)).toBool();
+            i++; messageData.start = QDateTime::fromString(messages.at(i), "yyyyMMddHHmm");
+            i++; messageData.end = QDateTime::fromString(messages.at(i), "yyyyMMddHHmm");
+            i++; messageData.enTitle = messages.at(i);
+            i++; messageData.enShortDescription = messages.at(i);
+            i++; messageData.enDescription = messages.at(i);
+            i++; messageData.deTitle = messages.at(i);
+            i++; messageData.deShortDescription = messages.at(i);
+            i++; messageData.deDescription = messages.at(i);
+
+            if (!((OTBuild == OTBuildOptions::Dev) || (OTBuild == OTBuildOptions::Alpha) || (OTBuild == OTBuildOptions::Beta)) && !messageData.publicity)
+                continue;
+
+            if ((QDateTime::currentDateTime().secsTo(messageData.start) <= 0) && (QDateTime::currentDateTime().secsTo(messageData.end) >= 0))
+            {
+                message *widget = new message(messageData, this);
+                QListWidgetItem *item = new QListWidgetItem();
+                item->setSizeHint(widget->sizeHint());
+
+                ui->lwgMessages->addItem(item);
+                ui->lwgMessages->setItemWidget(item, widget);
+            }
+        }
+    }
+}
+
+/// Reloads the message system
+void wStart::on_btnReloadMessages_clicked()
+{
+    ui->lwgMessages->clear();
+    loadMessages();
+}
+
+void wStart::on_lwgMessages_itemDoubleClicked(QListWidgetItem *item)
+{
+    message *msg = qobject_cast<message*>(ui->lwgMessages->itemWidget(item));
+    msg->showDescription();
 }
 
 /// Opens the settings
@@ -279,4 +332,3 @@ void wStart::on_actionCheckForUpdates_triggered()
         WRELEASENOTES->show();
     }
 }
-

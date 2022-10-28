@@ -92,6 +92,7 @@ public:
     inline static const QUrl support = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683");
     inline static const QUrl latestVersion = QUrl("https://backend.omsi-tools.de/currentVersion/");
     inline static const QUrl releaseNotes = QUrl("https://backend.omsi-tools.de/releaseNotes/");
+    inline static const QUrl inAppMessages = QUrl("https://backend.omsi-tools.de/messages/allMessages.txt");
     inline static const QUrl download = QUrl("https://backend.omsi-tools.de/downloadLink/");
     inline static const QUrl survey = QUrl("https://forms.office.com/r/QbbQBQCa21");
     inline static const QUrl github = QUrl("https://github.com/pietr26/OMSI-Tools");
@@ -781,6 +782,23 @@ public:
 //                                                                         QPair("English", 4),
 //                                                                         (true) ? QPair("English", 4) :,
 //                                                                       };
+};
+
+class OTInAppMessage
+{
+public:
+    QString ID;
+    bool publicity;
+    QDateTime start;
+    QDateTime end;
+
+    QString enTitle;
+    QString enShortDescription;
+    QString enDescription;
+
+    QString deTitle;
+    QString deShortDescription;
+    QString deDescription;
 };
 
 #endif // OTGLOBAL_H

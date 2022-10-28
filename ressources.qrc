@@ -75,5 +75,6 @@
         <file>data/themes/Modular.qss</file>
         <file>data/icons/iconZip.svg</file>
         <file>data/icons/iconWiki.svg</file>
+        <file>data/icons/iconCircle_blue.svg</file>
     </qresource>
 </RCC>
