@@ -16,10 +16,12 @@ SOURCES += \
     OTModules/wFbh/wfbh.cpp \
     OTModules/wcleanup.cpp \
     OTModules/wmapselection.cpp \
+    OTModules/wmessageviewer.cpp \
     OTModules/wvehiclelist.cpp \
     OTModules/OTInternals/wstyletest.cpp \
     OTWidgets/fadeinouttext.cpp \
     OTWidgets/firstsetup.cpp \
+    OTWidgets/message.cpp \
     OTWidgets/newupdate.cpp \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
@@ -45,6 +47,7 @@ HEADERS += \
     OTModules/wFbh/wfbh.h \
     OTModules/wcleanup.h \
     OTModules/wmapselection.h \
+    OTModules/wmessageviewer.h \
     OTModules/wvehiclelist.h \
     OTModules/OTInternals/wdevtools.h \
     OTModules/wfonts.h \
@@ -52,6 +55,7 @@ HEADERS += \
     OTModules/OTInternals/wstyletest.h \
     OTWidgets/fadeinouttext.h \
     OTWidgets/firstsetup.h \
+    OTWidgets/message.h \
     OTWidgets/newupdate.h \
     OTWidgets/verifymaptools.h \
     OTModules/OTGeneric/wabout.h \
@@ -67,6 +71,7 @@ FORMS += \
     OTModules/wFbh/wfbh.ui \
     OTModules/wcleanup.ui \
     OTModules/wmapselection.ui \
+    OTModules/wmessageviewer.ui \
     OTModules/wvehiclelist.ui \
     OTModules/OTInternals/wdevtools.ui \
     OTModules/wfonts.ui \
@@ -74,6 +79,7 @@ FORMS += \
     OTModules/OTInternals/wstyletest.ui \
     OTWidgets/fadeinouttext.ui \
     OTWidgets/firstsetup.ui \
+    OTWidgets/message.ui \
     OTWidgets/newupdate.ui \
     OTWidgets/verifymaptools.ui \
     OTModules/OTGeneric/wabout.ui \

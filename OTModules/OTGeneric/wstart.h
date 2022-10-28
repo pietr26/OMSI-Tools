@@ -18,6 +18,7 @@
 #include "OTModules/OTInternals/wstyletest.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTWidgets/fadeinouttext.h"
+#include "OTWidgets/message.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class wStart; }
@@ -74,6 +75,10 @@ private slots:
 
     void testDLFinished();
 
+    void on_btnReloadMessages_clicked();
+
+    void on_lwgMessages_itemDoubleClicked(QListWidgetItem *item);
+
 private:
     Ui::wStart *ui;
     wSettings *WSETTINGS;
@@ -96,6 +101,8 @@ private:
 
     void startCounterMsgSender();
     bool checkMainDir();
+
+    void loadMessages();
 };
 
 #endif // WSTART_H
