@@ -21,6 +21,10 @@ message::message(OTInAppMessage paramMessageData, QWidget *parent) :
 
     if (set.read("main\\messages", messageData.ID).toBool())
         ui->lblUnreadPoint->hide();
+
+    ui->lblUnreadPoint->setStyleSheet("background-color: none");
+    ui->lblTitle->setStyleSheet("background-color: none");
+    ui->lblShortDescription->setStyleSheet("background-color: none");
 }
 
 message::~message()
