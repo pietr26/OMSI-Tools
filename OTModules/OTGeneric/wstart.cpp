@@ -92,6 +92,7 @@ void wStart::loadMessages()
 {
     OTDownloader dl;
     QStringList messages = dl.doDownload(OTLinks::inAppMessages).split("\n");
+    qDebug() << messages;
 
     for (int i = 0; i < messages.size(); i++)
     {
@@ -99,17 +100,37 @@ void wStart::loadMessages()
         {
             OTInAppMessage messageData;
             i++; messageData.ID = messages.at(i);
-            i++; messageData.publicity = QVariant(messages.at(i)).toBool();
-            i++; messageData.start = QDateTime::fromString(messages.at(i), "yyyyMMddHHmm");
-            i++; messageData.end = QDateTime::fromString(messages.at(i), "yyyyMMddHHmm");
+            i++; messageData.publicity = QVariant(messages.at(i)).toInt();
+            i++; messageData.start = QDateTime::fromString(messages.at(i), "yyyy-MM-dd HH:mm:ss");
+            i++; messageData.end = QDateTime::fromString(messages.at(i), "yyyy-MM-dd HH:mm:ss");
+            i++; messageData.slug = messages.at(i);
+            i++; messageData.versions = messages.at(i).split("|");
             i++; messageData.enTitle = messages.at(i);
             i++; messageData.enShortDescription = messages.at(i);
             i++; messageData.enDescription = messages.at(i);
             i++; messageData.deTitle = messages.at(i);
             i++; messageData.deShortDescription = messages.at(i);
             i++; messageData.deDescription = messages.at(i);
+            i++; messageData.trashbin = QVariant(messages.at(i)).toInt();
 
-            if (!((OTBuild == OTBuildOptions::Dev) || (OTBuild == OTBuildOptions::Alpha) || (OTBuild == OTBuildOptions::Beta)) && !messageData.publicity)
+            if (messageData.trashbin)
+                continue;
+
+            if (((OTBuild == OTBuildOptions::Dev) || (OTBuild == OTBuildOptions::Alpha) || (OTBuild == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 3)))
+                continue;
+            if ((!(OTBuild == OTBuildOptions::Dev) || (OTBuild == OTBuildOptions::Alpha) || (OTBuild == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 2) || (messageData.publicity == 3) || (messageData.publicity == 5)))
+                continue;
+
+            /*
+             * 0 = deactivated
+             * 1 = in-App
+             * 2 = in-App (Beta only)
+             * 3 = Website
+             * 4 = in-App + Website
+             * 5 = in-App (Beta only) + Website
+            */
+
+            if (!(messageData.versions.contains("all") || messageData.versions.contains(OTVersion)))
                 continue;
 
             if ((QDateTime::currentDateTime().secsTo(messageData.start) <= 0) && (QDateTime::currentDateTime().secsTo(messageData.end) >= 0))
