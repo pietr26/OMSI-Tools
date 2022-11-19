@@ -103,7 +103,6 @@ private:
     bool checkMainDir();
 
     void loadMessages();
-
 };
 
 #endif // WSTART_H

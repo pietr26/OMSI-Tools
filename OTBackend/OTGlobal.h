@@ -92,7 +92,7 @@ public:
     inline static const QUrl support = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683");
     inline static const QUrl latestVersion = QUrl("https://backend.omsi-tools.de/currentVersion/");
     inline static const QUrl releaseNotes = QUrl("https://backend.omsi-tools.de/releaseNotes/");
-    inline static const QUrl inAppMessages = QUrl("https://backend.omsi-tools.de/messages/allMessages.txt");
+    inline static const QUrl inAppMessages = QUrl("https://backend.omsi-tools.de/messages/");
     inline static const QUrl download = QUrl("https://backend.omsi-tools.de/downloadLink/");
     inline static const QUrl survey = QUrl("https://forms.office.com/r/QbbQBQCa21");
     inline static const QUrl github = QUrl("https://github.com/pietr26/OMSI-Tools");
@@ -788,9 +788,11 @@ class OTInAppMessage
 {
 public:
     QString ID;
-    bool publicity;
+    int publicity;
     QDateTime start;
     QDateTime end;
+    QString slug;
+    QStringList versions;
 
     QString enTitle;
     QString enShortDescription;
@@ -799,6 +801,8 @@ public:
     QString deTitle;
     QString deShortDescription;
     QString deDescription;
+
+    int trashbin;
 };
 
 #endif // OTGLOBAL_H
