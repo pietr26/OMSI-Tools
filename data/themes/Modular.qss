@@ -166,19 +166,20 @@ QTextEdit::disabled
 /*-----QTabBar-----*/
 QTabBar::tab
 {
-	background-color: %<%Button%>%;
-	border-style: solid;
-	border-width: 1px;
-	/* Standard */
-	border-color: black;
-	
-	/* Only enabled if value is valid */
-	border-color: %<%MainSC%>%;
-	border-bottom: none;
-	border-radius: 3px;
-	padding: 2px;
+	background-color: transparent;
+	padding: 3px;
 	padding-left: 15px;
 	padding-right: 15px;
+	border: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+QTabBar::tab:selected
+{
+	background-color: %<%Button%>%;
+	border-color: %<%MainSC%>%;
+	border-bottom-color: transparent;
 }
 
 QTabWidget::pane 
@@ -187,22 +188,10 @@ QTabWidget::pane
 	top: 1px;
 }
 
-QTabBar::tab:!selected
-{
-	border: none;
-	background-color: transparent;
-}
-
 QTabBar::tab:hover
 {
 	padding-top: 1px;
-	border-top: 1px solid;
-	border-top-color: %<%Acc2%>%;
-}
-
-QTabBar::tab:hover:selected
-{
-	padding-bottom: 1px;
+	background-color: %<%Acc2%>%;
 }
 
 /*-----QComboBox-----*/
@@ -436,12 +425,11 @@ QSlider::handle:horizontal:disabled
 
 /*-----QScrollBar-----*/
 QScrollBar:horizontal
-{
-    border: 1px solid %<%MainSC%>%;
-    background-color: %<%Acc1%>%;
-    height: 15px;
+{	
+	background-color: %<%MainSC%>%;
+    height: 16px;
+	border: 1px solid %<%Acc1%>%;
     margin: 0px 16px 0 16px;
-
 }
 
 QScrollBar::handle:horizontal
@@ -498,6 +486,12 @@ QScrollBar::sub-line:vertical
     height: 15px;
     subcontrol-position: top;
     subcontrol-origin: margin;
+}
+
+QScrollBar::add-page, QScrollBar::sub-page
+{
+	border: none;
+	background: none;
 }
 
 /*-----QProgressBar-----*/

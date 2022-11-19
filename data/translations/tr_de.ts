@@ -1582,13 +1582,13 @@ Es wird keine Schrift geöffnet.</translation>
 <context>
     <name>wMessageViewer</name>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="12"/>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="17"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="13"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="18"/>
         <source>Message: %1</source>
         <translation>Nachricht: %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="21"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="22"/>
         <source>Published on %1</source>
         <comment>e.g. Published on 28.10.2022</comment>
         <translation>Veröffentlicht am %1</translation>
@@ -2103,44 +2103,44 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Verknüpfung erstellen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="458"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="462"/>
         <source>Messages</source>
         <translation>Nachrichten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="609"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="612"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="624"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="627"/>
         <source>Release notes</source>
         <translation>Versionhinweise</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="630"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="645"/>
         <source>Source code on GitHub</source>
         <translation>Quellcode auf GitHub</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="639"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="654"/>
         <source>Restart</source>
         <translation>Neu starten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="648"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="651"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="663"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="666"/>
         <source>Check for updates</source>
         <translation>Auf Aktualsierungen prüfen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="654"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="669"/>
         <source>Ctrl+F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="621"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="636"/>
         <source>Manual</source>
         <translation>Handbuch</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="527"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="542"/>
         <source>Specials</source>
         <translation>Extras</translation>
     </message>
@@ -2150,12 +2150,12 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Speicherplatz</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="555"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="570"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="567"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="582"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
@@ -2165,32 +2165,32 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Über %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="327"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="348"/>
         <source>No updates available.</source>
         <translation>Keine Aktualisierungen verfügbar.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="232"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="253"/>
         <source>Simulate crash</source>
         <translation>Absturz simulieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="232"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="253"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Soll ein Anwendungsabsturz simuliert werden?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="296"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="317"/>
         <source>Feedback</source>
         <translation>Feedback</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="296"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="317"/>
         <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
         <translation>Wir würden uns freuen, wenn du an einer Umfrage über %1 teilnimmst, um unsere Software zu verbessern.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="327"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="348"/>
         <source>Finshed</source>
         <translation>Fertig</translation>
     </message>
@@ -2205,13 +2205,13 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Absturz simulieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="519"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="534"/>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="533"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="597"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="548"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="612"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
