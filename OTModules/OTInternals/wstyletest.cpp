@@ -108,7 +108,7 @@ void wStyleTest::on_ledStyle_textChanged(const QString &arg1)
 /// Set modular stylesheet
 void wStyleTest::on_btnReloadStylePrefs_clicked()
 {
-    QFile modularStyle("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/Dark_modular_test.qss");
+    QFile modularStyle("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/Modular.qss");
 
     if (!modularStyle.open(QFile::ReadOnly | QFile::Text))
     {
