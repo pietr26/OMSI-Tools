@@ -62,14 +62,13 @@ wStart::wStart(QWidget *parent)
 
     ui->actionAbout->setText(tr("About %1").arg(OTName));
 
-
-
     startCounterMsgSender();
 
     fadeInOutText *facts = new fadeInOutText(OTFacts);
     ui->vlaFacts->addWidget(facts);
 
     loadMessages();
+    ui->dwgMessages->setVisible(set.read(objectName(), "messagesVisible").toBool());
 
     qInfo().noquote() << objectName() + " started";
 
@@ -352,4 +351,11 @@ void wStart::on_actionCheckForUpdates_triggered()
         WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
         WRELEASENOTES->show();
     }
+}
+
+void wStart::on_actionShowHideMessageDock_triggered()
+{
+    ui->dwgMessages->setVisible(!ui->dwgMessages->isVisible());
+    set.write(objectName(), "messagesVisible", ui->dwgMessages->isVisible());
+    adjustSize();
 }

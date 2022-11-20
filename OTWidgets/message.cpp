@@ -8,6 +8,8 @@ message::message(OTInAppMessage paramMessageData, QWidget *parent) :
     ui->setupUi(this);
     messageData = paramMessageData;
 
+    qApp->processEvents();
+
     if (set.read("main", "language") == "1")
     {
         ui->lblTitle->setText(messageData.deTitle);
