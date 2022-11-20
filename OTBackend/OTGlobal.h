@@ -550,6 +550,9 @@ public:
 
         if (!read("main\\themeData", "useStandardTheme").isValid())
             write("main\\themeData", "useStandardTheme", true);
+
+        if (!read("wStart", "messagesVisible").isValid())
+            write("wStart", "messagesVisible", true);
     }
 };
 

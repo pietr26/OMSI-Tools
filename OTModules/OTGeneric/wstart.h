@@ -79,6 +79,8 @@ private slots:
 
     void on_lwgMessages_itemDoubleClicked(QListWidgetItem *item);
 
+    void on_actionShowHideMessageDock_triggered();
+
 private:
     Ui::wStart *ui;
     wSettings *WSETTINGS;
@@ -103,6 +105,7 @@ private:
     bool checkMainDir();
 
     void loadMessages();
+
 };
 
 #endif // WSTART_H

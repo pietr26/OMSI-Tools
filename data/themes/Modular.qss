@@ -170,16 +170,24 @@ QTabBar::tab
 	padding: 3px;
 	padding-left: 15px;
 	padding-right: 15px;
-	border: 1px solid transparent;
+	border: 1px solid %<%Dis%>%;
+	border-bottom: none;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
 }
+
+QTabBar::tab:!first
+{
+	border-left: none;
+}
+
 
 QTabBar::tab:selected
 {
 	background-color: %<%Button%>%;
 	border-color: %<%MainSC%>%;
-	border-bottom-color: transparent;
+	border-bottom-color: none;
+	font-weight: bold;
 }
 
 QTabWidget::pane 
@@ -190,7 +198,6 @@ QTabWidget::pane
 
 QTabBar::tab:hover
 {
-	padding-top: 1px;
 	background-color: %<%Acc2%>%;
 }
 
@@ -230,8 +237,8 @@ QDateTimeEdit
 {
 	background-color: %<%Button%>%;
 	padding: 3px;
-    border-radius: 3px;
-	border-color: %<%Acc1%>%;
+    border: 1px solid %<%MainSC%>%;
+	border-radius: 3px;
 }
 
 QSpinBox::hover,
@@ -251,7 +258,7 @@ QDateTimeEdit::disabled
 /*-----QGroupBox-----*/
 QGroupBox
 {
-    border: 1px solid %<%Button%>%;
+	border: 1px solid %<%MainSC%>%;
 	border-radius: 3px;
     margin-top: 1.5ex;
 }
@@ -345,7 +352,7 @@ QListView::item:selected
 
 QListView::item:!selected:hover
 {
-	background-color: %<%MainSC%>%;
+	background-color: %<%Acc2%>%;
 }
 
 QListView::item:disabled
@@ -429,7 +436,7 @@ QScrollBar:horizontal
 	background-color: %<%MainSC%>%;
     height: 16px;
 	border: 1px solid %<%Acc1%>%;
-    margin: 0px 16px 0 16px;
+    margin: 0px 16px 0px 16px;
 }
 
 QScrollBar::handle:horizontal
@@ -500,4 +507,18 @@ QProgressBar
 	border: 1px solid %<%MainSC%>%;
 	border-radius: 3px;
     text-align: center;
+}
+
+/*-----QDockWidget-----*/
+QDockWidget
+{
+    border: 1px solid %<%MainSC%>%;
+	border-radius: 3px;
+    titlebar-close-icon: url(:/rec/data/icons/iconDelete.svg);
+    titlebar-normal-icon: url(:/rec/data/icons/iconResize.svg);
+}
+
+QDockWidget::title
+{
+    padding-left: 5px;
 }
