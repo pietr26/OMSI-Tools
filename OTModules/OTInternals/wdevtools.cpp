@@ -13,7 +13,7 @@ wDevTools::wDevTools(QWidget *parent) :
     resize(misc.sizeWindow(0.5, 0.75));
     qDebug() << "UI set";
 
-    setWindowTitle(OTName + " - DevTools");
+    setWindowTitle(OTInformation::name + " - DevTools");
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());

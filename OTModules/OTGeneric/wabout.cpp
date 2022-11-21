@@ -17,14 +17,14 @@ wAbout::wAbout(QWidget *parent) :
     setStyleSheet(set.read("main", "theme").toString());
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
-    setWindowTitle(tr("About") + " " + OTName);
+    setWindowTitle(tr("About") + " " + OTInformation::name);
 
-    ui->lblTitle->setText(OTName);
-    ui->lblVersion->setText(tr("Version") + " " + OTVersion);
+    ui->lblTitle->setText(OTInformation::name);
+    ui->lblVersion->setText(tr("Version") + " " + OTInformation::versions::currentVersion.first);
 
-    ui->lblAdditionalVersion->setText(appBuild + "<br/><br/>");
+    ui->lblAdditionalVersion->setText(QString("%1 (%2)<br/><br/>").arg(appBuild).arg(OTInformation::versions::currentVersion.second));
 
-    QString generalInformation = tr("%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.").arg(OTName) + "<br/>" + tr("The Project has been started at January 22, 2021 and it's still in an early state of development.") + "<br/><br/>" + tr("%1 is licensed under the %2.").arg(OTName, "<a style=\"color: lightblue\" href=\"https://www.gnu.de/documents/gpl-2.0.en.html\">GNU General Public License v2.0</a>");
+    QString generalInformation = tr("%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.").arg(OTInformation::name) + "<br/>" + tr("The Project has been started at January 22, 2021 and it's still in an early state of development.") + "<br/><br/>" + tr("%1 is licensed under the %2.").arg(OTInformation::name, "<a style=\"color: lightblue\" href=\"https://www.gnu.de/documents/gpl-2.0.en.html\">GNU General Public License v2.0</a>");
 
     QString credits = QString("<b>%1:</b>").arg(tr("Development")) +
                       QString("<ul><li>Bamp <i>(%1)</i></li>").arg(tr("Management, application development")) +
@@ -64,8 +64,8 @@ void wAbout::on_btnClose_clicked()
 /// Shows detailed information (framework etc.)
 void wAbout::on_btnMore_clicked()
 {
-    QMessageBox::about(this, tr("More information"), tr("Developed with %1 and %2").arg("Qt 6.4.0", "MinGW 11.2.0") + "\n\n" +
-                                                                         tr("Build type: %1").arg(OTBuildOptions::getBuildName(OTBuild)) + "\n" +
+    QMessageBox::about(this, tr("More information"), tr("Developed with %1 and %2").arg("Qt 6.4.1", "MinGW 11.2.0") + "\n\n" +
+                                                                         tr("Build type: %1").arg(OTBuildOptions::getBuildName(OTInformation::build)) + "\n" +
                                                                          tr("Application build: %1").arg(appBuild) + "\n\n" +
-                                                                         tr("Approximate lines of code: %1 (%2)").arg(OTSourceCodeLength, OTStrings::getMonthName(4) + " 2022"));
+                                                                         tr("Approximate lines of code: %1 (%2)").arg(OTInformation::sourceCodeLength, OTStrings::getMonthName(4) + " 2022"));
 }

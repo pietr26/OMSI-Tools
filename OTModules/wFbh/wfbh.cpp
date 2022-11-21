@@ -29,9 +29,9 @@ wFbh::wFbh(QWidget *parent)
     ui->gbxCopyright->setVisible(false);
     ui->gbxAddElement->setVisible(false);
 
-    setWindowTitle("Filebase-Helper (" + OTVersion + ")");
+    setWindowTitle("Filebase-Helper (" + OTInformation::versions::currentVersion.first + ")");
 
-    ui->actionSettings->setText(tr("Settings (%1)").arg(OTName));
+    ui->actionSettings->setText(tr("Settings (%1)").arg(OTInformation::name));
 
     finishedSetup = true;
 

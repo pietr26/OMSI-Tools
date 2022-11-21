@@ -14,7 +14,7 @@ wStart::wStart(QWidget *parent)
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
 
-    setWindowTitle(OTName + " " + OTVersion);
+    setWindowTitle(OTInformation::name + " " + OTInformation::versions::currentVersion.first);
 
 #ifdef QT_DEBUG
     setWindowTitle("[Debug Build] " + windowTitle());
@@ -23,8 +23,8 @@ wStart::wStart(QWidget *parent)
     // Prepare GUI:
     bool isNoRelease;
 
-    if (OTBuild == OTBuildOptions::Release || OTBuild == OTBuildOptions::EA ||
-        OTBuild == OTBuildOptions::Lite || OTBuild == OTBuildOptions::Prerelease)
+    if (OTInformation::build == OTBuildOptions::Release || OTInformation::build == OTBuildOptions::EA ||
+        OTInformation::build == OTBuildOptions::Lite || OTInformation::build == OTBuildOptions::Prerelease)
         isNoRelease = false;
     else
         isNoRelease = true;
@@ -60,7 +60,7 @@ wStart::wStart(QWidget *parent)
 
     adjustSize();
 
-    ui->actionAbout->setText(tr("About %1").arg(OTName));
+    ui->actionAbout->setText(tr("About %1").arg(OTInformation::name));
 
     startCounterMsgSender();
 
@@ -115,9 +115,9 @@ void wStart::loadMessages()
             if (messageData.trashbin)
                 continue;
 
-            if (((OTBuild == OTBuildOptions::Dev) || (OTBuild == OTBuildOptions::Alpha) || (OTBuild == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 3)))
+            if (((OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 3)))
                 continue;
-            if ((!(OTBuild == OTBuildOptions::Dev) || (OTBuild == OTBuildOptions::Alpha) || (OTBuild == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 2) || (messageData.publicity == 3) || (messageData.publicity == 5)))
+            if ((!(OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 2) || (messageData.publicity == 3) || (messageData.publicity == 5)))
                 continue;
 
             /*
@@ -129,7 +129,7 @@ void wStart::loadMessages()
              * 5 = in-App (Beta only) + Website
             */
 
-            if (!(messageData.versions.contains("all") || messageData.versions.contains(OTVersion)))
+            if (!(messageData.versions.contains("all") || messageData.versions.contains(OTInformation::versions::currentVersion.first)))
                 continue;
 
             if ((QDateTime::currentDateTime().secsTo(messageData.start) <= 0) && (QDateTime::currentDateTime().secsTo(messageData.end) >= 0))
@@ -313,7 +313,7 @@ void wStart::startCounterMsgSender()
 
     if ((count >= 5) && (set.read("main\\startCountMessages", "feedbackForm").toString() != "true"))
     {
-        QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Feedback"), tr("You are welcome to give us feedback about %1 so we can improve our software.").arg(OTName), QMessageBox::Yes | QMessageBox::No);
+        QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Feedback"), tr("You are welcome to give us feedback about %1 so we can improve our software.").arg(OTInformation::name), QMessageBox::Yes | QMessageBox::No);
         set.write("main\\startCountMessages", "feedbackForm", true);
 
         if (reply == QMessageBox::Yes)

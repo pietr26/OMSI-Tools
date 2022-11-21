@@ -9,7 +9,7 @@ newUpdate::newUpdate(QStringList update, QWidget *parent) :
 
     updateInformation = update;
     ui->lblNewVersion->setText(updateInformation.at(1));
-    ui->lblCurrentVersion->setText(OTVersion);
+    ui->lblCurrentVersion->setText(OTInformation::versions::currentVersion.first);
 }
 
 newUpdate::~newUpdate()

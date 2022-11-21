@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
     set.write("main", "closeCheck", false);
     set.setDefaultSettings();
 
-    qInfo().noquote() << "Starting " + OTName + "...";
+    qInfo().noquote() << "Starting " + OTInformation::name + "...";
 
     QApplication a(argc, argv);
 
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
     if (isCrash)
     {
         qWarning() << "Crash on last start detected! A logfile has been saved. Please contact the developer.";
-        QMessageBox::StandardButton reply = QMessageBox::question(NULL, QObject::tr("Crash detected"), QObject::tr("%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.\nOpen the path of the logfile?").arg(OTName));
+        QMessageBox::StandardButton reply = QMessageBox::question(NULL, QObject::tr("Crash detected"), QObject::tr("%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.\nOpen the path of the logfile?").arg(OTInformation::name));
 
         if (reply == QMessageBox::Yes)
             fop.showInExplorer(newName);
@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
 
     int exec = a.exec();
 
-    qInfo().noquote() << OTName + " is closing...";
+    qInfo().noquote() << OTInformation::name + " is closing...";
 
     set.write("main", "closeCheck", true);
 

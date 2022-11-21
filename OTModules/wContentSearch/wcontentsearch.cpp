@@ -13,7 +13,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     resize(misc.sizeWindow(0.5, 0.75));
     qDebug() << "UI set";
 
-    setWindowTitle(OTName + " - " + tr("Content search"));
+    setWindowTitle(OTInformation::name + " - " + tr("Content search"));
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());

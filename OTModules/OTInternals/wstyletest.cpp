@@ -14,7 +14,7 @@ wStyleTest::wStyleTest(QWidget *parent) :
     resize(misc.sizeWindow(0.4, 1));
     qDebug() << "UI set";
 
-    setWindowTitle(OTName + " - style test");
+    setWindowTitle(OTInformation::name + " - style test");
 
     // StyleTest stuff
     ui->statusbar->addPermanentWidget(ui->lblPermWidget1);
