@@ -15,7 +15,7 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
 
-    setWindowTitle(OTName + " - " + tr("release notes"));
+    setWindowTitle(OTInformation::name + " - " + tr("release notes"));
 
     ui->teedReleaseNotes->setText(tr("Loading..."));
 
@@ -30,7 +30,7 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
 
     ui->lblClearAppDirInfo->setVisible(false);
 
-    ui->lblCurrentVersion->setText("<b>" + tr("Current version:") + "</b> " + OTVersion);
+    ui->lblCurrentVersion->setText("<b>" + tr("Current version:") + "</b> " + OTInformation::versions::currentVersion.first);
 
     if (newVersion != "")
         ui->lblNewVersion->setText("<b>" + tr("New version:") + "</b> " + newVersion);

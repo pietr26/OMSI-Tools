@@ -16,7 +16,7 @@ wFeedback::wFeedback(QWidget *parent, QUrl wikiEntry) :
 
     // Load settings
     setStyleSheet(set.read("main","theme").toString());
-    setWindowTitle(OTName + " - " + tr("feedback"));
+    setWindowTitle(OTInformation::name + " - " + tr("feedback"));
 
     if (wikiEntry.isEmpty())
         ui->btnWikiEntry->setEnabled(false);

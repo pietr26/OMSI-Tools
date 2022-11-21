@@ -11,7 +11,7 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     //adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTName + " - " + tr("map verify"));
+    setWindowTitle(OTInformation::name + " - " + tr("map verify"));
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
 
     // Set default settings

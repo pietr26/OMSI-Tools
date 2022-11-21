@@ -63,11 +63,6 @@ public:
     }
 };
 
-const QString OTName = "OMSI-Tools";
-const QString OTVersion = "1.0.1-beta";
-const OTBuildOptions::buildOptions OTBuild = OTBuildOptions::Dev;
-const QString OTSourceCodeLength = "18 000";
-
 /// Unsaved code snippet for closeEvents:
 /*
     if (unsaved)
@@ -83,6 +78,55 @@ const QString OTSourceCodeLength = "18 000";
     }
 */
 
+/// [STATIC] General application information
+class OTInformation
+{
+public:
+    inline static const QString name = "OMSI-Tools";
+    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Dev;
+    inline static const QString sourceCodeLength = "18 000";
+
+    class versions
+    {
+    public:
+        inline static const QList<QPair<QString, unsigned int>> allVersions = {
+            QPair<QString, unsigned int>("1.0.1-dev", 31),
+            QPair<QString, unsigned int>("1.0.0-lite", 30),
+            QPair<QString, unsigned int>("1.0.0-beta", 29),
+            QPair<QString, unsigned int>("1.0.0-dev", 28),
+            QPair<QString, unsigned int>("0.10.1-lite", 27),
+            QPair<QString, unsigned int>("0.10.1-beta", 26),
+            QPair<QString, unsigned int>("0.10.1-dev", 25),
+            QPair<QString, unsigned int>("0.10.0-lite", 24),
+            QPair<QString, unsigned int>("0.10.0-prerelease", 23),
+            QPair<QString, unsigned int>("0.10.0-beta", 22),
+            QPair<QString, unsigned int>("0.10.0-dev", 21),
+            QPair<QString, unsigned int>("0.9.0-beta", 20),
+            QPair<QString, unsigned int>("0.9.0-dev", 19),
+            QPair<QString, unsigned int>("0.8.0-beta", 18),
+            QPair<QString, unsigned int>("0.8.0-dev", 17),
+            QPair<QString, unsigned int>("0.7.0-beta", 16),
+            QPair<QString, unsigned int>("0.7.0-dev", 15),
+            QPair<QString, unsigned int>("0.6.0-beta", 14),
+            QPair<QString, unsigned int>("0.6.0-dev", 13),
+            QPair<QString, unsigned int>("0.5.0-beta", 12),
+            QPair<QString, unsigned int>("0.5.0-dev", 11),
+            QPair<QString, unsigned int>("0.4.0-beta", 10),
+            QPair<QString, unsigned int>("0.4.0-dev", 9),
+            QPair<QString, unsigned int>("0.3.0-beta", 8),
+            QPair<QString, unsigned int>("0.3.0-dev", 7),
+            QPair<QString, unsigned int>("0.2.1-beta", 6),
+            QPair<QString, unsigned int>("0.2.1-dev", 5),
+            QPair<QString, unsigned int>("0.2.0-beta", 4),
+            QPair<QString, unsigned int>("0.2.0-dev", 3),
+            QPair<QString, unsigned int>("0.1.0-beta", 2),
+            QPair<QString, unsigned int>("0.1.0-dev", 1),
+            QPair<QString, unsigned int>("0.0.0-dev", 0)
+        };
+
+        inline static const QPair<QString, unsigned int> currentVersion = allVersions.at(0);
+    };
+};
 
 /// [STATIC] Link collection
 class OTLinks
@@ -253,7 +297,7 @@ public:
 
         if (latestVersion == "")
             list << "false" << latestVersion;
-        else if (latestVersion == OTVersion)
+        else if (latestVersion == OTInformation::versions::currentVersion.first)
             list << "noUpdates" << latestVersion;
         else
             list << latestVersion << latestVersion;
@@ -296,7 +340,7 @@ public:
         if (!QProcess::startDetached(QDir::tempPath() + "/OMSI-Tools_tempAppDir/OMSI-Tools_Updater.exe", args))
         {
             qWarning() << "There was an error while starting the updater (with name 'OMSI-Tools_Updater.exe').";
-            QMessageBox::warning(parent, QObject::tr("Updating %1").arg(OTName), QObject::tr("There was an error while starting the updater. Please retry it or contact the developer."));
+            QMessageBox::warning(parent, QObject::tr("Updating %1").arg(OTInformation::name), QObject::tr("There was an error while starting the updater. Please retry it or contact the developer."));
         }
         else
         {
@@ -313,7 +357,7 @@ public:
     /// Returns an universal file header
     QString writeFileHeader()
     {
-        return "File created with " + OTName + " " + OTVersion + " on " + misc.getDate() + ", " + misc.getTime() + "\n\n";
+        return "File created with " + OTInformation::name + " " + OTInformation::versions::currentVersion.first + " on " + misc.getDate() + ", " + misc.getTime() + "\n\n";
     }
 
     /// Checks if the backups folder exists
@@ -361,7 +405,7 @@ public:
     /// Writes a setting
     void write(QString module, QString name, QVariant value)
     {
-        QSettings settings(OTName, module);
+        QSettings settings(OTInformation::name, module);
         settings.setValue(name, value);
         qDebug().noquote().nospace() << "Write settings to " << module << ": "<< name << ", value: " << value;
     }
@@ -369,7 +413,7 @@ public:
     /// Reads a setting
     QVariant read(QString module, QString name, bool getInterpretedData = true)
     {
-        QSettings settings(OTName, module);
+        QSettings settings(OTInformation::name, module);
         QVariant value = settings.value(name);
         qDebug().noquote().nospace() << "Read settings from " << module << ": "<< name << ", value: " << value;
 
@@ -381,12 +425,12 @@ public:
 
     void remove(QString module, QString name)
     {
-        QSettings(OTName, module).remove(name);
+        QSettings(OTInformation::name, module).remove(name);
     }
 
     void removeAll()
     {
-        QSettings("HKEY_CURRENT_USER\\SOFTWARE\\" + OTName, QSettings::NativeFormat).remove("");
+        QSettings("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat).remove("");
     }
 
     /// Returns the whole stylesheet
@@ -481,7 +525,7 @@ public:
     /// Gets all settings keys and its values
     QString getAllSettings()
     {
-        QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTName, QSettings::NativeFormat);
+        QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat);
 
         QString returnString = "\n";
 
@@ -560,13 +604,13 @@ const QList<QPair<QString, unsigned int>> OTFacts(
             {
                 // Link HTML: <a style='color: lightblue' href='LINK'>TEXT</a>
 
-                QPair<QString, unsigned int>(QObject::tr("The source code of %1 is about %2 lines long.").arg(OTName, OTSourceCodeLength), 8000),
-                QPair<QString, unsigned int>(QObject::tr("%1 was born from a simple console application called \"Font Creator\".").arg(OTName), 10000),
-                QPair<QString, unsigned int>(QObject::tr("With the updater of %1 you can install updates with one click. It is available through the settings.").arg(OTName), 13000),
-                QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.").arg(OTName, OTLinks::wiki::general.toString()), 11000),
-                //QPair<QString, unsigned int>(QObject::tr("You have started %1 already %2 times.").arg(OTName, OTSettings::read("main", "startCount").toString()), 7000),
+                QPair<QString, unsigned int>(QObject::tr("The source code of %1 is about %2 lines long.").arg(OTInformation::name, OTInformation::sourceCodeLength), 8000),
+                QPair<QString, unsigned int>(QObject::tr("%1 was born from a simple console application called \"Font Creator\".").arg(OTInformation::name), 10000),
+                QPair<QString, unsigned int>(QObject::tr("With the updater of %1 you can install updates with one click. It is available through the settings.").arg(OTInformation::name), 13000),
+                QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.").arg(OTInformation::name, OTLinks::wiki::general.toString()), 11000),
+                //QPair<QString, unsigned int>(QObject::tr("You have started %1 already %2 times.").arg(OTInformation::name, OTSettings::read("main", "startCount").toString()), 7000),
                 QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.").arg(OTLinks::showroom.toString()), 11000),
-                QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTName), 10000)
+                QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTInformation::name), 10000)
             }
             );
 

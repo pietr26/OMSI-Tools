@@ -13,7 +13,7 @@ wFonts::wFonts() :
     adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTName + " - " + tr("font creation"));
+    setWindowTitle(OTInformation::name + " - " + tr("font creation"));
 
     // Set default settings
     if (!set.read(objectName(), "texPreview").isValid())
@@ -709,9 +709,9 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
 void wFonts::setTitle(QString filen)
 {
     if (filen == "empty")
-        wFonts::setWindowTitle(OTName + " - " + tr("fonts"));
+        wFonts::setWindowTitle(OTInformation::name + " - " + tr("fonts"));
     else
-        wFonts::setWindowTitle(OTName + " - " + tr("fonts") + " (" + filen + ")");
+        wFonts::setWindowTitle(OTInformation::name + " - " + tr("fonts") + " (" + filen + ")");
 }
 
 /// Ceates a new font

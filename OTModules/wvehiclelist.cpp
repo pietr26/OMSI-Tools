@@ -16,7 +16,7 @@ wVehicleList::wVehicleList(QWidget *parent) :
     //adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTName + " - " + tr("vehicle lists"));
+    setWindowTitle(OTInformation::name + " - " + tr("vehicle lists"));
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());

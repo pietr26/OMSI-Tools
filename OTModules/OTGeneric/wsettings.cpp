@@ -13,7 +13,7 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTName + " - " + tr("settings"));
+    setWindowTitle(OTInformation::name + " - " + tr("settings"));
     //ui->statusbar->showMessage(tr("Restart to apply all settings."));
 
     // Load settings
@@ -239,7 +239,7 @@ void wSettings::on_btnResetSettings_clicked()
 /// Creates a desktop shortcut
 void wSettings::on_btnCreateDesktopShortcut_clicked()
 {
-    fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/%1.lnk").arg(OTName), this);
+    fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/%1.lnk").arg(OTInformation::name), this);
 }
 
 /// Saves the language
@@ -309,7 +309,7 @@ void wSettings::on_btnOpenLogfilePath_clicked()
 /// Shows a promotion to apply to a translator
 void wSettings::on_btnMoreLanguages_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::information(this, tr("More languages"), tr("You want to have more languages to choose from?\nUnfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.").arg(OTName), QMessageBox::Open | QMessageBox::Close);
+    QMessageBox::StandardButton reply = QMessageBox::information(this, tr("More languages"), tr("You want to have more languages to choose from?\nUnfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.").arg(OTInformation::name), QMessageBox::Open | QMessageBox::Close);
 
     if (reply == QMessageBox::Open)
         QDesktopServices::openUrl(OTLinks::showroom);

@@ -11,15 +11,15 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
     ui->lblStatus->setText(tr("Start-up..."));
-    setWindowTitle(OTName + " - " + ui->lblStatus->text());
+    setWindowTitle(OTInformation::name + " - " + ui->lblStatus->text());
 
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(updateCheck()));
     timer->start(startUpScreenDuration);
 
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    ui->lblTitle->setText(OTName);
-    ui->lblVersion->setText(OTVersion);
+    ui->lblTitle->setText(OTInformation::name);
+    ui->lblVersion->setText(OTInformation::versions::currentVersion.first);
     ui->lblCopyright->setText("© Bamp");
     ui->lblCopyright->setVisible(false);
 
