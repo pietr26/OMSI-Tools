@@ -465,6 +465,17 @@
               </widget>
              </item>
              <item>
+              <widget class="QPushButton" name="btnRNEditor">
+               <property name="text">
+                <string notr="true">Release Notes Editor</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../../ressources.qrc">
+                 <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="btnStyleTest">
                <property name="text">
                 <string notr="true">StyleTest</string>

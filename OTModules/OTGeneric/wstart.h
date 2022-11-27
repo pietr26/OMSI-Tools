@@ -6,19 +6,21 @@
 #include <QFutureWatcher>
 #include <OTModules/wcleanup.h>
 #include "OTModules/OTGeneric/wsettings.h"
+#include "OTModules/OTGeneric/wfeedback.h"
+#include "OTModules/OTGeneric/wreleasenotes.h"
+#include "OTModules/OTInternals/wrneditor.h"
 #include "OTModules/wfonts.h"
 #include "OTModules/wVerifyMap/wverifymap.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/OTGeneric/wabout.h"
 #include "OTModules/OTInternals/wdevtools.h"
+#include "OTModules/OTInternals/wstyletest.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTModules/wContentSearch/wDBPanel.h"
-#include "OTModules/OTGeneric/wreleasenotes.h"
 #include "OTModules/wFbh/wfbh.h"
-#include "OTModules/OTInternals/wstyletest.h"
-#include "OTModules/OTGeneric/wfeedback.h"
 #include "OTWidgets/fadeinouttext.h"
 #include "OTWidgets/message.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class wStart; }
@@ -81,12 +83,17 @@ private slots:
 
     void on_actionShowHideMessageDock_triggered();
 
+    void on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area);
+
+    void on_btnRNEditor_clicked();
+
 private:
     Ui::wStart *ui;
     wSettings *WSETTINGS;
     wFonts *WFONTS;
     wVerifyMap *WVERIFYMAP;
     wDevTools *WDEVTOOLS;
+    wRNEditor *WRNEDITOR;
     wDBPanel *WDBPANEL;
     wContentSearch *WCONTENTSEARCH;
     wReleaseNotes *WRELEASENOTES;
