@@ -70,6 +70,10 @@ wStart::wStart(QWidget *parent)
     loadMessages();
     ui->dwgMessages->setVisible(set.read(objectName(), "messagesVisible").toBool());
 
+    QVariant state = set.read(objectName(), "state");
+    if (state.isValid())
+        restoreState(state.toByteArray());
+
     qInfo().noquote() << objectName() + " started";
 
     //QTimer::singleShot(1, this, SLOT(on_btnVerifyMap_clicked()));
@@ -359,3 +363,18 @@ void wStart::on_actionShowHideMessageDock_triggered()
     set.write(objectName(), "messagesVisible", ui->dwgMessages->isVisible());
     adjustSize();
 }
+
+void wStart::on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area)
+{
+    Q_UNUSED(area);
+    set.write(objectName(), "state", saveState());
+}
+
+
+void wStart::on_btnRNEditor_clicked()
+{
+    close();
+    WRNEDITOR = new wRNEditor();
+    WRNEDITOR->show();
+}
+
