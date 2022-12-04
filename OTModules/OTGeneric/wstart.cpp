@@ -94,8 +94,9 @@ wStart::~wStart()
 void wStart::loadMessages()
 {
     OTDownloader dl;
-    QStringList messages = dl.doDownload(OTLinks::inAppMessages).split("\n");
-    qDebug() << messages;
+    QString test = dl.doDownload(OTLinks::inAppMessages);
+    qDebug() << test;
+    QStringList messages = test.split("\n");
 
     for (int i = 0; i < messages.size(); i++)
     {
@@ -369,12 +370,3 @@ void wStart::on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area)
     Q_UNUSED(area);
     set.write(objectName(), "state", saveState());
 }
-
-
-void wStart::on_btnRNEditor_clicked()
-{
-    close();
-    WRNEDITOR = new wRNEditor();
-    WRNEDITOR->show();
-}
-
