@@ -134,10 +134,10 @@ class OTLinks
 public:
     inline static const QUrl showroom = QUrl("https://reboot.omsi-webdisk.de/community/thread/4783");
     inline static const QUrl support = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683");
-    inline static const QUrl latestVersion = QUrl("https://backend.omsi-tools.de/currentVersion/");
-    inline static const QUrl releaseNotes = QUrl("https://backend.omsi-tools.de/releaseNotes/");
+    inline static const QUrl latestVersion = QUrl("https://backend.omsi-tools.de/api/?ref=currentVersion");
+    inline static const QUrl releaseNotes = QUrl("https://backend.omsi-tools.de/api/?ref=releaseNotes");
     inline static const QUrl inAppMessages = QUrl("https://backend.omsi-tools.de/api/?ref=messages");
-    inline static const QUrl download = QUrl("https://backend.omsi-tools.de/downloadLink/");
+    inline static const QUrl download = QUrl("https://backend.omsi-tools.de/api/?ref=downloadLink");
     inline static const QUrl survey = QUrl("https://forms.office.com/r/QbbQBQCa21");
     inline static const QUrl github = QUrl("https://github.com/pietr26/OMSI-Tools");
 
