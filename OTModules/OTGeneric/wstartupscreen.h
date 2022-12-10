@@ -8,6 +8,7 @@
 #include <QGraphicsOpacityEffect>
 #include "OTModules/OTGeneric/wstart.h"
 #include "OTWidgets/newupdate.h"
+#include "OTWidgets/invalidmaindir.h"
 
 namespace Ui {
 class wStartUpScreen;
@@ -37,6 +38,7 @@ private:
     wStart *WSTART;
     firstSetup *FIRSTSETUP;
     newUpdate *NEWUPDATE;
+    invalidMainDir *INVALIDMAINDIR;
 
     QTimer *timer;
 

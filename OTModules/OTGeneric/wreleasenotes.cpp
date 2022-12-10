@@ -50,7 +50,7 @@ wReleaseNotes::~wReleaseNotes()
 /// Downloads current release notes
 void wReleaseNotes::downloadReleaseNotes()
 {
-    QString releaseNotes = dl.doDownload(OTLinks::releaseNotes);
+    QString releaseNotes = dl.doDownload(QUrl(OTLinks::releaseNotes.toString() + "&lang=" + set.getCurrentLanguageCode()));
     if ((dl.lastHttpCode != 0) || (dl.lastHttpCode >= 300))
         ui->teedReleaseNotes->setHtml(releaseNotes);
     else

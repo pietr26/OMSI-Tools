@@ -503,21 +503,35 @@ public:
         }
     }
 
+    /// Checks if OMSI main dir exists / is valid
+    bool checkMainDir(QWidget *parent, QString mainDir, bool openMessage)
+    {
+        if (mainDir != "" && !QFileInfo(QFile(mainDir + "/Omsi.exe")).exists())
+        {
+            qWarning().noquote() << "'" + mainDir + "' isn't an OMSI path!";
+            if (openMessage)
+            {
+                QMessageBox::StandardButton reply = QMessageBox::warning(parent, QObject::tr("Could not found \"Omsi.exe\""), QObject::tr("'Omsi.exe' could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?"), QMessageBox::Yes | QMessageBox::No);
+
+                if (reply == QMessageBox::Yes)
+                    getOmsiPath(parent);
+            }
+
+            return false;
+        }
+
+        return true;
+    }
+
     /// Select and control OMSI main dir path. Returns the OMSI path.
-    QString getOmsiPath(QWidget *parent, QString path = "")
+    QString getOmsiPath(QWidget *parent, bool openMessage = true, QString path = "")
     {
         if (path.isEmpty())
             path = QSettings("HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\aerosoft\\OMSI 2", QSettings::NativeFormat).value("Product_Path").toString();
 
         QString mainDir = QFileDialog::getExistingDirectory(parent, QObject::tr("Select the OMSI main directory..."), path);
 
-        if (mainDir != "" && !QFileInfo(QFile(mainDir + "/Omsi.exe")).exists())
-        {
-            qWarning().noquote() << "'" + mainDir + "' isn't an OMSI path!";
-            QMessageBox::StandardButton reply = QMessageBox::warning(parent, QObject::tr("Could not found \"Omsi.exe\""), QObject::tr("%1 could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?").arg("'Omsi.exe'"), QMessageBox::Yes | QMessageBox::No);
-            if (reply == QMessageBox::Yes)
-                return getOmsiPath(parent);
-        }
+        if (openMessage) checkMainDir(parent, mainDir, openMessage);
 
         return mainDir;
     }
@@ -597,6 +611,20 @@ public:
 
         if (!read("wStart", "messagesVisible").isValid())
             write("wStart", "messagesVisible", true);
+    }
+
+    QString getCurrentLanguageCode()
+    {
+        int index = read("main", "language").toInt();
+
+        switch (index) {
+            case 0: return "en"; break;
+            case 1: return "de"; break;
+            case 2: return "fr"; break;
+            case 3: return "it"; break;
+            case 4: return "cz"; break;
+            default: return "err";
+        }
     }
 };
 

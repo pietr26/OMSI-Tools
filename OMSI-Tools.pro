@@ -21,6 +21,7 @@ SOURCES += \
     OTModules/OTInternals/wstyletest.cpp \
     OTWidgets/fadeinouttext.cpp \
     OTWidgets/firstsetup.cpp \
+    OTWidgets/invalidmaindir.cpp \
     OTWidgets/message.cpp \
     OTWidgets/newupdate.cpp \
     OTWidgets/verifymaptools.cpp \
@@ -55,6 +56,7 @@ HEADERS += \
     OTModules/OTInternals/wstyletest.h \
     OTWidgets/fadeinouttext.h \
     OTWidgets/firstsetup.h \
+    OTWidgets/invalidmaindir.h \
     OTWidgets/message.h \
     OTWidgets/newupdate.h \
     OTWidgets/verifymaptools.h \
@@ -79,6 +81,7 @@ FORMS += \
     OTModules/OTInternals/wstyletest.ui \
     OTWidgets/fadeinouttext.ui \
     OTWidgets/firstsetup.ui \
+    OTWidgets/invalidmaindir.ui \
     OTWidgets/message.ui \
     OTWidgets/newupdate.ui \
     OTWidgets/verifymaptools.ui \

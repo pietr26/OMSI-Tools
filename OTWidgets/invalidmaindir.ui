@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>newUpdate</class>
- <widget class="QWidget" name="newUpdate">
+ <class>invalidMainDir</class>
+ <widget class="QWidget" name="invalidMainDir">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>436</width>
-    <height>157</height>
+    <width>785</width>
+    <height>152</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true">Form</string>
+   <string notr="true">invalidMainDir</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
@@ -37,7 +30,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="lblUpdateIcon">
+      <widget class="QLabel" name="lblMainDirIcon">
        <property name="maximumSize">
         <size>
          <width>23</width>
@@ -48,7 +41,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../ressources.qrc">:/rec/data/icons/iconDownload_blue.svg</pixmap>
+        <pixmap resource="../ressources.qrc">:/rec/data/icons/iconOpen_blue.svg</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -56,7 +49,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="lblUpdate">
+      <widget class="QLabel" name="lblInvalidMainDir">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
@@ -64,7 +57,7 @@
         </font>
        </property>
        <property name="text">
-        <string>New update available</string>
+        <string>Invalid OMSI path</string>
        </property>
       </widget>
      </item>
@@ -86,53 +79,19 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="QLabel" name="lblCurrentVersion">
-       <property name="font">
-        <font>
-         <family>Consolas</family>
-         <pointsize>10</pointsize>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: #008AFF</string>
+      <widget class="QLabel" name="lblInvalidMainDirDescription">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
        <property name="text">
-        <string notr="true">currentVersion</string>
+        <string>'Omsi.exe' could not found in the selected directory.
+Is it the correct path? Otherwise, problems may appear in some modules.</string>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="lblVersionArrow">
-       <property name="font">
-        <font>
-         <family>Consolas</family>
-         <pointsize>10</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: #008AFF</string>
-       </property>
-       <property name="text">
-        <string notr="true">❯</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="lblNewVersion">
-       <property name="font">
-        <font>
-         <family>Consolas</family>
-         <pointsize>10</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: #008AFF</string>
-       </property>
-       <property name="text">
-        <string notr="true">newVersion</string>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -140,6 +99,9 @@
       <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Maximum</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -152,27 +114,34 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QPushButton" name="btnView">
+        <widget class="QPushButton" name="btnSelectNewPath">
          <property name="font">
           <font>
            <bold>true</bold>
           </font>
          </property>
          <property name="text">
-          <string>Show details</string>
+          <string>Select new path</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnDisard">
+        <widget class="QPushButton" name="btnIgnore">
          <property name="text">
-          <string extracomment="Verb; Context: &quot;The user will update the application later.&quot;">Update later</string>
+          <string extracomment="Verb; Context: &quot;The user will update the application later.&quot;">Ignore</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
