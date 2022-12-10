@@ -77,5 +77,6 @@
         <file>data/icons/iconWiki.svg</file>
         <file>data/icons/iconCircle_blue.svg</file>
         <file>data/icons/iconPaste.svg</file>
+        <file>data/icons/iconOpen_blue.svg</file>
     </qresource>
 </RCC>

@@ -255,7 +255,7 @@ void wSettings::on_cobxLanguage_currentIndexChanged(int index)
 /// Sets OMSI path
 void wSettings::on_btnOmsiPath_clicked()
 {
-    QString mainDir = set.getOmsiPath(this, ui->ledOmsiPath->text());
+    QString mainDir = set.getOmsiPath(this, true, ui->ledOmsiPath->text());
     ui->ledOmsiPath->setText(mainDir);
     set.write("main", "mainDir", mainDir);
     setUnsaved(true);

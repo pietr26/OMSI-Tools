@@ -114,6 +114,7 @@ void wStartUpScreen::updateCheck()
             ui->lblStatus->setText(tr("Found update"));
             ui->btnClose->setEnabled(true);
 
+            ui->btnClose->setEnabled(true);
             NEWUPDATE = new newUpdate(update, this);
             ui->vlaFirstSetup->addWidget(NEWUPDATE);
 
@@ -131,9 +132,7 @@ void wStartUpScreen::finished()
     ui->lblStatus->setText(tr("Finished."));
     setCursor(Qt::ArrowCursor);
 
-    if (set.read("main", "language").isValid())
-        QTimer::singleShot(1000, this, &wStartUpScreen::openWStart);
-    else
+    if (!set.read("main", "language").isValid())
     {
         ui->btnClose->setEnabled(true);
         FIRSTSETUP = new firstSetup(this);
@@ -149,6 +148,16 @@ void wStartUpScreen::finished()
         animation->setEasingCurve(QEasingCurve::InOutCubic);
         animation->start(QPropertyAnimation::DeleteWhenStopped);
     }
+    else if (!set.checkMainDir(this, set.read("main", "mainDir").toString(), false))
+    {
+        ui->btnClose->setEnabled(true);
+        INVALIDMAINDIR = new invalidMainDir(this);
+        ui->vlaFirstSetup->addWidget(INVALIDMAINDIR);
+
+        connect(INVALIDMAINDIR, &invalidMainDir::goToStartScreen, this, [this](){ QTimer::singleShot(1000, this, &wStartUpScreen::openWStart); });
+    }
+    else
+        QTimer::singleShot(1000, this, &wStartUpScreen::openWStart);
 }
 
 /// Closes the window (only available on first setup!)

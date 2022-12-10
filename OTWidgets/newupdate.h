@@ -28,9 +28,7 @@ private:
     Ui::newUpdate *ui;
 
     wReleaseNotes *WRELEASENOTES;
-
     QStringList updateInformation;
-
 };
 
 #endif // NEWUPDATE_H
