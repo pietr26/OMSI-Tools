@@ -44,17 +44,6 @@ wStart::wStart(QWidget *parent)
     ui->gbxDevTools->setVisible(isNoRelease);
     ui->actionSendFeedback->setVisible(isNoRelease);
 
-    // Disable unused buttons
-    ui->btnVehicles->setVisible(false);
-    ui->btnSceneryobjects->setVisible(false);
-    ui->btnMoneyTicketpacks->setVisible(false);
-    ui->btnScripts->setVisible(false);
-    ui->btnMaps->setVisible(false);
-    ui->btnTextures->setVisible(false);
-    ui->btnSplines->setVisible(false);
-    ui->btnBackup->setVisible(false);
-    ui->gbxFinishing->setVisible(false);
-
     if (!QFile("Fbh.unlock").exists())
         ui->gbxFbh->setVisible(false);
 
@@ -111,10 +100,22 @@ void wStart::loadMessages()
             i++; messageData.versions = messages.at(i).split("|");
             i++; messageData.enTitle = messages.at(i);
             i++; messageData.enShortDescription = messages.at(i);
-            i++; messageData.enDescription = messages.at(i);
+
+            while (messages.at(i) != "[enDescrEnd]")
+            {
+                i++; messageData.enDescription += messages.at(i);
+            }
+            messageData.enDescription.remove("[enDescrEnd]");
+
             i++; messageData.deTitle = messages.at(i);
             i++; messageData.deShortDescription = messages.at(i);
-            i++; messageData.deDescription = messages.at(i);
+
+            while (messages.at(i) != "[deDescrEnd]")
+            {
+                i++; messageData.deDescription += messages.at(i);
+            }
+            messageData.deDescription.remove("[deDescrEnd]");
+
             i++; messageData.trashbin = QVariant(messages.at(i)).toInt();
 
             if (messageData.trashbin)
