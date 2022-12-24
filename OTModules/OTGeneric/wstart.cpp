@@ -193,14 +193,6 @@ void wStart::reopenTest(QObject*)
     qDebug() << "Show!";
 }
 
-/// Opens the font module
-void wStart::on_btnFonts_clicked()
-{
-    close();
-    WFONTS = new wFonts();
-    WFONTS->show();
-}
-
 bool wStart::checkMainDir()
 {
 checkMainDir:
@@ -218,16 +210,6 @@ checkMainDir:
     return true;
 }
 
-void wStart::on_btnVerifyMap_clicked()
-{
-    if (!checkMainDir())
-        return;
-
-    close();
-    WVERIFYMAP = new wVerifyMap();
-    WVERIFYMAP->show();
-}
-
 /// Opens DevTools
 void wStart::on_btnDevTools_clicked()
 {
@@ -242,14 +224,6 @@ void wStart::on_btnDBPanel_clicked()
     close();
     WDBPANEL = new wDBPanel();
     WDBPANEL->show();
-}
-
-/// Opens content search module
-void wStart::on_btnContentSearch_clicked()
-{
-    close();
-    WCONTENTSEARCH = new wContentSearch();
-    WCONTENTSEARCH->show();
 }
 
 /// Starts crash simulation
@@ -281,21 +255,6 @@ void wStart::on_actionReleaseNotes_triggered()
 void wStart::on_actionManual_triggered()
 {
     QDesktopServices::openUrl(QUrl("file:///" + QApplication::applicationDirPath() + "/_docs/OMSI-Tools Lite - Handbuch DE.pdf"));
-}
-
-/// Opens Filebase-Helper
-void wStart::on_btnOpenFbh_clicked()
-{
-    hide();
-    WFBH = new wFbh();
-    WFBH->show();
-}
-
-/// Creates shortcut for Filebase-Helper
-void wStart::on_btnCreateShortcut_clicked()
-{
-    fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
-    QMessageBox::information(this, "Verknüpfung erstellt", "Die gesetzte Verknüpfung muss jedoch noch modifiziert werden. Wie genau das funktioniert, kannst du im entsprechenden Thread im internen OWD-Forum sehen.");
 }
 
 /// Opens style test
@@ -333,17 +292,6 @@ void wStart::on_actionRestart_triggered()
     misc.restart();
 }
 
-/// Opens cleanup module
-void wStart::on_btnCleanup_clicked()
-{
-    if (!checkMainDir())
-        return;
-
-    close();
-    WCLEANUP = new wCleanup();
-    WCLEANUP->show();
-}
-
 /// Checks for updates
 void wStart::on_actionCheckForUpdates_triggered()
 {
@@ -371,3 +319,66 @@ void wStart::on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area)
     Q_UNUSED(area);
     set.write(objectName(), "state", saveState());
 }
+
+
+void wStart::on_tbnFonts_triggered(QAction *arg1)
+{
+    Q_UNUSED(arg1);
+
+    close();
+    WFONTS = new wFonts();
+    WFONTS->show();
+}
+
+
+void wStart::on_tbnCleanup_triggered(QAction *arg1)
+{
+    Q_UNUSED(arg1);
+
+    if (!checkMainDir())
+        return;
+
+    close();
+    WCLEANUP = new wCleanup();
+    WCLEANUP->show();
+}
+
+void wStart::on_tbnFbhOpen_triggered(QAction *arg1)
+{
+    Q_UNUSED(arg1);
+
+    hide();
+    WFBH = new wFbh();
+    WFBH->show();
+}
+
+void wStart::on_tbnFbhCreateShortcut_triggered(QAction *arg1)
+{
+    Q_UNUSED(arg1);
+
+    fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
+    QMessageBox::information(this, "Verknüpfung erstellt", "Die gesetzte Verknüpfung muss jedoch noch modifiziert werden. Wie genau das funktioniert, kannst du im entsprechenden Thread im internen OWD-Forum sehen.");
+}
+
+void wStart::on_tbnMapVerifycation_triggered(QAction *arg1)
+{
+    Q_UNUSED(arg1);
+
+    if (!checkMainDir())
+        return;
+
+    close();
+    WVERIFYMAP = new wVerifyMap();
+    WVERIFYMAP->show();
+}
+
+
+void wStart::on_tbnContentSearch_triggered(QAction *arg1)
+{
+    Q_UNUSED(arg1);
+
+    close();
+    WCONTENTSEARCH = new wContentSearch();
+    WCONTENTSEARCH->show();
+}
+
