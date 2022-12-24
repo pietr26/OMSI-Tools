@@ -39,15 +39,9 @@ private slots:
 
     void on_actionClose_triggered();
 
-    void on_btnFonts_clicked();
-
-    void on_btnVerifyMap_clicked();
-
     void on_btnDevTools_clicked();
 
     void on_btnDBPanel_clicked();
-
-    void on_btnContentSearch_clicked();
 
     void on_btnSimulateCrash_clicked();
 
@@ -57,10 +51,6 @@ private slots:
 
     void on_actionManual_triggered();
 
-    void on_btnOpenFbh_clicked();
-
-    void on_btnCreateShortcut_clicked();
-
     void on_btnStyleTest_clicked();
 
     void on_actionSourceCodeOnGitHub_triggered();
@@ -68,8 +58,6 @@ private slots:
     void on_actionReleaseNotes_triggered();
 
     void on_actionRestart_triggered();
-
-    void on_btnCleanup_clicked();
 
     void on_actionCheckForUpdates_triggered();
 
@@ -82,6 +70,18 @@ private slots:
     void on_actionShowHideMessageDock_triggered();
 
     void on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area);
+
+    void on_tbnFonts_triggered(QAction *arg1);
+
+    void on_tbnCleanup_triggered(QAction *arg1);
+
+    void on_tbnFbhOpen_triggered(QAction *arg1);
+
+    void on_tbnFbhCreateShortcut_triggered(QAction *arg1);
+
+    void on_tbnMapVerifycation_triggered(QAction *arg1);
+
+    void on_tbnContentSearch_triggered(QAction *arg1);
 
 private:
     Ui::wStart *ui;
