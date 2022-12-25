@@ -159,7 +159,7 @@ class OTDownloader: public QObject
     Q_OBJECT
 public slots:
     /// [OVERLOADED] Returns the downloaded file
-    QString doDownload(const QUrl &url)
+    QByteArray doDownload(const QUrl &url)
     {
         lastSuccess = 0;
         return download(url);
@@ -876,6 +876,8 @@ public:
     QString deTitle;
     QString deShortDescription;
     QString deDescription;
+
+    QString image;
 
     int trashbin;
 };

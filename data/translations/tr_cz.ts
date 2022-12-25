@@ -467,7 +467,7 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
         <translation>%1 je pomůcka pro vytváření modifikací do hry OMSI 2 - the bus simulator. %1 obsahuje spoustu užiteckých funkcí pro urychlení práce a umožňuje vytváření modifikací mnohem jednodušeji.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.ui" line="324"/>
+        <location filename="../../OTModules/OTGeneric/wabout.ui" line="335"/>
         <source>More...</source>
         <translation>Více...</translation>
     </message>
@@ -1607,16 +1607,26 @@ No font will be opened.</source>
 <context>
     <name>wMessageViewer</name>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="13"/>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="18"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="15"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="20"/>
         <source>Message: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="22"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="24"/>
         <source>Published on %1</source>
         <comment>e.g. Published on 28.10.2022</comment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="38"/>
+        <source>Loading image...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="50"/>
+        <source>Finished.</source>
+        <translation type="unfinished">Dokončeno.</translation>
     </message>
 </context>
 <context>
@@ -2029,231 +2039,162 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
 <context>
     <name>wStart</name>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="49"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="43"/>
         <source>Content development</source>
         <translation>Vývoj obsahu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="61"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="64"/>
         <source>Font creation</source>
         <translation>Vytváření fontů</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="75"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="91"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="107"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="123"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="139"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="158"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="174"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="280"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="339"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="359"/>
-        <source>This module is currently not available.</source>
-        <translation>Tento modul není nyní dostupný.</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="113"/>
-        <source>Money / ticket packs</source>
-        <translation>Peníze / Ticket packy</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="148"/>
-        <source>Maps</source>
-        <translation>Mapy</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="97"/>
-        <source>Sceneryobjects</source>
-        <translation>Sceneryobjects</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="81"/>
-        <source>Vehicles</source>
-        <translation>Vozidla</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="180"/>
-        <source>Splines</source>
-        <translation>Splines</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="129"/>
-        <source>Scripts</source>
-        <translation>Skripty</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="164"/>
-        <source>Textures</source>
-        <translation>Textury</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="212"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="118"/>
         <source>Troubleshooting</source>
         <translation>Řešení problémů</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="227"/>
-        <source>Verify map</source>
-        <translation>Zkontrolovat mapu</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="283"/>
-        <source>Backup</source>
-        <translation>Záloha</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="294"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="258"/>
         <source>Cleanup</source>
         <translation>Čistič</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="330"/>
-        <source>Finishing</source>
-        <translation>Dokončuji</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="345"/>
-        <source>Save modifiaction for release...</source>
-        <translation>Uložit modifikaci pro vydání...</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="402"/>
         <source>Open</source>
         <translation>Otevřít</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="413"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="374"/>
         <source>Create shortcut</source>
         <translation>Vytvořit zástupce</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="554"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="540"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="578"/>
-        <source>Messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="698"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="701"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="708"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="711"/>
         <source>Release notes</source>
         <translation>Poznámky k nové verzi</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="719"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="729"/>
         <source>Source code on GitHub</source>
         <translation>Zdrojový kód na GitHub</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="728"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="738"/>
         <source>Restart</source>
         <translation>Restartovat</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="737"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="740"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="747"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="750"/>
         <source>Check for updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="743"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="753"/>
         <source>Ctrl+F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="752"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="755"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="758"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="762"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="765"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="768"/>
         <source>Show / hide messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="710"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="720"/>
         <source>Manual</source>
         <translation>Manuál</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="268"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="139"/>
+        <source>Map verifycation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="237"/>
         <source>Disk memory</source>
         <translation>Paměť disku</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="535"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="521"/>
         <source>Specials</source>
         <translation>Speciální</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="644"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="567"/>
+        <source>News</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="654"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="656"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="666"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="63"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="52"/>
         <source>About %1</source>
         <translation>Informace %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="352"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="301"/>
         <source>No updates available.</source>
         <translation>Není dostupná žádná nová aktualizace.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="257"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="232"/>
         <source>Simulate crash</source>
         <translation>Simulovat pád aplikace</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="257"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="232"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Měl by být simulován pád aplikace?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="321"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="281"/>
         <source>Feedback</source>
         <translation>Zpětná vazba</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="321"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="281"/>
         <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
         <translation>Můžete nám poskytnout zpětnou vazbu %1 pro další vylepšení našeho softwaru.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="352"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="301"/>
         <source>Finshed</source>
         <translation type="unfinished">Dokončeno</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="365"/>
-        <source>Release modification</source>
-        <translation>Zveřejnit modifikaci</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="379"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="419"/>
         <source>Simulate chrash</source>
         <translation>Simulovat pád aplikace</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="527"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="513"/>
         <source>Window</source>
         <translation>Okno</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="541"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="686"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="527"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="696"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="241"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="183"/>
         <source>Content search</source>
         <translation>Vyhledat obsah</translation>
     </message>

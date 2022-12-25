@@ -20,6 +20,13 @@ private:
     Ui::wMessageViewer *ui;
 
     OTSettings set;
+    OTDownloader dl;
+    OTMiscellaneous misc;
+    OTInAppMessage messageData;
+
+private slots:
+    void loadImage();
+    void updateDownloadProgress();
 };
 
 #endif // WMESSAGEVIEWER_H

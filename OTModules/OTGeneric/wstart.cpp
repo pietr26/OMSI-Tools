@@ -83,9 +83,7 @@ wStart::~wStart()
 void wStart::loadMessages()
 {
     OTDownloader dl;
-    QString test = dl.doDownload(OTLinks::inAppMessages);
-    qDebug() << test;
-    QStringList messages = test.split("\n");
+    QStringList messages = QString(dl.doDownload(OTLinks::inAppMessages)).split("\n");
 
     for (int i = 0; i < messages.size(); i++)
     {
@@ -107,6 +105,8 @@ void wStart::loadMessages()
             }
             messageData.enDescription.remove("[enDescrEnd]");
 
+            QStringList parseEn = messageData.enDescription.split("\r");
+
             i++; messageData.deTitle = messages.at(i);
             i++; messageData.deShortDescription = messages.at(i);
 
@@ -116,10 +116,10 @@ void wStart::loadMessages()
             }
             messageData.deDescription.remove("[deDescrEnd]");
 
-            i++; messageData.trashbin = QVariant(messages.at(i)).toInt();
+            i++; messageData.image = messages.at(i);
 
-            if (messageData.trashbin)
-                continue;
+            i++; messageData.trashbin = QVariant(messages.at(i)).toInt();
+            if (messageData.trashbin) continue;
 
             if (((OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 3)))
                 continue;
@@ -381,4 +381,5 @@ void wStart::on_tbnContentSearch_triggered(QAction *arg1)
     WCONTENTSEARCH = new wContentSearch();
     WCONTENTSEARCH->show();
 }
+
 
