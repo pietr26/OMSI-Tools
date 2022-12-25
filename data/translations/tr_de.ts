@@ -468,7 +468,7 @@ Ist der Pfad korrekt? Andernfalls können in einigen Modulen Probleme auftreten.
         <translation>Ungefähre Zeilen Code: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.ui" line="324"/>
+        <location filename="../../OTModules/OTGeneric/wabout.ui" line="335"/>
         <source>More...</source>
         <translation>Mehr...</translation>
     </message>
@@ -1608,16 +1608,26 @@ Es wird keine Schrift geöffnet.</translation>
 <context>
     <name>wMessageViewer</name>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="13"/>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="18"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="15"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="20"/>
         <source>Message: %1</source>
         <translation>Nachricht: %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="22"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="24"/>
         <source>Published on %1</source>
         <comment>e.g. Published on 28.10.2022</comment>
         <translation>Veröffentlicht am %1</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="38"/>
+        <source>Loading image...</source>
+        <translation>Lade Bild...</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="50"/>
+        <source>Finished.</source>
+        <translation>Fertig.</translation>
     </message>
 </context>
 <context>
@@ -2030,231 +2040,162 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
 <context>
     <name>wStart</name>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="49"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="43"/>
         <source>Content development</source>
         <translation>Modifikationsentwicklung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="61"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="64"/>
         <source>Font creation</source>
         <translation>Schrifterstellung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="75"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="91"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="107"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="123"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="139"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="158"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="174"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="280"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="339"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="359"/>
-        <source>This module is currently not available.</source>
-        <translation>Dieses Modul ist noch nicht verfügbar.</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="113"/>
-        <source>Money / ticket packs</source>
-        <translation>Geld- / Ticketkonfigurationen</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="148"/>
-        <source>Maps</source>
-        <translation>Karten</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="97"/>
-        <source>Sceneryobjects</source>
-        <translation>Szenerieobjekte</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="81"/>
-        <source>Vehicles</source>
-        <translation>Fahrzeuge</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="180"/>
-        <source>Splines</source>
-        <translation>Splines</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="129"/>
-        <source>Scripts</source>
-        <translation>Skripte</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="164"/>
-        <source>Textures</source>
-        <translation>Texturen</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="212"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="118"/>
         <source>Troubleshooting</source>
         <translation>Fehlersuche</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="227"/>
-        <source>Verify map</source>
-        <translation>Kartenüberprüfung</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="283"/>
-        <source>Backup</source>
-        <translation>Backup</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="294"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="258"/>
         <source>Cleanup</source>
         <translation>Aufräumer</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="330"/>
-        <source>Finishing</source>
-        <translation>Fertigstellung</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="345"/>
-        <source>Save modifiaction for release...</source>
-        <translation>Modifiaktion für Veröffentlichung speichern...</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="402"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="413"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="374"/>
         <source>Create shortcut</source>
         <translation>Verknüpfung erstellen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="554"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="540"/>
         <source>View</source>
         <translation>Ansicht</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="578"/>
-        <source>Messages</source>
-        <translation>Nachrichten</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="698"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="701"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="708"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="711"/>
         <source>Release notes</source>
         <translation>Versionhinweise</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="719"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="729"/>
         <source>Source code on GitHub</source>
         <translation>Quellcode auf GitHub</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="728"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="738"/>
         <source>Restart</source>
         <translation>Neu starten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="737"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="740"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="747"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="750"/>
         <source>Check for updates</source>
         <translation>Auf Aktualsierungen prüfen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="743"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="753"/>
         <source>Ctrl+F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="752"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="755"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="758"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="762"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="765"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="768"/>
         <source>Show / hide messages</source>
         <translation>Nachrichten anzeigen / verbergen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="710"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="720"/>
         <source>Manual</source>
         <translation>Handbuch</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="535"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="521"/>
         <source>Specials</source>
         <translation>Extras</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="268"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="237"/>
         <source>Disk memory</source>
         <translation>Speicherplatz</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="644"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="139"/>
+        <source>Map verifycation</source>
+        <translation>Kartenüberprüfung</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="567"/>
+        <source>News</source>
+        <translation>Neuigkeiten</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="654"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="656"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="666"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="63"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="52"/>
         <source>About %1</source>
         <translation>Über %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="352"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="301"/>
         <source>No updates available.</source>
         <translation>Keine Aktualisierungen verfügbar.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="257"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="232"/>
         <source>Simulate crash</source>
         <translation>Absturz simulieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="257"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="232"/>
         <source>Should an appliaction crash be simulated?</source>
         <translation>Soll ein Anwendungsabsturz simuliert werden?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="321"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="281"/>
         <source>Feedback</source>
         <translation>Feedback</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="321"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="281"/>
         <source>You are welcome to give us feedback about %1 so we can improve our software.</source>
         <translation>Wir würden uns freuen, wenn du an einer Umfrage über %1 teilnimmst, um unsere Software zu verbessern.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="352"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="301"/>
         <source>Finshed</source>
         <translation>Fertig</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="365"/>
-        <source>Release modification</source>
-        <translation>Modifikation veröffentlichen</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="379"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="419"/>
         <source>Simulate chrash</source>
         <translation>Absturz simulieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="527"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="513"/>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="541"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="686"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="527"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="696"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="241"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="183"/>
         <source>Content search</source>
         <translation>Inhaltssuche</translation>
     </message>
