@@ -1,5 +1,5 @@
-#ifndef WDBARGUMENTS_H
-#define WDBARGUMENTS_H
+#ifndef WDBCOPYRIGHTS_H
+#define WDBCOPYRIGHTS_H
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
@@ -7,19 +7,19 @@
 #include <QtSql>
 
 namespace Ui {
-class wDBArguments;
+class wDBCopyrights;
 }
 
-class wDBArguments : public QMainWindow
+class wDBCopyrights : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit wDBArguments(QWidget *parent = nullptr);
-    ~wDBArguments();
+    explicit wDBCopyrights(QWidget *parent = nullptr);
+    ~wDBCopyrights();
 
 private:
-    Ui::wDBArguments *ui;
+    Ui::wDBCopyrights *ui;
 
     OTSettings set;
     OTMiscellaneous misc;
@@ -28,4 +28,4 @@ private:
     OTDatabaseHandler dbHandler;
 };
 
-#endif // WDBARGUMENTS_H
+#endif // WDBCOPYRIGHTS_H

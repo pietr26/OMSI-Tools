@@ -385,7 +385,7 @@ void wStart::on_tbnContentSearch_triggered(QAction *arg1)
 void wStart::on_btnFbhDBPanel_clicked()
 {
     close();
-    WDBARGUMENTS = new wDBArguments();
-    WDBARGUMENTS->show();
+    WDBCOPYRIGHTS = new wDBCopyrights();
+    WDBCOPYRIGHTS->show();
 }
 

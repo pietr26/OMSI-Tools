@@ -19,7 +19,7 @@
 #include "OTModules/wFbh/wfbh.h"
 #include "OTWidgets/fadeinouttext.h"
 #include "OTWidgets/message.h"
-#include "OTModules/wFbh/wdbarguments.h"
+#include "OTModules/wFbh/wdbcopyrights.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class wStart; }
@@ -100,7 +100,7 @@ private:
     wStyleTest *WSTYLETEST;
     wFeedback *WFEEDBACK;
     wCleanup *WCLEANUP;
-    wDBArguments *WDBARGUMENTS;
+    wDBCopyrights *WDBCOPYRIGHTS;
 
     OTSettings set;
     OTMessage msg;

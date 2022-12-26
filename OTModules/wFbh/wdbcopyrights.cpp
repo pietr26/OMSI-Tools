@@ -1,9 +1,9 @@
-#include "wdbarguments.h"
-#include "ui_wdbarguments.h"
+#include "wdbcopyrights.h"
+#include "ui_wdbcopyrights.h"
 
-wDBArguments::wDBArguments(QWidget *parent) :
+wDBCopyrights::wDBCopyrights(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::wDBArguments)
+    ui(new Ui::wDBCopyrights)
 {
     qInfo().noquote() << "Starting " + objectName() + "...";
     qDebug() << "Set up UI...";
@@ -20,9 +20,9 @@ wDBArguments::wDBArguments(QWidget *parent) :
     dbHandler.dbPath = dbPath;
     if (!QFile(QDir(dbPath).absolutePath()).exists())
     {
-//        dbHandler.setupDatabase(true);
-//        dbHandler.doAction("CREATE TABLE paths (ID INTEGER, path varchar(5000), linkID varchar(5000), PRIMARY KEY(ID AUTOINCREMENT))");
-//        dbHandler.doAction("CREATE TABLE links (ID INTEGER, link varchar(5000), directLinks varchar(5000), information varchar(5000),PRIMARY KEY(ID AUTOINCREMENT))");
+        dbHandler.setupDatabase(true);
+        dbHandler.doAction("CREATE TABLE arguments (ID INTEGER, argument TEXT, PRIMARY KEY(ID AUTOINCREMENT))");
+        dbHandler.doAction("CREATE TABLE paths (ID INTEGER, path TEXT, argumentIDs TEXT, PRIMARY KEY(ID AUTOINCREMENT))");
     }
     else
         dbHandler.setupDatabase();
@@ -30,7 +30,7 @@ wDBArguments::wDBArguments(QWidget *parent) :
     qInfo().noquote() << objectName() + " started";
 }
 
-wDBArguments::~wDBArguments()
+wDBCopyrights::~wDBCopyrights()
 {
     delete ui;
 }
