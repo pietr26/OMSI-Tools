@@ -72,19 +72,19 @@ private slots:
 
     void on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area);
 
-    void on_tbnFonts_triggered(QAction *arg1);
-
-    void on_tbnCleanup_triggered(QAction *arg1);
-
-    void on_tbnFbhOpen_triggered(QAction *arg1);
-
-    void on_tbnFbhCreateShortcut_triggered(QAction *arg1);
-
-    void on_tbnMapVerifycation_triggered(QAction *arg1);
-
-    void on_tbnContentSearch_triggered(QAction *arg1);
-
     void on_btnFbhDBPanel_clicked();
+
+    void on_tbnFonts_clicked();
+
+    void on_tbnMapVerifycation_clicked();
+
+    void on_tbnContentSearch_clicked();
+
+    void on_tbnCleanup_clicked();
+
+    void on_tbnFbhOpen_clicked();
+
+    void on_tbnFbhCreateShortcut_clicked();
 
 private:
     Ui::wStart *ui;
