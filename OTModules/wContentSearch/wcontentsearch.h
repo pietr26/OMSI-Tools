@@ -58,7 +58,7 @@ private:
     wSettings *WSETTINGS;
 
     OTDatabaseHandler dbHandler;
-    QString dbPath = ":/rec/contentSearchDatabases/current.db";
+    QString dbPath = ":/rec/data/db/contentSearch.db";
     QTemporaryFile database;
     void clearView(bool withoutUserInput = false);
     void reloadTabNames();

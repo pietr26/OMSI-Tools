@@ -49,7 +49,6 @@
         <file>data/icons/iconSwitch.svg</file>
         <file>data/icons/iconTabClosed.svg</file>
         <file>data/icons/iconTabOpened.svg</file>
-        <file>contentSearchDatabases/current.db</file>
         <file>data/icons/iconBook.svg</file>
         <file>data/icons/iconBroom.svg</file>
         <file>data/flags/en.svg</file>
@@ -79,5 +78,7 @@
         <file>data/icons/iconPaste.svg</file>
         <file>data/icons/iconOpen_blue.svg</file>
         <file>data/icons/iconMap.svg</file>
+        <file>data/db/contentSearch.db</file>
+        <file>data/db/fbhCopyrights.db</file>
     </qresource>
 </RCC>
