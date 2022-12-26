@@ -19,6 +19,7 @@
 #include "OTModules/wFbh/wfbh.h"
 #include "OTWidgets/fadeinouttext.h"
 #include "OTWidgets/message.h"
+#include "OTModules/wFbh/wdbarguments.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class wStart; }
@@ -83,6 +84,8 @@ private slots:
 
     void on_tbnContentSearch_triggered(QAction *arg1);
 
+    void on_btnFbhDBPanel_clicked();
+
 private:
     Ui::wStart *ui;
     wSettings *WSETTINGS;
@@ -97,6 +100,7 @@ private:
     wStyleTest *WSTYLETEST;
     wFeedback *WFEEDBACK;
     wCleanup *WCLEANUP;
+    wDBArguments *WDBARGUMENTS;
 
     OTSettings set;
     OTMessage msg;

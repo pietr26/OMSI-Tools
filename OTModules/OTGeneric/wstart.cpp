@@ -382,4 +382,10 @@ void wStart::on_tbnContentSearch_triggered(QAction *arg1)
     WCONTENTSEARCH->show();
 }
 
+void wStart::on_btnFbhDBPanel_clicked()
+{
+    close();
+    WDBARGUMENTS = new wDBArguments();
+    WDBARGUMENTS->show();
+}
 

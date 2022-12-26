@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>994</width>
-    <height>728</height>
+    <height>758</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -438,7 +438,7 @@
       <property name="title">
        <string notr="true">DevTools</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_8">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QPushButton" name="btnDevTools">
          <property name="toolTip">
@@ -454,20 +454,6 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnDBPanel">
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="text">
-          <string notr="true">Content search DBPanel</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconDatabase.svg</normaloff>:/rec/data/icons/iconDatabase.svg</iconset>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QPushButton" name="btnStyleTest">
          <property name="text">
           <string notr="true">StyleTest</string>
@@ -477,6 +463,42 @@
            <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
          </property>
         </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QPushButton" name="btnFbhDBPanel">
+           <property name="text">
+            <string notr="true">DBPanel: Fbh</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../ressources.qrc">
+             <normaloff>:/rec/data/icons/iconFbh.png</normaloff>:/rec/data/icons/iconFbh.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnDBPanel">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="text">
+            <string notr="true">DBPanel: content search</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../ressources.qrc">
+             <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
