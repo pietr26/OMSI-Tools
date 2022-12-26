@@ -1604,24 +1604,24 @@ No font will be opened.</source>
 <context>
     <name>wMessageViewer</name>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="15"/>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="20"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="19"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="24"/>
         <source>Message: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="24"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="28"/>
         <source>Published on %1</source>
         <comment>e.g. Published on 28.10.2022</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="38"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="48"/>
         <source>Loading image...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="50"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="62"/>
         <source>Finished.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2099,7 +2099,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="762"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="765"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="768"/>
-        <source>Show / hide messages</source>
+        <source>Show / hide news</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -759,13 +759,13 @@
      <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
    </property>
    <property name="text">
-    <string>Show / hide messages</string>
+    <string>Show / hide news</string>
    </property>
    <property name="iconText">
-    <string>Show / hide messages</string>
+    <string>Show / hide news</string>
    </property>
    <property name="toolTip">
-    <string>Show / hide messages</string>
+    <string>Show / hide news</string>
    </property>
   </action>
  </widget>

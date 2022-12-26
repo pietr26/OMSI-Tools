@@ -46,7 +46,7 @@ public:
     void createBackup()
     {
         if (QFile(dbPath).exists())
-            QFile(dbPath).copy(QFileInfo(dbPath).absolutePath() + "/" + "backup_" + misc.getDate("yyyy-MM-dd-") + "---" + misc.getTime("hh-mm-ss-z") + ".db");
+            QFile(dbPath).copy(QFileInfo(dbPath).absolutePath() + "/backups/" + QFileInfo(dbPath).baseName() + "_" + misc.getDate("yyyy-MM-dd-") + "_" + misc.getTime("hh-mm-ss-z") + ".db");
     }
 
     QString dbPath;

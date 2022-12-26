@@ -1608,24 +1608,24 @@ Es wird keine Schrift geöffnet.</translation>
 <context>
     <name>wMessageViewer</name>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="15"/>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="20"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="19"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="24"/>
         <source>Message: %1</source>
         <translation>Nachricht: %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="24"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="28"/>
         <source>Published on %1</source>
         <comment>e.g. Published on 28.10.2022</comment>
         <translation>Veröffentlicht am %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="38"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="48"/>
         <source>Loading image...</source>
         <translation>Lade Bild...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wmessageviewer.cpp" line="50"/>
+        <location filename="../../OTModules/wmessageviewer.cpp" line="62"/>
         <source>Finished.</source>
         <translation>Fertig.</translation>
     </message>
@@ -2105,8 +2105,8 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="762"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="765"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="768"/>
-        <source>Show / hide messages</source>
-        <translation>Nachrichten anzeigen / verbergen</translation>
+        <source>Show / hide news</source>
+        <translation>Neuigkeiten anzeigen / verbergen</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="720"/>
