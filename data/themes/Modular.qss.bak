@@ -271,7 +271,9 @@ QGroupBox::title
 /*-----QHeaderView-----*/
 QHeaderView::section
 {
-	subcontrol-position: top;
+    background-color: %<%Button%>%;
+	border: 1px solid %<%MainSC%>%;
+	padding: 2px;
 }
 
 QHeaderView::section:disabled
@@ -281,34 +283,16 @@ QHeaderView::section:disabled
 
 QHeaderView::section:checked
 {
-
+    background-color: %<%Acc2%>%;
+    color: #fff;
 }
 
-QHeaderView::section::vertical::first,
-QHeaderView::section::vertical::only-one
-{
 
-}
-
-QHeaderView::section::vertical
-{
-
-}
-
-QHeaderView::section::horizontal::first,
-QHeaderView::section::horizontal::only-one
-{
-
-}
-
-QHeaderView::section::horizontal
-{
-
-}
 
 QTableCornerButton::section
 {
-
+    background-color: %<%Button%>%;
+	border: 1px solid %<%MainSC%>%;
 }
 
 /*-----QTreeWidget-----*/
@@ -509,6 +493,7 @@ QProgressBar
     text-align: center;
 }
 
+/*-----QDockWidget-----*/
 QDockWidget
 {
     border: 1px solid %<%MainSC%>%;
@@ -521,4 +506,3 @@ QDockWidget::title
 {
     padding-left: 5px;
 }
-
