@@ -320,50 +320,22 @@ void wStart::on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area)
     set.write(objectName(), "state", saveState());
 }
 
-
-void wStart::on_tbnFonts_triggered(QAction *arg1)
+void wStart::on_btnFbhDBPanel_clicked()
 {
-    Q_UNUSED(arg1);
+    close();
+    WDBCOPYRIGHTS = new wDBCopyrights();
+    WDBCOPYRIGHTS->show();
+}
 
+void wStart::on_tbnFonts_clicked()
+{
     close();
     WFONTS = new wFonts();
     WFONTS->show();
 }
 
-
-void wStart::on_tbnCleanup_triggered(QAction *arg1)
+void wStart::on_tbnMapVerifycation_clicked()
 {
-    Q_UNUSED(arg1);
-
-    if (!checkMainDir())
-        return;
-
-    close();
-    WCLEANUP = new wCleanup();
-    WCLEANUP->show();
-}
-
-void wStart::on_tbnFbhOpen_triggered(QAction *arg1)
-{
-    Q_UNUSED(arg1);
-
-    hide();
-    WFBH = new wFbh();
-    WFBH->show();
-}
-
-void wStart::on_tbnFbhCreateShortcut_triggered(QAction *arg1)
-{
-    Q_UNUSED(arg1);
-
-    fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
-    QMessageBox::information(this, "Verknüpfung erstellt", "Die gesetzte Verknüpfung muss jedoch noch modifiziert werden. Wie genau das funktioniert, kannst du im entsprechenden Thread im internen OWD-Forum sehen.");
-}
-
-void wStart::on_tbnMapVerifycation_triggered(QAction *arg1)
-{
-    Q_UNUSED(arg1);
-
     if (!checkMainDir())
         return;
 
@@ -372,20 +344,32 @@ void wStart::on_tbnMapVerifycation_triggered(QAction *arg1)
     WVERIFYMAP->show();
 }
 
-
-void wStart::on_tbnContentSearch_triggered(QAction *arg1)
+void wStart::on_tbnContentSearch_clicked()
 {
-    Q_UNUSED(arg1);
-
     close();
     WCONTENTSEARCH = new wContentSearch();
     WCONTENTSEARCH->show();
 }
 
-void wStart::on_btnFbhDBPanel_clicked()
+void wStart::on_tbnCleanup_clicked()
 {
+    if (!checkMainDir())
+        return;
+
     close();
-    WDBCOPYRIGHTS = new wDBCopyrights();
-    WDBCOPYRIGHTS->show();
+    WCLEANUP = new wCleanup();
+    WCLEANUP->show();
 }
 
+void wStart::on_tbnFbhOpen_clicked()
+{
+    close();
+    WFBH = new wFbh();
+    WFBH->show();
+}
+
+void wStart::on_tbnFbhCreateShortcut_clicked()
+{
+    fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
+    QMessageBox::information(this, "Verknüpfung erstellt", "Die gesetzte Verknüpfung muss jedoch noch modifiziert werden. Wie genau das funktioniert, kannst du im entsprechenden Thread im internen OWD-Forum sehen.");
+}
