@@ -91,7 +91,7 @@
           <item>
            <widget class="QLineEdit" name="ledAuthor">
             <property name="placeholderText">
-             <string>My nickname</string>
+             <string notr="true"/>
             </property>
            </widget>
           </item>

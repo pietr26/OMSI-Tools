@@ -1264,7 +1264,7 @@
     <string>Duplicate character</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+D</string>
+    <string notr="true">Ctrl+D</string>
    </property>
   </action>
  </widget>

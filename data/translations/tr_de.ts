@@ -167,9 +167,9 @@
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="816"/>
-        <source>KB</source>
+        <source>kB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
-        <translation>KB</translation>
+        <translation>kB</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="817"/>
@@ -955,18 +955,18 @@ Ist der Pfad korrekt? Andernfalls können in einigen Modulen Probleme auftreten.
         <translation>Androhung zur Verwarnung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="552"/>
-        <source>Count: 0</source>
-        <translation>Anzahl: 0</translation>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="606"/>
+        <source>Clear list</source>
+        <translation>Liste leeren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="706"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="699"/>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="721"/>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="724"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="714"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="717"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
@@ -1018,37 +1018,22 @@ Ist der Pfad korrekt? Andernfalls können in einigen Modulen Probleme auftreten.
         <translation>Urheberrechtsverletzung definieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="571"/>
-        <source>Custom</source>
-        <translation>Benutzerdefiniert</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="582"/>
-        <source>Selection</source>
-        <translation>Auswahl</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="613"/>
-        <source>All</source>
-        <translation>Alle</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="628"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="621"/>
         <source>Add item</source>
         <translation>Element hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="634"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="627"/>
         <source>Path:</source>
         <translation>Pfad:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="656"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="649"/>
         <source>Information:</source>
         <translation>Informationen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFbh/wfbh.ui" line="666"/>
+        <location filename="../../OTModules/wFbh/wfbh.ui" line="659"/>
         <source>Add</source>
         <translation>Hinzufügen</translation>
     </message>
@@ -1061,14 +1046,9 @@ Ist der Pfad korrekt? Andernfalls können in einigen Modulen Probleme auftreten.
 <context>
     <name>wFeedback</name>
     <message>
-        <location filename="../../OTModules/OTGeneric/wfeedback.cpp" line="19"/>
-        <source>feedback</source>
-        <translation>Feedback</translation>
-    </message>
-    <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="33"/>
-        <source>Wiki</source>
-        <translation>Wiki</translation>
+        <source>Wiki entry</source>
+        <translation>Wiki-Eintrag</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="62"/>
@@ -1079,6 +1059,11 @@ Ist der Pfad korrekt? Andernfalls können in einigen Modulen Probleme auftreten.
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="91"/>
         <source>Survey</source>
         <translation>Umfrage</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wfeedback.cpp" line="19"/>
+        <source>Feedback</source>
+        <translation>Feedback</translation>
     </message>
 </context>
 <context>
@@ -1423,11 +1408,6 @@ Ist der Pfad korrekt? Andernfalls können in einigen Modulen Probleme auftreten.
         <translation>Zeichen duplizieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.ui" line="1267"/>
-        <source>Ctrl+D</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../../OTModules/wfonts.cpp" line="712"/>
         <location filename="../../OTModules/wfonts.cpp" line="714"/>
         <source>fonts</source>
@@ -1703,11 +1683,6 @@ HTTP %1</translation>
         <translation>Autor:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="94"/>
-        <source>My nickname</source>
-        <translation>Mein Nickname</translation>
-    </message>
-    <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="118"/>
         <source>OMSI main directory:</source>
         <translation>OMSI-Hauptverzeichnis:</translation>
@@ -1879,12 +1854,6 @@ HTTP %1</translation>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="55"/>
         <source>Calculating...</source>
         <translation>Berechnen...</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="63"/>
-        <source>sec.</source>
-        <comment>short form from &apos;seconds&apos;</comment>
-        <translation>Sek.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="82"/>
@@ -2070,51 +2039,46 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Verknüpfung erstellen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="540"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="562"/>
         <source>View</source>
         <translation>Ansicht</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="708"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="711"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="730"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="733"/>
         <source>Release notes</source>
         <translation>Versionhinweise</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="729"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="751"/>
         <source>Source code on GitHub</source>
         <translation>Quellcode auf GitHub</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="738"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="760"/>
         <source>Restart</source>
         <translation>Neu starten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="747"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="750"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="769"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="772"/>
         <source>Check for updates</source>
         <translation>Auf Aktualsierungen prüfen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="753"/>
-        <source>Ctrl+F</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="762"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="765"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="768"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="784"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="787"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="790"/>
         <source>Show / hide news</source>
         <translation>Neuigkeiten anzeigen / verbergen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="720"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="742"/>
         <source>Manual</source>
         <translation>Handbuch</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="521"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="543"/>
         <source>Specials</source>
         <translation>Extras</translation>
     </message>
@@ -2129,17 +2093,17 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Kartenüberprüfung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="567"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="589"/>
         <source>News</source>
         <translation>Neuigkeiten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="654"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="676"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="666"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="688"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
@@ -2152,16 +2116,6 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="301"/>
         <source>No updates available.</source>
         <translation>Keine Aktualisierungen verfügbar.</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="232"/>
-        <source>Simulate crash</source>
-        <translation>Absturz simulieren</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="232"/>
-        <source>Should an appliaction crash be simulated?</source>
-        <translation>Soll ein Anwendungsabsturz simuliert werden?</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="281"/>
@@ -2179,18 +2133,13 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
         <translation>Fertig</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="419"/>
-        <source>Simulate chrash</source>
-        <translation>Absturz simulieren</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="513"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="535"/>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="527"/>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="696"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="549"/>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="718"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
@@ -2225,11 +2174,6 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
 </context>
 <context>
     <name>wVehicleList</name>
-    <message>
-        <location filename="../../OTModules/wvehiclelist.ui" line="397"/>
-        <source>Run DB-Function</source>
-        <translation>Starte Datenbankfunktion</translation>
-    </message>
     <message>
         <location filename="../../OTModules/wvehiclelist.ui" line="418"/>
         <source>File</source>

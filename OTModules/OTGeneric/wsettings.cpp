@@ -60,7 +60,7 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     if (!autosaveDuration.isEmpty())
         ui->sbxAutosaveDuration->setValue(set.read("main", "autosaveDuration").toInt());
 
-    ui->sbxAutosaveDuration->setSuffix(" " + tr("sec.", "short form from 'seconds'"));
+    ui->sbxAutosaveDuration->setSuffix(" s");
 
     ui->tabBackup->setEnabled(set.read("main", "autosave").toBool());
 
