@@ -7,38 +7,16 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>572</height>
+    <height>469</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string notr="true">wDBCopyrights</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="btnLoad">
-        <property name="text">
-         <string>Load</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnSave">
-        <property name="text">
-         <string>Save</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconSave.svg</normaloff>:/rec/data/icons/iconSave.svg</iconset>
-        </property>
-       </widget>
-      </item>
       <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
@@ -51,6 +29,17 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnCreateBackup">
+        <property name="text">
+         <string notr="true">Create backup</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../ressources.qrc">
+          <normaloff>:/rec/data/icons/iconZip.svg</normaloff>:/rec/data/icons/iconZip.svg</iconset>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -65,23 +54,133 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="QGroupBox" name="gbxCopyrightTerms">
+      <widget class="QGroupBox" name="gbxPathSettings">
        <property name="title">
-        <string>Copyright terms</string>
+        <string notr="true">Path settings</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QTableWidget" name="twgCopyrightTerms"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnPathSettingsAdd">
+            <property name="text">
+             <string notr="true"/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnPathSettingsRemove">
+            <property name="text">
+             <string notr="true"/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableView" name="tvwPathSettings">
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::AdjustIgnored</enum>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+         </widget>
         </item>
        </layout>
       </widget>
-      <widget class="QGroupBox" name="gbxPathSettings">
+      <widget class="QGroupBox" name="gbxCopyrightTerms">
        <property name="title">
-        <string>Path settings</string>
+        <string notr="true">Copyright terms</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QListView" name="listView"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnCopyrightTermsAdd">
+            <property name="text">
+             <string notr="true"/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnCopyrightTermsRemove">
+            <property name="text">
+             <string notr="true"/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableView" name="tvwCopyrightTerms">
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::AdjustIgnored</enum>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -98,40 +197,8 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuDatabase">
-    <property name="title">
-     <string>Database</string>
-    </property>
-    <addaction name="actionLoad"/>
-    <addaction name="actionSave"/>
-   </widget>
-   <addaction name="menuDatabase"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionLoad">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Load</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+L</string>
-   </property>
-  </action>
-  <action name="actionSave">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSave.svg</normaloff>:/rec/data/icons/iconSave.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Save</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+S</string>
-   </property>
-  </action>
  </widget>
  <resources>
   <include location="../../ressources.qrc"/>

@@ -13,6 +13,8 @@ SOURCES += \
     OTModules/OTGeneric/wfeedback.cpp \
     OTModules/wContentSearch/wDBPanel.cpp \
     OTModules/wContentSearch/wcontentsearch.cpp \
+    OTModules/wFbh/waddpath.cpp \
+    OTModules/wFbh/waddterm.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wfbh.cpp \
     OTModules/wcleanup.cpp \
@@ -46,6 +48,8 @@ HEADERS += \
     OTModules/wContentSearch/wDBPanel.h \
     OTModules/wContentSearch/wcontentsearch.h \
     OTModules/wFbh/FbhFunctions.h \
+    OTModules/wFbh/waddpath.h \
+    OTModules/wFbh/waddterm.h \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wfbh.h \
     OTModules/wcleanup.h \
@@ -72,6 +76,8 @@ FORMS += \
     OTModules/OTGeneric/wfeedback.ui \
     OTModules/wContentSearch/wDBPanel.ui \
     OTModules/wContentSearch/wcontentsearch.ui \
+    OTModules/wFbh/waddpath.ui \
+    OTModules/wFbh/waddterm.ui \
     OTModules/wFbh/wdbcopyrights.ui \
     OTModules/wFbh/wfbh.ui \
     OTModules/wcleanup.ui \

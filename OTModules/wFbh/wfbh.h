@@ -52,8 +52,6 @@ private slots:
 
     void on_btnFSelectAll_clicked();
 
-    void on_lwgCopyrightItems_currentRowChanged(int currentRow);
-
     void on_actionSettings_triggered();
 
 private:

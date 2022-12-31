@@ -158,7 +158,7 @@ void wContentSearch::on_actionSearch_triggered()
         QString current = ui->lwgUserSearch->item(i)->text();
 
         QSqlQueryModel *model = new QSqlQueryModel();
-        model->setQuery(dbHandler.doAction(QString("SELECT linkID FROM paths WHERE path = '%1'").arg(current)));
+        model->setQuery(dbHandler.doAction(QString("SELECT linkID FROM paths WHERE path = '%1'").arg(current), true));
         QString linkID = model->index(0, 0).data().toString();
 
         if (linkID == "")
@@ -182,11 +182,11 @@ void wContentSearch::on_actionSearch_triggered()
         QSqlQueryModel *model = new QSqlQueryModel();
 
         // Links
-        model->setQuery(dbHandler.doAction(QString("SELECT link FROM links WHERE ID = '%1'").arg(current)));
+        model->setQuery(dbHandler.doAction(QString("SELECT link FROM links WHERE ID = '%1'").arg(current), true));
         links << model->index(0, 0).data().toString();
 
         // Direct links
-        model->setQuery(dbHandler.doAction(QString("SELECT directLinks FROM links WHERE ID = '%1'").arg(current)));
+        model->setQuery(dbHandler.doAction(QString("SELECT directLinks FROM links WHERE ID = '%1'").arg(current), true));
         directLinks.append(model->index(0, 0).data().toString().split("\n"));
     }
 
@@ -338,7 +338,7 @@ void wContentSearch::on_btnClearLists_clicked()
 void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
 {
     QSqlQueryModel *model = new QSqlQueryModel();
-    model->setQuery(dbHandler.doAction(QString("SELECT information FROM links WHERE link = '%1'").arg(currentText)));
+    model->setQuery(dbHandler.doAction(QString("SELECT information FROM links WHERE link = '%1'").arg(currentText), true));
 
     QString information = model->index(0, 0).data().toString();
 

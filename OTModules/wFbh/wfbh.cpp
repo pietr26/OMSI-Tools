@@ -202,16 +202,6 @@ void wFbh::on_btnInputExampleReasons_clicked()
     ui->lwgCopyrightItems->setCurrentRow(ui->lwgCopyrightItems->count() - 1);
 }
 
-/// Updates rason count
-void wFbh::on_lwgCopyrightItems_currentRowChanged(int currentRow)
-{
-    Q_UNUSED(currentRow);
-    ui->lblReasonCount->setText("Anzahl: " + QString::number(ui->lwgCopyrightItems->count()));
-
-    if (ui->lwgCopyrightItems->count() == 0)
-        ui->lblReasonCount->setText("Anzahl: 0");
-}
-
 /// Checks all file checkboxes (debug)
 void wFbh::on_btnFSelectAll_clicked()
 {

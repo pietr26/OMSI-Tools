@@ -62,8 +62,8 @@ wDBPanel::wDBPanel(QWidget *parent) :
     if (!QFile(QDir(dbPath).absolutePath()).exists())
     {
         dbHandler.setupDatabase(true);
-        dbHandler.doAction("CREATE TABLE paths (ID INTEGER, path varchar(5000), linkID varchar(5000), PRIMARY KEY(ID AUTOINCREMENT))");
-        dbHandler.doAction("CREATE TABLE links (ID INTEGER, link varchar(5000), directLinks varchar(5000), information varchar(5000),PRIMARY KEY(ID AUTOINCREMENT))");
+        dbHandler.doAction("CREATE TABLE paths (ID INTEGER, path varchar(5000), linkID varchar(5000), PRIMARY KEY(ID AUTOINCREMENT))", true);
+        dbHandler.doAction("CREATE TABLE links (ID INTEGER, link varchar(5000), directLinks varchar(5000), information varchar(5000),PRIMARY KEY(ID AUTOINCREMENT))", true);
     }
     else
         dbHandler.setupDatabase();
@@ -124,7 +124,7 @@ QString wDBPanel::checkLinkID()
 
     QString information = ui->ledInformation->text();
 
-    qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT * FROM links WHERE link = '%1'").arg(link)));
+    qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT * FROM links WHERE link = '%1'").arg(link), true));
 
     bool isEmpty = false;
 
@@ -149,15 +149,15 @@ QString wDBPanel::checkLinkID()
         qDebug() << dbAction;
     }
 
-    qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT ID FROM links WHERE link = '%1'").arg(link)));
+    qryLinkModel->setQuery(dbHandler.doAction(QString("SELECT ID FROM links WHERE link = '%1'").arg(link), true));
 
     if (!isEmpty)
     {
         if (directLinks.isEmpty())
-            dbHandler.doAction(QString("UPDATE links SET information = '%1' WHERE ID = %2").arg(information, qryLinkModel->index(0, 0).data().toString()));
+            dbHandler.doAction(QString("UPDATE links SET information = '%1' WHERE ID = %2").arg(information, qryLinkModel->index(0, 0).data().toString()), true);
 
         if (information.isEmpty())
-            dbHandler.doAction(QString("UPDATE links SET directLinks = '%1' WHERE ID = %2").arg(directLinks, qryLinkModel->index(0, 0).data().toString()));
+            dbHandler.doAction(QString("UPDATE links SET directLinks = '%1' WHERE ID = %2").arg(directLinks, qryLinkModel->index(0, 0).data().toString()), true);
     }
 
     return qryLinkModel->index(0, 0).data().toString();
@@ -245,7 +245,7 @@ void wDBPanel::on_btnStart_clicked()
 
         QSqlQueryModel *qryModel = new QSqlQueryModel;
 
-        qryModel->setQuery(dbHandler.doAction(QString("SELECT * FROM paths WHERE path = '%1'").arg(current)));
+        qryModel->setQuery(dbHandler.doAction(QString("SELECT * FROM paths WHERE path = '%1'").arg(current), true));
         if (qryModel->rowCount() == 0)
         {
             if (!ui->rbtnStandardContent->isChecked())
@@ -253,7 +253,7 @@ void wDBPanel::on_btnStart_clicked()
             else
                 currentLinkID = "'std'";
 
-            dbHandler.doAction(QString("INSERT INTO paths (path, linkID) VALUES ('%1', %2)").arg(current, currentLinkID));
+            dbHandler.doAction(QString("INSERT INTO paths (path, linkID) VALUES ('%1', %2)").arg(current, currentLinkID), true);
         }
         else
         {
@@ -393,11 +393,11 @@ void wDBPanel::on_btnSelectAllOld_clicked()
 /// Merge function for select new buttons
 void wDBPanel::selectNew()
 {
-    dbHandler.doAction(QString("DELETE FROM paths WHERE path='%1'").arg(ui->lvwDuplicates->currentIndex().data().toString()));
+    dbHandler.doAction(QString("DELETE FROM paths WHERE path='%1'").arg(ui->lvwDuplicates->currentIndex().data().toString()), true);
 
     currentLinkID = checkLinkID();
 
-    dbHandler.doAction(QString("INSERT INTO paths (path, linkID) VALUES ('%1', %2)").arg(ui->lvwDuplicates->currentIndex().data().toString(), currentLinkID));
+    dbHandler.doAction(QString("INSERT INTO paths (path, linkID) VALUES ('%1', %2)").arg(ui->lvwDuplicates->currentIndex().data().toString(), currentLinkID), true);
 
     removeCurrentFromList();
 }
