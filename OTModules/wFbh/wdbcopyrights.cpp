@@ -83,9 +83,10 @@ void wDBCopyrights::on_btnPathSettingsRemove_clicked()
 
         if (qryModel->index(0, 0).data().isNull())
             dbHandler.doAction(QString("DELETE FROM paths WHERE ID = %1").arg(model->selectedRows().at(0).data().toInt()));
+        else
+            ui->statusbar->showMessage("Path is still a connection target from a redirect!", 5000);
 
         dbHandler.closeDB();
-
     }
 
     updateView();
@@ -111,9 +112,10 @@ void wDBCopyrights::on_btnCopyrightTermsRemove_clicked()
 
         if (qryModel->index(0, 0).data().isNull())
             dbHandler.doAction(QString("DELETE FROM arguments WHERE ID = %1").arg(model->selectedRows().at(0).data().toInt()));
+        else
+            ui->statusbar->showMessage("Term is still connected with at least one path!", 5000);
 
         dbHandler.closeDB();
-
     }
 
     updateView();

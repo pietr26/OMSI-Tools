@@ -54,6 +54,9 @@
        <iconset resource="../../ressources.qrc">
         <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
       </property>
+      <property name="shortcut">
+       <string notr="true">Return</string>
+      </property>
      </widget>
     </item>
     <item row="1" column="1">
