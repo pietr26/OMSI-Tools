@@ -53,7 +53,7 @@ wStart::wStart(QWidget *parent)
 
     startCounterMsgSender();
 
-    fadeInOutText *facts = new fadeInOutText(OTFacts);
+    fadeInOutText *facts = new fadeInOutText(OTStrings::getFunFacts());
     ui->vlaFacts->addWidget(facts);
 
     loadMessages();

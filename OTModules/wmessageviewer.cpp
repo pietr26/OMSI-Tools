@@ -68,3 +68,9 @@ void wMessageViewer::updateDownloadProgress()
     ui->pgbLoadingImage->setMaximum(dl.maxProgress);
     ui->pgbLoadingImage->setValue(dl.currentProgress);
 }
+
+void wMessageViewer::on_actionClose_triggered()
+{
+    close();
+}
+
