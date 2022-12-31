@@ -27,6 +27,7 @@ private:
 private slots:
     void loadImage();
     void updateDownloadProgress();
+    void on_actionClose_triggered();
 };
 
 #endif // WMESSAGEVIEWER_H

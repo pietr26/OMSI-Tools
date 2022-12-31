@@ -628,20 +628,6 @@ public:
     }
 };
 
-const QList<QPair<QString, unsigned int>> OTFacts(
-            {
-                // Link HTML: <a style='color: lightblue' href='LINK'>TEXT</a>
-
-                QPair<QString, unsigned int>(QObject::tr("The source code of %1 is about %2 lines long.").arg(OTInformation::name, OTInformation::sourceCodeLength), 8000),
-                QPair<QString, unsigned int>(QObject::tr("%1 was born from a simple console application called \"Font Creator\".").arg(OTInformation::name), 10000),
-                QPair<QString, unsigned int>(QObject::tr("With the updater of %1 you can install updates with one click. It is available through the settings.").arg(OTInformation::name), 13000),
-                QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.").arg(OTInformation::name, OTLinks::wiki::general.toString()), 11000),
-                //QPair<QString, unsigned int>(QObject::tr("You have started %1 already %2 times.").arg(OTInformation::name, OTSettings::read("main", "startCount").toString()), 7000),
-                QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.").arg(OTLinks::showroom.toString()), 11000),
-                QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTInformation::name), 10000)
-            }
-            );
-
 /// Message class
 class OTMessage
 {
@@ -852,11 +838,20 @@ public:
     static inline const QString langIt = "Italiano (Italian)";
     static inline const QString langCz = "Čeština (Czech)";
 
-    // Fun facts (funFact, time in ms)
-//    static inline const QList<QPair<QString, unsigned int>> funFacts = { QPair("English", 4),
-//                                                                         QPair("English", 4),
-//                                                                         (true) ? QPair("English", 4) :,
-//                                                                       };
+    /// Fun facts (funFact, time in ms)
+    static QList<QPair<QString, unsigned int>> getFunFacts() {
+        return QList<QPair<QString, unsigned int>> {
+        // Link HTML: <a style='color: lightblue' href='LINK'>TEXT</a>
+        QPair<QString, unsigned int>(QObject::tr("The source code of %1 is about %2 lines long.").arg(OTInformation::name, OTInformation::sourceCodeLength), 8000),
+        QPair<QString, unsigned int>(QObject::tr("%1 was born from a simple console application called \"Font Creator\".").arg(OTInformation::name), 10000),
+        QPair<QString, unsigned int>(QObject::tr("With the updater of %1 you can install updates with one click. It is available through the settings.").arg(OTInformation::name), 13000),
+        QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.").arg(OTInformation::name, OTLinks::wiki::general.toString()), 11000),
+        //QPair<QString, unsigned int>(QObject::tr("You have started %1 already %2 times.").arg(OTInformation::name, OTSettings::read("main", "startCount").toString()), 7000),
+        QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.").arg(OTLinks::showroom.toString()), 11000),
+        QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTInformation::name), 10000)
+        };
+    }
+
 };
 
 class OTInAppMessage
