@@ -30,7 +30,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Wiki</string>
+       <string>Wiki entry</string>
       </property>
       <property name="icon">
        <iconset resource="../../ressources.qrc">
