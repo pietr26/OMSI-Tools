@@ -416,7 +416,7 @@
     <item>
      <widget class="QPushButton" name="btnSimulateCrash">
       <property name="text">
-       <string>Simulate chrash</string>
+       <string notr="true">Application crash simulation</string>
       </property>
       <property name="icon">
        <iconset resource="../../ressources.qrc">
@@ -772,7 +772,7 @@
     <string>Check for updates</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+F</string>
+    <string notr="true">Ctrl+F</string>
    </property>
   </action>
   <action name="actionShowHideMessageDock">

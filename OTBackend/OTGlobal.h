@@ -490,7 +490,7 @@ public:
             write("main\\themeData", "Main", "#3a3a3a");
             write("main\\themeData", "MainSC", "#262626");
 
-            write("main\\themeData", "Dis", "#656565");
+            write("main\\themeData", "Dis", "#5E5E5E");
             write("main\\themeData", "DisD", "#404040");
 
             write("main\\themeData", "Acc1", "#111");
@@ -813,7 +813,7 @@ private:
     }
 
     QStringList units = { QObject::tr("Bytes"),
-                          QObject::tr("KB", "Short version of 'Kilobyte'"),
+                          QObject::tr("kB", "Short version of 'Kilobyte'"),
                           QObject::tr("MB", "Short version of 'Megabyte'"),
                           QObject::tr("GB", "Short version of 'Gigabyte'"),
                           QObject::tr("TB", "Short version of 'Terrabyte'"),

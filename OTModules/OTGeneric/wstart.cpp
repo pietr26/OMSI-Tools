@@ -229,10 +229,10 @@ void wStart::on_btnDBPanel_clicked()
 /// Starts crash simulation
 void wStart::on_btnSimulateCrash_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Simulate crash"), tr("Should an appliaction crash be simulated?"));
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Application crash simulation", "Press 'Yes' to start to simulate an applicaiton crash.");
 
     if (reply == QMessageBox::Yes)
-        qFatal("Crash simulation started by user");
+        qFatal("Application crash simulation started by user");
 }
 
 /// Opens bug report module

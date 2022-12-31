@@ -547,13 +547,6 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
-            <widget class="QLabel" name="lblReasonCount">
-             <property name="text">
-              <string>Count: 0</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <widget class="QPushButton" name="btnInputExampleReasons">
              <property name="text">
               <string notr="true">Add example
@@ -568,7 +561,7 @@ reasons</string>
            <item>
             <widget class="QPushButton" name="btnAdd">
              <property name="text">
-              <string>Custom</string>
+              <string/>
              </property>
              <property name="icon">
               <iconset resource="../../ressources.qrc">
@@ -579,7 +572,7 @@ reasons</string>
            <item>
             <widget class="QPushButton" name="btnRemove">
              <property name="text">
-              <string>Selection</string>
+              <string/>
              </property>
              <property name="icon">
               <iconset resource="../../ressources.qrc">
@@ -610,7 +603,7 @@ reasons</string>
            <item>
             <widget class="QPushButton" name="btnRemoveAll">
              <property name="text">
-              <string>All</string>
+              <string>Clear list</string>
              </property>
              <property name="icon">
               <iconset resource="../../ressources.qrc">
@@ -698,7 +691,7 @@ reasons</string>
      <x>0</x>
      <y>0</y>
      <width>697</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">

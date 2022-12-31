@@ -9,18 +9,40 @@ class OTDatabaseHandler
 {
 public:
     /// Opens a database, executes a databse action and close them
-    QSqlQuery doAction(QString action)
+    QSqlQuery doAction(QString action, bool automaticOpenClose = false)
     {
-        QSqlQuery qry;
+        if (automaticOpenClose)
+        {
+            if (!db.open())
+            {
+                qWarning() << "OTDatabaseHandler error: Cannot open database automatically";
+                return QSqlQuery();
+            }
 
-        if (!open())
-            return qry;
+            QSqlQuery query(action);
+            db.close();
+            return query;
+        }
+        else
+        {
+            if (db.isOpen())
+                return QSqlQuery(action);
+            else
+            {
+                qWarning() << "OTDatabaseHandler error: Open database before executing an action or use automaticOpenClose";
+                return QSqlQuery();
+            }
+        }
+    }
 
-        qry = query(action);
+    bool openDB()
+    {
+        return db.open();
+    }
 
+    void closeDB()
+    {
         db.close();
-
-        return qry;
     }
 
     /// Setup a database
@@ -50,12 +72,11 @@ public:
     }
 
     QString dbPath;
-    QString lastError;
-    QSqlDatabase db;
+
 
 private:
-
     OTMiscellaneous misc;
+    QSqlDatabase db;
 
     /// Opens a database
     bool open()
@@ -64,22 +85,6 @@ private:
             return false;
 
         return true;
-    }
-
-    /// Executes an action
-    QSqlQuery query(QString action)
-    {
-        lastError.clear();
-        QSqlQuery query;
-        query.prepare(action);
-
-        if (!query.exec())
-        {
-            lastError = query.lastError().driverText() + " (" + query.lastError().databaseText() + ")";
-            qCritical().noquote() << "SQL error: " << lastError;
-        }
-
-        return query;
     }
 };
 

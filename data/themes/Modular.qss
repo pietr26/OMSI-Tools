@@ -278,7 +278,7 @@ QHeaderView::section
 
 QHeaderView::section:disabled
 {
-	/*???*/
+	color: %<%Dis%>%;
 }
 
 QHeaderView::section:checked
@@ -291,6 +291,12 @@ QTableCornerButton::section
 {
     background-color: %<%Button%>%;
 	border: 1px solid %<%MainSC%>%;
+}
+
+/*-----QTableView-----*/
+QTableView::item:disabled
+{
+	color: %<%Dis%>%;
 }
 
 /*-----QTreeWidget-----*/

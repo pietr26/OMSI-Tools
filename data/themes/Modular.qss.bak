@@ -125,10 +125,6 @@ QLineEdit::disabled
 	color: %<%Dis%>%;
 }
 
-QLineEdit[text=""]{
-    color: gray;
-}
-
 /*-----QPlainTExtEdit-----*/
 QPlainTextEdit
 {
@@ -282,7 +278,7 @@ QHeaderView::section
 
 QHeaderView::section:disabled
 {
-	/*???*/
+	color: %<%Dis%>%;
 }
 
 QHeaderView::section:checked
