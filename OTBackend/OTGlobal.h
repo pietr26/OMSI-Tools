@@ -179,7 +179,7 @@ public:
     int maxProgress;
     int lastHttpCode;
 
-    /// Check if the last connection was successfully. -1: No | 0: NULL | 1: Yes
+    /// Check if the last connection was successfully. -2: HTTP 503 | -1: No | 0: NULL | 1: Yes
     int lastSuccess;
 
 private slots:
@@ -211,9 +211,14 @@ private:
         int httpCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         lastHttpCode = httpCode;
 
-        qDebug() << "Download finished.";
-        qDebug() << "HTTP Status code:" << httpCode;
-        if (httpCode >= 300 || httpCode == 0)
+        qDebug() << QString("Download finished (HTTP %1)").arg(httpCode);
+
+        if (url.url().contains("omsi-tools.de") && (httpCode == 503))
+        {
+            lastSuccess = -2;
+            qWarning().noquote() << QString("%1 is currently undergoing maintenance (HTTP 503). Please try again later.").arg(url.host());
+        }
+        else if ((httpCode >= 300) || (httpCode == 0))
         {
             lastSuccess = -1;
             return "";
@@ -285,23 +290,25 @@ public:
         clipboard->setText(copytext);
     }
 
-    /// Checks for an update - index 0: "false" = error, "noUpdates" = no updates available, else: new version | index 1: latestVersion
+    /// Checks for an update - index 0: "503": maintenance, "false" = error, "noUpdates" = no updates available, else: new version | index 1: latestVersion
     QStringList getUpdateInformation()
     {
-        QStringList list;
 
-        qDebug() << "Check for update...";
+        qDebug() << "Check for updates...";
         OTDownloader dl;
         const QString latestVersion = dl.doDownload(OTLinks::latestVersion);
-        qDebug() << "Server response:" << latestVersion;
+        QStringList list;
 
-        if (latestVersion == "")
-            list << "false" << latestVersion;
+        if (dl.lastSuccess == -2)
+            list << "503";
+        else if (latestVersion == "")
+            list << "false";
         else if (latestVersion == OTInformation::versions::currentVersion.first)
-            list << "noUpdates" << latestVersion;
+            list << "noUpdates";
         else
-            list << latestVersion << latestVersion;
+            list << latestVersion;
 
+        list << latestVersion;
         return list;
     }
 
@@ -839,7 +846,8 @@ public:
     static inline const QString langCz = "Čeština (Czech)";
 
     /// Fun facts (funFact, time in ms)
-    static QList<QPair<QString, unsigned int>> getFunFacts() {
+    static QList<QPair<QString, unsigned int>> getFunFacts()
+    {
         return QList<QPair<QString, unsigned int>> {
         // Link HTML: <a style='color: lightblue' href='LINK'>TEXT</a>
         QPair<QString, unsigned int>(QObject::tr("The source code of %1 is about %2 lines long.").arg(OTInformation::name, OTInformation::sourceCodeLength), 8000),
@@ -850,6 +858,11 @@ public:
         QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.").arg(OTLinks::showroom.toString()), 11000),
         QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTInformation::name), 10000)
         };
+    }
+
+    static QString serverMaintenance()
+    {
+        return QObject::tr("The server is currently undergoing maintenance (HTTP 503). Please try again later.");
     }
 
 };

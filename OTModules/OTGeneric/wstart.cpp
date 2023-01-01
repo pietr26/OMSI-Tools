@@ -85,67 +85,92 @@ void wStart::loadMessages()
     OTDownloader dl;
     QStringList messages = QString(dl.doDownload(OTLinks::inAppMessages)).split("\n");
 
-    for (int i = 0; i < messages.size(); i++)
+    if (dl.lastSuccess == -2)
     {
-        if (messages.at(i) == "[news]")
+        OTInAppMessage messageData;
+        messageData.ID = "-1";
+        messageData.publicity = 1;
+        messageData.versions = QStringList("all");
+        messageData.start = QDateTime::currentDateTime();
+        messageData.end = QDateTime::currentDateTime().addYears(10);
+        messageData.enTitle = "Maintenance work";
+        messageData.enShortDescription = "The server is currently undergoing maintenance";
+        messageData.enDescription = "The server is currently undergoing maintenance. During this time the updater, version notes and the messages are not available. Please come back again later.";
+        messageData.deTitle = "Wartungsarbeiten";
+        messageData.deShortDescription = "Der Server befindet sich derzeit in Wartungsarbeiten";
+        messageData.deDescription = "Der Server befindet sich derzeit in Wartungsarbeiten. Während dieser Zeit sind Aktualisierungen, Versionhinweise und die Nachrichten nicht verfügbar. Bitte schaue später wieder vorbei.";
+
+        message *widget = new message(messageData, this);
+        QListWidgetItem *item = new QListWidgetItem();
+        item->setSizeHint(widget->sizeHint());
+
+        ui->lwgMessages->addItem(item);
+        ui->lwgMessages->setItemWidget(item, widget);
+    }
+    else
+    {
+        for (int i = 0; i < messages.size(); i++)
         {
-            OTInAppMessage messageData;
-            i++; messageData.ID = messages.at(i);
-            i++; messageData.publicity = QVariant(messages.at(i)).toInt();
-            i++; messageData.start = QDateTime::fromString(messages.at(i), "yyyy-MM-dd HH:mm:ss");
-            i++; messageData.end = QDateTime::fromString(messages.at(i), "yyyy-MM-dd HH:mm:ss");
-            i++; messageData.slug = messages.at(i);
-            i++; messageData.versions = messages.at(i).split("|");
-            i++; messageData.enTitle = messages.at(i);
-            i++; messageData.enShortDescription = messages.at(i);
-
-            while (messages.at(i) != "[enDescrEnd]")
+            if (messages.at(i) == "[news]")
             {
-                i++; messageData.enDescription += messages.at(i);
-            }
-            messageData.enDescription.remove("[enDescrEnd]");
+                OTInAppMessage messageData;
+                i++; messageData.ID = messages.at(i);
+                i++; messageData.publicity = QVariant(messages.at(i)).toInt();
+                i++; messageData.start = QDateTime::fromString(messages.at(i), "yyyy-MM-dd HH:mm:ss");
+                i++; messageData.end = QDateTime::fromString(messages.at(i), "yyyy-MM-dd HH:mm:ss");
+                i++; messageData.slug = messages.at(i);
+                i++; messageData.versions = messages.at(i).split("|");
+                i++; messageData.enTitle = messages.at(i);
+                i++; messageData.enShortDescription = messages.at(i);
 
-            QStringList parseEn = messageData.enDescription.split("\r");
+                while (messages.at(i) != "[enDescrEnd]")
+                {
+                    i++; messageData.enDescription += messages.at(i);
+                }
+                messageData.enDescription.remove("[enDescrEnd]");
 
-            i++; messageData.deTitle = messages.at(i);
-            i++; messageData.deShortDescription = messages.at(i);
+                QStringList parseEn = messageData.enDescription.split("\r");
 
-            while (messages.at(i) != "[deDescrEnd]")
-            {
-                i++; messageData.deDescription += messages.at(i);
-            }
-            messageData.deDescription.remove("[deDescrEnd]");
+                i++; messageData.deTitle = messages.at(i);
+                i++; messageData.deShortDescription = messages.at(i);
 
-            i++; messageData.image = messages.at(i);
+                while (messages.at(i) != "[deDescrEnd]")
+                {
+                    i++; messageData.deDescription += messages.at(i);
+                }
+                messageData.deDescription.remove("[deDescrEnd]");
 
-            i++; messageData.trashbin = QVariant(messages.at(i)).toInt();
-            if (messageData.trashbin) continue;
+                i++; messageData.image = messages.at(i);
 
-            if (((OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 3)))
-                continue;
-            if ((!(OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 2) || (messageData.publicity == 3) || (messageData.publicity == 5)))
-                continue;
+                i++; messageData.trashbin = QVariant(messages.at(i)).toInt();
+                if (messageData.trashbin) continue;
 
-            /*
-             * 0 = deactivated
-             * 1 = in-App
-             * 2 = in-App (Beta only)
-             * 3 = Website
-             * 4 = in-App + Website
-             * 5 = in-App (Beta only) + Website
-            */
+                if (((OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 3)))
+                    continue;
+                if ((!(OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 2) || (messageData.publicity == 3) || (messageData.publicity == 5)))
+                    continue;
 
-            if (!(messageData.versions.contains("all") || messageData.versions.contains(OTInformation::versions::currentVersion.first)))
-                continue;
+                /*
+                 * 0 = deactivated
+                 * 1 = in-App
+                 * 2 = in-App (Beta only)
+                 * 3 = Website
+                 * 4 = in-App + Website
+                 * 5 = in-App (Beta only) + Website
+                */
 
-            if ((QDateTime::currentDateTime().secsTo(messageData.start) <= 0) && (QDateTime::currentDateTime().secsTo(messageData.end) >= 0))
-            {
-                message *widget = new message(messageData, this);
-                QListWidgetItem *item = new QListWidgetItem();
-                item->setSizeHint(widget->sizeHint());
+                if (!(messageData.versions.contains("all") || messageData.versions.contains(OTInformation::versions::currentVersion.first)))
+                    continue;
 
-                ui->lwgMessages->addItem(item);
-                ui->lwgMessages->setItemWidget(item, widget);
+                if ((QDateTime::currentDateTime().secsTo(messageData.start) <= 0) && (QDateTime::currentDateTime().secsTo(messageData.end) >= 0))
+                {
+                    message *widget = new message(messageData, this);
+                    QListWidgetItem *item = new QListWidgetItem();
+                    item->setSizeHint(widget->sizeHint());
+
+                    ui->lwgMessages->addItem(item);
+                    ui->lwgMessages->setItemWidget(item, widget);
+                }
             }
         }
     }
@@ -297,7 +322,9 @@ void wStart::on_actionCheckForUpdates_triggered()
 {
     QStringList update = misc.getUpdateInformation();
 
-    if (update.at(0) == "noUpdates")
+    if (update.at(0) == "503")
+        QMessageBox::information(this, tr("Maintenance"), OTStrings::serverMaintenance());
+    else if (update.at(0) == "noUpdates")
         QMessageBox::information(this, tr("Finshed"), tr("No updates available."));
     else if (update.at(0) != "false")
     {

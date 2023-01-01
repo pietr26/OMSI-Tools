@@ -21,7 +21,7 @@ message::message(OTInAppMessage paramMessageData, QWidget *parent) :
         ui->lblShortDescription->setText(messageData.enShortDescription);
     }
 
-    if (set.read("main\\messages", messageData.ID).toBool())
+    if ((messageData.ID == "-1") || set.read("main\\messages", messageData.ID).toBool())
         ui->lblUnreadPoint->hide();
 
     ui->lblUnreadPoint->setStyleSheet("background-color: none");
@@ -36,8 +36,11 @@ message::~message()
 
 void message::showDescription()
 {
-    set.write("main\\messages", messageData.ID, true);
-    ui->lblUnreadPoint->hide();
+    if (messageData.ID != "-1")
+    {
+        set.write("main\\messages", messageData.ID, true);
+        ui->lblUnreadPoint->hide();
+    }
 
     WMESSAGEVIEWER = new wMessageViewer(messageData, this->parentWidget());
     WMESSAGEVIEWER->setWindowModality(Qt::ApplicationModal);
