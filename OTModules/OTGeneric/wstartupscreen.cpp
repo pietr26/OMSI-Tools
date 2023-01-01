@@ -107,10 +107,11 @@ void wStartUpScreen::updateCheck()
     if (checkForUpdate)
     {
         update = misc.getUpdateInformation();
-        set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
 
-        if (update.at(0) != "false")
+        if ((update.at(0) != "false") && (update.at(0) != "503"))
         {
+            set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
+
             ui->lblStatus->setText(tr("Found update"));
             ui->btnClose->setEnabled(true);
 
@@ -120,9 +121,9 @@ void wStartUpScreen::updateCheck()
 
             connect(NEWUPDATE, &newUpdate::goToStartScreen, this, &wStartUpScreen::finished);
         }
+        else finished();
     }
-    else
-        finished();
+    else finished();
 }
 
 /// Finished first setup

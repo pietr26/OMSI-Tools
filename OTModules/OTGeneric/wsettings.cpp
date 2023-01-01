@@ -214,7 +214,9 @@ void wSettings::on_btnCheckForUpdates_clicked()
 {
     QStringList update = misc.getUpdateInformation();
 
-    if (update.at(0) == "noUpdates")
+    if (update.at(0) == "503")
+        QMessageBox::information(this, tr("Maintenance"), OTStrings::serverMaintenance());
+    else if (update.at(0) == "noUpdates")
         QMessageBox::information(this, tr("Finshed"), tr("No updates available."));
     else if (update.at(0) != "false")
     {

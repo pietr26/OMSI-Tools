@@ -51,8 +51,10 @@ wReleaseNotes::~wReleaseNotes()
 void wReleaseNotes::downloadReleaseNotes()
 {
     QString releaseNotes = dl.doDownload(QUrl(OTLinks::releaseNotes.toString() + "&lang=" + set.getCurrentLanguageCode()));
-    if ((dl.lastHttpCode != 0) || (dl.lastHttpCode >= 300))
+    if (dl.lastSuccess == 1)
         ui->teedReleaseNotes->setHtml(releaseNotes);
+    else if (dl.lastSuccess == -2)
+        ui->teedReleaseNotes->setText(OTStrings::serverMaintenance());
     else
         ui->teedReleaseNotes->setText(tr("The release notes couldn't be downloaded. Please check if your computer has a working internet connection, retry it or contact the developer.\nHTTP %1").arg(dl.lastHttpCode));
 }
