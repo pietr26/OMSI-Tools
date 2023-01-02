@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>412</width>
-    <height>396</height>
+    <width>415</width>
+    <height>422</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -836,24 +836,6 @@
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
             <layout class="QGridLayout" name="gridLayout">
-             <item row="3" column="1" colspan="2">
-              <widget class="QPushButton" name="btnCreateDesktopShortcut">
-               <property name="text">
-                <string>Create desktop shortcut</string>
-               </property>
-               <property name="icon">
-                <iconset resource="../../ressources.qrc">
-                 <normaloff>:/rec/data/icons/iconLink.svg</normaloff>:/rec/data/icons/iconLink.svg</iconset>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1" colspan="2">
-              <widget class="Line" name="line">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="1" rowspan="2" colspan="2">
               <widget class="QCheckBox" name="cbxConfirmDeletion">
                <property name="sizePolicy">
@@ -867,6 +849,17 @@
                </property>
                <property name="checked">
                 <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1" rowspan="2" colspan="2">
+              <widget class="QPushButton" name="btnCreateDesktopShortcut">
+               <property name="text">
+                <string>Create desktop shortcut</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../../ressources.qrc">
+                 <normaloff>:/rec/data/icons/iconLink.svg</normaloff>:/rec/data/icons/iconLink.svg</iconset>
                </property>
               </widget>
              </item>
@@ -887,6 +880,17 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnResetSettings">
+          <property name="text">
+           <string>Reset settings</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../../ressources.qrc">
+            <normaloff>:/rec/data/icons/iconUndo.svg</normaloff>:/rec/data/icons/iconUndo.svg</iconset>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -938,7 +942,7 @@
                 <string>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</string>
                </property>
                <property name="text">
-                <string>Advanced verifying (not recommended for quick verification)</string>
+                <string>Advanced verifying (not recommended for normal operation)</string>
                </property>
               </widget>
              </item>
@@ -978,17 +982,6 @@
          </size>
         </property>
        </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnResetSettings">
-        <property name="text">
-         <string>Reset settings</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconUndo.svg</normaloff>:/rec/data/icons/iconUndo.svg</iconset>
-        </property>
-       </widget>
       </item>
      </layout>
     </item>
@@ -1038,7 +1031,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>412</width>
+     <width>415</width>
      <height>21</height>
     </rect>
    </property>
