@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>wSelectEncoding</class>
+ <widget class="QMainWindow" name="wSelectEncoding">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>275</width>
+    <height>115</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">wSelectEncoding</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QComboBox" name="cobxEncoding">
+      <property name="currentText">
+       <string notr="true">Latin-1 / ANSI</string>
+      </property>
+      <item>
+       <property name="text">
+        <string notr="true">Latin-1 / ANSI</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string notr="true">UTF 8</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string notr="true">UTF 16</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string notr="true">UTF 16 (Little Endian)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string notr="true">UTF 16 (Big Endian)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string notr="true">UTF 32</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string notr="true">UTF 32 (Little Endian)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string notr="true">UTF 32 (Big Endian)</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnSelect">
+      <property name="text">
+       <string>Select</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../../ressources.qrc">
+        <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>275</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="../../ressources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

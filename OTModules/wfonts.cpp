@@ -461,28 +461,10 @@ void wFonts::enableFontArea(bool status)
     }
 }
 
-/// Gets encoding from UI
-QStringConverter::Encoding wFonts::getEncoding()
-{
-    switch (ui->cobxEncoding->currentIndex())
-    {
-        case 0: return QStringConverter::Latin1; break;
-        case 1: return QStringConverter::Utf8; break;
-        case 2: return QStringConverter::Utf16; break;
-        case 3: return QStringConverter::Utf16LE; break;
-        case 4: return QStringConverter::Utf16BE; break;
-        case 5: return QStringConverter::Utf32; break;
-        case 6: return QStringConverter::Utf32LE; break;
-        case 7: return QStringConverter::Utf32BE; break;
-    }
-
-    return QStringConverter::Encoding();
-}
-
 /// Opens a font
-void wFonts::open(OTFileMethods::fileMethods method, QString filen)
+void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConverter::Encoding encoding)
 {
-    if (filen != "" && !QFile(filen).exists())
+    if ((filen != "") && !QFile(filen).exists())
     {
         if (method != OTFileMethods::silentOpen)
             msg.fileOpenErrorCloseOMSI(this, filen);
@@ -539,7 +521,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen)
         tempFont.path = filen;
 
     selectAllAndClear();
-    tempFont = filehandler.openFont(tempFont.path, getEncoding());
+    tempFont = filehandler.openFont(tempFont.path, encoding);
     if (tempFont.error)
     {
         if (method != OTFileMethods::silentOpen)
@@ -1425,4 +1407,16 @@ void wFonts::on_actionDuplicateCharacter_triggered()
 
     ui->ledComment->setText(font.charList.at(currentRow).comment);
     on_ledComment_textChanged(font.charList.at(currentRow).comment);
+}
+
+void wFonts::on_actionOpenWithEncoding_triggered()
+{
+    wSelectEncoding *selectEncoding = new wSelectEncoding(this);
+    selectEncoding->show();
+    connect(selectEncoding, &wSelectEncoding::encodingSelected, this, &wFonts::selectedEncoding);
+}
+
+void wFonts::selectedEncoding(QStringConverter::Encoding selectedEncoding)
+{
+    open(OTFileMethods::open, "", selectedEncoding);
 }
