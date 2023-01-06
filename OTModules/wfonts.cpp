@@ -480,7 +480,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
             save(OTFileMethods::save, font.path);
     }
 
-    qInfo() << "Open file...";
+    qInfo() << "Open file" << filen;
     qDebug().noquote() << "Open method:" << method;
     if (method == OTFileMethods::open)
     {
@@ -514,8 +514,6 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
     if (method == OTFileMethods::open)
         saveRecentFiles(QDir().absoluteFilePath(font.path));
 
-    ui->twgFont->setCurrentIndex(1);
-
     OTFontModel tempFont = font;
     if (method == OTFileMethods::silentOpen)
         tempFont.path = filen;
@@ -532,6 +530,8 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
     {
         if (method != OTFileMethods::silentOpen)
             QMessageBox::warning(this, tr("Open font"), tr("Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files.\nNo font will be opened."));
+
+        setUnsaved(false);
         return;
     }
 
@@ -570,6 +570,9 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
 
     font.error = false;
     setUnsaved(false);
+
+    checkPropValidity();
+    checkCharValidity();
 
     qDebug() << "Font opened.";
 }
