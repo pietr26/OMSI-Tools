@@ -514,11 +514,9 @@ public:
 
         /*progressName = QObject::tr("Checking splines...");
         maxProgress = splines.size();*/
-        int i = 0;
 
         foreach (QString current, splines)
         {
-            i++;
             /*currentProgress = i;*/
             qApp->processEvents();
 
@@ -539,7 +537,7 @@ public:
                 while (!in.atEnd())
                 {
                     lineCount++;
-                    //qDebug().noquote() << "Line" << lineCount;
+                    qDebug().noquote() << "Line" << lineCount;
                     line = in.readLine();
 
                     // texure check:
@@ -1120,6 +1118,7 @@ public:
 
         QTextStream in(&file);
         in.setEncoding(encoding);
+        qDebug().noquote() << "Font encoding:" << encoding;
 
         QString line;
         int fontCounter = 0;
@@ -1198,7 +1197,8 @@ public:
         }
 
         QTextStream out(&file);
-        out.setEncoding(QStringConverter::Utf16LE);
+
+        out.setEncoding(QStringConverter::Latin1);
 
         out << fop.writeFileHeader();
 

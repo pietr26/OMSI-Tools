@@ -5,7 +5,8 @@
 #include "OTModules/OTGeneric/wsettings.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
-#include <OTModules/OTGeneric/wfeedback.h>
+#include "OTModules/OTGeneric/wfeedback.h"
+#include "OTGeneric/wselectencoding.h"
 #include <QListWidgetItem>
 #include <QItemSelectionModel>
 #include <QFileDialog>
@@ -134,6 +135,10 @@ private slots:
 
     void on_actionDuplicateCharacter_triggered();
 
+    void on_actionOpenWithEncoding_triggered();
+
+    void selectedEncoding(QStringConverter::Encoding selectedEncoding = QStringConverter::Latin1);
+
 private:
     Ui::wFonts *ui;
     wSettings *WSETTINGS;
@@ -148,14 +153,13 @@ private:
 
     int maxRecentFileCount = 10;
 
-    bool utf8encoding = false;
     QStringListModel *strListChars;
 
     void setTitle(QString filen = "empty");
 
     QString save(OTFileMethods::fileMethods method, QString filen = "");
 
-    void open(OTFileMethods::fileMethods method, QString filen = "");
+    void open(OTFileMethods::fileMethods method, QString filen = "", QStringConverter::Encoding encoding = QStringConverter::Latin1);
 
     void updateRecentFiles(QString newFile);
 
@@ -198,7 +202,6 @@ private:
     bool setupFinished = false;
 
     void reloadTotalCharLabel();
-    QStringConverter::Encoding getEncoding();
 };
 
 #endif // WFONTS_H
