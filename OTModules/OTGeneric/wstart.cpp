@@ -29,10 +29,6 @@ wStart::wStart(QWidget *parent)
     else
         isNoRelease = true;
 
-    /// Funktioniert so semi. Lambda wird zwar im Thread ausgeführt, dennoch funktioniert das Connect fürn progress nicht (mehr).
-    OTDownloader dl;
-
-
 //    QFutureWatcher<QString> *fWatcher = new QFutureWatcher<QString>();
 
 //    connect(fWatcher, SIGNAL(finished()), this, SLOT(testDLFinished()));
@@ -82,10 +78,9 @@ wStart::~wStart()
 /// Loads the messages
 void wStart::loadMessages()
 {
-    OTDownloader dl;
-    QStringList messages = QString(dl.doDownload(OTLinks::inAppMessages)).split("\n");
+    QStringList messages = QString(nc.post(OTLinks::inAppMessages)).split("\n");
 
-    if (dl.lastSuccess == -2)
+    if (nc.lastSuccess == -2)
     {
         OTInAppMessage messageData;
         messageData.ID = "-1";
@@ -94,11 +89,11 @@ void wStart::loadMessages()
         messageData.start = QDateTime::currentDateTime();
         messageData.end = QDateTime::currentDateTime().addYears(10);
         messageData.enTitle = "Maintenance work";
-        messageData.enShortDescription = "The server is currently undergoing maintenance";
-        messageData.enDescription = "The server is currently undergoing maintenance. During this time the updater, version notes and the messages are not available. Please come back again later.";
+        messageData.enShortDescription = "The application server is currently undergoing maintenance";
+        messageData.enDescription = "The application server is currently undergoing maintenance. During this time the updater, messages and the other functions with application server connection are not available. Please come back again later.";
         messageData.deTitle = "Wartungsarbeiten";
-        messageData.deShortDescription = "Der Server befindet sich derzeit in Wartungsarbeiten";
-        messageData.deDescription = "Der Server befindet sich derzeit in Wartungsarbeiten. Während dieser Zeit sind Aktualisierungen, Versionhinweise und die Nachrichten nicht verfügbar. Bitte schaue später wieder vorbei.";
+        messageData.deShortDescription = "Der Anwendungsserver befindet sich derzeit in Wartungsarbeiten";
+        messageData.deDescription = "Der Anwendungsserver befindet sich derzeit in Wartungsarbeiten. Während dieser Zeit sind Aktualisierungen, Nachrichten und weitere Funktionen mit Verbindung zum Anwendungsserver nicht verfügbar. Bitte schaue später wieder vorbei.";
 
         message *widget = new message(messageData, this);
         QListWidgetItem *item = new QListWidgetItem();
@@ -301,14 +296,14 @@ void wStart::startCounterMsgSender()
 {
     unsigned int count = set.read("main", "startCount").toInt();
 
-    if ((count >= 5) && (set.read("main\\startCountMessages", "feedbackForm").toString() != "true"))
-    {
-        QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Feedback"), tr("You are welcome to give us feedback about %1 so we can improve our software.").arg(OTInformation::name), QMessageBox::Yes | QMessageBox::No);
-        set.write("main\\startCountMessages", "feedbackForm", true);
+//    if ((count >= 5) && (set.read("main\\startCountMessages", "feedbackForm").toString() != "true"))
+//    {
+//        QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Feedback"), tr("You are welcome to give us feedback about %1 so we can improve our software.").arg(OTInformation::name), QMessageBox::Yes | QMessageBox::No);
+//        set.write("main\\startCountMessages", "feedbackForm", true);
 
-        if (reply == QMessageBox::Yes)
-            QDesktopServices::openUrl(OTLinks::survey);
-    }
+//        if (reply == QMessageBox::Yes)
+//            QDesktopServices::openUrl(OTLinks::survey);
+//    }
 }
 
 /// Restarts application
