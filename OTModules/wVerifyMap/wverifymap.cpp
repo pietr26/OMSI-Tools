@@ -311,6 +311,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         qWarning() << QString("Could not found map file '%1'!").arg(filehandler.getMapPath());
         return endVerifying();
     }
+    qInfo().noquote() << QString("Map: %1").arg(filehandler.getMapPath());
+
     selectAllAndClear();
     ui->pgbProgress->setVisible(true);
 
@@ -547,7 +549,10 @@ void wVerifyMap::on_cobxMapName_currentIndexChanged(int index)
     selectAllAndClear();
     filehandler.setMapPath(mapList[index].first);
 
-    QString picture = mapList[index].first.remove(QRegularExpression("global.cfg")) + "picture.jpg";
+    QString picture = mapList[index].first;
+    picture.remove(QRegularExpression("global.cfg"));
+    picture += "picture.jpg";
+
     if (QFile(picture).exists())
         ui->lblPicture->setPixmap(QPixmap(picture));
     else
