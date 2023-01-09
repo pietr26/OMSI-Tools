@@ -21,8 +21,6 @@ public:
     static void attach(QString filename = "logfile.txt");
     static void handler(QtMsgType type, const QMessageLogContext &context, const QString & msg);
 
-signals:
-
 };
 
 #endif // OTLOGGER_H
