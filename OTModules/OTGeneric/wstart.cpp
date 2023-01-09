@@ -288,7 +288,7 @@ void wStart::on_actionManual_triggered()
 /// Opens style test
 void wStart::on_btnStyleTest_clicked()
 {
-    hide();
+    close();
     WSTYLETEST = new wStyleTest();
     WSTYLETEST->show();
 }
@@ -393,7 +393,7 @@ void wStart::on_tbnCleanup_clicked()
 
 void wStart::on_tbnFbhOpen_clicked()
 {
-    close();
+    hide();
     WFBH = new wFbh();
     WFBH->show();
 }
