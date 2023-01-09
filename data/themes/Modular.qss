@@ -176,17 +176,29 @@ QTabBar::tab
 	border-top-right-radius: 3px;
 }
 
-QTabBar::tab:!first
+QTabBar::tab:!selected:!first
 {
 	border-left: none;
+}
+
+QTabBar::tab:!selected
+{
+	margin-top: 2px;
+}
+
+QTabBar::tab:next-selected
+{
+	border-right: none;
 }
 
 
 QTabBar::tab:selected
 {
+
 	background-color: %<%Button%>%;
 	border-color: %<%MainSC%>%;
-	border-bottom-color: none;
+	border-bottom: 1px solid %<%Button%>%;
+	
 	font-weight: bold;
 }
 
