@@ -1,6 +1,5 @@
 #include "OTLogger.h"
 
-
 QString Logger::filename;
 bool Logger::logging = false;
 static const QtMessageHandler QT_DEFAULT_MESSAGE_HANDLER = qInstallMessageHandler(nullptr);
