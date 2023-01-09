@@ -83,14 +83,15 @@ class OTInformation
 {
 public:
     inline static const QString name = "OMSI-Tools";
-    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Dev;
+    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Beta;
     inline static const QString sourceCodeLength = "18 000";
 
     class versions
     {
     public:
         inline static const QList<QPair<QString, unsigned int>> allVersions = {
-            QPair<QString, unsigned int>("1.0.1-dev", 31),
+            QPair<QString, unsigned int>("1.1.0-beta", 32),
+            QPair<QString, unsigned int>("1.1.0-dev", 31),
             QPair<QString, unsigned int>("1.0.0-lite", 30),
             QPair<QString, unsigned int>("1.0.0-beta", 29),
             QPair<QString, unsigned int>("1.0.0-dev", 28),
@@ -134,12 +135,15 @@ class OTLinks
 public:
     inline static const QUrl showroom = QUrl("https://reboot.omsi-webdisk.de/community/thread/4783");
     inline static const QUrl support = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683");
+    inline static const QUrl survey = QUrl("https://forms.office.com/r/QbbQBQCa21");
+    inline static const QUrl github = QUrl("https://github.com/pietr26/OMSI-Tools");
+
     inline static const QUrl latestVersion = QUrl("https://backend.omsi-tools.de/api/?ref=currentVersion");
     inline static const QUrl releaseNotes = QUrl("https://backend.omsi-tools.de/api/?ref=releaseNotes");
     inline static const QUrl inAppMessages = QUrl("https://backend.omsi-tools.de/api/?ref=messages");
     inline static const QUrl download = QUrl("https://backend.omsi-tools.de/api/?ref=downloadLink");
-    inline static const QUrl survey = QUrl("https://forms.office.com/r/QbbQBQCa21");
-    inline static const QUrl github = QUrl("https://github.com/pietr26/OMSI-Tools");
+    inline static const QUrl csSuggestFiles = QUrl("https://backend.omsi-tools.de/api/csSuggestFiles");
+    inline static const QUrl empty = QUrl("https://backend.omsi-tools.de/api/empty");
 
     class wiki
     {
@@ -154,22 +158,22 @@ public:
 };
 
 /// Calculates disk usage
-class OTDownloader: public QObject
+class OTNetworkConnection: public QObject
 {
     Q_OBJECT
 public slots:
     /// [OVERLOADED] Returns the downloaded file
-    QByteArray doDownload(const QUrl &url)
+    QByteArray post(const QUrl &url, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>())
     {
         lastSuccess = 0;
-        return download(url);
+        return download(url, params);
     }
 
     /// [OVERLOADED] Saves the download file to a local file
-    int doDownload(const QUrl &url, const QString filepath)
+    int post(const QUrl &url, const QString filepath, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>())
     {
         lastSuccess = 0;
-        saveToFile(filepath, download(url));
+        saveToFile(filepath, download(url, params));
         return lastHttpCode;
     }
 
@@ -193,16 +197,41 @@ private:
     QNetworkAccessManager manager;
 
     /// Main part of downloading a file
-    QByteArray download(const QUrl &url)
+    QByteArray download(const QUrl &url, QList<QPair<QString, QString>> params)
     {
-        qDebug().noquote().nospace() << "Download '" << url.url() << "'";
+        qDebug().noquote().nospace() << "POST to '" << url.url() << "'";
         QNetworkRequest request(url);
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "Content-type:text/html;charset=UTF-8");
+
+        QListIterator<QPair<QString, QString>> paramIterator(params);
+        qDebug().noquote() << "URL params (post):" << params;
+//        QHttpMultiPart urlParams;
+
+//        while (paramIterator.hasNext())
+//        {
+//            QPair<QString, QString> param = paramIterator.next();
+//            QHttpPart part;
+//            part.setHeader(QNetworkRequest::ContentDispositionHeader, QString("form-data; name=\"%1\"").arg(param.first));
+//            //part.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+//            part.setBody(param.second.toUtf8());
+
+//            urlParams.append(part);
+//        }
+
+        QUrlQuery urlParams;
+
+        while (paramIterator.hasNext())
+        {
+            QPair<QString, QString> param = paramIterator.next();
+            urlParams.addQueryItem(param.first, param.second);
+        }
+
         QEventLoop loop;
 
         connect(&manager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
-        reply = manager.get(request);
+        reply = manager.post(request, urlParams.query(QUrl::FullyEncoded).toUtf8());
 
-        connect(reply, &QNetworkReply::downloadProgress, this, &OTDownloader::downloadProgress);
+        connect(reply, &QNetworkReply::downloadProgress, this, &OTNetworkConnection::downloadProgress);
         loop.exec();
 
         // Content length:
@@ -211,7 +240,7 @@ private:
         int httpCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         lastHttpCode = httpCode;
 
-        qDebug() << QString("Download finished (HTTP %1)").arg(httpCode);
+        qDebug().noquote() << QString("POST finished (HTTP %1)").arg(httpCode);
 
         if (url.url().contains("omsi-tools.de") && (httpCode == 503))
         {
@@ -234,7 +263,7 @@ private:
     {
         QFile file(filepath);
         if (!file.open(QFile::WriteOnly))
-            qWarning().noquote() << "Error while downloading and save a file from the internet!";
+            qWarning().noquote() << "Error while saving POST content!";
         else
             file.write(content);
     }
@@ -295,11 +324,11 @@ public:
     {
 
         qDebug() << "Check for updates...";
-        OTDownloader dl;
-        const QString latestVersion = dl.doDownload(OTLinks::latestVersion);
+        OTNetworkConnection nc;
+        const QString latestVersion = nc.post(OTLinks::latestVersion);
         QStringList list;
 
-        if (dl.lastSuccess == -2)
+        if (nc.lastSuccess == -2)
             list << "503";
         else if (latestVersion == "")
             list << "false";
@@ -862,7 +891,7 @@ public:
 
     static QString serverMaintenance()
     {
-        return QObject::tr("The server is currently undergoing maintenance (HTTP 503). Please try again later.");
+        return QObject::tr("The application server is currently undergoing maintenance (HTTP 503). Please try again later.");
     }
 
 };

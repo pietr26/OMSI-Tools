@@ -106,6 +106,7 @@ private:
     OTMessage msg;
     OTMiscellaneous misc;
     OTFileOperations fop;
+    OTNetworkConnection nc;
 
     void startCounterMsgSender();
     bool checkMainDir();

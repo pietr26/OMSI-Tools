@@ -351,3 +351,11 @@ void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
 
     ui->pteInformation->setPlainText(information);
 }
+
+void wContentSearch::on_actionSuggestFiles_triggered()
+{
+    WSUGGESTFILES = new wSuggestFiles(this);
+    WSUGGESTFILES->show();
+
+}
+

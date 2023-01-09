@@ -14,6 +14,7 @@ SOURCES += \
     OTModules/OTGeneric/wselectencoding.cpp \
     OTModules/wContentSearch/wDBPanel.cpp \
     OTModules/wContentSearch/wcontentsearch.cpp \
+    OTModules/wContentSearch/wsuggestfiles.cpp \
     OTModules/wFbh/waddpath.cpp \
     OTModules/wFbh/waddterm.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
     OTModules/OTGeneric/wselectencoding.h \
     OTModules/wContentSearch/wDBPanel.h \
     OTModules/wContentSearch/wcontentsearch.h \
+    OTModules/wContentSearch/wsuggestfiles.h \
     OTModules/wFbh/FbhFunctions.h \
     OTModules/wFbh/waddpath.h \
     OTModules/wFbh/waddterm.h \
@@ -79,6 +81,7 @@ FORMS += \
     OTModules/OTGeneric/wselectencoding.ui \
     OTModules/wContentSearch/wDBPanel.ui \
     OTModules/wContentSearch/wcontentsearch.ui \
+    OTModules/wContentSearch/wsuggestfiles.ui \
     OTModules/wFbh/waddpath.ui \
     OTModules/wFbh/waddterm.ui \
     OTModules/wFbh/wdbcopyrights.ui \
