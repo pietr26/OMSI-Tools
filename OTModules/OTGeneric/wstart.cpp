@@ -24,7 +24,8 @@ wStart::wStart(QWidget *parent)
     bool isNoRelease;
 
     if (OTInformation::build == OTBuildOptions::Release || OTInformation::build == OTBuildOptions::EA ||
-        OTInformation::build == OTBuildOptions::Lite || OTInformation::build == OTBuildOptions::Prerelease)
+        OTInformation::build == OTBuildOptions::Lite || OTInformation::build == OTBuildOptions::Prerelease
+            || OTInformation::build == OTBuildOptions::Beta)
         isNoRelease = false;
     else
         isNoRelease = true;
@@ -79,6 +80,7 @@ wStart::~wStart()
 void wStart::loadMessages()
 {
     QStringList messages = QString(nc.post(OTLinks::inAppMessages)).split("\n");
+    qDebug() << messages;
 
     if (nc.lastSuccess == -2)
     {
@@ -140,10 +142,16 @@ void wStart::loadMessages()
                 i++; messageData.trashbin = QVariant(messages.at(i)).toInt();
                 if (messageData.trashbin) continue;
 
-                if (((OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 3)))
-                    continue;
-                if ((!(OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) && ((messageData.publicity == 0) || (messageData.publicity == 2) || (messageData.publicity == 3) || (messageData.publicity == 5)))
-                    continue;
+                if ((OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) {
+                    if ((messageData.publicity == 0) || (messageData.publicity == 3))
+                        continue;
+                }
+                else {
+                    if ((messageData.publicity == 0) || (messageData.publicity == 2) || (messageData.publicity == 3) || (messageData.publicity == 5))
+                        continue;
+                }
+
+
 
                 /*
                  * 0 = deactivated
@@ -294,7 +302,7 @@ void wStart::on_actionSourceCodeOnGitHub_triggered()
 /// Shows a message at a defined start count
 void wStart::startCounterMsgSender()
 {
-    unsigned int count = set.read("main", "startCount").toInt();
+    //unsigned int count = set.read("main", "startCount").toInt();
 
 //    if ((count >= 5) && (set.read("main\\startCountMessages", "feedbackForm").toString() != "true"))
 //    {

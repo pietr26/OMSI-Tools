@@ -28,7 +28,7 @@ private slots:
 private:
     Ui::wReleaseNotes *ui;
     OTSettings set;
-    OTDownloader dl;
+    OTNetworkConnection nc;
     OTMiscellaneous misc;
 };
 

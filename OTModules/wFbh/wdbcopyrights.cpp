@@ -130,9 +130,6 @@ void wDBCopyrights::addPathFinished(int ID, QString path, QString argumentIDs, i
     else
         dbHandler.doAction(QString("UPDATE paths SET path = '%1', argumentIDs = '%2', pathRedirect = %3 WHERE ID = %4").arg(path).arg(argumentIDs).arg(redirect).arg(ID), true);
 
-    // Search for path in database
-    // is redirect (== -1)? Else, care about argumentIDs
-
     updateView();
 }
 

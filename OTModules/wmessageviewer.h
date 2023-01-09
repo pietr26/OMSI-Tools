@@ -20,7 +20,7 @@ private:
     Ui::wMessageViewer *ui;
 
     OTSettings set;
-    OTDownloader dl;
+    OTNetworkConnection nc;
     OTMiscellaneous misc;
     OTInAppMessage messageData;
 

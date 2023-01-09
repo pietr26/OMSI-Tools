@@ -49,7 +49,7 @@ void wMessageViewer::loadImage()
     ui->pgbLoadingImage->setVisible(true);
     qApp->processEvents();
 
-    pixmap.loadFromData(dl.doDownload(QUrl(messageData.image)));
+    pixmap.loadFromData(nc.post(QUrl(messageData.image)));
     ui->lblPicture->setPixmap(pixmap);
 
     ui->lblPicture->setMaximumWidth(ui->scrollArea->width() * 0.95);
@@ -65,8 +65,8 @@ void wMessageViewer::loadImage()
 
 void wMessageViewer::updateDownloadProgress()
 {
-    ui->pgbLoadingImage->setMaximum(dl.maxProgress);
-    ui->pgbLoadingImage->setValue(dl.currentProgress);
+    ui->pgbLoadingImage->setMaximum(nc.maxProgress);
+    ui->pgbLoadingImage->setValue(nc.currentProgress);
 }
 
 void wMessageViewer::on_actionClose_triggered()

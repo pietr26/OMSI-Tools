@@ -6,6 +6,7 @@
 #include "OTBackend/OTDatabaseHandler.h"
 #include "OTModules/OTGeneric/wsettings.h"
 #include "OTModules/OTGeneric/wfeedback.h"
+#include "OTModules/wContentSearch/wsuggestfiles.h"
 
 namespace Ui {
 class wContentSearch;
@@ -50,12 +51,15 @@ private slots:
 
     void on_lwgLinks_currentTextChanged(const QString &currentText);
 
+    void on_actionSuggestFiles_triggered();
+
 private:
     Ui::wContentSearch *ui;
     OTSettings set;
     OTMessage msg;
     OTMiscellaneous misc;
     wSettings *WSETTINGS;
+    wSuggestFiles *WSUGGESTFILES;
 
     OTDatabaseHandler dbHandler;
     QString dbPath = ":/rec/data/db/contentSearch.db";
