@@ -93,7 +93,7 @@ wContentSearch::~wContentSearch()
 /// Redirect
 void wContentSearch::on_actionSettings_triggered()
 {
-    WSETTINGS = new wSettings();
+    WSETTINGS = new wSettings(this);
     WSETTINGS->show();
 }
 
