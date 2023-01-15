@@ -52,7 +52,7 @@ QMenu::item:disabled
 	color: %<%Dis%>%;
 }
 
-QMenu::item:selected
+QMenu::item:selected:!disabled
 {
 	background-color: %<%Acc2%>%;
 }
