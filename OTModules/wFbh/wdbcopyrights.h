@@ -36,6 +36,13 @@ private slots:
 
     void on_btnCreateBackup_clicked();
 
+    void on_actionClose_triggered();
+
+    void on_actionBackToHome_triggered();
+
+signals:
+    void backToHome();
+
 private:
     Ui::wDBCopyrights *ui;
 

@@ -133,3 +133,16 @@ void wStyleTest::on_btnReloadStylePrefs_clicked()
     modularStyle.close();
 }
 
+
+void wStyleTest::on_actionClose_triggered()
+{
+    close();
+}
+
+
+void wStyleTest::on_actionBackToHome_triggered()
+{
+    close();
+    backToHome();
+}
+

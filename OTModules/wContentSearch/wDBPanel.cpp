@@ -421,3 +421,10 @@ void wDBPanel::on_btnUnlockSource_clicked()
     ui->btnUnlockSource->setVisible(false);
 }
 
+
+void wDBPanel::on_actionBackToHome_triggered()
+{
+    close();
+    backToHome();
+}
+

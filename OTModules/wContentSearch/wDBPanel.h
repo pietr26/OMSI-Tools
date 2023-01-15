@@ -47,6 +47,11 @@ private slots:
 
     void on_btnUnlockSource_clicked();
 
+    void on_actionBackToHome_triggered();
+
+signals:
+    void backToHome();
+
 private:
     Ui::wDBPanel *ui;
 

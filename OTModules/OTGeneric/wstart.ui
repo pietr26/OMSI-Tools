@@ -676,7 +676,7 @@
     <string>Close</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+W</string>
+    <string notr="true">Ctrl+Q</string>
    </property>
   </action>
   <action name="actionSettings">

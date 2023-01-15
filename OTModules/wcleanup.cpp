@@ -310,3 +310,10 @@ void wCleanup::on_actionSendFeedback_triggered()
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }
+
+void wCleanup::on_actionBackToHome_triggered()
+{
+    close();
+    backToHome();
+}
+

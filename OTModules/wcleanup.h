@@ -38,6 +38,11 @@ private slots:
 
     void on_actionSendFeedback_triggered();
 
+    void on_actionBackToHome_triggered();
+
+signals:
+    void backToHome();
+
 private:
     Ui::wCleanup *ui;
 

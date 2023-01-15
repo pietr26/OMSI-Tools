@@ -155,7 +155,6 @@
          <font>
           <family>MS Shell Dlg 2</family>
           <pointsize>9</pointsize>
-          <weight>75</weight>
           <italic>false</italic>
           <bold>true</bold>
           <underline>false</underline>
@@ -320,7 +319,6 @@
        <font>
         <family>MS Shell Dlg 2</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
         <italic>false</italic>
         <bold>true</bold>
         <underline>false</underline>
@@ -352,7 +350,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">
@@ -363,6 +361,7 @@
      <string notr="true">Window</string>
     </property>
     <addaction name="separator"/>
+    <addaction name="actionBackToHome"/>
     <addaction name="actionClose"/>
    </widget>
    <addaction name="menuWindow"/>
@@ -370,8 +369,8 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionClose">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconClose.png</normaloff>:/rec/data/icons/iconClose.png</iconset>
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
    </property>
    <property name="text">
     <string notr="true">Close</string>
@@ -381,6 +380,27 @@
    </property>
    <property name="toolTip">
     <string notr="true">Close</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionBackToHome">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Back to home</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Back to home</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Back to home</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+W</string>
    </property>
   </action>
  </widget>

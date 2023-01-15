@@ -171,3 +171,16 @@ void wDBCopyrights::on_btnCreateBackup_clicked()
     dbHandler.createBackup();
 }
 
+
+void wDBCopyrights::on_actionClose_triggered()
+{
+    close();
+}
+
+
+void wDBCopyrights::on_actionBackToHome_triggered()
+{
+    close();
+    backToHome();
+}
+
