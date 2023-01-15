@@ -49,6 +49,10 @@ private slots:
 
     void on_actionBackToHome_triggered();
 
+    void on_actionStandard_triggered();
+
+    void on_actionWidth1Height05_triggered();
+
 signals:
     void backToHome();
 

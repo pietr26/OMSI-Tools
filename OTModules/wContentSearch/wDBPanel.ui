@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1307</width>
-    <height>806</height>
+    <width>860</width>
+    <height>649</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,20 +18,29 @@
     <normaloff>:/rec/data/icons/iconDatabase.svg</normaloff>:/rec/data/icons/iconDatabase.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_10">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="QWidget" name="">
+      <property name="opaqueResize">
+       <bool>false</bool>
+      </property>
+      <property name="handleWidth">
+       <number>4</number>
+      </property>
+      <property name="childrenCollapsible">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QLabel" name="lblDirectory">
             <property name="text">
-             <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Directory:&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;(content &lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;and&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt; virtual main dir!)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Directory:&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;(virtual main dir)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
           </item>
@@ -45,7 +54,11 @@
           <item>
            <widget class="QPushButton" name="btnOpenFolder">
             <property name="text">
-             <string notr="true">Open folder</string>
+             <string notr="true"/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
             </property>
            </widget>
           </item>
@@ -71,65 +84,65 @@
          </widget>
         </item>
         <item>
-         <widget class="QGroupBox" name="gbxInformation">
+         <widget class="QGroupBox" name="gbxFileProperties">
           <property name="title">
-           <string notr="true">Information</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_8">
-           <item>
-            <widget class="QLineEdit" name="ledInformation"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="gbxDirectLinks">
-          <property name="title">
-           <string notr="true">Direct link(s)</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_9">
-           <item>
-            <widget class="QPlainTextEdit" name="pteDirectLinks"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="gbxSource">
-          <property name="title">
-           <string notr="true">Source:</string>
+           <string notr="true">File properties</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_6">
-             <item>
-              <widget class="QRadioButton" name="rbtnLink">
+            <layout class="QFormLayout" name="formLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lblInformation">
                <property name="text">
-                <string notr="true">Link:</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
+                <string notr="true">Information</string>
                </property>
               </widget>
              </item>
-             <item>
-              <widget class="QLineEdit" name="ledLink"/>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="ledInformation"/>
              </item>
-             <item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="lblDirectLinks">
+               <property name="text">
+                <string notr="true">Direct link(s)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPlainTextEdit" name="pteDirectLinks"/>
+             </item>
+             <item row="2" column="0">
               <widget class="QLabel" name="label">
                <property name="text">
-                <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Links without &lt;/span&gt;&lt;span style=&quot; font-family:'Courier New'; font-style:italic;&quot;&gt;https://*#[arg]&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string notr="true">Source</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <item>
+                <widget class="QRadioButton" name="rbtnLink">
+                 <property name="text">
+                  <string notr="true">Link:</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="ledLink"/>
+               </item>
+              </layout>
+             </item>
+             <item row="3" column="1">
+              <widget class="QRadioButton" name="rbtnStandardContent">
+               <property name="text">
+                <string notr="true">Standard content</string>
                </property>
               </widget>
              </item>
             </layout>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbtnStandardContent">
-             <property name="text">
-              <string notr="true">Standard content</string>
-             </property>
-            </widget>
            </item>
           </layout>
          </widget>
@@ -138,8 +151,11 @@
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
            <widget class="QPushButton" name="btnUnlockSource">
+            <property name="styleSheet">
+             <string notr="true">background-color: red;</string>
+            </property>
             <property name="text">
-             <string notr="true">Unlock</string>
+             <string notr="true">Unlock source</string>
             </property>
            </widget>
           </item>
@@ -150,7 +166,7 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>777</width>
+              <width>40</width>
               <height>20</height>
              </size>
             </property>
@@ -180,8 +196,11 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
+        </property>
         <item>
          <widget class="QLabel" name="lblDuplicates">
           <property name="text">
@@ -232,7 +251,23 @@
             <property name="title">
              <string notr="true">Select all...</string>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_6">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QPushButton" name="btnSelectAllOld">
+               <property name="font">
+                <font>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string notr="true">Old</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>:/rec/data/icons/iconDeleteFile.png</normaloff>:/rec/data/icons/iconDeleteFile.png</iconset>
+               </property>
+              </widget>
+             </item>
              <item>
               <widget class="QPushButton" name="btnSelectAllNew">
                <property name="text">
@@ -244,17 +279,6 @@
                </property>
               </widget>
              </item>
-             <item>
-              <widget class="QPushButton" name="btnSelectAllOld">
-               <property name="text">
-                <string notr="true">Old</string>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>:/rec/data/icons/iconDeleteFile.png</normaloff>:/rec/data/icons/iconDeleteFile.png</iconset>
-               </property>
-              </widget>
-             </item>
             </layout>
            </widget>
           </item>
@@ -263,7 +287,26 @@
             <property name="title">
              <string notr="true">Select single...</string>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_5">
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QPushButton" name="btnSelectOld">
+               <property name="font">
+                <font>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string notr="true">Old</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>:/rec/data/icons/iconDeleteFile.png</normaloff>:/rec/data/icons/iconDeleteFile.png</iconset>
+               </property>
+               <property name="shortcut">
+                <string notr="true">Ctrl+Shift+O</string>
+               </property>
+              </widget>
+             </item>
              <item>
               <widget class="QPushButton" name="btnSelectNew">
                <property name="text">
@@ -278,20 +321,6 @@
                </property>
               </widget>
              </item>
-             <item>
-              <widget class="QPushButton" name="btnSelectOld">
-               <property name="text">
-                <string notr="true">Old</string>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>:/rec/data/icons/iconDeleteFile.png</normaloff>:/rec/data/icons/iconDeleteFile.png</iconset>
-               </property>
-               <property name="shortcut">
-                <string notr="true">Ctrl+Shift+O</string>
-               </property>
-              </widget>
-             </item>
             </layout>
            </widget>
           </item>
@@ -302,30 +331,6 @@
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="wgtDuplicates" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_7"/>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="lblProgress">
-      <property name="font">
-       <font>
-        <family>MS Shell Dlg 2</family>
-        <pointsize>9</pointsize>
-        <italic>false</italic>
-        <bold>true</bold>
-        <underline>false</underline>
-       </font>
-      </property>
-      <property name="text">
-       <string notr="true">- / -</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QProgressBar" name="pgbProgress">
       <property name="value">
        <number>24</number>
@@ -333,16 +338,20 @@
       <property name="textVisible">
        <bool>true</bool>
       </property>
+      <property name="format">
+       <string notr="true">%v of %m</string>
+      </property>
      </widget>
     </item>
    </layout>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1307</width>
+     <width>860</width>
      <height>21</height>
     </rect>
    </property>
@@ -353,13 +362,20 @@
     <property name="title">
      <string notr="true">Window</string>
     </property>
+    <widget class="QMenu" name="menuSize">
+     <property name="title">
+      <string notr="true">Size</string>
+     </property>
+     <addaction name="actionStandard"/>
+     <addaction name="actionWidth1Height05"/>
+    </widget>
+    <addaction name="menuSize"/>
     <addaction name="separator"/>
     <addaction name="actionBackToHome"/>
     <addaction name="actionClose"/>
    </widget>
    <addaction name="menuWindow"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionClose">
    <property name="icon">
     <iconset resource="../../ressources.qrc">
@@ -394,6 +410,28 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionStandard">
+   <property name="text">
+    <string notr="true">Standard</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Standard</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Standard</string>
+   </property>
+  </action>
+  <action name="actionWidth1Height05">
+   <property name="text">
+    <string notr="true">width 1, height 0.5</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">width 1, height 0.5</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">width 1, height 0.5</string>
    </property>
   </action>
  </widget>
