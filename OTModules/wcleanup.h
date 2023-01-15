@@ -7,6 +7,7 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wfeedback.h"
+#include <QListWidgetItem>
 
 namespace Ui {
 class wCleanup;
@@ -40,6 +41,10 @@ private slots:
 
     void on_actionBackToHome_triggered();
 
+    void on_lwgObjects_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_lwgSplines_itemDoubleClicked(QListWidgetItem *item);
+
 signals:
     void backToHome();
 
@@ -51,6 +56,7 @@ private:
     OTSettings set;
     OTMessage msg;
     OTOMSIFileHandler filehandler;
+    OTMiscellaneous misc;
     wSettings *WSETTINGS;
 };
 

@@ -614,9 +614,11 @@ public:
     }
 
     /// Sets the map path
-    void setMapPath(QString path)
+    void setMapPath(QString path, bool clearStuffobj = false)
     {
         mapPath = path;
+
+        if (clearStuffobj) stuffobj.clear();
     }
 
     /// Resturns the map path
