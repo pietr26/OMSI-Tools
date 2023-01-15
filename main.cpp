@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
         // Print all settings to the logfile
         qDebug().noquote() << "Settings" + set.getAllSettings() + "\n================================================\n";
 
-        set.write("main", "closeCheck", false);
+
         set.setDefaultSettings();
 
         qInfo().noquote() << "Starting " + OTInformation::name + "...";
@@ -103,6 +103,8 @@ int main(int argc, char *argv[])
         }
         else
             qDebug() << "No crash detected.";
+
+        set.write("main", "closeCheck", false);
 
         testArea();
 
