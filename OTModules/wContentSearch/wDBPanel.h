@@ -77,8 +77,6 @@ private:
     void selectNew();
     void reloadSelectGroupBoxes();
     QString checkLinkID();
-
-    void reloadTimeMeasurement(int remaining);
 };
 
 #endif // WDBPANEL_H
