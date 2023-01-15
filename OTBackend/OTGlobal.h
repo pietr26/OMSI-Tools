@@ -163,17 +163,17 @@ class OTNetworkConnection: public QObject
     Q_OBJECT
 public slots:
     /// [OVERLOADED] Returns the downloaded file
-    QByteArray post(const QUrl &url, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>())
+    QByteArray post(const QUrl &url, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>(), unsigned int connectionTimeout = 10000)
     {
         lastSuccess = 0;
-        return download(url, params);
+        return download(url, params, connectionTimeout);
     }
 
     /// [OVERLOADED] Saves the download file to a local file
-    int post(const QUrl &url, const QString filepath, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>())
+    int post(const QUrl &url, const QString filepath, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>(), unsigned int connectionTimeout = 10000)
     {
         lastSuccess = 0;
-        saveToFile(filepath, download(url, params));
+        saveToFile(filepath, download(url, params, connectionTimeout));
         return lastHttpCode;
     }
 
@@ -197,39 +197,40 @@ private:
     QNetworkAccessManager manager;
 
     /// Main part of downloading a file
-    QByteArray download(const QUrl &url, QList<QPair<QString, QString>> params)
+    QByteArray download(const QUrl &url, QList<QPair<QString, QString>> params, unsigned int connectionTimeout)
     {
         qDebug().noquote().nospace() << "POST to '" << url.url() << "'";
         QNetworkRequest request(url);
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "Content-type:text/html;charset=UTF-8");
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+        request.setTransferTimeout(connectionTimeout);
 
         QListIterator<QPair<QString, QString>> paramIterator(params);
         qDebug().noquote() << "URL params (post):" << params;
-//        QHttpMultiPart urlParams;
-
-//        while (paramIterator.hasNext())
-//        {
-//            QPair<QString, QString> param = paramIterator.next();
-//            QHttpPart part;
-//            part.setHeader(QNetworkRequest::ContentDispositionHeader, QString("form-data; name=\"%1\"").arg(param.first));
-//            //part.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
-//            part.setBody(param.second.toUtf8());
-
-//            urlParams.append(part);
-//        }
-
-        QUrlQuery urlParams;
+        QHttpMultiPart *urlParams = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
         while (paramIterator.hasNext())
         {
             QPair<QString, QString> param = paramIterator.next();
-            urlParams.addQueryItem(param.first, param.second);
+            QHttpPart part;
+            part.setHeader(QNetworkRequest::ContentDispositionHeader, QString("form-data; name=\"%1\"").arg(param.first));
+            part.setBody(param.second.toUtf8());
+
+            urlParams->append(part);
         }
+
+//        QUrlQuery urlParams;
+
+//        while (paramIterator.hasNext())
+//        {
+//            QPair<QString, QString> param = paramIterator.next();
+//            urlParams.addQueryItem(param.first, param.second);
+//        }
+
 
         QEventLoop loop;
 
         connect(&manager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
-        reply = manager.post(request, urlParams.query(QUrl::FullyEncoded).toUtf8());
+        reply = manager.post(request, urlParams);
 
         connect(reply, &QNetworkReply::downloadProgress, this, &OTNetworkConnection::downloadProgress);
         loop.exec();
@@ -273,6 +274,16 @@ private:
 class OTMiscellaneous
 {
 public:
+    /// Opens a file in explorer
+    void openInExplorer(QString path)
+    {
+        QStringList args;
+        args << "/select," << QDir::toNativeSeparators(path);
+
+        QProcess *process = new QProcess();
+        process->start("explorer.exe", args);
+    }
+
     /// Restarts the application
     void restart()
     {
