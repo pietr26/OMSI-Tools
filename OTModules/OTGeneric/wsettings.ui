@@ -33,8 +33,38 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_10">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_6">
-          <item>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="ledOmsiPath">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="placeholderText">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lblAuthor">
+            <property name="text">
+             <string>Author:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ledAuthor</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lblOmsiPath">
+            <property name="text">
+             <string>OMSI main directory:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ledOmsiPath</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
            <widget class="QLabel" name="lblLanguage">
             <property name="text">
              <string>Language:</string>
@@ -44,7 +74,7 @@
             </property>
            </widget>
           </item>
-          <item>
+          <item row="0" column="1">
            <widget class="QComboBox" name="cobxLanguage">
             <property name="sizePolicy">
              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -63,76 +93,7 @@
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="btnMoreLanguages">
-            <property name="text">
-             <string>More languages...</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_12">
-          <item>
-           <widget class="QLabel" name="lblAuthor">
-            <property name="text">
-             <string>Author:</string>
-            </property>
-            <property name="buddy">
-             <cstring>ledAuthor</cstring>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="ledAuthor">
-            <property name="placeholderText">
-             <string notr="true"/>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_7">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QLabel" name="lblOmsiPath">
-            <property name="text">
-             <string>OMSI main directory:</string>
-            </property>
-            <property name="buddy">
-             <cstring>ledOmsiPath</cstring>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="ledOmsiPath">
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="placeholderText">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item>
+          <item row="2" column="2">
            <widget class="QPushButton" name="btnOmsiPath">
             <property name="text">
              <string/>
@@ -140,6 +101,24 @@
             <property name="icon">
              <iconset resource="../../ressources.qrc">
               <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="btnMoreLanguages">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="QLineEdit" name="ledAuthor">
+            <property name="placeholderText">
+             <string notr="true"/>
             </property>
            </widget>
           </item>
@@ -157,13 +136,6 @@
            </size>
           </property>
          </spacer>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="cbxBackupEnabled">
-          <property name="text">
-           <string>Backup enabled</string>
-          </property>
-         </widget>
         </item>
        </layout>
       </widget>
@@ -204,7 +176,7 @@
             </property>
             <property name="icon">
              <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconZip.svg</normaloff>:/rec/data/icons/iconZip.svg</iconset>
+              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
             </property>
            </widget>
           </item>
@@ -560,153 +532,114 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_14">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
-              <item>
-               <widget class="QLabel" name="label">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Backup interval:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QSpinBox" name="sbxAutosaveDuration">
-                <property name="buttonSymbols">
-                 <enum>QAbstractSpinBox::UpDownArrows</enum>
-                </property>
-                <property name="specialValueText">
-                 <string/>
-                </property>
-                <property name="suffix">
-                 <string notr="true"/>
-                </property>
-                <property name="prefix">
-                 <string/>
-                </property>
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>999</number>
-                </property>
-                <property name="stepType">
-                 <enum>QAbstractSpinBox::DefaultStepType</enum>
-                </property>
-                <property name="value">
-                 <number>15</number>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_3">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Preferred</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <spacer name="verticalSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="Line" name="line_2">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
+         <widget class="QCheckBox" name="cbxBackupEnabled">
+          <property name="text">
+           <string>Enabled</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="3" column="0" colspan="3">
+           <widget class="QPushButton" name="btnOpenBackupFolder">
+            <property name="text">
+             <string>Open backup folder</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
             </property>
            </widget>
           </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
-              <item>
-               <widget class="QLabel" name="lblDiskUsage">
-                <property name="text">
-                 <string>Backup disk usage:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="lblDiskUsageSize">
-                <property name="text">
-                 <string notr="true">size</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_5">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <widget class="QPushButton" name="btnOpenBackupFolder">
-              <property name="text">
-               <string>Open backup folder</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../../ressources.qrc">
-                <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="btnDeleteAllBackups">
-              <property name="text">
-               <string>Delete all backups</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../../ressources.qrc">
-                <normaloff>:/rec/data/icons/iconToBin.svg</normaloff>:/rec/data/icons/iconToBin.svg</iconset>
-              </property>
-             </widget>
-            </item>
-           </layout>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Backup interval:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="btnDeleteAllBackups">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconToBin.svg</normaloff>:/rec/data/icons/iconToBin.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="lblDiskUsageSize">
+            <property name="text">
+             <string notr="true">size</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lblDiskUsage">
+            <property name="text">
+             <string>Backup disk usage:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="2">
+           <widget class="QSpinBox" name="sbxAutosaveDuration">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::UpDownArrows</enum>
+            </property>
+            <property name="specialValueText">
+             <string/>
+            </property>
+            <property name="suffix">
+             <string notr="true"/>
+            </property>
+            <property name="prefix">
+             <string/>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>999</number>
+            </property>
+            <property name="stepType">
+             <enum>QAbstractSpinBox::DefaultStepType</enum>
+            </property>
+            <property name="value">
+             <number>15</number>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="3">
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
         <item>
-         <spacer name="verticalSpacer_4">
+         <spacer name="verticalSpacer">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
@@ -722,7 +655,7 @@
       </widget>
       <widget class="QWidget" name="tabMore">
        <attribute name="title">
-        <string>More</string>
+        <string>Miscellaneous</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_11">
         <item>
@@ -759,6 +692,12 @@
              </item>
              <item>
               <widget class="QPushButton" name="btnOpenLogfilePath">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="text">
                 <string>Open logfile path</string>
                </property>
@@ -782,7 +721,7 @@
                <item>
                 <widget class="QLabel" name="lblAutoUpdateCheck">
                  <property name="text">
-                  <string>Check automatically:</string>
+                  <string>Checking interval:</string>
                  </property>
                 </widget>
                </item>
@@ -796,32 +735,21 @@
               </layout>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_7">
-               <item>
-                <spacer name="horizontalSpacer_4">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btnCheckForUpdates">
-                 <property name="text">
-                  <string>Check for updates now</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="../../ressources.qrc">
-                   <normaloff>:/rec/data/icons/iconDownload.svg</normaloff>:/rec/data/icons/iconDownload.svg</iconset>
-                 </property>
-                </widget>
-               </item>
-              </layout>
+              <widget class="QPushButton" name="btnCheckForUpdates">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Check now</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../../ressources.qrc">
+                 <normaloff>:/rec/data/icons/iconDownload.svg</normaloff>:/rec/data/icons/iconDownload.svg</iconset>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>
@@ -829,43 +757,30 @@
          </layout>
         </item>
         <item>
-         <widget class="QGroupBox" name="gbsMiscellaneous">
-          <property name="title">
-           <string>Miscellaneous</string>
+         <widget class="QCheckBox" name="cbxConfirmDeletion">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
-           <item>
-            <layout class="QGridLayout" name="gridLayout">
-             <item row="0" column="1" rowspan="2" colspan="2">
-              <widget class="QCheckBox" name="cbxConfirmDeletion">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="text">
-                <string>Confirm deletion</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1" rowspan="2" colspan="2">
-              <widget class="QPushButton" name="btnCreateDesktopShortcut">
-               <property name="text">
-                <string>Create desktop shortcut</string>
-               </property>
-               <property name="icon">
-                <iconset resource="../../ressources.qrc">
-                 <normaloff>:/rec/data/icons/iconLink.svg</normaloff>:/rec/data/icons/iconLink.svg</iconset>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
+          <property name="text">
+           <string>Confirm deletion</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnCreateDesktopShortcut">
+          <property name="text">
+           <string>Create desktop shortcut</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../../ressources.qrc">
+            <normaloff>:/rec/data/icons/iconLink.svg</normaloff>:/rec/data/icons/iconLink.svg</iconset>
+          </property>
          </widget>
         </item>
         <item>
@@ -967,23 +882,6 @@
        </layout>
       </widget>
      </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3">

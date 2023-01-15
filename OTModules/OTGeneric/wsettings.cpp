@@ -13,14 +13,13 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     qDebug() << "UI set";
 
     setWindowTitle(OTInformation::name + " - " + tr("settings"));
-    //ui->statusbar->showMessage(tr("Restart to apply all settings."));
 
     // Load settings
     setStyleSheet(set.read("main", "theme").toString());
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(refreshDiskUsage()));
-    timer->start(5000);
+    timer->start(10000);
 
     // cobxLanguage
     int languageIndex = set.read("main", "language").toInt();
@@ -37,9 +36,9 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     ui->cobxLanguage->setCurrentIndex(languageIndex);
 
     // cobxTheme:
-    ui->cobxTheme->addItem(QString("Standard"));
-    ui->cobxTheme->addItem(QString("Modern light"));
-    ui->cobxTheme->addItem(QString("Modern dark"));
+    ui->cobxTheme->addItem(tr("Standard"));
+    ui->cobxTheme->addItem(tr("Modern light"));
+    ui->cobxTheme->addItem(tr("Modern dark"));
 
     reloadThemePreview();
     ui->gbxThemeAdvanced->setEnabled(!set.read("main\\themeData", "useStandardTheme").toBool());
@@ -60,8 +59,6 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
         ui->sbxAutosaveDuration->setValue(set.read("main", "autosaveDuration").toInt());
 
     ui->sbxAutosaveDuration->setSuffix(" s");
-
-    ui->tabBackup->setEnabled(set.read("main", "autosave").toBool());
 
     // ledAuthor
     ui->ledAuthor->setText(set.read("main", "author").toString());
@@ -159,8 +156,6 @@ void wSettings::setUnsaved(bool visible)
         ui->statusbar->showMessage(tr("Restart to apply all settings."));
     else
         ui->statusbar->showMessage("", 10);
-
-    ui->btnRestart->setVisible(visible);
 }
 
 /// Refreshes disk usage for backup folder
@@ -295,9 +290,7 @@ void wSettings::on_ledAuthor_textChanged(const QString &arg1)
 /// Turns backup on / off
 void wSettings::on_cbxBackupEnabled_clicked(bool checked)
 {
-    ui->tabBackup->setEnabled(checked);
-
-    set.write("main", "autosave", ui->cbxBackupEnabled->isChecked());
+    set.write("main", "autosave", checked);
     setUnsaved(true);
 }
 
@@ -467,6 +460,8 @@ void wSettings::on_btnLoadTheme_clicked()
     setUnsaved(true);
 
     ui->gbxThemeAdvanced->setEnabled(!set.read("main\\themeData", "useStandardTheme").toBool());
+
+    if (set.read("main\\themeData", "useStandardTheme").toBool()) setStyleSheet("");
 }
 
 /// Opens help dialog
