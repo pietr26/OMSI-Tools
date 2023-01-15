@@ -48,12 +48,16 @@ wDBPanel::wDBPanel(QWidget *parent) :
 //    standardFilter << "*.osn";
 //    standardFilter << "*.dsc";
 
+    ui->statusbar->addPermanentWidget(ui->pgbProgress);
+
     // Setup model
     strListModelDuplicates = new QStringListModel();
     strListModelItems = new QStringListModel();
 
     reloadSelectGroupBoxes();
     ui->btnUnlockSource->setVisible(false);
+    ui->gbxSelectAll->setEnabled(false);
+    ui->gbxSelectSingle->setEnabled(false);
 
     ui->tvwDuplicates->verticalHeader()->hide();
 
@@ -69,10 +73,6 @@ wDBPanel::wDBPanel(QWidget *parent) :
         dbHandler.setupDatabase();
 
     ui->ledDirectory->setText(set.read(objectName(), "tempPath").toString());
-
-    qApp->processEvents();
-    ui->splitter->setStretchFactor(0, 2);
-    ui->splitter->setStretchFactor(1, 1);
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -183,13 +183,12 @@ void wDBPanel::on_btnStart_clicked()
         return;
     }
 
-    ui->gbxDirectLinks->setEnabled(false);
-    ui->gbxInformation->setEnabled(false);
-    ui->gbxSource->setEnabled(false);
+    ui->gbxFileProperties->setEnabled(false);
 
     ui->btnStart->setEnabled(false);
-    ui->wgtDuplicates->setEnabled(true);
     ui->btnUnlockSource->setVisible(true);
+    ui->gbxSelectAll->setEnabled(true);
+    ui->gbxSelectSingle->setEnabled(true);
 
     models.clear();
     paths.clear();
@@ -210,7 +209,7 @@ void wDBPanel::on_btnStart_clicked()
 
     while (dirIterator.hasNext())
     {
-        ui->lblProgress->setText("0 / " + QString::number(files.size()));
+        ui->pgbProgress->setMaximum(files.size());
         qApp->processEvents();
 
         files << QFileInfo(dirIterator.next()).absoluteFilePath().remove(0, cutCount);
@@ -242,7 +241,6 @@ void wDBPanel::on_btnStart_clicked()
         i++;
         qApp->processEvents();
 
-        ui->lblProgress->setText(QString::number(i) + " / " + QString::number(files.size()));
         ui->pgbProgress->setValue(i);
 
         QSqlQueryModel *qryModel = new QSqlQueryModel;
@@ -412,20 +410,16 @@ void wDBPanel::selectNew()
 /// Unlocks the source group box
 void wDBPanel::on_btnUnlockSource_clicked()
 {
-    ui->gbxDirectLinks->setEnabled(true);
+    ui->gbxFileProperties->setEnabled(true);
     ui->pteDirectLinks->clear();
-
-    ui->gbxInformation->setEnabled(true);
     ui->ledInformation->clear();
-
-    ui->gbxSource->setEnabled(true);
     ui->ledLink->clear();
 
     ui->btnStart->setEnabled(true);
 
-    ui->wgtDuplicates->setEnabled(false);
-
     ui->btnUnlockSource->setVisible(false);
+    ui->gbxSelectAll->setEnabled(false);
+    ui->gbxSelectSingle->setEnabled(false);
 }
 
 
@@ -433,4 +427,14 @@ void wDBPanel::on_actionBackToHome_triggered()
 {
     close();
     backToHome();
+}
+
+void wDBPanel::on_actionStandard_triggered()
+{
+    adjustSize();
+}
+
+void wDBPanel::on_actionWidth1Height05_triggered()
+{
+    resize(misc.sizeWindow(1, 0.5));
 }
