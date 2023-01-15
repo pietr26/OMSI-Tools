@@ -149,7 +149,7 @@ QString wDBPanel::checkLinkID()
         dbAction.append(")");
 
         isEmpty = true;
-        dbHandler.doAction(dbAction);
+        dbHandler.doAction(dbAction, true);
         qDebug() << dbAction;
     }
 
@@ -165,11 +165,6 @@ QString wDBPanel::checkLinkID()
     }
 
     return qryLinkModel->index(0, 0).data().toString();
-}
-
-void wDBPanel::reloadTimeMeasurement(int remaining)
-{
-    ui->statusbar->showMessage(QString("Estimated remaining time: %1s").arg(qRound(0.0283 * remaining)));
 }
 
 void wDBPanel::on_btnStart_clicked()
@@ -238,9 +233,12 @@ void wDBPanel::on_btnStart_clicked()
     QElapsedTimer timer;
     timer.start();
 
+    dbHandler.doAction("CREATE INDEX indexPaths ON paths (path)", true);
+
+    QString insertAction = "INSERT INTO paths (path, linkID) VALUES";
+
     foreach (QString current, files)
     {
-        reloadTimeMeasurement(files.size() - i);
         i++;
         qApp->processEvents();
 
@@ -257,7 +255,7 @@ void wDBPanel::on_btnStart_clicked()
             else
                 currentLinkID = "'std'";
 
-            dbHandler.doAction(QString("INSERT INTO paths (path, linkID) VALUES ('%1', %2)").arg(current, currentLinkID), true);
+            insertAction.append(QString(" ('%1', %2),").arg(current, currentLinkID));
         }
         else
         {
@@ -266,7 +264,10 @@ void wDBPanel::on_btnStart_clicked()
         }
     }
 
+    dbHandler.doAction("DROP INDEX indexPaths", true);
 
+    insertAction.chop(1);
+    dbHandler.doAction(insertAction, true);
 
     strListModelDuplicates->setStringList(paths);
     ui->lvwDuplicates->setModel(strListModelDuplicates);
