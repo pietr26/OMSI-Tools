@@ -30,7 +30,7 @@ class wFonts : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit wFonts();
+    explicit wFonts(QWidget *parent = nullptr);
     ~wFonts();
 
 private slots:
@@ -138,6 +138,11 @@ private slots:
     void on_actionOpenWithEncoding_triggered();
 
     void selectedEncoding(QStringConverter::Encoding selectedEncoding = QStringConverter::Latin1);
+
+    void on_actionBackToHome_triggered();
+
+signals:
+    void backToHome();
 
 private:
     Ui::wFonts *ui;

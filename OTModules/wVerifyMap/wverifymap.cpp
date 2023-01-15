@@ -566,3 +566,8 @@ void wVerifyMap::on_btnReloadMaps_clicked()
     ui->statusbar->showMessage(tr("Reloaded map list."), 5000);
 }
 
+void wVerifyMap::on_actionBackToHome_triggered()
+{
+    close();
+    backToHome();
+}

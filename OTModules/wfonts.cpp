@@ -2,8 +2,8 @@
 #include "ui_wfonts.h"
 
 
-wFonts::wFonts() :
-    QMainWindow(),
+wFonts::wFonts(QWidget *parent) :
+    QMainWindow(parent),
     ui(new Ui::wFonts)
 {
     qInfo().noquote() << "Starting " + objectName() + "...";
@@ -1423,3 +1423,10 @@ void wFonts::selectedEncoding(QStringConverter::Encoding selectedEncoding)
 {
     open(OTFileMethods::open, "", selectedEncoding);
 }
+
+void wFonts::on_actionBackToHome_triggered()
+{
+    close();
+    backToHome();
+}
+

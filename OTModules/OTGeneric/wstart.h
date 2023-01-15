@@ -21,9 +21,9 @@
 #include "OTWidgets/message.h"
 #include "OTModules/wFbh/wdbcopyrights.h"
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class wStart; }
-QT_END_NAMESPACE
+namespace Ui {
+class wStart;
+}
 
 class wStart : public QMainWindow
 {
@@ -85,6 +85,9 @@ private slots:
     void on_tbnFbhOpen_clicked();
 
     void on_tbnFbhCreateShortcut_clicked();
+
+private slots:
+    void reopen() { show(); }
 
 private:
     Ui::wStart *ui;

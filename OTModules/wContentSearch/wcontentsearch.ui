@@ -357,6 +357,7 @@
     <addaction name="actionAddList"/>
     <addaction name="actionRemoveSelection"/>
     <addaction name="separator"/>
+    <addaction name="actionBackToHome"/>
     <addaction name="actionClose"/>
    </widget>
    <widget class="QMenu" name="menuSpecials">
@@ -398,7 +399,7 @@
     <string>Close</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+W</string>
+    <string notr="true">Ctrl+Q</string>
    </property>
   </action>
   <action name="actionSettings">
@@ -456,6 +457,18 @@
    </property>
    <property name="text">
     <string>Suggest files</string>
+   </property>
+  </action>
+  <action name="actionBackToHome">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Back to home</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+W</string>
    </property>
   </action>
  </widget>

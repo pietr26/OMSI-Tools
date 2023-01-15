@@ -211,7 +211,7 @@ void wStart::on_actionAbout_triggered()
 /// Closes the apllication
 void wStart::on_actionClose_triggered()
 {
-    QApplication::quit();
+    close();
 }
 
 /// Reopen test, coming soon... https://trello.com/c/8nOzgfSg
@@ -241,17 +241,18 @@ checkMainDir:
 /// Opens DevTools
 void wStart::on_btnDevTools_clicked()
 {
-    close();
     WDEVTOOLS = new wDevTools();
     WDEVTOOLS->show();
+    close();
 }
 
 /// Opens database panel for content search
 void wStart::on_btnDBPanel_clicked()
 {
-    close();
     WDBPANEL = new wDBPanel();
+    connect(WDBPANEL, &wDBPanel::backToHome, this, &wStart::reopen);
     WDBPANEL->show();
+    close();
 }
 
 /// Starts crash simulation
@@ -288,9 +289,10 @@ void wStart::on_actionManual_triggered()
 /// Opens style test
 void wStart::on_btnStyleTest_clicked()
 {
-    close();
     WSTYLETEST = new wStyleTest();
+    connect(WSTYLETEST, &wStyleTest::backToHome, this, &wStart::reopen);
     WSTYLETEST->show();
+    close();
 }
 
 /// Opens link to github repository
@@ -352,16 +354,18 @@ void wStart::on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area)
 
 void wStart::on_btnFbhDBPanel_clicked()
 {
-    close();
     WDBCOPYRIGHTS = new wDBCopyrights();
+    connect(WDBCOPYRIGHTS, &wDBCopyrights::backToHome, this, &wStart::reopen);
     WDBCOPYRIGHTS->show();
+    close();
 }
 
 void wStart::on_tbnFonts_clicked()
 {
-    close();
     WFONTS = new wFonts();
+    connect(WFONTS, &wFonts::backToHome, this, &wStart::reopen);
     WFONTS->show();
+    close();
 }
 
 void wStart::on_tbnMapVerifycation_clicked()
@@ -369,16 +373,18 @@ void wStart::on_tbnMapVerifycation_clicked()
     if (!checkMainDir())
         return;
 
-    close();
     WVERIFYMAP = new wVerifyMap();
+    connect(WVERIFYMAP, &wVerifyMap::backToHome, this, &wStart::reopen);
     WVERIFYMAP->show();
+    close();
 }
 
 void wStart::on_tbnContentSearch_clicked()
 {
-    close();
     WCONTENTSEARCH = new wContentSearch();
+    connect(WCONTENTSEARCH, &wContentSearch::backToHome, this, &wStart::reopen);
     WCONTENTSEARCH->show();
+    close();
 }
 
 void wStart::on_tbnCleanup_clicked()
@@ -386,16 +392,17 @@ void wStart::on_tbnCleanup_clicked()
     if (!checkMainDir())
         return;
 
-    close();
     WCLEANUP = new wCleanup();
+    connect(WCLEANUP, &wCleanup::backToHome, this, &wStart::reopen);
     WCLEANUP->show();
+    close();
 }
 
 void wStart::on_tbnFbhOpen_clicked()
 {
-    hide();
     WFBH = new wFbh();
     WFBH->show();
+    close();
 }
 
 void wStart::on_tbnFbhCreateShortcut_clicked()

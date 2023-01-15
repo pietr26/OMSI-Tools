@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
-#include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTWidgets/verifymaptools.h"
 #include "OTModules/OTGeneric/wsettings.h"
 #include "OTModules/OTGeneric/wfeedback.h"
@@ -88,6 +87,11 @@ private slots:
     void on_cobxMapName_currentIndexChanged(int index);
 
     void on_btnReloadMaps_clicked();
+
+    void on_actionBackToHome_triggered();
+
+signals:
+    void backToHome();
 
 private:
     Ui::wVerifyMap *ui;

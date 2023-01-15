@@ -68,6 +68,9 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
 
     ui->twgExtras->setTabVisible(3, false);
 
+    if (parent != nullptr)
+        ui->actionBackToHome->setEnabled(false);
+
     qInfo().noquote() << objectName() + " started";
 
 
@@ -357,5 +360,12 @@ void wContentSearch::on_actionSuggestFiles_triggered()
     WSUGGESTFILES = new wSuggestFiles(this);
     WSUGGESTFILES->show();
 
+}
+
+
+void wContentSearch::on_actionBackToHome_triggered()
+{
+    close();
+    backToHome();
 }
 

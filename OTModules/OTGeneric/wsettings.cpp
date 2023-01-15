@@ -2,11 +2,10 @@
 #include "ui_wsettings.h"
 
 wSettings::wSettings(QWidget *parent, QString openDirect) :
-    QMainWindow(),
+    QMainWindow(parent),
     ui(new Ui::wSettings)
 {
     qInfo().noquote() << "Starting " + objectName() + "...";
-    Q_UNUSED(parent);
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
