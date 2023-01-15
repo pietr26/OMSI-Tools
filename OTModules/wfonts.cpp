@@ -1133,13 +1133,7 @@ void wFonts::on_actionCopyChars_triggered()
 void wFonts::on_actionShowInExplorer_triggered()
 {
     if (QFile(font.path).exists())
-    {
-        QStringList args;
-        args << "/select," << QDir::toNativeSeparators(font.path);
-
-        QProcess *process = new QProcess(this);
-        process->start("explorer.exe", args);
-    }
+        misc.openInExplorer(font.path);
     else
         ui->statusbar->showMessage(tr("The font file (still) doesn't exist."), 4000);
 }

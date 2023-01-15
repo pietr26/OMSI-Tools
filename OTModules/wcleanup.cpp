@@ -77,6 +77,8 @@ void wCleanup::on_actionAnalyze_triggered()
 
     ui->pgbProgress->setMaximum(ui->pgbProgress->maximum() + globals.size());
 
+    QStringList tiles;
+
     for (int i = 0; i < globals.size(); i++)
     {
         ui->statusbar->showMessage(tr("Read maps (%1 of %2)...").arg(i + 1).arg(globals.size()));
@@ -94,9 +96,9 @@ void wCleanup::on_actionAnalyze_triggered()
     // Sceneryobjects:
     if (!filehandler.stuffobj.existing.sceneryobjects.isEmpty())
     {
-        qInfo() << "Analyse sceneryobjects...";
+        qInfo() << "Analyze sceneryobjects...";
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
-        ui->statusbar->showMessage(tr("Analyse sceneryobject folder..."));
+        ui->statusbar->showMessage(tr("Analyze sceneryobject folder..."));
 
         QStringList scoFolders;
         QDirIterator scoFolder(mainDir + "/Sceneryobjects", QDir::Dirs | QDir::NoDotAndDotDot);
@@ -123,9 +125,9 @@ void wCleanup::on_actionAnalyze_triggered()
     // Splines:
     if (!filehandler.stuffobj.existing.splines.isEmpty())
     {
-        qInfo() << "Analyse splines...";
+        qInfo() << "Analyze splines...";
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
-        ui->statusbar->showMessage(tr("Analyse spline folder..."));
+        ui->statusbar->showMessage(tr("Analyze spline folder..."));
 
         QStringList sliFolders;
         QDirIterator sliFolder(mainDir + "/Splines", QDir::Dirs | QDir::NoDotAndDotDot);
@@ -317,3 +319,12 @@ void wCleanup::on_actionBackToHome_triggered()
     backToHome();
 }
 
+void wCleanup::on_lwgObjects_itemDoubleClicked(QListWidgetItem *item)
+{
+    misc.openInExplorer(set.read("main", "mainDir").toString() + "/" + item->text());
+}
+
+void wCleanup::on_lwgSplines_itemDoubleClicked(QListWidgetItem *item)
+{
+    misc.openInExplorer(set.read("main", "mainDir").toString() + "/" + item->text());
+}

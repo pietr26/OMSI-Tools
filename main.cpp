@@ -1,5 +1,4 @@
 #include "OTModules/OTGeneric/wstartupscreen.h"
-#include "windowmanager.h"
 #include "OTBackend/OTGlobal.h"
 
 #include <QApplication>
@@ -132,15 +131,9 @@ int main(int argc, char *argv[])
         WSTARTUPSCREEN->show();
     }
 
-//    windowManager *WINDOWMANAGER = new windowManager();
-//    Q_UNUSED(WINDOWMANAGER);
-
     int exec = a.exec();
-//    WINDOWMANAGER->deleteLater();
 
     qInfo().noquote() << OTInformation::name + " is closing...";
-
     set.write("main", "closeCheck", true);
-
     return exec;
 }
