@@ -70,6 +70,10 @@ wDBPanel::wDBPanel(QWidget *parent) :
 
     ui->ledDirectory->setText(set.read(objectName(), "tempPath").toString());
 
+    qApp->processEvents();
+    ui->splitter->setStretchFactor(0, 2);
+    ui->splitter->setStretchFactor(1, 1);
+
     qInfo().noquote() << objectName() + " started";
 }
 
@@ -262,6 +266,8 @@ void wDBPanel::on_btnStart_clicked()
         }
     }
 
+
+
     strListModelDuplicates->setStringList(paths);
     ui->lvwDuplicates->setModel(strListModelDuplicates);
     setEnabled(true);
@@ -427,4 +433,3 @@ void wDBPanel::on_actionBackToHome_triggered()
     close();
     backToHome();
 }
-
