@@ -1723,170 +1723,154 @@ HTTP %1</translation>
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="40"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="70"/>
         <source>Language:</source>
         <translation>Sprache:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="84"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="50"/>
         <source>Author:</source>
         <translation>Autor:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="118"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="60"/>
         <source>OMSI main directory:</source>
         <translation>OMSI-Hauptverzeichnis:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="164"/>
-        <source>Backup enabled</source>
-        <translation>Backup aktiviert</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="172"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="144"/>
         <source>Theme</source>
         <translation>Aussehen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="180"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="152"/>
         <source>Load theme:</source>
         <translation>Aussehen laden:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="203"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="175"/>
         <source>Load</source>
         <translation>Laden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="229"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="201"/>
         <source>Advanced</source>
         <translation>Erweitert</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="250"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="222"/>
         <source>Disabled</source>
         <translation>Deaktiviert</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="304"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="276"/>
         <source>Disabled (background)</source>
         <translation>Deaktiviert (Hintergrund)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="352"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="324"/>
         <source>Main</source>
         <extracomment>Context &quot;Main color&quot;</extracomment>
         <translation>Hauptfarbe</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="359"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="331"/>
         <source>Main Border</source>
         <translation>Hauptkanten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="439"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="411"/>
         <source>Font</source>
         <translation>Schrift</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="446"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="418"/>
         <source>Sub border</source>
         <translation>Nebenkanten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="453"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="425"/>
         <source>Main Accent</source>
         <translation>Hauptakzent</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="490"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="462"/>
         <source>Button</source>
         <translation>Knöpfe</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="559"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="531"/>
         <source>Backup</source>
         <translation>Backup</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="656"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="537"/>
+        <source>Enabled</source>
+        <translation>Aktiviert</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="594"/>
         <source>Backup disk usage:</source>
         <translation>Backup-Speichernutzung:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="685"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="546"/>
         <source>Open backup folder</source>
         <translation>Backupordner öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="696"/>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="181"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="176"/>
         <source>Delete all backups</source>
         <translation>Alle Backups löschen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="725"/>
-        <source>More</source>
-        <translation>Mehr</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="785"/>
-        <source>Check automatically:</source>
-        <translation>Automatisch überprüfen:</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="816"/>
-        <source>Check for updates now</source>
-        <translation>Jetzt auf Aktualisierungen prüfen</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="834"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="658"/>
         <source>Miscellaneous</source>
         <translation>Sonstiges</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="848"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="768"/>
         <source>Confirm deletion</source>
         <translation>Löschen bestätigen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="899"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="814"/>
         <source>Module-specific</source>
         <translation>Modulspezifisch</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="905"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="820"/>
         <source>Map verifycation</source>
         <translation>Kartenüberprüfung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="942"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="857"/>
         <source>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</source>
         <translation>Wenn die erweiterte Überprüfung aktiv ist, wird auch der Inhalt der Szenerieobjekte und Splines überprüft. Das beinhaltet neben anderen Dingen z.B. eine Textur- und Variablenüberprüfung.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="913"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="828"/>
         <source>Show only map textures</source>
         <translation>Nur Kartentexturen anzeigen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="1040"/>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="1053"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="938"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="951"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="763"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="702"/>
         <source>Open logfile path</source>
         <translation>Logdateipfad öffnen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="993"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="891"/>
         <source>Restart</source>
         <translation>Neu starten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="1017"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="915"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
@@ -1896,167 +1880,183 @@ HTTP %1</translation>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="54"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="53"/>
         <source>Calculating...</source>
         <translation>Berechnen...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="81"/>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="94"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="78"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="91"/>
         <source>Off</source>
         <translation>Aus</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="81"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="39"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="78"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="94"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="40"/>
+        <source>Modern light</source>
+        <translation>Modern hell</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="41"/>
+        <source>Modern dark</source>
+        <translation>Modern dunkel</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="91"/>
         <source>On start</source>
         <translation>Beim Start</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="94"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="91"/>
         <source>Daily</source>
         <translation>Täglich</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="94"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="91"/>
         <source>Weekly</source>
         <translation>Wöchentlich</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="94"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="91"/>
         <source>Monthly</source>
         <translation>Monatlich</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="159"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="156"/>
         <source>Restart to apply all settings.</source>
         <translation>Neu starten, um alle Einstellungen anzuwenden.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="217"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="212"/>
         <source>Maintenance</source>
         <translation>Wartungarbeiten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="219"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="214"/>
         <source>Finshed</source>
         <translation>Fertig</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="219"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="214"/>
         <source>No updates available.</source>
         <translation>Keine Aktualisierungen verfügbar.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="231"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="226"/>
         <source>Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected.</source>
         <translation>Sollen alle Einstellungen zurückgesetzt werden? Dies kann nicht wieder rückgängig gemacht werden. Es werden alle Einstellungen gelöscht. Dateien wie Backups sind davon jedoch nicht betroffen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="313"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="306"/>
         <source>More languages</source>
         <translation>Mehr Sprachen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="313"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="306"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation>Du möchtest mehr Sprachen zur Auswahl haben?
 Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut beherrscht, kannst du %1 gerne übersetzen! Melde dich dazu beim Entwickler in der OMSI-WebDisk, auch, wenn du mehr Fragen dazu hast.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="398"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="391"/>
         <source>Select main color</source>
         <translation>Hauptfarbe auswählen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="406"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="399"/>
         <source>Select border color</source>
         <translation>Kantenfarbe auswählen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="415"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="408"/>
         <source>Select disabled color</source>
         <translation>Deaktivierte Farbe auswählen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="424"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="417"/>
         <source>Select disabled background color</source>
         <translation>Deaktivierte Hintergrundfarbe auswählen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="432"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="425"/>
         <source>Select accent color</source>
         <translation>Akzentfarbe auswählen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="441"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="434"/>
         <source>Select main accent color</source>
         <translation>Hauptakzentfarbe auswählen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="449"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="442"/>
         <source>Select font color</source>
         <translation>Schriftfarbe auswählen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="457"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="450"/>
         <source>Select button color</source>
         <translation>Knopffarbe auswählen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="235"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="230"/>
         <source>The programm will now restart.</source>
         <translation>Das Programm startet jetzt neu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="69"/>
-        <source>More languages...</source>
-        <translation>Mehr Sprachen...</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="577"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="563"/>
         <source>Backup interval:</source>
         <translation>Backupintervall:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="733"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="666"/>
         <source>Logging</source>
         <translation>Logging</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="747"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="680"/>
         <source>Mode:</source>
         <translation>Modus:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="777"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="716"/>
         <source>Updates</source>
         <translation>Aktualisierungen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="858"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="724"/>
+        <source>Checking interval:</source>
+        <translation>Überprüfungsintervall:</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="746"/>
+        <source>Check now</source>
+        <translation>Jetzt prüfen</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="778"/>
         <source>Create desktop shortcut</source>
         <translation>Desktop-Verknüpfung erstellen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="945"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="860"/>
         <source>Advanced verifying (not recommended for normal operation)</source>
         <translation>Erweiterte Überprüfung (für den Normalbetrieb nicht empfohlen)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="887"/>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="231"/>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="235"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="802"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="226"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="230"/>
         <source>Reset settings</source>
         <translation>Einstellungen zurücksetzen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="181"/>
+        <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="176"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
         <translation>Sollen alle Backups gelöscht werden? Sie werden in den Papierkorb verschoben.</translation>
     </message>
