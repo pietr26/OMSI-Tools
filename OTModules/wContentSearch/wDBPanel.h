@@ -53,6 +53,8 @@ private slots:
 
     void on_actionWidth1Height05_triggered();
 
+    void on_actionCreateBackup_triggered();
+
 signals:
     void backToHome();
 

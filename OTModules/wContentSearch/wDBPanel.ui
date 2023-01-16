@@ -374,7 +374,14 @@
     <addaction name="actionBackToHome"/>
     <addaction name="actionClose"/>
    </widget>
+   <widget class="QMenu" name="menuDatabase">
+    <property name="title">
+     <string notr="true">Database</string>
+    </property>
+    <addaction name="actionCreateBackup"/>
+   </widget>
    <addaction name="menuWindow"/>
+   <addaction name="menuDatabase"/>
   </widget>
   <action name="actionClose">
    <property name="icon">
@@ -432,6 +439,24 @@
    </property>
    <property name="toolTip">
     <string notr="true">width 1, height 0.5</string>
+   </property>
+  </action>
+  <action name="actionCreateBackup">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconZip.svg</normaloff>:/rec/data/icons/iconZip.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Create backup</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Create backup</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Create backup</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
  </widget>

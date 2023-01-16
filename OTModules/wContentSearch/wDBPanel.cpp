@@ -221,8 +221,6 @@ void wDBPanel::on_btnStart_clicked()
     strListModelItems->setStringList(files);
     ui->lvwInputItems->setModel(strListModelItems);
 
-    dbHandler.createBackup();
-
     ui->pgbProgress->setMaximum(files.size());
     ui->pgbProgress->setValue(0);
     unsigned int i = 0;
@@ -438,3 +436,10 @@ void wDBPanel::on_actionWidth1Height05_triggered()
 {
     resize(misc.sizeWindow(1, 0.5));
 }
+
+void wDBPanel::on_actionCreateBackup_triggered()
+{
+    dbHandler.createBackup();
+    ui->statusbar->showMessage("Backup created.", 5000);
+}
+
