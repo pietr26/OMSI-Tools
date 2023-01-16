@@ -11,6 +11,12 @@ public:
     /// Opens a database, executes a databse action and close them
     QSqlQuery doAction(QString action, bool automaticOpenClose = false)
     {
+        if (action.length() > 63999)
+        {
+            qWarning() << "OTDatabaseHandler error: action string ist too long (> 64000)!";
+            return QSqlQuery();
+        }
+
         if (automaticOpenClose)
         {
             if (!db.open())
