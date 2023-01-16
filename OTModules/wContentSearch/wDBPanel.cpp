@@ -157,11 +157,8 @@ QString wDBPanel::checkLinkID()
 
     if (!isEmpty)
     {
-        if (directLinks.isEmpty())
+        if (directLinks.isEmpty() || information.isEmpty())
             dbHandler.doAction(QString("UPDATE links SET information = '%1' WHERE ID = %2").arg(information, qryLinkModel->index(0, 0).data().toString()), true);
-
-        if (information.isEmpty())
-            dbHandler.doAction(QString("UPDATE links SET directLinks = '%1' WHERE ID = %2").arg(directLinks, qryLinkModel->index(0, 0).data().toString()), true);
     }
 
     return qryLinkModel->index(0, 0).data().toString();
@@ -206,6 +203,7 @@ void wDBPanel::on_btnStart_clicked()
     QStringList files;
 
     qInfo().noquote() << "Starting file counter...";
+    ui->statusbar->showMessage("File counter...");
 
     while (dirIterator.hasNext())
     {
@@ -224,6 +222,8 @@ void wDBPanel::on_btnStart_clicked()
     ui->pgbProgress->setMaximum(files.size());
     ui->pgbProgress->setValue(0);
     unsigned int i = 0;
+
+    ui->statusbar->showMessage("Compare data with database...");
 
     qInfo().noquote() << "Starting database comparision / appending...";
 
@@ -261,7 +261,7 @@ void wDBPanel::on_btnStart_clicked()
             paths << current;
         }
 
-        if (insertActions.at(iList).length() > 60000)
+        if (insertActions.at(iList).length() > 40000)
         {
             iList++;
             insertActions.append("INSERT INTO paths (path, linkID) VALUES");
@@ -269,6 +269,9 @@ void wDBPanel::on_btnStart_clicked()
     }
 
     dbHandler.doAction("DROP INDEX indexPaths", true);
+
+    ui->statusbar->showMessage("Execute insert actions...");
+    qApp->processEvents();
 
     foreach (QString current, insertActions)
     {
@@ -281,7 +284,7 @@ void wDBPanel::on_btnStart_clicked()
     setEnabled(true);
     reloadSelectGroupBoxes();
 
-    ui->statusbar->showMessage(QString("Finished - Needed %1 sec for %2 files").arg(QString::number(timer.elapsed() / 1000), QString::number(files.size())));
+    ui->statusbar->showMessage(QString("Done - Files: %1, Time: %2s, insertActionCount: %3").arg(QString::number(files.size()), QString::number(timer.elapsed() / 1000), QString::number(iList + 1)));
 
     qInfo() << "database comparision / appending finished.";
 }
