@@ -214,8 +214,8 @@ void wDBPanel::on_btnStart_clicked()
 
         files << QFileInfo(dirIterator.next()).absoluteFilePath().remove(0, cutCount);
     }
-    qInfo().noquote() << "File counter finished.";
 
+    qInfo().noquote() << "File counter finished.";
     files.sort();
 
     strListModelItems->setStringList(files);
@@ -232,7 +232,9 @@ void wDBPanel::on_btnStart_clicked()
 
     dbHandler.doAction("CREATE INDEX indexPaths ON paths (path)", true);
 
-    QString insertAction = "INSERT INTO paths (path, linkID) VALUES";
+    QStringList insertActions;
+    insertActions.append("INSERT INTO paths (path, linkID) VALUES");
+    int iList = 0;
 
     foreach (QString current, files)
     {
@@ -251,19 +253,28 @@ void wDBPanel::on_btnStart_clicked()
             else
                 currentLinkID = "'std'";
 
-            insertAction.append(QString(" ('%1', %2),").arg(current, currentLinkID));
+            insertActions[iList] += (QString(" ('%1', %2),").arg(current, currentLinkID));
         }
         else
         {
             models << qryModel;
             paths << current;
         }
+
+        if (insertActions.at(iList).length() > 60000)
+        {
+            iList++;
+            insertActions.append("INSERT INTO paths (path, linkID) VALUES");
+        }
     }
 
     dbHandler.doAction("DROP INDEX indexPaths", true);
 
-    insertAction.chop(1);
-    dbHandler.doAction(insertAction, true);
+    foreach (QString current, insertActions)
+    {
+        current.chop(1);
+        dbHandler.doAction(current, true);
+    }
 
     strListModelDuplicates->setStringList(paths);
     ui->lvwDuplicates->setModel(strListModelDuplicates);
@@ -442,4 +453,3 @@ void wDBPanel::on_actionCreateBackup_triggered()
     dbHandler.createBackup();
     ui->statusbar->showMessage("Backup created.", 5000);
 }
-
