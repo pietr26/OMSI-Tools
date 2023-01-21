@@ -2,6 +2,7 @@
 #define FBHFUNCTIONS_H
 
 #include <QString>
+#include <QDate>
 
 class cAdmonition
 {
@@ -151,15 +152,15 @@ public:
 class cFooter2
 {
 public:
-    const QString de = "<p><br></p><p>Deine Datei befindet sich im Anhang. Es gibt für dich keine Admonitionen oder Sanktionen. Diese sind beim Wiederholungsfall jedoch nicht ausgeschlossen.</p><p><br></p><p>Viele Grüße";
+    const QString de = "<p><br></p><p>Deine Datei befindet sich im Anhang. Es gibt für dich keine Verwarnungen oder Sanktionen. Diese sind beim Wiederholungsfall jedoch nicht ausgeschlossen.</p><p><br></p><p>Viele Grüße";
     const QString en = "<p><br></p><p>Your file is attached. There are no warnings or sanctions for you. However, these are not excluded in case of repetition.</p><p><br></p><p>Best regards";
 };
 
 class cFooter1
 {
 public:
-    const QString de = "<p><br></p><p>Sobald du deinen Datei-Eintrag <a href=\"https://reboot.omsi-webdisk.de/wiki/entry/64-hochladen-von-dateien-in-der-filebase/#4-Neue-Version-hinzufgen\"><strong>korrigiert / dein Archiv erneut hochgeladen</strong></a> hast, gib mir in dieser Konversation Bescheid und nach erneuter Prüfung wird dein Datei-Eintrag sehr gerne freigeschaltet.</p><p><br></p><p>Viele Grüße";
-    const QString en = "<p><br></p><p>As soon as you <a href=\"https://reboot.omsi-webdisk.de/wiki/entry/85-uploading-files-to-the-filebase/#4-Add-new-version\"><strong>corrected / uploaded your archive again</strong></a> let me know in this conversation and after rechecking your file entry will be gladly unlocked.</p><p><br></p><p>Best regards";
+    const QString de = QString("<p><br></p><p>Sobald du deinen Datei-Eintrag <a href=\"https://reboot.omsi-webdisk.de/wiki/entry/64-hochladen-von-dateien-in-der-filebase/#4-Neue-Version-hinzufgen\"><strong>korrigiert / dein Archiv erneut hochgeladen</strong></a> hast, gib mir in dieser Konversation Bescheid und nach erneuter Prüfung wird dein Datei-Eintrag sehr gerne freigeschaltet. Du hast bis zum <b>%1</b> Zeit, den Eintrag zu korrigieren. Nach dieser Zeit wird er gelöscht.</p><p><br></p><p>Viele Grüße").arg(QDate::currentDate().addMonths(1).toString("dd.MM.yyyy"));
+    const QString en = QString("<p><br></p><p>As soon as you <a href=\"https://reboot.omsi-webdisk.de/wiki/entry/85-uploading-files-to-the-filebase/#4-Add-new-version\"><strong>corrected / uploaded your archive again</strong></a> let me know in this conversation and after rechecking your file entry will be gladly unlocked. You have until <b>%1</b> to correct the entry. After this time it will be deleted.</p><p><br></p><p>Best regards").arg(QDate::currentDate().addMonths(1).toString("dd.MM.yyyy"));
 };
 
 ///////////////////////////////////////
