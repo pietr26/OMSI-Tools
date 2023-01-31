@@ -367,15 +367,25 @@ Ist der Pfad korrekt? Andernfalls können in einigen Modulen Probleme auftreten.
     <name>verifyMapTools</name>
     <message>
         <location filename="../../OTWidgets/verifymaptools.ui" line="58"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="76"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="94"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="82"/>
+        <source>All files</source>
+        <translation>Alle Dateien</translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="61"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="85"/>
         <source>From left list</source>
         <translation>Von linker Liste</translation>
     </message>
     <message>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="67"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="85"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="103"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="70"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="94"/>
+        <source>Missing files only</source>
+        <translation>Nur fehlende Dateien</translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="73"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="97"/>
         <source>From right list</source>
         <translation>Von rechter Liste</translation>
     </message>

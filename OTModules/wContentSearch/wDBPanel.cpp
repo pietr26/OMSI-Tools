@@ -41,6 +41,9 @@ wDBPanel::wDBPanel(QWidget *parent) :
     standardFilter << "*.hum";
     standardFilter << "*.map";
     standardFilter << "*.terrain";
+
+    // Since 2023-01-16:
+    standardFilter << "*.org";
 //    standardFilter << "*.water";
 //    standardFilter << "*.rdy";
 //    standardFilter << "*.opl";
@@ -209,7 +212,6 @@ void wDBPanel::on_btnStart_clicked()
     {
         ui->pgbProgress->setMaximum(files.size());
         qApp->processEvents();
-
         files << QFileInfo(dirIterator.next()).absoluteFilePath().remove(0, cutCount);
     }
 
@@ -261,7 +263,7 @@ void wDBPanel::on_btnStart_clicked()
             paths << current;
         }
 
-        if (insertActions.at(iList).length() > 40000)
+        if (insertActions.at(iList).length() > 50000)
         {
             iList++;
             insertActions.append("INSERT INTO paths (path, linkID) VALUES");
