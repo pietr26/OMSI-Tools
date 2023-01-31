@@ -55,6 +55,8 @@ private slots:
 
     void on_actionBackToHome_triggered();
 
+    void on_actionAddExamples_triggered();
+
 signals:
     void backToHome();
 
