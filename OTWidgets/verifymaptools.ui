@@ -55,6 +55,9 @@
      <normaloff>:/rec/data/icons/iconLeft.svg</normaloff>:/rec/data/icons/iconLeft.svg</iconset>
    </property>
    <property name="text">
+    <string>All files</string>
+   </property>
+   <property name="toolTip">
     <string>From left list</string>
    </property>
   </action>
@@ -64,6 +67,9 @@
      <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
    </property>
    <property name="text">
+    <string>Missing files only</string>
+   </property>
+   <property name="toolTip">
     <string>From right list</string>
    </property>
   </action>
@@ -73,6 +79,9 @@
      <normaloff>:/rec/data/icons/iconLeft.svg</normaloff>:/rec/data/icons/iconLeft.svg</iconset>
    </property>
    <property name="text">
+    <string>All files</string>
+   </property>
+   <property name="toolTip">
     <string>From left list</string>
    </property>
   </action>
@@ -82,24 +91,9 @@
      <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
    </property>
    <property name="text">
-    <string>From right list</string>
+    <string>Missing files only</string>
    </property>
-  </action>
-  <action name="actionIgnoreFromAll">
-   <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconLeft.svg</normaloff>:/rec/data/icons/iconLeft.svg</iconset>
-   </property>
-   <property name="text">
-    <string>From left list</string>
-   </property>
-  </action>
-  <action name="actionIgnoreFromMissing">
-   <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
-   </property>
-   <property name="text">
+   <property name="toolTip">
     <string>From right list</string>
    </property>
   </action>

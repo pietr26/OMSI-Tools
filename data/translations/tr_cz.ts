@@ -31,7 +31,7 @@
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="561"/>
         <source>&apos;Omsi.exe&apos; could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;Omsi.exe&apos; nebylo nalezeno v hlavním adresáři hry.Zvolili jste správnou cestu adresáře? Pokud ne, může v některých modulech docházet k chybám.Chcete vybrat novou cestu k adresáři?</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="686"/>
@@ -81,32 +81,32 @@
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="893"/>
         <source>The source code of %1 is about %2 lines long.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zdrojový kód %1 je dlouhý asi %2 řádků.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="894"/>
         <source>%1 was born from a simple console application called &quot;Font Creator&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 byl vynalezen z obyčejné konzole pojmenované &quot;Font Creator&quot;.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="895"/>
         <source>With the updater of %1 you can install updates with one click. It is available through the settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>S aktualizačním nástrojem %1 můžete instalovat aktualizace jedním kliknutím. Tato možnost je dostupná v nastavení.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="896"/>
         <source>In the &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;Wiki of %1&lt;/a&gt; you can find useful explanations about all topics.</source>
-        <translation type="unfinished"></translation>
+        <translation>Na &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;wiki o %1&lt;/a&gt; můžete nalézt užitečné články o všech tématech.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="898"/>
         <source>Check out the latest developments in the &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;presentation thread in the OMSI-WebDisk&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Koukněte na nejnovější vývoj v &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;prezentačním vláknu na OMSI-Webdisk&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="899"/>
         <source>Your hard disk is crowded? Clean up your main directory with %1&apos; cleanup tool.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je Váš disk přeplněný? Vyčistěte hlavní adresář hry pomocí čistícího nástroje %1.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="686"/>
@@ -169,7 +169,7 @@
         <location filename="../../OTBackend/OTGlobal.h" line="849"/>
         <source>kB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
-        <translation type="unfinished"></translation>
+        <translation>kB</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="850"/>
@@ -323,24 +323,25 @@ Chcete otevřít cestu k logovacímu souboru?</translation>
     <message>
         <location filename="../../OTWidgets/invalidmaindir.ui" line="60"/>
         <source>Invalid OMSI path</source>
-        <translation type="unfinished"></translation>
+        <translation>Neplatná cesta k OMSi</translation>
     </message>
     <message>
         <location filename="../../OTWidgets/invalidmaindir.ui" line="90"/>
         <source>&apos;Omsi.exe&apos; could not found in the selected directory.
 Is it the correct path? Otherwise, problems may appear in some modules.</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;Omsi.exe&apos; nebylo nalezeno v hlavním adresáři hry.
+Zvolili jste správnou cestu adresáře? Pokud ne, může v některých modulech docházet k chybám.</translation>
     </message>
     <message>
         <location filename="../../OTWidgets/invalidmaindir.ui" line="124"/>
         <source>Select new path</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat novou cestu</translation>
     </message>
     <message>
         <location filename="../../OTWidgets/invalidmaindir.ui" line="131"/>
         <source>Ignore</source>
         <extracomment>Verb; Context: &quot;The user will update the application later.&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ignorovat</translation>
     </message>
 </context>
 <context>
@@ -348,33 +349,43 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTWidgets/newupdate.ui" line="67"/>
         <source>New update available</source>
-        <translation type="unfinished"></translation>
+        <translation>Nová aktualizace je k dispozici</translation>
     </message>
     <message>
         <location filename="../../OTWidgets/newupdate.ui" line="162"/>
         <source>Show details</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit detaily</translation>
     </message>
     <message>
         <location filename="../../OTWidgets/newupdate.ui" line="169"/>
         <source>Update later</source>
         <extracomment>Verb; Context: &quot;The user will update the application later.&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizovat později</translation>
     </message>
 </context>
 <context>
     <name>verifyMapTools</name>
     <message>
         <location filename="../../OTWidgets/verifymaptools.ui" line="58"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="76"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="94"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="82"/>
+        <source>All files</source>
+        <translation type="unfinished">Všechny soubory</translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="61"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="85"/>
         <source>From left list</source>
         <translation>Z levého seznamu</translation>
     </message>
     <message>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="67"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="85"/>
-        <location filename="../../OTWidgets/verifymaptools.ui" line="103"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="70"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="94"/>
+        <source>Missing files only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="73"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="97"/>
         <source>From right list</source>
         <translation>Z pravého seznamu</translation>
     </message>
@@ -512,7 +523,7 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="223"/>
         <source>Analyse</source>
-        <translation type="unfinished"></translation>
+        <translation>Analyzuj</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="235"/>
@@ -537,7 +548,7 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="45"/>
         <source>Analyse!</source>
-        <translation type="unfinished"></translation>
+        <translation>Analyzovat!</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="200"/>
@@ -558,7 +569,7 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="50"/>
         <source>No main directory selected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nebyla vybrána hlavní složka s hrou.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="84"/>
@@ -603,12 +614,12 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="191"/>
         <source>Move sceneryobjects (%1 of %2)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesunout Sceneryobjects (%1 z %2)...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="217"/>
         <source>Move splines (%1 of %2)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesunout Splines (%1 z %2)...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="237"/>
@@ -628,12 +639,12 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="249"/>
         <source>Delete sceneryobjects (%1 of %2)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstraňování Sceneryobjects (%1 z %2)...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="258"/>
         <source>Delete splines (%1 of %2)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstraňování Splines (%1 z %2)...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="265"/>
@@ -809,7 +820,7 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="145"/>
         <source>No files available for searching.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pro vyhledávání nejsou k dispozici soubory.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
@@ -980,7 +991,7 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="606"/>
         <source>Clear list</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazat seznam</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFbh/wfbh.ui" line="699"/>
@@ -1071,22 +1082,22 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="33"/>
         <source>Wiki entry</source>
-        <translation type="unfinished"></translation>
+        <translation>Záznam na Wiki</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="62"/>
         <source>Support thread</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlákno podpory</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="91"/>
         <source>Survey</source>
-        <translation type="unfinished"></translation>
+        <translation>Anketa</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.cpp" line="19"/>
         <source>Feedback</source>
-        <translation type="unfinished">Zpětná vazba</translation>
+        <translation>Zpětná vazba</translation>
     </message>
 </context>
 <context>
@@ -1241,12 +1252,12 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/wfonts.ui" line="493"/>
         <source>Rightmost pixel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nejvzdálenější pixel vpravo:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.ui" line="548"/>
         <source>Leftmost pixel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nejvzdálenější pixel vlevo:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.ui" line="615"/>
@@ -1291,7 +1302,7 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/wfonts.ui" line="850"/>
         <source>Recently opened fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Nedávno otevřené fonty</translation>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.ui" line="888"/>
@@ -1413,13 +1424,13 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     <message>
         <location filename="../../OTModules/wfonts.ui" line="1190"/>
         <source>Keep pixel row for new character</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachovat řádek pixelu pro nový znak</translation>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.ui" line="1214"/>
         <location filename="../../OTModules/wfonts.ui" line="1217"/>
         <source>Duplicate character</source>
-        <translation type="unfinished"></translation>
+        <translation>Duplikovat znak</translation>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.ui" line="1229"/>
@@ -1553,12 +1564,12 @@ No font will be opened.</source>
     <message>
         <location filename="../../OTModules/wfonts.cpp" line="1376"/>
         <source>Delete font</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit font</translation>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.cpp" line="1376"/>
         <source>The font will be moved to the trash.</source>
-        <translation type="unfinished"></translation>
+        <translation>Font bude přesunut do koše.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wfonts.cpp" line="958"/>
@@ -1601,12 +1612,12 @@ No font will be opened.</source>
     <message>
         <location filename="../../OTModules/wmapselection.ui" line="59"/>
         <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Potvrdit</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmapselection.cpp" line="13"/>
         <source>Select map...</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyberte mapu...</translation>
     </message>
 </context>
 <context>
@@ -1615,23 +1626,23 @@ No font will be opened.</source>
         <location filename="../../OTModules/wmessageviewer.cpp" line="19"/>
         <location filename="../../OTModules/wmessageviewer.cpp" line="24"/>
         <source>Message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Zpráva: %1</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmessageviewer.cpp" line="28"/>
         <source>Published on %1</source>
         <comment>e.g. Published on 28.10.2022</comment>
-        <translation type="unfinished"></translation>
+        <translation>Publikováno dne %1</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmessageviewer.cpp" line="48"/>
         <source>Loading image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Načítám obrázek...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmessageviewer.cpp" line="62"/>
         <source>Finished.</source>
-        <translation type="unfinished">Dokončeno.</translation>
+        <translation>Dokončeno.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmessageviewer.ui" line="143"/>
@@ -1724,63 +1735,63 @@ HTTP %1</translation>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="144"/>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Motiv</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="152"/>
         <source>Load theme:</source>
-        <translation type="unfinished"></translation>
+        <translation>Načíst motiv:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="175"/>
         <source>Load</source>
-        <translation type="unfinished"></translation>
+        <translation>Načíst</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="201"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokročilé</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="222"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakázáno</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="276"/>
         <source>Disabled (background)</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakázáno (na pozadí)</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="324"/>
         <source>Main</source>
         <extracomment>Context &quot;Main color&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Hlavní</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="331"/>
         <source>Main Border</source>
-        <translation type="unfinished"></translation>
+        <translation>Hlavní hranice</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="411"/>
         <source>Font</source>
-        <translation type="unfinished">Font</translation>
+        <translation>Font</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="418"/>
         <source>Sub border</source>
-        <translation type="unfinished"></translation>
+        <translation>Druhá hranice</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="425"/>
         <source>Main Accent</source>
-        <translation type="unfinished"></translation>
+        <translation>Hlavní důraz</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="462"/>
         <source>Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Tlačítko</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="531"/>
@@ -1845,28 +1856,33 @@ HTTP %1</translation>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="814"/>
         <source>Module-specific</source>
-        <translation type="unfinished"></translation>
+        <translation>Specifické moduly</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="820"/>
         <source>Map verifycation</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrola mapy</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="857"/>
         <source>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</source>
-        <translation type="unfinished">Pokud je aktivována pokročilá kontrola, soubory patřící k Sceneryobjects a Splines jsou také zkontolovány. To znamená veškerý potřebný obsah pro jejich funkčnost, jako jsou textury a další věci.</translation>
+        <translation>Pokud je aktivována pokročilá kontrola, soubory patřící k Sceneryobjects a Splines jsou také zkontolovány. To znamená, že veškerý potřebný obsah pro jejich funkčnost, jako jsou textury a další věci budou zkontrolovány.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="828"/>
         <source>Show only map textures</source>
-        <translation type="unfinished">Zobrazit pouze mapové textury</translation>
+        <translation>Zobrazit pouze mapové textury</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="860"/>
+        <source>Advanced verifying (not recommended for normal operation)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="938"/>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="951"/>
         <source>Help</source>
-        <translation type="unfinished">Pomoc</translation>
+        <translation>Pomoc</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="702"/>
@@ -1892,11 +1908,6 @@ HTTP %1</translation>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="594"/>
         <source>Backup disk usage:</source>
         <translation>Velikost zálohy na disku:</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wsettings.ui" line="860"/>
-        <source>Advanced verifying (not recommended for normal operation)</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.ui" line="891"/>
@@ -1978,7 +1989,7 @@ HTTP %1</translation>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="214"/>
         <source>No updates available.</source>
-        <translation type="unfinished">Není dostupná žádná nová aktualizace.</translation>
+        <translation>Není dostupná žádná nová aktualizace.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="226"/>
@@ -2000,42 +2011,42 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="391"/>
         <source>Select main color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat hlavní barvu</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="399"/>
         <source>Select border color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat barvu hranice</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="408"/>
         <source>Select disabled color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyberte zakázanou barvu</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="417"/>
         <source>Select disabled background color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyberte zakázanou barvu pozadí</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="425"/>
         <source>Select accent color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyberte barvu akcentu</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="434"/>
         <source>Select main accent color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyberte hlavní barvu akcentu</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="442"/>
         <source>Select font color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyberte barvu fontu</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="450"/>
         <source>Select button color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyberte barvu tlačítka</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wsettings.cpp" line="230"/>
@@ -2095,7 +2106,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="562"/>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="730"/>
@@ -2117,14 +2128,14 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="769"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="772"/>
         <source>Check for updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Zkontrolovat aktualizace</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="784"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="787"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="790"/>
         <source>Show / hide news</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit / skrýt novinky</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="742"/>
@@ -2134,7 +2145,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="139"/>
         <source>Map verifycation</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrola mapy</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="237"/>
@@ -2149,7 +2160,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="589"/>
         <source>News</source>
-        <translation type="unfinished"></translation>
+        <translation>Novinky</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="676"/>
@@ -2167,19 +2178,19 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation>Informace %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="333"/>
-        <source>No updates available.</source>
-        <translation>Není dostupná žádná nová aktualizace.</translation>
-    </message>
-    <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="331"/>
         <source>Maintenance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="333"/>
+        <source>No updates available.</source>
+        <translation>Není dostupná žádná nová aktualizace.</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="333"/>
         <source>Finshed</source>
-        <translation type="unfinished">Dokončeno</translation>
+        <translation>Dokončeno</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="535"/>
@@ -2208,12 +2219,12 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <message>
         <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="72"/>
         <source>Check for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrola aktualizací...</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="115"/>
         <source>Found update</source>
-        <translation type="unfinished"></translation>
+        <translation>Nalezena nová aktualizace</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstartupscreen.cpp" line="133"/>
@@ -2223,6 +2234,31 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
 </context>
 <context>
     <name>wSuggestFiles</name>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="21"/>
+        <source>Please enter file URLs here:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="47"/>
+        <source>Optional: Notes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="77"/>
+        <source>I have read and accept the rules for suggesting files.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="86"/>
+        <source>Rules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="115"/>
+        <source>Send</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="16"/>
         <source>Suggest files for content search</source>
@@ -2276,31 +2312,6 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <message>
         <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="75"/>
         <source>The suggestion could not be sent. Please try again later.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="86"/>
-        <source>Rules</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="21"/>
-        <source>Please enter file URLs here:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="47"/>
-        <source>Optional: Notes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="77"/>
-        <source>I have read and accept the rules for suggesting files.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="115"/>
-        <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2379,7 +2390,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="875"/>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="949"/>
         <source>All:</source>
-        <translation type="unfinished"></translation>
+        <translation>Všechny:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="594"/>
@@ -2387,7 +2398,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="905"/>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="979"/>
         <source>Missing:</source>
-        <translation type="unfinished"></translation>
+        <translation>Chybějící:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="936"/>
@@ -2423,7 +2434,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="754"/>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="831"/>
         <source>Missing / invalid:</source>
-        <translation type="unfinished"></translation>
+        <translation>Chybějící / neplatné:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="785"/>
@@ -2559,7 +2570,7 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="566"/>
         <source>Reloaded map list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seznam map znovu načten.</translation>
     </message>
 </context>
 </TS>
