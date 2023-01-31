@@ -366,6 +366,7 @@
     </property>
     <addaction name="actionSuggestFiles"/>
     <addaction name="actionSettings"/>
+    <addaction name="actionAddExamples"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -469,6 +470,20 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionAddExamples">
+   <property name="text">
+    <string notr="true">Add examples</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Add examples</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Add examples</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true"/>
    </property>
   </action>
  </widget>
