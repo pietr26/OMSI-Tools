@@ -489,6 +489,24 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
     </message>
 </context>
 <context>
+    <name>wAddFiles</name>
+    <message>
+        <location filename="../../OTModules/wContentSearch/waddfiles.ui" line="14"/>
+        <source>wAddFiles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/waddfiles.ui" line="21"/>
+        <source>File paths must start from a subfolder in the main directory!</source>
+        <translation type="unfinished">Les chemins de fichiers doivent commencer à partir d&apos;un sous-dossier du répertoire principal !</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/waddfiles.ui" line="50"/>
+        <source>Add</source>
+        <translation type="unfinished">Ajouter</translation>
+    </message>
+</context>
+<context>
     <name>wCleanup</name>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="69"/>
@@ -665,206 +683,200 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
 <context>
     <name>wContentSearch</name>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="41"/>
-        <source>Add to list</source>
-        <translation>Ajouter à la liste</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="31"/>
-        <source>File paths must start from a subfolder in the main directory!</source>
-        <translation>Les chemins de fichiers doivent commencer à partir d&apos;un sous-dossier du répertoire principal !</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="246"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="258"/>
         <source>Open in browser</source>
         <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="77"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="417"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="145"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="424"/>
         <source>Remove selection</source>
         <translation>Supprimer la sélection</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="381"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="29"/>
+        <source>Search input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="206"/>
+        <source>Results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="388"/>
         <source>Search</source>
         <translation>Recherche</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="25"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="429"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="436"/>
         <source>Add list</source>
         <translation>Ajouter une liste</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="55"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="37"/>
         <source>Search input:</source>
         <translation>Recherche d&apos;entrée :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="155"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="121"/>
         <source>Clear lists</source>
         <translation>Effacer les listes</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="171"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="188"/>
         <source>Search!</source>
         <translation>Chercher !</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="193"/>
-        <source>Results:</source>
-        <translation>Résultats :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="223"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="235"/>
         <source>Information for selected link:</source>
         <extracomment>Use plural form for &apos;Information&apos;</extracomment>
         <translation>Informations sur le lien sélectionné :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="257"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="269"/>
         <source>Copy</source>
         <translation>Copie</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="270"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="282"/>
         <source>Press this button if a link provided by the program no longer works or does not contain a file.</source>
         <translation>Appuyez sur ce bouton si un lien fourni par le programme ne fonctionne plus ou ne contient pas de fichier.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="273"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="285"/>
         <source>Report invalid link</source>
         <translation>Signaler un lien invalide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="347"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="354"/>
         <source>Window</source>
         <translation type="unfinished">Fenêtre</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="358"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="365"/>
         <source>Specials</source>
         <translation>Spéciaux</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="366"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="441"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="373"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="448"/>
         <source>Help</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="393"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="400"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="405"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="412"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="453"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="460"/>
         <source>Suggest files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="462"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="469"/>
         <source>Back to home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="16"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="44"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="54"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="43"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="53"/>
         <source>Content search</source>
         <translation>Recherche de contenu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="44"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="54"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="43"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="53"/>
         <source>There was an error while open the link database. Please try it again or contect the developer.</source>
         <translation>Une erreur s&apos;est produite lors de l&apos;ouverture de la base de données des liens. Veuillez réessayer ou contacter le développeur.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="134"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="132"/>
         <source>No files available for searching.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="241"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="221"/>
         <source>Open selected URLs...</source>
         <translation>Ouvrir les URLs sélectionnés...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="257"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="237"/>
         <source>Copied selected URLs.</source>
         <translation>Copie les URLs sélectionnés.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="272"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
         <source>Text files</source>
         <translation>Fichiers texte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="272"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
         <source>All files</source>
         <translation>Tous les dossiers</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="124"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="122"/>
         <source>Links (%1)</source>
         <translation>Liens (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="125"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="123"/>
         <source>Not found (%1)</source>
         <translation>Non trouvé (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="126"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="124"/>
         <source>Standard content (%1)</source>
         <comment>Please use plural; Optional original text: &apos;Standard files&apos;</comment>
         <translation>Contenu standard (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="127"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="125"/>
         <source>Direct links (%1)</source>
         <translation>Liens directs (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="272"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
         <source>Select file with paths...</source>
         <translation>Sélectionner le fichier avec les chemins...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="295"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation>Le(s) chemin(s) %1 sera(ont) ajouté(s) à la liste.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="104"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="295"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="57"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
         <source>Add files</source>
         <translation>Ajouter des fichiers</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="278"/>
         <source>Process aborted.</source>
         <translation>Processus interrompu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="338"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="318"/>
         <source>Downloading might not work with Google Chrome.</source>
         <translation>Le téléchargement peut ne pas fonctionner avec Google Chrome.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="340"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="320"/>
         <source>Direct download link - the download will start directly after opening the URL.</source>
         <translation>Lien de téléchargement direct - le téléchargement commencera directement après l&apos;ouverture de l&apos;URL.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="342"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="322"/>
         <source>Archive password:</source>
         <translation>Mot de passe de l&apos;archive :</translation>
     </message>
@@ -1094,6 +1106,11 @@ AW Bamp: Name einer Person</translatorcomment>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="91"/>
         <source>Survey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="117"/>
+        <source>E-Mail:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

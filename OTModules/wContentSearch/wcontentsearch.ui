@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1072</width>
-    <height>889</height>
+    <width>600</width>
+    <height>637</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,315 +20,322 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
-     <widget class="QGroupBox" name="gbxAddList">
-      <property name="title">
-       <string>Add list</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_6">
-       <item>
-        <widget class="QLabel" name="lblInputInfo">
-         <property name="text">
-          <string>File paths must start from a subfolder in the main directory!</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPlainTextEdit" name="pteAddList"/>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnAddListToList">
-         <property name="text">
-          <string>Add to list</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="lblEnteredFiles">
-      <property name="text">
-       <string>Search input:</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QListWidget" name="lwgUserSearch">
-      <property name="selectionMode">
-       <enum>QAbstractItemView::ExtendedSelection</enum>
-      </property>
-      <property name="isWrapping" stdset="0">
-       <bool>false</bool>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="btnRemove">
-        <property name="text">
-         <string>Remove selection</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
-        </property>
-        <property name="autoExclusive">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnAddList">
-        <property name="text">
-         <string>Add files</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
-        </property>
-        <property name="checkable">
-         <bool>false</bool>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnAddFile">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnClearLists">
-        <property name="text">
-         <string>Clear lists</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnSearch">
-        <property name="font">
-         <font>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Search!</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="Line" name="line_3">
+     <widget class="QSplitter" name="splitter_2">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QLabel" name="lblSearchResults">
-        <property name="text">
-         <string>Results:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QTabWidget" name="twgExtras">
-        <property name="currentIndex">
-         <number>0</number>
-        </property>
-        <widget class="QWidget" name="tabLinks">
-         <attribute name="title">
-          <string notr="true">tabLinks</string>
-         </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout_9">
+      <widget class="QGroupBox" name="gbxSearchInput">
+       <property name="title">
+        <string>Search input</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
-           <widget class="QListWidget" name="lwgLinks">
-            <property name="selectionMode">
-             <enum>QAbstractItemView::ExtendedSelection</enum>
-            </property>
-            <property name="isWrapping" stdset="0">
-             <bool>false</bool>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lblLinkInfo">
+           <widget class="QLabel" name="lblEnteredFiles_2">
             <property name="text">
-             <string extracomment="Use plural form for 'Information'">Information for selected link:</string>
+             <string>Search input:</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPlainTextEdit" name="pteInformation">
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="Line" name="line">
+           <spacer name="horizontalSpacer_5">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnAddList">
+            <property name="text">
+             <string>Add files</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <widget class="QPushButton" name="btnAddFile">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../ressources.qrc">
+              <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QListWidget" name="lwgUserSearch">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::ExtendedSelection</enum>
+          </property>
+          <property name="isWrapping" stdset="0">
+           <bool>false</bool>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSplitter" name="splitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="opaqueResize">
+           <bool>true</bool>
+          </property>
+          <property name="childrenCollapsible">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="">
+           <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QPushButton" name="btnOpenInBrowser">
-              <property name="text">
-               <string>Open in browser</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../../ressources.qrc">
-                <normaloff>:/rec/data/icons/iconWorld.svg</normaloff>:/rec/data/icons/iconWorld.svg</iconset>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QPushButton" name="btnClearLists">
+                <property name="text">
+                 <string>Clear lists</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../ressources.qrc">
+                  <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnRemove">
+                <property name="text">
+                 <string>Remove selection</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../ressources.qrc">
+                  <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+                </property>
+                <property name="autoExclusive">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QProgressBar" name="pgbProgress">
+              <property name="value">
+               <number>0</number>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btnCopy">
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnSearch">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Search!</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../ressources.qrc">
+                  <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="gbxResults">
+       <property name="title">
+        <string>Results</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QTabWidget" name="twgExtras">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tabLinks">
+           <attribute name="title">
+            <string notr="true">tabLinks</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <widget class="QListWidget" name="lwgLinks">
+              <property name="selectionMode">
+               <enum>QAbstractItemView::ExtendedSelection</enum>
+              </property>
+              <property name="isWrapping" stdset="0">
+               <bool>false</bool>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblLinkInfo">
               <property name="text">
-               <string>Copy</string>
+               <string extracomment="Use plural form for 'Information'">Information for selected link:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="pteInformation">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="Line" name="line">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <widget class="QPushButton" name="btnOpenInBrowser">
+                <property name="text">
+                 <string>Open in browser</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../ressources.qrc">
+                  <normaloff>:/rec/data/icons/iconWorld.svg</normaloff>:/rec/data/icons/iconWorld.svg</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnCopy">
+                <property name="text">
+                 <string>Copy</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../ressources.qrc">
+                  <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnReportDeathLink">
+              <property name="toolTip">
+               <string>Press this button if a link provided by the program no longer works or does not contain a file.</string>
+              </property>
+              <property name="text">
+               <string>Report invalid link</string>
               </property>
               <property name="icon">
                <iconset resource="../../ressources.qrc">
-                <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
+                <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
               </property>
              </widget>
             </item>
            </layout>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnReportDeathLink">
-            <property name="toolTip">
-             <string>Press this button if a link provided by the program no longer works or does not contain a file.</string>
-            </property>
-            <property name="text">
-             <string>Report invalid link</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QWidget" name="tabNotFound">
-         <attribute name="title">
-          <string notr="true">tabNotFound</string>
-         </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout_7">
-          <item>
-           <widget class="QListWidget" name="lwgNotFound">
-            <property name="selectionMode">
-             <enum>QAbstractItemView::ExtendedSelection</enum>
-            </property>
-            <property name="isWrapping" stdset="0">
-             <bool>false</bool>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QWidget" name="tabStandardContent">
-         <attribute name="title">
-          <string notr="true">tabStandardContent</string>
-         </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout_8">
-          <item>
-           <widget class="QListWidget" name="lwgStandardContent"/>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QWidget" name="tabDirectLinks">
-         <attribute name="title">
-          <string notr="true">tabDirectLinks</string>
-         </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout_10">
-          <item>
-           <widget class="QListWidget" name="lwgDirectLinks"/>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QProgressBar" name="pgbProgress">
-      <property name="value">
-       <number>0</number>
-      </property>
+          </widget>
+          <widget class="QWidget" name="tabNotFound">
+           <attribute name="title">
+            <string notr="true">tabNotFound</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QListWidget" name="lwgNotFound">
+              <property name="selectionMode">
+               <enum>QAbstractItemView::ExtendedSelection</enum>
+              </property>
+              <property name="isWrapping" stdset="0">
+               <bool>false</bool>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabStandardContent">
+           <attribute name="title">
+            <string notr="true">tabStandardContent</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <item>
+             <widget class="QListWidget" name="lwgStandardContent"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabDirectLinks">
+           <attribute name="title">
+            <string notr="true">tabDirectLinks</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_10">
+            <item>
+             <widget class="QListWidget" name="lwgDirectLinks"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -338,7 +345,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1072</width>
+     <width>600</width>
      <height>21</height>
     </rect>
    </property>

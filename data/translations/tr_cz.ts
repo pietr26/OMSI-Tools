@@ -489,6 +489,24 @@ Zvolili jste správnou cestu adresáře? Pokud ne, může v některých modulech
     </message>
 </context>
 <context>
+    <name>wAddFiles</name>
+    <message>
+        <location filename="../../OTModules/wContentSearch/waddfiles.ui" line="14"/>
+        <source>wAddFiles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/waddfiles.ui" line="21"/>
+        <source>File paths must start from a subfolder in the main directory!</source>
+        <translation type="unfinished">Cesta k souborům musí začínat v podsložce v hlavní složce s hrou!</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/waddfiles.ui" line="50"/>
+        <source>Add</source>
+        <translation type="unfinished">Přidat</translation>
+    </message>
+</context>
+<context>
     <name>wCleanup</name>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="69"/>
@@ -665,206 +683,200 @@ Zvolili jste správnou cestu adresáře? Pokud ne, může v některých modulech
 <context>
     <name>wContentSearch</name>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="31"/>
-        <source>File paths must start from a subfolder in the main directory!</source>
-        <translation>Cesta k souborům musí začínat v podsložce v hlavní složce s hrou!</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="41"/>
-        <source>Add to list</source>
-        <translation>Přidat do seznamu</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="246"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="258"/>
         <source>Open in browser</source>
         <translation>Otevřít v prohlížeči</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="77"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="417"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="145"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="424"/>
         <source>Remove selection</source>
         <translation>Odstranit vybrané</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="381"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="29"/>
+        <source>Search input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="206"/>
+        <source>Results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="388"/>
         <source>Search</source>
         <translation>Vyhledat</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="25"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="429"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="436"/>
         <source>Add list</source>
         <translation>Přidat seznam</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="55"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="37"/>
         <source>Search input:</source>
         <translation>Vyhledat obsah:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="155"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="121"/>
         <source>Clear lists</source>
         <translation>Vymazat seznamy</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="171"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="188"/>
         <source>Search!</source>
         <translation>Vyhledat!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="193"/>
-        <source>Results:</source>
-        <translation>Výsledky:</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="223"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="235"/>
         <source>Information for selected link:</source>
         <extracomment>Use plural form for &apos;Information&apos;</extracomment>
         <translation>Informace o vybraném odkazu:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="257"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="269"/>
         <source>Copy</source>
         <translation>Kopírovat</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="270"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="282"/>
         <source>Press this button if a link provided by the program no longer works or does not contain a file.</source>
         <translation>Zmáčkněte toto tlačítko, pokud zobrazený odkaz programem nefunguje nebo neobsahuje soubor.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="273"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="285"/>
         <source>Report invalid link</source>
         <translation>Nahlásit nefunkční odkaz</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="347"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="354"/>
         <source>Window</source>
         <translation type="unfinished">Okno</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="358"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="365"/>
         <source>Specials</source>
         <translation>Speciální</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="366"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="441"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="373"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="448"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="393"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="400"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="405"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="412"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="453"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="460"/>
         <source>Suggest files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="462"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="469"/>
         <source>Back to home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="16"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="44"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="54"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="43"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="53"/>
         <source>Content search</source>
         <translation>Vyhledávač obsahu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="44"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="54"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="43"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="53"/>
         <source>There was an error while open the link database. Please try it again or contect the developer.</source>
         <translation>Nastala chyba při spouštění databáze odkazů. Zkuste to prosím znovu nebo kontaktujte vývojáře.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="272"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
         <source>Text files</source>
         <translation>Textové soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="272"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
         <source>All files</source>
         <translation>Všechny soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="124"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="122"/>
         <source>Links (%1)</source>
         <translation>Odkazy (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="125"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="123"/>
         <source>Not found (%1)</source>
         <translation>Nenalezeno (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="126"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="124"/>
         <source>Standard content (%1)</source>
         <comment>Please use plural; Optional original text: &apos;Standard files&apos;</comment>
         <translation>Standardní obsah (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="127"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="125"/>
         <source>Direct links (%1)</source>
         <translation>Přímé odkazy (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="134"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="132"/>
         <source>No files available for searching.</source>
         <translation>Pro vyhledávání nejsou k dispozici soubory.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="241"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="221"/>
         <source>Open selected URLs...</source>
         <translation>Otevřít zvolený odkaz(y)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="257"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="237"/>
         <source>Copied selected URLs.</source>
         <translation>Zkopírovány vybrané odkazy.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="272"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
         <source>Select file with paths...</source>
         <translation>Vybrat soubor s cestou...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="295"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation>%1 cesta(y) budou přidány do seznamu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="104"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="295"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="57"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
         <source>Add files</source>
         <translation>Přidat soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="278"/>
         <source>Process aborted.</source>
         <translation>Proces zrušen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="338"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="318"/>
         <source>Downloading might not work with Google Chrome.</source>
         <translation>Stahování nemusí fungovat v prohlížeči Google Chrome.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="340"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="320"/>
         <source>Direct download link - the download will start directly after opening the URL.</source>
         <translation>Přímý odkaz ke stažení - stahování bude zahájeno ihned po otevření odkazu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="342"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="322"/>
         <source>Archive password:</source>
         <translation>Heslo archivu:</translation>
     </message>
@@ -1093,6 +1105,11 @@ Zvolili jste správnou cestu adresáře? Pokud ne, může v některých modulech
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="91"/>
         <source>Survey</source>
         <translation>Anketa</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="117"/>
+        <source>E-Mail:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.cpp" line="19"/>

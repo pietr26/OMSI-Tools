@@ -10,7 +10,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     qDebug() << "Set up UI...";
     ui->setupUi(this);
     //adjustSize();
-    resize(misc.sizeWindow(0.5, 0.75));
+    resize(misc.sizeWindow(0.6, 0.75));
     qDebug() << "UI set";
 
     setWindowTitle(OTInformation::name + " - " + tr("Content search"));
@@ -28,7 +28,6 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
         ui->lwgUserSearch->addItems(paths);
     }
 
-    ui->gbxAddList->setVisible(false);
     ui->btnClearLists->setVisible(false);
 
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
@@ -112,7 +111,6 @@ void wContentSearch::on_actionRemoveSelection_triggered()
 {
     if ((ui->lwgUserSearch->selectedItems().size() != 0) && msg.confirmDeletion(this))
     {
-        ui->gbxAddList->setVisible(false);
         qDeleteAll(ui->lwgUserSearch->selectedItems());
         qDebug() << "Deleted selected files.";
     }
@@ -199,8 +197,9 @@ void wContentSearch::on_actionSearch_triggered()
 /// Adds lists to user input
 void wContentSearch::on_btnAddList_clicked()
 {
-    ui->gbxAddList->setVisible(true);
-    ui->pteAddList->setFocus();
+    WADDFILES = new wAddFiles(this);
+    connect(WADDFILES, &wAddFiles::submitFiles, this, &wContentSearch::recieveSubmittedFiles);
+    WADDFILES->show();
 }
 
 /// Opens bug report module
@@ -209,25 +208,6 @@ void wContentSearch::on_actionSendFeedback_triggered()
     wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::contentSearch);
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
-}
-
-/// Adds paths from a list to the search list
-void wContentSearch::on_btnAddListToList_clicked()
-{
-    QStringList paths;
-
-    if ((ui->pteAddList->toPlainText() != "") || (ui->pteAddList->toPlainText() != "\n"))
-    {
-        paths << QString(ui->pteAddList->toPlainText()).split("\n");
-
-        paths.removeDuplicates();
-        paths.removeAll("");
-        paths.replaceInStrings("\\", "/");
-    }
-
-    ui->gbxAddList->setVisible(false);
-    ui->pteAddList->clear();
-    ui->lwgUserSearch->addItems(paths);
 }
 
 /// Opens the selected URL in Browser / file system
@@ -372,3 +352,7 @@ void wContentSearch::on_actionAddExamples_triggered()
     ui->lwgUserSearch->addItem("Sceneryobjects/Steven Objecten/Model/SG_WinkelBlok1.X");
 }
 
+void wContentSearch::recieveSubmittedFiles(QStringList files)
+{
+    ui->lwgUserSearch->addItems(files);
+}
