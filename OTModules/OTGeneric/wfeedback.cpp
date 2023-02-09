@@ -9,7 +9,7 @@ wFeedback::wFeedback(QWidget *parent, QUrl wikiEntry) :
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
-    //adjustSize();
+    adjustSize();
     qDebug() << "UI set";
 
     setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
@@ -17,6 +17,8 @@ wFeedback::wFeedback(QWidget *parent, QUrl wikiEntry) :
     // Load settings
     setStyleSheet(set.read("main","theme").toString());
     setWindowTitle(OTInformation::name + " - " + tr("Feedback"));
+
+    ui->btnOpenSurvey->setVisible(false);
 
     if (wikiEntry.isEmpty())
         ui->btnWikiEntry->setEnabled(false);
