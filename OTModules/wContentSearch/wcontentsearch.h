@@ -7,6 +7,7 @@
 #include "OTModules/OTGeneric/wsettings.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/wContentSearch/wsuggestfiles.h"
+#include "OTModules/wContentSearch/waddfiles.h"
 
 namespace Ui {
 class wContentSearch;
@@ -39,8 +40,6 @@ private slots:
 
     void on_actionSendFeedback_triggered();
 
-    void on_btnAddListToList_clicked();
-
     void on_btnCopy_clicked();
 
     void on_btnReportDeathLink_clicked();
@@ -57,6 +56,8 @@ private slots:
 
     void on_actionAddExamples_triggered();
 
+    void recieveSubmittedFiles(QStringList files);
+
 signals:
     void backToHome();
 
@@ -67,6 +68,7 @@ private:
     OTMiscellaneous misc;
     wSettings *WSETTINGS;
     wSuggestFiles *WSUGGESTFILES;
+    wAddFiles *WADDFILES;
 
     OTDatabaseHandler dbHandler;
     QString dbPath = ":/rec/data/db/contentSearch.db";
