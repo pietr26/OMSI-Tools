@@ -675,24 +675,24 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
         <translation>Les chemins de fichiers doivent commencer à partir d&apos;un sous-dossier du répertoire principal !</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="253"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="246"/>
         <source>Open in browser</source>
         <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="77"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="423"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="417"/>
         <source>Remove selection</source>
         <translation>Supprimer la sélection</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="387"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="381"/>
         <source>Search</source>
         <translation>Recherche</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="25"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="435"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="429"/>
         <source>Add list</source>
         <translation>Ajouter une liste</translation>
     </message>
@@ -702,169 +702,169 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
         <translation>Recherche d&apos;entrée :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="162"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="155"/>
         <source>Clear lists</source>
         <translation>Effacer les listes</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="178"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="171"/>
         <source>Search!</source>
         <translation>Chercher !</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="200"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="193"/>
         <source>Results:</source>
         <translation>Résultats :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="230"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="223"/>
         <source>Information for selected link:</source>
         <extracomment>Use plural form for &apos;Information&apos;</extracomment>
         <translation>Informations sur le lien sélectionné :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="264"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="257"/>
         <source>Copy</source>
         <translation>Copie</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="277"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="270"/>
         <source>Press this button if a link provided by the program no longer works or does not contain a file.</source>
         <translation>Appuyez sur ce bouton si un lien fourni par le programme ne fonctionne plus ou ne contient pas de fichier.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="280"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="273"/>
         <source>Report invalid link</source>
         <translation>Signaler un lien invalide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="354"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="347"/>
         <source>Window</source>
         <translation type="unfinished">Fenêtre</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="365"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="358"/>
         <source>Specials</source>
         <translation>Spéciaux</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="372"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="447"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="366"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="441"/>
         <source>Help</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="399"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="393"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="411"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="405"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="459"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="453"/>
         <source>Suggest files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="468"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="462"/>
         <source>Back to home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="16"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="41"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="51"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="44"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="54"/>
         <source>Content search</source>
         <translation>Recherche de contenu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="41"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="51"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="44"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="54"/>
         <source>There was an error while open the link database. Please try it again or contect the developer.</source>
         <translation>Une erreur s&apos;est produite lors de l&apos;ouverture de la base de données des liens. Veuillez réessayer ou contacter le développeur.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="145"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="134"/>
         <source>No files available for searching.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="241"/>
         <source>Open selected URLs...</source>
         <translation>Ouvrir les URLs sélectionnés...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="268"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="257"/>
         <source>Copied selected URLs.</source>
         <translation>Copie les URLs sélectionnés.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="283"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="272"/>
         <source>Text files</source>
         <translation>Fichiers texte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="283"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="272"/>
         <source>All files</source>
         <translation>Tous les dossiers</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="135"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="124"/>
         <source>Links (%1)</source>
         <translation>Liens (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="136"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="125"/>
         <source>Not found (%1)</source>
         <translation>Non trouvé (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="137"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="126"/>
         <source>Standard content (%1)</source>
         <comment>Please use plural; Optional original text: &apos;Standard files&apos;</comment>
         <translation>Contenu standard (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="138"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="127"/>
         <source>Direct links (%1)</source>
         <translation>Liens directs (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="283"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="272"/>
         <source>Select file with paths...</source>
         <translation>Sélectionner le fichier avec les chemins...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="306"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="295"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation>Le(s) chemin(s) %1 sera(ont) ajouté(s) à la liste.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="104"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="306"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="295"/>
         <source>Add files</source>
         <translation>Ajouter des fichiers</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="309"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="298"/>
         <source>Process aborted.</source>
         <translation>Processus interrompu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="349"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="338"/>
         <source>Downloading might not work with Google Chrome.</source>
         <translation>Le téléchargement peut ne pas fonctionner avec Google Chrome.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="351"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="340"/>
         <source>Direct download link - the download will start directly after opening the URL.</source>
         <translation>Lien de téléchargement direct - le téléchargement commencera directement après l&apos;ouverture de l&apos;URL.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="353"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="342"/>
         <source>Archive password:</source>
         <translation>Mot de passe de l&apos;archive :</translation>
     </message>
@@ -2384,30 +2384,30 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation>Vue d&apos;ensemble</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="543"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="644"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="721"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="801"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="875"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="949"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="556"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="657"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="734"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="814"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="888"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="962"/>
         <source>All:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="594"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="677"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="905"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="979"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="607"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="690"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="918"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="992"/>
         <source>Missing:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="936"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="949"/>
         <source>Humans</source>
         <translation>Humains</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="530"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="543"/>
         <source>Tiles</source>
         <translation>Carreaux</translation>
     </message>
@@ -2452,43 +2452,43 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation>Les humains :</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="708"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="721"/>
         <source>Sceneryobjects</source>
         <translation>Objets du paysage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="788"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="801"/>
         <source>Splines</source>
         <translation>Cannelures</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="862"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="875"/>
         <source>Vehicles</source>
         <translation>Véhicules</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="705"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="718"/>
         <source>Sceneryobjects on the map</source>
         <translation>Objets de paysage sur la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="754"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="831"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="767"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="844"/>
         <source>Missing / invalid:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="785"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="798"/>
         <source>Splines on the map</source>
         <translation>Splines sur la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="859"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="872"/>
         <source>AI vehicles on the map</source>
         <translation>Véhicules AI sur la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="933"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="946"/>
         <source>Humans on the map</source>
         <translation>Les humains sur la carte</translation>
     </message>
@@ -2528,7 +2528,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
         <translation>vérifier la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="631"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="644"/>
         <source>Textures</source>
         <translation>Textures</translation>
     </message>
