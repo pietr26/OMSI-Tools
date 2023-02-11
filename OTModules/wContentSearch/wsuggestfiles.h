@@ -13,7 +13,7 @@ class wSuggestFiles : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit wSuggestFiles(QWidget *parent = nullptr);
+    explicit wSuggestFiles(QWidget *parent = nullptr, QString links = "");
     ~wSuggestFiles();
 
 private slots:
@@ -31,6 +31,8 @@ private:
     OTSettings set;
     OTMiscellaneous misc;
     OTNetworkConnection nc;
+
+    bool isReport = false;
 };
 
 #endif // WSUGGESTFILES_H

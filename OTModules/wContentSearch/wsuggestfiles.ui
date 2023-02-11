@@ -16,6 +16,25 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
+     <widget class="QLabel" name="lblReport">
+      <property name="text">
+       <string>Selected link(s) for report:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPlainTextEdit" name="pteReport">
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+       </font>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QLabel" name="lblFiles">
       <property name="text">
        <string>Please enter file URLs here:</string>
@@ -74,7 +93,7 @@
     <item>
      <widget class="QCheckBox" name="cbxAcceptRules">
       <property name="text">
-       <string>I have read and accept the rules for suggesting files.</string>
+       <string>I have read and accept the rules.</string>
       </property>
      </widget>
     </item>

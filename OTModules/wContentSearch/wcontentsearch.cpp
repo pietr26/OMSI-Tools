@@ -241,9 +241,15 @@ void wContentSearch::on_btnCopy_clicked()
 /// Opens feedback
 void wContentSearch::on_btnReportDeathLink_clicked()
 {
-    wFeedback *WFEEDBACK = new wFeedback(this);
-    WFEEDBACK->setWindowModality(Qt::ApplicationModal);
-    WFEEDBACK->show();
+    if (!ui->lwgLinks->selectedItems().isEmpty())
+    {
+        QString links;
+        foreach (QListWidgetItem *current, ui->lwgLinks->selectedItems())
+            links += current->text() + "\n";
+
+        WSUGGESTFILES = new wSuggestFiles(this, links);
+        WSUGGESTFILES->show();
+    }
 }
 
 /// Adds paths from a file via fileDialog
@@ -328,7 +334,6 @@ void wContentSearch::on_actionSuggestFiles_triggered()
 {
     WSUGGESTFILES = new wSuggestFiles(this);
     WSUGGESTFILES->show();
-
 }
 
 
