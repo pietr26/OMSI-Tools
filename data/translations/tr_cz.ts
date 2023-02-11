@@ -4,259 +4,259 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="719"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="720"/>
         <source>There is unsaved content. Do you want to save?</source>
         <translation>Máte zde neuložený obsah. Chcete obsah uložit?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="735"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="736"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Tento zvolený soubor neexistuje nebo má ochranu proti čtění.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="579"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="580"/>
         <source>Select the OMSI main directory...</source>
         <translation>Vyberte hlavní OMSI složku...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="422"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="423"/>
         <source>Successfully created shortcut!</source>
         <translation>Zástupce byl úspěšně vytvořen!</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="427"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="428"/>
         <source>Could not create shortcut in %1.</source>
         <translation>Nepodařilo se vytvořit zástupce v %1.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="561"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="562"/>
         <source>&apos;Omsi.exe&apos; could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
         <translation>&apos;Omsi.exe&apos; nebylo nalezeno v hlavním adresáři hry.Zvolili jste správnou cestu adresáře? Pokud ne, může v některých modulech docházet k chybám.Chcete vybrat novou cestu k adresáři?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="686"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="687"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Pro další používání aplikace je potřeba přidat hlavní složku s OMSI. Chcete ji přidat nyní?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="697"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="698"/>
         <source>There is unsaved content.</source>
         <translation>Máte neuložený obsah.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="747"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="748"/>
         <source>There are no chars in the font.</source>
         <translation>Nemáte žádné znaky ve fontu.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="773"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="774"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation>Nastala chyba &apos;%1&apos; při ukládání. Pokud OMSI stále běží, zavřete jej prosím a zkuste znovu.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="390"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="391"/>
         <source>Updating %1</source>
         <translation>Aktualizuji %1</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="390"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="391"/>
         <source>There was an error while starting the updater. Please retry it or contact the developer.</source>
         <translation>Vyskytla se chyba při spouštění aktualizace. Prosím, zkuste to znovu nebo kontaktujte vývojáře.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="422"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="423"/>
         <source>Success</source>
         <translation>Úspěšně</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="427"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="428"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="561"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="562"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <translation>Nelze nalézt &quot;Omsi.exe&quot;</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="893"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="894"/>
         <source>The source code of %1 is about %2 lines long.</source>
         <translation>Zdrojový kód %1 je dlouhý asi %2 řádků.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="894"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="895"/>
         <source>%1 was born from a simple console application called &quot;Font Creator&quot;.</source>
         <translation>%1 byl vynalezen z obyčejné konzole pojmenované &quot;Font Creator&quot;.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="895"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="896"/>
         <source>With the updater of %1 you can install updates with one click. It is available through the settings.</source>
         <translation>S aktualizačním nástrojem %1 můžete instalovat aktualizace jedním kliknutím. Tato možnost je dostupná v nastavení.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="896"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="897"/>
         <source>In the &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;Wiki of %1&lt;/a&gt; you can find useful explanations about all topics.</source>
         <translation>Na &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;wiki o %1&lt;/a&gt; můžete nalézt užitečné články o všech tématech.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="898"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="899"/>
         <source>Check out the latest developments in the &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;presentation thread in the OMSI-WebDisk&lt;/a&gt;.</source>
         <translation>Koukněte na nejnovější vývoj v &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;prezentačním vláknu na OMSI-Webdisk&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="899"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="900"/>
         <source>Your hard disk is crowded? Clean up your main directory with %1&apos; cleanup tool.</source>
         <translation>Je Váš disk přeplněný? Vyčistěte hlavní adresář hry pomocí čistícího nástroje %1.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="686"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="687"/>
         <source>OMSI main directory not found</source>
         <translation>Hlavní složka s OMSI nenalezena</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="697"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="719"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="698"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="720"/>
         <source>Unsaved content</source>
         <translation>Neuložený obsah</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="735"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="741"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="736"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="742"/>
         <source>Error while opening file</source>
         <translation>Chyba při otevíraní souboru</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="741"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="742"/>
         <source>There was an error while opening &apos;%1&apos;. If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
         <translation>Nastala chyba při otevírání &apos;%1&apos;. Pokud máte zapnuté OMSI, prosím, vypněte jej a zkuste znovu. Dále zkontrolujte, zda soubor existuje.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="747"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="748"/>
         <source>No chars in font</source>
         <translation>Žádné znaky ve fontu</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="757"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="758"/>
         <source>Confirm deletion</source>
         <translation>Potvrzovat mazání</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="757"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="758"/>
         <source>Should the content be deleted?</source>
         <translation>Měl by být obsah odstraněn?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="773"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="774"/>
         <source>Save error</source>
         <translation>Chyba uložení</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="779"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="780"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation>Bohužel je tento modul stále deaktivován kvůli nedostatku času pro vývoj. Zkontrolujte prosím nové aktualizace následující dny.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="779"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="780"/>
         <source>Module still deactivated</source>
         <translation>Modul není aktivován</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="848"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="849"/>
         <source>Bytes</source>
         <translation>Bytů</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="849"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="850"/>
         <source>kB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation>kB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="850"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="851"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="851"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="852"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="852"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="853"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation>TB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="853"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="854"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation>PB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="864"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="865"/>
         <source>January</source>
         <translation>Leden</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="865"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <source>February</source>
         <translation>Únor</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="866"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="867"/>
         <source>March</source>
         <translation>Březen</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="867"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="868"/>
         <source>April</source>
         <translation>Duben</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="868"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="869"/>
         <source>May</source>
         <translation>Květen</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="869"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="870"/>
         <source>June</source>
         <translation>Červen</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="870"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="871"/>
         <source>July</source>
         <translation>Červenec</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="871"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="872"/>
         <source>August</source>
         <translation>Srpen</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="872"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="873"/>
         <source>September</source>
         <translation>Září</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="873"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="874"/>
         <source>October</source>
         <translation>Říjen</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="874"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="875"/>
         <source>November</source>
         <translation>Listopad</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="875"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="876"/>
         <source>December</source>
         <translation>Prosinec</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="905"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="906"/>
         <source>The application server is currently undergoing maintenance (HTTP 503). Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -490,11 +490,6 @@ Zvolili jste správnou cestu adresáře? Pokud ne, může v některých modulech
 </context>
 <context>
     <name>wAddFiles</name>
-    <message>
-        <location filename="../../OTModules/wContentSearch/waddfiles.ui" line="14"/>
-        <source>wAddFiles</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../../OTModules/wContentSearch/waddfiles.ui" line="21"/>
         <source>File paths must start from a subfolder in the main directory!</source>
@@ -799,12 +794,12 @@ Zvolili jste správnou cestu adresáře? Pokud ne, může v některých modulech
         <translation>Nastala chyba při spouštění databáze odkazů. Zkuste to prosím znovu nebo kontaktujte vývojáře.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="258"/>
         <source>Text files</source>
         <translation>Textové soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="258"/>
         <source>All files</source>
         <translation>Všechny soubory</translation>
     </message>
@@ -845,38 +840,38 @@ Zvolili jste správnou cestu adresáře? Pokud ne, může v některých modulech
         <translation>Zkopírovány vybrané odkazy.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="258"/>
         <source>Select file with paths...</source>
         <translation>Vybrat soubor s cestou...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="281"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation>%1 cesta(y) budou přidány do seznamu.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="57"/>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="275"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="281"/>
         <source>Add files</source>
         <translation>Přidat soubory</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="278"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="284"/>
         <source>Process aborted.</source>
         <translation>Proces zrušen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="318"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="324"/>
         <source>Downloading might not work with Google Chrome.</source>
         <translation>Stahování nemusí fungovat v prohlížeči Google Chrome.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="320"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="326"/>
         <source>Direct download link - the download will start directly after opening the URL.</source>
         <translation>Přímý odkaz ke stažení - stahování bude zahájeno ihned po otevření odkazu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="322"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="328"/>
         <source>Archive password:</source>
         <translation>Heslo archivu:</translation>
     </message>
@@ -2253,56 +2248,78 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     <name>wSuggestFiles</name>
     <message>
         <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="21"/>
+        <source>Selected link(s) for report:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="35"/>
         <source>Please enter file URLs here:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="47"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="61"/>
         <source>Optional: Notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="77"/>
-        <source>I have read and accept the rules for suggesting files.</source>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="91"/>
+        <source>I have read and accept the rules.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="86"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="100"/>
         <source>Rules</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="115"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.ui" line="129"/>
         <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="16"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="47"/>
         <source>Suggest files for content search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="26"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="28"/>
         <source>Maintenance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="32"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="34"/>
         <source>No server connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="32"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="34"/>
         <source>Could not connect to application server. Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="50"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="41"/>
+        <source>Report invalid link(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="69"/>
+        <source>Rules for reporting invalid links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="69"/>
+        <source>In order to report invalid links, the following rule must be accepted:
+
+Do not propose the same links more than once and avoid spam.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="71"/>
         <source>Rules for suggesting files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="50"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="71"/>
         <source>In order to propose files, the following rules must be accepted:
 
 1) The suggested files must be publicly available.
@@ -2312,22 +2329,26 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="71"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="94"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="110"/>
         <source>Suggestion sent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="71"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="94"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="110"/>
         <source>The suggestion has been sent. Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="75"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="98"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="114"/>
         <source>Cannot send suggestion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="75"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="98"/>
+        <location filename="../../OTModules/wContentSearch/wsuggestfiles.cpp" line="114"/>
         <source>The suggestion could not be sent. Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>

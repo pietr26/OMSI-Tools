@@ -142,8 +142,9 @@ public:
     inline static const QUrl releaseNotes = QUrl("https://backend.omsi-tools.de/api/?ref=releaseNotes");
     inline static const QUrl inAppMessages = QUrl("https://backend.omsi-tools.de/api/?ref=messages");
     inline static const QUrl download = QUrl("https://backend.omsi-tools.de/api/?ref=downloadLink");
-    inline static const QUrl csSuggestFiles = QUrl("https://backend.omsi-tools.de/api/csSuggestFiles");
-    inline static const QUrl empty = QUrl("https://backend.omsi-tools.de/api/empty");
+    inline static const QUrl csSuggestFiles = QUrl("https://backend.omsi-tools.de/api/csSuggestFiles/");
+    inline static const QUrl csReportLink = QUrl("https://backend.omsi-tools.de/api/csReportLink/");
+    inline static const QUrl empty = QUrl("https://backend.omsi-tools.de/api/empty/");
 
     class wiki
     {
@@ -162,14 +163,14 @@ class OTNetworkConnection: public QObject
 {
     Q_OBJECT
 public slots:
-    /// [OVERLOADED] Returns the downloaded file
+    /// [OVERLOADED] POST / Returns the downloaded file
     QByteArray post(const QUrl &url, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>(), unsigned int connectionTimeout = 10000)
     {
         lastSuccess = 0;
         return download(url, params, connectionTimeout);
     }
 
-    /// [OVERLOADED] Saves the download file to a local file
+    /// [OVERLOADED] POST / Saves the download file to a local file
     int post(const QUrl &url, const QString filepath, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>(), unsigned int connectionTimeout = 10000)
     {
         lastSuccess = 0;
@@ -205,32 +206,20 @@ private:
         request.setTransferTimeout(connectionTimeout);
 
         QListIterator<QPair<QString, QString>> paramIterator(params);
-        qDebug().noquote() << "URL params (post):" << params;
-        QHttpMultiPart *urlParams = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+        qDebug().noquote() << "URL params:" << params;
+
+        QUrlQuery urlParams;
 
         while (paramIterator.hasNext())
         {
             QPair<QString, QString> param = paramIterator.next();
-            QHttpPart part;
-            part.setHeader(QNetworkRequest::ContentDispositionHeader, QString("form-data; name=\"%1\"").arg(param.first));
-            part.setBody(param.second.toUtf8());
-
-            urlParams->append(part);
+            urlParams.addQueryItem(param.first, param.second);
         }
-
-//        QUrlQuery urlParams;
-
-//        while (paramIterator.hasNext())
-//        {
-//            QPair<QString, QString> param = paramIterator.next();
-//            urlParams.addQueryItem(param.first, param.second);
-//        }
-
 
         QEventLoop loop;
 
         connect(&manager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
-        reply = manager.post(request, urlParams);
+        reply = manager.post(request, urlParams.toString(QUrl::FullyEncoded).toUtf8());
 
         connect(reply, &QNetworkReply::downloadProgress, this, &OTNetworkConnection::downloadProgress);
         loop.exec();
