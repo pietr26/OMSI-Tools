@@ -85,17 +85,17 @@ void wSuggestFiles::on_btnSend_clicked()
     {
         qInfo() << nc.post(OTLinks::csReportLink,
                 QList<QPair<QString, QString>> {
-                    QPair<QString, QString>("link", ui->pteReport->toPlainText()),
+                    QPair<QString, QString>("links", ui->pteReport->toPlainText()),
                     QPair<QString, QString>("notes", ui->pteNotes->toPlainText()),
                 });
 
         if (nc.lastSuccess == 1)
         {
-            QMessageBox::information(this, tr("Suggestion sent"), tr("The suggestion has been sent. Thank you!"));
+            QMessageBox::information(this, tr("Report sent"), tr("The report has been sent. Thank you!"));
             close();
         }
         else
-            QMessageBox::critical(this, tr("Cannot send suggestion"), tr("The suggestion could not be sent. Please try again later."));
+            QMessageBox::critical(this, tr("Cannot send report"), tr("The report could not be sent. Please try again later."));
     }
     else
     {

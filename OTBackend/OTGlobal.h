@@ -83,13 +83,14 @@ class OTInformation
 {
 public:
     inline static const QString name = "OMSI-Tools";
-    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Dev;
+    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Lite;
     inline static const QString sourceCodeLength = "18 000";
 
     class versions
     {
     public:
         inline static const QList<QPair<QString, unsigned int>> allVersions = {
+            QPair<QString, unsigned int>("1.1.0-lite", 33),
             QPair<QString, unsigned int>("1.1.0-beta", 32),
             QPair<QString, unsigned int>("1.1.0-dev", 31),
             QPair<QString, unsigned int>("1.0.0-lite", 30),
