@@ -53,6 +53,7 @@ wStart::wStart(QWidget *parent)
     fadeInOutText *facts = new fadeInOutText(OTStrings::getFunFacts());
     ui->vlaFacts->addWidget(facts);
 
+    ui->dwgMessages->setWindowTitle(tr("News"));
     loadMessages();
     ui->dwgMessages->setVisible(set.read(objectName(), "messagesVisible").toBool());
 
@@ -80,9 +81,11 @@ wStart::~wStart()
 void wStart::loadMessages()
 {
     QStringList messages = QString(nc.post(OTLinks::inAppMessages)).split("\n");
-    qDebug() << messages;
+    ui->dwgMessages->setWindowTitle(tr("News"));
 
-    if (nc.lastSuccess == -2)
+    if (nc.lastSuccess == -1)
+        ui->dwgMessages->setWindowTitle(tr("News - no internet connection"));
+    else if (nc.lastSuccess == -2)
     {
         OTInAppMessage messageData;
         messageData.ID = "-1";
@@ -283,7 +286,7 @@ void wStart::on_actionReleaseNotes_triggered()
 /// Opens the manual, currenty only in german
 void wStart::on_actionManual_triggered()
 {
-    QDesktopServices::openUrl(QUrl("file:///" + QApplication::applicationDirPath() + "/_docs/OMSI-Tools Lite - Handbuch DE.pdf"));
+    QDesktopServices::openUrl(QUrl("file:///" + QApplication::applicationDirPath() + "/_docs/OMSI-Tools - Handbuch DE.pdf"));
 }
 
 /// Opens style test
@@ -344,6 +347,7 @@ void wStart::on_actionShowHideMessageDock_triggered()
     ui->dwgMessages->setVisible(!ui->dwgMessages->isVisible());
     set.write(objectName(), "messagesVisible", ui->dwgMessages->isVisible());
     adjustSize();
+    move(misc.centerPosition(this));
 }
 
 void wStart::on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area)

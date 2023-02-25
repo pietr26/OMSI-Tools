@@ -586,7 +586,7 @@
     <set>Qt::RightDockWidgetArea</set>
    </property>
    <property name="windowTitle">
-    <string>News</string>
+    <string notr="true">dwgMessages</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>2</number>

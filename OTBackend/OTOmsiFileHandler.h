@@ -532,12 +532,9 @@ public:
                 in.setEncoding(QStringConverter::System);
                 QString line;
                 unsigned int profileCounter = 0;
-                int lineCount = 0;
 
                 while (!in.atEnd())
                 {
-                    lineCount++;
-                    qDebug().noquote() << "Line" << lineCount;
                     line = in.readLine();
 
                     // texure check:

@@ -9,7 +9,7 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
-    adjustSize();
+    resize(misc.sizeWindow(0.3, 0.4));
     qDebug() << "UI set";
 
     setWindowTitle(OTInformation::name + " - " + tr("settings"));
