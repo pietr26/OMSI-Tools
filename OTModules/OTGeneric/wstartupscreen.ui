@@ -224,7 +224,7 @@
              <font>
               <family>Consolas</family>
               <pointsize>14</pointsize>
-              <italic>true</italic>
+              <italic>false</italic>
               <bold>true</bold>
              </font>
             </property>

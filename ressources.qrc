@@ -84,5 +84,6 @@
         <file>data/icons/iconSend.svg</file>
         <file>data/icons/iconRule.svg</file>
         <file>data/icons/iconHome.svg</file>
+        <file>data/icons/iconPlay.svg</file>
     </qresource>
 </RCC>

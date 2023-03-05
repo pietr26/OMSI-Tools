@@ -168,14 +168,29 @@ public slots:
     QByteArray post(const QUrl &url, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>(), unsigned int connectionTimeout = 10000)
     {
         lastSuccess = 0;
-        return download(url, params, connectionTimeout);
+        return downloadPost(url, params, connectionTimeout);
     }
 
     /// [OVERLOADED] POST / Saves the download file to a local file
     int post(const QUrl &url, const QString filepath, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>(), unsigned int connectionTimeout = 10000)
     {
         lastSuccess = 0;
-        saveToFile(filepath, download(url, params, connectionTimeout));
+        saveToFile(filepath, downloadPost(url, params, connectionTimeout));
+        return lastHttpCode;
+    }
+
+    /// [OVERLOADED] GET / Returns the downloaded file
+    QByteArray get(const QUrl &url, unsigned int connectionTimeout = 10000)
+    {
+        lastSuccess = 0;
+        return downloadGet(url, connectionTimeout);
+    }
+
+    /// [OVERLOADED] GET / Saves the download file to a local file
+    int get(const QUrl &url, const QString filepath, unsigned int connectionTimeout = 10000)
+    {
+        lastSuccess = 0;
+        saveToFile(filepath, downloadGet(url, connectionTimeout));
         return lastHttpCode;
     }
 
@@ -199,7 +214,7 @@ private:
     QNetworkAccessManager manager;
 
     /// Main part of downloading a file
-    QByteArray download(const QUrl &url, QList<QPair<QString, QString>> params, unsigned int connectionTimeout)
+    QByteArray downloadPost(const QUrl &url, QList<QPair<QString, QString>> params, unsigned int connectionTimeout)
     {
         qDebug().noquote().nospace() << "POST to '" << url.url() << "'";
         QNetworkRequest request(url);
@@ -232,6 +247,44 @@ private:
         lastHttpCode = httpCode;
 
         qDebug().noquote() << QString("POST finished (HTTP %1)").arg(httpCode);
+
+        if (url.url().contains("omsi-tools.de") && (httpCode == 503))
+        {
+            lastSuccess = -2;
+            qWarning().noquote() << QString("%1 is currently undergoing maintenance (HTTP 503). Please try again later.").arg(url.host());
+        }
+        else if ((httpCode >= 300) || (httpCode == 0))
+        {
+            lastSuccess = -1;
+            return "";
+        }
+        else
+            lastSuccess = 1;
+
+        return reply->readAll();
+    }
+
+    /// Main part of downloading a file
+    QByteArray downloadGet(const QUrl &url, unsigned int connectionTimeout)
+    {
+        qDebug().noquote().nospace() << "GET to '" << url.url() << "'";
+        QNetworkRequest request(url);
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+        request.setTransferTimeout(connectionTimeout);
+
+        QEventLoop loop;
+
+        connect(&manager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
+        reply = manager.get(request);
+
+        connect(reply, &QNetworkReply::downloadProgress, this, &OTNetworkConnection::downloadProgress);
+        loop.exec();
+
+        // Content length:
+        // reply->header(QNetworkRequest::ContentLengthHeader).toInt();
+
+        int httpCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+        lastHttpCode = httpCode;
 
         if (url.url().contains("omsi-tools.de") && (httpCode == 503))
         {
