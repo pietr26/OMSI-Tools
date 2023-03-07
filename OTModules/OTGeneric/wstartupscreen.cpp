@@ -108,10 +108,15 @@ void wStartUpScreen::updateCheck()
     {
         update = misc.getUpdateInformation();
 
-        if ((update.at(0) != "false") && (update.at(0) != "503"))
+        if (update.at(0) == "503")
+            QMessageBox::information(this, tr("Maintenance"), OTStrings::serverMaintenance());
+        else if (update.at(0) == "noUpdates")
         {
             set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
-
+            finished();
+        }
+        else if (update.at(0) != "false")
+        {
             ui->lblStatus->setText(tr("Found update"));
             ui->btnClose->setEnabled(true);
 
@@ -120,8 +125,9 @@ void wStartUpScreen::updateCheck()
             ui->vlaFirstSetup->addWidget(NEWUPDATE);
 
             connect(NEWUPDATE, &newUpdate::goToStartScreen, this, &wStartUpScreen::finished);
-        }
-        else finished();
+
+            set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
+        } else finished();
     }
     else finished();
 }

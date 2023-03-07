@@ -78,8 +78,8 @@ int main(int argc, char *argv[])
         // Initialize logger
         if ((set.read("main", "logfileMode") != -1))
         {
-            Logger::attach();
-            Logger::logging = true;
+            OTLogger::attach("logfile.txt", OTInformation::name);
+            OTLogger::logging = true;
         }
 
         // Print all settings to the logfile

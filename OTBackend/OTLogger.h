@@ -10,15 +10,15 @@
 #include <QTextStream>
 #include "OTGlobal.h"
 
-class Logger : public QObject
+class OTLogger : public QObject
 {
     Q_OBJECT
 public:
-    explicit Logger(QObject *parent = nullptr);
+    explicit OTLogger(QObject *parent = nullptr);
 
     static bool logging;
     static QString filename;
-    static void attach(QString filename = "logfile.txt");
+    static void attach(QString filename, QString applicationName);
     static void handler(QtMsgType type, const QMessageLogContext &context, const QString & msg);
 
 };
