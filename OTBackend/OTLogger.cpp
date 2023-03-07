@@ -1,29 +1,29 @@
 #include "OTLogger.h"
 
-QString Logger::filename;
-bool Logger::logging = false;
+QString OTLogger::filename;
+bool OTLogger::logging = false;
 static const QtMessageHandler QT_DEFAULT_MESSAGE_HANDLER = qInstallMessageHandler(nullptr);
 unsigned int entryCount = 1;
 int logfileMode;
 bool hardcoreDebugLogfile;
 
-Logger::Logger(QObject *parent) : QObject(parent)
+OTLogger::OTLogger(QObject *parent) : QObject(parent)
 {
 
 }
 
 /// Creates the start of a logfile
-void Logger::attach(QString filename)
+void OTLogger::attach(QString filename, QString applicationName)
 {
     OTSettings set;
 
-    Logger::filename = QDir::currentPath() + QDir::separator() + filename;
+    OTLogger::filename = QDir::currentPath() + QDir::separator() + filename;
     logfileMode = set.read("main", "logfileMode").toInt();
 
-    Logger::logging = true;
-    qInstallMessageHandler(Logger::handler);
+    OTLogger::logging = true;
+    qInstallMessageHandler(OTLogger::handler);
 
-    QFile file(Logger::filename);
+    QFile file(OTLogger::filename);
 
     QString debugInfo;
     switch (logfileMode)
@@ -37,16 +37,20 @@ void Logger::attach(QString filename)
     if (file.open(QFile::WriteOnly | QFile::Text))
     {
         QTextStream out(&file);
+        QString hashs = "################";
 
-        out << QString("========================\n   %1 Logfile\n========================\n" + OTInformation::versions::currentVersion.first + " | Qt " + qVersion() + " | %2\n\n").arg(OTInformation::name, debugInfo);
+        for (int i = 0; i < applicationName.length(); i++)
+            hashs += "#";
+
+        out << QString(hashs + "\n   " + applicationName + " - Logfile\n" + hashs + "\n" + OTInformation::versions::currentVersion.first + " | Qt " + qVersion() + " | %1\n\n").arg(debugInfo);
         file.close();
     }
 }
 
 /// Prepares and writes a logfile entry
-void Logger::handler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+void OTLogger::handler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
-    if (Logger::logging)
+    if (OTLogger::logging)
     {
         QString logText;
         switch (type)
@@ -74,7 +78,7 @@ void Logger::handler(QtMsgType type, const QMessageLogContext &context, const QS
                 break;
         }
 
-        QFile file(Logger::filename);
+        QFile file(OTLogger::filename);
 
         if (file.open(QFile::Append | QFile::Text))
         {
