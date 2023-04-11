@@ -25,7 +25,7 @@
     <item>
      <widget class="QTabWidget" name="twgSettings">
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tabGeneral">
        <attribute name="title">
@@ -815,9 +815,9 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_12">
         <item>
-         <widget class="QGroupBox" name="gbxMapVerifycation">
+         <widget class="QGroupBox" name="gbxMapVerification">
           <property name="title">
-           <string>Map verifycation</string>
+           <string>Map verification</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_13">
            <item>
@@ -857,7 +857,7 @@
                 <string>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</string>
                </property>
                <property name="text">
-                <string>Advanced verifying (not recommended for normal operation)</string>
+                <string>Advanced verifiing (not recommended for normal operation)</string>
                </property>
               </widget>
              </item>

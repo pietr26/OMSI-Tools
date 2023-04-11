@@ -11,7 +11,6 @@
 #include <QProgressDialog>
 #include <QTimer>
 #include <QClipboard>
-#include <QDebug>
 #include <QtConcurrent>
 #include <QFuture>
 #include <QListWidgetItem>
@@ -82,13 +81,13 @@ private slots:
 
     void on_actionSendFeedback_triggered();
 
-    void on_btnVerifycationSettings_clicked();
-
     void on_cobxMapName_currentIndexChanged(int index);
 
     void on_btnReloadMaps_clicked();
 
     void on_actionBackToHome_triggered();
+
+    void on_btnVerificationSettings_clicked();
 
 signals:
     void backToHome();

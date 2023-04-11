@@ -20,6 +20,7 @@
 #include "OTWidgets/fadeinouttext.h"
 #include "OTWidgets/message.h"
 #include "OTModules/wFbh/wdbcopyrights.h"
+#include "OTModules/wMaps/wmaps.h"
 
 namespace Ui {
 class wStart;
@@ -76,8 +77,6 @@ private slots:
 
     void on_tbnFonts_clicked();
 
-    void on_tbnMapVerifycation_clicked();
-
     void on_tbnContentSearch_clicked();
 
     void on_tbnCleanup_clicked();
@@ -86,8 +85,11 @@ private slots:
 
     void on_tbnFbhCreateShortcut_clicked();
 
-private slots:
     void reopen() { show(); }
+
+    void on_tbnMaps_clicked();
+
+    void on_tbnMapVerification_triggered(QAction *arg1);
 
 private:
     Ui::wStart *ui;
@@ -104,6 +106,7 @@ private:
     wFeedback *WFEEDBACK;
     wCleanup *WCLEANUP;
     wDBCopyrights *WDBCOPYRIGHTS;
+    wMaps *WMAPS;
 
     OTSettings set;
     OTMessage msg;
