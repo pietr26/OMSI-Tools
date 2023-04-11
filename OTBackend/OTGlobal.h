@@ -83,14 +83,14 @@ class OTInformation
 {
 public:
     inline static const QString name = "OMSI-Tools";
-    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Lite;
+    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Dev;
     inline static const QString sourceCodeLength = "18 000";
 
     class versions
     {
     public:
         inline static const QList<QPair<QString, unsigned int>> allVersions = {
-            //QPair<QString, unsigned int>("1.2.0-dev", 35),
+            QPair<QString, unsigned int>("1.2.0-dev", 35),
             QPair<QString, unsigned int>("1.1.1-lite", 34),
             QPair<QString, unsigned int>("1.1.0-lite", 33),
             QPair<QString, unsigned int>("1.1.0-beta", 32),
@@ -156,8 +156,9 @@ public:
         inline static const QUrl fonts = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Font_creation");
         inline static const QUrl cleanup = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Cleaner");
         inline static const QUrl contentSearch = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Content_search");
-        inline static const QUrl verifyMap = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Map_verifycation");
+        inline static const QUrl verifyMap = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Map_verification");
         inline static const QUrl settings = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Settings");
+        inline static const QUrl maps = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Map_editing");
     };
 };
 
@@ -503,11 +504,11 @@ public:
     }
 
     /// Reads a setting
-    QVariant read(QString module, QString name, bool getInterpretedData = true)
+    QVariant read(QString module, QString name, bool getInterpretedData = true, bool logging = true)
     {
         QSettings settings(OTInformation::name, module);
         QVariant value = settings.value(name);
-        qDebug().noquote().nospace() << "Read settings from " << module << ": "<< name << ", value: " << value;
+        if (logging) qDebug().noquote().nospace() << "Read settings from " << module << ": "<< name << ", value: " << value;
 
         if (getInterpretedData && (name == "theme"))
             return getStyleSheet();
@@ -917,10 +918,23 @@ public:
             {9,  QObject::tr("September")},
             {10, QObject::tr("October")},
             {11, QObject::tr("November")},
-            {12, QObject::tr("December")},
+            {12, QObject::tr("December")}
         };
 
         return months[monthNumber];
+    }
+
+    /// Returns a translated season name
+    static QString getSeasonName(int seasonNullBasedFromWinter)
+    {
+        QMap<int, QString> months = {
+            {1,  QObject::tr("Winter")},
+            {2,  QObject::tr("Spring")},
+            {3,  QObject::tr("Summer")},
+            {4,  QObject::tr("Autumn")}
+        };
+
+        return months[seasonNullBasedFromWinter];
     }
 
     // Multilanguage strings
