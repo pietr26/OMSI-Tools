@@ -20,6 +20,7 @@ SOURCES += \
     OTModules/wFbh/waddterm.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wfbh.cpp \
+    OTModules/wMaps/wmaps.cpp \
     OTModules/wcleanup.cpp \
     OTModules/wmapselection.cpp \
     OTModules/wmessageviewer.cpp \
@@ -42,10 +43,13 @@ SOURCES += \
     OTModules/OTGeneric/wstartupscreen.cpp
 
 HEADERS += \
+    OTBackend/OCC.h \
+    OTBackend/discordRPC.h \
     OTBackend/OTDatabaseHandler.h \
     OTBackend/OTGlobal.h \
     OTBackend/OTLogger.h \
     OTBackend/OTOmsiFileHandler.h \
+    OTBackend/OTOmsiFileHandler_models.h \
     OTBackend/OTStyleDraw.h \
     OTModules/OTGeneric/wfeedback.h \
     OTModules/OTGeneric/wselectencoding.h \
@@ -58,6 +62,7 @@ HEADERS += \
     OTModules/wFbh/waddterm.h \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wfbh.h \
+    OTModules/wMaps/wmaps.h \
     OTModules/wcleanup.h \
     OTModules/wmapselection.h \
     OTModules/wmessageviewer.h \
@@ -89,6 +94,7 @@ FORMS += \
     OTModules/wFbh/waddterm.ui \
     OTModules/wFbh/wdbcopyrights.ui \
     OTModules/wFbh/wfbh.ui \
+    OTModules/wMaps/wmaps.ui \
     OTModules/wcleanup.ui \
     OTModules/wmapselection.ui \
     OTModules/wmessageviewer.ui \
@@ -127,3 +133,7 @@ RESOURCES += \
 
 DISTFILES += \
     devNotes
+
+LIBS += -LC:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/lib -ldiscord_game_sdk
+INCLUDEPATH += C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/include
+
