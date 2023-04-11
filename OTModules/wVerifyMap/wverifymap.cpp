@@ -177,7 +177,6 @@ void wVerifyMap::on_actionAdjustWindowSize_triggered()
 void wVerifyMap::on_actionSendFeedback_triggered()
 {
     wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::verifyMap);
-    WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }
 
@@ -278,7 +277,7 @@ void wVerifyMap::startEndWatchProgress(bool state)
 void wVerifyMap::enableView(bool enable)
 {
     ui->btnStartVerifying->setEnabled(enable);
-    ui->btnVerifycationSettings->setEnabled(enable);
+    ui->btnVerificationSettings->setEnabled(enable);
     ui->cobxMapName->setEnabled(enable);
     ui->btnReloadMaps->setEnabled(enable);
 
@@ -455,8 +454,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         filehandler.stuffobj.clear();
     }
 
-    qInfo() << "Verifycation finished.";
-    ui->statusbar->showMessage(tr("Verifycation finished."), 5000);
+    qInfo() << "Verification finished.";
+    ui->statusbar->showMessage(tr("Verification finished."), 5000);
 
     endVerifying();
 }
@@ -502,12 +501,11 @@ void wVerifyMap::on_actionClose_triggered()
 void wVerifyMap::on_actionSettings_triggered()
 {
     WSETTINGS = new wSettings(this);
-    WSETTINGS->setWindowModality(Qt::ApplicationModal);
     WSETTINGS->show();
 }
 
-/// Shows the verifycation settings
-void wVerifyMap::on_btnVerifycationSettings_clicked()
+/// Shows the verification settings
+void wVerifyMap::on_btnVerificationSettings_clicked()
 {
     WSETTINGS = new wSettings(this, "wVerifyMap");
     WSETTINGS->setWindowModality(Qt::ApplicationModal);

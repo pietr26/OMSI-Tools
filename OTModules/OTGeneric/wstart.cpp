@@ -1,5 +1,6 @@
 #include "wstart.h"
 #include "ui_wstart.h"
+#include <QStyleFactory>
 
 wStart::wStart(QWidget *parent)
     : QMainWindow(parent)
@@ -372,7 +373,7 @@ void wStart::on_tbnFonts_clicked()
     close();
 }
 
-void wStart::on_tbnMapVerifycation_clicked()
+void wStart::on_tbnMapVerification_triggered(QAction *arg1)
 {
     if (!checkMainDir())
         return;
@@ -413,4 +414,12 @@ void wStart::on_tbnFbhCreateShortcut_clicked()
 {
     fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
     QMessageBox::information(this, "Verknüpfung erstellt", "Die gesetzte Verknüpfung muss jedoch noch modifiziert werden. Wie genau das funktioniert, kannst du im entsprechenden Thread im internen OWD-Forum sehen.");
+}
+
+void wStart::on_tbnMaps_clicked()
+{
+    WMAPS = new wMaps();
+    connect(WMAPS, &wMaps::backToHome, this, &wStart::reopen);
+    WMAPS->show();
+    close();
 }

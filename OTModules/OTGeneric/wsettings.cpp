@@ -121,7 +121,7 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
 
         QFont bold;
         bold.setWeight(QFont::Bold);
-        ui->gbxMapVerifycation->setFont(bold);
+        ui->gbxMapVerification->setFont(bold);
 
         if (!set.read("wVerifyMap", "advVerifying").isValid())
             set.write("wVerifyMap", "advVerifying", false);

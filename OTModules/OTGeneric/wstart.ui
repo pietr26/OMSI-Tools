@@ -88,6 +88,50 @@
         </widget>
        </item>
        <item>
+        <widget class="QToolButton" name="tbnMaps">
+         <property name="minimumSize">
+          <size>
+           <width>75</width>
+           <height>75</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>1</width>
+           <height>1</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Map editor</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../ressources.qrc">
+           <normaloff>:/rec/data/icons/iconMap.svg</normaloff>:/rec/data/icons/iconMap.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <property name="popupMode">
+          <enum>QToolButton::DelayedPopup</enum>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+         <property name="autoRaise">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="horizontalSpacer_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -119,7 +163,7 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QToolButton" name="tbnMapVerifycation">
+        <widget class="QToolButton" name="tbnMapVerification">
          <property name="minimumSize">
           <size>
            <width>75</width>
@@ -136,11 +180,11 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>Map verifycation</string>
+          <string>Map verification</string>
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconMap.svg</normaloff>:/rec/data/icons/iconMap.svg</iconset>
+           <normaloff>:/rec/data/icons/iconWorld.svg</normaloff>:/rec/data/icons/iconWorld.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
