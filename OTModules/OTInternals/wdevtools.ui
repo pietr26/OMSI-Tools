@@ -39,14 +39,14 @@
          <item row="0" column="1">
           <widget class="QPushButton" name="btnGetListOfFiles">
            <property name="text">
-            <string notr="true">Get list of files</string>
+            <string notr="true">Get list of files [2]</string>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
           <widget class="QPushButton" name="btnSoundFileLister">
            <property name="text">
-            <string notr="true">Get sound file paths from sound.cfg</string>
+            <string notr="true">Get sound file paths from sound.cfg [4]</string>
            </property>
           </widget>
          </item>
@@ -55,7 +55,7 @@
            <item>
             <widget class="QPushButton" name="btnLineCounter">
              <property name="text">
-              <string notr="true">Count lines from file(s)</string>
+              <string notr="true">Count lines from file(s) [3]</string>
              </property>
             </widget>
            </item>
@@ -68,7 +68,7 @@
               </sizepolicy>
              </property>
              <property name="text">
-              <string notr="true">Start</string>
+              <string notr="true">Start [3]</string>
              </property>
             </widget>
            </item>
@@ -77,11 +77,33 @@
          <item row="0" column="0">
           <widget class="QPushButton" name="btnGetKeywords">
            <property name="text">
-            <string notr="true">Get all keywords from file(s)</string>
+            <string notr="true">Get all keywords from file(s) [1]</string>
            </property>
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="gbxGetAllKeywordsFromFile">
+         <property name="title">
+          <string notr="true">Line contains following strings: [1]</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QPlainTextEdit" name="pteGetLinesThatContains">
+            <property name="font">
+             <font>
+              <family>Consolas</family>
+             </font>
+            </property>
+            <property name="plainText">
+             <string notr="true">[
+]</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
        </item>
       </layout>
      </widget>
