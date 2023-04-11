@@ -7,36 +7,13 @@
 #include <QFile>
 #include "OTBackend/OTLogger.h"
 #include "OTBackend/OTStyleDraw.h"
+#include "OTBackend/discordRPC.h"
 
+OTDiscordRP* discordR;
 /// Test area for anything
 void testArea()
 {
-    //qDebug() << "+&+& TEST AREA &+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&";
-
-    // Copies all directories (and subdirectories) without content
-//    OTSettings set;
-//    int cutCount = set.read("main", "mainDir").toString().size() + 1;
-//    QDirIterator makePaths(set.read("main", "mainDir").toString(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-//    while (makePaths.hasNext())
-//        QDir().mkpath("C:/Users/pietr/Desktop/testOMSI/" + makePaths.next().remove(0, cutCount));
-
-    //qDebug() << "+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&";
-
-    // Get suffixes from all files in a directory
-//    QStringList list;
-//    QDirIterator dir("C:/Program Files (x86)/Steam/steamapps/common/OMSI 2", QDir::Files, QDirIterator::Subdirectories);
-
-//    while (dir.hasNext())
-//        list << QFileInfo(dir.next()).completeSuffix();
-
-//    list.removeDuplicates();
-//    list.sort();
-
-//    QFile suffixes("C:/Users/pietr/Desktop/suffixes_complete.txt");
-//    suffixes.open(QFile::WriteOnly);
-//    QTextStream out(&suffixes);
-//    out << list.join("\n");
-//    suffixes.close();
+    //discordR->updateActivity("Starten...", "Wartet", "Es geht endlich");
 }
 
 /// Cleanup actions after updates

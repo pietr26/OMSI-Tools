@@ -62,6 +62,12 @@ void wDevTools::on_btnGetListOfFiles_clicked()
 /// Get keywords of files
 void wDevTools::on_btnGetKeywords_clicked()
 {
+    if (ui->pteGetLinesThatContains->toPlainText().isEmpty())
+    {
+        QMessageBox::information(this, "Run to Hintertupfingen", "The line filter field ist empty! Janine will kill you!\n\n[Stop.]");
+        return;
+    }
+
     QStringList files = QFileDialog::getOpenFileNames(this, "Select files to analyse", set.read("main", "mainDir").toString(), omsiFilesFilter);
 
     qInfo().noquote() << "Start to get keywords from " + QString::number(files.size()) + " files...";
@@ -72,11 +78,16 @@ void wDevTools::on_btnGetKeywords_clicked()
     unsigned int i = 0;
     ui->pgbProgress->setMaximum(files.size());
 
+    QStringList containArgs;
+    QTextStream in(new QString(ui->pteGetLinesThatContains->toPlainText()));
+    while (!in.atEnd()) containArgs.append(in.readLine());
+
     foreach (QString current, files)
     {
         ui->pgbProgress->setValue(i);
         i++;
         qApp->processEvents();
+
 
         QFile currentFile(current);
         if (!currentFile.open(QFile::ReadOnly | QFile::Text))
@@ -88,7 +99,12 @@ void wDevTools::on_btnGetKeywords_clicked()
             while (!in.atEnd())
             {
                 line = in.readLine();
-                if (line.contains("[") && line.contains("]"))
+
+                bool contains = (line.contains(containArgs.at(0))) ? true : false;
+                for (int i = 1; i < containArgs.size(); i++)
+                    contains = contains && ((line.contains(containArgs.at(i))) ? true : false);
+
+                if (contains)
                     result << line + "\n";
             }
         }
@@ -103,15 +119,10 @@ void wDevTools::on_btnGetKeywords_clicked()
         qInfo() << "All files read successfully.";
         result << "<All files could be read>";
     }
-    else if (errorCount == 1)
-    {
-        qWarning() << "1 file could not be read!";
-        result << "<1 file could not be read>";
-    }
     else
     {
-        qWarning().noquote() << "<" + QString::number(errorCount) + " files could not be read!";
-        result << "<" + QString::number(errorCount) + " files could not be read!";
+        qWarning().noquote() << "<ERROR: " + QString::number(errorCount) + " file(s) could not be read!";
+        result << "<ERROR: " + QString::number(errorCount) + " file(s) could not be read!";
     }
 
 
@@ -141,7 +152,7 @@ bool wDevTools::pushToOutput(QString result)
     {
         if (ui->rbnOutputToFile->isChecked())
         {
-            QFile file(ui->ledOutputPath->text() + "/Types.txt");
+            QFile file(ui->ledOutputPath->text() + "/Output.txt");
             if (!file.open(QFile::WriteOnly | QFile::Text))
             {
                 QMessageBox::critical(this, "Error while opening file", "There was an error while opening the file. The progress will be stopped.");
