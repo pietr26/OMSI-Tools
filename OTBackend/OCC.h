@@ -9,7 +9,7 @@ template<class T>
 class OC2DCoordinates
 {
 public:
-    static_assert(std::is_arithmetic<T>::value, "The type T must be numeric.");
+    static_assert(std::is_arithmetic<T>::value || std::is_same_v<T, QVariant>, "The type T must be numeric.");
 
     OC2DCoordinates(T x, T y)
     {
@@ -25,7 +25,7 @@ template<class T>
 class OC2DCoordinatesSide
 {
 public:
-    static_assert(std::is_arithmetic<T>::value, "The type T must be numeric.");
+    static_assert(std::is_arithmetic<T>::value || std::is_same_v<T, QVariant>, "The type T must be numeric.");
 
     OC2DCoordinatesSide(T y, T z)
     {
@@ -41,7 +41,7 @@ template<class T>
 class OC3DCoordinates
 {
 public:
-    static_assert(std::is_arithmetic<T>::value, "The type T must be numeric.");
+    static_assert(std::is_arithmetic<T>::value || std::is_same_v<T, QVariant>, "The type T must be numeric.");
 
     OC3DCoordinates(T x, T y, T z)
     {
@@ -59,7 +59,7 @@ template<class T>
 class OC3DBox
 {
 public:
-    static_assert(std::is_arithmetic<T>::value, "The type T must be numeric.");
+    static_assert(std::is_arithmetic<T>::value || std::is_same_v<T, QVariant>, "The type T must be numeric.");
 
     OC3DBox(T xSize, T ySize, T zSize, T xPos, T yPos, T zPos)
     {
@@ -103,175 +103,304 @@ class OCModel // cfg
 {
 public:
     // If e.g. particle_emitter is used before all [mesh] entries, create an emtpy material - TODO: "OPTIONAL IN MESH" section in txt :-)
+    // in Mesh[0] are general properties without any binding
 
-    class LOD
+    class Mesh
     {
     public:
-        class Mesh
+        class Material
         {
         public:
-            Mesh(bool isInofficial = false) { if (isInofficial) binded = OCOptionalValue<BindedProperties>(); }
-
-            class BindedProperties
+            class Properties
             {
+                // This props are changable with [matl_change] command. TODO: Check them!
             public:
-                class Material
+                class Allcolor
+                {
+                public: // all: rgb
+                    QColor diffuse; // also Alpha value here!
+                    QColor ambient;
+                    QColor specular;
+                    QColor emissive;
+                    float power;
+                };
+
+                enum TextureAdress
+                {
+                    clamp = 1,
+                    border = 2,
+                    mirror = 3,
+                    mirrorOnce = 4
+                };
+
+                class TextureMappingIntensity
                 {
                 public:
-                    class MaterialProperties
-                    {
-                        // This props are changable with [matl_change] command. TODO: Check them!
-                    public:
-                        class Allcolor
-                        {
-                        public: // all: rgb
-                            QColor diffuse;
-                            QColor ambient;
-                            QColor specular;
-                            QColor emissive;
-                            float power;
-                        };
-
-                        enum TextureAdress
-                        {
-                            clamp = 1,
-                            border = 2,
-                            mirror = 3,
-                            mirrorOnce = 4
-                        };
-
-                        class TextureMappingIntensity
-                        {
-                        public:
-                            QString filename;
-                            float intensity = -1;
-                        };
-
-                        class TextureMappingVariable
-                        {
-                        public:
-                            QString filename;
-                            QString variableName;
-                        };
-
-                        int changeIndex = -1;
-
-                        OCOptionalValue<Allcolor> allcolor;
-                        int alpha = -1;
-                        OCOptionalValue<TextureMappingIntensity> bumpMap; // TODO: Binding to variable possible? TESTING
-                        OCOptionalValue<TextureMappingIntensity> envMap; // TODO: see bumMap member
-                        OCOptionalValue<TextureMappingIntensity> rainDropMap; // TODO: see bumMap member
-                        QString envMapMask;
-                        int envMapRealTimeFactor = -1;
-                        QList<TextureMappingVariable> freeTextures;
-                        QString nightMap;
-                        QString transMap;
-                        bool noZCheck;
-                        bool noZWrite;
-                        int zBias = -1;
-                        OCOptionalValue<TextureAdress> textureAdress;
-
-                        int nightMapMode = -1;
-
-                        QString textureCoordinateTransformationX;
-                        QString textureCoordinateTransformationY;
-
-                        QString alphaScaleVariable;
-                    };
-
                     QString filename;
-                    int index;
-                    int textTextureIndex = -1; // TODO: Also in MaterialProperty?
-                    int scriptTextureIndex = -1; // TODO: see textTextureIndex member
-
-                    QString changeVariable;
+                    float intensity = -1;
                 };
 
-                class Animation
+                class TextureMappingVariable
                 {
                 public:
-                    class AnimationMethod
-                    {
-                    public:
-                        QString variable;
-                        float factor;
-                    };
-
-                    OCOptionalValue<OC3DCoordinates<float>> originTransform;
-                    OCOptionalValue<OC3DCoordinates<int>> originRotation; // TODO: Does this make sense? :')
-
-                    OCOptionalValue<AnimationMethod> animationTransform;
-                    OCOptionalValue<AnimationMethod> animationRotation;
-                    OCOptionalValue<float> maxSpeed;
-                    OCOptionalValue<float> delay;
-                    OCOptionalValue<float> offset;
+                    QString filename;
+                    QString variableName;
                 };
 
-                class Visible
-                {
-                public:
-                    QString variable;
-                    QString value; // With this value, the object is visible
-                };
+                int changeIndex = -1;
 
-                class Bone
-                {
-                public:
-                    QString name;
-                    int property;
-                };
+                OCOptionalValue<Allcolor> allcolor;
+                int alpha = -1;
+                OCOptionalValue<TextureMappingIntensity> bumpMap; // TODO: Binding to variable possible? TESTING
+                OCOptionalValue<TextureMappingIntensity> envMap; // TODO: see bumMap member
+                OCOptionalValue<TextureMappingIntensity> rainDropMap; // TODO: see bumMap member
+                QString envMapMask;
+                int envMapRealTimeFactor = -1;
+                QList<TextureMappingVariable> freeTextures;
+                QString nightMap;
+                QString transMap;
+                bool noZCheck;
+                bool noZWrite;
+                int zBias = -1;
+                OCOptionalValue<TextureAdress> textureAdress;
 
-                QString filename;
+                int nightMapMode = -1;
 
-                QList<Material> materials;
-                QList<Animation> animations;
-                QString ownAnimationGroup; // [mesh_ident] - above [animparent]!
-                QString parentToAnimationGroup; // [animparent] - above [mesh_ident]!
+                QString textureCoordinateTransformationX;
+                QString textureCoordinateTransformationY;
 
-                QString mouseEvent; // trigger name
-
-                bool hasShadow;
-                bool isShadowMesh;
-
-                Visible visible;
-
-                QList<Bone> bones;
-
-                QString texchangeFile;
-
-                bool hasSmoothSkin;
-
-                int viewpoint = -1; // 0=^7   |   +1=userVehicleInside +2=userVehicleInside +4=aiVehicle
-
-                QList<int> illuminationInterior; // min=4 max=4 - fill empty places with '-1'!
+                QString alphaScaleVariable;
             };
 
-            OCOptionalValue<BindedProperties> binded;
+            QString filename;
+            int index;
+            int textTextureIndex = -1; // TODO: Also in MaterialProperty?
+            int scriptTextureIndex = -1; // TODO: see textTextureIndex member
 
-            class InteriorLight
+            QString changeVariable;
+
+            QList<Properties> properties;
+        };
+
+        class Animation
+        {
+        public:
+            class Method
             {
             public:
                 QString variable;
-                float distance; // from origin to 63% of power
-                QColor color;
-                OC3DCoordinates<float> position;
+                float factor;
             };
 
-            class ParticleEmitter
-            {
-            public:
-                enum Methods
-                {
+            OCOptionalValue<OC3DCoordinates<float>> originTransform;
+            OCOptionalValue<OC3DCoordinates<int>> originRotation; // TODO: Does this make sense? :')
 
-                };
-            };
+            OCOptionalValue<Method> animationTransform;
+            OCOptionalValue<Method> animationRotation;
+            OCOptionalValue<float> maxSpeed;
+            OCOptionalValue<float> delay;
+            OCOptionalValue<float> offset;
 
-            QList<InteriorLight> interiorLights;
-
+            int internalIdent = -1;
         };
 
-        float factor = -1;
-        Mesh mesh;
+        class Visible
+        {
+        public:
+            QString variable;
+            QString value; // With this value, the object is visible
+
+            int internalIdent = -1;
+        };
+
+        class Bone
+        {
+        public:
+            QString name;
+            int property;
+
+            int internalIdent = -1;
+        };
+
+        class InteriorLight
+        {
+        public:
+            QString variable;
+            float distance; // from origin to 63% of power
+            QColor color;
+            OC3DCoordinates<float> position;
+        };
+
+        class Smoke  // TODO: Explore different values
+        {
+        public:
+            OC3DCoordinates<QVariant> position;
+            OC3DCoordinates<QVariant> outflowPosition;
+
+            QVariant speed;
+            QVariant speedVaration;
+            QVariant frequence;
+            QVariant lifeTime;
+            QVariant brakeFactor;
+            QVariant startSize;
+            QVariant enlargementRate;
+            QVariant alpha;
+            QVariant alphaVariation;
+            QColor color;
+        };
+
+        class ParticleEmitter // TODO: Explore different values
+        {
+        public: // [Might be a variable name!]
+            class MethodMinMax
+            {
+            public:
+                QVariant min;
+                QVariant max;
+            };
+
+            class Color
+            {
+            public:
+                QColor initial;
+                QColor final; // TODO: ? - Test!
+            };
+
+            class Bitmap
+            {
+            public:
+                QString bitmap;
+                bool hasAlpha;
+            };
+
+            class InstantExplosionPartCount
+            {
+            public:
+                QVariant frequency;
+                QVariant directExplode;
+            };
+
+            class AttachTo
+            {
+            public:
+                int attach;
+                int attachGroup;
+                int attachMulti;
+            };
+
+            OC3DCoordinates<QVariant> position;
+            OC3DCoordinates<QVariant> outflowPosition;
+
+            OCOptionalValue<MethodMinMax> velocity;
+            OCOptionalValue<MethodMinMax> constantVelocity;
+            OCOptionalValue<MethodMinMax> frequence;
+            OCOptionalValue<MethodMinMax> liveTime;
+            OCOptionalValue<QVariant> emitterLifeTime; // float
+            OCOptionalValue<MethodMinMax> brakeFactor;
+            OCOptionalValue<MethodMinMax> weightForce; // 0=no gravity
+            OCOptionalValue<MethodMinMax> sizeStart;
+            OCOptionalValue<MethodMinMax> sizeFinal;
+            OCOptionalValue<MethodMinMax> alphaInitial;
+            OCOptionalValue<MethodMinMax> alphaFinal;
+            OCOptionalValue<Color> color; // rgb and hsv!
+            OCOptionalValue<int> calculateDistance;
+            OCOptionalValue<QVariant> isEmissive; // bool
+            OCOptionalValue<Bitmap> bitmap;
+            OCOptionalValue<QVariant> waitForParentDeath; // bool
+            OCOptionalValue<InstantExplosionPartCount> instantExplosionPartCount;
+
+            OCOptionalValue<AttachTo> attachTo; // see 'C 005F6DA4 TRauch.attachedto:Integer'
+        };
+
+        class Light
+        {
+        public:
+            QString variable;
+            float size;
+            QColor color;
+            OC3DCoordinates<float> position;
+            /* [light]
+             * <Variable>
+             * <Size>
+             * <RColor>
+             * <GColor>
+             * <BColor>
+             * <xPos>
+             * <yPos>
+             * <zPos>
+            */
+        };
+
+        class LightEnh
+        {
+        public:
+            enum Rotation
+            {
+                onlyVector = 0,
+                fromVectorToCamera = 1,
+                allDirections = 2
+            };
+
+            OC3DCoordinates<float> position; // 0=0° 1=90° 2=180°
+            OC3DCoordinates<float> direction; // 0=0° 1=90° 2=180°
+            OC3DCoordinates<float> lightCone; // 0=0° 1=90° 2=180°
+            bool lightInAllDirections;
+            Rotation rotation;
+        };
+
+        class LightEnh2 : public LightEnh
+        {
+        public:
+            QColor color;
+            float size; // in m
+            int innerlightConeAngle;
+            int outerlightConeAngle;
+            QString activiationVariable;
+            QString brightnessVariable;
+            int brightnessFactor;
+            float playerOffset;
+            int effect; // 0=none +1=stars +2=noFog +4=both
+            bool hasLightCone;
+            float delay; // in s
+            QString effectTexture;
+        };
+
+        QString filename;
+
+        QList<Material> materials;
+        QList<Animation> animations;
+        QString ownAnimationGroup; // [mesh_ident] - above [animparent]!
+        QString parentToAnimationGroup; // [animparent] - above [mesh_ident]!
+
+        QString mouseEvent; // trigger name
+
+        bool hasShadow;
+        bool isShadowMesh;
+
+        Visible visible;
+
+        QList<Bone> bones;
+
+        QString texchangeFile;
+
+        bool hasSmoothSkin;
+
+        int viewpoint = -1; // 0 equals 7   |   +1=userVehicleInside +2=userVehicleInside +4=aiVehicle
+
+        QList<int> illuminationInterior; // min=4 max=4 - fill empty places with '-1'!
+
+        QList<InteriorLight> interiorLights;
+
+        QList<Smoke> smokes;
+        QList<ParticleEmitter> particleEmitters;
+
+        float lodFactor = -1;
+        float detailFactor = -1;
+        float texDetailFactor = -1;
+
+        QList<Light> lights;
+        QList<LightEnh> lightEnhs;
+        QList<LightEnh2> lightEnh2s;
     };
 
     class TextTexture
@@ -319,15 +448,25 @@ public:
         QList<Texture> textures;
     };
 
+    class Spotlight
+    {
+    public:
+        OC3DCoordinates<float> position;
+        OC3DCoordinates<float> direction;
+        QColor color;
+        float distance;
+        int innerlightConeAngle;
+        int outerlightConeAngle;
+    };
 
-
-    QList<LOD> lods;
+    QList<Mesh> meshes;
 
     QList<TextTexture> textTextures;
     QList<OC2DCoordinates<int>> scriptTextures;
     OCOptionalValue<OC3DBox<float>> viewbox; // [VFDmaxmin] - ATTENTION: Some calculations are necessary to fit values in the class! - values: 1=xMinPos 2=yMinPos 3=zMinPos 4=xMaxPos 5=yMaxPos 6=zMaxPos
     QList<ComplexTextureChange> complexTextureChanges;
 
+    QList<Spotlight> spotlights;
 };
 
 class OCSound // cfg
