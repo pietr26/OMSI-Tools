@@ -18,7 +18,7 @@ void OTLogger::attach(QString filename, QString applicationName)
     OTSettings set;
 
     OTLogger::filename = QDir::currentPath() + QDir::separator() + filename;
-    logfileMode = set.read("main", "logfileMode").toInt();
+    logfileMode = set.read("main", "logfileMode", true, false).toInt();
 
     OTLogger::logging = true;
     qInstallMessageHandler(OTLogger::handler);
