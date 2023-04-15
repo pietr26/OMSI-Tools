@@ -696,9 +696,6 @@ public:
         if (!read("main", "autosaveDuration").isValid())
             write("main", "autosaveDuration", 30);
 
-        if (!read("main", "confirmDeletion").isValid())
-            write("main", "confirmDeletion", true);
-
         if (!read("main\\themeData", "useStandardTheme").isValid())
             write("main\\themeData", "useStandardTheme", true);
 
@@ -791,26 +788,6 @@ public:
     void noCharsInFont(QWidget *parent)
     {
         QMessageBox::warning(parent, QObject::tr("No chars in font"), QObject::tr("There are no chars in the font."));
-    }
-
-    /// Comfirm a deletion of anything
-    bool confirmDeletion(QWidget *parent)
-    {
-        if (set.read("main", "confirmDeletion") == "false")
-            return true;
-
-        qDebug() << "Message: Confirm deletion (Yes/No)?";
-        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Confirm deletion"), QObject::tr("Should the content be deleted?"), QMessageBox::Yes | QMessageBox::No);
-        if (reply == QMessageBox::Yes)
-        {
-            qDebug() << "User pressed Yes";
-            return true;
-        }
-        else
-        {
-            qDebug() << "User pressed No";
-            return false;
-        }
     }
 
     /// There was en error while saving a file

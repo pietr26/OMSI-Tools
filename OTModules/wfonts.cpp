@@ -809,24 +809,21 @@ void wFonts::on_actionGoToNextError_triggered()
 /// Deletes selected char
 void wFonts::on_actionDeleteSelection_triggered()
 {
-    if (msg.confirmDeletion(this))
-    {
-        qDebug().noquote() << QString("Delete char '%1' at position %2...").arg(font.charList.at(ui->lvwChars->currentIndex().row()).character).arg(ui->lvwChars->currentIndex().row());
+    qDebug().noquote() << QString("Delete char '%1' at position %2...").arg(font.charList.at(ui->lvwChars->currentIndex().row()).character).arg(ui->lvwChars->currentIndex().row());
 
-        font.charList.removeAt(ui->lvwChars->currentIndex().row());
-        reloadCharList();
+    font.charList.removeAt(ui->lvwChars->currentIndex().row());
+    reloadCharList();
 
-        ui->twgFont->setCurrentIndex(1);
+    ui->twgFont->setCurrentIndex(1);
 
-        qDebug() << "Font charlist count:" << font.charList.size();
+    qDebug() << "Font charlist count:" << font.charList.size();
 
-        if (font.charList.size() == 0)
-            selectAllAndClear(true);
-        else
-            reloadCharUI();
+    if (font.charList.size() == 0)
+        selectAllAndClear(true);
+    else
+        reloadCharUI();
 
-        setUnsaved();
-    }
+    setUnsaved();
 }
 
 /// Shows the settings

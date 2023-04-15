@@ -7,10 +7,7 @@ unsigned int entryCount = 1;
 int logfileMode;
 bool hardcoreDebugLogfile;
 
-OTLogger::OTLogger(QObject *parent) : QObject(parent)
-{
-
-}
+OTLogger::OTLogger(QObject *parent) : QObject(parent) { }
 
 /// Creates the start of a logfile
 void OTLogger::attach(QString filename, QString applicationName)

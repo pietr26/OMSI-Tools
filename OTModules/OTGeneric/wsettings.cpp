@@ -66,12 +66,6 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     // ledOmsiPath
     ui->ledOmsiPath->setText(set.read("main", "mainDir").toString());
 
-    //cbxConfirmDeletion
-    if (set.read("main", "confirmDeletion") == "true")
-        ui->cbxConfirmDeletion->setChecked(true);
-    else if (set.read("main", "confirmDeletion") == "false")
-        ui->cbxConfirmDeletion->setChecked(false);
-
     // cobxLogfileMode
     QStringList logfileModes;
     //                -1            0              1          2
@@ -263,16 +257,6 @@ void wSettings::on_sbxAutosaveDuration_valueChanged(int arg1)
     if (setupFinished)
     {
         set.write("main", "autosaveDuration", arg1);
-        setUnsaved(true);
-    }
-}
-
-/// Saves deletion confirmation
-void wSettings::on_cbxConfirmDeletion_clicked()
-{
-    if (setupFinished)
-    {
-        set.write("main", "confirmDeletion", ui->cbxConfirmDeletion->isChecked());
         setUnsaved(true);
     }
 }

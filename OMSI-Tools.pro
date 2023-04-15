@@ -1,6 +1,6 @@
 QT       += core widgets gui network concurrent sql
 
-CONFIG += c++17
+CONFIG += c++17 #console
 
 DEFINES += QT_MESSAGELOGCONTEXT
 

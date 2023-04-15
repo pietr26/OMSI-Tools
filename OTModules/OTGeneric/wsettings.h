@@ -47,8 +47,6 @@ private slots:
 
     void on_sbxAutosaveDuration_valueChanged(int arg1);
 
-    void on_cbxConfirmDeletion_clicked();
-
     void on_ledAuthor_textChanged(const QString &arg1);
 
     void on_btnOpenLogfilePath_clicked();
