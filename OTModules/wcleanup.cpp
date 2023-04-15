@@ -12,7 +12,7 @@ wCleanup::wCleanup(QWidget *parent) :
     //adjustSize();
     qDebug() << "UI set";
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main","theme").toString());
     setWindowTitle(OTInformation::name + " - " + tr("cleanup"));
 
@@ -297,12 +297,12 @@ void wCleanup::on_actionClose_triggered()
     close();
 }
 
-/// Opens the settings
-void wCleanup::on_actionSettings_triggered()
+/// Opens the prefs
+void wCleanup::on_actionPreferences_triggered()
 {
-    WSETTINGS = new wSettings(this);
-    WSETTINGS->setWindowModality(Qt::ApplicationModal);
-    WSETTINGS->show();
+    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
 }
 
 /// Open help dialog

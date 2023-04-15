@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>wSettings</class>
- <widget class="QMainWindow" name="wSettings">
+ <class>wPreferences</class>
+ <widget class="QMainWindow" name="wPreferences">
   <property name="windowModality">
    <enum>Qt::WindowModal</enum>
   </property>
@@ -14,18 +14,18 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true">wSettings</string>
+   <string notr="true">wPreferences</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../../ressources.qrc">
-    <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
+    <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <widget class="QTabWidget" name="twgSettings">
+     <widget class="QTabWidget" name="twgPreferences">
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabGeneral">
        <attribute name="title">
@@ -781,9 +781,9 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="btnResetSettings">
+         <widget class="QPushButton" name="btnResetPreferences">
           <property name="text">
-           <string>Reset settings</string>
+           <string>Reset preferences</string>
           </property>
           <property name="icon">
            <iconset resource="../../ressources.qrc">

@@ -5,7 +5,7 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTWidgets/verifymaptools.h"
-#include "OTModules/OTGeneric/wsettings.h"
+#include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include <QFileDialog>
 #include <QProgressDialog>
@@ -35,7 +35,7 @@ private slots:
 
     void on_btnStartVerifying_clicked();
 
-    void on_actionSettings_triggered();
+    void on_actionPreferences_triggered();
 
     void on_btnTilesDetails_clicked();
 
@@ -87,7 +87,7 @@ private slots:
 
     void on_actionBackToHome_triggered();
 
-    void on_btnVerificationSettings_clicked();
+    void on_btnVerificationPreferences_clicked();
 
 signals:
     void backToHome();
@@ -98,7 +98,7 @@ private:
     OTSettings set;
     OTMiscellaneous misc;
     wContentSearch *WCONTENTSEARCH;
-    wSettings *WSETTINGS;
+    wPreferences *WPREFERENCES;
 
     int cutCount = set.read("main", "mainDir").toString().size() + 1;
 

@@ -5,7 +5,7 @@
 #include <QCloseEvent>
 #include <QFutureWatcher>
 #include <OTModules/wcleanup.h>
-#include "OTModules/OTGeneric/wsettings.h"
+#include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/OTGeneric/wreleasenotes.h"
 #include "OTModules/wfonts.h"
@@ -37,7 +37,7 @@ public:
 private slots:
     void on_actionAbout_triggered();
 
-    void on_actionSettings_triggered();
+    void on_actionPreferences_triggered();
 
     void on_actionClose_triggered();
 
@@ -89,11 +89,11 @@ private slots:
 
     void on_tbnMaps_clicked();
 
-    void on_tbnMapVerification_triggered(QAction *arg1);
+    void on_tbnMapVerification_clicked();
 
 private:
     Ui::wStart *ui;
-    wSettings *WSETTINGS;
+    wPreferences *WPREFERENCES;
     wFonts *WFONTS;
     wVerifyMap *WVERIFYMAP;
     wDevTools *WDEVTOOLS;

@@ -47,7 +47,7 @@
            <enum>QTabWidget::Rounded</enum>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <property name="elideMode">
            <enum>Qt::ElideLeft</enum>
@@ -840,7 +840,7 @@
    </property>
    <widget class="QMenu" name="menuFont">
     <property name="toolTip">
-     <string>Open, save fonts or close the font module</string>
+     <string/>
     </property>
     <property name="title">
      <string>Font</string>
@@ -872,7 +872,7 @@
    </widget>
    <widget class="QMenu" name="menuSpecials">
     <property name="toolTip">
-     <string>Open settings or use special functions</string>
+     <string/>
     </property>
     <property name="title">
      <string>Specials</string>
@@ -881,11 +881,11 @@
     <addaction name="actionFindChar"/>
     <addaction name="actionCopyChars"/>
     <addaction name="separator"/>
-    <addaction name="actionSettings"/>
+    <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="toolTip">
-     <string>Add, delete or move characters</string>
+     <string/>
     </property>
     <property name="title">
      <string>Edit</string>
@@ -901,7 +901,7 @@
    </widget>
    <widget class="QMenu" name="menuDebugging">
     <property name="toolTip">
-     <string>Check your font for errors</string>
+     <string/>
     </property>
     <property name="title">
      <string>Debugging</string>
@@ -930,7 +930,7 @@
     <string>Open</string>
    </property>
    <property name="toolTip">
-    <string>Open an existing OFT file</string>
+    <string>Open</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+O</string>
@@ -948,7 +948,7 @@
     <string>Save</string>
    </property>
    <property name="toolTip">
-    <string>Save your font</string>
+    <string>Save</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+S</string>
@@ -963,7 +963,7 @@
     <string>Save as...</string>
    </property>
    <property name="toolTip">
-    <string>Save your font via file dialog</string>
+    <string>Save as...</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Shift+S</string>
@@ -993,22 +993,22 @@
     <string>New font</string>
    </property>
    <property name="toolTip">
-    <string>Create a new font</string>
+    <string>New font</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+N</string>
    </property>
   </action>
-  <action name="actionSettings">
+  <action name="actionPreferences">
    <property name="icon">
     <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
+     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Settings</string>
+    <string>Preferences</string>
    </property>
    <property name="toolTip">
-    <string>Open the settings</string>
+    <string>Preferences</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+E</string>
@@ -1023,7 +1023,7 @@
     <string>New character</string>
    </property>
    <property name="toolTip">
-    <string>Add a new character</string>
+    <string>New character</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Tab</string>
@@ -1041,7 +1041,7 @@
     <string>Delete character</string>
    </property>
    <property name="toolTip">
-    <string>Delete current character</string>
+    <string>Delete character</string>
    </property>
    <property name="shortcut">
     <string notr="true">Del</string>
@@ -1059,7 +1059,7 @@
     <string>Load template...</string>
    </property>
    <property name="toolTip">
-    <string>Load a template</string>
+    <string>Load template...</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+T</string>
@@ -1077,7 +1077,7 @@
     <string>Move character up</string>
    </property>
    <property name="toolTip">
-    <string>Move current character up</string>
+    <string>Move character up</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Up</string>
@@ -1095,7 +1095,7 @@
     <string>Move character down</string>
    </property>
    <property name="toolTip">
-    <string>Move current character down</string>
+    <string>Move character down</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+Down</string>
@@ -1110,7 +1110,7 @@
     <string>Reload</string>
    </property>
    <property name="toolTip">
-    <string>Reload current font</string>
+    <string>Reload</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+R</string>
@@ -1125,7 +1125,7 @@
     <string>Find char...</string>
    </property>
    <property name="toolTip">
-    <string>Search for a char in the currently opened font</string>
+    <string>Find char...</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+F</string>
@@ -1140,7 +1140,7 @@
     <string>Copy chars</string>
    </property>
    <property name="toolTip">
-    <string>Copy a list of all chars to clipboard</string>
+    <string>Copy chars</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+G</string>
@@ -1167,7 +1167,7 @@
     <string>Show in explorer</string>
    </property>
    <property name="toolTip">
-    <string>Shows the font file in the file explorer</string>
+    <string>Show in explorer</string>
    </property>
   </action>
   <action name="actionSendFeedback">

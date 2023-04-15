@@ -13,7 +13,7 @@ wMaps::wMaps(QWidget *parent) :
 
     setWindowTitle(OTInformation::name + " - " + tr("map editor"));
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     loadMapList();
@@ -26,10 +26,10 @@ wMaps::~wMaps()
     delete ui;
 }
 
-void wMaps::on_actionSettings_triggered()
+void wMaps::on_actionPreferences_triggered()
 {
-    WSETTINGS = new wSettings(this);
-    WSETTINGS->show();
+    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES->show();
 }
 
 

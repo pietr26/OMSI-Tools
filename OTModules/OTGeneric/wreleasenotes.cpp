@@ -12,7 +12,7 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
     //adjustSize();
     qDebug() << "UI set";
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     setWindowTitle(OTInformation::name + " - " + tr("release notes"));
@@ -65,7 +65,7 @@ void wReleaseNotes::on_btnClose_clicked()
     close();
 }
 
-/// Calls the settings and execute the update
+/// Calls the prefs and execute the update
 void wReleaseNotes::on_btnUpdateNow_clicked()
 {
     misc.startUpdate(this, ui->cbxClearAppDir->isChecked());

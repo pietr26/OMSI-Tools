@@ -18,7 +18,7 @@ wSuggestFiles::wSuggestFiles(QWidget *parent, QString links) :
     if (!links.isEmpty())
         isReport = true;
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     nc.post(OTLinks::empty);

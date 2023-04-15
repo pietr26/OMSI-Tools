@@ -13,7 +13,7 @@ wFbh::wFbh(QWidget *parent)
     ui->setupUi(this);
     qDebug() << "UI set";
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     ui->cobxWelcome->addItem("Hallo");
@@ -31,7 +31,7 @@ wFbh::wFbh(QWidget *parent)
 
     setWindowTitle("Filebase-Helper (" + OTInformation::versions::currentVersion.first + ")");
 
-    ui->actionSettings->setText(tr("Settings (%1)").arg(OTInformation::name));
+    ui->actionPreferences->setText(tr("Preferences (%1)").arg(OTInformation::name));
 
     finishedSetup = true;
 
@@ -514,11 +514,11 @@ void wFbh::on_btnRClear_clicked()
     ui->cbxRAdmonition->setChecked(false);
 }
 
-/// Opens settings (MainApp)
-void wFbh::on_actionSettings_triggered()
+/// Opens prefs (mainApp)
+void wFbh::on_actionPreferences_triggered()
 {
-    WSETTINGS = new wSettings(this);
-    WSETTINGS->setWindowModality(Qt::ApplicationModal);
-    WSETTINGS->show();
+    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
 }
 

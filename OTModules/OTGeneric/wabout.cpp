@@ -13,7 +13,7 @@ wAbout::wAbout(QWidget *parent) :
     move(misc.centerPosition(this));
     qDebug() << "UI set";
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 

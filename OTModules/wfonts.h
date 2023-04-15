@@ -2,7 +2,7 @@
 #define WFONTS_H
 
 #include <QMainWindow>
-#include "OTModules/OTGeneric/wsettings.h"
+#include "OTModules/OTGeneric/wpreferences.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wfeedback.h"
@@ -43,7 +43,7 @@ private slots:
 
     void resizeEvent(QResizeEvent *event);
 
-    void on_actionSettings_triggered();
+    void on_actionPreferences_triggered();
 
     void on_actionNewChar_triggered();
 
@@ -146,7 +146,7 @@ signals:
 
 private:
     Ui::wFonts *ui;
-    wSettings *WSETTINGS;
+    wPreferences *WPREFERENCES;
     OTMessage msg;
     OTSettings set;
     OTMiscellaneous misc;

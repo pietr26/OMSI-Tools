@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QtConcurrent>
-#include "OTModules/OTGeneric/wsettings.h"
+#include "OTModules/OTGeneric/wpreferences.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wfeedback.h"
@@ -35,7 +35,7 @@ private slots:
 
     void on_actionClose_triggered();
 
-    void on_actionSettings_triggered();
+    void on_actionPreferences_triggered();
 
     void on_actionSendFeedback_triggered();
 
@@ -57,7 +57,7 @@ private:
     OTMessage msg;
     OTOMSIFileHandler filehandler;
     OTMiscellaneous misc;
-    wSettings *WSETTINGS;
+    wPreferences *WPREFERENCES;
 };
 
 #endif // WCLEANUP_H

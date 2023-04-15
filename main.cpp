@@ -57,11 +57,11 @@ int main(int argc, char *argv[])
             OTLogger::logging = true;
         }
 
-        // Print all settings to the logfile
-        qDebug().noquote() << "Settings" + set.getAllSettings() + "\n================================================\n";
+        // Print all prefs to the logfile
+        qDebug().noquote() << "Preferences" + set.getAllPreferences() + "\n================================================\n";
 
 
-        set.setDefaultSettings();
+        set.setDefaultPreferences();
 
         qInfo().noquote() << "Starting " + OTInformation::name + "...";
 

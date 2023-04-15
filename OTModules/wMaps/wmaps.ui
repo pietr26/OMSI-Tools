@@ -60,7 +60,7 @@
     <property name="title">
      <string>Specials</string>
     </property>
-    <addaction name="actionSettings"/>
+    <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -73,13 +73,16 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionSettings">
+  <action name="actionPreferences">
    <property name="icon">
     <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
+     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Settings</string>
+    <string>Preferences</string>
+   </property>
+   <property name="toolTip">
+    <string>Preferences</string>
    </property>
   </action>
   <action name="actionBackToHome">

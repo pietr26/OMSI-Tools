@@ -13,7 +13,7 @@ wDBCopyrights::wDBCopyrights(QWidget *parent) :
 
     setWindowTitle(OTInformation::name + " - argument panel");
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     // Setup database
@@ -37,14 +37,14 @@ wDBCopyrights::~wDBCopyrights()
     delete ui;
 }
 
-void wDBCopyrights::on_tvwPathSettings_activated(const QModelIndex &index)
+void wDBCopyrights::on_tvwPathPreferences_activated(const QModelIndex &index)
 {
     Q_UNUSED(index);
 
-    int ID = ui->tvwPathSettings->selectionModel()->selectedRows().at(0).data().toInt();
-    QString path = ui->tvwPathSettings->selectionModel()->selectedRows(1).at(0).data().toString();
-    QString argumentIDs = ui->tvwPathSettings->selectionModel()->selectedRows(2).at(0).data().toString();
-    int redirect = ui->tvwPathSettings->selectionModel()->selectedRows(3).at(0).data().toInt();
+    int ID = ui->tvwPathPreferences->selectionModel()->selectedRows().at(0).data().toInt();
+    QString path = ui->tvwPathPreferences->selectionModel()->selectedRows(1).at(0).data().toString();
+    QString argumentIDs = ui->tvwPathPreferences->selectionModel()->selectedRows(2).at(0).data().toString();
+    int redirect = ui->tvwPathPreferences->selectionModel()->selectedRows(3).at(0).data().toInt();
 
     wAddPath *addPath = new wAddPath(false, this, ID, path, argumentIDs, redirect);
     addPath->show();
@@ -63,7 +63,7 @@ void wDBCopyrights::on_tvwCopyrightTerms_activated(const QModelIndex &index)
     connect(addTerm, &wAddTerm::dialogFinished, this, &wDBCopyrights::addTermFinished);
 }
 
-void wDBCopyrights::on_btnPathSettingsAdd_clicked()
+void wDBCopyrights::on_btnPathPreferencesAdd_clicked()
 {
     wAddPath *addPath = new wAddPath(true, this);
     addPath->show();
@@ -71,9 +71,9 @@ void wDBCopyrights::on_btnPathSettingsAdd_clicked()
 }
 
 
-void wDBCopyrights::on_btnPathSettingsRemove_clicked()
+void wDBCopyrights::on_btnPathPreferencesRemove_clicked()
 {
-    QItemSelectionModel *model = ui->tvwPathSettings->selectionModel();
+    QItemSelectionModel *model = ui->tvwPathPreferences->selectionModel();
 
     if (model->hasSelection())
     {
@@ -160,10 +160,10 @@ void wDBCopyrights::updateView()
     QSqlQueryModel *pathModel = new QSqlQueryModel();
     dbHandler.openDB();
     pathModel->setQuery(dbHandler.doAction("SELECT * FROM paths"));
-    ui->tvwPathSettings->setModel(pathModel);
+    ui->tvwPathPreferences->setModel(pathModel);
     dbHandler.closeDB();
 
-    ui->tvwPathSettings->resizeColumnsToContents();
+    ui->tvwPathPreferences->resizeColumnsToContents();
 }
 
 void wDBCopyrights::on_btnCreateBackup_clicked()

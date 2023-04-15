@@ -15,13 +15,7 @@ wFonts::wFonts(QWidget *parent) :
 
     setWindowTitle(OTInformation::name + " - " + tr("font creation"));
 
-    // Set default settings
-    if (!set.read(objectName(), "texPreview").isValid())
-        set.write(objectName(), "texPreview", 1);
-    // ---
-
     ui->actionKeepPixelRowForNewCharacter->setChecked(set.read(objectName(), "keepPixelRow").toBool());
-
     loadRecentFiles();
 
     // Set timer for autosave
@@ -56,7 +50,7 @@ wFonts::wFonts(QWidget *parent) :
     ui->twgFont->setCurrentIndex(0);
     ui->gbxSearchChar->setVisible(false);
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     setUnsaved(false);
@@ -181,7 +175,7 @@ void wFonts::enableView(bool status)
     centralWidget()->setEnabled(status);
 }
 
-/// Loads recent files from settings
+/// Loads recent files from prefs
 void wFonts::loadRecentFiles()
 {
     qDebug() << "Read recent files...";
@@ -233,7 +227,7 @@ void wFonts::loadRecentFiles()
         ui->menuRecentlyOpenedFonts->setEnabled(false);
 }
 
-/// Saves recent files to settings
+/// Saves recent files to prefs
 void wFonts::saveRecentFiles(QString absoluteNewFilePath)
 {
     qDebug() << "Save recent files...";
@@ -826,12 +820,12 @@ void wFonts::on_actionDeleteSelection_triggered()
     setUnsaved();
 }
 
-/// Shows the settings
-void wFonts::on_actionSettings_triggered()
+/// Shows the prefs
+void wFonts::on_actionPreferences_triggered()
 {
-    WSETTINGS = new wSettings(this);
-    WSETTINGS->setWindowModality(Qt::ApplicationModal);
-    WSETTINGS->show();
+    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
 }
 
 /// Moves char up

@@ -1,9 +1,9 @@
-#include "wsettings.h"
-#include "ui_wsettings.h"
+#include "wpreferences.h"
+#include "ui_wpreferences.h"
 
-wSettings::wSettings(QWidget *parent, QString openDirect) :
+wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     QMainWindow(parent),
-    ui(new Ui::wSettings)
+    ui(new Ui::wPreferences)
 {
     qInfo().noquote() << "Starting " + objectName() + "...";
 
@@ -12,9 +12,9 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     resize(misc.sizeWindow(0.3, 0.4));
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - " + tr("settings"));
+    setWindowTitle(OTInformation::name + " - " + tr("preferences"));
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     timer = new QTimer(this);
@@ -97,7 +97,7 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
 
     setUnsaved(false);
 
-    ui->twgSettings->setTabVisible(4, false);
+    ui->twgPreferences->setTabVisible(4, false);
 
     // Open direct modes:
     // Main directory selection
@@ -106,11 +106,11 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
         on_btnOmsiPath_clicked();
         QTimer::singleShot(0, this, SLOT(close()));
     }
-    // wVerifyMap settings
+    // wVerifyMap prefs
     else if (openDirect == "wVerifyMap")
     {
-        ui->twgSettings->setTabVisible(4, true);
-        ui->twgSettings->setCurrentIndex(4);
+        ui->twgPreferences->setTabVisible(4, true);
+        ui->twgPreferences->setCurrentIndex(4);
         qApp->processEvents();
 
         QFont bold;
@@ -133,39 +133,39 @@ wSettings::wSettings(QWidget *parent, QString openDirect) :
     qInfo().noquote() << objectName() + " started";
 }
 
-wSettings::~wSettings()
+wPreferences::~wPreferences()
 {
     delete ui;
 }
 
-void wSettings::closeEvent(QCloseEvent *event)
+void wPreferences::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
 }
 
 /// Sets unsaved
-void wSettings::setUnsaved(bool visible)
+void wPreferences::setUnsaved(bool visible)
 {
     if (visible)
-        ui->statusbar->showMessage(tr("Restart to apply all settings."));
+        ui->statusbar->showMessage(tr("Restart to apply all preferences."));
     else
         ui->statusbar->showMessage("", 10);
 }
 
 /// Refreshes disk usage for backup folder
-void wSettings::refreshDiskUsage()
+void wPreferences::refreshDiskUsage()
 {
     ui->lblDiskUsageSize->setText(dUs.formatSize("backup"));
 }
 
 /// Closes the application
-void wSettings::on_btnClose_clicked()
+void wPreferences::on_btnClose_clicked()
 {
     close();
 }
 
 /// Deletes the backup folder
-void wSettings::on_btnDeleteAllBackups_clicked()
+void wPreferences::on_btnDeleteAllBackups_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Delete all backups"), tr("Should all backups be deleted? They will be moved to the recycle bin."));
 
@@ -179,7 +179,7 @@ void wSettings::on_btnDeleteAllBackups_clicked()
 }
 
 /// Opens the backup folder
-void wSettings::on_btnOpenBackupFolder_clicked()
+void wPreferences::on_btnOpenBackupFolder_clicked()
 {
     QDir().mkdir("backup");
     QString path = QFileInfo("./backup").absolutePath();
@@ -189,7 +189,7 @@ void wSettings::on_btnOpenBackupFolder_clicked()
 }
 
 /// Saves and restarts the application
-void wSettings::on_btnRestart_clicked()
+void wPreferences::on_btnRestart_clicked()
 {
 //    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Restart now?"), tr("Should the application be restarted now? Any unsaved content will be discarded."));
 
@@ -198,7 +198,7 @@ void wSettings::on_btnRestart_clicked()
 }
 
 /// Checks for updates
-void wSettings::on_btnCheckForUpdates_clicked()
+void wPreferences::on_btnCheckForUpdates_clicked()
 {
     QStringList update = misc.getUpdateInformation();
 
@@ -214,26 +214,26 @@ void wSettings::on_btnCheckForUpdates_clicked()
     }
 }
 
-/// Resets the settings
-void wSettings::on_btnResetSettings_clicked()
+/// Resets the prefs
+void wPreferences::on_btnResetPreferences_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Reset settings"), tr("Should all settings be reset? This action cannot be undone! Any settings will be deleted. However, files such as backups are not affected."), QMessageBox::Reset | QMessageBox::Cancel);
+    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Reset preferences"), tr("Should all preferences be reset? This action cannot be undone! Any preferences will be deleted. However, files such as backups are not affected."), QMessageBox::Reset | QMessageBox::Cancel);
     if (reply == QMessageBox::Reset)
     {
         set.removeAll();
-        QMessageBox::information(this, tr("Reset settings"), tr("The programm will now restart."));
+        QMessageBox::information(this, tr("Reset preferences"), tr("The application will now restart."));
         misc.restart();
     }
 }
 
 /// Creates a desktop shortcut
-void wSettings::on_btnCreateDesktopShortcut_clicked()
+void wPreferences::on_btnCreateDesktopShortcut_clicked()
 {
     fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/%1.lnk").arg(OTInformation::name), this);
 }
 
 /// Saves the language
-void wSettings::on_cobxLanguage_currentIndexChanged(int index)
+void wPreferences::on_cobxLanguage_currentIndexChanged(int index)
 {
     if (setupFinished)
     {
@@ -243,7 +243,7 @@ void wSettings::on_cobxLanguage_currentIndexChanged(int index)
 }
 
 /// Sets OMSI path
-void wSettings::on_btnOmsiPath_clicked()
+void wPreferences::on_btnOmsiPath_clicked()
 {
     QString mainDir = set.getOmsiPath(this, true, ui->ledOmsiPath->text());
     ui->ledOmsiPath->setText(mainDir);
@@ -252,7 +252,7 @@ void wSettings::on_btnOmsiPath_clicked()
 }
 
 /// Saves the autosave duration
-void wSettings::on_sbxAutosaveDuration_valueChanged(int arg1)
+void wPreferences::on_sbxAutosaveDuration_valueChanged(int arg1)
 {
     if (setupFinished)
     {
@@ -262,7 +262,7 @@ void wSettings::on_sbxAutosaveDuration_valueChanged(int arg1)
 }
 
 /// Saves the author's name
-void wSettings::on_ledAuthor_textChanged(const QString &arg1)
+void wPreferences::on_ledAuthor_textChanged(const QString &arg1)
 {
     if (setupFinished)
     {
@@ -272,29 +272,29 @@ void wSettings::on_ledAuthor_textChanged(const QString &arg1)
 }
 
 /// Turns backup on / off
-void wSettings::on_cbxBackupEnabled_clicked(bool checked)
+void wPreferences::on_cbxBackupEnabled_clicked(bool checked)
 {
     set.write("main", "autosave", checked);
     setUnsaved(true);
 }
 
 /// Opens the logfile path in explorer
-void wSettings::on_btnOpenLogfilePath_clicked()
+void wPreferences::on_btnOpenLogfilePath_clicked()
 {
     fop.showInExplorer(qApp->applicationDirPath() + "/logfile.txt");
 }
 
 /// Shows a promotion to apply to a translator
-void wSettings::on_btnMoreLanguages_clicked()
+void wPreferences::on_btnMoreLanguages_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::information(this, tr("More languages"), tr("You want to have more languages to choose from?\nUnfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.").arg(OTInformation::name), QMessageBox::Open | QMessageBox::Close);
+    QMessageBox::StandardButton reply = QMessageBox::information(this, tr("More languages"), tr("You want to have more languages to choose from?\nUnfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.").arg(OTInformation::name), QMessageBox::Open | QMessageBox::Cancel);
 
     if (reply == QMessageBox::Open)
         QDesktopServices::openUrl(OTLinks::showroom);
 }
 
 /// Saves the update check
-void wSettings::on_cobxAutoUpdateCheck_currentIndexChanged(int index)
+void wPreferences::on_cobxAutoUpdateCheck_currentIndexChanged(int index)
 {
     if (setupFinished)
     {
@@ -304,7 +304,7 @@ void wSettings::on_cobxAutoUpdateCheck_currentIndexChanged(int index)
 }
 
 /// Saves the logfile mode
-void wSettings::on_cobxLogfileMode_currentIndexChanged(int index)
+void wPreferences::on_cobxLogfileMode_currentIndexChanged(int index)
 {
     if (setupFinished)
     {
@@ -324,7 +324,7 @@ void wSettings::on_cobxLogfileMode_currentIndexChanged(int index)
 }
 
 /// Reloads theme preview
-void wSettings::reloadThemePreview()
+void wPreferences::reloadThemePreview()
 {
     if (!set.read("main\\themeData", "Main").toString().isEmpty())
         ui->lblThemeMain->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Main").toString()));
@@ -370,7 +370,7 @@ void wSettings::reloadThemePreview()
 }
 
 /// Opens color dialog for main color
-void wSettings::on_btnThemeMain_clicked()
+void wPreferences::on_btnThemeMain_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Main").toString()), this, tr("Select main color")).name();
     set.write("main\\themeData", "Main", hex);
@@ -378,7 +378,7 @@ void wSettings::on_btnThemeMain_clicked()
 }
 
 /// Opens color dialog for Main (simple contrast) color
-void wSettings::on_btnThemeMainSC_clicked()
+void wPreferences::on_btnThemeMainSC_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "MainSC").toString()), this, tr("Select border color")).name();
     set.write("main\\themeData", "MainSC", hex);
@@ -387,7 +387,7 @@ void wSettings::on_btnThemeMainSC_clicked()
 }
 
 /// Opens color dialog for disables color
-void wSettings::on_btnThemeDis_clicked()
+void wPreferences::on_btnThemeDis_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Dis").toString()), this, tr("Select disabled color")).name();
     set.write("main\\themeData", "Dis", hex);
@@ -396,7 +396,7 @@ void wSettings::on_btnThemeDis_clicked()
 }
 
 /// Opens color dialog for disables (darker) color
-void wSettings::on_btnThemeDisD_clicked()
+void wPreferences::on_btnThemeDisD_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "DisD").toString()), this, tr("Select disabled background color")).name();
     set.write("main\\themeData", "DisD", hex);
@@ -404,7 +404,7 @@ void wSettings::on_btnThemeDisD_clicked()
 }
 
 /// Opens color dialog for accent 1 color
-void wSettings::on_btnThemeAcc1_clicked()
+void wPreferences::on_btnThemeAcc1_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc1").toString()), this, tr("Select accent color")).name();
     set.write("main\\themeData", "Acc1", hex);
@@ -413,7 +413,7 @@ void wSettings::on_btnThemeAcc1_clicked()
 }
 
 /// Opens color dialog for accent 2 color
-void wSettings::on_btnThemeAcc2_clicked()
+void wPreferences::on_btnThemeAcc2_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc2").toString()), this, tr("Select main accent color")).name();
     set.write("main\\themeData", "Acc2", hex);
@@ -421,7 +421,7 @@ void wSettings::on_btnThemeAcc2_clicked()
 }
 
 /// Opens color dialog for accent 3 color
-void wSettings::on_btnThemeAcc3_clicked()
+void wPreferences::on_btnThemeAcc3_clicked()
 {
     QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc3").toString()), this, tr("Select font color")).name();
     set.write("main\\themeData", "Acc3", hex);
@@ -429,7 +429,7 @@ void wSettings::on_btnThemeAcc3_clicked()
 }
 
 /// Opens color dialog for button color
-void wSettings::on_btnThemeButton_clicked()
+void wPreferences::on_btnThemeButton_clicked()
 {
     QString hex = QColorDialog::getColor(set.read("main\\themeData", "Button").toString(), this, tr("Select button color")).name();
     set.write("main\\themeData", "Button", hex);
@@ -437,7 +437,7 @@ void wSettings::on_btnThemeButton_clicked()
 }
 
 /// Loads a default theme
-void wSettings::on_btnLoadTheme_clicked()
+void wPreferences::on_btnLoadTheme_clicked()
 {
     set.setDefaultTheme(ui->cobxTheme->currentIndex());
     reloadThemePreview();
@@ -449,15 +449,15 @@ void wSettings::on_btnLoadTheme_clicked()
 }
 
 /// Opens help dialog
-void wSettings::on_actionSendFeedback_triggered()
+void wPreferences::on_actionSendFeedback_triggered()
 {
-    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::settings);
+    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::preferences);
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }
 
 /// Saves advanced verifying setting
-void wSettings::on_cbxAdvancedVerifying_stateChanged(int arg1)
+void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1)
 {
     if (arg1 == 2)
     {
@@ -472,7 +472,7 @@ void wSettings::on_cbxAdvancedVerifying_stateChanged(int arg1)
 }
 
 /// Saves only map textures setting
-void wSettings::on_cbxOnlyMapTextures_stateChanged(int arg1)
+void wPreferences::on_cbxOnlyMapTextures_stateChanged(int arg1)
 {
     if (arg1 == 2)
         set.write("wVerifyMap", "onlyMapTextures", true);

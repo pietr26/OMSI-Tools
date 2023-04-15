@@ -14,13 +14,6 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     setWindowTitle(OTInformation::name + " - " + tr("map verify"));
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
 
-    // Set default settings
-    if (!set.read(objectName(), "advVerifying").isValid())
-        set.write(objectName(), "advVerifying", false);
-
-    if (!set.read(objectName(), "onlyMapTextures").isValid())
-        set.write(objectName(), "onlyMapTextures", false);
-
     loadMapList();
     on_cobxMapName_currentIndexChanged(ui->cobxMapName->currentIndex());
 
@@ -32,7 +25,7 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     ui->hlaVehicles->insertWidget(1, new verifyMapTools(ui->lwgVehiclesAll, ui->lwgVehiclesMissing, this));
     ui->hlaHumans->insertWidget(1, new verifyMapTools(ui->lwgHumansAll, ui->lwgHumansMissing, this));
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     // Hide detail buttons
@@ -277,7 +270,7 @@ void wVerifyMap::startEndWatchProgress(bool state)
 void wVerifyMap::enableView(bool enable)
 {
     ui->btnStartVerifying->setEnabled(enable);
-    ui->btnVerificationSettings->setEnabled(enable);
+    ui->btnVerificationPreferences->setEnabled(enable);
     ui->cobxMapName->setEnabled(enable);
     ui->btnReloadMaps->setEnabled(enable);
 
@@ -497,19 +490,19 @@ void wVerifyMap::on_actionClose_triggered()
     QApplication::quit();
 }
 
-/// Opens the settings
-void wVerifyMap::on_actionSettings_triggered()
+/// Opens the prefs
+void wVerifyMap::on_actionPreferences_triggered()
 {
-    WSETTINGS = new wSettings(this);
-    WSETTINGS->show();
+    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES->show();
 }
 
-/// Shows the verification settings
-void wVerifyMap::on_btnVerificationSettings_clicked()
+/// Shows the verification prefs
+void wVerifyMap::on_btnVerificationPreferences_clicked()
 {
-    WSETTINGS = new wSettings(this, "wVerifyMap");
-    WSETTINGS->setWindowModality(Qt::ApplicationModal);
-    WSETTINGS->show();
+    WPREFERENCES = new wPreferences(this, "wVerifyMap");
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
 }
 
 /// Loads map list

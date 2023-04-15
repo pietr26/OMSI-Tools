@@ -111,7 +111,7 @@
           <property name="childrenCollapsible">
            <bool>true</bool>
           </property>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout">
@@ -365,7 +365,7 @@
      <string>Specials</string>
     </property>
     <addaction name="actionSuggestFiles"/>
-    <addaction name="actionSettings"/>
+    <addaction name="actionPreferences"/>
     <addaction name="actionAddExamples"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -403,13 +403,16 @@
     <string notr="true">Ctrl+Q</string>
    </property>
   </action>
-  <action name="actionSettings">
+  <action name="actionPreferences">
    <property name="icon">
     <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
+     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Settings</string>
+    <string>Preferences</string>
+   </property>
+   <property name="toolTip">
+    <string>Preferences</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+E</string>
