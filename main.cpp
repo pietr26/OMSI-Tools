@@ -7,9 +7,7 @@
 #include <QFile>
 #include "OTBackend/OTLogger.h"
 #include "OTBackend/OTStyleDraw.h"
-#include "OTBackend/discordRPC.h"
 
-OTDiscordRP* discordR;
 /// Test area for anything
 void testArea()
 {

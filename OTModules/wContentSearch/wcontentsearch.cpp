@@ -109,7 +109,7 @@ void wContentSearch::on_btnSearch_clicked()
 /// Removes current selection from user's input
 void wContentSearch::on_actionRemoveSelection_triggered()
 {
-    if ((ui->lwgUserSearch->selectedItems().size() != 0) && msg.confirmDeletion(this))
+    if ((ui->lwgUserSearch->selectedItems().size() != 0))
     {
         qDeleteAll(ui->lwgUserSearch->selectedItems());
         qDebug() << "Deleted selected files.";
