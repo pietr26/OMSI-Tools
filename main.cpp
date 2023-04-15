@@ -7,10 +7,13 @@
 #include <QFile>
 #include "OTBackend/OTLogger.h"
 #include "OTBackend/OTStyleDraw.h"
+#include "OTBackend/discordRPC.h"
 
 /// Test area for anything
 void testArea()
 {
+    OTDiscordRPC rpc;
+    rpc.updateActivity();
     //discordR->updateActivity("Starten...", "Wartet", "Es geht endlich");
 }
 
