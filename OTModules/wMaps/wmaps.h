@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
-#include "OTModules/OTGeneric/wsettings.h"
+#include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 
 namespace Ui {
@@ -23,7 +23,7 @@ signals:
     void backToHome();
 
 private slots:
-    void on_actionSettings_triggered();
+    void on_actionPreferences_triggered();
 
     void on_actionBackToHome_triggered();
 
@@ -40,7 +40,7 @@ private:
     OTSettings set;
     OTMiscellaneous misc;
     OTOMSIFileHandler filehandler;
-    wSettings *WSETTINGS;
+    wPreferences *WPREFERENCES;
 
     QList<QPair<QString, QString>> mapList;
 

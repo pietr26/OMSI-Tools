@@ -13,7 +13,7 @@ wAddPath::wAddPath(bool isNewEntry, QWidget *parent, int ID, QString path, QStri
 
     setWindowTitle("Add / edit path");
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     dbHandler.dbPath = dbPath;

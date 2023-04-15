@@ -22,9 +22,9 @@ public:
 
 private slots:
 
-    void on_btnPathSettingsAdd_clicked();
+    void on_btnPathPreferencesAdd_clicked();
 
-    void on_btnPathSettingsRemove_clicked();
+    void on_btnPathPreferencesRemove_clicked();
 
     void on_btnCopyrightTermsAdd_clicked();
 
@@ -32,7 +32,7 @@ private slots:
 
     void on_tvwCopyrightTerms_activated(const QModelIndex &index);
 
-    void on_tvwPathSettings_activated(const QModelIndex &index);
+    void on_tvwPathPreferences_activated(const QModelIndex &index);
 
     void on_btnCreateBackup_clicked();
 

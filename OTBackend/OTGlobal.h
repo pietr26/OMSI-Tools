@@ -157,7 +157,7 @@ public:
         inline static const QUrl cleanup = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Cleaner");
         inline static const QUrl contentSearch = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Content_search");
         inline static const QUrl verifyMap = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Map_verification");
-        inline static const QUrl settings = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Settings");
+        inline static const QUrl preferences = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Preferences");
         inline static const QUrl maps = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Map_editing");
     };
 };
@@ -491,24 +491,24 @@ private:
     OTMiscellaneous misc;
 };
 
-/// Settings reader, writer etc.
+/// Setting reader, writer etc.
 class OTSettings
 {
 public:
     /// Writes a setting
     void write(QString module, QString name, QVariant value)
     {
-        QSettings settings(OTInformation::name, module);
-        settings.setValue(name, value);
-        qDebug().noquote().nospace() << "Write settings to " << module << ": "<< name << ", value: " << value;
+        QSettings preferences(OTInformation::name, module);
+        preferences.setValue(name, value);
+        qDebug().noquote().nospace() << "Write pref to " << module << ": "<< name << ", value: " << value;
     }
 
     /// Reads a setting
     QVariant read(QString module, QString name, bool getInterpretedData = true, bool logging = true)
     {
-        QSettings settings(OTInformation::name, module);
-        QVariant value = settings.value(name);
-        if (logging) qDebug().noquote().nospace() << "Read settings from " << module << ": "<< name << ", value: " << value;
+        QSettings preferences(OTInformation::name, module);
+        QVariant value = preferences.value(name);
+        if (logging) qDebug().noquote().nospace() << "Read pref from " << module << ": "<< name << ", value: " << value;
 
         if (getInterpretedData && (name == "theme"))
             return getStyleSheet();
@@ -629,8 +629,8 @@ public:
         return mainDir;
     }
 
-    /// Gets all settings keys and its values
-    QString getAllSettings()
+    /// Gets all prefs keys and its values
+    QString getAllPreferences()
     {
         QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat);
 
@@ -681,8 +681,8 @@ public:
         }
     }
 
-    /// Sets default needed settings
-    void setDefaultSettings()
+    /// Sets default needed preferences
+    void setDefaultPreferences()
     {
         if (!read("main", "autoUpdateCheck").isValid())
             write("main", "autoUpdateCheck", 2);
@@ -701,6 +701,15 @@ public:
 
         if (!read("wStart", "messagesVisible").isValid())
             write("wStart", "messagesVisible", true);
+
+        if (!read("wVerifyMap", "advVerifying").isValid())
+            write("wVerifyMap", "advVerifying", false);
+
+        if (!read("wVerifyMap", "onlyMapTextures").isValid())
+            write("wVerifyMap", "onlyMapTextures", false);
+
+        if (!read("wFonts", "texPreview").isValid())
+            write("wFonts", "texPreview", 1);
     }
 
     QString getCurrentLanguageCode()
@@ -928,10 +937,10 @@ public:
         // Link HTML: <a style='color: lightblue' href='LINK'>TEXT</a>
         QPair<QString, unsigned int>(QObject::tr("The source code of %1 is about %2 lines long.").arg(OTInformation::name, OTInformation::sourceCodeLength), 8000),
         QPair<QString, unsigned int>(QObject::tr("%1 was born from a simple console application called \"Font Creator\".").arg(OTInformation::name), 10000),
-        QPair<QString, unsigned int>(QObject::tr("With the updater of %1 you can install updates with one click. It is available through the settings.").arg(OTInformation::name), 13000),
-        QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.").arg(OTInformation::name, OTLinks::wiki::general.toString()), 11000),
+        QPair<QString, unsigned int>(QObject::tr("With the updater of %1 you can install updates with one click. It is available through the preferences.").arg(OTInformation::name), 13000),
+        QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.", "Copy whole source text to prevent translations faults in HTML code").arg(OTInformation::name, OTLinks::wiki::general.toString()), 11000),
         //QPair<QString, unsigned int>(QObject::tr("You have started %1 already %2 times.").arg(OTInformation::name, OTSettings::read("main", "startCount").toString()), 7000),
-        QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.").arg(OTLinks::showroom.toString()), 11000),
+        QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.", "Copy whole source text to prevent translations faults in HTML code").arg(OTLinks::showroom.toString()), 11000),
         QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTInformation::name), 10000)
         };
     }

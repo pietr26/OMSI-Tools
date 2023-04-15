@@ -15,7 +15,7 @@ wDBPanel::wDBPanel(QWidget *parent) :
     ui->btnStart->setEnabled(false);
     ui->pgbProgress->setVisible(false);
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     // Set filters

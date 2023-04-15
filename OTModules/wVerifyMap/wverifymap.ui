@@ -57,13 +57,13 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btnVerificationSettings">
+       <widget class="QPushButton" name="btnVerificationPreferences">
         <property name="text">
          <string/>
         </property>
         <property name="icon">
          <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
+          <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
         </property>
         <property name="flat">
          <bool>true</bool>
@@ -1103,7 +1103,7 @@
     </property>
     <addaction name="separator"/>
     <addaction name="actionAdjustWindowSize"/>
-    <addaction name="actionSettings"/>
+    <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -1152,13 +1152,16 @@
     <string notr="true">Ctrl+R</string>
    </property>
   </action>
-  <action name="actionSettings">
+  <action name="actionPreferences">
    <property name="icon">
     <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSettings.svg</normaloff>:/rec/data/icons/iconSettings.svg</iconset>
+     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Settings</string>
+    <string>Preferences</string>
+   </property>
+   <property name="toolTip">
+    <string>Preferences</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+E</string>

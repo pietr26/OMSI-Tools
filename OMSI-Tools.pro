@@ -11,6 +11,7 @@ DEFINES += QT_MESSAGELOGCONTEXT
 SOURCES += \
     OTBackend/OTLogger.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
+    OTModules/OTGeneric/wpreferences.cpp \
     OTModules/OTGeneric/wselectencoding.cpp \
     OTModules/wContentSearch/wDBPanel.cpp \
     OTModules/wContentSearch/waddfiles.cpp \
@@ -38,7 +39,6 @@ SOURCES += \
     OTModules/wVerifyMap/wverifymap.cpp \
     OTModules/OTGeneric/wabout.cpp \
     OTModules/OTGeneric/wreleasenotes.cpp \
-    OTModules/OTGeneric/wsettings.cpp \
     OTModules/OTGeneric/wstart.cpp \
     OTModules/OTGeneric/wstartupscreen.cpp
 
@@ -52,6 +52,7 @@ HEADERS += \
     OTBackend/OTOmsiFileHandler_models.h \
     OTBackend/OTStyleDraw.h \
     OTModules/OTGeneric/wfeedback.h \
+    OTModules/OTGeneric/wpreferences.h \
     OTModules/OTGeneric/wselectencoding.h \
     OTModules/wContentSearch/wDBPanel.h \
     OTModules/wContentSearch/waddfiles.h \
@@ -79,12 +80,12 @@ HEADERS += \
     OTWidgets/verifymaptools.h \
     OTModules/OTGeneric/wabout.h \
     OTModules/OTGeneric/wreleasenotes.h \
-    OTModules/OTGeneric/wsettings.h \
     OTModules/OTGeneric/wstart.h \
     OTModules/OTGeneric/wstartupscreen.h
 
 FORMS += \
     OTModules/OTGeneric/wfeedback.ui \
+    OTModules/OTGeneric/wpreferences.ui \
     OTModules/OTGeneric/wselectencoding.ui \
     OTModules/wContentSearch/wDBPanel.ui \
     OTModules/wContentSearch/waddfiles.ui \
@@ -111,7 +112,6 @@ FORMS += \
     OTWidgets/verifymaptools.ui \
     OTModules/OTGeneric/wabout.ui \
     OTModules/OTGeneric/wreleasenotes.ui \
-    OTModules/OTGeneric/wsettings.ui \
     OTModules/OTGeneric/wstart.ui \
     OTModules/OTGeneric/wstartupscreen.ui
 

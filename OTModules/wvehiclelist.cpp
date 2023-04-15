@@ -18,7 +18,7 @@ wVehicleList::wVehicleList(QWidget *parent) :
 
     setWindowTitle(OTInformation::name + " - " + tr("vehicle lists"));
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     qInfo().noquote() << objectName() + " started";
@@ -29,12 +29,12 @@ wVehicleList::~wVehicleList()
     delete ui;
 }
 
-/// Opens the settings
-void wVehicleList::on_actionSettings_triggered()
+/// Opens the prefs
+void wVehicleList::on_actionPreferences_triggered()
 {
-    WSETTINGS = new wSettings(this);
-    WSETTINGS->setWindowModality(Qt::ApplicationModal);
-    WSETTINGS->show();
+    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
 }
 
 /// Closes the window

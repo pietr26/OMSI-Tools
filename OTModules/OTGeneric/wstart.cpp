@@ -12,7 +12,7 @@ wStart::wStart(QWidget *parent)
     ui->setupUi(this);
     qDebug() << "UI set";
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     setWindowTitle(OTInformation::name + " " + OTInformation::versions::currentVersion.first);
@@ -196,12 +196,12 @@ void wStart::on_lwgMessages_itemDoubleClicked(QListWidgetItem *item)
     msg->showDescription();
 }
 
-/// Opens the settings
-void wStart::on_actionSettings_triggered()
+/// Opens the prefs
+void wStart::on_actionPreferences_triggered()
 {
-    WSETTINGS = new wSettings(this);
-    WSETTINGS->setWindowModality(Qt::ApplicationModal);
-    WSETTINGS->show();
+    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
 }
 
 /// Shows the about message
@@ -373,17 +373,6 @@ void wStart::on_tbnFonts_clicked()
     close();
 }
 
-void wStart::on_tbnMapVerification_triggered(QAction *arg1)
-{
-    if (!checkMainDir())
-        return;
-
-    WVERIFYMAP = new wVerifyMap();
-    connect(WVERIFYMAP, &wVerifyMap::backToHome, this, &wStart::reopen);
-    WVERIFYMAP->show();
-    close();
-}
-
 void wStart::on_tbnContentSearch_clicked()
 {
     WCONTENTSEARCH = new wContentSearch();
@@ -423,3 +412,15 @@ void wStart::on_tbnMaps_clicked()
     WMAPS->show();
     close();
 }
+
+void wStart::on_tbnMapVerification_clicked()
+{
+    if (!checkMainDir())
+        return;
+
+    WVERIFYMAP = new wVerifyMap();
+    connect(WVERIFYMAP, &wVerifyMap::backToHome, this, &wStart::reopen);
+    WVERIFYMAP->show();
+    close();
+}
+

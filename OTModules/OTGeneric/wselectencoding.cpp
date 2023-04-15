@@ -14,7 +14,7 @@ wSelectEncoding::wSelectEncoding(QWidget *parent) :
 
     setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main","theme").toString());
     setWindowTitle(tr("Select encoding..."));
 

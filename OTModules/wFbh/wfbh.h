@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "FbhFunctions.h"
 #include "OTBackend/OTGlobal.h"
-#include "OTModules/OTGeneric/wsettings.h"
+#include "OTModules/OTGeneric/wpreferences.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -52,11 +52,11 @@ private slots:
 
     void on_btnFSelectAll_clicked();
 
-    void on_actionSettings_triggered();
+    void on_actionPreferences_triggered();
 
 private:
     Ui::wFbh *ui;
-    wSettings *WSETTINGS;
+    wPreferences *WPREFERENCES;
     OTSettings set;
     OTMiscellaneous misc;
     reasons r;

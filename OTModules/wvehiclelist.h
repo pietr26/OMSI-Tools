@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTDatabaseHandler.h"
-#include "OTModules/OTGeneric/wsettings.h"
+#include "OTModules/OTGeneric/wpreferences.h"
 #include <QtSql>
 #include <QInputDialog>
 
@@ -26,7 +26,7 @@ public:
     ~wVehicleList();
 
 private slots:
-    void on_actionSettings_triggered();
+    void on_actionPreferences_triggered();
 
     void on_actionClose_triggered();
 
@@ -37,7 +37,7 @@ private slots:
 private:
     Ui::wVehicleList *ui;
 
-    wSettings *WSETTINGS;
+    wPreferences *WPREFERENCES;
 
     OTSettings set;
 

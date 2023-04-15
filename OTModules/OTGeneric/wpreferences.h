@@ -1,5 +1,5 @@
-#ifndef WSETTINGS_H
-#define WSETTINGS_H
+#ifndef WPREFERENCES_H
+#define WPREFERENCES_H
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
@@ -10,16 +10,16 @@
 #include <QColorDialog>
 
 namespace Ui {
-class wSettings;
+class wPreferences;
 }
 
-class wSettings : public QMainWindow
+class wPreferences : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit wSettings(QWidget *parent = nullptr, QString openDirect = "");
-    ~wSettings();
+    explicit wPreferences(QWidget *parent = nullptr, QString openDirect = "");
+    ~wPreferences();
 
 private slots:
 
@@ -33,7 +33,7 @@ private slots:
 
     void on_btnCheckForUpdates_clicked();
 
-    void on_btnResetSettings_clicked();
+    void on_btnResetPreferences_clicked();
 
     void on_btnCreateDesktopShortcut_clicked();
 
@@ -84,7 +84,7 @@ private slots:
     void on_cbxOnlyMapTextures_stateChanged(int arg1);
 
 private:
-    Ui::wSettings *ui;
+    Ui::wPreferences *ui;
     OTSettings set;
     OTMessage msg;
     OTMiscellaneous misc;
@@ -102,4 +102,4 @@ private:
     void reloadThemePreview();
 };
 
-#endif // WSETTINGS_H
+#endif // WPREFERENCES_H

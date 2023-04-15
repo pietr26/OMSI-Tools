@@ -54,9 +54,9 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="QGroupBox" name="gbxPathSettings">
+      <widget class="QGroupBox" name="gbxPathPreferences">
        <property name="title">
-        <string notr="true">Path settings</string>
+        <string notr="true">Path options</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
@@ -75,7 +75,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="btnPathSettingsAdd">
+           <widget class="QPushButton" name="btnPathPreferencesAdd">
             <property name="text">
              <string notr="true"/>
             </property>
@@ -86,7 +86,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnPathSettingsRemove">
+           <widget class="QPushButton" name="btnPathPreferencesRemove">
             <property name="text">
              <string notr="true"/>
             </property>
@@ -99,7 +99,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QTableView" name="tvwPathSettings">
+         <widget class="QTableView" name="tvwPathPreferences">
           <property name="sizeAdjustPolicy">
            <enum>QAbstractScrollArea::AdjustIgnored</enum>
           </property>

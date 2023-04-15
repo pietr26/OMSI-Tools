@@ -7,7 +7,7 @@ firstSetup::firstSetup(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Very simple: Copy from wsettings.cpp, wSettings::wSettings():
+    // Very simple: Copy from wpreferences.cpp, wPreferences::wPreferences():
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), OTStrings::langEn);
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), OTStrings::langDe);
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), OTStrings::langFr);
@@ -24,7 +24,7 @@ firstSetup::~firstSetup()
     delete ui;
 }
 
-/// Saves settings and restarts application
+/// Saves prefs and restarts application
 void firstSetup::on_btnContinue_clicked()
 {
     set.write("main", "language", ui->cobxLanguage->currentIndex());

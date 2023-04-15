@@ -15,7 +15,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
 
     setWindowTitle(OTInformation::name + " - " + tr("Content search"));
 
-    // Load settings
+    // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
     if (paths.empty())
@@ -82,10 +82,10 @@ wContentSearch::~wContentSearch()
 }
 
 /// Redirect
-void wContentSearch::on_actionSettings_triggered()
+void wContentSearch::on_actionPreferences_triggered()
 {
-    WSETTINGS = new wSettings(this);
-    WSETTINGS->show();
+    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES->show();
 }
 
 /// Redirect
