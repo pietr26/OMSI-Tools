@@ -44,6 +44,7 @@ wSuggestFiles::wSuggestFiles(QWidget *parent, QString links) :
     }
     else
     {
+        ui->lblNotes->setText(tr("(Optional) Notes:"));
         setWindowTitle(tr("Suggest files for content search"));
         on_pteFiles_textChanged();
     }
@@ -73,7 +74,8 @@ void wSuggestFiles::on_btnRules_clicked()
 
 void wSuggestFiles::on_pteFiles_textChanged()
 {
-    if (!ui->pteFiles->toPlainText().isEmpty() && ui->cbxAcceptRules->isChecked())
+                                                                                     // | If is report, check for 10 char. minimum notes; else not.
+    if (!ui->pteFiles->toPlainText().isEmpty() && ui->cbxAcceptRules->isChecked() && ((isReport) ? (ui->pteNotes->toPlainText().size() >= 10) : true))
         ui->btnSend->setEnabled(true);
     else
         ui->btnSend->setEnabled(false);
@@ -118,6 +120,12 @@ void wSuggestFiles::on_btnSend_clicked()
 void wSuggestFiles::on_cbxAcceptRules_stateChanged(int arg1)
 {
     Q_UNUSED(arg1);
+    on_pteFiles_textChanged();
+}
+
+
+void wSuggestFiles::on_pteNotes_textChanged()
+{
     on_pteFiles_textChanged();
 }
 

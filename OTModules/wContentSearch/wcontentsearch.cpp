@@ -146,6 +146,7 @@ void wContentSearch::on_actionSearch_triggered()
         qApp->processEvents();
 
         QString current = ui->lwgUserSearch->item(i)->text();
+        if (current == "TEST") { linkIDs << "TEST"; continue; }
 
         QSqlQueryModel *model = new QSqlQueryModel();
         model->setQuery(dbHandler.doAction(QString("SELECT linkID FROM paths WHERE path = '%1'").arg(current), true));
@@ -166,8 +167,10 @@ void wContentSearch::on_actionSearch_triggered()
 
     foreach (QString current, linkIDs)
     {
-        if (current == "std")
-            continue;
+        // Remove this if you see it the next time.
+//        if (current == "std")
+//            continue;
+        if (current == "TEST") { links << "TEST"; continue; }
 
         QSqlQueryModel *model = new QSqlQueryModel();
 

@@ -63,7 +63,7 @@
     <item>
      <widget class="QLabel" name="lblNotes">
       <property name="text">
-       <string>Optional: Notes</string>
+       <string>Notes (min. 10 characters):</string>
       </property>
      </widget>
     </item>
