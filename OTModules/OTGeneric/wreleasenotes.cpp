@@ -17,14 +17,21 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
 
     setWindowTitle(OTInformation::name + " - " + tr("release notes"));
 
+    ui->statusbar->addPermanentWidget(ui->lblSelectBranch);
+    ui->statusbar->addPermanentWidget(ui->cbxBranch);
+
+    qApp->processEvents();
     ui->teedReleaseNotes->setText(tr("Loading..."));
+
+    QStringList branches = QString(nc.post(QUrl(OTLinks::versionBranches))).split("\n");
+    branches.removeAll(QString(""));
+    ui->cbxBranch->addItems(branches);
 
     if (!updateAvailable)
     {
         ui->btnUpdateNow->setVisible(false);
         ui->lblNewUpdate->setVisible(false);
         ui->lblNewVersion->setVisible(false);
-        ui->lblCurrentVersion->setVisible(false);
         ui->cbxClearAppDir->setVisible(false);
     }
 
@@ -37,6 +44,7 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
     else
         ui->lblNewVersion->setVisible(false);
 
+    setupFinished = true;
     QTimer::singleShot(0, this, SLOT(downloadReleaseNotes()));
 
     qInfo().noquote() << objectName() + " started";
@@ -48,9 +56,13 @@ wReleaseNotes::~wReleaseNotes()
 }
 
 /// Downloads current release notes
-void wReleaseNotes::downloadReleaseNotes()
+void wReleaseNotes::downloadReleaseNotes(QString version)
 {
-    QString releaseNotes = nc.post(QUrl(OTLinks::releaseNotes.toString() + "&lang=" + set.getCurrentLanguageCode()));
+    ui->teedReleaseNotes->setText(tr("Loading..."));
+
+    if (version == "") version = ui->cbxBranch->currentText();
+
+    QString releaseNotes = nc.post(QUrl(OTLinks::releaseNotes.toString() + "&lang=" + set.getCurrentLanguageCode() + "&version=" + version));
     if (nc.lastSuccess == 1)
         ui->teedReleaseNotes->setHtml(releaseNotes);
     else if (nc.lastSuccess == -2)
@@ -80,3 +92,9 @@ void wReleaseNotes::on_cbxClearAppDir_stateChanged(int arg1)
         ui->lblClearAppDirInfo->setVisible(false);
 }
 
+
+void wReleaseNotes::on_cbxBranch_currentIndexChanged(int index)
+{
+    if (setupFinished)
+        downloadReleaseNotes(ui->cbxBranch->currentText());
+}

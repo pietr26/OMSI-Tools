@@ -143,6 +143,7 @@ public:
 
     inline static const QUrl latestVersion = QUrl("https://backend.omsi-tools.de/api/?ref=currentVersion");
     inline static const QUrl releaseNotes = QUrl("https://backend.omsi-tools.de/api/?ref=releaseNotes");
+    inline static const QUrl versionBranches = QUrl("https://backend.omsi-tools.de/api/?ref=versionBranches");
     inline static const QUrl inAppMessages = QUrl("https://backend.omsi-tools.de/api/?ref=messages");
     inline static const QUrl download = QUrl("https://backend.omsi-tools.de/api/?ref=downloadLink");
     inline static const QUrl csSuggestFiles = QUrl("https://backend.omsi-tools.de/api/csSuggestFiles/");
