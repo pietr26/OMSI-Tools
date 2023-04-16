@@ -95,6 +95,7 @@ void wReleaseNotes::on_cbxClearAppDir_stateChanged(int arg1)
 
 void wReleaseNotes::on_cbxBranch_currentIndexChanged(int index)
 {
+    Q_UNUSED(index);
     if (setupFinished)
         downloadReleaseNotes(ui->cbxBranch->currentText());
 }
