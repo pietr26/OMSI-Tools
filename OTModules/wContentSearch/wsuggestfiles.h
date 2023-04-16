@@ -25,6 +25,8 @@ private slots:
 
     void on_cbxAcceptRules_stateChanged(int arg1);
 
+    void on_pteNotes_textChanged();
+
 private:
     Ui::wSuggestFiles *ui;
 
