@@ -210,9 +210,11 @@ void wDBPanel::on_btnStart_clicked()
 
     while (dirIterator.hasNext())
     {
+        QString next = dirIterator.next();
+        if (next.contains(".map.LM.bmp")) continue;
         ui->pgbProgress->setMaximum(files.size());
         qApp->processEvents();
-        files << QFileInfo(dirIterator.next()).absoluteFilePath().remove(0, cutCount);
+        files << QFileInfo(next).absoluteFilePath().remove(0, cutCount);
     }
 
     qInfo().noquote() << "File counter finished.";
