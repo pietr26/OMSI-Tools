@@ -17,7 +17,7 @@ public:
     ~wReleaseNotes();
 
 private slots:
-    void downloadReleaseNotes();
+    void downloadReleaseNotes(QString version = "");
 
     void on_btnClose_clicked();
 
@@ -25,11 +25,15 @@ private slots:
 
     void on_cbxClearAppDir_stateChanged(int arg1);
 
+    void on_cbxBranch_currentIndexChanged(int index);
+
 private:
     Ui::wReleaseNotes *ui;
     OTSettings set;
     OTNetworkConnection nc;
     OTMiscellaneous misc;
+
+    bool setupFinished = false;
 };
 
 #endif // WRELEASENOTES_H

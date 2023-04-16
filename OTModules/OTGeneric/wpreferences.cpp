@@ -208,6 +208,7 @@ void wPreferences::on_btnCheckForUpdates_clicked()
         QMessageBox::information(this, tr("Finshed"), tr("No updates available."));
     else if (update.at(0) != "false")
     {
+        hide();
         WRELEASENOTES = new wReleaseNotes(this, true, update.at(1));
         WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
         WRELEASENOTES->show();
