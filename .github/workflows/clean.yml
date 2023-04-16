@@ -1,0 +1,2 @@
+- name: Delete Deployment Environment
+  uses: strumwolf/delete-deployment-environment@v2.2.3
