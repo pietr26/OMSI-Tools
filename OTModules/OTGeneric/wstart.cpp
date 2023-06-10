@@ -38,9 +38,16 @@ wStart::wStart(QWidget *parent)
 //    QFuture<QString> future = QtConcurrent::run(dl.doDownload(QUrl(dl.doDownload(OTLinks::download).remove("\t")), QDir().tempPath() + "/OMSI-Tools_update.zip"));
 //    fWatcher->setFuture(future);
 
-    ui->btnSimulateCrash->setVisible(isNoRelease);
-    ui->gbxDevTools->setVisible(isNoRelease);
-    ui->actionSendFeedback->setVisible(isNoRelease);
+    ui->gbxInternals->setVisible(isNoRelease);
+
+    if (set.read("main", "devToolsEnabled").toBool())
+    {
+        QMenu *devTools = new QMenu("DevTools", this);
+        devTools->addAction(ui->actionDashboard);
+        devTools->addAction(ui->actionStyleTest);
+        devTools->addAction(ui->actionApplicationCrashSimulation);
+        ui->menubar->addMenu(devTools);
+    }
 
     if (!QFile("Fbh.unlock").exists())
         ui->gbxFbh->setVisible(false);
@@ -242,14 +249,6 @@ checkMainDir:
     return true;
 }
 
-/// Opens DevTools
-void wStart::on_btnDevTools_clicked()
-{
-    WDEVTOOLS = new wDevTools();
-    WDEVTOOLS->show();
-    close();
-}
-
 /// Opens database panel for content search
 void wStart::on_btnDBPanel_clicked()
 {
@@ -257,15 +256,6 @@ void wStart::on_btnDBPanel_clicked()
     connect(WDBPANEL, &wDBPanel::backToHome, this, &wStart::reopen);
     WDBPANEL->show();
     close();
-}
-
-/// Starts crash simulation
-void wStart::on_btnSimulateCrash_clicked()
-{
-    QMessageBox::StandardButton reply = QMessageBox::question(this, "Application crash simulation", "Press 'Yes' to start to simulate an applicaiton crash.");
-
-    if (reply == QMessageBox::Yes)
-        qFatal("Application crash simulation started by user");
 }
 
 /// Opens bug report module
@@ -288,15 +278,6 @@ void wStart::on_actionReleaseNotes_triggered()
 void wStart::on_actionManual_triggered()
 {
     QDesktopServices::openUrl(QUrl("file:///" + QApplication::applicationDirPath() + "/_docs/OMSI-Tools - Handbuch DE.pdf"));
-}
-
-/// Opens style test
-void wStart::on_btnStyleTest_clicked()
-{
-    WSTYLETEST = new wStyleTest();
-    connect(WSTYLETEST, &wStyleTest::backToHome, this, &wStart::reopen);
-    WSTYLETEST->show();
-    close();
 }
 
 /// Opens link to github repository
@@ -421,6 +402,32 @@ void wStart::on_tbnMapVerification_clicked()
     WVERIFYMAP = new wVerifyMap();
     connect(WVERIFYMAP, &wVerifyMap::backToHome, this, &wStart::reopen);
     WVERIFYMAP->show();
+    close();
+}
+
+/// Opens DevTools
+void wStart::on_actionDashboard_triggered()
+{
+    WDEVTOOLS = new wDevTools();
+    WDEVTOOLS->show();
+    close();
+}
+
+/// Chrash simulation
+void wStart::on_actionApplicationCrashSimulation_triggered()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Application crash simulation", "Press 'Yes' to start to simulate an applicaiton crash.");
+
+    if (reply == QMessageBox::Yes)
+        qFatal("Application crash simulation started by user");
+}
+
+/// Opens Style Test
+void wStart::on_actionStyleTest_triggered()
+{
+    WSTYLETEST = new wStyleTest();
+    connect(WSTYLETEST, &wStyleTest::backToHome, this, &wStart::reopen);
+    WSTYLETEST->show();
     close();
 }
 

@@ -21,6 +21,8 @@ private slots:
 
     void on_btnMore_clicked();
 
+    void on_btnFlowerella_clicked();
+
 private:
     Ui::wAbout *ui;
     OTSettings set;
@@ -30,6 +32,7 @@ private:
     QString appBuild = "Debug";
 #else
     QString appBuild = "Release";
+    int devToolsCount = 0;
 #endif
 };
 

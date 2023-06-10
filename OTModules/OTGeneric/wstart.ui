@@ -458,18 +458,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="btnSimulateCrash">
-      <property name="text">
-       <string notr="true">Application crash simulation</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../../ressources.qrc">
-        <normaloff>:/rec/data/icons/iconCrash.svg</normaloff>:/rec/data/icons/iconCrash.svg</iconset>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="gbxDevTools">
+     <widget class="QGroupBox" name="gbxInternals">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -480,69 +469,33 @@
        <string/>
       </property>
       <property name="title">
-       <string notr="true">DevTools</string>
+       <string notr="true">Internals</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
        <item>
-        <widget class="QPushButton" name="btnDevTools">
+        <widget class="QPushButton" name="btnDBPanel">
          <property name="toolTip">
           <string/>
          </property>
          <property name="text">
-          <string notr="true">DevTools</string>
+          <string notr="true">DBPanel: content search</string>
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
+           <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnStyleTest">
+        <widget class="QPushButton" name="btnFbhDBPanel">
          <property name="text">
-          <string notr="true">StyleTest</string>
+          <string notr="true">DBPanel: Fbh</string>
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
+           <normaloff>:/rec/data/icons/iconFbh.png</normaloff>:/rec/data/icons/iconFbh.png</iconset>
          </property>
         </widget>
-       </item>
-       <item>
-        <widget class="Line" name="line">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
-         <item>
-          <widget class="QPushButton" name="btnFbhDBPanel">
-           <property name="text">
-            <string notr="true">DBPanel: Fbh</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../../ressources.qrc">
-             <normaloff>:/rec/data/icons/iconFbh.png</normaloff>:/rec/data/icons/iconFbh.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnDBPanel">
-           <property name="toolTip">
-            <string/>
-           </property>
-           <property name="text">
-            <string notr="true">DBPanel: content search</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../../ressources.qrc">
-             <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
        </item>
       </layout>
      </widget>
@@ -564,53 +517,6 @@
      <layout class="QVBoxLayout" name="vlaFacts"/>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>994</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>Window</string>
-    </property>
-    <addaction name="actionRestart"/>
-    <addaction name="separator"/>
-    <addaction name="actionClose"/>
-   </widget>
-   <widget class="QMenu" name="menuSpecials">
-    <property name="title">
-     <string>Specials</string>
-    </property>
-    <addaction name="actionPreferences"/>
-   </widget>
-   <widget class="QMenu" name="menuInfo">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="actionManual"/>
-    <addaction name="actionSendFeedback"/>
-    <addaction name="separator"/>
-    <addaction name="actionReleaseNotes"/>
-    <addaction name="actionCheckForUpdates"/>
-    <addaction name="actionSourceCodeOnGitHub"/>
-    <addaction name="separator"/>
-    <addaction name="actionAbout"/>
-   </widget>
-   <widget class="QMenu" name="menuView">
-    <property name="title">
-     <string>View</string>
-    </property>
-    <addaction name="actionShowHideMessageDock"/>
-   </widget>
-   <addaction name="menuFile"/>
-   <addaction name="menuView"/>
-   <addaction name="menuSpecials"/>
-   <addaction name="menuInfo"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QDockWidget" name="dwgMessages">
@@ -710,6 +616,53 @@
      </item>
     </layout>
    </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>994</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Window</string>
+    </property>
+    <addaction name="actionRestart"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuSpecials">
+    <property name="title">
+     <string>Specials</string>
+    </property>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <widget class="QMenu" name="menuInfo">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionManual"/>
+    <addaction name="actionSendFeedback"/>
+    <addaction name="separator"/>
+    <addaction name="actionReleaseNotes"/>
+    <addaction name="actionCheckForUpdates"/>
+    <addaction name="actionSourceCodeOnGitHub"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionShowHideMessageDock"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuSpecials"/>
+   <addaction name="menuInfo"/>
   </widget>
   <action name="actionClose">
    <property name="icon">
@@ -835,6 +788,60 @@
    </property>
    <property name="toolTip">
     <string>Show / hide news</string>
+   </property>
+  </action>
+  <action name="actionDashboard">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Dashboard</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Dashboard</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Dashboard</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionApplicationCrashSimulation">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconCrash.svg</normaloff>:/rec/data/icons/iconCrash.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Application crash simulation</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Application crash simulation</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Application crash simulation</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true"/>
+   </property>
+  </action>
+  <action name="actionStyleTest">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">StyleTest</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">StyleTest</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">StyleTest</string>
    </property>
   </action>
  </widget>

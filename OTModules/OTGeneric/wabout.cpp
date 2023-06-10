@@ -69,3 +69,13 @@ void wAbout::on_btnMore_clicked()
                                                                          tr("Application build: %1").arg(appBuild) + "\n\n" +
                                                                          tr("Approximate lines of code: %1 (%2)").arg(OTInformation::sourceCodeLength, OTStrings::getMonthName(6) + " 2023"));
 }
+
+void wAbout::on_btnFlowerella_clicked()
+{
+    devToolsCount++;
+    if ((devToolsCount >= 15) && !set.read("main", "devToolsEnabled").toBool()) {
+        set.write("main", "devToolsEnabled", true);
+        ui->statusbar->showMessage("DevTools menu is enabled now. Restart to apply.");
+    }
+}
+

@@ -123,6 +123,9 @@
         <property name="text">
          <string notr="true">feedback@omsi-tools.de</string>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>

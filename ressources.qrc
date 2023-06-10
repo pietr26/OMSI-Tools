@@ -66,7 +66,6 @@
         <file>data/translations/qtbase_cz.qm</file>
         <file>data/icons/iconLeft.svg</file>
         <file>data/icons/iconFbh.png</file>
-        <file>data/icons/iconFlowie.svg</file>
         <file>data/icons/iconDownload_blue.svg</file>
         <file>data/icons/iconComment.svg</file>
         <file>data/icons/iconGitHub.svg</file>
@@ -85,5 +84,6 @@
         <file>data/icons/iconRule.svg</file>
         <file>data/icons/iconHome.svg</file>
         <file>data/icons/iconPlay.svg</file>
+        <file>data/icons/iconFlowerella.svg</file>
     </qresource>
 </RCC>
