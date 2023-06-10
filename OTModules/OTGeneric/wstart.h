@@ -41,19 +41,13 @@ private slots:
 
     void on_actionClose_triggered();
 
-    void on_btnDevTools_clicked();
-
     void on_btnDBPanel_clicked();
-
-    void on_btnSimulateCrash_clicked();
 
     void reopenTest(QObject*);
 
     void on_actionSendFeedback_triggered();
 
     void on_actionManual_triggered();
-
-    void on_btnStyleTest_clicked();
 
     void on_actionSourceCodeOnGitHub_triggered();
 
@@ -90,6 +84,12 @@ private slots:
     void on_tbnMaps_clicked();
 
     void on_tbnMapVerification_clicked();
+
+    void on_actionDashboard_triggered();
+
+    void on_actionApplicationCrashSimulation_triggered();
+
+    void on_actionStyleTest_triggered();
 
 private:
     Ui::wStart *ui;
