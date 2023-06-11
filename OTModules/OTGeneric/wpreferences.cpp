@@ -9,7 +9,7 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
-    resize(misc.sizeWindow(0.3, 0.4));
+    resize(misc.sizeWindow(0.45, 0.6));
     qDebug() << "UI set";
 
     setWindowTitle(OTInformation::name + " - " + tr("preferences"));
@@ -109,13 +109,10 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     // wVerifyMap prefs
     else if (openDirect == "wVerifyMap")
     {
+        ui->lwgSections->setCurrentRow(1);
         ui->twgPreferences->setTabVisible(4, true);
         ui->twgPreferences->setCurrentIndex(4);
         qApp->processEvents();
-
-        QFont bold;
-        bold.setWeight(QFont::Bold);
-        ui->gbxMapVerification->setFont(bold);
 
         if (!set.read("wVerifyMap", "advVerifying").isValid())
             set.write("wVerifyMap", "advVerifying", false);
@@ -480,3 +477,10 @@ void wPreferences::on_cbxOnlyMapTextures_stateChanged(int arg1)
     else
         set.write("wVerifyMap", "onlyMapTextures", false);
 }
+
+void wPreferences::on_lwgSections_currentRowChanged(int currentRow)
+{
+    ui->stwPreferences->setCurrentIndex(currentRow);
+    ui->lblCurrentSection->setText(ui->lwgSections->currentItem()->text());
+}
+

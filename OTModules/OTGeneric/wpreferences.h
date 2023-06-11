@@ -83,6 +83,8 @@ private slots:
 
     void on_cbxOnlyMapTextures_stateChanged(int arg1);
 
+    void on_lwgSections_currentRowChanged(int currentRow);
+
 private:
     Ui::wPreferences *ui;
     OTSettings set;
