@@ -14,6 +14,7 @@
 #include "OTModules/OTGeneric/wabout.h"
 #include "OTModules/OTInternals/wdevtools.h"
 #include "OTModules/OTInternals/wstyletest.h"
+#include "OTModules/OTInternals/wregeditor.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTModules/wContentSearch/wDBPanel.h"
 #include "OTModules/wFbh/wfbh.h"
@@ -91,12 +92,15 @@ private slots:
 
     void on_actionStyleTest_triggered();
 
+    void on_actionRegEditor_triggered();
+
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;
     wFonts *WFONTS;
     wVerifyMap *WVERIFYMAP;
     wDevTools *WDEVTOOLS;
+    wRegEditor *WREGEDITOR;
     wDBPanel *WDBPANEL;
     wContentSearch *WCONTENTSEARCH;
     wReleaseNotes *WRELEASENOTES;

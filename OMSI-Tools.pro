@@ -27,6 +27,7 @@ SOURCES += \
     OTModules/OTGeneric/wfeedback.cpp \
     OTModules/OTGeneric/wpreferences.cpp \
     OTModules/OTGeneric/wselectencoding.cpp \
+    OTModules/OTInternals/wregeditor.cpp \
     OTModules/wContentSearch/wDBPanel.cpp \
     OTModules/wContentSearch/waddfiles.cpp \
     OTModules/wContentSearch/wcontentsearch.cpp \
@@ -85,6 +86,7 @@ HEADERS += \
     OTModules/OTGeneric/wfeedback.h \
     OTModules/OTGeneric/wpreferences.h \
     OTModules/OTGeneric/wselectencoding.h \
+    OTModules/OTInternals/wregeditor.h \
     OTModules/wContentSearch/wDBPanel.h \
     OTModules/wContentSearch/waddfiles.h \
     OTModules/wContentSearch/wcontentsearch.h \
@@ -118,6 +120,7 @@ FORMS += \
     OTModules/OTGeneric/wfeedback.ui \
     OTModules/OTGeneric/wpreferences.ui \
     OTModules/OTGeneric/wselectencoding.ui \
+    OTModules/OTInternals/wregeditor.ui \
     OTModules/wContentSearch/wDBPanel.ui \
     OTModules/wContentSearch/waddfiles.ui \
     OTModules/wContentSearch/wcontentsearch.ui \

@@ -85,5 +85,6 @@
         <file>data/icons/iconHome.svg</file>
         <file>data/icons/iconPlay.svg</file>
         <file>data/icons/iconFlowerella.svg</file>
+        <file>data/icons/iconBranch.svg</file>
     </qresource>
 </RCC>
