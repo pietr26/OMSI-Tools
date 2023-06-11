@@ -843,6 +843,27 @@
    <property name="toolTip">
     <string notr="true">StyleTest</string>
    </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionRegEditor">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconBranch.svg</normaloff>:/rec/data/icons/iconBranch.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">RegEditor</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">RegEditor</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">RegEditor</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+R</string>
+   </property>
   </action>
  </widget>
  <resources>

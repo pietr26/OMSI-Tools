@@ -32,8 +32,9 @@ private:
     QString appBuild = "Debug";
 #else
     QString appBuild = "Release";
-    int devToolsCount = 0;
 #endif
+
+    int devToolsCount = 0;
 };
 
 #endif // WABOUT_H

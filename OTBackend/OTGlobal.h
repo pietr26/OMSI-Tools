@@ -631,7 +631,21 @@ public:
     }
 
     /// Gets all prefs keys and its values
-    QString getAllPreferences()
+    QList<QPair<QString, QVariant>> getAllPreferences()
+    {
+        QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat);
+
+        QList<QPair<QString, QVariant>> settings;
+        QStringList keys = set.allKeys();
+
+        foreach (QString current, keys)
+            settings.append(QPair<QString, QVariant>(current, set.value(current)));
+
+        return settings;
+    }
+
+    /// Gets all prefs keys and its values in a console formatting
+    QString getAllPreferencesFormatted()
     {
         QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat);
 

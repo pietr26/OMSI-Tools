@@ -46,6 +46,7 @@ wStart::wStart(QWidget *parent)
         devTools->addAction(ui->actionDashboard);
         devTools->addAction(ui->actionStyleTest);
         devTools->addAction(ui->actionApplicationCrashSimulation);
+        devTools->addAction(ui->actionRegEditor);
         ui->menubar->addMenu(devTools);
     }
 
@@ -431,3 +432,11 @@ void wStart::on_actionStyleTest_triggered()
     close();
 }
 
+
+void wStart::on_actionRegEditor_triggered()
+{
+    WREGEDITOR = new wRegEditor();
+    connect(WREGEDITOR, &wRegEditor::backToHome, this, &wStart::reopen);
+    WREGEDITOR->show();
+    close();
+}
