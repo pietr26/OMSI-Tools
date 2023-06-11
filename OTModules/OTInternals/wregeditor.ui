@@ -20,7 +20,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>There's no option to edit lists.</string>
+         <string notr="true">There's no option to edit lists.</string>
         </property>
        </widget>
       </item>

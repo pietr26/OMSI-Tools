@@ -11,7 +11,7 @@ wRegEditor::wRegEditor(QWidget *parent) :
     resize(misc.sizeWindow(0.5, 0.6));
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - " + tr("RegEditor"));
+    setWindowTitle(OTInformation::name + " - RegEditor");
 
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());

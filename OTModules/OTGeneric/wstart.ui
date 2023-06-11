@@ -808,7 +808,7 @@
     <string notr="true">Dashboard</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+D</string>
+    <string notr="true">Ctrl+D</string>
    </property>
   </action>
   <action name="actionApplicationCrashSimulation">
@@ -844,7 +844,7 @@
     <string notr="true">StyleTest</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+S</string>
+    <string notr="true">Ctrl+S</string>
    </property>
   </action>
   <action name="actionRegEditor">
@@ -862,7 +862,7 @@
     <string notr="true">RegEditor</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+R</string>
+    <string notr="true">Ctrl+R</string>
    </property>
   </action>
  </widget>
