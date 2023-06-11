@@ -79,7 +79,7 @@
      <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Preferences</string>
+    <string>Preferences...</string>
    </property>
    <property name="toolTip">
     <string>Preferences</string>

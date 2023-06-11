@@ -20,8 +20,7 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     ui->lblTitle->setText(OTInformation::name);
     ui->lblVersion->setText(OTInformation::versions::currentVersion.first);
-    ui->lblCopyright->setText("© Bamp");
-    ui->lblCopyright->setVisible(false);
+    ui->lblFooter->setVisible(false);
 
     ui->btnClose->setEnabled(false);
 

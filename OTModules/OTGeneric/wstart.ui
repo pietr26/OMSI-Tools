@@ -682,7 +682,7 @@
      <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Preferences</string>
+    <string>Preferences...</string>
    </property>
    <property name="toolTip">
     <string>Preferences</string>
@@ -766,7 +766,7 @@
      <normaloff>:/rec/data/icons/iconDownload.svg</normaloff>:/rec/data/icons/iconDownload.svg</iconset>
    </property>
    <property name="text">
-    <string>Check for updates</string>
+    <string>Check for updates...</string>
    </property>
    <property name="iconText">
     <string>Check for updates</string>
@@ -799,7 +799,7 @@
      <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
    </property>
    <property name="text">
-    <string notr="true">Dashboard</string>
+    <string notr="true">Dashboard...</string>
    </property>
    <property name="iconText">
     <string notr="true">Dashboard</string>
@@ -808,7 +808,7 @@
     <string notr="true">Dashboard</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+D</string>
+    <string>Ctrl+D</string>
    </property>
   </action>
   <action name="actionApplicationCrashSimulation">
@@ -835,7 +835,7 @@
      <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
    </property>
    <property name="text">
-    <string notr="true">StyleTest</string>
+    <string notr="true">StyleTest...</string>
    </property>
    <property name="iconText">
     <string notr="true">StyleTest</string>
@@ -844,7 +844,7 @@
     <string notr="true">StyleTest</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+S</string>
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionRegEditor">
@@ -853,7 +853,7 @@
      <normaloff>:/rec/data/icons/iconBranch.svg</normaloff>:/rec/data/icons/iconBranch.svg</iconset>
    </property>
    <property name="text">
-    <string notr="true">RegEditor</string>
+    <string notr="true">RegEditor...</string>
    </property>
    <property name="iconText">
     <string notr="true">RegEditor</string>
@@ -862,7 +862,7 @@
     <string notr="true">RegEditor</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+R</string>
+    <string>Ctrl+R</string>
    </property>
   </action>
  </widget>

@@ -330,7 +330,7 @@
      <layout class="QVBoxLayout" name="vlaFirstSetup"/>
     </item>
     <item>
-     <widget class="QLabel" name="lblCopyright">
+     <widget class="QLabel" name="lblFooter">
       <property name="font">
        <font>
         <family>Segoe UI</family>
@@ -339,7 +339,7 @@
        </font>
       </property>
       <property name="text">
-       <string notr="true">copyright</string>
+       <string notr="true">footer</string>
       </property>
       <property name="textFormat">
        <enum>Qt::PlainText</enum>

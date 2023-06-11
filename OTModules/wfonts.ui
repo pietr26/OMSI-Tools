@@ -927,7 +927,7 @@
      <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
    </property>
    <property name="text">
-    <string>Open</string>
+    <string>Open...</string>
    </property>
    <property name="toolTip">
     <string>Open</string>
@@ -1005,7 +1005,7 @@
      <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Preferences</string>
+    <string>Preferences...</string>
    </property>
    <property name="toolTip">
     <string>Preferences</string>
@@ -1164,7 +1164,7 @@
      <normaloff>:/rec/data/icons/iconVisible.svg</normaloff>:/rec/data/icons/iconVisible.svg</iconset>
    </property>
    <property name="text">
-    <string>Show in explorer</string>
+    <string>Show in explorer...</string>
    </property>
    <property name="toolTip">
     <string>Show in explorer</string>
@@ -1226,7 +1226,7 @@
      <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
    </property>
    <property name="text">
-    <string>Open with encoding</string>
+    <string>Open with encoding...</string>
    </property>
   </action>
   <action name="actionBackToHome">

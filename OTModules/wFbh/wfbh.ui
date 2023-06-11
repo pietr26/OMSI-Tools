@@ -726,13 +726,13 @@ reasons</string>
      <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Preferences</string>
+    <string notr="true">Preferences...</string>
    </property>
    <property name="iconText">
     <string notr="true">Preferences</string>
    </property>
    <property name="toolTip">
-    <string>Preferences</string>
+    <string notr="true">Preferences</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+E</string>

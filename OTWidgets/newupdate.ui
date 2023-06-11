@@ -159,7 +159,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Show details</string>
+          <string>Show details...</string>
          </property>
         </widget>
        </item>

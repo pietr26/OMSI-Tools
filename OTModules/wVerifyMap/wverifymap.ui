@@ -103,7 +103,7 @@
          <string/>
         </property>
         <property name="text">
-         <string>Start verifying</string>
+         <string>Start!</string>
         </property>
         <property name="icon">
          <iconset resource="../../ressources.qrc">
@@ -1091,7 +1091,6 @@
     <property name="title">
      <string>Map</string>
     </property>
-    <addaction name="actionOpen"/>
     <addaction name="actionStartVerifying"/>
     <addaction name="separator"/>
     <addaction name="actionBackToHome"/>
@@ -1116,18 +1115,6 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionOpen">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Open</string>
-   </property>
-   <property name="shortcut">
-    <string notr="true">Ctrl+O</string>
-   </property>
-  </action>
   <action name="actionClose">
    <property name="icon">
     <iconset resource="../../ressources.qrc">
@@ -1158,7 +1145,7 @@
      <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Preferences</string>
+    <string>Preferences...</string>
    </property>
    <property name="toolTip">
     <string>Preferences</string>
