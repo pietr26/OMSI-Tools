@@ -282,7 +282,7 @@ void wCleanup::on_btnStartAction_clicked()
 /// Sets text for moving folders
 void wCleanup::on_rbtnMoveToFolder_clicked()
 {
-    ui->btnStartAction->setText(tr("Select destination folder && move"));
+    ui->btnStartAction->setText(tr("Select destination folder && move..."));
 }
 
 /// Sets text for deleting folders

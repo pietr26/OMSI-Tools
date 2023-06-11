@@ -121,7 +121,7 @@ Is it the correct path? Otherwise, problems may appear in some modules.</string>
           </font>
          </property>
          <property name="text">
-          <string>Select new path</string>
+          <string>Select new path...</string>
          </property>
         </widget>
        </item>

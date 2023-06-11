@@ -58,7 +58,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>467</width>
+         <width>463</width>
          <height>607</height>
         </rect>
        </property>
@@ -394,7 +394,7 @@
        <string/>
       </property>
       <property name="text">
-       <string notr="true">Run DB-Function</string>
+       <string notr="true">Run DB-Function...</string>
       </property>
       <property name="icon">
        <iconset resource="../ressources.qrc">
@@ -442,7 +442,7 @@
      <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Preferences</string>
+    <string>Preferences...</string>
    </property>
    <property name="toolTip">
     <string>Preferences</string>
@@ -469,6 +469,12 @@
      <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
    </property>
    <property name="text">
+    <string>Open...</string>
+   </property>
+   <property name="iconText">
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
     <string>Open</string>
    </property>
    <property name="shortcut">
