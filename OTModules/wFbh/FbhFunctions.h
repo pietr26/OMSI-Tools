@@ -145,7 +145,7 @@ public:
 class cFooter3
 {
 public:
-    const QString de = "<p><br></p><p>Wegen den oben stehenden Gründen wurde dein Datei-Eintrag gelöscht. Sie befindet sich in der Originalversion im Anhang.</p><p><br></p><p>Viele Grüße";
+    const QString de = "<p><br></p><p>Wegen den oben stehenden Gründen wurde dein Datei-Eintrag gelöscht. Die Datei befindet sich in der Originalversion im Anhang.</p><p><br></p><p>Viele Grüße";
     const QString en = "<p><br></p><p>Because of the above reasons, your file entry has been deleted. You can find the original version in the attachment section.</p><p><br></p><p>Best regards";
 };
 
