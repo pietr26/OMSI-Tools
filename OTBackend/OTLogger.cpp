@@ -59,7 +59,7 @@ void OTLogger::handler(QtMsgType type, const QMessageLogContext &context, const 
                 break;
 
             case QtInfoMsg:
-                logText = QString("    [Info]      %1").arg(msg);
+                logText = QString("     [Info]     %1").arg(msg);
                 break;
 
             case QtWarningMsg:
