@@ -308,7 +308,7 @@ void wCleanup::on_actionPreferences_triggered()
 /// Open help dialog
 void wCleanup::on_actionSendFeedback_triggered()
 {
-    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::cleanup);
+    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::cleanup);
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }

@@ -449,7 +449,7 @@ void wPreferences::on_btnLoadTheme_clicked()
 /// Opens help dialog
 void wPreferences::on_actionSendFeedback_triggered()
 {
-    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::preferences);
+    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::preferences);
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }

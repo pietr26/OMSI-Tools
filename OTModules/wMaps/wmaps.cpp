@@ -48,7 +48,7 @@ void wMaps::on_actionClose_triggered()
 
 void wMaps::on_actionSendFeedback_triggered()
 {
-    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::maps);
+    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::maps);
     WFEEDBACK->show();
 }
 

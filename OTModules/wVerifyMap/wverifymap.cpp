@@ -169,7 +169,7 @@ void wVerifyMap::on_actionAdjustWindowSize_triggered()
 /// Opens bug report module
 void wVerifyMap::on_actionSendFeedback_triggered()
 {
-    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::wiki::verifyMap);
+    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::verifyMap);
     WFEEDBACK->show();
 }
 
