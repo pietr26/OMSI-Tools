@@ -370,8 +370,9 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         filehandler.stuffobj.removeDuplicates();
 
         // MAP:
-        ui->lwgTilesAll->addItems(filehandler.stuffobj.missing.tiles);
-        ui->lwgTilesAll->addItems(filehandler.stuffobj.existing.tiles);
+        QStringList tiles = filehandler.stuffobj.missing.tiles + filehandler.stuffobj.existing.tiles;
+        tiles.removeDuplicates();
+        ui->lwgTilesAll->addItems(tiles);
         ui->lwgTilesAll->sortItems();
         ui->lwgTilesMissing->addItems(filehandler.stuffobj.missing.tiles);
         ui->lwgTilesMissing->sortItems();
@@ -379,29 +380,38 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->ledTotalTiles->setText(QString::number(ui->lwgTilesAll->count()));
         ui->ledMissingTiles->setText(QString::number(ui->lwgTilesMissing->count()));
 
+        QStringList textures;
+        QStringList missingTextures;
         // TEX:
         if (set.read(objectName(), "advVerifying").toBool() && !set.read(objectName(), "onlyMapTextures").toBool())
         {
-            ui->lwgTexturesAll->addItems(filehandler.stuffobj.missing.textures);
-            ui->lwgTexturesAll->addItems(filehandler.stuffobj.existing.textures);
+            textures = filehandler.stuffobj.missing.textures + filehandler.stuffobj.existing.textures;
+            ui->lwgTexturesAll->addItems(textures);
 
             ui->lwgTexturesMissing->addItems(filehandler.stuffobj.missing.textures);
         }
 
         // GLOBAL TEX:
-        ui->lwgTexturesAll->addItems(filehandler.stuffobj.missing.globalTextures);
-        ui->lwgTexturesAll->addItems(filehandler.stuffobj.existing.globalTextures);
+        textures.append(filehandler.stuffobj.missing.globalTextures);
+        textures.append(filehandler.stuffobj.existing.globalTextures);
+        textures.removeDuplicates();
+        ui->lwgTexturesAll->addItems(textures);
         ui->lwgTexturesAll->sortItems();
-        ui->lwgTexturesMissing->addItems(filehandler.stuffobj.missing.globalTextures);
+
+        missingTextures.append(filehandler.stuffobj.missing.globalTextures);
+        missingTextures.removeDuplicates();
+        ui->lwgTexturesMissing->addItems(missingTextures);
         ui->lwgTexturesMissing->sortItems();
 
         ui->ledTotalTextures->setText(QString::number(ui->lwgTexturesAll->count()));
         ui->ledMissingTextures->setText(QString::number(ui->lwgTexturesMissing->count()));
 
         // SCO:
-        ui->lwgObjectsAll->addItems(filehandler.stuffobj.missing.sceneryobjects);
-        ui->lwgObjectsAll->addItems(filehandler.stuffobj.existing.sceneryobjects);
+        QStringList objects = filehandler.stuffobj.missing.sceneryobjects + filehandler.stuffobj.existing.sceneryobjects;
+        objects.removeDuplicates();
+        ui->lwgObjectsAll->addItems(objects);
         ui->lwgObjectsAll->sortItems();
+
         ui->lwgObjectsMissing->addItems(filehandler.stuffobj.missing.sceneryobjects);
         ui->lwgObjectsMissing->sortItems();
 
@@ -409,8 +419,9 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->ledMissingObjects->setText(QString::number(ui->lwgObjectsMissing->count()));
 
         // SLI:
-        ui->lwgSplinesAll->addItems(filehandler.stuffobj.missing.splines);
-        ui->lwgSplinesAll->addItems(filehandler.stuffobj.existing.splines);
+        QStringList splines = filehandler.stuffobj.missing.splines + filehandler.stuffobj.existing.splines;
+        splines.removeDuplicates();
+        ui->lwgSplinesAll->addItems(splines);
         ui->lwgSplinesAll->sortItems();
 
         ui->lwgSplinesMissing->addItems(filehandler.stuffobj.missing.splines);
@@ -420,8 +431,9 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->ledMissingSplines->setText(QString::number(ui->lwgSplinesMissing->count()));
 
         // VEH:
-        ui->lwgVehiclesAll->addItems(filehandler.stuffobj.missing.vehicles);
-        ui->lwgVehiclesAll->addItems(filehandler.stuffobj.existing.vehicles);
+        QStringList vehicles = filehandler.stuffobj.missing.vehicles + filehandler.stuffobj.existing.vehicles;
+        vehicles.removeDuplicates();
+        ui->lwgVehiclesAll->addItems(vehicles);
         ui->lwgVehiclesAll->sortItems();
 
         ui->lwgVehiclesMissing->addItems(filehandler.stuffobj.missing.vehicles);
@@ -431,8 +443,9 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->ledMissingVehicles->setText(QString::number(ui->lwgVehiclesMissing->count()));
 
         // HUM:
-        ui->lwgHumansAll->addItems(filehandler.stuffobj.missing.humans);
-        ui->lwgHumansAll->addItems(filehandler.stuffobj.existing.humans);
+        QStringList humans = filehandler.stuffobj.missing.humans + filehandler.stuffobj.existing.humans;
+        humans.removeDuplicates();
+        ui->lwgHumansAll->addItems(humans);
         ui->lwgHumansAll->sortItems();
 
         ui->lwgHumansMissing->addItems(filehandler.stuffobj.missing.humans);
