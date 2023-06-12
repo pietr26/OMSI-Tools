@@ -31,13 +31,6 @@ wStart::wStart(QWidget *parent)
     else
         isNoRelease = true;
 
-//    QFutureWatcher<QString> *fWatcher = new QFutureWatcher<QString>();
-
-//    connect(fWatcher, SIGNAL(finished()), this, SLOT(testDLFinished()));
-
-//    QFuture<QString> future = QtConcurrent::run(dl.doDownload(QUrl(dl.doDownload(OTLinks::download).remove("\t")), QDir().tempPath() + "/OMSI-Tools_update.zip"));
-//    fWatcher->setFuture(future);
-
     ui->gbxInternals->setVisible(isNoRelease);
 
     if (set.read("main", "devToolsEnabled").toBool())
@@ -75,11 +68,6 @@ wStart::wStart(QWidget *parent)
     //QTimer::singleShot(1, this, SLOT(on_btnVerifyMap_clicked()));
 }
 
-void wStart::testDLFinished()
-{
-    qDebug() << "DOWNLOAD FINISHED.";
-}
-
 wStart::~wStart()
 {
     qInfo().noquote() << objectName() << "is closing...";
@@ -87,7 +75,7 @@ wStart::~wStart()
 }
 
 /// Loads the messages
-void wStart::loadMessages()
+void wStart::loadMessagesOld()
 {
     QStringList messages = QString(nc.post(OTLinks::inAppMessages)).split("\n");
     ui->dwgMessages->setWindowTitle(tr("News"));
@@ -163,8 +151,6 @@ void wStart::loadMessages()
                         continue;
                 }
 
-
-
                 /*
                  * 0 = deactivated
                  * 1 = in-App
@@ -186,6 +172,104 @@ void wStart::loadMessages()
                     ui->lwgMessages->addItem(item);
                     ui->lwgMessages->setItemWidget(item, widget);
                 }
+            }
+        }
+    }
+}
+
+void wStart::loadMessages()
+{
+    QByteArray messageString = nc.post(OTLinks::inAppMessages);
+    ui->dwgMessages->setWindowTitle(tr("News"));
+
+    if (nc.lastSuccess == -1)
+        ui->dwgMessages->setWindowTitle(tr("News - no internet connection"));
+    else if (nc.lastSuccess == -2)
+    {
+        OTInAppMessage messageData;
+        messageData.ID = "-1";
+        messageData.publicity = 1;
+        messageData.versions = QStringList("all");
+        messageData.start = QDateTime::currentDateTime();
+        messageData.end = QDateTime::currentDateTime().addYears(10);
+        messageData.enTitle = "Maintenance work";
+        messageData.enShortDescription = "The application server is currently undergoing maintenance";
+        messageData.enDescription = "The application server is currently undergoing maintenance. During this time the updater, messages and the other functions with application server connection are not available. Please come back again later.";
+        messageData.deTitle = "Wartungsarbeiten";
+        messageData.deShortDescription = "Der Anwendungsserver befindet sich derzeit in Wartungsarbeiten";
+        messageData.deDescription = "Der Anwendungsserver befindet sich derzeit in Wartungsarbeiten. Während dieser Zeit sind Aktualisierungen, Nachrichten und weitere Funktionen mit Verbindung zum Anwendungsserver nicht verfügbar. Bitte schaue später wieder vorbei.";
+
+        message *widget = new message(messageData, this);
+        QListWidgetItem *item = new QListWidgetItem();
+        item->setSizeHint(widget->sizeHint());
+
+        ui->lwgMessages->addItem(item);
+        ui->lwgMessages->setItemWidget(item, widget);
+    }
+    else
+    {
+        QJsonArray messages = QJsonDocument::fromJson(messageString).array();
+
+        for (int i = 0; i < messages.size(); i++)
+        {
+            QJsonObject singleMessage = messages[i].toObject();
+
+            OTInAppMessage messageData;
+            messageData.ID = singleMessage["ID"].toString();
+
+            messageData.publicity = singleMessage["publicity"].toString().toInt();
+
+            messageData.start = QDateTime::fromString(singleMessage["startdate"].toString(), "yyyy-MM-dd HH:mm:ss");
+            messageData.end = QDateTime::fromString(singleMessage["enddate"].toString(), "yyyy-MM-dd HH:mm:ss");
+
+            messageData.slug = singleMessage["slug"].toString();
+
+            messageData.versions = singleMessage["versions"].toString().split("|");
+
+            messageData.enTitle = singleMessage["enTitle"].toString();
+            messageData.enShortDescription = singleMessage["enShortDescription"].toString();
+            messageData.enDescription = singleMessage["enDescription"].toString();
+
+            messageData.deTitle = singleMessage["deTitle"].toString();
+            messageData.deShortDescription = singleMessage["deShortDescription"].toString();
+            messageData.deDescription = singleMessage["deDescription"].toString();
+
+            messageData.image = singleMessage["image"].toString();
+
+            messageData.trashbin = singleMessage["trashbin"].toString().toInt();
+            messageData.deletedAt = QDateTime::fromString(singleMessage["deletedAt"].toString(), "yyyy-MM-dd HH:mm:ss");
+
+            if (messageData.trashbin) continue;
+
+            if ((OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) {
+                if ((messageData.publicity == 0) || (messageData.publicity == 3))
+                    continue;
+            }
+            else {
+                if ((messageData.publicity == 0) || (messageData.publicity == 2) || (messageData.publicity == 3) || (messageData.publicity == 5))
+                    continue;
+            }
+
+            /*
+             * 0 = deactivated
+             * 1 = in-App
+             * 2 = in-App (Beta only)
+             * 3 = Website
+             * 4 = in-App + Website
+             * 5 = in-App (Beta only) + Website
+             */
+
+            if (!(messageData.versions.contains("all") || messageData.versions.contains(OTInformation::versions::currentVersion.first)))
+                continue;
+
+            if ((QDateTime::currentDateTime().secsTo(messageData.start) <= 0) && (QDateTime::currentDateTime().secsTo(messageData.end) >= 0))
+            {
+                message *widget = new message(messageData, this);
+                QListWidgetItem *item = new QListWidgetItem();
+                item->setSizeHint(widget->sizeHint());
+
+                ui->lwgMessages->addItem(item);
+                ui->lwgMessages->setItemWidget(item, widget);
             }
         }
     }
@@ -262,7 +346,7 @@ void wStart::on_btnDBPanel_clicked()
 /// Opens bug report module
 void wStart::on_actionSendFeedback_triggered()
 {
-    WFEEDBACK = new wFeedback(this, OTLinks::wiki::general);
+    WFEEDBACK = new wFeedback(this, OTLinks::Wiki::general);
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }

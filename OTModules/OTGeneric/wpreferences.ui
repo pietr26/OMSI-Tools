@@ -1007,7 +1007,7 @@
       <item>
        <widget class="QPushButton" name="btnClose">
         <property name="text">
-         <string>Close</string>
+         <string>Finished</string>
         </property>
         <property name="icon">
          <iconset resource="../../ressources.qrc">

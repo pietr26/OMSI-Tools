@@ -22,6 +22,9 @@
 #include "OTWidgets/message.h"
 #include "OTModules/wFbh/wdbcopyrights.h"
 #include "OTModules/wMaps/wmaps.h"
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 namespace Ui {
 class wStart;
@@ -57,8 +60,6 @@ private slots:
     void on_actionRestart_triggered();
 
     void on_actionCheckForUpdates_triggered();
-
-    void testDLFinished();
 
     void on_btnReloadMessages_clicked();
 
@@ -121,6 +122,7 @@ private:
     void startCounterMsgSender();
     bool checkMainDir();
 
+    void loadMessagesOld();
     void loadMessages();
 
 };
