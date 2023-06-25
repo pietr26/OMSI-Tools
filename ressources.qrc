@@ -51,19 +51,12 @@
         <file>data/icons/iconTabOpened.svg</file>
         <file>data/icons/iconBook.svg</file>
         <file>data/icons/iconBroom.svg</file>
-        <file>data/flags/en.svg</file>
-        <file>data/flags/de.svg</file>
-        <file>data/flags/fr.svg</file>
-        <file>data/flags/it.svg</file>
-        <file>data/flags/cz.svg</file>
         <file>data/translations/tr_de.qm</file>
         <file>data/translations/tr_fr.qm</file>
         <file>data/translations/tr_it.qm</file>
-        <file>data/translations/tr_cz.qm</file>
         <file>data/translations/qtbase_de.qm</file>
         <file>data/translations/qtbase_fr.qm</file>
         <file>data/translations/qtbase_it.qm</file>
-        <file>data/translations/qtbase_cz.qm</file>
         <file>data/icons/iconLeft.svg</file>
         <file>data/icons/iconFbh.png</file>
         <file>data/icons/iconDownload_blue.svg</file>
@@ -86,5 +79,28 @@
         <file>data/icons/iconPlay.svg</file>
         <file>data/icons/iconFlowerella.svg</file>
         <file>data/icons/iconBranch.svg</file>
+        <file>data/translations/tr_cy.ts</file>
+        <file>data/translations/tr_eo.ts</file>
+        <file>data/translations/tr_et.ts</file>
+        <file>data/translations/tr_fi.ts</file>
+        <file>data/translations/tr_is.ts</file>
+        <file>data/translations/tr_ja.ts</file>
+        <file>data/flags/cy.svg</file>
+        <file>data/flags/de.svg</file>
+        <file>data/flags/en.svg</file>
+        <file>data/flags/eo.svg</file>
+        <file>data/flags/et.svg</file>
+        <file>data/flags/fi.svg</file>
+        <file>data/flags/fr.svg</file>
+        <file>data/flags/is.svg</file>
+        <file>data/flags/it.svg</file>
+        <file>data/flags/ja.svg</file>
+        <file>data/translations/qtbase_cs.qm</file>
+        <file>data/translations/tr_cs.qm</file>
+        <file>data/translations/tr_cs.ts</file>
+        <file>data/flags/cs.svg</file>
+        <file>data/translations/qtbase_fi.qm</file>
+        <file>data/translations/qtbase_ja.qm</file>
+        <file>data/translations/qtbase_en.qm</file>
     </qresource>
 </RCC>
