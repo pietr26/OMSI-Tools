@@ -673,7 +673,14 @@ public:
             case 1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
             case 2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
             case 3: languageFile = "tr_it"; baseLanguageFile = "qtbase_it"; break;
-            case 4: languageFile = "tr_cz"; baseLanguageFile = "qtbase_cz"; break;
+            case 4: languageFile = "tr_cs"; baseLanguageFile = "qtbase_cs"; break;
+
+            case 5: languageFile = "tr_et"; baseLanguageFile = "qtbase_en"; break;
+            case 6: languageFile = "tr_eo"; baseLanguageFile = "qtbase_en"; break;
+            case 7: languageFile = "tr_fi"; baseLanguageFile = "qtbase_fi"; break;
+            case 8: languageFile = "tr_is"; baseLanguageFile = "qtbase_en"; break;
+            case 9: languageFile = "tr_ja"; baseLanguageFile = "qtbase_ja"; break;
+            case 10: languageFile = "tr_cy"; baseLanguageFile = "qtbase_en"; break;
         }
 
         if (languageFile != "")
@@ -938,11 +945,17 @@ public:
     }
 
     // Multilanguage strings
+    static inline const QString langCs = "čeština (Czech)";
+    static inline const QString langEt = "eesti (Estonian)";
     static inline const QString langEn = "English";
+    static inline const QString langEo = "Esperanto";
+    static inline const QString langFi = "suomi (Finnish)";
+    static inline const QString langFr = "français (French)";
     static inline const QString langDe = "Deutsch (German)";
-    static inline const QString langFr = "Français (French)";
+    static inline const QString langIs = "Íslenska (Icelandic)";
     static inline const QString langIt = "Italiano (Italian)";
-    static inline const QString langCz = "Čeština (Czech)";
+    static inline const QString langJa = "日本語 (Japanese)";
+    static inline const QString langCy = "Cymraeg (Welsh)";
 
     /// Fun facts (funFact, time in ms)
     static QList<QPair<QString, unsigned int>> getFunFacts()
