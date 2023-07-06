@@ -23,9 +23,12 @@ private slots:
 
     void on_btnWikiEntry_clicked();
 
+    void on_btnCopyMail_clicked();
+
 private:
     Ui::wFeedback *ui;
     OTSettings set;
+    OTMiscellaneous misc;
 
     QUrl wikiurl;
 };
