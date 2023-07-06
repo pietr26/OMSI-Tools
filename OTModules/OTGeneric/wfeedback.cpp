@@ -53,3 +53,9 @@ void wFeedback::on_btnWikiEntry_clicked()
     close();
 }
 
+
+void wFeedback::on_btnCopyMail_clicked()
+{
+    misc.copy(ui->ledMail->text());
+}
+
