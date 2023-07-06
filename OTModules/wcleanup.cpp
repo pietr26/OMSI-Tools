@@ -159,6 +159,9 @@ void wCleanup::on_actionAnalyze_triggered()
     if ((ui->lwgObjects->count() != 0) || (ui->lwgSplines->count() != 0))
         ui->gbxActions->setVisible(true);
 
+    on_lwgObjects_itemSelectionChanged();
+    on_lwgSplines_itemSelectionChanged();
+
     qInfo() << "Finished.";
 }
 
@@ -188,7 +191,7 @@ void wCleanup::on_btnStartAction_clicked()
 
             for (int i = 0; i < ui->lwgObjects->selectedItems().size(); i++)
             {
-                ui->statusbar->showMessage(tr("Move sceneryobjects (%1 of %2)...").arg(i + 1, ui->lwgObjects->selectedItems().size()));
+                ui->statusbar->showMessage(tr("Move sceneryobjects (%1 of %2)...").arg(QString::number(i + 1), QString::number(ui->lwgObjects->selectedItems().count())));
 
                 QDirIterator makePaths(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
                 while (makePaths.hasNext())
@@ -214,7 +217,7 @@ void wCleanup::on_btnStartAction_clicked()
 
             for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
             {
-                ui->statusbar->showMessage(tr("Move splines (%1 of %2)...").arg(i + 1, ui->lwgSplines->selectedItems().size()));
+                ui->statusbar->showMessage(tr("Move splines (%1 of %2)...").arg(QString::number(i + 1), QString::number(ui->lwgSplines->selectedItems().count())));
 
                 QDirIterator makePaths(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
                 while (makePaths.hasNext())
@@ -246,7 +249,7 @@ void wCleanup::on_btnStartAction_clicked()
             for (int i = 0; i < ui->lwgObjects->selectedItems().size(); i++)
             {
                 qApp->processEvents();
-                ui->statusbar->showMessage(tr("Delete sceneryobjects (%1 of %2)...").arg(i + 1, ui->lwgObjects->selectedItems().size()));
+                ui->statusbar->showMessage(tr("Delete sceneryobjects (%1 of %2)...").arg(QString::number(i + 1), QString::number(ui->lwgObjects->selectedItems().count())));
                 QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text()).removeRecursively();
             }
 
@@ -255,7 +258,7 @@ void wCleanup::on_btnStartAction_clicked()
             for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
             {
                 qApp->processEvents();
-                ui->statusbar->showMessage(tr("Delete splines (%1 of %2)...").arg(i + 1, ui->lwgSplines->selectedItems().size()));
+                ui->statusbar->showMessage(tr("Delete splines (%1 of %2)...").arg(QString::number(i + 1), QString::number(ui->lwgSplines->selectedItems().count())));
                 QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text()).removeRecursively();
             }
 
@@ -277,6 +280,9 @@ void wCleanup::on_btnStartAction_clicked()
     ui->btnStartAction->setEnabled(true);
     ui->btnAnalyze->setEnabled(true);
     ui->actionAnalyze->setEnabled(true);
+
+    on_lwgObjects_itemSelectionChanged();
+    on_lwgSplines_itemSelectionChanged();
 }
 
 /// Sets text for moving folders
@@ -327,4 +333,14 @@ void wCleanup::on_lwgObjects_itemDoubleClicked(QListWidgetItem *item)
 void wCleanup::on_lwgSplines_itemDoubleClicked(QListWidgetItem *item)
 {
     misc.openInExplorer(set.read("main", "mainDir").toString() + "/" + item->text());
+}
+
+void wCleanup::on_lwgObjects_itemSelectionChanged()
+{
+    ui->lblObjectCount->setText(QString("%1/%2").arg(QString::number(ui->lwgObjects->selectedItems().count()), QString::number(ui->lwgObjects->count())));
+}
+
+void wCleanup::on_lwgSplines_itemSelectionChanged()
+{
+    ui->lblSplineCount->setText(QString("%1/%2").arg(QString::number(ui->lwgSplines->selectedItems().count()), QString::number(ui->lwgSplines->count())));
 }
