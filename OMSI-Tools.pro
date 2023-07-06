@@ -153,7 +153,7 @@ TRANSLATIONS += \
     data/translations/tr_de.ts \
     data/translations/tr_fr.ts \
     data/translations/tr_it.ts \
-    data/translations/tr_cz.ts \
+    data/translations/tr_cs.ts \
     data/translations/tr_cy.ts \
     data/translations/tr_eo.ts \
     data/translations/tr_et.ts \
