@@ -12,17 +12,17 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     resize(misc.sizeWindow(0.45, 0.6));
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - " + tr("preferences"));
+    setWindowTitle("[*] " + OTInformation::name + " - " + tr("preferences"));
 
     // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
+    ui->btnUseCustomTheme->setVisible(false);
+
+    ui->btnRestart->setVisible(false);
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(refreshDiskUsage()));
     timer->start(10000);
 
-    // cobxLanguage
-    int languageIndex = set.read("main", "language").toInt();
 
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), OTStrings::langEn); // 0
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), OTStrings::langDe); // 1
@@ -53,99 +53,39 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     model->item(9)->setEnabled(false); // ja
     model->item(10)->setEnabled(false); // cy
 
-    ui->cobxLanguage->setCurrentIndex(languageIndex);
-
     // cobxTheme:
     ui->cobxTheme->addItem(tr("Standard"));
     ui->cobxTheme->addItem(tr("Modern light"));
     ui->cobxTheme->addItem(tr("Modern dark"));
 
-    reloadThemePreview();
-    ui->gbxThemeAdvanced->setEnabled(!set.read("main\\themeData", "useStandardTheme").toBool());
-
-    // cbxAutoSave
-    if (set.read("main", "autosave") == "true")
-        ui->cbxBackupEnabled->setChecked(true);
-    else if (set.read("main", "autosave") == "false")
-        ui->cbxBackupEnabled->setChecked(false);
-
     // lblDiskUsage
     ui->lblDiskUsageSize->setText(tr("Calculating..."));
     refreshDiskUsage();
 
-    // sbxAutosaveDuration
-    QString autosaveDuration = set.read("main", "autosaveDuration").toString();
-    if (!autosaveDuration.isEmpty())
-        ui->sbxAutosaveDuration->setValue(set.read("main", "autosaveDuration").toInt());
-
-    ui->sbxAutosaveDuration->setSuffix(" s");
-
-    // ledAuthor
-    ui->ledAuthor->setText(set.read("main", "author").toString());
-
-    // ledOmsiPath
-    ui->ledOmsiPath->setText(set.read("main", "mainDir").toString());
+    // sbAutosaveDuration
+    ui->sbxAutosaveDuration->setSuffix(" " + tr("s", "Short version of 'seconds'"));
 
     // cobxLogfileMode
     QStringList logfileModes;
-    //                -1            0              1          2
-    logfileModes << tr("Off") << tr("Standard") << "Debug" << "Debug+";
+    logfileModes << tr("Off")/* -1 */ << tr("Standard")/* 0 */ << "Debug"/* 1 */ << "Debug+"/* 2 */;
     ui->cobxLogfileMode->addItems(logfileModes);
-    switch (set.read("main", "logfileMode").toInt())
-    {
-        case -1: ui->cobxLogfileMode->setCurrentIndex(0); break;
-        case 0: ui->cobxLogfileMode->setCurrentIndex(1); break;
-        case 1: ui->cobxLogfileMode->setCurrentIndex(2); break;
-        case 2: ui->cobxLogfileMode->setCurrentIndex(3); break;
-    }
 
     // cobxAutoUpdateCheck
     QStringList updateModes;
-    //                0            1                 2              3               4
-    updateModes << tr("Off") << tr("On start") << tr("Daily") << tr("Weekly") << tr("Monthly");
+    updateModes << tr("Off")/* 0 */ << tr("On start")/* 1 */ << tr("Daily")/* 2 */ << tr("Weekly")/* 3 */ << tr("Monthly")/* 4 */;
     ui->cobxAutoUpdateCheck->addItems(updateModes);
-    switch (set.read("main", "autoUpdateCheck").toInt())
-    {
-        case 0: ui->cobxAutoUpdateCheck->setCurrentIndex(0); break;
-        case 1: ui->cobxAutoUpdateCheck->setCurrentIndex(1); break;
-        case 2: ui->cobxAutoUpdateCheck->setCurrentIndex(2); break;
-        case 3: ui->cobxAutoUpdateCheck->setCurrentIndex(3); break;
-        case 4: ui->cobxAutoUpdateCheck->setCurrentIndex(4); break;
-    }
 
-    setupFinished = true;
-
-    setUnsaved(false);
-
-    ui->twgPreferences->setTabVisible(4, false);
+    loadSettings();
+    isFirstSetup = false;
 
     // Open direct modes:
-    // Main directory selection
-    if (openDirect == "mainDirSelection")
+    if (openDirect == "mainDirSelection") // Main directory selection
     {
         on_btnOmsiPath_clicked();
         QTimer::singleShot(0, this, SLOT(close()));
     }
-    // wVerifyMap prefs
-    else if (openDirect == "wVerifyMap")
-    {
+    else if (openDirect == "wVerifyMap") // wVerifyMap prefs
         ui->lwgSections->setCurrentRow(1);
-        ui->twgPreferences->setTabVisible(4, true);
-        ui->twgPreferences->setCurrentIndex(4);
-        qApp->processEvents();
-
-        if (!set.read("wVerifyMap", "advVerifying").isValid())
-            set.write("wVerifyMap", "advVerifying", false);
-        else
-            ui->cbxAdvancedVerifying->setChecked(set.read("wVerifyMap", "advVerifying").toBool());
-
-        if (!set.read("wVerifyMap", "onlyMapTextures").isValid())
-            set.write("wVerifyMap", "onlyMapTextures", false);
-        else
-            ui->cbxOnlyMapTextures->setChecked(set.read("wVerifyMap", "onlyMapTextures").toBool());
-
-        ui->cbxOnlyMapTextures->setEnabled(ui->cbxAdvancedVerifying->isChecked());
-    }
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -160,13 +100,135 @@ void wPreferences::closeEvent(QCloseEvent *event)
     Q_UNUSED(event);
 }
 
-/// Sets unsaved
-void wPreferences::setUnsaved(bool visible)
+void wPreferences::loadSettings()
 {
-    if (visible)
-        ui->statusbar->showMessage(tr("Restart to apply all preferences."));
-    else
-        ui->statusbar->showMessage("", 10);
+    // GENERAL
+    {
+        // General
+        {
+            // Language
+            int languageIndex = set.read("main", "language").toInt();
+            ui->cobxLanguage->setCurrentIndex(languageIndex);
+
+            // Author
+            ui->ledAuthor->setText(set.read("main", "author").toString());
+
+            // Omsi Path
+            ui->ledOmsiPath->setText(set.read("main", "mainDir").toString());
+        };
+
+        // Theme
+        {
+            // Theme
+            useStandardTheme = set.read("main\\themeData", "useStandardTheme").toBool();
+            ui->gbxThemeAdvanced->setEnabled(!useStandardTheme);
+            reloadThemePreview();
+
+
+
+            ui->btnUseCustomTheme->setVisible(useStandardTheme);
+        };
+
+        // Backup
+        {
+            // Auto save enabled
+            ui->cbxBackupEnabled->setChecked(set.read("main", "autosave").toBool());
+
+            // Auto save duration
+            ui->sbxAutosaveDuration->setValue(set.read("main", "autosaveDuration").toInt());
+        };
+
+        // Misc
+        {
+            // Logfile mode
+            ui->cobxLogfileMode->setCurrentIndex(set.read("main", "logfileMode").toInt() + 1);
+
+            // Auto update check
+            ui->cobxAutoUpdateCheck->setCurrentIndex(set.read("main", "autoUpdateCheck").toInt());
+        };
+    };
+
+
+    // MAP VERFICATION
+    {
+        // adv verifying
+        ui->cbxAdvancedVerifying->setChecked(set.read("wVerifyMap", "advVerifying").toBool());
+
+        // map textures
+        ui->cbxOnlyMapTextures->setChecked(set.read("wVerifyMap", "onlyMapTextures").toBool());
+        ui->cbxOnlyMapTextures->setEnabled(ui->cbxAdvancedVerifying->isChecked());
+    };
+
+    setWindowModified(false);
+}
+
+void wPreferences::saveSettings()
+{
+    // GENERAL
+    {
+        // General
+        {
+            // Language
+            set.write("main", "language", ui->cobxLanguage->currentIndex());
+
+            // Author
+            set.write("main", "author", ui->ledAuthor->text());
+
+            // Omsi Path
+            set.write("main", "mainDir", ui->ledOmsiPath->text());
+        };
+
+        // Theme
+        {
+            // Theme data
+            set.remove("main\\themeData", "");
+            set.write("main\\themeData", "Main", tcMain);
+            set.write("main\\themeData", "MainSC", tcMainSC);
+            set.write("main\\themeData", "Dis", tcDis);
+            set.write("main\\themeData", "DisD", tcDisD);
+            set.write("main\\themeData", "Acc1", tcAcc1);
+            set.write("main\\themeData", "Acc2", tcAcc2);
+            set.write("main\\themeData", "Acc3", tcAcc3);
+            set.write("main\\themeData", "Button", tcButton);
+
+            set.write("main\\themeData", "useStandardTheme", useStandardTheme);
+        };
+
+        // Backup
+        {
+            // Auto save enabled
+            set.write("main", "autosave", ui->cbxBackupEnabled->isChecked());
+
+            // Auto save duration
+            set.write("main", "autosaveDuration", ui->sbxAutosaveDuration->value());
+        };
+
+        // Misc
+        {
+            // Logfile mode
+            set.write("main", "logfileMode", ui->cobxLogfileMode->currentIndex() - 1);
+
+            // Auto update check
+            set.write("main", "autoUpdateCheck", ui->cobxAutoUpdateCheck->currentIndex());
+        };
+    };
+
+
+    // MAP VERFICATION
+    {
+        // adv verifying
+        set.write("wVerifyMap", "advVerifying", ui->cbxAdvancedVerifying->isChecked());
+
+        // map textures
+        set.write("wVerifyMap", "onlyMapTextures", ui->cbxOnlyMapTextures->isChecked());
+    };
+
+    setWindowModified(false);
+}
+
+void wPreferences::modified()
+{
+    setWindowModified(true);
 }
 
 /// Refreshes disk usage for backup folder
@@ -178,7 +240,11 @@ void wPreferences::refreshDiskUsage()
 /// Closes the application
 void wPreferences::on_btnClose_clicked()
 {
-    close();
+    if (isWindowModified())
+    {
+        QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Unsaved changes"), tr("There are unsaved changes. Close anyway?"));
+        if (reply == QMessageBox::Yes) close();
+    }
 }
 
 /// Deletes the backup folder
@@ -208,10 +274,7 @@ void wPreferences::on_btnOpenBackupFolder_clicked()
 /// Saves and restarts the application
 void wPreferences::on_btnRestart_clicked()
 {
-//    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Restart now?"), tr("Should the application be restarted now? Any unsaved content will be discarded."));
-
-//    if (reply == QMessageBox::Yes)
-        misc.restart();
+    misc.restart();
 }
 
 /// Checks for updates
@@ -251,49 +314,14 @@ void wPreferences::on_btnCreateDesktopShortcut_clicked()
 }
 
 /// Saves the language
-void wPreferences::on_cobxLanguage_currentIndexChanged(int index)
-{
-    if (setupFinished)
-    {
-        set.write("main", "language", index);
-        setUnsaved(true);
-    }
-}
+void wPreferences::on_cobxLanguage_currentIndexChanged(int index) { Q_UNUSED(index); modified(); needRestart = true; }
 
 /// Sets OMSI path
 void wPreferences::on_btnOmsiPath_clicked()
 {
     QString mainDir = set.getOmsiPath(this, true, ui->ledOmsiPath->text());
     ui->ledOmsiPath->setText(mainDir);
-    set.write("main", "mainDir", mainDir);
-    setUnsaved(true);
-}
-
-/// Saves the autosave duration
-void wPreferences::on_sbxAutosaveDuration_valueChanged(int arg1)
-{
-    if (setupFinished)
-    {
-        set.write("main", "autosaveDuration", arg1);
-        setUnsaved(true);
-    }
-}
-
-/// Saves the author's name
-void wPreferences::on_ledAuthor_textChanged(const QString &arg1)
-{
-    if (setupFinished)
-    {
-        set.write("main", "author", arg1);
-        setUnsaved(true);
-    }
-}
-
-/// Turns backup on / off
-void wPreferences::on_cbxBackupEnabled_clicked(bool checked)
-{
-    set.write("main", "autosave", checked);
-    setUnsaved(true);
+    modified();
 }
 
 /// Opens the logfile path in explorer
@@ -311,159 +339,141 @@ void wPreferences::on_btnMoreLanguages_clicked()
         QDesktopServices::openUrl(OTLinks::showroom);
 }
 
-/// Saves the update check
-void wPreferences::on_cobxAutoUpdateCheck_currentIndexChanged(int index)
-{
-    if (setupFinished)
-    {
-        set.write("main", "autoUpdateCheck", index);
-        setUnsaved(true);
-    }
-}
+void wPreferences::on_cobxAutoUpdateCheck_currentIndexChanged(int index) { Q_UNUSED(index); modified(); }
 
-/// Saves the logfile mode
-void wPreferences::on_cobxLogfileMode_currentIndexChanged(int index)
-{
-    if (setupFinished)
-    {
-        int logfileMode;
-        switch (index)
-        {
-            case 0: logfileMode = -1; break;
-            case 1: logfileMode = 0; break;
-            case 2: logfileMode = 1; break;
-            case 3: logfileMode = 2; break;
-            default: return; break;
-        }
+void wPreferences::on_cobxLogfileMode_currentIndexChanged(int index) { Q_UNUSED(index); modified(); needRestart = true; }
 
-        set.write("main", "logfileMode", logfileMode);
-        setUnsaved(true);
-    }
-}
+void wPreferences::on_sbxAutosaveDuration_valueChanged(int arg1) { Q_UNUSED(arg1); modified(); }
+
+void wPreferences::on_ledAuthor_textChanged(const QString &arg1) { Q_UNUSED(arg1); modified(); }
+
+void wPreferences::on_cbxBackupEnabled_clicked(bool checked) { Q_UNUSED(checked); modified(); }
+
+void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
+
+void wPreferences::on_cbxOnlyMapTextures_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
 
 /// Reloads theme preview
 void wPreferences::reloadThemePreview()
 {
-    if (!set.read("main\\themeData", "Main").toString().isEmpty())
-        ui->lblThemeMain->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Main").toString()));
-    else
-        ui->lblThemeMain->setStyleSheet("");
+    if (isFirstSetup) tcMain = set.read("main\\themeData", "Main").toString();
+    ui->lblThemeMain->setStyleSheet(QString("color: %1").arg(tcMain));
+    if (tcMain.isEmpty()) ui->lblThemeMain->setStyleSheet("");
 
-    if (!set.read("main\\themeData", "MainSC").toString().isEmpty())
-        ui->lblThemeMainSC->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "MainSC").toString()));
-    else
-        ui->lblThemeMainSC->setStyleSheet("");
+    if (isFirstSetup) tcMainSC = set.read("main\\themeData", "MainSC").toString();
+    ui->lblThemeMainSC->setStyleSheet(QString("color: %1").arg(tcMainSC));
+    if (tcMainSC.isEmpty()) ui->lblThemeMainSC->setStyleSheet("");
 
-    if (!set.read("main\\themeData", "Dis").toString().isEmpty())
-        ui->lblThemeDis->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Dis").toString()));
-    else
-        ui->lblThemeDis->setStyleSheet("");
+    if (isFirstSetup) tcDis = set.read("main\\themeData", "Dis").toString();
+    ui->lblThemeDis->setStyleSheet(QString("color: %1").arg(tcDis));
+    if (tcDis.isEmpty()) ui->lblThemeDis->setStyleSheet("");
 
-    if (!set.read("main\\themeData", "DisD").toString().isEmpty())
-        ui->lblThemeDisD->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "DisD").toString()));
-    else
-        ui->lblThemeDisD->setStyleSheet("");
+    if (isFirstSetup) tcDisD = set.read("main\\themeData", "DisD").toString();
+    ui->lblThemeDisD->setStyleSheet(QString("color: %1").arg(tcDisD));
+    if (tcDisD.isEmpty()) ui->lblThemeDisD->setStyleSheet("");
 
-    if (!set.read("main\\themeData", "Acc1").toString().isEmpty())
-        ui->lblThemeAcc1->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Acc1").toString()));
-    else
-        ui->lblThemeAcc1->setStyleSheet("");
+    if (isFirstSetup) tcAcc1 = set.read("main\\themeData", "Acc1").toString();
+    ui->lblThemeAcc1->setStyleSheet(QString("color: %1").arg(tcAcc1));
+    if (tcAcc1.isEmpty()) ui->lblThemeAcc1->setStyleSheet("");
 
-    if (!set.read("main\\themeData", "Acc2").toString().isEmpty())
-        ui->lblThemeAcc2->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Acc2").toString()));
-    else
-        ui->lblThemeAcc2->setStyleSheet("");
+    if (isFirstSetup) tcAcc2 = set.read("main\\themeData", "Acc2").toString();
+    ui->lblThemeAcc2->setStyleSheet(QString("color: %1").arg(tcAcc2));
+    if (tcAcc2.isEmpty()) ui->lblThemeAcc2->setStyleSheet("");
 
-    if (!set.read("main\\themeData", "Acc3").toString().isEmpty())
-        ui->lblThemeAcc3->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Acc3").toString()));
-    else
-        ui->lblThemeAcc3->setStyleSheet("");
+    if (isFirstSetup) tcAcc3 = set.read("main\\themeData", "Acc3").toString();
+    ui->lblThemeAcc3->setStyleSheet(QString("color: %1").arg(tcAcc3));
+    if (tcAcc3.isEmpty()) ui->lblThemeAcc3->setStyleSheet("");
 
-    if (!set.read("main\\themeData", "Button").toString().isEmpty())
-        ui->lblThemeButton->setStyleSheet(QString("color: %1").arg(set.read("main\\themeData", "Button").toString()));
-    else
-        ui->lblThemeButton->setStyleSheet("");
+    if (isFirstSetup) tcButton = set.read("main\\themeData", "Button").toString();
+    ui->lblThemeButton->setStyleSheet(QString("color: %1").arg(tcButton));
+    if (tcButton.isEmpty()) ui->lblThemeButton->setStyleSheet("");
 
-    setStyleSheet(set.getStyleSheet());
+    setStyleSheet(set.getStyleSheet(tcMain, tcMainSC, tcDis, tcDisD, tcAcc1, tcAcc2, tcAcc3, tcButton, useStandardTheme));
 }
 
 /// Opens color dialog for main color
 void wPreferences::on_btnThemeMain_clicked()
 {
-    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Main").toString()), this, tr("Select main color")).name();
-    set.write("main\\themeData", "Main", hex);
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Main").toString()), this, tr("Select main color")).name();
+    if (color.isValid()) tcMain = color.name();
     reloadThemePreview();
+    needRestart = true;
 }
 
 /// Opens color dialog for Main (simple contrast) color
 void wPreferences::on_btnThemeMainSC_clicked()
 {
-    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "MainSC").toString()), this, tr("Select border color")).name();
-    set.write("main\\themeData", "MainSC", hex);
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "MainSC").toString()), this, tr("Select border color"));
+    if (color.isValid()) tcMainSC = color.name();
     reloadThemePreview();
-
+    needRestart = true;
 }
 
 /// Opens color dialog for disables color
 void wPreferences::on_btnThemeDis_clicked()
 {
-    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Dis").toString()), this, tr("Select disabled color")).name();
-    set.write("main\\themeData", "Dis", hex);
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Dis").toString()), this, tr("Select disabled color"));
+    if (color.isValid()) tcDis = color.name();
     reloadThemePreview();
-
+    needRestart = true;
 }
 
 /// Opens color dialog for disables (darker) color
 void wPreferences::on_btnThemeDisD_clicked()
 {
-    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "DisD").toString()), this, tr("Select disabled background color")).name();
-    set.write("main\\themeData", "DisD", hex);
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "DisD").toString()), this, tr("Select disabled background color"));
+    if (color.isValid()) tcDisD = color.name();
     reloadThemePreview();
+    needRestart = true;
 }
 
 /// Opens color dialog for accent 1 color
 void wPreferences::on_btnThemeAcc1_clicked()
 {
-    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc1").toString()), this, tr("Select accent color")).name();
-    set.write("main\\themeData", "Acc1", hex);
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc1").toString()), this, tr("Select accent color"));
+    if (color.isValid()) tcAcc1 = color.name();
     reloadThemePreview();
-
+    needRestart = true;
 }
 
 /// Opens color dialog for accent 2 color
 void wPreferences::on_btnThemeAcc2_clicked()
 {
-    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc2").toString()), this, tr("Select main accent color")).name();
-    set.write("main\\themeData", "Acc2", hex);
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc2").toString()), this, tr("Select main accent color"));
+    if (color.isValid()) tcAcc2 = color.name();
     reloadThemePreview();
+    needRestart = true;
 }
 
 /// Opens color dialog for accent 3 color
 void wPreferences::on_btnThemeAcc3_clicked()
 {
-    QString hex = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc3").toString()), this, tr("Select font color")).name();
-    set.write("main\\themeData", "Acc3", hex);
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc3").toString()), this, tr("Select font color"));
+    if (color.isValid()) tcAcc3 = color.name();
     reloadThemePreview();
+    needRestart = true;
 }
 
 /// Opens color dialog for button color
 void wPreferences::on_btnThemeButton_clicked()
 {
-    QString hex = QColorDialog::getColor(set.read("main\\themeData", "Button").toString(), this, tr("Select button color")).name();
-    set.write("main\\themeData", "Button", hex);
+    QColor color = QColorDialog::getColor(set.read("main\\themeData", "Button").toString(), this, tr("Select button color"));
+    if (color.isValid()) tcButton = color.name();
     reloadThemePreview();
+    needRestart = true;
 }
 
 /// Loads a default theme
 void wPreferences::on_btnLoadTheme_clicked()
 {
-    set.setDefaultTheme(ui->cobxTheme->currentIndex());
+    set.getDefaultThemeData(ui->cobxTheme->currentIndex(), tcMain, tcMainSC, tcDis, tcDisD, tcAcc1, tcAcc2, tcAcc3, tcButton, useStandardTheme);
+
+    ui->gbxThemeAdvanced->setEnabled(!useStandardTheme);
+    ui->btnUseCustomTheme->setVisible(useStandardTheme);
     reloadThemePreview();
-    setUnsaved(true);
+    needRestart = true;
 
-    ui->gbxThemeAdvanced->setEnabled(!set.read("main\\themeData", "useStandardTheme").toBool());
-
-    if (set.read("main\\themeData", "useStandardTheme").toBool()) setStyleSheet("");
+    modified();
 }
 
 /// Opens help dialog
@@ -474,33 +484,28 @@ void wPreferences::on_actionSendFeedback_triggered()
     WFEEDBACK->show();
 }
 
-/// Saves advanced verifying setting
-void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1)
-{
-    if (arg1 == 2)
-    {
-        set.write("wVerifyMap", "advVerifying", true);
-        ui->cbxOnlyMapTextures->setEnabled(true);
-    }
-    else
-    {
-        set.write("wVerifyMap", "advVerifying", false);
-        ui->cbxOnlyMapTextures->setEnabled(false);
-    }
-}
-
-/// Saves only map textures setting
-void wPreferences::on_cbxOnlyMapTextures_stateChanged(int arg1)
-{
-    if (arg1 == 2)
-        set.write("wVerifyMap", "onlyMapTextures", true);
-    else
-        set.write("wVerifyMap", "onlyMapTextures", false);
-}
-
 void wPreferences::on_lwgSections_currentRowChanged(int currentRow)
 {
     ui->stwPreferences->setCurrentIndex(currentRow);
     ui->lblCurrentSection->setText(ui->lwgSections->currentItem()->text());
+}
+
+void wPreferences::on_btnSave_clicked()
+{
+    saveSettings();
+
+    if (needRestart) {
+        QMessageBox::information(this, tr("Restart required"), tr("Some settings require a restart to apply properly."));
+        ui->btnRestart->setVisible(true);
+    }
+}
+
+
+void wPreferences::on_btnUseCustomTheme_clicked()
+{
+    ui->gbxThemeAdvanced->setEnabled(true);
+    useStandardTheme = false;
+    reloadThemePreview();
+    ui->btnUseCustomTheme->setVisible(false);
 }
 

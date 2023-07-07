@@ -137,7 +137,7 @@
                <enum>QTabWidget::Rounded</enum>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <property name="tabBarAutoHide">
                <bool>false</bool>
@@ -307,6 +307,17 @@
                      </size>
                     </property>
                    </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="btnUseCustomTheme">
+                    <property name="text">
+                     <string>Use custom</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../../ressources.qrc">
+                      <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -1007,11 +1018,22 @@
       <item>
        <widget class="QPushButton" name="btnClose">
         <property name="text">
-         <string>Finished</string>
+         <string>Close</string>
         </property>
         <property name="icon">
          <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
+          <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSave">
+        <property name="text">
+         <string>Apply</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../ressources.qrc">
+          <normaloff>:/rec/data/icons/iconSave.svg</normaloff>:/rec/data/icons/iconSave.svg</iconset>
         </property>
        </widget>
       </item>

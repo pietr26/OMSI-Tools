@@ -34,241 +34,241 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="610"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="613"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="610"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="613"/>
         <source>&apos;Omsi.exe&apos; could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="628"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="631"/>
         <source>Select the OMSI main directory...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="762"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="765"/>
         <source>OMSI main directory not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="762"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="765"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="773"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="795"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="776"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="798"/>
         <source>Unsaved content</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="773"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="776"/>
         <source>There is unsaved content.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="795"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="798"/>
         <source>There is unsaved content. Do you want to save?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="811"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="817"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="814"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="820"/>
         <source>Error while opening file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="811"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="814"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="817"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="820"/>
         <source>There was an error while opening &apos;%1&apos;. If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="823"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="826"/>
         <source>No chars in font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="823"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="826"/>
         <source>There are no chars in the font.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="829"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="832"/>
         <source>Save error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="829"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="832"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="835"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="838"/>
         <source>Module still deactivated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="835"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="838"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="901"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="904"/>
         <source>Bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="902"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="905"/>
         <source>kB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="903"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="906"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="904"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="907"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="905"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="908"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="906"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="909"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="917"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="920"/>
         <source>January</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="918"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="921"/>
         <source>February</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="919"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="922"/>
         <source>March</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="920"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="923"/>
         <source>April</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="921"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="924"/>
         <source>May</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="922"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="925"/>
         <source>June</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="923"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="926"/>
         <source>July</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="924"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="927"/>
         <source>August</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="925"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="928"/>
         <source>September</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="926"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="929"/>
         <source>October</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="927"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="930"/>
         <source>November</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="928"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="931"/>
         <source>December</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="938"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="941"/>
         <source>Winter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="939"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="942"/>
         <source>Spring</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="940"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="943"/>
         <source>Summer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="941"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="944"/>
         <source>Autumn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="965"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="968"/>
         <source>The source code of %1 is about %2 lines long.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="966"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="969"/>
         <source>%1 was born from a simple console application called &quot;Font Creator&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="967"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="970"/>
         <source>With the updater of %1 you can install updates with one click. It is available through the preferences.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="968"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="971"/>
         <source>In the &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;Wiki of %1&lt;/a&gt; you can find useful explanations about all topics.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="970"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="973"/>
         <source>Check out the latest developments in the &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;presentation thread in the OMSI-WebDisk&lt;/a&gt;.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="971"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="974"/>
         <source>Your hard disk is crowded? Clean up your main directory with %1&apos; cleanup tool.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="977"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="980"/>
         <source>The application server is currently undergoing maintenance (HTTP 503). Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -519,68 +519,73 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="69"/>
+        <location filename="../../OTModules/wcleanup.ui" line="71"/>
         <source>Sceneryobjects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="87"/>
+        <location filename="../../OTModules/wcleanup.ui" line="109"/>
         <source>Splines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="112"/>
+        <location filename="../../OTModules/wcleanup.ui" line="152"/>
         <source>Actions for selected folders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="120"/>
+        <location filename="../../OTModules/wcleanup.ui" line="158"/>
+        <source>Select all folders you want to move / delete.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.ui" line="169"/>
         <source>Move to folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="130"/>
+        <location filename="../../OTModules/wcleanup.ui" line="179"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="194"/>
+        <location filename="../../OTModules/wcleanup.ui" line="251"/>
         <source>Specials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="200"/>
-        <location filename="../../OTModules/wcleanup.ui" line="262"/>
+        <location filename="../../OTModules/wcleanup.ui" line="257"/>
+        <location filename="../../OTModules/wcleanup.ui" line="319"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="206"/>
+        <location filename="../../OTModules/wcleanup.ui" line="263"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="223"/>
+        <location filename="../../OTModules/wcleanup.ui" line="280"/>
         <source>Analyse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="235"/>
+        <location filename="../../OTModules/wcleanup.ui" line="292"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="247"/>
+        <location filename="../../OTModules/wcleanup.ui" line="304"/>
         <source>Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="250"/>
+        <location filename="../../OTModules/wcleanup.ui" line="307"/>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.ui" line="274"/>
+        <location filename="../../OTModules/wcleanup.ui" line="331"/>
         <source>Back to home</source>
         <translation type="unfinished"></translation>
     </message>
@@ -630,62 +635,62 @@ Is it the correct path? Otherwise, problems may appear in some modules.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="180"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="183"/>
         <source>Select destination folder...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="186"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="189"/>
         <source>Move sceneryobjects...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="191"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="194"/>
         <source>Move sceneryobjects (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="217"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="220"/>
         <source>Move splines (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="237"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="240"/>
         <source>Moved selected folders to &apos;%1&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="242"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="245"/>
         <source>Delete files permanently</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="242"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="245"/>
         <source>Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="249"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="252"/>
         <source>Delete sceneryobjects (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="258"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="261"/>
         <source>Delete splines (%1 of %2)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="265"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="268"/>
         <source>Deleted selected folders.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="285"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="291"/>
         <source>Select destination folder &amp;&amp; move...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="291"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="297"/>
         <source>Delete permanently</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1716,151 +1721,161 @@ No font will be opened.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="316"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="314"/>
+        <source>Use custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="327"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="337"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="348"/>
         <source>Disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="391"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="402"/>
         <source>Disabled (background)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="439"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="450"/>
         <source>Main</source>
         <extracomment>Context &quot;Main color&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="446"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="457"/>
         <source>Main Border</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="526"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="537"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="533"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="544"/>
         <source>Sub border</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="540"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="551"/>
         <source>Main Accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="577"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="588"/>
         <source>Button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="646"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="657"/>
         <source>Backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="652"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="663"/>
         <source>Enabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="661"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="672"/>
         <source>Open backup folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="678"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="689"/>
         <source>Backup interval:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="709"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="720"/>
         <source>Backup disk usage:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="773"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="784"/>
         <source>Miscellaneous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="781"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="792"/>
         <source>Logging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="795"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="806"/>
         <source>Mode:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="817"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="828"/>
         <source>Open logfile path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="831"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="842"/>
         <source>Updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="839"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="850"/>
         <source>Checking interval:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="861"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="872"/>
         <source>Check now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="877"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="888"/>
         <source>Create desktop shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="901"/>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="238"/>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="242"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="912"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="298"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="302"/>
         <source>Reset preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="922"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="933"/>
         <source>Show only map textures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="951"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="962"/>
         <source>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="954"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="965"/>
         <source>Advanced verifiing (not recommended for normal operation)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="986"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="997"/>
         <source>Restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="1010"/>
-        <source>Finished</source>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="1021"/>
+        <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="1033"/>
-        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="1046"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="1032"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="1055"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="1068"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1871,7 +1886,7 @@ No font will be opened.</source>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="59"/>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="92"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="72"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1886,125 +1901,136 @@ No font will be opened.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="73"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="64"/>
         <source>Calculating...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="92"/>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="105"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="68"/>
+        <source>s</source>
+        <comment>Short version of &apos;seconds&apos;</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="72"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="77"/>
         <source>Off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="105"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="77"/>
         <source>On start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="105"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="77"/>
         <source>Daily</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="105"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="77"/>
         <source>Weekly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="105"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="77"/>
         <source>Monthly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="167"/>
-        <source>Restart to apply all preferences.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="187"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="250"/>
         <source>Delete all backups</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="187"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="250"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="223"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="283"/>
         <source>Maintenance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="225"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="285"/>
         <source>Finshed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="225"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="285"/>
         <source>No updates available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="238"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="298"/>
         <source>Should all preferences be reset? This action cannot be undone! Any preferences will be deleted. However, files such as backups are not affected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="242"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="302"/>
         <source>The application will now restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="308"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="333"/>
         <source>More languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="308"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="333"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="393"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="397"/>
         <source>Select main color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="401"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="406"/>
         <source>Select border color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="410"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="415"/>
         <source>Select disabled color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="419"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="424"/>
         <source>Select disabled background color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="427"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="433"/>
         <source>Select accent color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="436"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="442"/>
         <source>Select main accent color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="444"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="451"/>
         <source>Select font color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="452"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="460"/>
         <source>Select button color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="499"/>
+        <source>Restart required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="499"/>
+        <source>Some settings require a restart to apply properly.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
