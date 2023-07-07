@@ -507,13 +507,13 @@ public:
     }
 
     /// Reads a setting
-    QVariant read(QString module, QString name, bool getInterpretedData = true, bool logging = true)
+    QVariant read(QString module, QString name, bool logging = true)
     {
         QSettings preferences(OTInformation::name, module);
         QVariant value = preferences.value(name);
         if (logging) qDebug().noquote().nospace() << "Read pref from " << module << ": "<< name << ", value: " << value;
 
-        if (getInterpretedData && (name == "theme"))
+        if (name == "theme")
             return getStyleSheet();
         else
             return value;
@@ -530,72 +530,68 @@ public:
     }
 
     /// Returns the whole stylesheet
-    QString getStyleSheet()
+    QString getStyleSheet(QString tcMain = "", QString tcMainSC = "", QString tcDis = "", QString tcDisD = "", QString tcAcc1 = "", QString tcAcc2 = "", QString tcAcc3 = "", QString tcButton = "", int useStandardTheme = -1)
     {
+        if (tcMain.isEmpty()) tcMain = read("main\\themeData", "Main").toString();
+        if (tcMainSC.isEmpty()) tcMainSC = read("main\\themeData", "MainSC").toString();
+        if (tcDis.isEmpty()) tcDis = read("main\\themeData", "Dis").toString();
+        if (tcDisD.isEmpty()) tcDisD = read("main\\themeData", "DisD").toString();
+        if (tcAcc1.isEmpty()) tcAcc1 = read("main\\themeData", "Acc1").toString();
+        if (tcAcc2.isEmpty()) tcAcc2 = read("main\\themeData", "Acc2").toString();
+        if (tcAcc3.isEmpty()) tcAcc3 = read("main\\themeData", "Acc3").toString();
+        if (tcButton.isEmpty()) tcButton = read("main\\themeData", "Button").toString();
+        if (useStandardTheme == -1) useStandardTheme = read("main\\themeData", "useStandardTheme").toBool();
+
         QFile modularTheme(":/rec/data/themes/Modular.qss");
 
-        if (!modularTheme.open(QFile::ReadOnly | QFile::Text))
-            return "";
+        if (!modularTheme.open(QFile::ReadOnly | QFile::Text)) return "";
 
-        if (!read("main\\themeData", "useStandardTheme").toBool())
-        {
-            QString theme = modularTheme.readAll();
-            theme.replace("%<%Main%>%", read("main\\themeData", "Main").toString())
-                             .replace("%<%MainSC%>%", read("main\\themeData", "MainSC").toString())
-                             .replace("%<%Dis%>%", read("main\\themeData", "Dis").toString())
-                             .replace("%<%DisD%>%", read("main\\themeData", "DisD").toString())
-                             .replace("%<%Acc1%>%", read("main\\themeData", "Acc1").toString())
-                             .replace("%<%Acc2%>%", read("main\\themeData", "Acc2").toString())
-                             .replace("%<%Acc3%>%", read("main\\themeData", "Acc3").toString())
-                             .replace("%<%Button%>%", read("main\\themeData", "Button").toString());
-            return theme;
-        }
-        return "";
+        if (useStandardTheme) return "";
+
+        QString theme = modularTheme.readAll();
+        theme.replace("%<%Main%>%", tcMain)
+             .replace("%<%MainSC%>%", tcMainSC)
+             .replace("%<%Dis%>%", tcDis)
+             .replace("%<%DisD%>%", tcDisD)
+             .replace("%<%Acc1%>%", tcAcc1)
+             .replace("%<%Acc2%>%", tcAcc2)
+             .replace("%<%Acc3%>%", tcAcc3)
+             .replace("%<%Button%>%", tcButton);
+
+        return theme;
     }
 
-    void setDefaultTheme(int theme)
+    void getDefaultThemeData(int theme, QString &tcMain, QString &tcMainSC, QString &tcDis, QString &tcDisD, QString &tcAcc1, QString &tcAcc2, QString &tcAcc3, QString &tcButton, bool &useStandardTheme)
     {
-        // Standard
-        if (theme == 0)
+        switch (theme)
         {
-            remove("main\\themeData", "");
-            write("main\\themeData", "useStandardTheme", true);
-        }
-        // modernLight
-        else if (theme == 1) // number ex. Cominear
-        {
-            remove("main\\themeData", "");
-            write("main\\themeData", "Main", "#F0F0F0");
-            write("main\\themeData", "MainSC", "#000");
+            case 0:     useStandardTheme = true; break; // Standard
+            case 1:     tcMain = "#F0F0F0"; // modernLight // number ex. Cominear
+                        tcMainSC = "#000";
 
-            write("main\\themeData", "Dis", "#787878");
-            write("main\\themeData", "DisD", "#F0F0F0");
+                        tcDis = "#787878";
+                        tcDisD = "#F0F0F0";
 
-            write("main\\themeData", "Acc1", "#000");
-            write("main\\themeData", "Acc2", "#90C8F6");
-            write("main\\themeData", "Acc3", "#000");
+                        tcAcc1 = "#000";
+                        tcAcc2 = "#90C8F6";
+                        tcAcc3 = "#000";
 
-            write("main\\themeData", "Button", "#F0F0F0");
+                        tcButton = "#F0F0F0";
 
-            write("main\\themeData", "useStandardTheme", false);
-        }
-        // modernDark (ex. Combinear)
-        else if (theme == 2) // number ex. Darkeum
-        {
-            remove("main\\themeData", "");
-            write("main\\themeData", "Main", "#3a3a3a");
-            write("main\\themeData", "MainSC", "#262626");
+                        useStandardTheme = false; break;
+            case 2:     tcMain = "#3a3a3a"; // modernDark (ex. Combinear) // number ex. Darkeum
+                        tcMainSC = "#262626";
 
-            write("main\\themeData", "Dis", "#5E5E5E");
-            write("main\\themeData", "DisD", "#404040");
+                        tcDis = "#5E5E5E";
+                        tcDisD = "#404040";
 
-            write("main\\themeData", "Acc1", "#111");
-            write("main\\themeData", "Acc2", "#b78620");
-            write("main\\themeData", "Acc3", "#fff");
+                        tcAcc1 = "#111";
+                        tcAcc2 = "#b78620";
+                        tcAcc3 = "#fff";
 
-            write("main\\themeData", "Button", "#525252");
+                        tcButton = "#525252";
 
-            write("main\\themeData", "useStandardTheme", false);
+                        useStandardTheme = false;
         }
     }
 
@@ -605,6 +601,7 @@ public:
         if (mainDir != "" && !QFileInfo(QFile(mainDir + "/Omsi.exe")).exists())
         {
             qWarning().noquote() << "'" + mainDir + "' isn't an OMSI path!";
+
             if (openMessage)
             {
                 QMessageBox::StandardButton reply = QMessageBox::warning(parent, QObject::tr("Could not found \"Omsi.exe\""), QObject::tr("'Omsi.exe' could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?"), QMessageBox::Yes | QMessageBox::No);
@@ -718,7 +715,7 @@ public:
             write("main", "autosave", true);
 
         if (!read("main", "autosaveDuration").isValid())
-            write("main", "autosaveDuration", 30);
+            write("main", "autosaveDuration", 60);
 
         if (!read("main\\themeData", "useStandardTheme").isValid())
             write("main\\themeData", "useStandardTheme", true);

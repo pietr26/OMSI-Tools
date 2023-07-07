@@ -85,6 +85,10 @@ private slots:
 
     void on_lwgSections_currentRowChanged(int currentRow);
 
+    void on_btnSave_clicked();
+
+    void on_btnUseCustomTheme_clicked();
+
 private:
     Ui::wPreferences *ui;
     OTSettings set;
@@ -97,11 +101,27 @@ private:
     wReleaseNotes *WRELEASENOTES;
     wFeedback *WFEEDBACK;
 
-    bool setupFinished = false;
-
-    void setUnsaved(bool visible);
-
     void reloadThemePreview();
+
+    void loadSettings();
+
+    void saveSettings();
+
+    void modified();
+
+    QString tcMain;
+    QString tcMainSC;
+    QString tcDis;
+    QString tcDisD;
+    QString tcAcc1;
+    QString tcAcc2;
+    QString tcAcc3;
+    QString tcButton;
+    bool useStandardTheme = false;
+
+    bool isFirstSetup = true;
+
+    bool needRestart = false;
 };
 
 #endif // WPREFERENCES_H

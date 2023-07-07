@@ -15,22 +15,22 @@ void testArea()
 //    OTDiscordRPC rpc;
 //    rpc.updateActivity();
 
-    QString from = "C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/Sankt Peter-Ording";
+//    QString from = "C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/Sankt Peter-Ording";
 
-    QStringList list;
-    QDirIterator dir(from, QStringList() << "*.map", QDir::Files);
+//    QStringList list;
+//    QDirIterator dir(from, QStringList() << "*.map", QDir::Files);
 
-    while (dir.hasNext())
-        list << QFileInfo(dir.next()).fileName();
+//    while (dir.hasNext())
+//        list << QFileInfo(dir.next()).fileName();
 
-    list.removeDuplicates();
-    list.sort();
+//    list.removeDuplicates();
+//    list.sort();
 
 
-    foreach (QString current, list)
-    {
-        QFile::copy("C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/_Kranau/tile_1_-1.map", "C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/Sankt Peter-Ording/newTiles/" + current);
-    }
+//    foreach (QString current, list)
+//    {
+//        QFile::copy("C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/_Kranau/tile_1_-1.map", "C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/Sankt Peter-Ording/newTiles/" + current);
+//    }
 }
 
 /// Cleanup actions after updates
@@ -85,11 +85,12 @@ int main(int argc, char *argv[])
         qInfo().noquote() << "Starting " + OTInformation::name + "...";
 
         QApplication::setStyle(new OTStyleDraw);
+
         set.loadTranslator();
 
         if (isCrash)
         {
-            qWarning() << "Crash on last start detected! A logfile has been saved. Please contact the developer.";
+            qWarning() << "Crash on last start detected! A logfile has been saved.";
             QMessageBox::StandardButton reply = QMessageBox::question(NULL, QObject::tr("Crash detected"), QObject::tr("%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.\nOpen the path of the logfile?").arg(OTInformation::name));
 
             if (reply == QMessageBox::Yes)

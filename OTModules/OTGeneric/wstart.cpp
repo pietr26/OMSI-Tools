@@ -1,6 +1,5 @@
 #include "wstart.h"
 #include "ui_wstart.h"
-#include <QStyleFactory>
 
 wStart::wStart(QWidget *parent)
     : QMainWindow(parent)
@@ -14,6 +13,8 @@ wStart::wStart(QWidget *parent)
 
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
+
+    // QList("windowsvista", "Windows", "Fusion")
 
     setWindowTitle(OTInformation::name + " " + OTInformation::versions::currentVersion.first);
 
@@ -215,9 +216,9 @@ void wStart::loadMessages()
             QJsonObject singleMessage = messages[i].toObject();
 
             OTInAppMessage messageData;
-            messageData.ID = singleMessage["ID"].toString();
+            messageData.ID = QString::number(singleMessage["ID"].toInt());
 
-            messageData.publicity = singleMessage["publicity"].toString().toInt();
+            messageData.publicity = singleMessage["publicity"].toInt();
 
             messageData.start = QDateTime::fromString(singleMessage["startdate"].toString(), "yyyy-MM-dd HH:mm:ss");
             messageData.end = QDateTime::fromString(singleMessage["enddate"].toString(), "yyyy-MM-dd HH:mm:ss");
@@ -236,7 +237,7 @@ void wStart::loadMessages()
 
             messageData.image = singleMessage["image"].toString();
 
-            messageData.trashbin = singleMessage["trashbin"].toString().toInt();
+            messageData.trashbin = singleMessage["trashbin"].toBool();
             messageData.deletedAt = QDateTime::fromString(singleMessage["deletedAt"].toString(), "yyyy-MM-dd HH:mm:ss");
 
             if (messageData.trashbin) continue;
