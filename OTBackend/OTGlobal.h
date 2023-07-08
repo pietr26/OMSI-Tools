@@ -530,15 +530,15 @@ public:
     }
 
     /// Returns the whole stylesheet
-    QString getStyleSheet(QString tcMain = "", QString tcDis = "", QString tcDisD = "", QString tcAcc1 = "", QString tcAcc2 = "", QString tcAcc3 = "", QString tcButton = "", int useStandardTheme = -1)
+    QString getStyleSheet(QString tcBackground = "", QString tcFontDisabled = "", QString tcBackgroundDisabled = "", QString tcBorders = "", QString tcAccent = "", QString tcFont = "", QString tcInputs = "", int useStandardTheme = -1)
     {
-        if (tcMain.isEmpty()) tcMain = read("main\\themeData", "Main").toString();
-        if (tcDis.isEmpty()) tcDis = read("main\\themeData", "Dis").toString();
-        if (tcDisD.isEmpty()) tcDisD = read("main\\themeData", "DisD").toString();
-        if (tcAcc1.isEmpty()) tcAcc1 = read("main\\themeData", "Acc1").toString();
-        if (tcAcc2.isEmpty()) tcAcc2 = read("main\\themeData", "Acc2").toString();
-        if (tcAcc3.isEmpty()) tcAcc3 = read("main\\themeData", "Acc3").toString();
-        if (tcButton.isEmpty()) tcButton = read("main\\themeData", "Button").toString();
+        if (tcBackground.isEmpty()) tcBackground = read("main\\themeData", "background").toString();
+        if (tcFontDisabled.isEmpty()) tcFontDisabled = read("main\\themeData", "fontDisabled").toString();
+        if (tcBackgroundDisabled.isEmpty()) tcBackgroundDisabled = read("main\\themeData", "backgroundDisabled").toString();
+        if (tcBorders.isEmpty()) tcBorders = read("main\\themeData", "borders").toString();
+        if (tcAccent.isEmpty()) tcAccent = read("main\\themeData", "accent").toString();
+        if (tcFont.isEmpty()) tcFont = read("main\\themeData", "font").toString();
+        if (tcInputs.isEmpty()) tcInputs = read("main\\themeData", "inputs").toString();
         if (useStandardTheme == -1) useStandardTheme = read("main\\themeData", "useStandardTheme").toBool();
 
         QFile modularTheme(":/rec/data/themes/modularModern.qss");
@@ -548,46 +548,47 @@ public:
         if (useStandardTheme) return "";
 
         QString theme = modularTheme.readAll();
-        theme.replace("%<%Main%>%", tcMain)
-             .replace("%<%Dis%>%", tcDis)
-             .replace("%<%DisD%>%", tcDisD)
-             .replace("%<%Acc1%>%", tcAcc1)
-             .replace("%<%Acc2%>%", tcAcc2)
-             .replace("%<%Acc3%>%", tcAcc3)
-             .replace("%<%Button%>%", tcButton);
+        theme.replace("%<%background%>%", tcBackground)
+             .replace("%<%fontDisabled%>%", tcFontDisabled)
+             .replace("%<%backgroundDisabled%>%", tcBackgroundDisabled)
+             .replace("%<%borders%>%", tcBorders)
+             .replace("%<%accent%>%", tcAccent)
+             .replace("%<%font%>%", tcFont)
+             .replace("%<%inputs%>%", tcInputs);
 
         return theme;
     }
 
-    void getDefaultThemeData(int theme, QString &tcMain, QString &tcDis, QString &tcDisD, QString &tcAcc1, QString &tcAcc2, QString &tcAcc3, QString &tcButton, bool &useStandardTheme)
+    void getDefaultThemeData(int theme, QString &tcBackground, QString &tcFontDisabled, QString &tcBackgroundDisabled, QString &tcBorders, QString &tcAccent, QString &tcFont, QString &tcInputs, bool &useStandardTheme)
     {
         switch (theme)
         {
             case 0:     useStandardTheme = true; break; // Standard
-            case 1:     tcMain = "#F0F0F0"; // modernLight // number ex. Cominear
+            case 1:     tcBackground = "#F0F0F0"; // modernLight // number ex. Cominear
 
-                        tcDis = "#787878";
-                        tcDisD = "#F0F0F0";
+                        tcFontDisabled = "#787878";
+                        tcBackgroundDisabled = "#F0F0F0";
 
-                        tcAcc1 = "#000";
-                        tcAcc2 = "#90C8F6";
-                        tcAcc3 = "#000";
+                        tcBorders = "#000";
+                        tcAccent = "#90C8F6";
+                        tcFont = "#000";
 
-                        tcButton = "#F0F0F0";
+                        tcInputs = "#F0F0F0";
 
                         useStandardTheme = false; break;
-            case 2:     tcMain = "#3a3a3a"; // modernDark (ex. Combinear) // number ex. Darkeum
 
-                        tcDis = "#5E5E5E";
-                        tcDisD = "#404040";
+            case 2:     tcBackground = "#3a3a3a"; // modernDark (ex. Combinear) // number ex. Darkeum
 
-                        tcAcc1 = "#111";
-                        tcAcc2 = "#b78620";
-                        tcAcc3 = "#fff";
+                        tcFontDisabled = "#5E5E5E";
+                        tcBackgroundDisabled = "#404040";
 
-                        tcButton = "#525252";
+                        tcBorders = "#111";
+                        tcAccent = "#b78620";
+                        tcFont = "#fff";
 
-                        useStandardTheme = false;
+                        tcInputs = "#525252";
+
+                        useStandardTheme = false; break;
         }
     }
 

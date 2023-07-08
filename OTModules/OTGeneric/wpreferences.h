@@ -57,21 +57,21 @@ private slots:
 
     void on_cobxLogfileMode_currentIndexChanged(int index);
 
-    void on_btnThemeMain_clicked();
+    void on_btnThemeBackground_clicked();
 
-    void on_btnThemeDis_clicked();
+    void on_btnThemeFontDisabled_clicked();
 
-    void on_btnThemeDisD_clicked();
+    void on_btnThemeBackgroundDisabled_clicked();
 
-    void on_btnThemeAcc1_clicked();
+    void on_btnThemeBorders_clicked();
 
-    void on_btnThemeAcc2_clicked();
+    void on_btnThemeAccent_clicked();
 
-    void on_btnThemeAcc3_clicked();
+    void on_btnThemeFont_clicked();
 
     void on_btnLoadTheme_clicked();
 
-    void on_btnThemeButton_clicked();
+    void on_btnThemeInputs_clicked();
 
     void on_cbxBackupEnabled_clicked(bool checked);
 
@@ -107,13 +107,13 @@ private:
 
     void modified();
 
-    QString tcMain;
-    QString tcDis;
-    QString tcDisD;
-    QString tcAcc1;
-    QString tcAcc2;
-    QString tcAcc3;
-    QString tcButton;
+    QString tcBackground;
+    QString tcFontDisabled;
+    QString tcBackgroundDisabled;
+    QString tcBorders;
+    QString tcAccent;
+    QString tcFont;
+    QString tcInputs;
     bool useStandardTheme = false;
 
     bool isFirstSetup = true;

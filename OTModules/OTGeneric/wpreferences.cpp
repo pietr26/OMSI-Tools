@@ -180,13 +180,13 @@ void wPreferences::saveSettings()
         {
             // Theme data
             set.remove("main\\themeData", "");
-            set.write("main\\themeData", "Main", tcMain);
-            set.write("main\\themeData", "Dis", tcDis);
-            set.write("main\\themeData", "DisD", tcDisD);
-            set.write("main\\themeData", "Acc1", tcAcc1);
-            set.write("main\\themeData", "Acc2", tcAcc2);
-            set.write("main\\themeData", "Acc3", tcAcc3);
-            set.write("main\\themeData", "Button", tcButton);
+            set.write("main\\themeData", "background", tcBackground);
+            set.write("main\\themeData", "fontDisabled", tcFontDisabled);
+            set.write("main\\themeData", "backgroundDisabled", tcBackgroundDisabled);
+            set.write("main\\themeData", "borders", tcBorders);
+            set.write("main\\themeData", "accent", tcAccent);
+            set.write("main\\themeData", "font", tcFont);
+            set.write("main\\themeData", "inputs", tcInputs);
 
             set.write("main\\themeData", "useStandardTheme", useStandardTheme);
         };
@@ -354,96 +354,96 @@ void wPreferences::on_cbxOnlyMapTextures_stateChanged(int arg1) { Q_UNUSED(arg1)
 /// Reloads theme preview
 void wPreferences::reloadThemePreview()
 {
-    if (isFirstSetup) tcMain = set.read("main\\themeData", "Main").toString();
-    ui->lblThemeMain->setStyleSheet(QString("color: %1").arg(tcMain));
-    if (tcMain.isEmpty()) ui->lblThemeMain->setStyleSheet("");
+    if (isFirstSetup) tcBackground = set.read("main\\themeData", "background").toString();
+    ui->lblThemeBackground->setStyleSheet(QString("color: %1").arg(tcBackground));
+    if (tcBackground.isEmpty()) ui->lblThemeBackground->setStyleSheet("");
 
-    if (isFirstSetup) tcDis = set.read("main\\themeData", "Dis").toString();
-    ui->lblThemeDis->setStyleSheet(QString("color: %1").arg(tcDis));
-    if (tcDis.isEmpty()) ui->lblThemeDis->setStyleSheet("");
+    if (isFirstSetup) tcFontDisabled = set.read("main\\themeData", "fontDisabled").toString();
+    ui->lblThemeFontDisabled->setStyleSheet(QString("color: %1").arg(tcFontDisabled));
+    if (tcFontDisabled.isEmpty()) ui->lblThemeFontDisabled->setStyleSheet("");
 
-    if (isFirstSetup) tcDisD = set.read("main\\themeData", "DisD").toString();
-    ui->lblThemeDisD->setStyleSheet(QString("color: %1").arg(tcDisD));
-    if (tcDisD.isEmpty()) ui->lblThemeDisD->setStyleSheet("");
+    if (isFirstSetup) tcBackgroundDisabled = set.read("main\\themeData", "backgroundDisabled").toString();
+    ui->lblThemeBackgroundDisabled->setStyleSheet(QString("color: %1").arg(tcBackgroundDisabled));
+    if (tcBackgroundDisabled.isEmpty()) ui->lblThemeBackgroundDisabled->setStyleSheet("");
 
-    if (isFirstSetup) tcAcc1 = set.read("main\\themeData", "Acc1").toString();
-    ui->lblThemeAcc1->setStyleSheet(QString("color: %1").arg(tcAcc1));
-    if (tcAcc1.isEmpty()) ui->lblThemeAcc1->setStyleSheet("");
+    if (isFirstSetup) tcBorders = set.read("main\\themeData", "borders").toString();
+    ui->lblThemeBorders->setStyleSheet(QString("color: %1").arg(tcBorders));
+    if (tcBorders.isEmpty()) ui->lblThemeBorders->setStyleSheet("");
 
-    if (isFirstSetup) tcAcc2 = set.read("main\\themeData", "Acc2").toString();
-    ui->lblThemeAcc2->setStyleSheet(QString("color: %1").arg(tcAcc2));
-    if (tcAcc2.isEmpty()) ui->lblThemeAcc2->setStyleSheet("");
+    if (isFirstSetup) tcAccent = set.read("main\\themeData", "accent").toString();
+    ui->lblThemeAccent->setStyleSheet(QString("color: %1").arg(tcAccent));
+    if (tcAccent.isEmpty()) ui->lblThemeAccent->setStyleSheet("");
 
-    if (isFirstSetup) tcAcc3 = set.read("main\\themeData", "Acc3").toString();
-    ui->lblThemeAcc3->setStyleSheet(QString("color: %1").arg(tcAcc3));
-    if (tcAcc3.isEmpty()) ui->lblThemeAcc3->setStyleSheet("");
+    if (isFirstSetup) tcFont = set.read("main\\themeData", "font").toString();
+    ui->lblThemeFont->setStyleSheet(QString("color: %1").arg(tcFont));
+    if (tcFont.isEmpty()) ui->lblThemeFont->setStyleSheet("");
 
-    if (isFirstSetup) tcButton = set.read("main\\themeData", "Button").toString();
-    ui->lblThemeButton->setStyleSheet(QString("color: %1").arg(tcButton));
-    if (tcButton.isEmpty()) ui->lblThemeButton->setStyleSheet("");
+    if (isFirstSetup) tcInputs = set.read("main\\themeData", "inputs").toString();
+    ui->lblThemeInputs->setStyleSheet(QString("color: %1").arg(tcInputs));
+    if (tcInputs.isEmpty()) ui->lblThemeInputs->setStyleSheet("");
 
-    setStyleSheet(set.getStyleSheet(tcMain, tcDis, tcDisD, tcAcc1, tcAcc2, tcAcc3, tcButton, useStandardTheme));
+    setStyleSheet(set.getStyleSheet(tcBackground, tcFontDisabled, tcBackgroundDisabled, tcBorders, tcAccent, tcFont, tcInputs, useStandardTheme));
 }
 
-/// Opens color dialog for main color
-void wPreferences::on_btnThemeMain_clicked()
+/// Opens color dialog for main color TODO
+void wPreferences::on_btnThemeBackground_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Main").toString()), this, tr("Select main color")).name();
-    if (color.isValid()) tcMain = color.name();
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "background").toString()), this, tr("Select background color")).name();
+    if (color.isValid()) tcBackground = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
-/// Opens color dialog for disables color
-void wPreferences::on_btnThemeDis_clicked()
+/// Opens color dialog for disables color TODO
+void wPreferences::on_btnThemeFontDisabled_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Dis").toString()), this, tr("Select disabled color"));
-    if (color.isValid()) tcDis = color.name();
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Dis").toString()), this, tr("Select font color for disabled elements"));
+    if (color.isValid()) tcFontDisabled = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
-/// Opens color dialog for disables (darker) color
-void wPreferences::on_btnThemeDisD_clicked()
+/// Opens color dialog for disables (darker) color TODO
+void wPreferences::on_btnThemeBackgroundDisabled_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "DisD").toString()), this, tr("Select disabled background color"));
-    if (color.isValid()) tcDisD = color.name();
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "DisD").toString()), this, tr("Select background color for disabled elements"));
+    if (color.isValid()) tcBackgroundDisabled = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
-/// Opens color dialog for accent 1 color
-void wPreferences::on_btnThemeAcc1_clicked()
+/// Opens color dialog for accent 1 color TODO
+void wPreferences::on_btnThemeBorders_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc1").toString()), this, tr("Select accent color"));
-    if (color.isValid()) tcAcc1 = color.name();
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "borders").toString()), this, tr("Select border color"));
+    if (color.isValid()) tcBorders = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
-/// Opens color dialog for accent 2 color
-void wPreferences::on_btnThemeAcc2_clicked()
+/// Opens color dialog for accent 2 color TODO
+void wPreferences::on_btnThemeAccent_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc2").toString()), this, tr("Select main accent color"));
-    if (color.isValid()) tcAcc2 = color.name();
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "accent").toString()), this, tr("Select accent color"));
+    if (color.isValid()) tcAccent = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
-/// Opens color dialog for accent 3 color
-void wPreferences::on_btnThemeAcc3_clicked()
+/// Opens color dialog for accent 3 color TODO
+void wPreferences::on_btnThemeFont_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Acc3").toString()), this, tr("Select font color"));
-    if (color.isValid()) tcAcc3 = color.name();
+    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "font").toString()), this, tr("Select font color"));
+    if (color.isValid()) tcFont = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
 /// Opens color dialog for button color
-void wPreferences::on_btnThemeButton_clicked()
+void wPreferences::on_btnThemeInputs_clicked()
 {
-    QColor color = QColorDialog::getColor(set.read("main\\themeData", "Button").toString(), this, tr("Select button color"));
-    if (color.isValid()) tcButton = color.name();
+    QColor color = QColorDialog::getColor(set.read("main\\themeData", "inputs").toString(), this, tr("Select input field color"));
+    if (color.isValid()) tcInputs = color.name();
     reloadThemePreview();
     needRestart = true;
 }
@@ -451,7 +451,7 @@ void wPreferences::on_btnThemeButton_clicked()
 /// Loads a default theme
 void wPreferences::on_btnLoadTheme_clicked()
 {
-    set.getDefaultThemeData(ui->cobxTheme->currentIndex(), tcMain, tcDis, tcDisD, tcAcc1, tcAcc2, tcAcc3, tcButton, useStandardTheme);
+    set.getDefaultThemeData(ui->cobxTheme->currentIndex(), tcBackground, tcFontDisabled, tcBackgroundDisabled, tcBorders, tcAccent, tcFont, tcInputs, useStandardTheme);
 
     ui->gbxThemeAdvanced->setEnabled(!useStandardTheme);
     ui->btnUseCustomTheme->setVisible(useStandardTheme);
