@@ -329,81 +329,14 @@
                   <layout class="QVBoxLayout" name="verticalLayout_9">
                    <item>
                     <layout class="QGridLayout" name="glaTheme">
-                     <item row="1" column="5">
-                      <widget class="QLabel" name="lblThemeAcc1">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string notr="true">■</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="2">
-                      <widget class="QLabel" name="lblThemeDisName">
-                       <property name="text">
-                        <string>Disabled</string>
+                     <item row="0" column="3" rowspan="4">
+                      <widget class="Line" name="line_3">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
                        </property>
                       </widget>
                      </item>
                      <item row="1" column="0">
-                      <widget class="QPushButton" name="btnThemeMainSC">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../../ressources.qrc">
-                         <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="1">
-                      <widget class="QLabel" name="lblThemeDisD">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string notr="true">■</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="4">
-                      <widget class="QPushButton" name="btnThemeAcc3">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../../ressources.qrc">
-                         <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="2">
-                      <widget class="QLabel" name="lblThemeDisDName">
-                       <property name="text">
-                        <string>Disabled (background)</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="0">
                       <widget class="QPushButton" name="btnThemeMain">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -420,8 +353,41 @@
                        </property>
                       </widget>
                      </item>
-                     <item row="2" column="0">
-                      <widget class="QPushButton" name="btnThemeDis">
+                     <item row="1" column="1">
+                      <widget class="QLabel" name="lblThemeMain">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string notr="true">■</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="2">
+                      <widget class="QLabel" name="lblThemeMainName">
+                       <property name="text">
+                        <string extracomment="Context &quot;Main color&quot;">Background</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLabel" name="lblThemeAcc3">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string notr="true">■</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QPushButton" name="btnThemeAcc3">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -437,41 +403,14 @@
                        </property>
                       </widget>
                      </item>
-                     <item row="0" column="3" rowspan="4">
-                      <widget class="Line" name="line_3">
-                       <property name="orientation">
-                        <enum>Qt::Vertical</enum>
-                       </property>
-                      </widget>
-                     </item>
                      <item row="0" column="2">
-                      <widget class="QLabel" name="lblThemeMainName">
+                      <widget class="QLabel" name="lblThemeAcc3Name">
                        <property name="text">
-                        <string extracomment="Context &quot;Main color&quot;">Main</string>
+                        <string>Font</string>
                        </property>
                       </widget>
                      </item>
-                     <item row="1" column="2">
-                      <widget class="QLabel" name="lblThemeMainSCName">
-                       <property name="text">
-                        <string>Main Border</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="1">
-                      <widget class="QLabel" name="lblThemeMainSC">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string notr="true">■</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="0">
+                     <item row="1" column="4">
                       <widget class="QPushButton" name="btnThemeDisD">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -488,8 +427,8 @@
                        </property>
                       </widget>
                      </item>
-                     <item row="0" column="1">
-                      <widget class="QLabel" name="lblThemeMain">
+                     <item row="1" column="5">
+                      <widget class="QLabel" name="lblThemeDisD">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                          <horstretch>0</horstretch>
@@ -501,7 +440,14 @@
                        </property>
                       </widget>
                      </item>
-                     <item row="1" column="4">
+                     <item row="1" column="6">
+                      <widget class="QLabel" name="lblThemeDisDName">
+                       <property name="text">
+                        <string>Background (disabled items)</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
                       <widget class="QPushButton" name="btnThemeAcc1">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -518,8 +464,8 @@
                        </property>
                       </widget>
                      </item>
-                     <item row="2" column="1">
-                      <widget class="QLabel" name="lblThemeDis">
+                     <item row="3" column="1">
+                      <widget class="QLabel" name="lblThemeAcc1">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                          <horstretch>0</horstretch>
@@ -531,29 +477,15 @@
                        </property>
                       </widget>
                      </item>
-                     <item row="2" column="6">
-                      <widget class="QLabel" name="lblThemeAcc3Name">
-                       <property name="text">
-                        <string>Font</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="6">
+                     <item row="3" column="2">
                       <widget class="QLabel" name="lblThemeAcc1Name">
                        <property name="text">
-                        <string>Sub border</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="6">
-                      <widget class="QLabel" name="lblThemeAcc2Name">
-                       <property name="text">
-                        <string>Main Accent</string>
+                        <string>Borders</string>
                        </property>
                       </widget>
                      </item>
                      <item row="0" column="4">
-                      <widget class="QPushButton" name="btnThemeAcc2">
+                      <widget class="QPushButton" name="btnThemeDis">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -570,6 +502,43 @@
                       </widget>
                      </item>
                      <item row="0" column="5">
+                      <widget class="QLabel" name="lblThemeDis">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string notr="true">■</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="6">
+                      <widget class="QLabel" name="lblThemeDisName">
+                       <property name="text">
+                        <string>Font (disabled items)</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QPushButton" name="btnThemeAcc2">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="../../ressources.qrc">
+                         <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
                       <widget class="QLabel" name="lblThemeAcc2">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
@@ -582,14 +551,14 @@
                        </property>
                       </widget>
                      </item>
-                     <item row="3" column="6">
-                      <widget class="QLabel" name="lblThemeButtonName">
+                     <item row="2" column="2">
+                      <widget class="QLabel" name="lblThemeAcc2Name">
                        <property name="text">
-                        <string>Button</string>
+                        <string>Accent</string>
                        </property>
                       </widget>
                      </item>
-                     <item row="3" column="4">
+                     <item row="2" column="4">
                       <widget class="QPushButton" name="btnThemeButton">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -607,7 +576,7 @@
                       </widget>
                      </item>
                      <item row="2" column="5">
-                      <widget class="QLabel" name="lblThemeAcc3">
+                      <widget class="QLabel" name="lblThemeButton">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                          <horstretch>0</horstretch>
@@ -619,16 +588,10 @@
                        </property>
                       </widget>
                      </item>
-                     <item row="3" column="5">
-                      <widget class="QLabel" name="lblThemeButton">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
+                     <item row="2" column="6">
+                      <widget class="QLabel" name="lblThemeButtonName">
                        <property name="text">
-                        <string notr="true">■</string>
+                        <string>Input fields</string>
                        </property>
                       </widget>
                      </item>

@@ -530,10 +530,9 @@ public:
     }
 
     /// Returns the whole stylesheet
-    QString getStyleSheet(QString tcMain = "", QString tcMainSC = "", QString tcDis = "", QString tcDisD = "", QString tcAcc1 = "", QString tcAcc2 = "", QString tcAcc3 = "", QString tcButton = "", int useStandardTheme = -1)
+    QString getStyleSheet(QString tcMain = "", QString tcDis = "", QString tcDisD = "", QString tcAcc1 = "", QString tcAcc2 = "", QString tcAcc3 = "", QString tcButton = "", int useStandardTheme = -1)
     {
         if (tcMain.isEmpty()) tcMain = read("main\\themeData", "Main").toString();
-        if (tcMainSC.isEmpty()) tcMainSC = read("main\\themeData", "MainSC").toString();
         if (tcDis.isEmpty()) tcDis = read("main\\themeData", "Dis").toString();
         if (tcDisD.isEmpty()) tcDisD = read("main\\themeData", "DisD").toString();
         if (tcAcc1.isEmpty()) tcAcc1 = read("main\\themeData", "Acc1").toString();
@@ -550,7 +549,6 @@ public:
 
         QString theme = modularTheme.readAll();
         theme.replace("%<%Main%>%", tcMain)
-             .replace("%<%MainSC%>%", tcMainSC)
              .replace("%<%Dis%>%", tcDis)
              .replace("%<%DisD%>%", tcDisD)
              .replace("%<%Acc1%>%", tcAcc1)
@@ -561,13 +559,12 @@ public:
         return theme;
     }
 
-    void getDefaultThemeData(int theme, QString &tcMain, QString &tcMainSC, QString &tcDis, QString &tcDisD, QString &tcAcc1, QString &tcAcc2, QString &tcAcc3, QString &tcButton, bool &useStandardTheme)
+    void getDefaultThemeData(int theme, QString &tcMain, QString &tcDis, QString &tcDisD, QString &tcAcc1, QString &tcAcc2, QString &tcAcc3, QString &tcButton, bool &useStandardTheme)
     {
         switch (theme)
         {
             case 0:     useStandardTheme = true; break; // Standard
             case 1:     tcMain = "#F0F0F0"; // modernLight // number ex. Cominear
-                        tcMainSC = "#000";
 
                         tcDis = "#787878";
                         tcDisD = "#F0F0F0";
@@ -580,7 +577,6 @@ public:
 
                         useStandardTheme = false; break;
             case 2:     tcMain = "#3a3a3a"; // modernDark (ex. Combinear) // number ex. Darkeum
-                        tcMainSC = "#262626";
 
                         tcDis = "#5E5E5E";
                         tcDisD = "#404040";

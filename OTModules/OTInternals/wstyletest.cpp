@@ -108,7 +108,7 @@ void wStyleTest::on_ledStyle_textChanged(const QString &arg1)
 /// Set modular stylesheet
 void wStyleTest::on_btnReloadStylePrefs_clicked()
 {
-    QFile modularStyle("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/Modular.qss");
+    QFile modularStyle("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/modularModern.qss");
 
     if (!modularStyle.open(QFile::ReadOnly | QFile::Text))
     {
@@ -120,7 +120,6 @@ void wStyleTest::on_btnReloadStylePrefs_clicked()
 
     QString style = in.readAll();
     style = style.replace("%<%Main%>%", ui->ledMain->text())
-                 .replace("%<%MainSC%>%", ui->ledMainSC->text())
                  .replace("%<%Dis%>%", ui->ledDis->text())
                  .replace("%<%DisD%>%", ui->ledDisD->text())
                  .replace("%<%Acc1%>%", ui->ledAcc1->text())
