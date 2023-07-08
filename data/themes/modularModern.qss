@@ -191,10 +191,8 @@ QTabBar::tab:next-selected
 	border-right: none;
 }
 
-
 QTabBar::tab:selected
 {
-
 	background-color: %<%Button%>%;
 	border-color: %<%Acc1%>%;
 	border-bottom: 1px solid %<%Button%>%;
@@ -426,6 +424,53 @@ QSlider::add-page:horizontal:disabled
 }
 
 QSlider::handle:horizontal:disabled 
+{
+	background-color: %<%Dis%>%;
+}
+
+/*------------*/
+
+QSlider::groove:vertical 
+{
+	background-color: transparent;
+	height: 3px;
+}
+
+QSlider::sub-page:vertical 
+{
+	background-color: %<%Acc2%>%;
+}
+
+QSlider::add-page:vertical 
+{
+	background-color: %<%Acc1%>%;
+}
+
+QSlider::handle:vertical 
+{
+	background-color: %<%Acc3%>%;
+	width: 10px;
+	margin-top: -6px;
+	margin-bottom: -6px;
+}
+
+QSlider::handle:vertical:hover 
+{
+	background-color: %<%Acc2%>%;
+	border-radius: 6px;
+}
+
+QSlider::sub-page:vertical:disabled 
+{
+	background-color: %<%Dis%>%;
+}
+
+QSlider::add-page:vertical:disabled 
+{
+	background-color: %<%Dis%>%;
+}
+
+QSlider::handle:vertical:disabled 
 {
 	background-color: %<%Dis%>%;
 }
