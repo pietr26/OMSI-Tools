@@ -119,13 +119,13 @@ void wStyleTest::on_btnReloadStylePrefs_clicked()
     QTextStream in(&modularStyle);
 
     QString style = in.readAll();
-    style = style.replace("%<%Main%>%", ui->ledMain->text())
-                 .replace("%<%Dis%>%", ui->ledDis->text())
-                 .replace("%<%DisD%>%", ui->ledDisD->text())
-                 .replace("%<%Acc1%>%", ui->ledAcc1->text())
-                 .replace("%<%Acc2%>%", ui->ledAcc2->text())
-                 .replace("%<%Acc3%>%", ui->ledAcc3->text())
-                 .replace("%<%Button%>%", ui->ledButton->text());
+    style = style.replace("%<%background%>%", ui->ledMain->text())
+                .replace("%<%fontDisabled%>%", ui->ledFontDisabled->text())
+                .replace("%<%backgroundDisabled%>%", ui->ledBackgroundDisabled->text())
+                .replace("%<%borders%>%", ui->ledBorders->text())
+                .replace("%<%accent%>%", ui->ledAccent->text())
+                 .replace("%<%font%>%", ui->ledFont->text())
+                 .replace("%<%inputs%>%", ui->ledButton->text());
 
     setStyleSheet(style);
 

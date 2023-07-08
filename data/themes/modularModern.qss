@@ -2,8 +2,8 @@
 /*-----QWidget-----*/
 QWidget
 {
-	background-color: %<%Main%>%;
-	color: %<%Acc3%>%; /*standard font color for all texts*/
+	background-color: %<%background%>%;
+	color: %<%font%>%; /*standard font color for all texts*/
 }
 
 /*-----QLabel-----*/
@@ -14,47 +14,44 @@ QLabel
 
 QLabel::disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 /*-----QMenuBar-----*/
 QMenuBar 
 {
-	background-color: %<%Main%>%;
-	border-bottom: 1px solid %<%Acc1%>%;
+	background-color: %<%background%>%;
+	border-bottom: 1px solid %<%borders%>%;
 }
 
-QMenuBar::item
-{
-
-}
+QMenuBar::item { }
 
 QMenuBar::item:selected 
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 /*-----QMenu-----*/
 QMenu
 {
 	padding: 2px;
-	border: 1px solid %<%Acc1%>%;
+	border: 1px solid %<%borders%>%;
 }
 
 QMenu::separator
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
     height: 1px;
 }
 
 QMenu::item:disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 QMenu::item:selected:!disabled
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 /*-----QToolBar-----*/
@@ -67,8 +64,8 @@ QToolBar
 QPushButton,
 QToolButton
 {
-	background-color: %<%Button%>%;
-	border: 1px solid %<%Acc1%>%;
+	background-color: %<%inputs%>%;
+	border: 1px solid %<%borders%>%;
 	border-radius: 3px;
 	padding: 2px;
 }
@@ -76,27 +73,27 @@ QToolButton
 QPushButton:hover,
 QToolButton:hover
 {
-    border: 1px solid %<%Acc2%>%;
+    border: 1px solid %<%accent%>%;
 }
 
 QPushButton:pressed,
 QToolButton:pressed
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 QPushButton:checked,
 QToolButton:checked
 {
-	border: 1px solid %<%Acc2%>%;
+	border: 1px solid %<%accent%>%;
 }
 
 QPushButton::disabled,
 QToolButton::disabled
 {
-	background-color: %<%DisD%>%;
-	color: %<%Dis%>%;
-	border-color: %<%Dis%>%;
+	background-color: %<%backgroundDisabled%>%;
+	color: %<%fontDisabled%>%;
+	border-color: %<%fontDisabled%>%;
 }
 
 QPushButton::flat,
@@ -109,58 +106,58 @@ QToolButton::flat
 /*-----QLineEdit-----*/
 QLineEdit
 {
-	background-color: %<%Button%>%;
+	background-color: %<%inputs%>%;
 	border-radius: 3px;
 	padding: 2px;
-	border: 1px solid %<%Acc1%>%;
+	border: 1px solid %<%borders%>%;
 }
 
 QLineEdit::hover
 {
-	border: 1px solid %<%Acc2%>%;
+	border: 1px solid %<%accent%>%;
 }
 
 QLineEdit::disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 /*-----QPlainTExtEdit-----*/
 QPlainTextEdit
 {
-	background-color: %<%Button%>%;
+	background-color: %<%inputs%>%;
 	border-radius: 3px;
 	padding: 2px;
-	border: 1px solid %<%Acc1%>%;
+	border: 1px solid %<%borders%>%;
 }
 
 QPlainTextEdit::hover
 {
-	border: 1px solid %<%Acc2%>%;
+	border: 1px solid %<%accent%>%;
 }
 
 QPlainTextEdit::disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 /*-----QTextEdit-----*/
 QTextEdit
 {
-	background-color: %<%Button%>%;
+	background-color: %<%inputs%>%;
 	border-radius: 3px;
 	padding: 2px;
-	border: 1px solid %<%Acc1%>%;
+	border: 1px solid %<%borders%>%;
 }
 
 QTextEdit::hover
 {
-	border: 1px solid %<%Acc2%>%;
+	border: 1px solid %<%accent%>%;
 }
 
 QTextEdit::disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 /*-----QTabBar-----*/
@@ -170,7 +167,7 @@ QTabBar::tab
 	padding: 3px;
 	padding-left: 15px;
 	padding-right: 15px;
-	border: 1px solid %<%Dis%>%;
+	border: 1px solid %<%fontDisabled%>%;
 	border-bottom: none;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
@@ -193,51 +190,51 @@ QTabBar::tab:next-selected
 
 QTabBar::tab:selected
 {
-	background-color: %<%Button%>%;
-	border-color: %<%Acc1%>%;
-	border-bottom: 1px solid %<%Button%>%;
+	background-color: %<%inputs%>%;
+	border-color: %<%borders%>%;
+	border-bottom: 1px solid %<%inputs%>%;
 	
 	font-weight: bold;
 }
 
 QTabWidget::pane 
 {
-	border: 1px solid %<%Acc1%>%;
+	border: 1px solid %<%borders%>%;
 	top: 1px;
 }
 
 QTabBar::tab:hover
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 /*-----QComboBox-----*/
 QComboBox
 {
-    background-color: %<%Button%>%;
-    border: 1px solid %<%Acc1%>%;
+    background-color: %<%inputs%>%;
+    border: 1px solid %<%borders%>%;
 	border-radius: 3px;
 	padding: 2px;
 }
 
 QComboBox::disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 QComboBox:on
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 QComboBox::drop-down
 {
-	border-left: 1px solid %<%Acc1%>%;
+	border-left: 1px solid %<%borders%>%;
 }
 
 QComboBox::hover
 {
-	border: 1px solid %<%Acc2%>%;
+	border: 1px solid %<%accent%>%;
 }
 
 /*-----QSpinBox & QDoubleSpinBox & QDateTimeEdit-----*/
@@ -245,9 +242,9 @@ QSpinBox,
 QDoubleSpinBox,
 QDateTimeEdit 
 {
-	background-color: %<%Button%>%;
+	background-color: %<%inputs%>%;
 	padding: 3px;
-    border: 1px solid %<%Acc1%>%;
+    border: 1px solid %<%borders%>%;
 	border-radius: 3px;
 }
 
@@ -255,20 +252,20 @@ QSpinBox::hover,
 QDoubleSpinBox::hover,
 QDateTimeEdit::hover
 {
-	border: 1px solid %<%Acc2%>%;
+	border: 1px solid %<%accent%>%;
 }
 
 QSpinBox::disabled,
 QDoubleSpinBox::disabled,
 QDateTimeEdit::disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 /*-----QGroupBox-----*/
 QGroupBox
 {
-	border: 1px solid %<%Acc1%>%;
+	border: 1px solid %<%borders%>%;
 	border-radius: 3px;
     margin-top: 1.5ex;
 }
@@ -281,81 +278,81 @@ QGroupBox::title
 /*-----QHeaderView-----*/
 QHeaderView::section
 {
-    background-color: %<%Button%>%;
-	border: 1px solid %<%Acc1%>%;
+    background-color: %<%inputs%>%;
+	border: 1px solid %<%borders%>%;
 	padding: 2px;
 }
 
 QHeaderView::section:disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 QHeaderView::section:checked
 {
-    background-color: %<%Acc2%>%;
+    background-color: %<%accent%>%;
     color: #fff;
 }
 
 QTableCornerButton::section
 {
-    background-color: %<%Button%>%;
-	border: 1px solid %<%Acc1%>%;
+    background-color: %<%inputs%>%;
+	border: 1px solid %<%borders%>%;
 }
 
 /*-----QTableView-----*/
 QTableView::item:disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 /*-----QTreeWidget-----*/
 QTreeView
 {
-	background-color: %<%Button%>%;
-	border: 1px solid %<%Acc1%>%;
+	background-color: %<%inputs%>%;
+	border: 1px solid %<%borders%>%;
 }
 
 QTreeView::item:selected
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 QTreeView::item:disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 QTreeView::item:!selected:hover
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 /*-----QListView-----*/
 QListView 
 {
-	background-color: %<%Button%>%;
-	border: 1px solid %<%Acc1%>%;
+	background-color: %<%inputs%>%;
+	border: 1px solid %<%borders%>%;
 }
 
 QListView::disabled 
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 QListView::item:selected 
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 QListView::item:!selected:hover
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 QListView::item:disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 /*-----QCheckBox-----*/
@@ -367,7 +364,7 @@ QCheckBox
 
 QCheckBox::disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 /*-----QRadioButton-----*/
@@ -379,7 +376,7 @@ QRadioButton
 
 QRadioButton::disabled
 {
-	color: %<%Dis%>%;
+	color: %<%fontDisabled%>%;
 }
 
 /*-----QSlider-----*/
@@ -391,17 +388,17 @@ QSlider::groove:horizontal
 
 QSlider::sub-page:horizontal 
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 QSlider::add-page:horizontal 
 {
-	background-color: %<%Acc1%>%;
+	background-color: %<%borders%>%;
 }
 
 QSlider::handle:horizontal 
 {
-	background-color: %<%Acc3%>%;
+	background-color: %<%font%>%;
 	width: 10px;
 	margin-top: -6px;
 	margin-bottom: -6px;
@@ -409,23 +406,23 @@ QSlider::handle:horizontal
 
 QSlider::handle:horizontal:hover 
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 	border-radius: 6px;
 }
 
 QSlider::sub-page:horizontal:disabled 
 {
-	background-color: %<%Dis%>%;
+	background-color: %<%fontDisabled%>%;
 }
 
 QSlider::add-page:horizontal:disabled 
 {
-	background-color: %<%Dis%>%;
+	background-color: %<%fontDisabled%>%;
 }
 
 QSlider::handle:horizontal:disabled 
 {
-	background-color: %<%Dis%>%;
+	background-color: %<%fontDisabled%>%;
 }
 
 /*------------*/
@@ -438,17 +435,17 @@ QSlider::groove:vertical
 
 QSlider::sub-page:vertical 
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 }
 
 QSlider::add-page:vertical 
 {
-	background-color: %<%Acc1%>%;
+	background-color: %<%borders%>%;
 }
 
 QSlider::handle:vertical 
 {
-	background-color: %<%Acc3%>%;
+	background-color: %<%font%>%;
 	width: 10px;
 	margin-top: -6px;
 	margin-bottom: -6px;
@@ -456,44 +453,44 @@ QSlider::handle:vertical
 
 QSlider::handle:vertical:hover 
 {
-	background-color: %<%Acc2%>%;
+	background-color: %<%accent%>%;
 	border-radius: 6px;
 }
 
 QSlider::sub-page:vertical:disabled 
 {
-	background-color: %<%Dis%>%;
+	background-color: %<%fontDisabled%>%;
 }
 
 QSlider::add-page:vertical:disabled 
 {
-	background-color: %<%Dis%>%;
+	background-color: %<%fontDisabled%>%;
 }
 
 QSlider::handle:vertical:disabled 
 {
-	background-color: %<%Dis%>%;
+	background-color: %<%fontDisabled%>%;
 }
 
 /*-----QScrollBar-----*/
 QScrollBar:horizontal
 {	
-	background-color: %<%Main%>%;
+	background-color: %<%background%>%;
     height: 16px;
-	border: 1px solid %<%Acc1%>%;
+	border: 1px solid %<%borders%>%;
     margin: 0px 16px 0px 16px;
 }
 
 QScrollBar::handle:horizontal
 {
-	background-color: %<%Button%>%;
+	background-color: %<%inputs%>%;
     min-height: 20px;
 }
 
 QScrollBar::add-line:horizontal
 {
-	background-color: %<%Button%>%;
-	border: 1px solid %<%Acc1%>%;
+	background-color: %<%inputs%>%;
+	border: 1px solid %<%borders%>%;
     width: 15px;
     subcontrol-position: right;
     subcontrol-origin: margin;
@@ -501,8 +498,8 @@ QScrollBar::add-line:horizontal
 
 QScrollBar::sub-line:horizontal
 {
-	background-color: %<%Button%>%;
-	border: 1px solid %<%Acc1%>%;
+	background-color: %<%inputs%>%;
+	border: 1px solid %<%borders%>%;
     width: 15px;
     subcontrol-position: left;
     subcontrol-origin: margin;
@@ -510,22 +507,22 @@ QScrollBar::sub-line:horizontal
 
 QScrollBar:vertical
 {
-    background-color: %<%Main%>%;
+    background-color: %<%background%>%;
     width: 16px;
-	border: 1px solid %<%Acc1%>%;
+	border: 1px solid %<%borders%>%;
     margin: 16px 0px 16px 0px;
 }
 
 QScrollBar::handle:vertical
 {
-	background-color: %<%Button%>%;
+	background-color: %<%inputs%>%;
     min-height: 20px;
 }
 
 QScrollBar::add-line:vertical
 {
-	background-color: %<%Button%>%;
-	border: 1px solid %<%Acc1%>%;
+	background-color: %<%inputs%>%;
+	border: 1px solid %<%borders%>%;
     height: 15px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
@@ -533,8 +530,8 @@ QScrollBar::add-line:vertical
 
 QScrollBar::sub-line:vertical
 {
-	background-color: %<%Button%>%;
-	border: 1px solid %<%Acc1%>%;
+	background-color: %<%inputs%>%;
+	border: 1px solid %<%borders%>%;
     height: 15px;
     subcontrol-position: top;
     subcontrol-origin: margin;
@@ -549,7 +546,7 @@ QScrollBar::add-page, QScrollBar::sub-page
 /*-----QProgressBar-----*/
 QProgressBar
 {
-	border: 1px solid %<%Acc1%>%;
+	border: 1px solid %<%borders%>%;
 	border-radius: 3px;
     text-align: center;
 }
@@ -557,7 +554,7 @@ QProgressBar
 /*-----QDockWidget-----*/
 QDockWidget
 {
-    border: 1px solid %<%Acc1%>%;
+    border: 1px solid %<%borders%>%;
 	border-radius: 3px;
     titlebar-close-icon: url(:/rec/data/icons/iconDelete.svg);
     titlebar-normal-icon: url(:/rec/data/icons/iconResize.svg);
@@ -565,5 +562,10 @@ QDockWidget
 
 QDockWidget::title
 {
-    padding-left: 5px;
+	background-color: %<%inputs%>%;
+	border: 1px solid %<%borders%>%;
+	border-left: none;
+	border-right: none;
+	padding-top: 4px;
+	padding-left: 5px;
 }

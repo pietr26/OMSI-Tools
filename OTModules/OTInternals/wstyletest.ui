@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>572</width>
-    <height>1022</height>
+    <height>969</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -97,13 +97,6 @@
          <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
            <layout class="QFormLayout" name="formLayout_2">
-            <item row="0" column="0">
-             <widget class="QLabel" name="lblMain">
-              <property name="text">
-               <string notr="true">Main</string>
-              </property>
-             </widget>
-            </item>
             <item row="0" column="1">
              <widget class="QLineEdit" name="ledMain">
               <property name="text">
@@ -112,79 +105,79 @@
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="QLabel" name="lblDis">
+             <widget class="QLabel" name="lblFontDisabled">
               <property name="text">
-               <string notr="true">Dis</string>
+               <string notr="true">Font (disabled)</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QLineEdit" name="ledDis">
+             <widget class="QLineEdit" name="ledFontDisabled">
               <property name="text">
                <string notr="true">#656565</string>
               </property>
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QLabel" name="lblDisD">
+             <widget class="QLabel" name="lblBackgroundDisabled">
               <property name="text">
-               <string notr="true">DisD</string>
+               <string notr="true">Background (disabled)</string>
               </property>
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QLineEdit" name="ledDisD">
+             <widget class="QLineEdit" name="ledBackgroundDisabled">
               <property name="text">
                <string notr="true">#404040</string>
               </property>
              </widget>
             </item>
             <item row="3" column="0">
-             <widget class="QLabel" name="lblAcc1">
+             <widget class="QLabel" name="lblBorders">
               <property name="text">
-               <string notr="true">Acc1</string>
+               <string notr="true">Borders</string>
               </property>
              </widget>
             </item>
             <item row="3" column="1">
-             <widget class="QLineEdit" name="ledAcc1">
+             <widget class="QLineEdit" name="ledBorders">
               <property name="text">
                <string notr="true">#111</string>
               </property>
              </widget>
             </item>
             <item row="4" column="0">
-             <widget class="QLabel" name="lblAcc2">
+             <widget class="QLabel" name="lblAccent">
               <property name="text">
-               <string notr="true">Acc2</string>
+               <string notr="true">Accent</string>
               </property>
              </widget>
             </item>
             <item row="4" column="1">
-             <widget class="QLineEdit" name="ledAcc2">
+             <widget class="QLineEdit" name="ledAccent">
               <property name="text">
                <string notr="true">#b78620</string>
               </property>
              </widget>
             </item>
             <item row="5" column="0">
-             <widget class="QLabel" name="lblAcc3">
+             <widget class="QLabel" name="lblFont">
               <property name="text">
-               <string notr="true">Acc3</string>
+               <string notr="true">Font</string>
               </property>
              </widget>
             </item>
             <item row="5" column="1">
-             <widget class="QLineEdit" name="ledAcc3">
+             <widget class="QLineEdit" name="ledFont">
               <property name="text">
                <string notr="true">#fff</string>
               </property>
              </widget>
             </item>
             <item row="6" column="0">
-             <widget class="QLabel" name="label_13">
+             <widget class="QLabel" name="lblInputs">
               <property name="text">
-               <string notr="true">Button</string>
+               <string notr="true">Inputs</string>
               </property>
              </widget>
             </item>
@@ -192,6 +185,13 @@
              <widget class="QLineEdit" name="ledButton">
               <property name="text">
                <string notr="true">#525252</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="lblBackground">
+              <property name="text">
+               <string notr="true">Background</string>
               </property>
              </widget>
             </item>
@@ -1223,7 +1223,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                <x>0</x>
                <y>0</y>
                <width>514</width>
-               <height>748</height>
+               <height>695</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1298,8 +1298,8 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1312,8 +1312,8 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1325,8 +1325,8 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1341,8 +1341,8 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1730,6 +1730,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <width>572</width>
      <height>60</height>
     </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="windowTitle">
+    <string>DockWidget</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>8</number>
