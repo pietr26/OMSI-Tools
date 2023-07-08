@@ -59,8 +59,6 @@ private slots:
 
     void on_btnThemeMain_clicked();
 
-    void on_btnThemeMainSC_clicked();
-
     void on_btnThemeDis_clicked();
 
     void on_btnThemeDisD_clicked();
@@ -110,7 +108,6 @@ private:
     void modified();
 
     QString tcMain;
-    QString tcMainSC;
     QString tcDis;
     QString tcDisD;
     QString tcAcc1;

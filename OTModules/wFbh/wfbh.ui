@@ -65,7 +65,7 @@
        <item>
         <widget class="QLabel" name="lblWelcome">
          <property name="text">
-          <string extracomment="Context: 'I welcome someone' / 'I greet someone' (Noun)">Welcome:</string>
+          <string notr="true" extracomment="Context: 'I welcome someone' / 'I greet someone' (Noun)">Welcome text:</string>
          </property>
          <property name="buddy">
           <cstring>cobxWelcome</cstring>

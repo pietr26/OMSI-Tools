@@ -181,7 +181,6 @@ void wPreferences::saveSettings()
             // Theme data
             set.remove("main\\themeData", "");
             set.write("main\\themeData", "Main", tcMain);
-            set.write("main\\themeData", "MainSC", tcMainSC);
             set.write("main\\themeData", "Dis", tcDis);
             set.write("main\\themeData", "DisD", tcDisD);
             set.write("main\\themeData", "Acc1", tcAcc1);
@@ -359,10 +358,6 @@ void wPreferences::reloadThemePreview()
     ui->lblThemeMain->setStyleSheet(QString("color: %1").arg(tcMain));
     if (tcMain.isEmpty()) ui->lblThemeMain->setStyleSheet("");
 
-    if (isFirstSetup) tcMainSC = set.read("main\\themeData", "MainSC").toString();
-    ui->lblThemeMainSC->setStyleSheet(QString("color: %1").arg(tcMainSC));
-    if (tcMainSC.isEmpty()) ui->lblThemeMainSC->setStyleSheet("");
-
     if (isFirstSetup) tcDis = set.read("main\\themeData", "Dis").toString();
     ui->lblThemeDis->setStyleSheet(QString("color: %1").arg(tcDis));
     if (tcDis.isEmpty()) ui->lblThemeDis->setStyleSheet("");
@@ -387,7 +382,7 @@ void wPreferences::reloadThemePreview()
     ui->lblThemeButton->setStyleSheet(QString("color: %1").arg(tcButton));
     if (tcButton.isEmpty()) ui->lblThemeButton->setStyleSheet("");
 
-    setStyleSheet(set.getStyleSheet(tcMain, tcMainSC, tcDis, tcDisD, tcAcc1, tcAcc2, tcAcc3, tcButton, useStandardTheme));
+    setStyleSheet(set.getStyleSheet(tcMain, tcDis, tcDisD, tcAcc1, tcAcc2, tcAcc3, tcButton, useStandardTheme));
 }
 
 /// Opens color dialog for main color
@@ -395,15 +390,6 @@ void wPreferences::on_btnThemeMain_clicked()
 {
     QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Main").toString()), this, tr("Select main color")).name();
     if (color.isValid()) tcMain = color.name();
-    reloadThemePreview();
-    needRestart = true;
-}
-
-/// Opens color dialog for Main (simple contrast) color
-void wPreferences::on_btnThemeMainSC_clicked()
-{
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "MainSC").toString()), this, tr("Select border color"));
-    if (color.isValid()) tcMainSC = color.name();
     reloadThemePreview();
     needRestart = true;
 }
@@ -465,7 +451,7 @@ void wPreferences::on_btnThemeButton_clicked()
 /// Loads a default theme
 void wPreferences::on_btnLoadTheme_clicked()
 {
-    set.getDefaultThemeData(ui->cobxTheme->currentIndex(), tcMain, tcMainSC, tcDis, tcDisD, tcAcc1, tcAcc2, tcAcc3, tcButton, useStandardTheme);
+    set.getDefaultThemeData(ui->cobxTheme->currentIndex(), tcMain, tcDis, tcDisD, tcAcc1, tcAcc2, tcAcc3, tcButton, useStandardTheme);
 
     ui->gbxThemeAdvanced->setEnabled(!useStandardTheme);
     ui->btnUseCustomTheme->setVisible(useStandardTheme);

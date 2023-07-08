@@ -21,7 +21,7 @@ QLabel::disabled
 QMenuBar 
 {
 	background-color: %<%Main%>%;
-	/*border: 1px solid %<%MainSC%>%;*/
+	border-bottom: 1px solid %<%Acc1%>%;
 }
 
 QMenuBar::item
@@ -38,7 +38,7 @@ QMenuBar::item:selected
 QMenu
 {
 	padding: 2px;
-	border: 1px solid %<%MainSC%>%;
+	border: 1px solid %<%Acc1%>%;
 }
 
 QMenu::separator
@@ -196,7 +196,7 @@ QTabBar::tab:selected
 {
 
 	background-color: %<%Button%>%;
-	border-color: %<%MainSC%>%;
+	border-color: %<%Acc1%>%;
 	border-bottom: 1px solid %<%Button%>%;
 	
 	font-weight: bold;
@@ -204,7 +204,7 @@ QTabBar::tab:selected
 
 QTabWidget::pane 
 {
-	border: 1px solid %<%MainSC%>%;
+	border: 1px solid %<%Acc1%>%;
 	top: 1px;
 }
 
@@ -217,7 +217,7 @@ QTabBar::tab:hover
 QComboBox
 {
     background-color: %<%Button%>%;
-    border: 1px solid %<%MainSC%>%;
+    border: 1px solid %<%Acc1%>%;
 	border-radius: 3px;
 	padding: 2px;
 }
@@ -234,7 +234,7 @@ QComboBox:on
 
 QComboBox::drop-down
 {
-	border-left: 1px solid %<%MainSC%>%;
+	border-left: 1px solid %<%Acc1%>%;
 }
 
 QComboBox::hover
@@ -249,7 +249,7 @@ QDateTimeEdit
 {
 	background-color: %<%Button%>%;
 	padding: 3px;
-    border: 1px solid %<%MainSC%>%;
+    border: 1px solid %<%Acc1%>%;
 	border-radius: 3px;
 }
 
@@ -270,7 +270,7 @@ QDateTimeEdit::disabled
 /*-----QGroupBox-----*/
 QGroupBox
 {
-	border: 1px solid %<%MainSC%>%;
+	border: 1px solid %<%Acc1%>%;
 	border-radius: 3px;
     margin-top: 1.5ex;
 }
@@ -284,7 +284,7 @@ QGroupBox::title
 QHeaderView::section
 {
     background-color: %<%Button%>%;
-	border: 1px solid %<%MainSC%>%;
+	border: 1px solid %<%Acc1%>%;
 	padding: 2px;
 }
 
@@ -302,7 +302,7 @@ QHeaderView::section:checked
 QTableCornerButton::section
 {
     background-color: %<%Button%>%;
-	border: 1px solid %<%MainSC%>%;
+	border: 1px solid %<%Acc1%>%;
 }
 
 /*-----QTableView-----*/
@@ -315,7 +315,7 @@ QTableView::item:disabled
 QTreeView
 {
 	background-color: %<%Button%>%;
-	border: 1px solid %<%MainSC%>%;
+	border: 1px solid %<%Acc1%>%;
 }
 
 QTreeView::item:selected
@@ -330,14 +330,14 @@ QTreeView::item:disabled
 
 QTreeView::item:!selected:hover
 {
-	background-color: %<%MainSC%>%;
+	background-color: %<%Acc2%>%;
 }
 
 /*-----QListView-----*/
 QListView 
 {
 	background-color: %<%Button%>%;
-	border: 1px solid %<%MainSC%>%;
+	border: 1px solid %<%Acc1%>%;
 }
 
 QListView::disabled 
@@ -433,7 +433,7 @@ QSlider::handle:horizontal:disabled
 /*-----QScrollBar-----*/
 QScrollBar:horizontal
 {	
-	background-color: %<%MainSC%>%;
+	background-color: %<%Main%>%;
     height: 16px;
 	border: 1px solid %<%Acc1%>%;
     margin: 0px 16px 0px 16px;
@@ -465,7 +465,7 @@ QScrollBar::sub-line:horizontal
 
 QScrollBar:vertical
 {
-    background-color: %<%MainSC%>%;
+    background-color: %<%Main%>%;
     width: 16px;
 	border: 1px solid %<%Acc1%>%;
     margin: 16px 0px 16px 0px;
@@ -504,7 +504,7 @@ QScrollBar::add-page, QScrollBar::sub-page
 /*-----QProgressBar-----*/
 QProgressBar
 {
-	border: 1px solid %<%MainSC%>%;
+	border: 1px solid %<%Acc1%>%;
 	border-radius: 3px;
     text-align: center;
 }
@@ -512,7 +512,7 @@ QProgressBar
 /*-----QDockWidget-----*/
 QDockWidget
 {
-    border: 1px solid %<%MainSC%>%;
+    border: 1px solid %<%Acc1%>%;
 	border-radius: 3px;
     titlebar-close-icon: url(:/rec/data/icons/iconDelete.svg);
     titlebar-normal-icon: url(:/rec/data/icons/iconResize.svg);
