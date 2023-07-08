@@ -14,9 +14,7 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
 
     setWindowTitle("[*] " + OTInformation::name + " - " + tr("preferences"));
 
-    // Load prefs
     ui->btnUseCustomTheme->setVisible(false);
-
     ui->btnRestart->setVisible(false);
 
     timer = new QTimer(this);
@@ -245,6 +243,7 @@ void wPreferences::on_btnClose_clicked()
         QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Unsaved changes"), tr("There are unsaved changes. Close anyway?"));
         if (reply == QMessageBox::Yes) close();
     }
+    else close();
 }
 
 /// Deletes the backup folder
@@ -495,7 +494,7 @@ void wPreferences::on_btnSave_clicked()
     saveSettings();
 
     if (needRestart) {
-        QMessageBox::information(this, tr("Restart required"), tr("Some settings require a restart to apply properly."));
+        QMessageBox::information(this, tr("Restart required"), tr("To fully apply all changed preferences, the application requires a restart."));
         ui->btnRestart->setVisible(true);
     }
 }

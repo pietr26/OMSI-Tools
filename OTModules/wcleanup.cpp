@@ -306,7 +306,7 @@ void wCleanup::on_actionClose_triggered()
 /// Opens the prefs
 void wCleanup::on_actionPreferences_triggered()
 {
-    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES = new wPreferences();
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
 }

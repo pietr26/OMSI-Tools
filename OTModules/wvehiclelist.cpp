@@ -32,7 +32,7 @@ wVehicleList::~wVehicleList()
 /// Opens the prefs
 void wVehicleList::on_actionPreferences_triggered()
 {
-    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES = new wPreferences();
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
 }

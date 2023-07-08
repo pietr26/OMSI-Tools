@@ -84,7 +84,7 @@ wContentSearch::~wContentSearch()
 /// Redirect
 void wContentSearch::on_actionPreferences_triggered()
 {
-    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES = new wPreferences();
     WPREFERENCES->show();
 }
 

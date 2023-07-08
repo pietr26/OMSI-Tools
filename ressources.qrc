@@ -63,7 +63,7 @@
         <file>data/icons/iconComment.svg</file>
         <file>data/icons/iconGitHub.svg</file>
         <file>data/icons/iconDuplicate.svg</file>
-        <file>data/themes/Modular.qss</file>
+        <file>data/themes/modularModern.qss</file>
         <file>data/icons/iconZip.svg</file>
         <file>data/icons/iconWiki.svg</file>
         <file>data/icons/iconCircle_blue.svg</file>

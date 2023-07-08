@@ -292,7 +292,7 @@ void wStart::on_lwgMessages_itemDoubleClicked(QListWidgetItem *item)
 /// Opens the prefs
 void wStart::on_actionPreferences_triggered()
 {
-    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES = new wPreferences();
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
 }
