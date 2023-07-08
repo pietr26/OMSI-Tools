@@ -517,7 +517,7 @@ void wFbh::on_btnRClear_clicked()
 /// Opens prefs (mainApp)
 void wFbh::on_actionPreferences_triggered()
 {
-    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES = new wPreferences();
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
 }

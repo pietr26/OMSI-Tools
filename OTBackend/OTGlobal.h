@@ -542,7 +542,7 @@ public:
         if (tcButton.isEmpty()) tcButton = read("main\\themeData", "Button").toString();
         if (useStandardTheme == -1) useStandardTheme = read("main\\themeData", "useStandardTheme").toBool();
 
-        QFile modularTheme(":/rec/data/themes/Modular.qss");
+        QFile modularTheme(":/rec/data/themes/modularModern.qss");
 
         if (!modularTheme.open(QFile::ReadOnly | QFile::Text)) return "";
 

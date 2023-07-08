@@ -823,7 +823,7 @@ void wFonts::on_actionDeleteSelection_triggered()
 /// Shows the prefs
 void wFonts::on_actionPreferences_triggered()
 {
-    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES = new wPreferences();
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
 }

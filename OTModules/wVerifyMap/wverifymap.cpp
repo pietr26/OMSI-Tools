@@ -506,7 +506,7 @@ void wVerifyMap::on_actionClose_triggered()
 /// Opens the prefs
 void wVerifyMap::on_actionPreferences_triggered()
 {
-    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES = new wPreferences();
     WPREFERENCES->show();
 }
 
