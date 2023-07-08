@@ -84,6 +84,8 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     }
     else if (openDirect == "wVerifyMap") // wVerifyMap prefs
         ui->lwgSections->setCurrentRow(1);
+    else if (openDirect == "wFonts") // wFonts prefs
+        ui->lwgSections->setCurrentRow(2);
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -113,6 +115,9 @@ void wPreferences::loadSettings()
 
             // Omsi Path
             ui->ledOmsiPath->setText(set.read("main", "mainDir").toString());
+
+            // News section
+            ui->cbxShowNews->setChecked(set.read("wStart", "messagesVisible").toBool());
         };
 
         // Theme
@@ -157,6 +162,12 @@ void wPreferences::loadSettings()
         ui->cbxOnlyMapTextures->setEnabled(ui->cbxAdvancedVerifying->isChecked());
     };
 
+    // FONT CREATION
+    {
+        // keep pixel row
+        ui->cbxKeepPixelRow->setChecked(set.read("wFonts", "keepPixelRow").toBool());
+    };
+
     setWindowModified(false);
 }
 
@@ -174,6 +185,9 @@ void wPreferences::saveSettings()
 
             // Omsi Path
             set.write("main", "mainDir", ui->ledOmsiPath->text());
+
+            // News section
+            set.write("wStart", "messagesVisible", ui->cbxShowNews->isChecked());
         };
 
         // Theme
@@ -220,7 +234,14 @@ void wPreferences::saveSettings()
         set.write("wVerifyMap", "onlyMapTextures", ui->cbxOnlyMapTextures->isChecked());
     };
 
+    // FONT CREATION
+    {
+        // keep pixel row
+        set.write("wFonts", "keepPixelRow", ui->cbxKeepPixelRow->isChecked());
+    };
+
     setWindowModified(false);
+    needRestart = false;
 }
 
 void wPreferences::modified()
@@ -239,8 +260,8 @@ void wPreferences::on_btnClose_clicked()
 {
     if (isWindowModified())
     {
-        QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Unsaved changes"), tr("There are unsaved changes. Close anyway?"));
-        if (reply == QMessageBox::Yes) close();
+        if (msg.unsavedContentLeaveYesNo(this) == 1)
+            close();
     }
     else close();
 }
@@ -311,9 +332,6 @@ void wPreferences::on_btnCreateDesktopShortcut_clicked()
     fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/%1.lnk").arg(OTInformation::name), this);
 }
 
-/// Saves the language
-void wPreferences::on_cobxLanguage_currentIndexChanged(int index) { Q_UNUSED(index); modified(); needRestart = true; }
-
 /// Sets OMSI path
 void wPreferences::on_btnOmsiPath_clicked()
 {
@@ -351,6 +369,12 @@ void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { Q_UNUSED(arg
 
 void wPreferences::on_cbxOnlyMapTextures_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
 
+void wPreferences::on_cbxShowNews_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); needRestart = true; }
+
+void wPreferences::on_cobxLanguage_currentIndexChanged(int index) { Q_UNUSED(index); modified(); needRestart = true; }
+
+void wPreferences::on_cbxKeepPixelRow_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
+
 /// Reloads theme preview
 void wPreferences::reloadThemePreview()
 {
@@ -385,55 +409,55 @@ void wPreferences::reloadThemePreview()
     setStyleSheet(set.getStyleSheet(tcBackground, tcFontDisabled, tcBackgroundDisabled, tcBorders, tcAccent, tcFont, tcInputs, useStandardTheme));
 }
 
-/// Opens color dialog for main color TODO
+/// Opens color dialog for main color
 void wPreferences::on_btnThemeBackground_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "background").toString()), this, tr("Select background color")).name();
+    QColor color = QColorDialog::getColor(QColor(tcBackground), this, tr("Select background color")).name();
     if (color.isValid()) tcBackground = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
-/// Opens color dialog for disables color TODO
+/// Opens color dialog for disables color
 void wPreferences::on_btnThemeFontDisabled_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "Dis").toString()), this, tr("Select font color for disabled elements"));
+    QColor color = QColorDialog::getColor(QColor(tcFontDisabled), this, tr("Select font color for disabled elements"));
     if (color.isValid()) tcFontDisabled = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
-/// Opens color dialog for disables (darker) color TODO
+/// Opens color dialog for disables (darker) color
 void wPreferences::on_btnThemeBackgroundDisabled_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "DisD").toString()), this, tr("Select background color for disabled elements"));
+    QColor color = QColorDialog::getColor(QColor(tcBackgroundDisabled), this, tr("Select background color for disabled elements"));
     if (color.isValid()) tcBackgroundDisabled = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
-/// Opens color dialog for accent 1 color TODO
+/// Opens color dialog for accent 1 color
 void wPreferences::on_btnThemeBorders_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "borders").toString()), this, tr("Select border color"));
+    QColor color = QColorDialog::getColor(QColor(tcBorders), this, tr("Select border color"));
     if (color.isValid()) tcBorders = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
-/// Opens color dialog for accent 2 color TODO
+/// Opens color dialog for accent 2 color
 void wPreferences::on_btnThemeAccent_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "accent").toString()), this, tr("Select accent color"));
+    QColor color = QColorDialog::getColor(QColor(tcAccent), this, tr("Select accent color"));
     if (color.isValid()) tcAccent = color.name();
     reloadThemePreview();
     needRestart = true;
 }
 
-/// Opens color dialog for accent 3 color TODO
+/// Opens color dialog for accent 3 color
 void wPreferences::on_btnThemeFont_clicked()
 {
-    QColor color = QColorDialog::getColor(QColor(set.read("main\\themeData", "font").toString()), this, tr("Select font color"));
+    QColor color = QColorDialog::getColor(QColor(tcFont), this, tr("Select font color"));
     if (color.isValid()) tcFont = color.name();
     reloadThemePreview();
     needRestart = true;
@@ -442,7 +466,7 @@ void wPreferences::on_btnThemeFont_clicked()
 /// Opens color dialog for button color
 void wPreferences::on_btnThemeInputs_clicked()
 {
-    QColor color = QColorDialog::getColor(set.read("main\\themeData", "inputs").toString(), this, tr("Select input field color"));
+    QColor color = QColorDialog::getColor(QColor(tcInputs), this, tr("Select input field color"));
     if (color.isValid()) tcInputs = color.name();
     reloadThemePreview();
     needRestart = true;
@@ -493,4 +517,6 @@ void wPreferences::on_btnUseCustomTheme_clicked()
     reloadThemePreview();
     ui->btnUseCustomTheme->setVisible(false);
 }
+
+
 

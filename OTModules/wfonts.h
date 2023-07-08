@@ -129,8 +129,6 @@ private slots:
 
     void on_btnReloadTexPreview_clicked();
 
-    void on_actionKeepPixelRowForNewCharacter_triggered();
-
     void on_actionDelete_triggered();
 
     void on_actionDuplicateCharacter_triggered();
@@ -140,6 +138,8 @@ private slots:
     void selectedEncoding(QStringConverter::Encoding selectedEncoding = QStringConverter::Latin1);
 
     void on_actionBackToHome_triggered();
+
+    void on_btnEditorPreferences_clicked();
 
 signals:
     void backToHome();

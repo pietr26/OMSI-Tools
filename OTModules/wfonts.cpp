@@ -15,7 +15,6 @@ wFonts::wFonts(QWidget *parent) :
 
     setWindowTitle(OTInformation::name + " - " + tr("font creation"));
 
-    ui->actionKeepPixelRowForNewCharacter->setChecked(set.read(objectName(), "keepPixelRow").toBool());
     loadRecentFiles();
 
     // Set timer for autosave
@@ -77,7 +76,7 @@ void wFonts::closeEvent(QCloseEvent *event)
 {
     if (unsaved)
     {
-        int msgResult = msg.unsavedContent(this);
+        int msgResult = msg.unsavedChanges(this);
         if (msgResult == -1)
         {
             event->ignore();
@@ -467,7 +466,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
 
     if (unsaved)
     {
-        int msgResult = msg.unsavedContent(this);
+        int msgResult = msg.unsavedChanges(this);
         if (msgResult == -1)
             return;
         else if (msgResult == 1)
@@ -698,7 +697,7 @@ void wFonts::on_actionNewFont_triggered()
 {
     if (unsaved)
     {
-        int msgResult = msg.unsavedContent(this);
+        int msgResult = msg.unsavedChanges(this);
         if (msgResult == -1)
             return;
         else if (msgResult == 1)
@@ -853,7 +852,7 @@ void wFonts::on_actionClose_triggered()
 {
     if (unsaved)
     {
-        int msgResult = msg.unsavedContent(this);
+        int msgResult = msg.unsavedChanges(this);
         if (msgResult == -1)
             return;
         else if (msgResult == 1)
@@ -921,7 +920,7 @@ void wFonts::on_actionNewChar_triggered()
     ui->twgFont->setCurrentIndex(1);
     ui->ledCharacter->setFocus();
 
-    if ((set.read(objectName(), "keepPixelRow").toBool() == true) && (prevPixelRow != -1))
+    if ((set.read(objectName(), "keepPixelRow").toBool()) && (prevPixelRow != -1))
     {
         ui->sbxHighestPixelInFontRow->setValue(prevPixelRow);
         on_sbxHighestPixelInFontRow_textChanged(QString::number(prevPixelRow));
@@ -933,7 +932,7 @@ void wFonts::on_actionLoadTemplate_triggered()
 {
     if (unsaved)
     {
-        int msgResult = msg.unsavedContent(this);
+        int msgResult = msg.unsavedChanges(this);
         if (msgResult == -1)
             return;
         else if (msgResult == 1)
@@ -1354,13 +1353,6 @@ void wFonts::on_btnReloadTexPreview_clicked()
     loadTexPreview();
 }
 
-/// Activates keep pixel row for new char function
-void wFonts::on_actionKeepPixelRowForNewCharacter_triggered()
-{
-    if (setupFinished)
-        set.write(objectName(), "keepPixelRow", ui->actionKeepPixelRowForNewCharacter->isChecked());
-}
-
 /// Deletes a characters
 void wFonts::on_actionDelete_triggered()
 {
@@ -1415,3 +1407,10 @@ void wFonts::on_actionBackToHome_triggered()
     backToHome();
 }
 
+
+void wFonts::on_btnEditorPreferences_clicked()
+{
+    WPREFERENCES = new wPreferences(this, "wVerifyMap");
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
+}

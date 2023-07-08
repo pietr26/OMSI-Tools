@@ -65,10 +65,6 @@ private slots:
 
     void on_lwgMessages_itemDoubleClicked(QListWidgetItem *item);
 
-    void on_actionShowHideMessageDock_triggered();
-
-    void on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area);
-
     void on_btnFbhDBPanel_clicked();
 
     void on_tbnFonts_clicked();
@@ -94,6 +90,8 @@ private slots:
     void on_actionStyleTest_triggered();
 
     void on_actionRegEditor_triggered();
+
+    void on_dwgMessages_visibilityChanged(bool visible);
 
 private:
     Ui::wStart *ui;
