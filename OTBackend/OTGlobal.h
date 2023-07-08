@@ -720,11 +720,11 @@ public:
         if (!read("wStart", "messagesVisible").isValid())
             write("wStart", "messagesVisible", true);
 
-        if (!read("wVerifyMap", "advVerifying").isValid())
-            write("wVerifyMap", "advVerifying", false);
+//        if (!read("wVerifyMap", "advVerifying").isValid())
+//            write("wVerifyMap", "advVerifying", false);
 
-        if (!read("wVerifyMap", "onlyMapTextures").isValid())
-            write("wVerifyMap", "onlyMapTextures", false);
+//        if (!read("wVerifyMap", "onlyMapTextures").isValid())
+//            write("wVerifyMap", "onlyMapTextures", false);
 
         if (!read("wFonts", "texPreview").isValid())
             write("wFonts", "texPreview", 1);
@@ -761,10 +761,10 @@ public:
     }
 
     /// universal unsaved-Message (with Save, Discard and Cancel). Returns 'save = 1', 'discard = 0' or 'cancel = -1'
-    int unsavedContent(QWidget *parent)
+    int unsavedChanges(QWidget *parent)
     {
-        qDebug() << "Message: Save unsaved content (Save/Discard/Cancel)?";
-        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Unsaved content"), QObject::tr("There is unsaved content."), QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+        qDebug() << "Message: Save unsaved changes (Save/Discard/Cancel)?";
+        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Unsaved changes"), QObject::tr("There are unsaved changes."), QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
         if (reply == QMessageBox::Save)
         {
             qDebug() << "User pressed Save";
@@ -783,10 +783,10 @@ public:
     }
 
     /// universal unsaved-Message (with Yes and No). Returns 'Yes = 1' or 'No = 0'
-    bool unsavedContentYesNo(QWidget *parent)
+    bool unsavedContentLeaveYesNo(QWidget *parent)
     {
-        qDebug() << "Message: Save unsaved content (Yes/No)?";
-        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Unsaved content"), QObject::tr("There is unsaved content. Do you want to save?"), QMessageBox::Yes | QMessageBox::No);
+        qDebug() << "Message: Save unsaved changes / leave (Yes/No)?";
+        QMessageBox::StandardButton reply = QMessageBox::question(parent, QObject::tr("Unsaved changes"), QObject::tr("There are unsaved changes. Close anyway?"), QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
             qDebug() << "User pressed Yes";

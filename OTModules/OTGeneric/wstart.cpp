@@ -49,6 +49,9 @@ wStart::wStart(QWidget *parent)
 
     adjustSize();
 
+    ui->dwgMessages->setVisible(set.read(objectName(), "messagesVisible").toBool());
+    move(misc.centerPosition(this));
+
     ui->actionAbout->setText(tr("About %1").arg(OTInformation::name));
 
     startCounterMsgSender();
@@ -410,20 +413,6 @@ void wStart::on_actionCheckForUpdates_triggered()
     }
 }
 
-void wStart::on_actionShowHideMessageDock_triggered()
-{
-    ui->dwgMessages->setVisible(!ui->dwgMessages->isVisible());
-    set.write(objectName(), "messagesVisible", ui->dwgMessages->isVisible());
-    adjustSize();
-    move(misc.centerPosition(this));
-}
-
-void wStart::on_dwgMessages_dockLocationChanged(const Qt::DockWidgetArea &area)
-{
-    Q_UNUSED(area);
-    set.write(objectName(), "state", saveState());
-}
-
 void wStart::on_btnFbhDBPanel_clicked()
 {
     WDBCOPYRIGHTS = new wDBCopyrights();
@@ -524,4 +513,9 @@ void wStart::on_actionRegEditor_triggered()
     connect(WREGEDITOR, &wRegEditor::backToHome, this, &wStart::reopen);
     WREGEDITOR->show();
     close();
+}
+
+void wStart::on_dwgMessages_visibilityChanged(bool visible)
+{
+    set.write(objectName(), "messagesVisible", visible);
 }

@@ -81,7 +81,7 @@
          <number>100</number>
         </property>
         <property name="currentRow">
-         <number>0</number>
+         <number>-1</number>
         </property>
         <property name="sortingEnabled">
          <bool>false</bool>
@@ -102,6 +102,15 @@
          <property name="icon">
           <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconMap.svg</normaloff>:/rec/data/icons/iconMap.svg</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Font creation</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../ressources.qrc">
+           <normaloff>:/rec/data/icons/iconChar.svg</normaloff>:/rec/data/icons/iconChar.svg</iconset>
          </property>
         </item>
        </widget>
@@ -149,6 +158,27 @@
                <layout class="QVBoxLayout" name="verticalLayout_10">
                 <item>
                  <layout class="QGridLayout" name="gridLayout_2">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="lblLanguage">
+                    <property name="text">
+                     <string>Language (needs restart):</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>cobxLanguage</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QPushButton" name="btnOmsiPath">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../../ressources.qrc">
+                      <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="2" column="1">
                    <widget class="QLineEdit" name="ledOmsiPath">
                     <property name="readOnly">
@@ -159,13 +189,21 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="lblAuthor">
-                    <property name="text">
-                     <string>Author:</string>
+                  <item row="1" column="1" colspan="2">
+                   <widget class="QLineEdit" name="ledAuthor">
+                    <property name="placeholderText">
+                     <string notr="true"/>
                     </property>
-                    <property name="buddy">
-                     <cstring>ledAuthor</cstring>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QPushButton" name="btnMoreLanguages">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../../ressources.qrc">
+                      <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
                     </property>
                    </widget>
                   </item>
@@ -179,13 +217,13 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="lblLanguage">
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="lblAuthor">
                     <property name="text">
-                     <string>Language (needs restart):</string>
+                     <string>Author:</string>
                     </property>
                     <property name="buddy">
-                     <cstring>cobxLanguage</cstring>
+                     <cstring>ledAuthor</cstring>
                     </property>
                    </widget>
                   </item>
@@ -208,32 +246,10 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="2">
-                   <widget class="QPushButton" name="btnOmsiPath">
+                  <item row="3" column="0" colspan="3">
+                   <widget class="QCheckBox" name="cbxShowNews">
                     <property name="text">
-                     <string/>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="../../ressources.qrc">
-                      <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QPushButton" name="btnMoreLanguages">
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="../../ressources.qrc">
-                      <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1" colspan="2">
-                   <widget class="QLineEdit" name="ledAuthor">
-                    <property name="placeholderText">
-                     <string notr="true"/>
+                     <string>Show news section on home screen</string>
                     </property>
                    </widget>
                   </item>
@@ -369,7 +385,7 @@
                      <item row="1" column="2">
                       <widget class="QLabel" name="lblThemeBackgroundName">
                        <property name="text">
-                        <string extracomment="Context &quot;Main color&quot;">Background</string>
+                        <string>Background</string>
                        </property>
                       </widget>
                      </item>
@@ -940,6 +956,30 @@
                <size>
                 <width>20</width>
                 <height>402</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="pgeFontCreation">
+           <layout class="QVBoxLayout" name="verticalLayout_12">
+            <item>
+             <widget class="QCheckBox" name="cbxKeepPixelRow">
+              <property name="text">
+               <string>Keep value of pixel row for newly created characters</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
                </size>
               </property>
              </spacer>

@@ -24,1059 +24,1079 @@
    <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
+   <widget class="QTabWidget" name="twgVerfying">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>41</y>
+      <width>546</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
+    </property>
+    <property name="usesScrollButtons">
+     <bool>false</bool>
+    </property>
+    <property name="documentMode">
+     <bool>false</bool>
+    </property>
+    <property name="tabsClosable">
+     <bool>false</bool>
+    </property>
+    <property name="movable">
+     <bool>false</bool>
+    </property>
+    <property name="tabBarAutoHide">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="tabOverview">
+     <property name="toolTip">
+      <string>Overview and statistics about the map</string>
+     </property>
+     <attribute name="title">
+      <string>Overview</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayout_12">
       <item>
-       <widget class="QComboBox" name="cobxMapName">
-        <property name="font">
-         <font>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="toolTip">
-         <string/>
-        </property>
-        <property name="readOnly" stdset="0">
-         <bool>true</bool>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="2" column="0">
+         <widget class="QLabel" name="lblTextures">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Textures:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="lblTotal">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Total:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLineEdit" name="ledTotalHumans">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QLineEdit" name="ledMissingTextures">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="3">
+         <widget class="QLineEdit" name="ledMissingVehicles">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QLineEdit" name="ledMissingTiles">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLabel" name="lblMissing">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Missing (or invalid):</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="3">
+         <widget class="QLineEdit" name="ledMissingSplines">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="ledTotalTiles">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="3">
+         <widget class="QLineEdit" name="ledMissingHumans">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="lblObjects">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Sceneryobjects:</string>
+          </property>
+          <property name="buddy">
+           <cstring>ledTotalObjects</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QLineEdit" name="ledTotalVehicles">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QLineEdit" name="ledMissingObjects">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="lblTiles">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Tiles:</string>
+          </property>
+          <property name="buddy">
+           <cstring>ledTotalTiles</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLineEdit" name="ledTotalSplines">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="lblSplines">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Splines:</string>
+          </property>
+          <property name="buddy">
+           <cstring>ledTotalSplines</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2" rowspan="7">
+         <widget class="Line" name="line_2">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="ledTotalTextures">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="lblHumans">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Humans:</string>
+          </property>
+          <property name="buddy">
+           <cstring>ledTotalHumans</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="ledTotalObjects">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="lblVehicles">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Vehicles:</string>
+          </property>
+          <property name="buddy">
+           <cstring>ledTotalVehicles</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <widget class="QPushButton" name="btnTilesDetails">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="whatsThis">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../../ressources.qrc">
+            <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="4">
+         <widget class="QPushButton" name="btnTexturesDetails">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../../ressources.qrc">
+            <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="4">
+         <widget class="QPushButton" name="btnObjectsDetails">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../../ressources.qrc">
+            <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="4">
+         <widget class="QPushButton" name="btnSplinesDetails">
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../../ressources.qrc">
+            <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="4">
+         <widget class="QPushButton" name="btnVehiclesDetails">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../../ressources.qrc">
+            <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="4">
+         <widget class="QPushButton" name="btnHumansDetails">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../../ressources.qrc">
+            <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QPushButton" name="btnReloadMaps">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnVerificationPreferences">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="toolTip">
-         <string/>
-        </property>
+       <spacer name="verticalSpacer_2">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Vertical</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>20</width>
+          <height>40</height>
          </size>
         </property>
        </spacer>
       </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tabTiles">
+     <attribute name="title">
+      <string>Tiles</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QPushButton" name="btnStartVerifying">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="font">
-         <font>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="toolTip">
-         <string/>
-        </property>
-        <property name="whatsThis">
-         <string/>
-        </property>
-        <property name="text">
-         <string>Start!</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="hlaTiles">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QLabel" name="lblTilesAll">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>All:</string>
+            </property>
+            <property name="buddy">
+             <cstring>lwgTilesAll</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="lwgTilesAll">
+            <property name="acceptDrops">
+             <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="dragEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="dragDropOverwriteMode">
+             <bool>false</bool>
+            </property>
+            <property name="dragDropMode">
+             <enum>QAbstractItemView::NoDragDrop</enum>
+            </property>
+            <property name="defaultDropAction">
+             <enum>Qt::IgnoreAction</enum>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>false</bool>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="viewMode">
+             <enum>QListView::ListMode</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <item>
+           <widget class="QLabel" name="lblTilesMissing">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>Missing:</string>
+            </property>
+            <property name="buddy">
+             <cstring>lwgTilesMissing</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="lwgTilesMissing">
+            <property name="acceptDrops">
+             <bool>false</bool>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="dragEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="dragDropMode">
+             <enum>QAbstractItemView::NoDragDrop</enum>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </item>
      </layout>
-    </item>
-    <item>
-     <widget class="QTabWidget" name="twgVerfying">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="tabPosition">
-       <enum>QTabWidget::North</enum>
-      </property>
-      <property name="tabShape">
-       <enum>QTabWidget::Rounded</enum>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <property name="elideMode">
-       <enum>Qt::ElideNone</enum>
-      </property>
-      <property name="usesScrollButtons">
-       <bool>false</bool>
-      </property>
-      <property name="documentMode">
-       <bool>false</bool>
-      </property>
-      <property name="tabsClosable">
-       <bool>false</bool>
-      </property>
-      <property name="movable">
-       <bool>false</bool>
-      </property>
-      <property name="tabBarAutoHide">
-       <bool>false</bool>
-      </property>
-      <widget class="QWidget" name="tabOverview">
-       <property name="toolTip">
-        <string>Overview and statistics about the map</string>
-       </property>
-       <attribute name="title">
-        <string>Overview</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_12">
+    </widget>
+    <widget class="QWidget" name="tabTextures">
+     <attribute name="title">
+      <string>Textures</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <layout class="QHBoxLayout" name="hlaTextures">
         <item>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="2" column="0">
-           <widget class="QLabel" name="lblTextures">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+         <layout class="QVBoxLayout" name="verticalLayout_10">
+          <item>
+           <widget class="QLabel" name="lblTexturesAll">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
-             <string>Textures:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="lblTotal">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string>Total:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QLineEdit" name="ledTotalHumans">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="3">
-           <widget class="QLineEdit" name="ledMissingTextures">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="3">
-           <widget class="QLineEdit" name="ledMissingVehicles">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <widget class="QLineEdit" name="ledMissingTiles">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="3">
-           <widget class="QLabel" name="lblMissing">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string>Missing (or invalid):</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="3">
-           <widget class="QLineEdit" name="ledMissingSplines">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="ledTotalTiles">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="3">
-           <widget class="QLineEdit" name="ledMissingHumans">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="lblObjects">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string>Sceneryobjects:</string>
+             <string>All:</string>
             </property>
             <property name="buddy">
-             <cstring>ledTotalObjects</cstring>
+             <cstring>lwgTilesAll</cstring>
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
-           <widget class="QLineEdit" name="ledTotalVehicles">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+          <item>
+           <widget class="QListWidget" name="lwgTexturesAll">
             <property name="toolTip">
              <string/>
             </property>
-            <property name="readOnly">
-             <bool>true</bool>
+            <property name="dragEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
             </property>
            </widget>
           </item>
-          <item row="3" column="3">
-           <widget class="QLineEdit" name="ledMissingObjects">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="lblTiles">
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_11">
+          <item>
+           <widget class="QLabel" name="lblTexturesMissing">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
-             <string>Tiles:</string>
+             <string>Missing:</string>
             </property>
             <property name="buddy">
-             <cstring>ledTotalTiles</cstring>
+             <cstring>lwgTilesMissing</cstring>
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
-           <widget class="QLineEdit" name="ledTotalSplines">
+          <item>
+           <widget class="QListWidget" name="lwgTexturesMissing">
             <property name="toolTip">
              <string/>
             </property>
-            <property name="readOnly">
-             <bool>true</bool>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
             </property>
            </widget>
           </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="lblSplines">
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tabObjects">
+     <property name="toolTip">
+      <string>Sceneryobjects on the map</string>
+     </property>
+     <attribute name="title">
+      <string>Sceneryobjects</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="hlaObjects">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <item>
+           <widget class="QLabel" name="lblObjectsAll">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
-             <string>Splines:</string>
+             <string>All:</string>
             </property>
             <property name="buddy">
-             <cstring>ledTotalSplines</cstring>
+             <cstring>lwgObjectsAll</cstring>
             </property>
            </widget>
           </item>
-          <item row="0" column="2" rowspan="7">
-           <widget class="Line" name="line_2">
+          <item>
+           <widget class="QListWidget" name="lwgObjectsAll">
             <property name="toolTip">
              <string/>
             </property>
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="viewMode">
+             <enum>QListView::ListMode</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="ledTotalTextures">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="lblHumans">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_14">
+          <item>
+           <widget class="QLabel" name="lblObjectsMissing">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
-             <string>Humans:</string>
+             <string>Missing / invalid:</string>
             </property>
             <property name="buddy">
-             <cstring>ledTotalHumans</cstring>
+             <cstring>lwgObjectsMissing</cstring>
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QLineEdit" name="ledTotalObjects">
+          <item>
+           <widget class="QListWidget" name="lwgObjectsMissing">
             <property name="toolTip">
              <string/>
             </property>
-            <property name="readOnly">
-             <bool>true</bool>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="viewMode">
+             <enum>QListView::ListMode</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="lblVehicles">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tabSplines">
+     <property name="toolTip">
+      <string>Splines on the map</string>
+     </property>
+     <attribute name="title">
+      <string>Splines</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <layout class="QHBoxLayout" name="hlaSplines">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_15">
+          <item>
+           <widget class="QLabel" name="lblSplinesAll">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
-             <string>Vehicles:</string>
+             <string>All:</string>
             </property>
             <property name="buddy">
-             <cstring>ledTotalVehicles</cstring>
+             <cstring>lwgSplinesAll</cstring>
             </property>
            </widget>
           </item>
-          <item row="1" column="4">
-           <widget class="QPushButton" name="btnTilesDetails">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
+          <item>
+           <widget class="QListWidget" name="lwgSplinesAll">
             <property name="toolTip">
              <string/>
             </property>
-            <property name="whatsThis">
-             <string/>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
             </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+            <property name="batchSize">
+             <number>300</number>
             </property>
            </widget>
           </item>
-          <item row="2" column="4">
-           <widget class="QPushButton" name="btnTexturesDetails">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_16">
+          <item>
+           <widget class="QLabel" name="lblSplinesMissing">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
-             <string/>
+             <string>Missing / invalid:</string>
             </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+            <property name="buddy">
+             <cstring>lwgSplinesMissing</cstring>
             </property>
            </widget>
           </item>
-          <item row="3" column="4">
-           <widget class="QPushButton" name="btnObjectsDetails">
+          <item>
+           <widget class="QListWidget" name="lwgSplinesMissing">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tabVehicles">
+     <property name="toolTip">
+      <string>AI vehicles on the map</string>
+     </property>
+     <attribute name="title">
+      <string>Vehicles</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <item>
+       <layout class="QHBoxLayout" name="hlaVehicles">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_17">
+          <item>
+           <widget class="QLabel" name="lblVehiclesAll">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
-             <string/>
+             <string>All:</string>
             </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+            <property name="buddy">
+             <cstring>lwgVehiclesAll</cstring>
             </property>
            </widget>
           </item>
-          <item row="4" column="4">
-           <widget class="QPushButton" name="btnSplinesDetails">
+          <item>
+           <widget class="QListWidget" name="lwgVehiclesAll">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_18">
+          <item>
+           <widget class="QLabel" name="lblVehiclesMissing">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
-             <string/>
+             <string>Missing:</string>
             </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+            <property name="buddy">
+             <cstring>lwgVehiclesMissing</cstring>
             </property>
            </widget>
           </item>
-          <item row="5" column="4">
-           <widget class="QPushButton" name="btnVehiclesDetails">
-            <property name="enabled">
-             <bool>true</bool>
+          <item>
+           <widget class="QListWidget" name="lwgVehiclesMissing">
+            <property name="toolTip">
+             <string/>
             </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tabHumans">
+     <property name="toolTip">
+      <string>Humans on the map</string>
+     </property>
+     <attribute name="title">
+      <string>Humans</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayout_7">
+      <item>
+       <layout class="QHBoxLayout" name="hlaHumans">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_19">
+          <item>
+           <widget class="QLabel" name="lblHumansAll">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
-             <string/>
+             <string>All:</string>
             </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+            <property name="buddy">
+             <cstring>lwgHumansAll</cstring>
             </property>
            </widget>
           </item>
-          <item row="6" column="4">
-           <widget class="QPushButton" name="btnHumansDetails">
-            <property name="enabled">
-             <bool>true</bool>
+          <item>
+           <widget class="QListWidget" name="lwgHumansAll">
+            <property name="toolTip">
+             <string/>
             </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_20">
+          <item>
+           <widget class="QLabel" name="lblHumansMissing">
             <property name="toolTip">
              <string/>
             </property>
             <property name="text">
+             <string>Missing:</string>
+            </property>
+            <property name="buddy">
+             <cstring>lwgHumansMissing</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="lwgHumansMissing">
+            <property name="toolTip">
              <string/>
             </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::ExtendedSelection</enum>
+            </property>
+            <property name="batchSize">
+             <number>300</number>
             </property>
            </widget>
           </item>
          </layout>
         </item>
-        <item>
-         <spacer name="verticalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
        </layout>
-      </widget>
-      <widget class="QWidget" name="tabTiles">
-       <attribute name="title">
-        <string>Tiles</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item>
-         <layout class="QHBoxLayout" name="hlaTiles">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_8">
-            <item>
-             <widget class="QLabel" name="lblTilesAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>All:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgTilesAll</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgTilesAll">
-              <property name="acceptDrops">
-               <bool>false</bool>
-              </property>
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="dragEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="dragDropOverwriteMode">
-               <bool>false</bool>
-              </property>
-              <property name="dragDropMode">
-               <enum>QAbstractItemView::NoDragDrop</enum>
-              </property>
-              <property name="defaultDropAction">
-               <enum>Qt::IgnoreAction</enum>
-              </property>
-              <property name="alternatingRowColors">
-               <bool>false</bool>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="viewMode">
-               <enum>QListView::ListMode</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_9">
-            <item>
-             <widget class="QLabel" name="lblTilesMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>Missing:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgTilesMissing</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgTilesMissing">
-              <property name="acceptDrops">
-               <bool>false</bool>
-              </property>
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="dragEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="dragDropMode">
-               <enum>QAbstractItemView::NoDragDrop</enum>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tabTextures">
-       <attribute name="title">
-        <string>Textures</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
-         <layout class="QHBoxLayout" name="hlaTextures">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_10">
-            <item>
-             <widget class="QLabel" name="lblTexturesAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>All:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgTilesAll</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgTexturesAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="dragEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_11">
-            <item>
-             <widget class="QLabel" name="lblTexturesMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>Missing:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgTilesMissing</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgTexturesMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tabObjects">
-       <property name="toolTip">
-        <string>Sceneryobjects on the map</string>
-       </property>
-       <attribute name="title">
-        <string>Sceneryobjects</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <layout class="QHBoxLayout" name="hlaObjects">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_13">
-            <item>
-             <widget class="QLabel" name="lblObjectsAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>All:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgObjectsAll</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgObjectsAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="viewMode">
-               <enum>QListView::ListMode</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_14">
-            <item>
-             <widget class="QLabel" name="lblObjectsMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>Missing / invalid:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgObjectsMissing</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgObjectsMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="viewMode">
-               <enum>QListView::ListMode</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tabSplines">
-       <property name="toolTip">
-        <string>Splines on the map</string>
-       </property>
-       <attribute name="title">
-        <string>Splines</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_5">
-        <item>
-         <layout class="QHBoxLayout" name="hlaSplines">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_15">
-            <item>
-             <widget class="QLabel" name="lblSplinesAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>All:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgSplinesAll</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgSplinesAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_16">
-            <item>
-             <widget class="QLabel" name="lblSplinesMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>Missing / invalid:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgSplinesMissing</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgSplinesMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tabVehicles">
-       <property name="toolTip">
-        <string>AI vehicles on the map</string>
-       </property>
-       <attribute name="title">
-        <string>Vehicles</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_6">
-        <item>
-         <layout class="QHBoxLayout" name="hlaVehicles">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_17">
-            <item>
-             <widget class="QLabel" name="lblVehiclesAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>All:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgVehiclesAll</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgVehiclesAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_18">
-            <item>
-             <widget class="QLabel" name="lblVehiclesMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>Missing:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgVehiclesMissing</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgVehiclesMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tabHumans">
-       <property name="toolTip">
-        <string>Humans on the map</string>
-       </property>
-       <attribute name="title">
-        <string>Humans</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_7">
-        <item>
-         <layout class="QHBoxLayout" name="hlaHumans">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_19">
-            <item>
-             <widget class="QLabel" name="lblHumansAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>All:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgHumansAll</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgHumansAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_20">
-            <item>
-             <widget class="QLabel" name="lblHumansMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>Missing:</string>
-              </property>
-              <property name="buddy">
-               <cstring>lwgHumansMissing</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="lwgHumansMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="lblPicture">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>280</height>
-       </size>
-      </property>
-      <property name="sizeIncrement">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QProgressBar" name="pgbProgress">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximum">
-       <number>100</number>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-      <property name="textVisible">
-       <bool>false</bool>
-      </property>
-      <property name="textDirection">
-       <enum>QProgressBar::TopToBottom</enum>
-      </property>
-      <property name="format">
-       <string notr="true">%p%</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="lblPicture">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>318</y>
+      <width>16</width>
+      <height>280</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>280</height>
+     </size>
+    </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="pgbProgress">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>604</y>
+      <width>87</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="textVisible">
+     <bool>false</bool>
+    </property>
+    <property name="textDirection">
+     <enum>QProgressBar::TopToBottom</enum>
+    </property>
+    <property name="format">
+     <string notr="true">%p%</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnStartVerifying">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>474</x>
+      <y>10</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Start!</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../../ressources.qrc">
+      <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cobxMapName">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>72</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="readOnly" stdset="0">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnVerificationPreferences">
+    <property name="geometry">
+     <rect>
+      <x>122</x>
+      <y>10</y>
+      <width>28</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="../../ressources.qrc">
+      <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnReloadMaps">
+    <property name="geometry">
+     <rect>
+      <x>88</x>
+      <y>10</y>
+      <width>28</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="../../ressources.qrc">
+      <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

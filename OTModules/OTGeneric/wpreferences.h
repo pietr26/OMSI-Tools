@@ -87,6 +87,10 @@ private slots:
 
     void on_btnUseCustomTheme_clicked();
 
+    void on_cbxShowNews_stateChanged(int arg1);
+
+    void on_cbxKeepPixelRow_stateChanged(int arg1);
+
 private:
     Ui::wPreferences *ui;
     OTSettings set;
