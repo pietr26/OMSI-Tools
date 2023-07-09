@@ -514,8 +514,3 @@ void wStart::on_actionRegEditor_triggered()
     WREGEDITOR->show();
     close();
 }
-
-void wStart::on_dwgMessages_visibilityChanged(bool visible)
-{
-    set.write(objectName(), "messagesVisible", visible);
-}

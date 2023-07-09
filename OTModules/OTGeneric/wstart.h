@@ -91,8 +91,6 @@ private slots:
 
     void on_actionRegEditor_triggered();
 
-    void on_dwgMessages_visibilityChanged(bool visible);
-
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;
@@ -122,7 +120,6 @@ private:
 
     void loadMessagesOld();
     void loadMessages();
-
 };
 
 #endif // WSTART_H
