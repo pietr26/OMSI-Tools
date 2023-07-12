@@ -469,7 +469,7 @@ public:
         return mapPath;
     }
 
-    /// Returns a list of all maps
+    /// Returns a list of all maps - first: name; second: full path
     QList<QPair<QString, QString>> listMaps()
     {
         QList<QPair<QString, QString>> returnList;
@@ -481,9 +481,9 @@ public:
         while (mapFolder.hasNext())
         {
             QPair<QString, QString> pair;
-            pair.first = mapFolder.next() + "/global.cfg";
-            pair.second = readGlobal("name", pair.first, 0, true);
-            if ((pair.second != "ERR") && (pair.second != "?"))
+            pair.second = mapFolder.next() + "/global.cfg";
+            pair.first = readGlobal("name", pair.second, 0, true);
+            if ((pair.first != "ERR") && (pair.first != "?"))
                 returnList.append(pair);
         }
 
@@ -521,8 +521,7 @@ public:
             line = in.readLine();
             if (line == param)
             {
-                for (int i = 0; i < readLine; i++)
-                    line = in.readLine();
+                for (int i = 0; i < readLine; i++) line = in.readLine();
                 global.close();
                 return line;
             }

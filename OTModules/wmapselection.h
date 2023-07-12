@@ -15,11 +15,11 @@ class wMapSelection : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit wMapSelection(QWidget *parent = nullptr, QString lastMap = "");
+    explicit wMapSelection(QWidget *parent = nullptr, QString lastMap = "", bool withPath = false);
     ~wMapSelection();
 
 signals:
-    QString returnMapInfo(QPair<QString, QString> mapInfo);
+    void returnMapInfo(QPair<QString, QString> mapInfo);
 
 private slots:
     void on_btnConfirm_clicked();
@@ -34,7 +34,7 @@ private:
     OTSettings set;
     OTMiscellaneous misc;
 
-    void loadList();
+    void loadList(bool withPath = false);
 
     QList<QPair<QString, QString>> maps;
 };

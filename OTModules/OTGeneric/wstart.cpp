@@ -463,6 +463,9 @@ void wStart::on_tbnFbhCreateShortcut_clicked()
 
 void wStart::on_tbnMaps_clicked()
 {
+    if (!checkMainDir())
+        return;
+
     WMAPS = new wMaps();
     connect(WMAPS, &wMaps::backToHome, this, &wStart::reopen);
     WMAPS->show();

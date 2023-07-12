@@ -530,7 +530,7 @@ void wVerifyMap::loadMapList()
     qDebug().noquote() << "Map count:" << mapList.size();
 
     for (int i = 0; i < mapList.size(); i++)
-        ui->cobxMapName->addItem(mapList[i].second);
+        ui->cobxMapName->addItem(mapList[i].first);
 
     for (int i = 0; i < mapList.size(); i++)
     {
@@ -549,13 +549,12 @@ void wVerifyMap::on_cobxMapName_currentIndexChanged(int index)
     if ((!mapListSetupFinished) || mapList.isEmpty())
         return;
 
-    set.write(objectName(), "mapPath", mapList[index].first);
+    set.write(objectName(), "mapPath", mapList[index].second);
     selectAllAndClear();
-    filehandler.setMapPath(mapList[index].first);
+    filehandler.setMapPath(mapList[index].second);
 
-    QString picture = mapList[index].first;
-    picture.remove(QRegularExpression("global.cfg"));
-    picture += "picture.jpg";
+    QString picture = mapList[index].second + "picture.jpg";
+    picture.remove("global.cfg");
 
     if (QFile(picture).exists())
         ui->lblPicture->setPixmap(QPixmap(picture));

@@ -1,7 +1,7 @@
 #include "wmapselection.h"
 #include "ui_wmapselection.h"
 
-wMapSelection::wMapSelection(QWidget *parent, QString lastMap) :
+wMapSelection::wMapSelection(QWidget *parent, QString lastMapPath, bool withPath) :
     QMainWindow(parent),
     ui(new Ui::wMapSelection)
 {
@@ -14,13 +14,20 @@ wMapSelection::wMapSelection(QWidget *parent, QString lastMap) :
     setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
     ui->btnConfirm->setShortcut(Qt::Key_Return | Qt::Key_Enter);
 
-    loadList();
+    loadList(withPath);
 
-    qDebug() << lastMap.remove(0, set.read("main", "mainDir").toString().size() + 1).remove(QRegularExpression("/global.cfg"));
-    for (int i = 0; i < ui->lwgMaps->count(); i++)
+    ui->lwgMaps->setCurrentRow(-1);
+
+    if (lastMapPath != "")
     {
-        if (ui->lwgMaps->item(i)->text().contains(lastMap.remove(0, set.read("main", "mainDir").toString().size() + 1).remove(QRegularExpression("/global.cfg"))))
-            ui->lwgMaps->setCurrentRow(i);
+        for (int i = 0; i < ui->lwgMaps->count(); i++)
+        {
+            if (maps[i].second == lastMapPath)
+            {
+                ui->lwgMaps->setCurrentRow(i);
+                break;
+            }
+        }
     }
 }
 
@@ -30,14 +37,17 @@ wMapSelection::~wMapSelection()
 }
 
 /// Loads the map list
-void wMapSelection::loadList()
+void wMapSelection::loadList(bool withPath)
 {
     ui->lwgMaps->clear();
     maps = filehandler.listMaps();
     qDebug() << "Map count:" << maps.size();
 
     for (int i = 0; i < maps.size(); i++)
-        ui->lwgMaps->addItem(maps[i].second + " (" + maps[i].first + ")");
+    {
+        QString pathPart = (withPath) ? " (" + maps[i].second + ")" : "";
+        ui->lwgMaps->addItem(maps[i].first + pathPart);
+    }
 }
 
 /// Applies the selected map
@@ -47,8 +57,8 @@ void wMapSelection::on_btnConfirm_clicked()
         return;
 
     QPair<QString, QString> pair = maps[ui->lwgMaps->currentRow()];
-    pair.second = set.read("main", "mainDir").toString() + "/" + pair.first + "/global.cfg";
     returnMapInfo(pair);
+    close();
 }
 
 /// Reloads the list (button)
