@@ -6,6 +6,7 @@
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
+#include "OTModules/wmapselection.h"
 
 namespace Ui {
 class wMaps;
@@ -31,7 +32,11 @@ private slots:
 
     void on_actionSendFeedback_triggered();
 
-    void on_cobxMapName_currentIndexChanged(int index);
+    void on_actionLoadMap_triggered();
+
+    void on_btnLoadMap_clicked();
+
+    void recieveSelectedMap(QPair<QString, QString> mapInfo);
 
 private:
     Ui::wMaps *ui;
@@ -41,11 +46,9 @@ private:
     OTMiscellaneous misc;
     OTOMSIFileHandler filehandler;
     wPreferences *WPREFERENCES;
+    wMapSelection *WMAPSELECTION;
 
-    QList<QPair<QString, QString>> mapList;
-
-    void loadMapList();
-    bool mapListSetupFinished = false;
+    QPair<QString, QString> currentMap;
 };
 
 #endif // WMAPS_H

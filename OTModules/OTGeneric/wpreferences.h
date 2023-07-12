@@ -105,9 +105,9 @@ private:
 
     void reloadThemePreview();
 
-    void loadSettings();
+    void loadPreferences();
 
-    void saveSettings();
+    void savePreferences();
 
     void modified();
 

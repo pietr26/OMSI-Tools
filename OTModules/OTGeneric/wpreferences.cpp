@@ -73,7 +73,7 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     updateModes << tr("Off")/* 0 */ << tr("On start")/* 1 */ << tr("Daily")/* 2 */ << tr("Weekly")/* 3 */ << tr("Monthly")/* 4 */;
     ui->cobxAutoUpdateCheck->addItems(updateModes);
 
-    loadSettings();
+    loadPreferences();
     isFirstSetup = false;
 
     // Open direct modes:
@@ -100,7 +100,7 @@ void wPreferences::closeEvent(QCloseEvent *event)
     Q_UNUSED(event);
 }
 
-void wPreferences::loadSettings()
+void wPreferences::loadPreferences()
 {
     // GENERAL
     {
@@ -171,7 +171,7 @@ void wPreferences::loadSettings()
     setWindowModified(false);
 }
 
-void wPreferences::saveSettings()
+void wPreferences::savePreferences()
 {
     // GENERAL
     {
@@ -241,7 +241,6 @@ void wPreferences::saveSettings()
     };
 
     setWindowModified(false);
-    needRestart = false;
 }
 
 void wPreferences::modified()
@@ -501,12 +500,14 @@ void wPreferences::on_lwgSections_currentRowChanged(int currentRow)
 
 void wPreferences::on_btnSave_clicked()
 {
-    saveSettings();
+    savePreferences();
 
     if (needRestart) {
         QMessageBox::information(this, tr("Restart required"), tr("To fully apply all changed preferences, the application requires a restart."));
         ui->btnRestart->setVisible(true);
     }
+
+    needRestart = false;
 }
 
 

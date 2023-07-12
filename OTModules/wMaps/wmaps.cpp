@@ -16,8 +16,6 @@ wMaps::wMaps(QWidget *parent) :
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
-    loadMapList();
-
     qInfo().noquote() << objectName() + " started";
 }
 
@@ -32,19 +30,16 @@ void wMaps::on_actionPreferences_triggered()
     WPREFERENCES->show();
 }
 
-
 void wMaps::on_actionBackToHome_triggered()
 {
     close();
     backToHome();
 }
 
-
 void wMaps::on_actionClose_triggered()
 {
     QApplication::quit();
 }
-
 
 void wMaps::on_actionSendFeedback_triggered()
 {
@@ -52,40 +47,32 @@ void wMaps::on_actionSendFeedback_triggered()
     WFEEDBACK->show();
 }
 
-/// Loads map list
-void wMaps::loadMapList()
+void wMaps::on_btnLoadMap_clicked()
 {
-    mapListSetupFinished = false;
-    ui->cobxMapName->clear();
-
-    qDebug() << "Reload map list...";
-    mapList = filehandler.listMaps();
-
-    qDebug().noquote() << "Map count:" << mapList.size();
-
-    for (int i = 0; i < mapList.size(); i++)
-        ui->cobxMapName->addItem(mapList[i].second);
-
-    for (int i = 0; i < mapList.size(); i++)
-    {
-        if (mapList[i].first == set.read(objectName(), "mapPath").toString())
-        {
-            ui->cobxMapName->setCurrentIndex(i);
-            i = mapList.size();
-        }
-    }
-
-    mapListSetupFinished = true;
+    on_actionLoadMap_triggered();
 }
 
-/// Sets UI for a new map
-void wMaps::on_cobxMapName_currentIndexChanged(int index)
+void wMaps::recieveSelectedMap(QPair<QString, QString> mapInfo)
 {
-    if ((!mapListSetupFinished) || mapList.isEmpty())
-        return;
+    currentMap = mapInfo;
 
-    set.write(objectName(), "mapPath", mapList[index].first);
-    filehandler.setMapPath(mapList[index].first);
+    set.write(objectName(), "mapPath", currentMap.second);
 
-    // Load whole stuff for UI here...
+    ui->ledCurrentMap->setText(mapInfo.first);
+
+    // picture
+    QString picture = currentMap.second + "picture.jpg";
+    picture.remove("global.cfg");
+
+    if (QFile(picture).exists())
+        ui->lblPicture->setPixmap(QPixmap(picture));
+    else
+        ui->lblPicture->setPixmap(QPixmap(":/rec/data/icons/iconUnvisible.svg").scaled(185, 140));
+}
+
+void wMaps::on_actionLoadMap_triggered()
+{
+    WMAPSELECTION = new wMapSelection(this, set.read(objectName(), "mapPath").toString());
+    connect(WMAPSELECTION, &wMapSelection::returnMapInfo, this, &wMaps::recieveSelectedMap);
+    WMAPSELECTION->show();
 }
