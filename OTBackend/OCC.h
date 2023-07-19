@@ -3,8 +3,6 @@
 
 #include "OTGlobal.h"
 
-/* '//-' (hinter einer Variable): Schreibschutz / besondere Achtung bei Veränderung */
-
 class OCNothing
 {
     // just a placeholder for any unknown fields.
@@ -95,6 +93,38 @@ public:
     T value;
 };
 
+class OCFile // Class for all classes with [optional] (directly) readable and/or writeable files - inherit as public!
+{
+public:
+    enum FileIOResponse
+    {
+        errFunctionNotDefined = -2,
+        errFileDoesntExist = -1,
+        valid = 0,
+        errMinor = 1,
+        errCritical = 2
+    };
+
+    void processFileIOResponse(FileIOResponse response, QString filename = "", QString errorString = "")
+    {
+        switch (response)
+        {
+        default: qDebug() << "FileIO response: No response code given."; break;
+
+        case -2: qWarning() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": Virtual function is not defined."; break;
+        case -1: qWarning() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": File does not exist."; break;
+        case 0: qInfo() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + " successful."; break;
+        case 1: qWarning() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": Minor error" + ((!errorString.isEmpty()) ? " (" + errorString + ")": ""); break;
+        case 2: qCritical() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": Minor error" + ((!errorString.isEmpty()) ? " (" + errorString + ")": ""); break;
+        }
+    }
+
+    virtual FileIOResponse read() { return FileIOResponse::errFunctionNotDefined; } // override (pls mark). For error code information take a look in source class
+    virtual FileIOResponse write() { return FileIOResponse::errFunctionNotDefined; } // override (pls mark). For error code information take a look in source class
+
+    QList<QString> errors; // TODO: error stack for minor errors while last reading / writing process - maybe use another template class for list
+};
+
 class OCTextureChangeMaster
 {
 public:
@@ -104,7 +134,7 @@ public:
     QList<QString> entries;
 };
 
-class OCModel // cfg
+class OCModel : public OCFile // cfg
 {
 public:
     // If e.g. particle_emitter is used before all [mesh] entries, create an emtpy material - TODO: "OPTIONAL IN MESH" section in txt :-)
@@ -474,7 +504,7 @@ public:
     QList<Spotlight> spotlights;
 };
 
-class OCSound // in sound.cfg
+class OCSound : public OCFile // in sound.cfg
 {
 public:
     class ThreeDimensionPosition
@@ -531,10 +561,10 @@ public:
     OCNothing nextRandom; // TODO: ?
 };
 
-class OCPassengerCabin // cfg
+class OCPassengerCabin : public OCFile // cfg
 {
 public:
-    // TODO
+        // TODO
 };
 
 template<class T>
@@ -551,7 +581,7 @@ public:
     */
 };
 
-class OCScript
+class OCScript : public OCFile // osc
 {
 public:
     class Action
@@ -620,7 +650,7 @@ public:
     };
 };
 
-class OCViewable // Sceneryobjects, Vehicles, Humans
+class OCViewable : public OCFile // Sceneryobjects, Vehicles, Humans
 {
 public:
     class Attachment
@@ -670,7 +700,7 @@ public:
     bool noDistanceCheck;
 };
 
-class OCTextureProfile
+class OCTextureProfile : public OCFile // [textureName].[textureSuffix].cfg
 {
 public:
     bool hasMoisture;
@@ -699,7 +729,7 @@ public:
 
 ////////////////////////////////////////
 
-class OCDriver // odr
+class OCDriver : public OCFile // odr
 {
 public:
     class BusInfo
@@ -737,39 +767,45 @@ public:
     QList<BusInfo> busInfo;
 };
 
-class OCFont // oft
+class OCFont : public OCFile // oft
 {
 public:
-    class Character
+    class SingleFont
     {
     public:
-        Character(QString ca = "", int lP = -1, int rP = -1, int hP = -1, QString co = "")
+        class Character
         {
-            character = ca;
-            leftPixel = lP;
-            rightPixel = rP;
-            highestPixelInFontRow = hP;
-            comment = co;
-        }
+        public:
+            Character(QString ca = "", int lP = -1, int rP = -1, int hP = -1, QString co = "")
+            {
+                character = ca;
+                leftPixel = lP;
+                rightPixel = rP;
+                highestPixelInFontRow = hP;
+                comment = co;
+            }
 
-        QString character;
-        int leftPixel;
-        int rightPixel;
-        int highestPixelInFontRow;
-        QString comment;
+            QString character;
+            int leftPixel;
+            int rightPixel;
+            int highestPixelInFontRow;
+            QString comment;
+        };
+
+        QString path;
+        QString name;
+        QString colorTexture;
+        QString alphaTexture;
+        int maxHeightOfChars = -1; // TODO: '1-'?
+        int distanceBetweenChars = -1; // TODO: '-1'?
+
+        QList<Character> characters;
     };
 
-    QString path;
-    QString name;
-    QString colorTexture;
-    QString alphaTexture;
-    int maxHeightOfChars = -1; // TODO: '1-'?
-    int distanceBetweenChars = -1; // TODO: '-1'?
-
-    QList<Character> characters;
+    QList<SingleFont> fonts;
 };
 
-class OCHuman // hum
+class OCHuman : public OCFile // hum
 {
 public:
     int age = -1;
@@ -796,13 +832,13 @@ public:
     OCViewable model;
 };
 
-class OCGameControler // cfg
+class OCGameControler : public OCFile // cfg
 {
 public:
-    // TODO
+        // TODO
 };
 
-class OCKeyboard // cfg
+class OCKeyboard : public OCFile // cfg
 {
 public:
     class Entry
@@ -817,7 +853,7 @@ public:
     QList<Entry> entries;
 };
 
-class OCTextTranslation // dsc
+class OCTranslation : public OCFile // dsc
 {
 public:
     // TODO: Embed in other classes?
@@ -825,7 +861,7 @@ public:
     QString description;
 };
 
-class OCLanguage // olf
+class OCLanguage : public OCFile // olf
 {
 public:
     class Part
@@ -862,122 +898,425 @@ public:
 
 class OCMap {
 public:
-    class Global // global.cfg
+    /** @brief <code>global.cfg</code> - Defines global settings for a map.
+     * <hr>
+     *   - Occurs in file(s): <code>OMSI 2\maps\\*\global.cfg</code>*/
+    class Global : public OCFile // global.cfg
     {
     public:
+        /** @brief <code>[groundtex]</code> - single ground texture
+             * <hr>
+             *   - Occurs in file(s): parent
+             *   - Line: <code>0 - 5</code>
+             *   - Occurs with other parameters: <code>false</code>
+             *   - Multiple occurrences: <code>true</code>*/
         class Texture
         {
         public:
-            QString mainTex; // ++[groundtex](1)+ - main texture path (from main dir)
-            QString subTex; // ++[groundtex](2)+ - sub texture path (from main dir)
-            int texSizeExponent; // ++[groundtex](3)+ - exponent for squared texture size (x in '2^x'; ex.: x=3 -> 2^3=8 -> tex size:8x8)
-            int mainTexRepeating; // ++[groundtex](4)+ - main texture repeating count
-            int subTexRepeating; // ++[groundtex](5)+ - main texture repeating count
+            /** @brief <code>[groundtex]</code> - main texture path (from main dir)
+             * <hr>
+             *   - Line: <code>1</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            QString mainTex;
+
+            /** @brief <code>[groundtex]</code> - sub texture path
+             * <hr>
+             *   - Line: <code>2</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code> */
+            QString subTex;
+
+            /** @brief <code>[groundtex]</code> - exponent for squared texture size
+             *
+             * 2<sup>x</sup>
+             *
+             * Example: x = 3 --> 2<sup>3</sup>=8 --> texture size: 8x8px
+             * <hr>
+             *   - Line: <code>3</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            int texSizeExponent;
+
+            /** @brief <code>[groundtex]</code> - main texture repeating count
+             * <hr>
+             *   - Line: <code>4</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            int mainTexRepeating;
+
+            /** @brief <code>[groundtex]</code> - sub texture repeating count
+             * <hr>
+             *   - Line: <code>5</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            int subTexRepeating;
         };
 
+        /** @brief <code>[addseason]</code> - single season
+        * <hr>
+        *   - Occurs in file(s): parent
+        *   - Line: <code>0 - 3</code>
+        *   - Occurs with other parameters: <code>false</code>
+        *   - Multiple occurrences: <code>true</code>*/
         class Season
         {
         public:
-            int season; // ++[addseason](1)+ - defines season: 1=spring; 2=autumn; 3=winter; 4=deep-winter
-            int seasonStartDay; // ++[addseason](2)+ - defines first day of season (1-based to 1st January)
-            int seasonEndDay; // ++[addseason](3)+ - defines last day of season (1-based to 1st January)
+            /** @brief <code>[addseason]</code> - defines season
+             *
+             * <code>1</code>: Spring
+             * <code>2</code>: Autumn
+             * <code>3</code>: Winter
+             * <code>4</code>: Deep winter (with snow)
+             * <hr>
+             *   - Line: <code>1</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            int season;
+
+            /** @brief <code>[addseason]</code> - defines first day of season (1-based to 1st January)
+             * <hr>
+             *   - Line: <code>2</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            int seasonStartDay;
+
+            /** @brief <code>[addseason]</code> - defines last day of season (1-based to 1st January)
+             * <hr>
+             *   - Line: <code>3</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            int seasonEndDay;
         };
 
+        /** @brief <code>[trafficdensity_road]</code>, <code>[trafficdensity_passenger]</code> - single traffic density
+             * <hr>
+             *   - Occurs in file(s): parent
+             *   - Line: <code>0 - 2</code>
+             *   - Occurs with other parameters: <code>false</code>
+             *   - Multiple occurrences: <code>true</code>*/
         class AiDensity
         {
         public:
-            float time; // ++[trafficdensity_road](1)+ - decimal time
-            float density; // ++[trafficdensity_road](2)+ - density multiplier (from decimal time (1))
+            /** @brief <code>[trafficdensity_road]</code> - decimal time
+             * <hr>
+             *   - Line: <code>1</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            float time;
+
+            /** @brief <code>[trafficdensity_road]</code> - density multiplier
+             * <hr>
+             *   - Line: <code>2</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            float density;
         };
 
+        /** @brief <code>[entrypoints]</code> - defines all entrypoints - TODO
+             * <hr>
+             *   - Occurs in file(s): parent
+             *   - Line: <code>0 - n</code>
+             *   - Occurs with other parameters: <code>false</code>
+             *   - Multiple occurrences: <code>false</code>*/
         class Entrypoint
         {
         public:
-
-            // TODO
             /* [entrypoints]
-         * entrypointCount      * (
-         * objectID
-         * ?
-         * xpos
-         * zpos            Attention! Inverted
-         * ypos
-         * ?        \
-         * ?        |  maybe       | very awkward dependencies
-         * ?        |  irrelevant  | with rot, pitch and bank
-         * ?        /
-         * tileID  // see oreder in global.cfg
-         * name
-         * )
-        */
+             * entrypointCount      * (
+             * objectID
+             * ?
+             * xpos
+             * zpos            Attention! Inverted
+             * ypos
+             * ?        \
+             * ?        |  maybe       | very awkward dependencies
+             * ?        |  irrelevant  | with rot, pitch and bank
+             * ?        /
+             * tileID  // see oreder in global.cfg
+             * name
+             * )
+             */
         };
 
+        /** @brief <code>[backgroundimage]</code> - sets background image for tiles in editor
+         * <hr>
+         *   - Occurs in file(s): parent
+         *   - Line: <code>0 - 6</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
         class BackgroundImage
         {
         public:
-            bool isVisible; // [backgroundimage](1)+ - sets background image visible in editor (0=false; 1=true)
-            QString picturePath; // [backgroundimage](2)+ - absolute picture path
-            float width; // [backgroundimage](3)+ - picture width
-            float height; // [backgroundimage](4)+ - picture height
-            float startWidth; // [backgroundimage](5)+ - start width on picture (0.0 to 1.0)
-            float startHeight; // [backgroundimage](6)+ - start height on picture (0.0 to 1.0)
+            /** @brief <code>[backgroundimage]</code> - sets background image visible
+             *
+             *  save as int
+             * <hr>
+             *   - Line: <code>1</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            bool isVisible;
+
+            /** @brief <code>[backgroundimage]</code> - picture path (absolute)
+             * <hr>
+             *   - Line: <code>2</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            QString picturePath;
+
+            /** @brief <code>[backgroundimage]</code> - picture width
+             * <hr>
+             *   - Line: <code>3</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            float width;
+
+            /** @brief <code>[backgroundimage]</code> - picture height
+             * <hr>
+             *   - Line: <code>4</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            float height;
+
+            /** @brief <code>[backgroundimage]</code> - start width on picture (0.0 to 1.0)
+             * <hr>
+             *   - Line: <code>5</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            float startWidth;
+
+            /** @brief <code>[backgroundimage]</code> - start height on picture (0.0 to 1.0)
+             * <hr>
+             *   - Line: <code>6</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            float startHeight;
         };
 
+        /** @brief <code>[map]</code> - single tile information
+         * <hr>
+         *   - Occurs in file(s): parent
+         *   - Line: <code>0 - 3</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>true</code>*/
         class TileInformation
         {
         public:
-            OC2DCoordinates<int> position; // ++[map](1+2)+ - Location of tile
-            QString name; // ++[map](3)+ - file name of tile (auto-generated by editor, so pseudo case-sensitive)
+            /** @brief <code>[map]</code> - location
+             * <hr>
+             *   - Line: <code>1 + 2</code>(x + y)
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            OC2DCoordinates<int> position;
+
+            /** @brief <code>[map]</code> - file name of tile (auto-generated by editor, so pseudo case-sensitive)
+             * <hr>
+             *   - Line: <code>3</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>false</code>*/
+            QString name;
         };
 
+        /** @brief <code>[name]</code> - name of map (not in use)
+         * <hr>
+         *   - Line: <code>1</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        QString name;
 
-        QString name; // [name](1) - name of map (not in use)
-        QString friendlyname; // [friendlyname](1) - friendlyname of map (usually in use)
-        QString description; // [description](1 to [end]) - description of map
-        int version; // [version](1) - version identifier (case sensitive) - value for latest OMSI version: 14
-        int nextIDCode; // [NextIDCode](1) - next ID code for editor (case sensitive!)
-        bool worldCoodinates; // [worldcoordinates](0) - enables world coordinates
-        bool dynHelpers; // [dynhelperactive](0) - enables dynamic help arrows
-        bool lht; // [LHT](0) - enables driving on left side
-        bool realrail; // [realrail](0) - better support for rail vehicles
-        BackgroundImage bgImage; // [backgroundimage](0)+ - sets background image for editor
-        OCMapPosition standardView; // [mapcam](0)+ - set default view (no entrypoint selection on map load)
-        QString moneysystem; // [moneysystem](1) - sets money system for map
-        QString ticketpack; // [ticketpack](1) - sets ticket pack for map
-        int repairTime; // [repair_time_min](1) - sets minimal repair time
-        int startYear; // [years](1)+ - sets first year for random date generation on load
-        int endYear; // [years](2)+ - sets last year for random date generation on load
-        OCOptionalValue<int> realYearOffset; // [realyearoffset](1) - Used as offset when pressing "real year" button
-        QString standardDepot; // [standarddepot](1) - string of AI group name to select the correct HOF file on user vehicle load
-        QList<Texture> groundTextures; // ++[groundtex](0)+ - textures for terrain painting (order of entries IMPORTANT)
-        QList<Season> seasons; // ++[addseason](0)+ - defines season start and end dates
-        QList<AiDensity> trafficDensities; // ++[trafficdensity_road](0)+ - defines traffic density for vehicles (ascending by time)
-        QList<AiDensity> passengerDensities; // ++[trafficdensity_passenger](0)+ - defines traffic density for humans (ascending by time)
-        QList<Entrypoint> entrypoints; // [entrypoints](0)+ - defines entrypoints
-        QList<TileInformation> tiles; // ++[map](0)+ - defines single tiles and its locations
+        /** @brief <code>[friendlyname]</code> - friendlyname of map (usually in use)
+         * <hr>
+         *   - Line: <code>1</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        QString friendlyname;
 
+        /** @brief <code>[description]</code> - description of map
+         * <hr>
+         *   - Line: <code>1</code> to arg <code>[end]</code
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        QString description;
+
+        /** @brief <code>[version]</code> - version identifier (case sensitive)
+         *
+         *  value for latest OMSI version: 14
+         * <hr>
+         *   - Line: <code>1</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        int version;
+
+        /** @brief <code>[NextIDCode]</code> - next ID code for sceneryobjects / splines in editor (case-sensitive)
+         * <hr>
+         *   - Line: <code>1</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        int nextIDCode;
+
+        /** @brief <code>[worldcoordinates]</code> - enables aerials with world coordinates
+         * <hr>
+         *   - Line: <code>0</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        bool worldCoodinates;
+
+        /** @brief <code>[dynhelperactive]</code> - enables dynamich help arrows
+         * <hr>
+         *   - Line: <code>0</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        bool dynHelpers;
+
+        /** @brief <code>[LHT]</code> - enables semi left-side driving
+         * <hr>
+         *   - Line: <code>0</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        bool lht;
+
+        /** @brief <code>[realrail]</code> - better support for rail vehicles
+         * <hr>
+         *   - Line: <code>0</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        bool realrail;
+
+        /** @brief <code>[backgroundimage]</code> - sets background image for editor
+         * <hr>
+         *   - Line: <code>0+</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        BackgroundImage bgImage;
+
+        /** @brief <code>[mapcam]</code> - set dfault view (no entrypoint selection on map load)
+         * <hr>
+         *   - Line: <code>0+</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        OCMapPosition standardView;
+
+        /** @brief <code>[moneysystem]</code> - sets money system (from main dir)
+         * <hr>
+         *   - Line: <code>1</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        QString moneysystem;
+
+        /** @brief <code>[ticketmap]</code> - sets ticket pack (from main dir)
+         * <hr>
+         *   - Line: <code>1</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        QString ticketpack;
+
+        /** @brief <code>[repair_time_min]</code> - sets minimal repair time
+         * <hr>
+         *   - Line: <code>1</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        int repairTime;
+
+        /** @brief <code>[years]</code> - sets first year for random date generation on load
+         * <hr>
+         *   - Line: <code>1</code>
+         *   - Occurs with other parameters: <code>true</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        int startYear;
+
+        /** @brief <code>[years]</code> - sets last year for random date generation on load
+         * <hr>
+         *   - Line: <code>2</code>
+         *   - Occurs with other parameters: <code>true</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        int endYear;
+
+        /** @brief <code>[realyearoffset]</code> - used as offset when pressing "real year" button on map load
+         * <hr>
+         *   - Line: <code>1</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        OCOptionalValue<int> realYearOffset;
+
+        /** @brief <code>[standarddepot]</code> - string of AI group name to select the corrent HOF file on use vehicle load
+         * <hr>
+         *   - Line: <code>1</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        QString standardDepot;
+
+        /** @brief <code>[groundtex]</code> - ground textures for terrain painting
+         *
+         *  The order of the entries is <b>very important</b>.
+         * <hr>
+         *   - Line: <code>0+</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>true</code>*/
+        QList<Texture> groundTextures;
+
+        /** @brief <code>[addseason]</code> - defines season start and end dates
+         * <hr>
+         *   - Line: <code>0+</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>true</code>*/
+        QList<Season> seasons;
+
+        /** @brief <code>[trafficdensity_road]</code> - defines traffic density for vehicles (ascending by time)
+         * <hr>
+         *   - Line: <code>0+</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>true</code>*/
+        QList<AiDensity> trafficDensities;
+
+        /** @brief <code>[trafficdensity_road]</code> - defines traffic density for humans (ascending by time)
+         * <hr>
+         *   - Line: <code>0+</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>true</code>*/
+        QList<AiDensity> passengerDensities;
+
+        /** @brief <code>[entrypoints]</code> - defines entrypoints (all-in-one param)
+         * <hr>
+         *   - Line: <code>0+</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>false</code>*/
+        QList<Entrypoint> entrypoints;
+
+        /** @brief <code>[map]</code> - defines tiles and its locations
+         * <hr>
+         *   - Line: <code>0+</code>
+         *   - Occurs with other parameters: <code>false</code>
+         *   - Multiple occurrences: <code>true</code>*/
+        QList<TileInformation> tiles;
+
+        // file path for global.cfg
         QString filepath;
 
-        void read()
+        FileIOResponse read() override
         {
             if (filepath.isEmpty())
             {
                 qWarning() << "Reading process of Global stopped: No file path given.";
-                return;
+                return FileIOResponse::errFileDoesntExist;
             }
+
+            return FileIOResponse::valid;
+
         }
 
-        void write()
+        FileIOResponse write() override
         {
             if (filepath.isEmpty())
             {
                 qWarning() << "Writing process of Global stopped: No file path given.";
-                return;
+                return FileIOResponse::errFileDoesntExist;
             }
+
+            return FileIOResponse::valid;
         }
     };
 
-    class Tile
+    class Tile : public OCFile // map
     {
     public:
         class Spline
@@ -1041,7 +1380,7 @@ public:
         QList<Sceneryobject> sceneryobjects;
     };
 
-    class UnschedTrafficDensitiesGroup
+    class UnschedTrafficDensitiesGroup : public OCFile // unsched_trafficdens.txt
     {
     public:
         class day
@@ -1065,7 +1404,7 @@ public:
         QList<day> days;
     };
 
-    class UnschedVehicleGroup
+    class UnschedVehicleGroup : public OCFile // unsched_vehgroups.txt
     {
     public:
         QString name;
@@ -2045,7 +2384,7 @@ public:
     class Groundwet
     {
     public:
-        // TODO: ?
+            // TODO: ?
     };
 
     QString name;
@@ -2119,6 +2458,7 @@ public:
 
     QList<Cloudtype> clouds;
 };
+
 
 
 #endif // OCC_H
