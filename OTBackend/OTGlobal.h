@@ -132,7 +132,7 @@ public:
     };
 };
 
-/// [STATIC] Link collection
+/// [STATIC] Collection of links
 class OTLinks
 {
 public:
