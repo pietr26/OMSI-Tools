@@ -155,13 +155,13 @@ public:
     class Wiki
     {
     public:
-        inline static const QUrl general = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Main_Page");
-        inline static const QUrl fonts = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Font_creation");
-        inline static const QUrl cleanup = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Cleaner");
-        inline static const QUrl contentSearch = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Content_search");
-        inline static const QUrl verifyMap = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Map_verification");
-        inline static const QUrl preferences = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Preferences");
-        inline static const QUrl maps = QUrl("https://wiki.omsi-tools.de/Special:MyLanguage/Map_editing");
+        inline static const QUrl general = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Hauptseite");
+        inline static const QUrl fonts = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Schrifterstellung");
+        inline static const QUrl cleanup = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Aufräumer");
+        inline static const QUrl contentSearch = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Inhaltssuche");
+        inline static const QUrl verifyMap = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Kartenüberprüfung");
+        inline static const QUrl preferences = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Einstellungen");
+        inline static const QUrl maps = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Kartenbearbeitung");
     };
 };
 
