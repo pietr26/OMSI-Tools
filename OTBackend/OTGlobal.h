@@ -156,12 +156,14 @@ public:
     {
     public:
         inline static const QUrl general = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Hauptseite");
-        inline static const QUrl fonts = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Schrifterstellung");
+        inline static const QUrl fonts = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Schriften");
         inline static const QUrl cleanup = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Aufräumer");
         inline static const QUrl contentSearch = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Inhaltssuche");
         inline static const QUrl verifyMap = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Kartenüberprüfung");
         inline static const QUrl preferences = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Einstellungen");
         inline static const QUrl maps = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Kartenbearbeitung");
+        inline static const QUrl money = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Währungen");
+        inline static const QUrl tickets = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Fahrkarten");
     };
 };
 
