@@ -3,6 +3,19 @@
 
 #include "OTGlobal.h"
 
+class OCBase
+{
+public:
+    // TODO: Copy from OTGlobal[OTFileOperations] - move all OMSI-related stuff to here
+    /// Returns an universal file header
+    static QString writeFileHeader()
+    {
+        return "File created with " + OTInformation::name + " " + OTInformation::versions::currentVersion.first + " on " + misc.getDate() + ", " + misc.getTime() + "\n\n";
+    }
+
+    static OTMiscellaneous misc;
+};
+
 class OCNothing
 {
     // just a placeholder for any unknown fields.
@@ -14,6 +27,7 @@ class OC2DCoordinates
 public:
     static_assert(std::is_arithmetic<T>::value || std::is_same_v<T, QVariant>, "The type T must be numeric.");
 
+    OC2DCoordinates() { }
     OC2DCoordinates(T x, T y)
     {
         this->x = x;
@@ -30,6 +44,7 @@ class OC2DCoordinatesSide
 public:
     static_assert(std::is_arithmetic<T>::value || std::is_same_v<T, QVariant>, "The type T must be numeric.");
 
+    OC2DCoordinatesSide() { }
     OC2DCoordinatesSide(T y, T z)
     {
         this->y = y;
@@ -46,6 +61,7 @@ class OC3DCoordinates
 public:
     static_assert(std::is_arithmetic<T>::value || std::is_same_v<T, QVariant>, "The type T must be numeric.");
 
+    OC3DCoordinates() { }
     OC3DCoordinates(T x, T y, T z)
     {
         this->x = x;
@@ -64,6 +80,7 @@ class OC3DBox
 public:
     static_assert(std::is_arithmetic<T>::value || std::is_same_v<T, QVariant>, "The type T must be numeric.");
 
+    OC3DBox() { }
     OC3DBox(T xSize, T ySize, T zSize, T xPos, T yPos, T zPos)
     {
         this->xSize = xSize;
@@ -891,32 +908,51 @@ public:
     QList<Part> parts;
 };
 
+/** @brief viewport position on a map
+ * <hr>
+ *   - Occurs in file(s): global.cfg, laststn.osn*/
 class OCMapPosition
 {
 public:
+    /** @brief tile where the view is located
+ * <hr>
+ *   - Occurs with other parameters: <code>true</code>
+ *   - Multiple occurrences: <code>false</code>*/
     OC2DCoordinates<int> tilePosition;
-    OC3DCoordinates<float> position;
-    float rotAroundZ;
-    float rotAroundX;
-    float distanceFromZeroMapHeight;
 
-    /* [mapcam] - from global.cfg
-     * tileXPos
-     * tileYPos
-     * xpos
-     * zpos            Attention! Inverted
-     * ypos
-     * rotAroundZ
-     * rotAroundX
-     * distanceFromZeroMapHeight
-    */
+    /** @brief position on the tile
+ * <hr>
+ *   - Occurs with other parameters: <code>true</code>
+ *   - Multiple occurrences: <code>false</code>*/
+    OC3DCoordinates<float> position;
+
+    /** @brief rotation around global z axis
+ * <hr>
+ *
+ * Attention: These values are inverted! Order: x, z
+ *
+ *   - Occurs with other parameters: <code>true</code>
+ *   - Multiple occurrences: <code>false</code>*/
+    float rotAroundZ;
+
+    /** @brief rotation around real x axis
+ * <hr>
+ *   - Occurs with other parameters: <code>true</code>
+ *   - Multiple occurrences: <code>false</code>*/
+    float rotAroundX;
+
+    /** @brief distance from terrain (from the eyes)
+ * <hr>
+ *   - Occurs with other parameters: <code>true</code>
+ *   - Multiple occurrences: <code>false</code>*/
+    float distanceFromZeroMapHeight;
 };
 
 class OCMap {
 public:
     /** @brief <code>global.cfg</code> - Defines global settings for a map.
      * <hr>
-     *   - Occurs in file(s): <code>OMSI 2\maps\\*\global.cfg</code>*/
+     *   - Occurs in file(s): <code>OMSI 2\maps\*\global.cfg</code>*/
     class Global : public OCFile // global.cfg
     {
     public:
@@ -978,7 +1014,15 @@ public:
         class Season
         {
         public:
-            /** @brief <code>[addseason]</code> - defines season
+            enum Type
+            {
+                spring = 1,
+                autumn = 2,
+                winter = 3,
+                deepWinter = 4
+            };
+
+            /** @brief <code>[addseason]</code> - defines a season
              *
              * <code>1</code>: Spring
              * <code>2</code>: Autumn
@@ -988,21 +1032,21 @@ public:
              *   - Line: <code>1</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>false</code>*/
-            int season;
+            Type type;
 
             /** @brief <code>[addseason]</code> - defines first day of season (1-based to 1st January)
              * <hr>
              *   - Line: <code>2</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>false</code>*/
-            int seasonStartDay;
+            int startDay;
 
             /** @brief <code>[addseason]</code> - defines last day of season (1-based to 1st January)
              * <hr>
              *   - Line: <code>3</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>false</code>*/
-            int seasonEndDay;
+            int endDay;
         };
 
         /** @brief <code>[trafficdensity_road]</code>, <code>[trafficdensity_passenger]</code> - single traffic density
@@ -1026,18 +1070,18 @@ public:
              *   - Line: <code>2</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>false</code>*/
-            float density;
+            float factor;
         };
 
         /** @brief <code>[entrypoints]</code> - defines all entrypoints - TODO
              * <hr>
              *   - Occurs in file(s): parent
-             *   - Line: <code>0 - n</code>
+             *   - Line: <code>0 - ({1} * entrypointCount)</code>
              *   - Occurs with other parameters: <code>false</code>
              *   - Multiple occurrences: <code>false</code>*/
         class Entrypoint
         {
-        public:
+        public: // TODO
             /* [entrypoints]
              * entrypointCount      * (
              * objectID
@@ -1049,10 +1093,78 @@ public:
              * ?        |  maybe       | very awkward dependencies
              * ?        |  irrelevant  | with rot, pitch and bank
              * ?        /
-             * tileID  // see oreder in global.cfg
+             * tileID  // see order in global.cfg
              * name
              * )
              */
+
+            // N: zero-based for iterator (to entrypointCount)
+
+            /** @brief <code>[entrypoints]</code> - objectID which generates the entrypoint
+             * <hr>
+             *   - Line: <code>(2 + 11 * n)</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>true</code>*/
+            int objectID;
+
+            /** @brief <code>[entrypoint]</code> - awkwardValue1
+             * <hr>
+             *   - Line: <code>(3 + 11 * n)</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>true</code>*/
+            int awkwardValue1;
+
+            /** @brief <code>[entrypoints]</code> - defines position of entrypoint
+             * <hr>
+             *
+             * Attention: These values are inverted! Order: x, z, y
+             *
+             *   - Line: <code>(4 + 11 * n), (5 + 11 * n), (6 + 11 * n)</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>true</code>*/
+            OC3DCoordinates<float> position;
+
+            /** @brief <code>[entrypoint]</code> - awkwardValue2
+             * <hr>
+             *   - Line: <code>(7 + 11 * n)</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>true</code>*/
+            float awkwardValue2;
+
+            /** @brief <code>[entrypoint]</code> - awkwardValue3
+             * <hr>
+             *   - Line: <code>(8 + 11 * n)</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>true</code>*/
+            float awkwardValue3;
+
+            /** @brief <code>[entrypoint]</code> - awkwardValue4
+             * <hr>
+             *   - Line: <code>(9 + 11 * n)</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>true</code>*/
+            float awkwardValue4;
+
+            /** @brief <code>[entrypoint]</code> - awkwardValue5
+             * <hr>
+             *   - Line: <code>(10 + 11 * n)</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>true</code>*/
+            float awkwardValue5;
+
+            /** @brief <code>[entrypoints]</code> - tile ID - zero-based on [map] ordner in global.cfg
+             * <hr>
+             *   - Line: <code>(11 + 11 * n))</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>true</code>*/
+            int tileID;
+
+            /** @brief <code>[entrypoints]</code> - entrypoint name
+             * <hr>
+             *   - Line: <code>(11 + 11 * n))</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>true</code>*/
+            QString name;
         };
 
         /** @brief <code>[backgroundimage]</code> - sets background image for tiles in editor
@@ -1130,7 +1242,7 @@ public:
              *   - Line: <code>3</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>false</code>*/
-            QString name;
+            QString filename;
         };
 
         /** @brief <code>[name]</code> - name of map (not in use)
@@ -1252,7 +1364,7 @@ public:
          *   - Line: <code>1</code>
          *   - Occurs with other parameters: <code>false</code>
          *   - Multiple occurrences: <code>false</code>*/
-        OCOptionalValue<int> realYearOffset;
+        int realYearOffset;
 
         /** @brief <code>[standarddepot]</code> - string of AI group name to select the corrent HOF file on use vehicle load
          * <hr>
@@ -1336,99 +1448,145 @@ public:
 
             clear();
 
-            while(!in.atEnd())
+            try
             {
-                line = in.readLine();
-
-                if (line == "[name]") name = in.readLine();
-                else if (line == "[friendlyname]") friendlyname = in.readLine();
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                while (!in.atEnd())
                 {
                     line = in.readLine();
-                    description.clear();
 
-                    while (line == "[end]")
+                    if (line == "[name]") name = in.readLine();
+                    else if (line == "[friendlyname]") friendlyname = in.readLine();
+                    else if (line == "[description]")
                     {
-                        description += line;
                         line = in.readLine();
+                        description.clear();
+
+                        while (line == "[end]")
+                        {
+                            description += line;
+                            line = in.readLine();
+                        }
+                    }
+                    else if (line == "[version]") version = in.readLine().toInt();
+                    else if (line == "[NextIDCode]") nextIDCode = in.readLine().toUInt();
+                    else if (line == "[worldcoordinates]") worldCoodinates = true;
+                    else if (line == "[dynhelperactive]") dynHelpers = true;
+                    else if (line == "[LHT]") lht = true;
+                    else if (line == "[realrail]") realrail = true;
+                    else if (line == "[backgroundimage]")
+                    {
+                        bgImage.isVisible = in.readLine().toInt(); // 1
+                        bgImage.picturePath = in.readLine(); // 2
+                        bgImage.width = in.readLine().toFloat(); // 3
+                        bgImage.height = in.readLine().toFloat(); // 4
+                        bgImage.startWidth = in.readLine().toFloat(); // 5
+                        bgImage.startHeight = in.readLine().toFloat(); // 6
+                    }
+                    else if (line == "[mapcam]")
+                    {
+                        standardView.tilePosition = OC2DCoordinates<int>(in.readLine().toInt(), in.readLine().toInt()); // 1, 2
+
+                        // Attention: Inverted values
+                        float xPos = in.readLine().toFloat(); // 3
+                        float zPos = in.readLine().toFloat(); // 4
+                        float yPos = in.readLine().toFloat(); // 5
+                        standardView.position = OC3DCoordinates<float>(xPos, yPos, zPos); // 3, 4, 5
+
+                        standardView.rotAroundZ = in.readLine().toFloat();
+                        standardView.rotAroundX = in.readLine().toFloat();
+                        standardView.distanceFromZeroMapHeight = in.readLine().toFloat();
+                    }
+                    else if (line == "[moneysystem]") moneysystem = in.readLine();
+                    else if (line == "[ticketpack]") ticketpack = in.readLine();
+                    else if (line == "[repair_time_min]") repairTime = in.readLine().toInt();
+                    else if (line == "[years]")
+                    {
+                        startYear = in.readLine().toInt();
+                        endYear = in.readLine().toInt();
+                    }
+                    else if (line == "[standarddepot]") standardDepot = in.readLine();
+                    else if (line == "[realyearoffset]") realYearOffset = in.readLine().toInt();
+                    else if (line == "[groundtex]")
+                    {
+                        Texture groundtex;
+                        groundtex.mainTex = in.readLine();
+                        groundtex.subTex = in.readLine();
+                        groundtex.texSizeExponent = in.readLine().toInt();
+                        groundtex.mainTexRepeating = in.readLine().toInt();
+                        groundtex.subTexRepeating = in.readLine().toInt();
+                        groundTextures.append(groundtex);
+                    }
+                    else if (line == "[addseason]")
+                    {
+                        Season season;
+
+                        int type = in.readLine().toInt();
+                        switch (type)
+                        {
+                            case 1: season.type = Season::Type::spring; break;
+                            case 2: season.type = Season::Type::autumn; break;
+                            case 3: season.type = Season::Type::winter; break;
+                            case 4: season.type = Season::Type::deepWinter; break;
+                        };
+
+                        season.startDay = in.readLine().toInt();
+                        season.endDay = in.readLine().toInt();
+                    }
+                    else if (line == "[traffidensity_road]")
+                    {
+                        AiDensity density;
+                        density.time = in.readLine().toFloat();
+                        density.factor = in.readLine().toFloat();
+                        trafficDensities.append(density);
+                    }
+                    else if (line == "[traffidensity_passenger]")
+                    {
+                        AiDensity density;
+                        density.time = in.readLine().toFloat();
+                        density.factor = in.readLine().toFloat();
+                        passengerDensities.append(density);
+                    }
+                    else if (line == "[entrypoints]")
+                    {
+                        int entrypointCount = in.readLine().toInt();
+
+                        for (int i = 0; i < entrypointCount; i++)
+                        {
+                            Entrypoint entrypoint;
+                            entrypoint.objectID = in.readLine().toInt();
+                            entrypoint.awkwardValue1 = in.readLine().toInt();
+
+                            // Attention: Inverted values
+                            float xPos = in.readLine().toFloat();
+                            float zPos = in.readLine().toFloat();
+                            float yPos = in.readLine().toFloat();
+                            entrypoint.position = OC3DCoordinates<float>(xPos, yPos, zPos);
+
+                            entrypoint.awkwardValue2 = in.readLine().toFloat();
+                            entrypoint.awkwardValue3 = in.readLine().toFloat();
+                            entrypoint.awkwardValue4 = in.readLine().toFloat();
+                            entrypoint.awkwardValue5 = in.readLine().toFloat();
+                            entrypoint.tileID = in.readLine().toInt();
+                            entrypoint.name = in.readLine();
+
+                            entrypoints.append(entrypoint);
+                        }
+                    }
+                    else if (line == "[map]")
+                    {
+                        TileInformation tile;
+
+                        tile.position = OC2DCoordinates<int>(in.readLine().toInt(), in.readLine().toInt());
+                        tile.filename = in.readLine();
+
+                        tiles.append(tile);
                     }
                 }
-                else if (line == "[version]") version = in.readLine().toInt();
-                else if (line == "[NextIDCode]") nextIDCode = in.readLine().toUInt();
-                else if (line == "[worldcoordinates]") worldCoodinates = true;
-                else if (line == "[dynhelperactive]") dynHelpers = true;
-                else if (line == "[LHT]") lht = true;
-                else if (line == "[realrail]") realrail = true;
-                else if (line == "[backgroundimage]")
-                {
-                    BackgroundImage backgroundImage;
-                    backgroundImage.isVisible = in.readLine().toInt(); // 1
-                    backgroundImage.picturePath = in.readLine(); // 2
-                    backgroundImage.width = in.readLine().toFloat(); // 3
-                    backgroundImage.height = in.readLine().toFloat(); // 4
-                    backgroundImage.startWidth = in.readLine().toFloat(); // 5
-                    backgroundImage.startHeight = in.readLine().toFloat(); // 6
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
-                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
-                {
-                    in.readLine();
-                }
+            }
+            catch (...)
+            {
+                global.close();
+                return FileIOResponse::errCritical;
             }
 
             global.close();
@@ -1443,6 +1601,164 @@ public:
                 qWarning() << "Writing process of Global stopped: No file path given.";
                 return FileIOResponse::errFileDoesntExist;
             }
+
+            QFile global(filepath);
+
+            if (!global.open(QFile::WriteOnly | QFile::Text))
+            {
+                // msg.fileOpenErrorCloseOMSI(parent, mapFolderPath); TODO
+                qDebug().noquote() << "Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
+                return FileIOResponse::errFileNotOpen;
+            }
+
+            QTextStream out(&global);
+            out.setEncoding(QStringConverter::System);
+
+            try {
+                out << OCBase::writeFileHeader() << "\n\n";
+
+                out << "[name]" << "\n";
+                out << name << "\n\n";
+
+                out << "[friendlyname]" << "\n";
+                out << friendlyname << "\n\n";
+
+                out << "[description]" << "\n";
+                out << description << "\n";
+                out << "[end]" << "\n\n";
+
+                out << "[version]" << "\n";
+                out << version << "\n\n";
+
+                out << "[NextIDCode]" << "\n";
+                out << nextIDCode << "\n\n";
+
+                if (worldCoodinates) out << "[worldcoordinates]" << "\n\n";
+
+                if (dynHelpers) out << "[dynhelperactive]" << "\n\n";
+
+                if (lht) out << "[LHT]" << "\n\n";
+
+                if (realrail) out << "[realrail]" << "\n\n";
+
+                out << "[backgroundimage]" << "\n";
+                out << bgImage.isVisible << "\n";
+                out << bgImage.picturePath << "\n";
+                out << bgImage.width << "\n";
+                out << bgImage.height << "\n";
+                out << bgImage.startWidth << "\n";
+                out << bgImage.startHeight << "\n\n";
+
+                out << "[mapcam]" << "\n";
+                out << standardView.tilePosition.x << "\n";
+                out << standardView.tilePosition.y << "\n";
+                out << standardView.position.x << "\n";
+                out << standardView.position.z << "\n";
+                out << standardView.position.y << "\n";
+                out << standardView.rotAroundX << "\n";
+                out << standardView.rotAroundZ << "\n";
+                out << standardView.distanceFromZeroMapHeight << "\n\n";
+
+                out << "[moneysystem]" << "\n";
+                out << moneysystem << "\n\n";
+
+                out << "[ticketpack]" << "\n";
+                out << ticketpack << "\n\n";
+
+                out << "[repair_time_min]" << "\n";
+                out << repairTime << "\n\n";
+
+                out << "[years]" << "\n";
+                out << startYear << "\n";
+                out << endYear << "\n\n";
+
+                out << "[standarddepot]" << "\n";
+                out << standardDepot << "\n\n";
+
+                if (realYearOffset != 0)
+                {
+                    out << "[realyearoffset]" << "\n";
+                    out << realYearOffset << "\n\n";
+                }
+
+                for (int i = 0; i < groundTextures.count(); i++)
+                {
+                    out << "[groundtex]" << "\n";
+                    out << groundTextures[i].mainTex << "\n";
+                    out << groundTextures[i].subTex << "\n";
+                    out << groundTextures[i].texSizeExponent << "\n";
+                    out << groundTextures[i].mainTexRepeating << "\n";
+                    out << groundTextures[i].subTexRepeating << "\n\n";
+                }
+
+                for (int i = 0; i < seasons.count(); i++)
+                {
+                    out << "[addseason]" << "\n";
+                    out << seasons[i].type << "\n";
+                    out << seasons[i].startDay << "\n";
+                    out << seasons[i].endDay << "\n\n";
+                }
+
+                for (int i = 0; i < seasons.count(); i++)
+                {
+                    out << "[addseason]" << "\n";
+                    out << seasons[i].type << "\n";
+                    out << seasons[i].startDay << "\n";
+                    out << seasons[i].endDay << "\n\n";
+                }
+
+                std::sort(trafficDensities.first(), trafficDensities.last());
+
+                for (int i = 0; i < trafficDensities.count(); i++)
+                {
+                    out << "[trafficdensity_road]" << "\n";
+                    out << trafficDensities[i].time << "\n";
+                    out << trafficDensities[i].factor << "\n\n";
+                }
+
+                std::sort(passengerDensities.first(), passengerDensities.last());
+
+                for (int i = 0; i < passengerDensities.count(); i++)
+                {
+                    out << "[trafficdensity_passenger]" << "\n";
+                    out << passengerDensities[i].time << "\n";
+                    out << passengerDensities[i].factor << "\n\n";
+                }
+
+                out << "[entrypoints]" << "\n";
+                out << entrypoints.count() << "\n";
+                for (int i = 0; i < entrypoints.count(); i++)
+                {
+                    out << entrypoints[i].objectID << "\n";
+                    out << entrypoints[i].awkwardValue1 << "\n";
+                    out << entrypoints[i].position.x << "\n";
+                    out << entrypoints[i].position.z << "\n";
+                    out << entrypoints[i].position.y << "\n";
+                    out << entrypoints[i].awkwardValue2 << "\n";
+                    out << entrypoints[i].awkwardValue3 << "\n";
+                    out << entrypoints[i].awkwardValue4 << "\n";
+                    out << entrypoints[i].awkwardValue5 << "\n";
+                    out << entrypoints[i].tileID << "\n";
+                    out << entrypoints[i].name << "\n\n";
+                }
+
+                for (int i = 0; i < tiles.count(); i++)
+                {
+                    out << "[map]" << "\n";
+                    out << tiles[i].position.x << "\n";
+                    out << tiles[i].position.y << "\n";
+                    out << tiles[i].filename << "\n\n";
+                }
+
+                out << "\n";
+            }
+            catch (...)
+            {
+                global.close();
+                return FileIOResponse::errCritical;
+            }
+
+            global.close();
 
             return FileIOResponse::valid;
         }
@@ -2108,8 +2424,8 @@ public:
     QDateTime time; // year[int], daysFrom01Jan[int], hoursFromMidnight[int], minutesFromFullHour[int], secondsFromFullMinute[float]
 
     OC2DCoordinates<int> centerTile;
-    OCMapPosition mapcam; // tilePos not used here! See 'centerTile' member - Attention: Inverted! xzy
-    OCMapPosition egoPosition; // tilePos not used here! See 'centerTile' member - std: x=10;y=10 - attention: Inverted! xzy
+    OCMapPosition mapcam; // tilePos not used here! See 'centerTile' member
+    OCMapPosition egoPosition; // tilePos not used here! See 'centerTile' member - std: x=10;y=10
 
     bool icaoWeatherActive;
 
@@ -2591,6 +2907,6 @@ public:
     QList<Cloudtype> clouds;
 };
 
-
+bool operator<(const OCMap::Global::AiDensity& a, const OCMap::Global::AiDensity& b) { return a.time < b.time; }
 
 #endif // OCC_H
