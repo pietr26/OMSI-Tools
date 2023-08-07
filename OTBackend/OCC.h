@@ -98,7 +98,8 @@ class OCFile // Class for all classes with [optional] (directly) readable and/or
 public:
     enum FileIOResponse
     {
-        errFunctionNotDefined = -2,
+        errFunctionNotDefined = -3,
+        errFileNotOpen = -2,
         errFileDoesntExist = -1,
         valid = 0,
         errMinor = 1,
@@ -109,20 +110,25 @@ public:
     {
         switch (response)
         {
-        default: qDebug() << "FileIO response: No response code given."; break;
+            default: qDebug() << "FileIO response: No response code given."; break;
 
-        case -2: qWarning() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": Virtual function is not defined."; break;
-        case -1: qWarning() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": File does not exist."; break;
-        case 0: qInfo() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + " successful."; break;
-        case 1: qWarning() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": Minor error" + ((!errorString.isEmpty()) ? " (" + errorString + ")": ""); break;
-        case 2: qCritical() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": Minor error" + ((!errorString.isEmpty()) ? " (" + errorString + ")": ""); break;
+            case -3: qWarning() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": Virtual function is not defined."; break;
+            case -2: qWarning() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": Cannot open file."; break;
+            case -1: qWarning() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": File does not exist."; break;
+            case 0: qInfo() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + " successful."; break;
+            case 1: qWarning() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": Minor error" + ((!errorString.isEmpty()) ? " (" + errorString + ")": ""); break;
+            case 2: qCritical() << "FileIO" + ((!filename.isEmpty()) ? " of " + filename : "") + ": Minor error" + ((!errorString.isEmpty()) ? " (" + errorString + ")": ""); break;
         }
     }
+
+    QPair<FileIOResponse, QString> generateErrPair(FileIOResponse responseCode, QString errorString) { return QPair<FileIOResponse, QString>(responseCode, errorString); }
 
     virtual FileIOResponse read() { return FileIOResponse::errFunctionNotDefined; } // override (pls mark). For error code information take a look in source class
     virtual FileIOResponse write() { return FileIOResponse::errFunctionNotDefined; } // override (pls mark). For error code information take a look in source class
 
-    QList<QString> errors; // TODO: error stack for minor errors while last reading / writing process - maybe use another template class for list
+    virtual void clear() { } // override (pls mark).
+
+    QList<QPair<FileIOResponse, QString>> errors; // TODO: error stack for minor errors while last reading / writing process - maybe use another template class for list
 };
 
 class OCTextureChangeMaster
@@ -525,10 +531,20 @@ public:
     class Condition
     {
     public:
+        enum Opteration
+        {
+            notEqual = 0,
+            equal = 1,
+            lessThan = 2,
+            greaterThan = 3,
+            lessThanEqual = 4,
+            greaterThanEqual = 5
+        };
+
         static_assert(std::is_same_v<T, float> || std::is_same_v<T, int> || std::is_same_v<T, bool> || std::is_same_v<T, QVariant>, "The type T must be either float, int or bool.");
         QString variable;
         T value;
-        int operation; // TODO: enum?
+        Opteration operation;
     };
 
     bool isLoopSound;
@@ -1152,7 +1168,7 @@ public:
          *   - Line: <code>1</code>
          *   - Occurs with other parameters: <code>false</code>
          *   - Multiple occurrences: <code>false</code>*/
-        int nextIDCode;
+        unsigned int nextIDCode;
 
         /** @brief <code>[worldcoordinates]</code> - enables aerials with world coordinates
          * <hr>
@@ -1292,6 +1308,11 @@ public:
         // file path for global.cfg
         QString filepath;
 
+        void clear() override
+        {
+            // TODO
+        }
+
         FileIOResponse read() override
         {
             if (filepath.isEmpty())
@@ -1300,8 +1321,119 @@ public:
                 return FileIOResponse::errFileDoesntExist;
             }
 
-            return FileIOResponse::valid;
+            QFile global(filepath);
 
+            if (!global.open(QFile::ReadOnly | QFile::Text))
+            {
+                // msg.fileOpenErrorCloseOMSI(parent, mapFolderPath); TODO
+                qDebug().noquote() << "Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
+                return FileIOResponse::errFileNotOpen;
+            }
+
+            QTextStream in(&global);
+            in.setEncoding(QStringConverter::System);
+            QString line = "";
+
+            clear();
+
+            while(!in.atEnd())
+            {
+                line = in.readLine();
+
+                if (line == "[name]") name = in.readLine();
+                else if (line == "[friendlyname]") friendlyname = in.readLine();
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    line = in.readLine();
+                    description.clear();
+
+                    while (line == "[end]")
+                    {
+                        description += line;
+                        line = in.readLine();
+                    }
+                }
+                else if (line == "[version]") version = in.readLine().toInt();
+                else if (line == "[NextIDCode]") nextIDCode = in.readLine().toUInt();
+                else if (line == "[worldcoordinates]") worldCoodinates = true;
+                else if (line == "[dynhelperactive]") dynHelpers = true;
+                else if (line == "[LHT]") lht = true;
+                else if (line == "[realrail]") realrail = true;
+                else if (line == "[backgroundimage]")
+                {
+                    BackgroundImage backgroundImage;
+                    backgroundImage.isVisible = in.readLine().toInt(); // 1
+                    backgroundImage.picturePath = in.readLine(); // 2
+                    backgroundImage.width = in.readLine().toFloat(); // 3
+                    backgroundImage.height = in.readLine().toFloat(); // 4
+                    backgroundImage.startWidth = in.readLine().toFloat(); // 5
+                    backgroundImage.startHeight = in.readLine().toFloat(); // 6
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+                else if (line == "XXXXXXXXXXXXXXXXXXXXXx")
+                {
+                    in.readLine();
+                }
+            }
+
+            global.close();
+
+            return FileIOResponse::valid;
         }
 
         FileIOResponse write() override
