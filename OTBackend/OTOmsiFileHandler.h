@@ -490,7 +490,7 @@ public:
         return returnList;
     }
 
-    /// Returns results from global.cfg
+    /// Returns results from global.cfg - for easy requests.
     QString readGlobal(QString param, QString mapFolderPath = "", QWidget *parent = 0, bool beQuiet = false, int readLine = 1)
     {
         if (mapFolderPath == "")
@@ -549,7 +549,7 @@ public:
         in.setEncoding(QStringConverter::System);
 
         QString halfTilePath = mapPath;
-        halfTilePath = halfTilePath.remove(QRegularExpression("global.cfg"));
+        halfTilePath = halfTilePath.remove("global.cfg");
         QStringList tiles;
 
         // normal tiles:
@@ -605,7 +605,8 @@ public:
 
         cutCount = mainDir.length() + 1;
 
-        progressName = QObject::tr("Get sceneryobjects and splines...");
+        // simplier description.
+        progressName = QObject::tr("Read tiles...");
 
         QStringList a, b;
         if (tiles.length() == 1)
