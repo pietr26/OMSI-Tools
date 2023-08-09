@@ -7,6 +7,8 @@
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/wmapselection.h"
+#include "OTModules/wMaps/wGlobalProps/wglobalprops.h"
+#include "OTBackend/OCC.h"
 
 namespace Ui {
 class wMaps;
@@ -38,6 +40,10 @@ private slots:
 
     void recieveSelectedMap(QPair<QString, QString> mapInfo);
 
+    void on_btnEditPropterties_clicked();
+
+    void recieveGlobalProps(OCMap::Global globalProps);
+
 private:
     Ui::wMaps *ui;
 
@@ -47,8 +53,11 @@ private:
     OTOMSIFileHandler filehandler;
     wPreferences *WPREFERENCES;
     wMapSelection *WMAPSELECTION;
+    wGlobalProps *WGLOBALPROPS;
 
     QPair<QString, QString> currentMap;
+
+    OCMap map;
 };
 
 #endif // WMAPS_H

@@ -76,3 +76,15 @@ void wMaps::on_actionLoadMap_triggered()
     connect(WMAPSELECTION, &wMapSelection::returnMapInfo, this, &wMaps::recieveSelectedMap);
     WMAPSELECTION->show();
 }
+
+void wMaps::on_btnEditPropterties_clicked()
+{
+    WGLOBALPROPS = new wGlobalProps(map.global, this);
+    connect(WGLOBALPROPS, &wGlobalProps::returnGlobalProps, this, &wMaps::recieveGlobalProps);
+    WGLOBALPROPS->show();
+}
+
+void wMaps::recieveGlobalProps(OCMap::Global globalProps)
+{
+    map.global = globalProps;
+}

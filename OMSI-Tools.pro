@@ -36,7 +36,8 @@ SOURCES += \
     OTModules/wFbh/waddterm.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wfbh.cpp \
-    OTModules/wMaps/wglobalprops.cpp \
+    OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp \
+    OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wmaps.cpp \
     OTModules/wcleanup.cpp \
     OTModules/wmapselection.cpp \
@@ -99,7 +100,8 @@ HEADERS += \
     OTModules/wFbh/waddterm.h \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wfbh.h \
-    OTModules/wMaps/wglobalprops.h \
+    OTModules/wMaps/wGlobalProps/weditgroundtexture.h \
+    OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wmaps.h \
     OTModules/wcleanup.h \
     OTModules/wmapselection.h \
@@ -135,7 +137,8 @@ FORMS += \
     OTModules/wFbh/waddterm.ui \
     OTModules/wFbh/wdbcopyrights.ui \
     OTModules/wFbh/wfbh.ui \
-    OTModules/wMaps/wglobalprops.ui \
+    OTModules/wMaps/wGlobalProps/weditgroundtexture.ui \
+    OTModules/wMaps/wGlobalProps/wglobalprops.ui \
     OTModules/wMaps/wmaps.ui \
     OTModules/wcleanup.ui \
     OTModules/wmapselection.ui \
