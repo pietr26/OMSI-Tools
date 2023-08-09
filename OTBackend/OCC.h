@@ -8,12 +8,10 @@ class OCBase
 public:
     // TODO: Copy from OTGlobal[OTFileOperations] - move all OMSI-related stuff to here
     /// Returns an universal file header
-    static QString writeFileHeader()
-    {
-        return "File created with " + OTInformation::name + " " + OTInformation::versions::currentVersion.first + " on " + misc.getDate() + ", " + misc.getTime() + "\n\n";
-    }
+    QString writeFileHeader() { return "File created with " + OTInformation::name + " " + OTInformation::versions::currentVersion.first + " on " + misc.getDate() + ", " + misc.getTime() + "\n\n"; }
 
-    static OTMiscellaneous misc;
+private:
+    OTMiscellaneous misc;
 };
 
 class OCNothing
@@ -251,7 +249,7 @@ public:
             };
 
             OCOptionalValue<OC3DCoordinates<float>> originTransform;
-            OCOptionalValue<OC3DCoordinates<int>> originRotation; // TODO: Does this make sense? :')
+            OCOptionalValue<OC3DCoordinates<int>> originRotation; // TODO: Does this makes sense? :')
 
             OCOptionalValue<Method> animationTransform;
             OCOptionalValue<Method> animationRotation;
@@ -941,11 +939,11 @@ public:
  *   - Multiple occurrences: <code>false</code>*/
     float rotAroundX;
 
-    /** @brief distance from terrain (from the eyes)
+    /** @brief distance from position
  * <hr>
  *   - Occurs with other parameters: <code>true</code>
  *   - Multiple occurrences: <code>false</code>*/
-    float distanceFromZeroMapHeight;
+    float distanceFromPosition;
 };
 
 class OCMap {
@@ -1016,6 +1014,7 @@ public:
         public:
             enum Type
             {
+                summer = 0,
                 spring = 1,
                 autumn = 2,
                 winter = 3,
@@ -1100,16 +1099,23 @@ public:
 
             // N: zero-based for iterator (to entrypointCount)
 
-            /** @brief <code>[entrypoints]</code> - objectID which generates the entrypoint
+            /** @brief <code>[entrypoints]</code> - tile-local objectID (based on position of entry in map file)
              * <hr>
              *   - Line: <code>(2 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
             int objectID;
 
-            /** @brief <code>[entrypoint]</code> - awkwardValue1
+            /** @brief <code>[entrypoints]</code> - global ID of all sco / sli
              * <hr>
              *   - Line: <code>(3 + 11 * n)</code>
+             *   - Occurs with other parameters: <code>true</code>
+             *   - Multiple occurrences: <code>true</code>*/
+            int globalThingID;
+
+            /** @brief <code>[entrypoint]</code> - awkwardValue1
+             * <hr>
+             *   - Line: <code>(4 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
             int awkwardValue1;
@@ -1119,49 +1125,49 @@ public:
              *
              * Attention: These values are inverted! Order: x, z, y
              *
-             *   - Line: <code>(4 + 11 * n), (5 + 11 * n), (6 + 11 * n)</code>
+             *   - Line: <code>(5 + 11 * n), (6 + 11 * n), (7 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
             OC3DCoordinates<float> position;
 
             /** @brief <code>[entrypoint]</code> - awkwardValue2
              * <hr>
-             *   - Line: <code>(7 + 11 * n)</code>
+             *   - Line: <code>(8 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
             float awkwardValue2;
 
             /** @brief <code>[entrypoint]</code> - awkwardValue3
              * <hr>
-             *   - Line: <code>(8 + 11 * n)</code>
+             *   - Line: <code>(9 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
             float awkwardValue3;
 
             /** @brief <code>[entrypoint]</code> - awkwardValue4
              * <hr>
-             *   - Line: <code>(9 + 11 * n)</code>
+             *   - Line: <code>(10 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
             float awkwardValue4;
 
             /** @brief <code>[entrypoint]</code> - awkwardValue5
              * <hr>
-             *   - Line: <code>(10 + 11 * n)</code>
+             *   - Line: <code>(11 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
             float awkwardValue5;
 
             /** @brief <code>[entrypoints]</code> - tile ID - zero-based on [map] ordner in global.cfg
              * <hr>
-             *   - Line: <code>(11 + 11 * n))</code>
+             *   - Line: <code>(12 + 11 * n))</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
             int tileID;
 
             /** @brief <code>[entrypoints]</code> - entrypoint name
              * <hr>
-             *   - Line: <code>(11 + 11 * n))</code>
+             *   - Line: <code>(13 + 11 * n))</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
             QString name;
@@ -1329,9 +1335,9 @@ public:
          *   - Line: <code>1</code>
          *   - Occurs with other parameters: <code>false</code>
          *   - Multiple occurrences: <code>false</code>*/
-        QString moneysystem;
+        QString currency;
 
-        /** @brief <code>[ticketmap]</code> - sets ticket pack (from main dir)
+        /** @brief <code>[ticketpack]</code> - sets ticket pack (from main dir)
          * <hr>
          *   - Line: <code>1</code>
          *   - Occurs with other parameters: <code>false</code>
@@ -1343,7 +1349,7 @@ public:
          *   - Line: <code>1</code>
          *   - Occurs with other parameters: <code>false</code>
          *   - Multiple occurrences: <code>false</code>*/
-        int repairTime;
+        float repairTime;
 
         /** @brief <code>[years]</code> - sets first year for random date generation on load
          * <hr>
@@ -1494,11 +1500,11 @@ public:
 
                         standardView.rotAroundZ = in.readLine().toFloat();
                         standardView.rotAroundX = in.readLine().toFloat();
-                        standardView.distanceFromZeroMapHeight = in.readLine().toFloat();
+                        standardView.distanceFromPosition = in.readLine().toFloat();
                     }
-                    else if (line == "[moneysystem]") moneysystem = in.readLine();
+                    else if (line == "[moneysystem]") currency = in.readLine();
                     else if (line == "[ticketpack]") ticketpack = in.readLine();
-                    else if (line == "[repair_time_min]") repairTime = in.readLine().toInt();
+                    else if (line == "[repair_time_min]") repairTime = in.readLine().toFloat();
                     else if (line == "[years]")
                     {
                         startYear = in.readLine().toInt();
@@ -1554,6 +1560,7 @@ public:
                         {
                             Entrypoint entrypoint;
                             entrypoint.objectID = in.readLine().toInt();
+                            entrypoint.globalThingID = in.readLine().toInt();
                             entrypoint.awkwardValue1 = in.readLine().toInt();
 
                             // Attention: Inverted values
@@ -1615,7 +1622,8 @@ public:
             out.setEncoding(QStringConverter::System);
 
             try {
-                out << OCBase::writeFileHeader() << "\n\n";
+                OCBase base;
+                out << base.writeFileHeader() << "\n\n";
 
                 out << "[name]" << "\n";
                 out << name << "\n\n";
@@ -1657,10 +1665,10 @@ public:
                 out << standardView.position.y << "\n";
                 out << standardView.rotAroundX << "\n";
                 out << standardView.rotAroundZ << "\n";
-                out << standardView.distanceFromZeroMapHeight << "\n\n";
+                out << standardView.distanceFromPosition << "\n\n";
 
                 out << "[moneysystem]" << "\n";
-                out << moneysystem << "\n\n";
+                out << currency << "\n\n";
 
                 out << "[ticketpack]" << "\n";
                 out << ticketpack << "\n\n";
@@ -1699,15 +1707,9 @@ public:
                     out << seasons[i].endDay << "\n\n";
                 }
 
-                for (int i = 0; i < seasons.count(); i++)
-                {
-                    out << "[addseason]" << "\n";
-                    out << seasons[i].type << "\n";
-                    out << seasons[i].startDay << "\n";
-                    out << seasons[i].endDay << "\n\n";
-                }
-
-                std::sort(trafficDensities.first(), trafficDensities.last());
+                std::sort(trafficDensities.begin(), trafficDensities.end(), [](const AiDensity &a, const AiDensity &b) {
+                    return a.time < b.time;
+                });
 
                 for (int i = 0; i < trafficDensities.count(); i++)
                 {
@@ -1716,7 +1718,9 @@ public:
                     out << trafficDensities[i].factor << "\n\n";
                 }
 
-                std::sort(passengerDensities.first(), passengerDensities.last());
+                std::sort(passengerDensities.begin(), passengerDensities.end(), [](const AiDensity &a, const AiDensity &b) {
+                    return a.time < b.time;
+                });
 
                 for (int i = 0; i < passengerDensities.count(); i++)
                 {
@@ -1730,6 +1734,7 @@ public:
                 for (int i = 0; i < entrypoints.count(); i++)
                 {
                     out << entrypoints[i].objectID << "\n";
+                    out << entrypoints[i].globalThingID << "\n";
                     out << entrypoints[i].awkwardValue1 << "\n";
                     out << entrypoints[i].position.x << "\n";
                     out << entrypoints[i].position.z << "\n";
@@ -2906,7 +2911,5 @@ public:
 
     QList<Cloudtype> clouds;
 };
-
-bool operator<(const OCMap::Global::AiDensity& a, const OCMap::Global::AiDensity& b) { return a.time < b.time; }
 
 #endif // OCC_H

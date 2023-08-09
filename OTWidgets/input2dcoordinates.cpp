@@ -47,11 +47,13 @@ void input2DCoordinates::setMax(double max)
 
 void input2DCoordinates::setName1(QString name1)
 {
+    ui->lbl1->setVisible(!name1.isEmpty());
     ui->lbl1->setText(name1);
 }
 
 void input2DCoordinates::setName2(QString name2)
 {
+    ui->lbl2->setVisible(!name2.isEmpty());
     ui->lbl2->setText(name2);
 }
 

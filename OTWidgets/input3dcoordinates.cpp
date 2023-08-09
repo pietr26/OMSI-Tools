@@ -55,16 +55,19 @@ void input3DCoordinates::setMax(double max)
 
 void input3DCoordinates::setName1(QString name1)
 {
+    ui->lbl1->setVisible(!name1.isEmpty());
     ui->lbl1->setText(name1);
 }
 
 void input3DCoordinates::setName2(QString name2)
 {
+    ui->lbl2->setVisible(!name2.isEmpty());
     ui->lbl2->setText(name2);
 }
 
 void input3DCoordinates::setName3(QString name3)
 {
+    ui->lbl3->setVisible(!name3.isEmpty());
     ui->lbl3->setText(name3);
 }
 
