@@ -10,12 +10,43 @@
 #include <QFileDialog>
 #include <QProgressDialog>
 #include <QTimer>
-#include <QClipboard>
 #include <QtConcurrent>
 #include <QFuture>
 #include <QListWidgetItem>
-#include <QMouseEvent>
-#include <QDrag>
+#include <QShortcut>
+#include <QKeySequence>
+#include <QKeyEvent>
+
+class EventFilterCopyElements : public QObject {
+    Q_OBJECT
+
+public:
+    EventFilterCopyElements(QListWidget *listWidget) : lwg(listWidget) { }
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event) override
+    {
+        if (event->type() == QEvent::KeyPress)
+        {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+            if (keyEvent->modifiers() == Qt::ControlModifier && keyEvent->key() == Qt::Key_C)
+            {
+                QList<QListWidgetItem*> items = lwg->selectedItems();
+                QString copystring;
+
+                foreach (QListWidgetItem *current, items) copystring += current->text() + "\n";
+                misc.copy(copystring);
+
+                return true;
+            }
+        }
+        return QObject::eventFilter(obj, event);
+    }
+
+private:
+    QListWidget *lwg;
+    OTMiscellaneous misc;
+};
 
 namespace Ui {
 class wVerifyMap;
@@ -37,47 +68,9 @@ private slots:
 
     void on_actionPreferences_triggered();
 
-    void on_btnTilesDetails_clicked();
-
-    void on_btnObjectsDetails_clicked();
-
-    void on_btnSplinesDetails_clicked();
-
-    void on_btnVehiclesDetails_clicked();
-
-    void on_btnHumansDetails_clicked();
-
     void on_actionStartVerifying_triggered();
 
-    void on_btnTexturesDetails_clicked();
-
-    void on_actionAdjustWindowSize_triggered();
-
     void reloadProgress();
-
-    void on_lwgTilesAll_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgTilesMissing_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgTexturesAll_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgTexturesMissing_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgObjectsAll_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgObjectsMissing_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgSplinesAll_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgSplinesMissing_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgVehiclesAll_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgVehiclesMissing_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgHumansAll_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_lwgHumansMissing_itemDoubleClicked(QListWidgetItem *item);
 
     void on_actionSendFeedback_triggered();
 
@@ -88,6 +81,18 @@ private slots:
     void on_actionBackToHome_triggered();
 
     void on_btnVerificationPreferences_clicked();
+
+    void on_btnToTextures_clicked();
+
+    void on_btnToObjects_clicked();
+
+    void on_btnToSplines_clicked();
+
+    void on_btnToVehicles_clicked();
+
+    void on_btnToHumans_clicked();
+
+    void on_btnToTiles_clicked();
 
 signals:
     void backToHome();
@@ -112,14 +117,14 @@ private:
 
     void endVerifying();
 
-    void setDetailButtons();
-
     void loadMapList();
 
     QList<QPair<QString, QString>> mapList;
 
     bool mapListSetupFinished = false;
     void enableView(bool enable);
+
+    void setToButtons();
 };
 
 #endif // WVERIFYMAP_H
