@@ -28,142 +28,34 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
-    // Hide detail buttons
-    ui->btnTilesDetails->setVisible(false);
-    ui->btnTexturesDetails->setVisible(false);
-    ui->btnObjectsDetails->setVisible(false);
-    ui->btnSplinesDetails->setVisible(false);
-    ui->btnVehiclesDetails->setVisible(false);
-    ui->btnHumansDetails->setVisible(false);
-
     // Connect S&S
     connect(watchProgress, SIGNAL(timeout()), this, SLOT(reloadProgress()));
     ui->pgbProgress->setVisible(false);
     ui->statusbar->showMessage(QString(tr("Press %1 to start the verification.")).arg("\"" + ui->btnStartVerifying->text() + "\""));
     ui->twgVerfying->setCurrentIndex(0);
 
-    qInfo().noquote() << objectName() + " started";
+    ui->lwgTilesAll->installEventFilter(new EventFilterCopyElements(ui->lwgTilesAll));
+    ui->lwgTilesMissing->installEventFilter(new EventFilterCopyElements(ui->lwgTilesMissing));
+    ui->lwgTexturesAll->installEventFilter(new EventFilterCopyElements(ui->lwgTexturesAll));
+    ui->lwgTexturesMissing->installEventFilter(new EventFilterCopyElements(ui->lwgTexturesMissing));
 
-    ui->lwgTilesAll->installEventFilter(this);
+    ui->lwgObjectsAll->installEventFilter(new EventFilterCopyElements(ui->lwgObjectsAll));
+    ui->lwgObjectsMissing->installEventFilter(new EventFilterCopyElements(ui->lwgObjectsMissing));
+    ui->lwgSplinesAll->installEventFilter(new EventFilterCopyElements(ui->lwgSplinesAll));
+    ui->lwgSplinesMissing->installEventFilter(new EventFilterCopyElements(ui->lwgSplinesMissing));
+    ui->lwgVehiclesAll->installEventFilter(new EventFilterCopyElements(ui->lwgVehiclesAll));
+    ui->lwgVehiclesMissing->installEventFilter(new EventFilterCopyElements(ui->lwgVehiclesMissing));
+    ui->lwgHumansAll->installEventFilter(new EventFilterCopyElements(ui->lwgHumansAll));
+    ui->lwgHumansMissing->installEventFilter(new EventFilterCopyElements(ui->lwgHumansMissing));
+
+    setToButtons();
+
+    qInfo().noquote() << objectName() + " started";
 }
 
 wVerifyMap::~wVerifyMap()
 {
     delete ui;
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgTilesAll_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgTilesMissing_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgTexturesAll_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgTexturesMissing_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgObjectsAll_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgObjectsMissing_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgSplinesAll_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgSplinesMissing_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgVehiclesAll_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgVehiclesMissing_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgHumansAll_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Copies a entry from listWidget.
-void wVerifyMap::on_lwgHumansMissing_itemDoubleClicked(QListWidgetItem *item)
-{
-    misc.copy(item->text());
-}
-
-/// Shows details for tiles
-void wVerifyMap::on_btnTilesDetails_clicked()
-{
-    ui->twgVerfying->setCurrentIndex(1);
-}
-
-/// Shows details for tiles
-void wVerifyMap::on_btnTexturesDetails_clicked()
-{
-    ui->twgVerfying->setCurrentIndex(2);
-}
-
-/// Shows details for objects
-void wVerifyMap::on_btnObjectsDetails_clicked()
-{
-    ui->twgVerfying->setCurrentIndex(3);
-}
-
-/// Shows details for splines
-void wVerifyMap::on_btnSplinesDetails_clicked()
-{
-    ui->twgVerfying->setCurrentIndex(4);
-}
-
-/// Shows details for vehicles
-void wVerifyMap::on_btnVehiclesDetails_clicked()
-{
-    ui->twgVerfying->setCurrentIndex(5);
-}
-
-/// Shows details for humans
-void wVerifyMap::on_btnHumansDetails_clicked()
-{
-    ui->twgVerfying->setCurrentIndex(6);
-}
-
-/// Adjusts the size of the window
-void wVerifyMap::on_actionAdjustWindowSize_triggered()
-{
-    adjustSize();
 }
 
 /// Opens bug report module
@@ -231,15 +123,9 @@ void wVerifyMap::selectAllAndClear()
     ui->ledTotalVehicles->clear();
     ui->ledMissingVehicles->clear();
 
-    // set Detail buttons unvisible
-    ui->btnTilesDetails->setVisible(false);
-    ui->btnTexturesDetails->setVisible(false);
-    ui->btnObjectsDetails->setVisible(false);
-    ui->btnSplinesDetails->setVisible(false);
-    ui->btnVehiclesDetails->setVisible(false);
-    ui->btnHumansDetails->setVisible(false);
-
     ui->pgbProgress->setVisible(false);
+
+    setToButtons();
 }
 
 
@@ -278,6 +164,16 @@ void wVerifyMap::enableView(bool enable)
         ui->btnStartVerifying->setText(tr("Start verifying"));
     else
         ui->btnStartVerifying->setText(tr("Running..."));
+}
+
+void wVerifyMap::setToButtons()
+{
+    ui->btnToTiles->setVisible(!ui->ledMissingTiles->text().remove("0").isEmpty());
+    ui->btnToTextures->setVisible(!ui->ledMissingTextures->text().remove("0").isEmpty());
+    ui->btnToObjects->setVisible(!ui->ledMissingObjects->text().remove("0").isEmpty());
+    ui->btnToSplines->setVisible(!ui->ledMissingSplines->text().remove("0").isEmpty());
+    ui->btnToVehicles->setVisible(!ui->ledMissingVehicles->text().remove("0").isEmpty());
+    ui->btnToHumans->setVisible(!ui->ledMissingHumans->text().remove("0").isEmpty());
 }
 
 void wVerifyMap::on_btnStartVerifying_clicked()
@@ -456,7 +352,6 @@ void wVerifyMap::on_btnStartVerifying_clicked()
 
         // ----------
 
-        setDetailButtons();
         filehandler.stuffobj.clear();
     }
 
@@ -471,30 +366,7 @@ void wVerifyMap::endVerifying()
 {
     startEndWatchProgress(false);
     enableView(true);
-}
-
-/// Sets detail buttons
-void wVerifyMap::setDetailButtons()
-{
-    qDebug() << "Set detail buttons...";
-
-    if (!(ui->ledMissingTiles->text() == "" || ui->ledMissingTiles->text() == "0"))
-        ui->btnTilesDetails->setVisible(true);
-
-    if (!(ui->ledMissingTextures->text() == "" || ui->ledMissingTextures->text() == "0"))
-        ui->btnTexturesDetails->setVisible(true);
-
-    if (!(ui->ledMissingObjects->text() == "" || ui->ledMissingObjects->text() == "0"))
-        ui->btnObjectsDetails->setVisible(true);
-
-    if (!(ui->ledMissingSplines->text() == "" || ui->ledMissingSplines->text() == "0"))
-        ui->btnSplinesDetails->setVisible(true);
-
-    if (!(ui->ledMissingVehicles->text() == "" || ui->ledMissingVehicles->text() == "0"))
-        ui->btnVehiclesDetails->setVisible(true);
-
-    if (!(ui->ledMissingHumans->text() == "" || ui->ledMissingHumans->text() == "0"))
-        ui->btnHumansDetails->setVisible(true);
+    setToButtons();
 }
 
 /// Closes the application
@@ -534,7 +406,7 @@ void wVerifyMap::loadMapList()
 
     for (int i = 0; i < mapList.size(); i++)
     {
-        if (mapList[i].first == set.read(objectName(), "mapPath").toString())
+        if (mapList[i].second == set.read(objectName(), "mapPath").toString())
         {
             ui->cobxMapName->setCurrentIndex(i);
             i = mapList.size();
@@ -574,3 +446,15 @@ void wVerifyMap::on_actionBackToHome_triggered()
     close();
     backToHome();
 }
+
+void wVerifyMap::on_btnToTiles_clicked() { ui->twgVerfying->setCurrentIndex(1); }
+
+void wVerifyMap::on_btnToTextures_clicked() { ui->twgVerfying->setCurrentIndex(2); }
+
+void wVerifyMap::on_btnToObjects_clicked() { ui->twgVerfying->setCurrentIndex(3); }
+
+void wVerifyMap::on_btnToSplines_clicked() { ui->twgVerfying->setCurrentIndex(4); }
+
+void wVerifyMap::on_btnToVehicles_clicked() { ui->twgVerfying->setCurrentIndex(5); }
+
+void wVerifyMap::on_btnToHumans_clicked() { ui->twgVerfying->setCurrentIndex(6); }
