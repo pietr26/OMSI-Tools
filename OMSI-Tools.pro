@@ -9,25 +9,26 @@ DEFINES += QT_MESSAGELOGCONTEXT
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    OTBackend/DiscordGameSDK/include/achievement_manager.cpp \
-    OTBackend/DiscordGameSDK/include/activity_manager.cpp \
-    OTBackend/DiscordGameSDK/include/application_manager.cpp \
-    OTBackend/DiscordGameSDK/include/core.cpp \
-    OTBackend/DiscordGameSDK/include/image_manager.cpp \
-    OTBackend/DiscordGameSDK/include/lobby_manager.cpp \
-    OTBackend/DiscordGameSDK/include/network_manager.cpp \
-    OTBackend/DiscordGameSDK/include/overlay_manager.cpp \
-    OTBackend/DiscordGameSDK/include/relationship_manager.cpp \
-    OTBackend/DiscordGameSDK/include/storage_manager.cpp \
-    OTBackend/DiscordGameSDK/include/store_manager.cpp \
-    OTBackend/DiscordGameSDK/include/types.cpp \
-    OTBackend/DiscordGameSDK/include/user_manager.cpp \
-    OTBackend/DiscordGameSDK/include/voice_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/achievement_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/activity_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/application_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/core.cpp \
+#    OTBackend/DiscordGameSDK/include/image_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/lobby_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/network_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/overlay_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/relationship_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/storage_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/store_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/types.cpp \
+#    OTBackend/DiscordGameSDK/include/user_manager.cpp \
+#    OTBackend/DiscordGameSDK/include/voice_manager.cpp \
     OTBackend/OTLogger.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
     OTModules/OTGeneric/wpreferences.cpp \
     OTModules/OTGeneric/wselectencoding.cpp \
     OTModules/OTInternals/wregeditor.cpp \
+    OTModules/wBugDoc/wbugdoc.cpp \
     OTModules/wContentSearch/wDBPanel.cpp \
     OTModules/wContentSearch/waddfiles.cpp \
     OTModules/wContentSearch/wcontentsearch.cpp \
@@ -37,6 +38,7 @@ SOURCES += \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wfbh.cpp \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp \
+    OTModules/wMaps/wGlobalProps/weditseason.cpp \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wmaps.cpp \
     OTModules/wcleanup.cpp \
@@ -48,6 +50,7 @@ SOURCES += \
     OTWidgets/firstsetup.cpp \
     OTWidgets/input2dcoordinates.cpp \
     OTWidgets/input3dcoordinates.cpp \
+    OTWidgets/inputaddeditremove.cpp \
     OTWidgets/invalidmaindir.cpp \
     OTWidgets/message.cpp \
     OTWidgets/newupdate.cpp \
@@ -62,23 +65,23 @@ SOURCES += \
     OTModules/OTGeneric/wstartupscreen.cpp
 
 HEADERS += \
-    OTBackend/DiscordGameSDK/include/achievement_manager.h \
-    OTBackend/DiscordGameSDK/include/activity_manager.h \
-    OTBackend/DiscordGameSDK/include/application_manager.h \
-    OTBackend/DiscordGameSDK/include/core.h \
-    OTBackend/DiscordGameSDK/include/discord.h \
-    OTBackend/DiscordGameSDK/include/event.h \
-    OTBackend/DiscordGameSDK/include/ffi.h \
-    OTBackend/DiscordGameSDK/include/image_manager.h \
-    OTBackend/DiscordGameSDK/include/lobby_manager.h \
-    OTBackend/DiscordGameSDK/include/network_manager.h \
-    OTBackend/DiscordGameSDK/include/overlay_manager.h \
-    OTBackend/DiscordGameSDK/include/relationship_manager.h \
-    OTBackend/DiscordGameSDK/include/storage_manager.h \
-    OTBackend/DiscordGameSDK/include/store_manager.h \
-    OTBackend/DiscordGameSDK/include/types.h \
-    OTBackend/DiscordGameSDK/include/user_manager.h \
-    OTBackend/DiscordGameSDK/include/voice_manager.h \
+#    OTBackend/DiscordGameSDK/include/achievement_manager.h \
+#    OTBackend/DiscordGameSDK/include/activity_manager.h \
+#    OTBackend/DiscordGameSDK/include/application_manager.h \
+#    OTBackend/DiscordGameSDK/include/core.h \
+#    OTBackend/DiscordGameSDK/include/discord.h \
+#    OTBackend/DiscordGameSDK/include/event.h \
+#    OTBackend/DiscordGameSDK/include/ffi.h \
+#    OTBackend/DiscordGameSDK/include/image_manager.h \
+#    OTBackend/DiscordGameSDK/include/lobby_manager.h \
+#    OTBackend/DiscordGameSDK/include/network_manager.h \
+#    OTBackend/DiscordGameSDK/include/overlay_manager.h \
+#    OTBackend/DiscordGameSDK/include/relationship_manager.h \
+#    OTBackend/DiscordGameSDK/include/storage_manager.h \
+#    OTBackend/DiscordGameSDK/include/store_manager.h \
+#    OTBackend/DiscordGameSDK/include/types.h \
+#    OTBackend/DiscordGameSDK/include/user_manager.h \
+#    OTBackend/DiscordGameSDK/include/voice_manager.h \
     OTBackend/OCC.h \
     OTBackend/discordRPC.h \
     OTBackend/OTDatabaseHandler.h \
@@ -91,6 +94,7 @@ HEADERS += \
     OTModules/OTGeneric/wpreferences.h \
     OTModules/OTGeneric/wselectencoding.h \
     OTModules/OTInternals/wregeditor.h \
+    OTModules/wBugDoc/wbugdoc.h \
     OTModules/wContentSearch/wDBPanel.h \
     OTModules/wContentSearch/waddfiles.h \
     OTModules/wContentSearch/wcontentsearch.h \
@@ -101,6 +105,7 @@ HEADERS += \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wfbh.h \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.h \
+    OTModules/wMaps/wGlobalProps/weditseason.h \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wmaps.h \
     OTModules/wcleanup.h \
@@ -115,6 +120,7 @@ HEADERS += \
     OTWidgets/firstsetup.h \
     OTWidgets/input2dcoordinates.h \
     OTWidgets/input3dcoordinates.h \
+    OTWidgets/inputaddeditremove.h \
     OTWidgets/invalidmaindir.h \
     OTWidgets/message.h \
     OTWidgets/newupdate.h \
@@ -129,6 +135,7 @@ FORMS += \
     OTModules/OTGeneric/wpreferences.ui \
     OTModules/OTGeneric/wselectencoding.ui \
     OTModules/OTInternals/wregeditor.ui \
+    OTModules/wBugDoc/wbugdoc.ui \
     OTModules/wContentSearch/wDBPanel.ui \
     OTModules/wContentSearch/waddfiles.ui \
     OTModules/wContentSearch/wcontentsearch.ui \
@@ -138,6 +145,7 @@ FORMS += \
     OTModules/wFbh/wdbcopyrights.ui \
     OTModules/wFbh/wfbh.ui \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.ui \
+    OTModules/wMaps/wGlobalProps/weditseason.ui \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
     OTModules/wMaps/wmaps.ui \
     OTModules/wcleanup.ui \
@@ -152,6 +160,7 @@ FORMS += \
     OTWidgets/firstsetup.ui \
     OTWidgets/input2dcoordinates.ui \
     OTWidgets/input3dcoordinates.ui \
+    OTWidgets/inputaddeditremove.ui \
     OTWidgets/invalidmaindir.ui \
     OTWidgets/message.ui \
     OTWidgets/newupdate.ui \
@@ -186,6 +195,6 @@ RESOURCES += \
 DISTFILES += \
     devNotes
 
-LIBS += -LC:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/lib -ldiscord_game_sdk
+#LIBS += -LC:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/lib -ldiscord_game_sdk
 #INCLUDEPATH += C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/include
 
