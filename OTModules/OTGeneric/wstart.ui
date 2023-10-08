@@ -497,6 +497,17 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="btnBugDoc">
+         <property name="text">
+          <string>BugDoc</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../ressources.qrc">
+           <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>

@@ -33,7 +33,7 @@ void wMaps::on_actionPreferences_triggered()
 void wMaps::on_actionBackToHome_triggered()
 {
     close();
-    backToHome();
+    emit backToHome();
 }
 
 void wMaps::on_actionClose_triggered()
