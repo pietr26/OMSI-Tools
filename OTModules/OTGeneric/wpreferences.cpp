@@ -21,7 +21,6 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     connect(timer, SIGNAL(timeout()), this, SLOT(refreshDiskUsage()));
     timer->start(10000);
 
-
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/en.svg"), OTStrings::langEn); // 0
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), OTStrings::langDe); // 1
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), OTStrings::langFr); // 2
@@ -510,7 +509,6 @@ void wPreferences::on_btnSave_clicked()
     needRestart = false;
 }
 
-
 void wPreferences::on_btnUseCustomTheme_clicked()
 {
     ui->gbxThemeAdvanced->setEnabled(true);
@@ -518,6 +516,3 @@ void wPreferences::on_btnUseCustomTheme_clicked()
     reloadThemePreview();
     ui->btnUseCustomTheme->setVisible(false);
 }
-
-
-

@@ -32,6 +32,18 @@ public:
     float getValue3();
     void setValue3(float value);
 
+signals:
+    void name1Changed(float value);
+    void name2Changed(float value);
+    void name3Changed(float value);
+
+private slots:
+    void on_sbx1_valueChanged(double arg1);
+
+    void on_sbx2_valueChanged(double arg1);
+
+    void on_sbx3_valueChanged(double arg1);
+
 private:
     Ui::input3DCoordinates *ui;
 

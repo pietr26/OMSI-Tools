@@ -1021,6 +1021,18 @@ public:
                 deepWinter = 4
             };
 
+            QString name()
+            {
+                switch (type)
+                {
+                    case 0: return QObject::tr("Summer");
+                    case 1: return QObject::tr("Spring");
+                    case 2: return QObject::tr("Autumn");
+                    case 3: return QObject::tr("Winter");
+                    case 4: return QObject::tr("Deep winter");
+                }
+            }
+
             /** @brief <code>[addseason]</code> - defines a season
              *
              * <code>1</code>: Spring
@@ -1038,15 +1050,25 @@ public:
              *   - Line: <code>2</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>false</code>*/
-            int startDay;
+            QDate start;
 
             /** @brief <code>[addseason]</code> - defines last day of season (1-based to 1st January)
              * <hr>
              *   - Line: <code>3</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>false</code>*/
-            int endDay;
+            QDate end;
         };
+
+        QList<Season> sortSeasons(QList<Season> seasons)
+        {
+            QList<Season> list = seasons;
+
+            std::sort(list.begin(), list.end(), [](const Season &a, const Season &b) {
+                    return a.start.dayOfYear() < b.end.dayOfYear();
+                });
+            return list;
+        }
 
         /** @brief <code>[trafficdensity_road]</code>, <code>[trafficdensity_passenger]</code> - single traffic density
              * <hr>
@@ -1062,7 +1084,7 @@ public:
              *   - Line: <code>1</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>false</code>*/
-            float time;
+            QTime time;
 
             /** @brief <code>[trafficdensity_road]</code> - density multiplier
              * <hr>
@@ -1078,10 +1100,15 @@ public:
              *   - Line: <code>0 - ({1} * entrypointCount)</code>
              *   - Occurs with other parameters: <code>false</code>
              *   - Multiple occurrences: <code>false</code>*/
-        class Entrypoint
+
+        // Wrap class for entrypoints
+        class EntrypointCollection
         {
-        public: // TODO
-            /* [entrypoints]
+        public:
+            class Entrypoint
+            {
+            public: // TODO
+                /* [entrypoints]
              * entrypointCount      * (
              * objectID
              * ?
@@ -1097,30 +1124,30 @@ public:
              * )
              */
 
-            // N: zero-based for iterator (to entrypointCount)
+                // N: zero-based for iterator (to entrypointCount)
 
-            /** @brief <code>[entrypoints]</code> - tile-local objectID (based on position of entry in map file)
+                /** @brief <code>[entrypoints]</code> - tile-local objectID (based on position of entry in map file)
              * <hr>
              *   - Line: <code>(2 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
-            int objectID;
+                int objectID;
 
-            /** @brief <code>[entrypoints]</code> - global ID of all sco / sli
+                /** @brief <code>[entrypoints]</code> - global ID of all sco / sli
              * <hr>
              *   - Line: <code>(3 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
-            int globalThingID;
+                int globalThingID;
 
-            /** @brief <code>[entrypoint]</code> - awkwardValue1
+                /** @brief <code>[entrypoint]</code> - awkwardValue1
              * <hr>
              *   - Line: <code>(4 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
-            int awkwardValue1;
+                int awkwardValue1;
 
-            /** @brief <code>[entrypoints]</code> - defines position of entrypoint
+                /** @brief <code>[entrypoints]</code> - defines position of entrypoint
              * <hr>
              *
              * Attention: These values are inverted! Order: x, z, y
@@ -1128,50 +1155,53 @@ public:
              *   - Line: <code>(5 + 11 * n), (6 + 11 * n), (7 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
-            OC3DCoordinates<float> position;
+                OC3DCoordinates<float> position;
 
-            /** @brief <code>[entrypoint]</code> - awkwardValue2
+                /** @brief <code>[entrypoint]</code> - awkwardValue2
              * <hr>
              *   - Line: <code>(8 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
-            float awkwardValue2;
+                float awkwardValue2;
 
-            /** @brief <code>[entrypoint]</code> - awkwardValue3
+                /** @brief <code>[entrypoint]</code> - awkwardValue3
              * <hr>
              *   - Line: <code>(9 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
-            float awkwardValue3;
+                float awkwardValue3;
 
-            /** @brief <code>[entrypoint]</code> - awkwardValue4
+                /** @brief <code>[entrypoint]</code> - awkwardValue4
              * <hr>
              *   - Line: <code>(10 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
-            float awkwardValue4;
+                float awkwardValue4;
 
-            /** @brief <code>[entrypoint]</code> - awkwardValue5
+                /** @brief <code>[entrypoint]</code> - awkwardValue5
              * <hr>
              *   - Line: <code>(11 + 11 * n)</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
-            float awkwardValue5;
+                float awkwardValue5;
 
-            /** @brief <code>[entrypoints]</code> - tile ID - zero-based on [map] ordner in global.cfg
+                /** @brief <code>[entrypoints]</code> - tile ID - zero-based on [map] ordner in global.cfg
              * <hr>
              *   - Line: <code>(12 + 11 * n))</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
-            int tileID;
-
+                int tileID;
+            };
             /** @brief <code>[entrypoints]</code> - entrypoint name
              * <hr>
              *   - Line: <code>(13 + 11 * n))</code>
              *   - Occurs with other parameters: <code>true</code>
              *   - Multiple occurrences: <code>true</code>*/
             QString name;
+
+            QList<Entrypoint> entrypoints;
         };
+
 
         /** @brief <code>[backgroundimage]</code> - sets background image for tiles in editor
          * <hr>
@@ -1228,6 +1258,9 @@ public:
         };
 
         /** @brief <code>[map]</code> - single tile information
+         *
+         *  Attention: Values inverted! 1=y | 2=x
+         *
          * <hr>
          *   - Occurs in file(s): parent
          *   - Line: <code>0 - 3</code>
@@ -1323,7 +1356,7 @@ public:
          *   - Multiple occurrences: <code>false</code>*/
         BackgroundImage bgImage;
 
-        /** @brief <code>[mapcam]</code> - set dfault view (no entrypoint selection on map load)
+        /** @brief <code>[mapcam]</code> - set default view (no entrypoint selection on map load)
          * <hr>
          *   - Line: <code>0+</code>
          *   - Occurs with other parameters: <code>false</code>
@@ -1349,7 +1382,7 @@ public:
          *   - Line: <code>1</code>
          *   - Occurs with other parameters: <code>false</code>
          *   - Multiple occurrences: <code>false</code>*/
-        float repairTime;
+        QTime repairTime;
 
         /** @brief <code>[years]</code> - sets first year for random date generation on load
          * <hr>
@@ -1414,7 +1447,7 @@ public:
          *   - Line: <code>0+</code>
          *   - Occurs with other parameters: <code>false</code>
          *   - Multiple occurrences: <code>false</code>*/
-        QList<Entrypoint> entrypoints;
+        QList<EntrypointCollection> entrypoints;
 
         /** @brief <code>[map]</code> - defines tiles and its locations
          * <hr>
@@ -1425,11 +1458,6 @@ public:
 
         // file path for global.cfg
         QString filepath;
-
-        void clear() override
-        {
-            // TODO
-        }
 
         FileIOResponse read() override
         {
@@ -1444,7 +1472,7 @@ public:
             if (!global.open(QFile::ReadOnly | QFile::Text))
             {
                 // msg.fileOpenErrorCloseOMSI(parent, mapFolderPath); TODO
-                qDebug().noquote() << "Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
+                qDebug().noquote() << "Cannot open file: Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
                 return FileIOResponse::errFileNotOpen;
             }
 
@@ -1467,11 +1495,13 @@ public:
                         line = in.readLine();
                         description.clear();
 
-                        while (line == "[end]")
+                        while (line != "[end]")
                         {
-                            description += line;
+                            description += line +  "\n";
                             line = in.readLine();
                         }
+
+                        description = description.trimmed();
                     }
                     else if (line == "[version]") version = in.readLine().toInt();
                     else if (line == "[NextIDCode]") nextIDCode = in.readLine().toUInt();
@@ -1490,7 +1520,11 @@ public:
                     }
                     else if (line == "[mapcam]")
                     {
-                        standardView.tilePosition = OC2DCoordinates<int>(in.readLine().toInt(), in.readLine().toInt()); // 1, 2
+                        // Attention: Inverted values
+                        int yTilePos = in.readLine().toInt();
+                        int xTilePos = in.readLine().toInt();
+
+                        standardView.tilePosition = OC2DCoordinates<int>(xTilePos, yTilePos); // 1, 2
 
                         // Attention: Inverted values
                         float xPos = in.readLine().toFloat(); // 3
@@ -1504,7 +1538,12 @@ public:
                     }
                     else if (line == "[moneysystem]") currency = in.readLine();
                     else if (line == "[ticketpack]") ticketpack = in.readLine();
-                    else if (line == "[repair_time_min]") repairTime = in.readLine().toFloat();
+                    else if (line == "[repair_time_min]")
+                    {
+                        float decimalTime = in.readLine().toFloat(); int hours = 0;
+                        while (decimalTime >= 60) { hours++; decimalTime -= 60; }
+                        repairTime = QTime(hours, decimalTime * 60);
+                    }
                     else if (line == "[years]")
                     {
                         startYear = in.readLine().toInt();
@@ -1533,22 +1572,29 @@ public:
                             case 2: season.type = Season::Type::autumn; break;
                             case 3: season.type = Season::Type::winter; break;
                             case 4: season.type = Season::Type::deepWinter; break;
+                            default: season.type = Season::Type::summer; break;
                         };
 
-                        season.startDay = in.readLine().toInt();
-                        season.endDay = in.readLine().toInt();
+                        season.start = QDate(QDate::currentDate().year(), 1, 1).addDays(in.readLine().toInt());
+                        season.end = QDate(QDate::currentDate().year(), 1, 1).addDays(in.readLine().toInt());
+
+                        seasons.append(season);
                     }
-                    else if (line == "[traffidensity_road]")
+                    else if (line == "[trafficdensity_road]")
                     {
                         AiDensity density;
-                        density.time = in.readLine().toFloat();
+                        float decimalTime = in.readLine().toFloat(); int hours = static_cast<int>(decimalTime);
+                        // TODO: Workaround
+                        density.time = (hours != 24) ? QTime(hours, (decimalTime - hours) * 60) : QTime(23, 59);
                         density.factor = in.readLine().toFloat();
                         trafficDensities.append(density);
                     }
-                    else if (line == "[traffidensity_passenger]")
+                    else if (line == "[trafficdensity_passenger]")
                     {
                         AiDensity density;
-                        density.time = in.readLine().toFloat();
+                        float decimalTime = in.readLine().toFloat(); int hours = static_cast<int>(decimalTime);
+                        // TODO: Workaround
+                        density.time = (hours != 24) ? QTime(hours, (decimalTime - hours) * 60) : QTime(23, 59);
                         density.factor = in.readLine().toFloat();
                         passengerDensities.append(density);
                     }
@@ -1558,7 +1604,7 @@ public:
 
                         for (int i = 0; i < entrypointCount; i++)
                         {
-                            Entrypoint entrypoint;
+                            EntrypointCollection::Entrypoint entrypoint;
                             entrypoint.objectID = in.readLine().toInt();
                             entrypoint.globalThingID = in.readLine().toInt();
                             entrypoint.awkwardValue1 = in.readLine().toInt();
@@ -1574,9 +1620,17 @@ public:
                             entrypoint.awkwardValue4 = in.readLine().toFloat();
                             entrypoint.awkwardValue5 = in.readLine().toFloat();
                             entrypoint.tileID = in.readLine().toInt();
-                            entrypoint.name = in.readLine();
 
-                            entrypoints.append(entrypoint);
+                            EntrypointCollection collection;
+                            collection.name = in.readLine();
+                            collection.entrypoints.append(entrypoint);
+
+                            int collectionIndex = -1;
+                            for (int j = 0; j < entrypoints.count(); j++) { if (entrypoints[j].name == collection.name) { collectionIndex = j; break; } }
+
+                            if (collectionIndex != -1)
+                                entrypoints[collectionIndex].entrypoints.append(entrypoint);
+                            else entrypoints.append(collection);
                         }
                     }
                     else if (line == "[map]")
@@ -1598,6 +1652,8 @@ public:
 
             global.close();
 
+            seasons = sortSeasons(seasons);
+
             return FileIOResponse::valid;
         }
 
@@ -1614,7 +1670,7 @@ public:
             if (!global.open(QFile::WriteOnly | QFile::Text))
             {
                 // msg.fileOpenErrorCloseOMSI(parent, mapFolderPath); TODO
-                qDebug().noquote() << "Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
+                qDebug().noquote() << "Cannot write file: Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
                 return FileIOResponse::errFileNotOpen;
             }
 
@@ -1651,30 +1707,33 @@ public:
 
                 out << "[backgroundimage]" << "\n";
                 out << bgImage.isVisible << "\n";
-                out << bgImage.picturePath << "\n";
+                out << bgImage.picturePath.replace("/", "\\") << "\n";
                 out << bgImage.width << "\n";
                 out << bgImage.height << "\n";
                 out << bgImage.startWidth << "\n";
                 out << bgImage.startHeight << "\n\n";
 
                 out << "[mapcam]" << "\n";
-                out << standardView.tilePosition.x << "\n";
                 out << standardView.tilePosition.y << "\n";
+                out << standardView.tilePosition.x << "\n";
                 out << standardView.position.x << "\n";
                 out << standardView.position.z << "\n";
                 out << standardView.position.y << "\n";
-                out << standardView.rotAroundX << "\n";
                 out << standardView.rotAroundZ << "\n";
+                out << standardView.rotAroundX << "\n";
                 out << standardView.distanceFromPosition << "\n\n";
 
                 out << "[moneysystem]" << "\n";
-                out << currency << "\n\n";
+                out << currency.replace("/", "\\") << "\n\n";
 
                 out << "[ticketpack]" << "\n";
-                out << ticketpack << "\n\n";
+                out << ticketpack.replace("/", "\\") << "\n\n";
 
                 out << "[repair_time_min]" << "\n";
-                out << repairTime << "\n\n";
+                float decimalRepairTime = 0; int hours = repairTime.hour();
+                while (hours != 0) { hours--; decimalRepairTime += 60; }
+                decimalRepairTime += repairTime.minute() / 60;
+                out << decimalRepairTime << "\n\n";
 
                 out << "[years]" << "\n";
                 out << startYear << "\n";
@@ -1692,19 +1751,20 @@ public:
                 for (int i = 0; i < groundTextures.count(); i++)
                 {
                     out << "[groundtex]" << "\n";
-                    out << groundTextures[i].mainTex << "\n";
-                    out << groundTextures[i].subTex << "\n";
+                    out << groundTextures[i].mainTex.replace("/", "\\") << "\n";
+                    out << groundTextures[i].subTex.replace("/", "\\") << "\n";
                     out << groundTextures[i].texSizeExponent << "\n";
                     out << groundTextures[i].mainTexRepeating << "\n";
                     out << groundTextures[i].subTexRepeating << "\n\n";
                 }
 
+                seasons = sortSeasons(seasons);
                 for (int i = 0; i < seasons.count(); i++)
                 {
                     out << "[addseason]" << "\n";
                     out << seasons[i].type << "\n";
-                    out << seasons[i].startDay << "\n";
-                    out << seasons[i].endDay << "\n\n";
+                    out << (QDate(QDate::currentDate().year(), 1, 1).daysTo(seasons[i].start)) << "\n";
+                    out << (QDate(QDate::currentDate().year(), 1, 1).daysTo(seasons[i].end)) << "\n\n";
                 }
 
                 std::sort(trafficDensities.begin(), trafficDensities.end(), [](const AiDensity &a, const AiDensity &b) {
@@ -1714,7 +1774,9 @@ public:
                 for (int i = 0; i < trafficDensities.count(); i++)
                 {
                     out << "[trafficdensity_road]" << "\n";
-                    out << trafficDensities[i].time << "\n";
+                    // TODO: Workaround
+                    if (trafficDensities[i].time == QTime(23, 59)) out << "24.000\n";
+                    else out << QString::number(trafficDensities[i].time.hour()) + "." + QString::number(trafficDensities[i].time.minute() / 60) << "\n";
                     out << trafficDensities[i].factor << "\n\n";
                 }
 
@@ -1725,34 +1787,43 @@ public:
                 for (int i = 0; i < passengerDensities.count(); i++)
                 {
                     out << "[trafficdensity_passenger]" << "\n";
-                    out << passengerDensities[i].time << "\n";
+                    // TODO: Workaround
+                    if (passengerDensities[i].time == QTime(23, 59)) out << "24.000\n";
+                    else out << QString::number(passengerDensities[i].time.hour()) + "." + QString::number(passengerDensities[i].time.minute() / 60) << "\n";
                     out << passengerDensities[i].factor << "\n\n";
                 }
 
                 out << "[entrypoints]" << "\n";
-                out << entrypoints.count() << "\n";
+                int count = 0;
+                foreach (EntrypointCollection current, entrypoints) count += current.entrypoints.count();
+                out << count << "\n";
                 for (int i = 0; i < entrypoints.count(); i++)
                 {
-                    out << entrypoints[i].objectID << "\n";
-                    out << entrypoints[i].globalThingID << "\n";
-                    out << entrypoints[i].awkwardValue1 << "\n";
-                    out << entrypoints[i].position.x << "\n";
-                    out << entrypoints[i].position.z << "\n";
-                    out << entrypoints[i].position.y << "\n";
-                    out << entrypoints[i].awkwardValue2 << "\n";
-                    out << entrypoints[i].awkwardValue3 << "\n";
-                    out << entrypoints[i].awkwardValue4 << "\n";
-                    out << entrypoints[i].awkwardValue5 << "\n";
-                    out << entrypoints[i].tileID << "\n";
-                    out << entrypoints[i].name << "\n\n";
+                    for (int j = 0; j < entrypoints[i].entrypoints.count(); j++)
+                    {
+                        out << entrypoints[i].entrypoints[j].objectID << "\n";
+                        out << entrypoints[i].entrypoints[j].globalThingID << "\n";
+                        out << entrypoints[i].entrypoints[j].awkwardValue1 << "\n";
+                        out << entrypoints[i].entrypoints[j].position.x << "\n";
+                        out << entrypoints[i].entrypoints[j].position.z << "\n";
+                        out << entrypoints[i].entrypoints[j].position.y << "\n";
+                        out << entrypoints[i].entrypoints[j].awkwardValue2 << "\n";
+                        out << entrypoints[i].entrypoints[j].awkwardValue3 << "\n";
+                        out << entrypoints[i].entrypoints[j].awkwardValue4 << "\n";
+                        out << entrypoints[i].entrypoints[j].awkwardValue5 << "\n";
+                        out << entrypoints[i].entrypoints[j].tileID << "\n";
+                        out << entrypoints[i].name << "\n";
+                    }
                 }
+
+                out << "\n";
 
                 for (int i = 0; i < tiles.count(); i++)
                 {
                     out << "[map]" << "\n";
                     out << tiles[i].position.x << "\n";
                     out << tiles[i].position.y << "\n";
-                    out << tiles[i].filename << "\n\n";
+                    out << tiles[i].filename.replace("/", "\\") << "\n\n";
                 }
 
                 out << "\n";

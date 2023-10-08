@@ -29,14 +29,19 @@ private slots:
 
     void on_btnClose_clicked();
 
+    void on_sbxMainTexRepeating_valueChanged(int arg1);
+
+    void on_sbxSubTexRepeating_valueChanged(int arg1);
+
+    void on_cbxTexSizeExp_currentIndexChanged(int index);
+
 private:
     Ui::wEditGroundTexture *ui;
     OTSettings set;
 
     void reloadUI();
-    void saveUI();
 
-    OCMap::Global::Texture texture;
+    OCMap::Global::Texture texture = OCMap::Global::Texture();
     int textureIndex;
 };
 

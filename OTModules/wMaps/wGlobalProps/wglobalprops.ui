@@ -6,19 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>698</width>
-    <height>548</height>
+    <width>660</width>
+    <height>651</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string notr="true">wGlobalProps</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_11">
     <item>
+     <widget class="QPushButton" name="btnTest">
+      <property name="text">
+       <string>TEST</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QTabWidget" name="twgGlobalProps">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tabInformation">
        <attribute name="title">
@@ -27,6 +34,15 @@
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <layout class="QFormLayout" name="formLayout">
+          <property name="leftMargin">
+           <number>9</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="rightMargin">
+           <number>9</number>
+          </property>
           <item row="0" column="0" colspan="2">
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
@@ -95,19 +111,19 @@
           <item row="4" column="0" colspan="2">
            <widget class="QCheckBox" name="cbxLeftHandDriving">
             <property name="text">
-             <string>Left-hand driving</string>
+             <string>Left-hand driving (busstop cubes only)</string>
             </property>
            </widget>
           </item>
           <item row="5" column="0" colspan="2">
            <widget class="QCheckBox" name="cbxRealrail">
             <property name="text">
-             <string>Extended rail support</string>
+             <string>Extended support for rail vehicles</string>
             </property>
            </widget>
           </item>
           <item row="6" column="1">
-           <widget class="QComboBox" name="cbxCurrency"/>
+           <widget class="QComboBox" name="cobxCurrency"/>
           </item>
           <item row="6" column="0">
            <widget class="QLabel" name="lblCurrency">
@@ -117,7 +133,7 @@
            </widget>
           </item>
           <item row="7" column="1">
-           <widget class="QComboBox" name="cbxTicketpack"/>
+           <widget class="QComboBox" name="cobxTicketpack"/>
           </item>
           <item row="7" column="0">
            <widget class="QLabel" name="lblTicketpack">
@@ -167,7 +183,7 @@
             <property name="time">
              <time>
               <hour>0</hour>
-              <minute>10</minute>
+              <minute>0</minute>
               <second>0</second>
              </time>
             </property>
@@ -176,7 +192,7 @@
           <item row="10" column="0">
            <widget class="QLabel" name="lblRealYearOffset">
             <property name="text">
-             <string>Year offset (real date):</string>
+             <string>Year offset:</string>
             </property>
            </widget>
           </item>
@@ -250,7 +266,10 @@
           <item row="0" column="0">
            <widget class="QCheckBox" name="cbxBackgroundImage">
             <property name="text">
-             <string>Background terrain image</string>
+             <string>Background terrain image:</string>
+            </property>
+            <property name="tristate">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -364,7 +383,7 @@
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="input2DCoordinates" name="cuxBIPictureSize" native="true">
+              <widget class="input2DCoordinates" name="cuwBIPictureSize" native="true">
                <property name="name2" stdset="0">
                 <string notr="true">×</string>
                </property>
@@ -386,13 +405,6 @@
               </widget>
              </item>
             </layout>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QCheckBox" name="cbxDefaultView">
-            <property name="text">
-             <string>Default view</string>
-            </property>
            </widget>
           </item>
           <item row="1" column="1">
@@ -493,7 +505,7 @@
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="input2DCoordinates" name="cuxDVRotation" native="true">
+              <widget class="input2DCoordinates" name="cuwDVRotation" native="true">
                <property name="name1" stdset="0">
                 <string notr="true">x =</string>
                </property>
@@ -520,66 +532,40 @@
           <item row="2" column="0">
            <widget class="QLabel" name="lblGroundTextures">
             <property name="text">
-             <string>Terrain textures</string>
+             <string>Terrain textures:</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
-             <widget class="QListWidget" name="lwgGroundTextures"/>
+             <widget class="QTableView" name="tvwGroundTextures">
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+              <attribute name="horizontalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+             </widget>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout">
-              <item>
-               <widget class="QPushButton" name="btnGTAdd">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnGTEdit">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnGTRemove">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="verticalSpacer_3">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
+             <widget class="inputAddEditRemove" name="cuwGroundTextures" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>10</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
             </item>
            </layout>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lblDefaultView">
+            <property name="text">
+             <string>Default view:</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -615,85 +601,33 @@
           <item row="0" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
-             <widget class="QTableWidget" name="twgSeasons">
-              <column>
-               <property name="text">
-                <string>Season</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Start</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>End</string>
-               </property>
-              </column>
+             <widget class="QTableView" name="tvwSeasons">
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
              </widget>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_5">
-              <item>
-               <widget class="QPushButton" name="btnSeasonAdd">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnSeasonEdit">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnSeasonDelete">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="verticalSpacer_6">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
+             <widget class="inputAddEditRemove" name="cuwSeasons" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>10</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="lblTrafficDensites">
             <property name="text">
              <string>Vehicle density:</string>
             </property>
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="lblPassengerDensities">
             <property name="text">
              <string>Passenger density:</string>
             </property>
@@ -702,136 +636,42 @@
           <item row="1" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
-             <widget class="QTableWidget" name="twgTrafficDensities">
-              <column>
-               <property name="text">
-                <string>Time</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Factor</string>
-               </property>
-              </column>
+             <widget class="QTableView" name="tvwTrafficDensities">
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
              </widget>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_7">
-              <item>
-               <widget class="QPushButton" name="btnTDAdd">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnTDEdit">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnTDDelete">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="verticalSpacer_7">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
+             <widget class="inputAddEditRemove" name="cuwTrafficDensities" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>10</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
           <item row="2" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout_8">
             <item>
-             <widget class="QTableWidget" name="twgPassengerDensities">
-              <column>
-               <property name="text">
-                <string>Time</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Factor</string>
-               </property>
-              </column>
+             <widget class="QTableView" name="tvwPassengerDensities">
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
              </widget>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_8">
-              <item>
-               <widget class="QPushButton" name="btnPDAdd">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnPDEdit">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnPDDelete">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="verticalSpacer_8">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
+             <widget class="inputAddEditRemove" name="cuwPassengerDensities" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>10</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -858,68 +698,21 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_9">
         <item>
-         <widget class="QTableWidget" name="twgEntrypoints">
-          <column>
-           <property name="text">
-            <string>Name</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Count</string>
-           </property>
-          </column>
+         <widget class="QTableView" name="tvwEntrypoints">
+          <property name="editTriggers">
+           <set>QAbstractItemView::AnyKeyPressed</set>
+          </property>
          </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_9">
-          <item>
-           <widget class="QPushButton" name="btnEntrypointsAdd">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnEntrypointsEdit">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnEntrypointsDelete">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer_9">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
+         <widget class="inputAddEditRemove" name="cuwEntrypoints" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>10</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -929,83 +722,21 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
-         <widget class="QTableWidget" name="twgTiles">
-          <column>
-           <property name="text">
-            <string>x</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>y</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Map file exists</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Spline count</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Object count</string>
-           </property>
-          </column>
+         <widget class="QTableView" name="tvwTiles">
+          <property name="editTriggers">
+           <set>QAbstractItemView::DoubleClicked</set>
+          </property>
          </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_10">
-          <item>
-           <widget class="QPushButton" name="btnTilesAdd">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnTilesEdit">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnTilesDelete">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer_10">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
+         <widget class="QWidget" name="cuwTiles" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>10</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1019,7 +750,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="lblVersion">
             <property name="text">
-             <string>Map version (compatibility): </string>
+             <string>Map version:</string>
             </property>
            </widget>
           </item>
@@ -1029,12 +760,16 @@
           <item row="1" column="0">
            <widget class="QLabel" name="lblNextIDCode">
             <property name="text">
-             <string>Next ID code (object / spline):</string>
+             <string>Next ID code:</string>
             </property>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QSpinBox" name="sbxNextIDCode"/>
+           <widget class="QSpinBox" name="sbxNextIDCode">
+            <property name="maximum">
+             <number>2147483647</number>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -1093,7 +828,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>698</width>
+     <width>660</width>
      <height>21</height>
     </rect>
    </property>
@@ -1106,12 +841,32 @@
    <extends>QWidget</extends>
    <header>OTWidgets/input3dcoordinates.h</header>
    <container>1</container>
+   <slots>
+    <signal>name1Changed(float)</signal>
+    <signal>name2Changed(float)</signal>
+    <signal>name3Changed(float)</signal>
+   </slots>
   </customwidget>
   <customwidget>
    <class>input2DCoordinates</class>
    <extends>QWidget</extends>
    <header>OTWidgets/input2dcoordinates.h</header>
    <container>1</container>
+   <slots>
+    <signal>name1Changed(float)</signal>
+    <signal>name2Changed(float)</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>inputAddEditRemove</class>
+   <extends>QWidget</extends>
+   <header>OTWidgets/inputaddeditremove.h</header>
+   <container>1</container>
+   <slots>
+    <signal>addClicked()</signal>
+    <signal>editClicked()</signal>
+    <signal>removeClicked()</signal>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources>

@@ -26,7 +26,6 @@ void testArea()
 //    list.removeDuplicates();
 //    list.sort();
 
-
 //    foreach (QString current, list)
 //    {
 //        QFile::copy("C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/_Kranau/tile_1_-1.map", "C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/Sankt Peter-Ording/newTiles/" + current);

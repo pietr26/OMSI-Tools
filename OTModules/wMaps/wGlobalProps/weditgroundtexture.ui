@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string notr="true">wEditGroundTexture</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -39,7 +39,63 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QComboBox" name="cbxTexSizeExp"/>
+       <widget class="QComboBox" name="cbxTexSizeExp">
+        <item>
+         <property name="text">
+          <string notr="true">1 px × 1 px</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">2 px × 2 px</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">4 px × 4 px</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">8 px × 8 px</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">16 px × 16 px</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">32 px × 32 px</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">64 px × 64 px</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">128 px × 128 px</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">256 px × 256 px</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">512 px × 512 px</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">1024 px × 1024 px</string>
+         </property>
+        </item>
+       </widget>
       </item>
       <item row="0" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -64,7 +120,7 @@
         <item>
          <widget class="QLabel" name="lblMainTexTimes">
           <property name="text">
-           <string>×</string>
+           <string notr="true">×</string>
           </property>
          </widget>
         </item>
@@ -106,7 +162,7 @@
         <item>
          <widget class="QLabel" name="lblSubTexTimes">
           <property name="text">
-           <string>×</string>
+           <string notr="true">×</string>
           </property>
          </widget>
         </item>

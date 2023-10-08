@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">input3DCoordinates</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -38,7 +38,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>{name1}</string>
+      <string notr="true">{name1}</string>
      </property>
     </widget>
    </item>
@@ -54,7 +54,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>{name2}</string>
+      <string notr="true">{name2}</string>
      </property>
     </widget>
    </item>
@@ -70,7 +70,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>{name3}</string>
+      <string notr="true">{name3}</string>
      </property>
     </widget>
    </item>
