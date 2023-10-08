@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QFutureWatcher>
-#include <OTModules/wcleanup.h>
+#include "OTModules/wcleanup.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/OTGeneric/wreleasenotes.h"
@@ -22,6 +22,7 @@
 #include "OTWidgets/message.h"
 #include "OTModules/wFbh/wdbcopyrights.h"
 #include "OTModules/wMaps/wmaps.h"
+#include "OTModules/wBugDoc/wbugdoc.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -91,6 +92,8 @@ private slots:
 
     void on_actionRegEditor_triggered();
 
+    void on_btnBugDoc_clicked();
+
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;
@@ -108,6 +111,7 @@ private:
     wCleanup *WCLEANUP;
     wDBCopyrights *WDBCOPYRIGHTS;
     wMaps *WMAPS;
+    wBugDoc *WBUGDOC;
 
     OTSettings set;
     OTMessage msg;

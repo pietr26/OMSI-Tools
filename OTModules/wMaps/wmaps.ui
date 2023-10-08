@@ -142,9 +142,10 @@
     <property name="title">
      <string>Window</string>
     </property>
+    <addaction name="actionLoadMap"/>
+    <addaction name="separator"/>
     <addaction name="actionBackToHome"/>
     <addaction name="actionClose"/>
-    <addaction name="actionLoadMap"/>
    </widget>
    <widget class="QMenu" name="menuSpecials">
     <property name="title">

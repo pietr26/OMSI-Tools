@@ -517,3 +517,12 @@ void wStart::on_actionRegEditor_triggered()
     WREGEDITOR->show();
     close();
 }
+
+void wStart::on_btnBugDoc_clicked()
+{
+    WBUGDOC = new wBugDoc();
+    connect(WBUGDOC, &wBugDoc::backToHome, this, &wStart::reopen);
+    WBUGDOC->show();
+    close();
+}
+
