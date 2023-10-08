@@ -44,6 +44,8 @@ private slots:
 
     void recieveGlobalProps(OCMap::Global globalProps);
 
+    void on_btnSave_clicked();
+
 private:
     Ui::wMaps *ui;
 

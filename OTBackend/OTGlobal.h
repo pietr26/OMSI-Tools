@@ -581,7 +581,7 @@ public:
 
             case 2:     tcBackground = "#3a3a3a"; // modernDark (ex. Combinear) // number ex. Darkeum
 
-                        tcFontDisabled = "#5E5E5E";
+                        tcFontDisabled = "#7F7F7F";
                         tcBackgroundDisabled = "#404040";
 
                         tcBorders = "#111";
@@ -906,40 +906,6 @@ private:
 class OTStrings
 {
 public:
-    /// Returns a translated month name
-    static QString getMonthName(int monthNumber)
-    {
-        QMap<int, QString> months = {
-            {1,  QObject::tr("January")},
-            {2,  QObject::tr("February")},
-            {3,  QObject::tr("March")},
-            {4,  QObject::tr("April")},
-            {5,  QObject::tr("May")},
-            {6,  QObject::tr("June")},
-            {7,  QObject::tr("July")},
-            {8,  QObject::tr("August")},
-            {9,  QObject::tr("September")},
-            {10, QObject::tr("October")},
-            {11, QObject::tr("November")},
-            {12, QObject::tr("December")}
-        };
-
-        return months[monthNumber];
-    }
-
-    /// Returns a translated season name
-    static QString getSeasonName(int seasonNullBasedFromWinter)
-    {
-        QMap<int, QString> months = {
-            {1,  QObject::tr("Winter")},
-            {2,  QObject::tr("Spring")},
-            {3,  QObject::tr("Summer")},
-            {4,  QObject::tr("Autumn")}
-        };
-
-        return months[seasonNullBasedFromWinter];
-    }
-
     // Multilanguage strings
     static inline const QString langCs = "čeština (Czech)";
     static inline const QString langEt = "eesti (Estonian)";
@@ -953,26 +919,26 @@ public:
     static inline const QString langJa = "日本語 (Japanese)";
     static inline const QString langCy = "Cymraeg (Welsh)";
 
+    static inline const QString textureSuffixes = QObject::tr("Images") + " (*.png *.jpg *.jpeg *.bmp *.dds)";
+
     /// Fun facts (funFact, time in ms)
     static QList<QPair<QString, unsigned int>> getFunFacts()
     {
+        OTSettings set;
+
         return QList<QPair<QString, unsigned int>> {
-        // Link HTML: <a style='color: lightblue' href='LINK'>TEXT</a>
-        QPair<QString, unsigned int>(QObject::tr("The source code of %1 is about %2 lines long.").arg(OTInformation::name, OTInformation::sourceCodeLength), 8000),
-        QPair<QString, unsigned int>(QObject::tr("%1 was born from a simple console application called \"Font Creator\".").arg(OTInformation::name), 10000),
-        QPair<QString, unsigned int>(QObject::tr("With the updater of %1 you can install updates with one click. It is available through the preferences.").arg(OTInformation::name), 13000),
-        QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.", "Copy whole source text to prevent translations faults in HTML code").arg(OTInformation::name, OTLinks::Wiki::general.toString()), 11000),
-        //QPair<QString, unsigned int>(QObject::tr("You have started %1 already %2 times.").arg(OTInformation::name, OTSettings::read("main", "startCount").toString()), 7000),
-        QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.", "Copy whole source text to prevent translations faults in HTML code").arg(OTLinks::showroom.toString()), 11000),
-        QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTInformation::name), 10000)
+            // Link HTML: <a style='color: lightblue' href='LINK'>TEXT</a>
+            QPair<QString, unsigned int>(QObject::tr("The source code of %1 is about %2 lines long.").arg(OTInformation::name, OTInformation::sourceCodeLength), 8000),
+            QPair<QString, unsigned int>(QObject::tr("%1 was born from a simple console application called \"Font Creator\".").arg(OTInformation::name), 10000),
+            QPair<QString, unsigned int>(QObject::tr("With the updater of %1 you can install updates with one click. It is available through the preferences.").arg(OTInformation::name), 13000),
+            QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.", "Copy whole source text to prevent translations faults in HTML code").arg(OTInformation::name, OTLinks::Wiki::general.toString()), 11000),
+            QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.", "Copy whole source text to prevent translations faults in HTML code").arg(OTLinks::showroom.toString()), 11000),
+            QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTInformation::name), 10000),
+            QPair<QString, unsigned int>(QObject::tr("You've started %1 about %2 times.").arg(OTInformation::name).arg(set.read("main", "startCount").toString()), 8000)
         };
-    }
+    };
 
-    static QString serverMaintenance()
-    {
-        return QObject::tr("The application server is currently undergoing maintenance (HTTP 503). Please try again later.");
-    }
-
+    static QString serverMaintenance() { return QObject::tr("The application server is currently undergoing maintenance (HTTP 503). Please try again later."); }
 };
 
 class OTInAppMessage

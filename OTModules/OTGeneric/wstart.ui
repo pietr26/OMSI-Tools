@@ -653,14 +653,7 @@
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
-   <widget class="QMenu" name="menuView">
-    <property name="title">
-     <string>View</string>
-    </property>
-    <addaction name="actionShowHideMessageDock"/>
-   </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuView"/>
    <addaction name="menuSpecials"/>
    <addaction name="menuInfo"/>
   </widget>
@@ -773,21 +766,6 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+F</string>
-   </property>
-  </action>
-  <action name="actionShowHideMessageDock">
-   <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Show / hide news</string>
-   </property>
-   <property name="iconText">
-    <string>Show / hide news</string>
-   </property>
-   <property name="toolTip">
-    <string>Show / hide news</string>
    </property>
   </action>
   <action name="actionDashboard">

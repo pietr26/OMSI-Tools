@@ -475,61 +475,94 @@ public:
         QList<QPair<QString, QString>> returnList;
         const QString mapFolderPath = set.read("main", "mainDir").toString() + "/maps";
 
-        if (!QDir(mapFolderPath).exists())
-            return returnList;
         QDirIterator mapFolder(mapFolderPath, QDir::Dirs | QDir::NoDotAndDotDot);
         while (mapFolder.hasNext())
         {
             QPair<QString, QString> pair;
             pair.second = mapFolder.next() + "/global.cfg";
-            pair.first = readGlobal("name", pair.second, 0, true);
-            if ((pair.first != "ERR") && (pair.first != "?"))
+            if (!QFile(pair.second).exists()) continue;
+            pair.first = readConfig("[friendlyname]", pair.second);
+            if (pair.first != "ERR")
                 returnList.append(pair);
         }
 
         return returnList;
     }
 
-    /// Returns results from global.cfg - for easy requests.
-    QString readGlobal(QString param, QString mapFolderPath = "", QWidget *parent = 0, bool beQuiet = false, int readLine = 1)
+    /// Returns a list of all moneypacks - first: name; second: full path
+    QList<QPair<QString, QString>> listMoney()
     {
-        if (mapFolderPath == "")
-            mapFolderPath = getMapPath();
+        QList<QPair<QString, QString>> returnList;
+        QString mainDir = set.read("main", "mainDir").toString();
+
+        QDirIterator moneyFolder(mainDir + "/Money", { "*.cfg" }, QDir::Files, QDirIterator::Subdirectories);
+        while (moneyFolder.hasNext())
+        {
+            QString next = moneyFolder.next();
+
+            QPair<QString, QString> pair;
+            pair.second = next;
+            pair.first = next.remove(mainDir + "/Money/") + " (" + readConfig("[currency]", pair.second) + ")";
+            if (pair.first != "ERR")
+                returnList.append(pair);
+        }
+
+        return returnList;
+    }
+
+    /// Returns a list of all ticketpacks - first: name; second: full path
+    QList<QPair<QString, QString>> listTicketpacks()
+    {
+        QList<QPair<QString, QString>> returnList;
+        QString mainDir = set.read("main", "mainDir").toString();
+
+        QDirIterator ticketpackFolder(mainDir + "/TicketPacks", { "*.otp" }, QDir::Files, QDirIterator::Subdirectories);
+        while (ticketpackFolder.hasNext())
+        {
+            QString next = ticketpackFolder.next();
+
+            QPair<QString, QString> pair;
+            pair.second = next;
+            pair.first = next.remove(mainDir + "/TicketPacks/");
+
+            returnList.append(pair);
+        }
+
+        return returnList;
+    }
+
+    /// Returns results from any configuration file
+    QString readConfig(QString fullLineBeforeContent, QString path, int readLine = 1)
+    {
+        if (path.isEmpty()) return "ERR";
 
         cutCount = set.read("main", "mainDir").toString().length() + 1;
 
-        param = "[" + param + "]";
-
-        QFile global(mapFolderPath);
-        if (!global.open(QFile::ReadOnly | QFile::Text))
+        QFile file(path);
+        if (!file.open(QFile::ReadOnly | QFile::Text))
         {
-            if (!beQuiet)
-            {
-                msg.fileOpenErrorCloseOMSI(parent, mapFolderPath);
-                qDebug().noquote() << "Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
-            }
+            qDebug().noquote() << "Cannot open file in readConfig(): Full path: '" + QFileInfo(file).absoluteFilePath() + "'";
             return "ERR";
         }
 
-        QTextStream in(&global);
+        QTextStream in(&file);
         in.setEncoding(QStringConverter::System);
         QString line = "";
 
-        // Reading global.cfg
-        while(!(in.atEnd()))
+        while(!in.atEnd())
         {
             line = in.readLine();
-            if (line == param)
+            if (line == fullLineBeforeContent)
             {
                 for (int i = 0; i < readLine; i++) line = in.readLine();
-                global.close();
+                file.close();
                 return line;
             }
         }
-        global.close();
+        file.close();
 
-        qDebug().noquote() << "Could not find param '" + param + "'!";
-        return "?";
+        qDebug().noquote() << "Could not find line after '" + fullLineBeforeContent + "' in file '" + path + "'!";
+        return "ERR";
     }
 
     /// Gets tiles from a map

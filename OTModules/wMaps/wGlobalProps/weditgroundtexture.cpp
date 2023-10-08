@@ -11,13 +11,14 @@ wEditGroundTexture::wEditGroundTexture(OCMap::Global::Texture tex, int index, QW
     //adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(tr("Edit ground texture"));
+    setWindowTitle(tr("Edit terrain texture"));
 
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
-    texture = tex;
     textureIndex = index;
+    if (textureIndex != -1) texture = tex;
+
 
     reloadUI();
 
@@ -31,17 +32,18 @@ wEditGroundTexture::~wEditGroundTexture()
 
 void wEditGroundTexture::reloadUI()
 {
-    // TODO
-}
+    ui->ledMainTex->setText(texture.mainTex);
+    ui->ledSubTex->setText(texture.subTex);
 
-void wEditGroundTexture::saveUI()
-{
-    // TODO
+    ui->sbxMainTexRepeating->setValue(texture.mainTexRepeating);
+    ui->sbxSubTexRepeating->setValue(texture.subTexRepeating);
+
+    ui->cbxTexSizeExp->setCurrentIndex(texture.texSizeExponent);
 }
 
 void wEditGroundTexture::on_btnMainTex_clicked()
 {
-    QString path = QFileDialog::getOpenFileName(this, tr("Select main texture"), (ui->ledMainTex->text().isEmpty()) ? set.read("main", "mainDir").toString() + "/Texture" : set.read("main", "mainDir").toString() + "/" + ui->ledMainTex->text(), OTStrings::textureSuffixes);
+    QString path = QFileDialog::getOpenFileName(this, tr("Select main texture"), (texture.mainTex.isEmpty()) ? set.read("main", "mainDir").toString() + "/Texture" : set.read("main", "mainDir").toString() + "/" + texture.mainTex, OTStrings::textureSuffixes);
 
     if (!path.isEmpty()) {
         texture.mainTex = path.remove(set.read("main", "mainDir").toString());
@@ -51,7 +53,7 @@ void wEditGroundTexture::on_btnMainTex_clicked()
 
 void wEditGroundTexture::on_btnSubTex_clicked()
 {
-    QString path = QFileDialog::getOpenFileName(this, tr("Select detail texture"), (ui->ledSubTex->text().isEmpty()) ? set.read("main", "mainDir").toString() + "/Texture" : set.read("main", "mainDir").toString() + "/" + ui->ledSubTex->text(), OTStrings::textureSuffixes);
+    QString path = QFileDialog::getOpenFileName(this, tr("Select detail texture"), (texture.subTex.isEmpty()) ? set.read("main", "mainDir").toString() + "/Texture" : set.read("main", "mainDir").toString() + "/" + texture.subTex, OTStrings::textureSuffixes);
 
     if (!path.isEmpty()) {
         texture.subTex = path.remove(set.read("main", "mainDir").toString());
@@ -61,13 +63,26 @@ void wEditGroundTexture::on_btnSubTex_clicked()
 
 void wEditGroundTexture::on_btnSave_clicked()
 {
-    returnTexture(texture, textureIndex);
+    emit returnTexture(texture, textureIndex);
     close();
 }
-
 
 void wEditGroundTexture::on_btnClose_clicked()
 {
     close();
 }
 
+void wEditGroundTexture::on_sbxMainTexRepeating_valueChanged(int arg1)
+{
+    texture.mainTexRepeating = arg1;
+}
+
+void wEditGroundTexture::on_sbxSubTexRepeating_valueChanged(int arg1)
+{
+    texture.subTexRepeating = arg1;
+}
+
+void wEditGroundTexture::on_cbxTexSizeExp_currentIndexChanged(int index)
+{
+    texture.texSizeExponent = index;
+}

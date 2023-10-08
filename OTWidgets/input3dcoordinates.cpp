@@ -84,3 +84,21 @@ QString input3DCoordinates::getName1() { return ui->lbl1->text(); }
 QString input3DCoordinates::getName2() { return ui->lbl2->text(); }
 
 QString input3DCoordinates::getName3() { return ui->lbl3->text(); }
+
+void input3DCoordinates::on_sbx1_valueChanged(double arg1)
+{
+    name1Changed(arg1);
+}
+
+
+void input3DCoordinates::on_sbx2_valueChanged(double arg1)
+{
+    name2Changed(arg1);
+}
+
+
+void input3DCoordinates::on_sbx3_valueChanged(double arg1)
+{
+    name3Changed(arg1);
+}
+

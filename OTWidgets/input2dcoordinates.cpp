@@ -68,3 +68,15 @@ double input2DCoordinates::getMax() { return ui->sbx1->maximum(); }
 QString input2DCoordinates::getName1() { return ui->lbl1->text(); }
 
 QString input2DCoordinates::getName2() { return ui->lbl2->text(); }
+
+void input2DCoordinates::on_sbx1_valueChanged(double arg1)
+{
+    name1Changed(arg1);
+}
+
+
+void input2DCoordinates::on_sbx2_valueChanged(double arg1)
+{
+    name2Changed(arg1);
+}
+

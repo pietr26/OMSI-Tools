@@ -68,6 +68,10 @@ void wMaps::recieveSelectedMap(QPair<QString, QString> mapInfo)
         ui->lblPicture->setPixmap(QPixmap(picture));
     else
         ui->lblPicture->setPixmap(QPixmap(":/rec/data/icons/iconUnvisible.svg").scaled(185, 140));
+
+    map.global = OCMap::Global();
+    map.global.filepath = currentMap.second;
+    map.global.read();
 }
 
 void wMaps::on_actionLoadMap_triggered()
@@ -88,3 +92,9 @@ void wMaps::recieveGlobalProps(OCMap::Global globalProps)
 {
     map.global = globalProps;
 }
+
+void wMaps::on_btnSave_clicked()
+{
+    map.global.write();
+}
+
