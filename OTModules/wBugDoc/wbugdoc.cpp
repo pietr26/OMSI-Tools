@@ -19,11 +19,21 @@ wBugDoc::wBugDoc(QWidget *parent) :
     ui->centralwidget->setEnabled(false);
     ui->lblUnsavedChanges->setVisible(false);
 
+    if (RegisterHotKey(NULL, 1, MOD_ALT, 'B')) {
+        qInfo() << "GlobalShortcut: ALT + B";
+    } else {
+        qWarning() << "GlobalShortcut: ALT + B";
+    }
+
+    ui->statusbar->addPermanentWidget(ui->btnWait);
+
     qInfo().noquote() << objectName() + " started";
 }
 
 wBugDoc::~wBugDoc()
 {
+    UnregisterHotKey(NULL, 1);
+
     delete ui;
 }
 
@@ -42,7 +52,7 @@ void wBugDoc::on_actionClose_triggered()
 void wBugDoc::on_actionLoad_triggered()
 {
     ui->centralwidget->setEnabled(false);
-    QString result = QFileDialog::getExistingDirectory(this, tr("Select / create BugDoc folder..."), projectFolder);
+    QString result = QFileDialog::getExistingDirectory(this, tr("Select / create BugDoc folder..."), (projectFolder.isEmpty() ? "C:/Users/pietr/Desktop" : projectFolder));
 
     if (!QDir(result).exists())
     {
@@ -198,3 +208,80 @@ void wBugDoc::on_btnAdd_clicked()
     loadSingleItem();
 }
 
+
+void wBugDoc::on_btnWait_clicked()
+{
+    showMinimized();
+
+    MSG msg = {0};
+    while (GetMessage(&msg, NULL, 0, 0) != 0)
+    {
+        if (msg.message == WM_HOTKEY)
+        {
+            QScreen *screen = QGuiApplication::primaryScreen();
+
+            if (!screen) return;
+            QPixmap screenshot = screen->grabWindow(0);
+            const QString screenshotPath = projectFolder + QString("/data/bug_%1.jpg").arg(QDateTime().currentDateTime().toString("yyyyMMdd_hhmmss"));
+
+            if (!screenshot.save(screenshotPath, "JPEG", 75)) QMessageBox::warning(this, "Speicherfehler", "Der Screenshot konnte nicht gespeichert werden. Prozedur bitte wiederholen!");
+
+            showNormal();
+            on_btnAdd_clicked();
+            qApp->processEvents();
+
+            ui->ledPicturePath->setText(screenshotPath);
+
+            on_btnSaveEntry_clicked();
+
+            break;
+        }
+    }
+}
+
+void wBugDoc::on_actionHTML_triggered()
+{
+    dbHandler.openDB();
+
+    QString html = "<html><body>";
+
+    QSqlQueryModel *countModel = new QSqlQueryModel();
+    countModel->setQuery(dbHandler.doAction("SELECT COUNT(*) FROM bugs"));
+    int bugCount = countModel->index(0, 0).data().toInt();
+
+    QSqlQueryModel *bugsModel = new QSqlQueryModel();
+    bugsModel->setQuery(dbHandler.doAction("SELECT * FROM bugs"));
+
+    for (int i = 0; i < bugCount; i++)
+    {
+        html += "<h2>" + bugsModel->index(i, 1).data().toString() + "</h2>";
+        html += "<p><strong>Ort: </strong>" + (bugsModel->index(i, 3).data().toString().isEmpty() ? "-" : bugsModel->index(i, 3).data().toString()) + "</p>";
+        html += "<p><strong>Beschreibung:</strong>" + (bugsModel->index(i, 2).data().toString().contains("\n") ? "<br>" : QString(" ")) + (bugsModel->index(i, 2).data().toString().isEmpty() ? "-" : bugsModel->index(i, 2).data().toString()) + "</p>";
+        if (QFile(bugsModel->index(i, 4).data().toString()).exists())
+        {
+            html += "<p><br></p>";
+            html += "<p><img src=\"" + bugsModel->index(i, 4).data().toString() + "\" width='600'></p>";
+        }
+
+        html += "<hr>";
+    }
+
+    dbHandler.closeDB();
+
+    html += "</body></html>";
+    html = html.replace("\n", "<br>");
+    qInfo().noquote() << html;
+
+    QTextDocument document;
+    document.setHtml(html);
+
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPageSize(QPageSize::Custom);
+    printer.setOutputFileName(projectFolder + "/output_" + QDateTime().currentDateTime().toString("yyyyMMdd_hhmmss") + ".pdf");
+
+    document.print(&printer);
+
+    QMessageBox::information(this, "Print finished", "HTML printed successfully:\n" + printer.outputFileName());
+
+}

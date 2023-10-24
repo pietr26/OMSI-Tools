@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTDatabaseHandler.h"
+#include "windows.h"
+#include <QPrinter>
 
 namespace Ui {
 class wBugDoc;
@@ -44,6 +46,10 @@ private slots:
     void on_btnDelete_clicked();
 
     void on_btnAdd_clicked();
+
+    void on_btnWait_clicked();
+
+    void on_actionHTML_triggered();
 
 private:
     Ui::wBugDoc *ui;

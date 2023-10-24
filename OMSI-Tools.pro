@@ -1,4 +1,4 @@
-QT       += core widgets gui network concurrent sql
+QT       += core widgets gui network concurrent sql printsupport
 
 CONFIG += c++17 #console
 
