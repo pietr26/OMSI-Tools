@@ -84,6 +84,9 @@
            <iconset resource="../../ressources.qrc">
             <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
           </property>
+          <property name="shortcut">
+           <string>Del</string>
+          </property>
          </widget>
         </item>
        </layout>
@@ -98,7 +101,7 @@
      </widget>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,2,0,0">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,2,0,0,0">
       <item>
        <layout class="QFormLayout" name="formLayout">
         <item row="1" column="0">
@@ -209,8 +212,23 @@
       </item>
       <item>
        <widget class="QPushButton" name="btnSaveEntry">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="text">
          <string>Save entry</string>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+S</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnWait">
+        <property name="text">
+         <string>Wait (ALT + B)</string>
         </property>
        </widget>
       </item>
@@ -236,7 +254,14 @@
     <addaction name="actionBack_to_home"/>
     <addaction name="actionClose"/>
    </widget>
+   <widget class="QMenu" name="menuExport">
+    <property name="title">
+     <string>Export</string>
+    </property>
+    <addaction name="actionHTML"/>
+   </widget>
    <addaction name="menuBugDoc"/>
+   <addaction name="menuExport"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionLoad">
@@ -273,6 +298,15 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionHTML">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconDownloadFile.svg</normaloff>:/rec/data/icons/iconDownloadFile.svg</iconset>
+   </property>
+   <property name="text">
+    <string>HTML</string>
    </property>
   </action>
  </widget>
