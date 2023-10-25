@@ -72,6 +72,9 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     updateModes << tr("Off")/* 0 */ << tr("On start")/* 1 */ << tr("Daily")/* 2 */ << tr("Weekly")/* 3 */ << tr("Monthly")/* 4 */;
     ui->cobxAutoUpdateCheck->addItems(updateModes);
 
+    // btnDevTools
+    ui->btnDevToolsPrefs->setVisible(set.devModeEnabled());
+
     loadPreferences();
     isFirstSetup = false;
 
@@ -81,10 +84,12 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
         on_btnOmsiPath_clicked();
         QTimer::singleShot(0, this, SLOT(close()));
     }
+    else if (openDirect == "devTools") // devTools prefs
+        ui->stwPreferences->setCurrentIndex(0);
     else if (openDirect == "wVerifyMap") // wVerifyMap prefs
-        ui->lwgSections->setCurrentRow(1);
-    else if (openDirect == "wFonts") // wFonts prefs
         ui->lwgSections->setCurrentRow(2);
+    else if (openDirect == "wFonts") // wFonts prefs
+        ui->lwgSections->setCurrentRow(3);
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -167,6 +172,15 @@ void wPreferences::loadPreferences()
         ui->cbxKeepPixelRow->setChecked(set.read("wFonts", "keepPixelRow").toBool());
     };
 
+    // DEVTOOLS
+    {
+        // BugDoc
+        {
+            // Screenshot scale
+            ui->sbxBugDocScreenshotScale->setValue(set.read("wBugDoc", "screenshotScale").toInt() == 0 ? 2 : set.read("wBugDoc", "screenshotScale").toInt());
+        };
+    };
+
     setWindowModified(false);
 }
 
@@ -237,6 +251,15 @@ void wPreferences::savePreferences()
     {
         // keep pixel row
         set.write("wFonts", "keepPixelRow", ui->cbxKeepPixelRow->isChecked());
+    };
+
+    // DEVTOOLS
+    {
+        // BugDoc
+        {
+            // Screenshot scale
+            set.write("wBugDoc", "sreenshotScale", ui->sbxBugDocScreenshotScale->value());
+        };
     };
 
     setWindowModified(false);
@@ -491,12 +514,6 @@ void wPreferences::on_actionSendFeedback_triggered()
     WFEEDBACK->show();
 }
 
-void wPreferences::on_lwgSections_currentRowChanged(int currentRow)
-{
-    ui->stwPreferences->setCurrentIndex(currentRow);
-    ui->lblCurrentSection->setText(ui->lwgSections->currentItem()->text());
-}
-
 void wPreferences::on_btnSave_clicked()
 {
     savePreferences();
@@ -516,3 +533,19 @@ void wPreferences::on_btnUseCustomTheme_clicked()
     reloadThemePreview();
     ui->btnUseCustomTheme->setVisible(false);
 }
+
+void wPreferences::on_btnDevToolsPrefs_clicked()
+{
+    ui->lwgSections->clearSelection();
+    ui->stwPreferences->setCurrentIndex(0);
+    ui->lblCurrentSection->setText(tr("DevTools"));
+}
+
+
+void wPreferences::on_lwgSections_itemClicked(QListWidgetItem *item)
+{
+    Q_UNUSED(item);
+    ui->stwPreferences->setCurrentIndex(ui->lwgSections->currentRow() + 1);
+    ui->lblCurrentSection->setText(ui->lwgSections->currentItem()->text());
+}
+

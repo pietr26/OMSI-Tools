@@ -40,10 +40,13 @@ public:
         Dev = 1,
         Alpha = 2,
         Beta = 3,
-        EA = 4,
-        Lite = 5,
         Prerelease = 6,
         Release = 7
+
+        /* Do not use:
+         * EA = 4
+         * Lite = 5
+         */
     };
     Q_DECLARE_FLAGS(buildOptions, methods)
 
@@ -54,12 +57,15 @@ public:
         case Dev:           return "Dev";           break;
         case Alpha:         return "Alpha";         break;
         case Beta:          return "Beta";          break;
-        case EA:            return "EA";            break;
-        case Lite:          return "Lite";          break;
         case Prerelease:    return "Prerelease";    break;
         case Release:       return "Release";       break;
         default:            return "undefined";     break;
         }
+
+        /* Do not use:
+         * case EA: return "EA"; break;
+         * case Lite: return "Lite"; break;
+         */
     }
 };
 
@@ -722,6 +728,7 @@ public:
         if (!read("wStart", "messagesVisible").isValid())
             write("wStart", "messagesVisible", true);
 
+        // TODO: What?
 //        if (!read("wVerifyMap", "advVerifying").isValid())
 //            write("wVerifyMap", "advVerifying", false);
 
@@ -744,6 +751,13 @@ public:
             case 4: return "cz"; break;
             default: return "err";
         }
+    }
+
+    bool devModeEnabled()
+    {
+        if (OTInformation::build != OTBuildOptions::Dev) return read("main", "devToolsEnabled").toBool();
+
+        return true;
     }
 };
 

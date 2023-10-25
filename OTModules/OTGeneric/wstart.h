@@ -23,6 +23,7 @@
 #include "OTModules/wFbh/wdbcopyrights.h"
 #include "OTModules/wMaps/wmaps.h"
 #include "OTModules/wBugDoc/wbugdoc.h"
+#include "OTModules/wvehiclelist.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -46,8 +47,6 @@ private slots:
 
     void on_actionClose_triggered();
 
-    void on_btnDBPanel_clicked();
-
     void reopenTest(QObject*);
 
     void on_actionSendFeedback_triggered();
@@ -65,8 +64,6 @@ private slots:
     void on_btnReloadMessages_clicked();
 
     void on_lwgMessages_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_btnFbhDBPanel_clicked();
 
     void on_tbnFonts_clicked();
 
@@ -92,7 +89,14 @@ private slots:
 
     void on_actionRegEditor_triggered();
 
-    void on_btnBugDoc_clicked();
+    void on_actionBugDoc_triggered();
+
+    void on_actionDBPanelContentSearch_triggered();
+
+
+    void on_actionDBPanelWDTFbh_triggered();
+
+    void on_actionVehLists_triggered();
 
 private:
     Ui::wStart *ui;
@@ -112,6 +116,7 @@ private:
     wDBCopyrights *WDBCOPYRIGHTS;
     wMaps *WMAPS;
     wBugDoc *WBUGDOC;
+    wVehicleList *WVEHICLELIST;
 
     OTSettings set;
     OTMessage msg;
