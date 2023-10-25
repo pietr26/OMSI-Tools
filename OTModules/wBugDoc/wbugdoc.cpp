@@ -15,6 +15,7 @@ wBugDoc::wBugDoc(QWidget *parent) :
 
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
+    if (set.read(objectName(), "screenshotScale").toInt() == 0) set.write(objectName(), "screenshotScale", 2);
 
     ui->centralwidget->setEnabled(false);
     ui->lblUnsavedChanges->setVisible(false);
@@ -221,10 +222,12 @@ void wBugDoc::on_btnWait_clicked()
             QScreen *screen = QGuiApplication::primaryScreen();
 
             if (!screen) return;
-            QPixmap screenshot = screen->grabWindow(0);
+            QPixmap originalScreenshot = screen->grabWindow(0);
+
+            QPixmap screenshot = originalScreenshot.scaled(QSize(originalScreenshot.width() / set.read(objectName(), "screenshotScale").toInt(), originalScreenshot.height() / set.read(objectName(), "screenshotScale").toInt()), Qt::KeepAspectRatio, Qt::SmoothTransformation);
             const QString screenshotPath = projectFolder + QString("/data/bug_%1.jpg").arg(QDateTime().currentDateTime().toString("yyyyMMdd_hhmmss"));
 
-            if (!screenshot.save(screenshotPath, "JPEG", 75)) QMessageBox::warning(this, "Speicherfehler", "Der Screenshot konnte nicht gespeichert werden. Prozedur bitte wiederholen!");
+            if (!screenshot.save(screenshotPath, "JPEG")) QMessageBox::warning(this, "Speicherfehler", "Der Screenshot konnte nicht gespeichert werden. Prozedur bitte wiederholen!");
 
             showNormal();
             on_btnAdd_clicked();
@@ -254,7 +257,7 @@ void wBugDoc::on_actionHTML_triggered()
 
     for (int i = 0; i < bugCount; i++)
     {
-        html += "<h2>" + bugsModel->index(i, 1).data().toString() + "</h2>";
+        html += "<h2>" + (bugsModel->index(i, 1).data().toString() == "" ? "(ohne Titel)" : bugsModel->index(i, 1).data().toString()) + "</h2>";
         html += "<p><strong>Ort: </strong>" + (bugsModel->index(i, 3).data().toString().isEmpty() ? "-" : bugsModel->index(i, 3).data().toString()) + "</p>";
         html += "<p><strong>Beschreibung:</strong>" + (bugsModel->index(i, 2).data().toString().contains("\n") ? "<br>" : QString(" ")) + (bugsModel->index(i, 2).data().toString().isEmpty() ? "-" : bugsModel->index(i, 2).data().toString()) + "</p>";
         if (QFile(bugsModel->index(i, 4).data().toString()).exists())
@@ -285,3 +288,11 @@ void wBugDoc::on_actionHTML_triggered()
     QMessageBox::information(this, "Print finished", "HTML printed successfully:\n" + printer.outputFileName());
 
 }
+
+void wBugDoc::on_actionPreferences_triggered()
+{
+    WPREFERENCES = new wPreferences(this, "devTools");
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
+}
+

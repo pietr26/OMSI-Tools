@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTDatabaseHandler.h"
+#include "OTModules/OTGeneric/wpreferences.h"
 #include "windows.h"
 #include <QPrinter>
 
@@ -51,8 +52,11 @@ private slots:
 
     void on_actionHTML_triggered();
 
+    void on_actionPreferences_triggered();
+
 private:
     Ui::wBugDoc *ui;
+    wPreferences *WPREFERENCES;
 
     void loadUI();
 
