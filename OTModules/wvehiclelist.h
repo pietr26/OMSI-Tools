@@ -34,6 +34,11 @@ private slots:
 
     void on_actionOpen_triggered();
 
+    void on_actionBackToHome_triggered();
+
+signals:
+    void backToHome();
+
 private:
     Ui::wVehicleList *ui;
 

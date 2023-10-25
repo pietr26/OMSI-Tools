@@ -417,8 +417,10 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionClose"/>
     <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+    <addaction name="actionBackToHome"/>
    </widget>
    <widget class="QMenu" name="menuSpecials">
     <property name="title">
@@ -460,7 +462,7 @@
     <string>Close</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+W</string>
+    <string>Ctrl+Q</string>
    </property>
   </action>
   <action name="actionOpen">
@@ -479,6 +481,18 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionBackToHome">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Back to home</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
    </property>
   </action>
  </widget>

@@ -23,24 +23,21 @@ wStart::wStart(QWidget *parent)
 #endif
 
     // Prepare GUI:
-    bool isNoRelease;
-
-    if (OTInformation::build == OTBuildOptions::Release || OTInformation::build == OTBuildOptions::EA ||
-        OTInformation::build == OTBuildOptions::Lite || OTInformation::build == OTBuildOptions::Prerelease
-            || OTInformation::build == OTBuildOptions::Beta)
-        isNoRelease = false;
-    else
-        isNoRelease = true;
-
-    ui->gbxInternals->setVisible(isNoRelease);
-
-    if (set.read("main", "devToolsEnabled").toBool())
+    if (set.devModeEnabled())
     {
         QMenu *devTools = new QMenu("DevTools", this);
+            QMenu *dbpanels = new QMenu("DBPanels", this);
+            dbpanels->addAction(ui->actionDBPanelContentSearch);
+            dbpanels->addAction(ui->actionDBPanelWDTFbh);
+
+            devTools->addMenu(dbpanels);
         devTools->addAction(ui->actionDashboard);
         devTools->addAction(ui->actionStyleTest);
         devTools->addAction(ui->actionApplicationCrashSimulation);
         devTools->addAction(ui->actionRegEditor);
+        devTools->addAction(ui->actionVehLists);
+        devTools->addAction(ui->actionBugDoc);
+
         ui->menubar->addMenu(devTools);
     }
 
@@ -338,15 +335,6 @@ checkMainDir:
     return true;
 }
 
-/// Opens database panel for content search
-void wStart::on_btnDBPanel_clicked()
-{
-    WDBPANEL = new wDBPanel();
-    connect(WDBPANEL, &wDBPanel::backToHome, this, &wStart::reopen);
-    WDBPANEL->show();
-    close();
-}
-
 /// Opens bug report module
 void wStart::on_actionSendFeedback_triggered()
 {
@@ -411,14 +399,6 @@ void wStart::on_actionCheckForUpdates_triggered()
         WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
         WRELEASENOTES->show();
     }
-}
-
-void wStart::on_btnFbhDBPanel_clicked()
-{
-    WDBCOPYRIGHTS = new wDBCopyrights();
-    connect(WDBCOPYRIGHTS, &wDBCopyrights::backToHome, this, &wStart::reopen);
-    WDBCOPYRIGHTS->show();
-    close();
 }
 
 void wStart::on_tbnFonts_clicked()
@@ -518,11 +498,39 @@ void wStart::on_actionRegEditor_triggered()
     close();
 }
 
-void wStart::on_btnBugDoc_clicked()
+
+void wStart::on_actionDBPanelContentSearch_triggered()
+{
+    WDBPANEL = new wDBPanel();
+    connect(WDBPANEL, &wDBPanel::backToHome, this, &wStart::reopen);
+    WDBPANEL->show();
+    close();
+}
+
+
+void wStart::on_actionBugDoc_triggered()
 {
     WBUGDOC = new wBugDoc();
     connect(WBUGDOC, &wBugDoc::backToHome, this, &wStart::reopen);
     WBUGDOC->show();
+    close();
+}
+
+
+void wStart::on_actionDBPanelWDTFbh_triggered()
+{
+    WDBCOPYRIGHTS = new wDBCopyrights();
+    connect(WDBCOPYRIGHTS, &wDBCopyrights::backToHome, this, &wStart::reopen);
+    WDBCOPYRIGHTS->show();
+    close();
+}
+
+
+void wStart::on_actionVehLists_triggered()
+{
+    WVEHICLELIST = new wVehicleList();
+    connect(WVEHICLELIST, &wVehicleList::backToHome, this, &wStart::reopen);
+    WVEHICLELIST->show();
     close();
 }
 

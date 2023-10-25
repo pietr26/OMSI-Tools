@@ -8,6 +8,7 @@
 #include "OTModules/OTGeneric/wfeedback.h"
 #include <QStandardItemModel>
 #include <QColorDialog>
+#include <QListWidgetItem>
 
 namespace Ui {
 class wPreferences;
@@ -81,8 +82,6 @@ private slots:
 
     void on_cbxOnlyMapTextures_stateChanged(int arg1);
 
-    void on_lwgSections_currentRowChanged(int currentRow);
-
     void on_btnSave_clicked();
 
     void on_btnUseCustomTheme_clicked();
@@ -90,6 +89,10 @@ private slots:
     void on_cbxShowNews_stateChanged(int arg1);
 
     void on_cbxKeepPixelRow_stateChanged(int arg1);
+
+    void on_btnDevToolsPrefs_clicked();
+
+    void on_lwgSections_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::wPreferences *ui;

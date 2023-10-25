@@ -458,60 +458,6 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="gbxInternals">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="title">
-       <string notr="true">Internals</string>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <item>
-        <widget class="QPushButton" name="btnDBPanel">
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="text">
-          <string notr="true">DBPanel: content search</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnFbhDBPanel">
-         <property name="text">
-          <string notr="true">DBPanel: Fbh</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconFbh.png</normaloff>:/rec/data/icons/iconFbh.png</iconset>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnBugDoc">
-         <property name="text">
-          <string>BugDoc</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
      <spacer name="verticalSpacer_2">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -852,6 +798,60 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionDBPanelContentSearch">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Content search</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Content search</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Content search</string>
+   </property>
+  </action>
+  <action name="actionDBPanelWDTFbh">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconFbh.png</normaloff>:/rec/data/icons/iconFbh.png</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">WebDisk-Tools: Filebase-Helper</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">WebDisk-Tools: Filebase-Helper</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">WebDisk-Tools: Filebase-Helper</string>
+   </property>
+  </action>
+  <action name="actionBugDoc">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">BugDoc</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">BugDoc</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">BugDoc</string>
+   </property>
+  </action>
+  <action name="actionVehLists">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
+   </property>
+   <property name="text">
+    <string>VehLists</string>
    </property>
   </action>
  </widget>

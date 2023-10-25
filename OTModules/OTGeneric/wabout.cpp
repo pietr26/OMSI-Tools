@@ -72,6 +72,8 @@ void wAbout::on_btnMore_clicked()
 
 void wAbout::on_btnFlowerella_clicked()
 {
+    if ((devToolsCount == 0) && set.read("main", "devToolsEnabled").toBool()) ui->statusbar->showMessage("DevTools menu is already enabled! :-)");
+
     devToolsCount++;
     if ((devToolsCount >= 15) && !set.read("main", "devToolsEnabled").toBool()) {
         set.write("main", "devToolsEnabled", true);

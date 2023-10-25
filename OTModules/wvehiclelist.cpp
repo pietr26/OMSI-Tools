@@ -40,7 +40,7 @@ void wVehicleList::on_actionPreferences_triggered()
 /// Closes the window
 void wVehicleList::on_actionClose_triggered()
 {
-    QApplication::quit();
+    close();
 }
 
 /// database test function
@@ -81,5 +81,12 @@ void wVehicleList::on_btnRunDBFunction_clicked()
 void wVehicleList::on_actionOpen_triggered()
 {
     openDatabase(QFileDialog::getOpenFileName(this, tr("Select database"), "vehListDatabases", tr("Databases") + " (*.db)"));
+}
+
+
+void wVehicleList::on_actionBackToHome_triggered()
+{
+    backToHome();
+    close();
 }
 

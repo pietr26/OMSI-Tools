@@ -13,7 +13,7 @@ wCleanup::wCleanup(QWidget *parent) :
     qDebug() << "UI set";
 
     // Load prefs
-    setStyleSheet(set.read("main","theme").toString());
+    setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(OTInformation::name + " - " + tr("cleanup"));
 
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
