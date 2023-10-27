@@ -96,6 +96,8 @@ public:
     {
     public:
         inline static const QList<QPair<QString, unsigned int>> allVersions = {
+            //QPair<QString, unsigned int>("1.2.0", 37), // without "lite"!
+            //QPair<QString, unsigned int>("1.2.0-beta", 36),
             QPair<QString, unsigned int>("1.2.0-dev", 35),
             QPair<QString, unsigned int>("1.1.1-lite", 34),
             QPair<QString, unsigned int>("1.1.0-lite", 33),
@@ -170,6 +172,13 @@ public:
         inline static const QUrl maps = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Kartenbearbeitung");
         inline static const QUrl money = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Währungen");
         inline static const QUrl tickets = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Fahrkarten");
+    };
+
+    class WDT
+    {
+    public:
+        inline static const QUrl blackModList = QUrl("https://reboot.omsi-webdisk.de/wiki/entry/140-moderation-allgemeines/#3-Schwarze-Liste-der-Modifikationen");
+        inline static const QUrl workflowFilebase = QUrl("https://reboot.omsi-webdisk.de/wiki/entry/143-moderation-arbeit-in-der-filebase/#2-Datei-Eintrge");
     };
 };
 
