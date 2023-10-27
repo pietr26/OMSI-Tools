@@ -36,7 +36,6 @@ SOURCES += \
     OTModules/wFbh/waddpath.cpp \
     OTModules/wFbh/waddterm.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
-    OTModules/wFbh/wfbh.cpp \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp \
     OTModules/wMaps/wGlobalProps/weditseason.cpp \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
@@ -99,11 +98,9 @@ HEADERS += \
     OTModules/wContentSearch/waddfiles.h \
     OTModules/wContentSearch/wcontentsearch.h \
     OTModules/wContentSearch/wsuggestfiles.h \
-    OTModules/wFbh/FbhFunctions.h \
     OTModules/wFbh/waddpath.h \
     OTModules/wFbh/waddterm.h \
     OTModules/wFbh/wdbcopyrights.h \
-    OTModules/wFbh/wfbh.h \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.h \
     OTModules/wMaps/wGlobalProps/weditseason.h \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
@@ -143,7 +140,6 @@ FORMS += \
     OTModules/wFbh/waddpath.ui \
     OTModules/wFbh/waddterm.ui \
     OTModules/wFbh/wdbcopyrights.ui \
-    OTModules/wFbh/wfbh.ui \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.ui \
     OTModules/wMaps/wGlobalProps/weditseason.ui \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
