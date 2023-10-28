@@ -122,10 +122,15 @@ void wDBCopyrights::on_btnCopyrightTermsRemove_clicked()
 
 void wDBCopyrights::addPathFinished(int ID, QString path, QString argumentIDs, int redirect)
 {
+    dbHandler.setupDatabase();
+    dbHandler.openDB();
+
     if (ID == -1)
-        dbHandler.doAction(QString("INSERT INTO copyrightPaths (path, argumentIDs, pathRedirect) VALUES ('%1', '%2', %3)").arg(path).arg(argumentIDs).arg(redirect), true);
+        dbHandler.doAction(QString("INSERT INTO copyrightPaths (path, argumentIDs, pathRedirect) VALUES ('%1', '%2', %3)").arg(path, argumentIDs, QString::number(redirect)));
     else
-        dbHandler.doAction(QString("UPDATE copyrightPaths SET path = '%1', argumentIDs = '%2', pathRedirect = %3 WHERE ID = %4").arg(path).arg(argumentIDs).arg(redirect).arg(ID), true);
+        dbHandler.doAction(QString("UPDATE copyrightPaths SET path = '%1', argumentIDs = '%2', pathRedirect = %3 WHERE ID = %4").arg(path, argumentIDs, QString::number(redirect), QString::number(ID)));
+
+    dbHandler.closeDB();
 
     updateView();
 }
