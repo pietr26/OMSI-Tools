@@ -36,9 +36,9 @@ wAddTerm::~wAddTerm()
 void wAddTerm::on_btnSave_clicked()
 {
     if (ui->ledID->text().isEmpty())
-        dialogFinished(-1, ui->pteArgument->toPlainText());
+        emit dialogFinished(-1, ui->pteArgument->toPlainText());
     else
-        dialogFinished(ui->ledID->text().toInt(), ui->pteArgument->toPlainText());
+        emit dialogFinished(ui->ledID->text().toInt(), ui->pteArgument->toPlainText());
 
     close();
 }

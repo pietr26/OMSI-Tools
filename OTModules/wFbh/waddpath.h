@@ -30,12 +30,8 @@ signals:
 
 private:
     Ui::wAddPath *ui;
-
     OTSettings set;
-
     OTDatabaseHandler dbHandler;
-
-    QString dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
 };
 
 #endif // WADDPATH_H

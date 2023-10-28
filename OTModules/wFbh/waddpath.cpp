@@ -16,19 +16,19 @@ wAddPath::wAddPath(bool isNewEntry, QWidget *parent, int ID, QString path, QStri
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
-    dbHandler.dbPath = dbPath;
+    dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
     dbHandler.setupDatabase();
-    qInfo() << dbHandler.openDB();
+    dbHandler.openDB();
 
     QSqlQueryModel *termModel = new QSqlQueryModel();
-    termModel->setQuery(dbHandler.doAction("SELECT * FROM arguments"));
+    termModel->setQuery(dbHandler.doAction("SELECT * FROM copyrightArguments"));
     ui->tvwTerms->setModel(termModel);
     dbHandler.closeDB();
 
     ui->tvwTerms->resizeColumnsToContents();
 
     dbHandler.openDB();
-    QSqlQuery pathIDQuery = dbHandler.doAction("SELECT ID FROM paths");
+    QSqlQuery pathIDQuery = dbHandler.doAction("SELECT ID FROM copyrightPaths");
     QStringList pathIDList;
 
     while (pathIDQuery.next())
