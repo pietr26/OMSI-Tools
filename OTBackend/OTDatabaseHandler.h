@@ -11,6 +11,8 @@ public:
     /// Opens a database, executes a databse action and close them
     QSqlQuery doAction(QString action, bool automaticOpenClose = false)
     {
+        if (dbPath.isEmpty()) qWarning() << "Attention: dbPath is empty!";
+
         if (action.length() > 63999)
         {
             qWarning() << "OTDatabaseHandler error: action string ist too long (> 64000)!";
@@ -54,6 +56,7 @@ public:
     /// Setup a database
     void setupDatabase(bool firstSetup = false)
     {
+        if (dbPath.isEmpty()) qWarning() << "Attention: dbPath is empty!";
         if (firstSetup)
         {
             QDir dir;
@@ -73,6 +76,8 @@ public:
     /// Copys and renames a database
     void createBackup()
     {
+        if (dbPath.isEmpty()) qWarning() << "Attention: dbPath is empty!";
+
         if (QFile(dbPath).exists())
             QFile(dbPath).copy(QFileInfo(dbPath).absolutePath() + "/backups/" + QFileInfo(dbPath).baseName() + "_" + misc.getDate("yyyy-MM-dd") + "_" + misc.getTime("hh-mm-ss-z") + ".db");
     }
