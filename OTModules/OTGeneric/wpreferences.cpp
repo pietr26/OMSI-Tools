@@ -258,7 +258,7 @@ void wPreferences::savePreferences()
         // BugDoc
         {
             // Screenshot scale
-            set.write("wBugDoc", "sreenshotScale", ui->sbxBugDocScreenshotScale->value());
+            set.write("wBugDoc", "screenshotScale", ui->sbxBugDocScreenshotScale->value());
         };
     };
 

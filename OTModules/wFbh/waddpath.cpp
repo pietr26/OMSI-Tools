@@ -94,9 +94,9 @@ void wAddPath::on_btnSave_clicked()
         redirect = ui->cobxRedirect->currentText().toInt();
 
     if (ui->ledID->text().isEmpty())
-        dialogFinished(-1, ui->ledPath->text(), argumentIDs, redirect);
+        emit dialogFinished(-1, ui->ledPath->text(), argumentIDs, redirect);
     else
-        dialogFinished(ui->ledID->text().toInt(), ui->ledPath->text(), argumentIDs, redirect);
+        emit dialogFinished(ui->ledID->text().toInt(), ui->ledPath->text(), argumentIDs, redirect);
 
     close();
 }

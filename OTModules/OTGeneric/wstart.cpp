@@ -29,6 +29,7 @@ wStart::wStart(QWidget *parent)
             QMenu *dbpanels = new QMenu("DBPanels", this);
             dbpanels->addAction(ui->actionDBPanelContentSearch);
             dbpanels->addAction(ui->actionDBPanelWDTFbh);
+            dbpanels->addAction(ui->actionDBPanelKnownWords);
 
             devTools->addMenu(dbpanels);
         devTools->addAction(ui->actionDashboard);
@@ -40,9 +41,6 @@ wStart::wStart(QWidget *parent)
 
         ui->menubar->addMenu(devTools);
     }
-
-    if (!QFile("Fbh.unlock").exists())
-        ui->gbxFbh->setVisible(false);
 
     adjustSize();
 
@@ -428,19 +426,6 @@ void wStart::on_tbnCleanup_clicked()
     close();
 }
 
-void wStart::on_tbnFbhOpen_clicked()
-{
-    WFBH = new wFbh();
-    WFBH->show();
-    close();
-}
-
-void wStart::on_tbnFbhCreateShortcut_clicked()
-{
-    fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/Filebase-Helper.lnk"), this);
-    QMessageBox::information(this, "Verknüpfung erstellt", "Die gesetzte Verknüpfung muss jedoch noch modifiziert werden. Wie genau das funktioniert, kannst du im entsprechenden Thread im internen OWD-Forum sehen.");
-}
-
 void wStart::on_tbnMaps_clicked()
 {
     if (!checkMainDir())
@@ -489,7 +474,6 @@ void wStart::on_actionStyleTest_triggered()
     close();
 }
 
-
 void wStart::on_actionRegEditor_triggered()
 {
     WREGEDITOR = new wRegEditor();
@@ -497,7 +481,6 @@ void wStart::on_actionRegEditor_triggered()
     WREGEDITOR->show();
     close();
 }
-
 
 void wStart::on_actionDBPanelContentSearch_triggered()
 {
@@ -507,7 +490,6 @@ void wStart::on_actionDBPanelContentSearch_triggered()
     close();
 }
 
-
 void wStart::on_actionBugDoc_triggered()
 {
     WBUGDOC = new wBugDoc();
@@ -515,7 +497,6 @@ void wStart::on_actionBugDoc_triggered()
     WBUGDOC->show();
     close();
 }
-
 
 void wStart::on_actionDBPanelWDTFbh_triggered()
 {
@@ -525,12 +506,19 @@ void wStart::on_actionDBPanelWDTFbh_triggered()
     close();
 }
 
-
 void wStart::on_actionVehLists_triggered()
 {
     WVEHICLELIST = new wVehicleList();
     connect(WVEHICLELIST, &wVehicleList::backToHome, this, &wStart::reopen);
     WVEHICLELIST->show();
+    close();
+}
+
+void wStart::on_actionDBPanelKnownWords_triggered()
+{
+    WDBKNOWNWORDS = new wDBKnownWords();
+    connect(WDBKNOWNWORDS, &wDBKnownWords::backToHome, this, &wStart::reopen);
+    WDBKNOWNWORDS->show();
     close();
 }
 

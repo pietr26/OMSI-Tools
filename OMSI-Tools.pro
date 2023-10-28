@@ -35,7 +35,9 @@ SOURCES += \
     OTModules/wContentSearch/wsuggestfiles.cpp \
     OTModules/wFbh/waddpath.cpp \
     OTModules/wFbh/waddterm.cpp \
+    OTModules/wFbh/waddword.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
+    OTModules/wFbh/wdbknownwords.cpp \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp \
     OTModules/wMaps/wGlobalProps/weditseason.cpp \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
@@ -100,7 +102,9 @@ HEADERS += \
     OTModules/wContentSearch/wsuggestfiles.h \
     OTModules/wFbh/waddpath.h \
     OTModules/wFbh/waddterm.h \
+    OTModules/wFbh/waddword.h \
     OTModules/wFbh/wdbcopyrights.h \
+    OTModules/wFbh/wdbknownwords.h \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.h \
     OTModules/wMaps/wGlobalProps/weditseason.h \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
@@ -139,7 +143,9 @@ FORMS += \
     OTModules/wContentSearch/wsuggestfiles.ui \
     OTModules/wFbh/waddpath.ui \
     OTModules/wFbh/waddterm.ui \
+    OTModules/wFbh/waddword.ui \
     OTModules/wFbh/wdbcopyrights.ui \
+    OTModules/wFbh/wdbknownwords.ui \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.ui \
     OTModules/wMaps/wGlobalProps/weditseason.ui \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
@@ -191,6 +197,6 @@ RESOURCES += \
 DISTFILES += \
     devNotes
 
-#LIBS += -LC:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/lib -ldiscord_game_sdk
-#INCLUDEPATH += C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/include
+#LIBS += -LD:/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/lib -ldiscord_game_sdk
+#INCLUDEPATH += D:/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/include
 

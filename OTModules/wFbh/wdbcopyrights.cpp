@@ -92,7 +92,6 @@ void wDBCopyrights::on_btnPathPreferencesRemove_clicked()
     updateView();
 }
 
-
 void wDBCopyrights::on_btnCopyrightTermsAdd_clicked()
 {
     wAddTerm *addTerm = new wAddTerm(true, this);

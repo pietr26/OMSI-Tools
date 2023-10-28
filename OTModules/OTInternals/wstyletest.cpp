@@ -81,13 +81,13 @@ void wStyleTest::on_btnSetThemeNone_clicked()
 /// Sets combinear theme (outdated!)
 void wStyleTest::on_btnSetThemeCombinear_clicked()
 {
-    ui->ledStyle->setText("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/Combinear.qss");
+    ui->ledStyle->setText("D:/OMSI-Tools/OMSI-Tools/data/themes/Combinear.qss");
 }
 
 /// Sets darkeum theme (outdated!)
 void wStyleTest::on_btnSetThemeDarkeum_clicked()
 {
-    ui->ledStyle->setText("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/Darkeum.qss");
+    ui->ledStyle->setText("D:/OMSI-Tools/OMSI-Tools/data/themes/Darkeum.qss");
 }
 
 /// Saves test stylesheet and starts file watcher for changes
@@ -108,7 +108,7 @@ void wStyleTest::on_ledStyle_textChanged(const QString &arg1)
 /// Set modular stylesheet
 void wStyleTest::on_btnReloadStylePrefs_clicked()
 {
-    QFile modularStyle("C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/themes/modularModern.qss");
+    QFile modularStyle("D:/OMSI-Tools/OMSI-Tools/data/themes/modularModern.qss");
 
     if (!modularStyle.open(QFile::ReadOnly | QFile::Text))
     {
