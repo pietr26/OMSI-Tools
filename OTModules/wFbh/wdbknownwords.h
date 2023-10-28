@@ -35,6 +35,7 @@ signals:
 private:
     Ui::wDBKnownWords *ui;
     OTSettings set;
+    OTMiscellaneous misc;
     OTDatabaseHandler dbHandler;
 
     void updateView();

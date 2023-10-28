@@ -12,6 +12,7 @@ wDBKnownWords::wDBKnownWords(QWidget *parent) :
     qDebug() << "UI set";
 
     setWindowTitle(OTInformation::name + " - known words panel");
+    resize(misc.sizeWindow(0.1, 0.8));
 
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
