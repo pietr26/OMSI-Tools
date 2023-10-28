@@ -48,8 +48,6 @@ private:
 
     OTSettings set;
     OTMiscellaneous misc;
-
-    QString dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
     OTDatabaseHandler dbHandler;
 
     void updateView();
