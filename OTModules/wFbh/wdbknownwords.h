@@ -27,6 +27,8 @@ private slots:
 
     void on_btnRemove_clicked();
 
+    void on_tvwWords_activated(const QModelIndex &index);
+
 signals:
     void backToHome();
 

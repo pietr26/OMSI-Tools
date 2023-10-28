@@ -17,7 +17,14 @@ wDBKnownWords::wDBKnownWords(QWidget *parent) :
     setStyleSheet(set.read("main", "theme").toString());
 
     // Setup database
-    dbHandler.setupDatabase();
+    dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
+    if (!QFile(QDir(dbHandler.dbPath).absolutePath()).exists())
+    {
+        dbHandler.setupDatabase(true);
+        dbHandler.doAction("CREATE TABLE 'knownWords' ('ID' INTEGER, 'word' TEXT, PRIMARY KEY('ID' AUTOINCREMENT))", true);
+    }
+    else
+        dbHandler.setupDatabase();
 
     updateView();
 
@@ -56,8 +63,6 @@ void wDBKnownWords::updateView()
 
 void wDBKnownWords::addWordFinished(int ID, QString word)
 {
-    dbHandler.setupDatabase();
-
     if (ID == -1)
         dbHandler.doAction(QString("INSERT INTO knownWords (word) VALUES ('%1')").arg(word), true);
     else
@@ -75,12 +80,27 @@ void wDBKnownWords::on_btnAdd_clicked()
     updateView();
 }
 
-
 void wDBKnownWords::on_btnRemove_clicked()
 {
     QItemSelectionModel *model = ui->tvwWords->selectionModel();
 
-    if (model->hasSelection()) dbHandler.doAction(QString("DELETE FROM paths WHERE ID = %1").arg(model->selectedRows().at(0).data().toInt()), true);
+    qInfo() << model->selectedRows().at(0).data().toInt();
+
+    if (model->hasSelection()) dbHandler.doAction(QString("DELETE FROM knownWords WHERE ID = %1").arg(model->selectedRows().at(0).data().toInt()), true);
+
+    updateView();
+}
+
+void wDBKnownWords::on_tvwWords_activated(const QModelIndex &index)
+{
+    Q_UNUSED(index);
+
+    int ID = ui->tvwWords->selectionModel()->selectedRows().at(0).data().toInt();
+    QString word = ui->tvwWords->selectionModel()->selectedRows(1).at(0).data().toString();
+
+    wAddWord *addTerm = new wAddWord(false, this, ID, word);
+    addTerm->show();
+    connect(addTerm, &wAddWord::dialogFinished, this, &wDBKnownWords::addWordFinished);
 
     updateView();
 }
