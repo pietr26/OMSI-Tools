@@ -114,14 +114,12 @@ int main(int argc, char *argv[])
     }
 
     wStartUpScreen *WSTARTUPSCREEN;
-    wFbh *WFBH;
 
-    if ((QCoreApplication::arguments().size() >= 2) && (QCoreApplication::arguments().at(1) == "openFbh"))
-    {
-        WFBH = new wFbh();
-        WFBH->show();
-    }
-    else
+//    if ((QCoreApplication::arguments().size() >= 2) && (QCoreApplication::arguments().at(1) == "..."))
+//    {
+//        // ...
+//    }
+//    else
     {
         WSTARTUPSCREEN = new wStartUpScreen();
         WSTARTUPSCREEN->show();

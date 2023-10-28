@@ -71,8 +71,8 @@ public:
             currentProgress = i;
             qApp->processEvents();
 
-            if (current.contains("Komin_1.sco"))
-                qDebug().noquote() << "Here is " << current << "!";
+//            if (current.contains("Komin_1.sco"))
+//                qDebug().noquote() << "Here is " << current << "!";
 
             QFile object(mainDir + "/" + current);
             object.open(QFile::ReadOnly | QFile::Text);

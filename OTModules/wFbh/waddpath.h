@@ -35,7 +35,7 @@ private:
 
     OTDatabaseHandler dbHandler;
 
-    QString dbPath = "C:/Users/pietr/OneDrive/Dev/OMSI-Tools/OMSI-Tools/data/db/fbhCopyrights.db";
+    QString dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
 };
 
 #endif // WADDPATH_H

@@ -17,7 +17,7 @@
 #include "OTModules/OTInternals/wregeditor.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTModules/wContentSearch/wDBPanel.h"
-#include "OTModules/wFbh/wfbh.h"
+#include "OTModules/wFbh/wdbknownwords.h"
 #include "OTWidgets/fadeinouttext.h"
 #include "OTWidgets/message.h"
 #include "OTModules/wFbh/wdbcopyrights.h"
@@ -71,10 +71,6 @@ private slots:
 
     void on_tbnCleanup_clicked();
 
-    void on_tbnFbhOpen_clicked();
-
-    void on_tbnFbhCreateShortcut_clicked();
-
     void reopen() { show(); }
 
     void on_tbnMaps_clicked();
@@ -93,10 +89,11 @@ private slots:
 
     void on_actionDBPanelContentSearch_triggered();
 
-
     void on_actionDBPanelWDTFbh_triggered();
 
     void on_actionVehLists_triggered();
+
+    void on_actionDBPanelKnownWords_triggered();
 
 private:
     Ui::wStart *ui;
@@ -109,7 +106,6 @@ private:
     wContentSearch *WCONTENTSEARCH;
     wReleaseNotes *WRELEASENOTES;
     wAbout *WABOUT;
-    wFbh *WFBH;
     wStyleTest *WSTYLETEST;
     wFeedback *WFEEDBACK;
     wCleanup *WCLEANUP;
@@ -117,6 +113,7 @@ private:
     wMaps *WMAPS;
     wBugDoc *WBUGDOC;
     wVehicleList *WVEHICLELIST;
+    wDBKnownWords *WDBKNOWNWORDS;
 
     OTSettings set;
     OTMessage msg;
