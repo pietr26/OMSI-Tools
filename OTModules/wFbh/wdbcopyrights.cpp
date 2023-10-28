@@ -17,12 +17,12 @@ wDBCopyrights::wDBCopyrights(QWidget *parent) :
     setStyleSheet(set.read("main", "theme").toString());
 
     // Setup database
-    dbHandler.dbPath = dbPath;
-    if (!QFile(QDir(dbPath).absolutePath()).exists())
+    dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
+    if (!QFile(QDir(dbHandler.dbPath).absolutePath()).exists())
     {
         dbHandler.setupDatabase(true);
-        dbHandler.doAction("CREATE TABLE arguments (ID INTEGER, argument TEXT, PRIMARY KEY(ID AUTOINCREMENT))", true);
-        dbHandler.doAction("CREATE TABLE paths (ID INTEGER, path TEXT, argumentIDs TEXT, pathRedirect INTEGER, PRIMARY KEY(ID AUTOINCREMENT))", true);
+        dbHandler.doAction("CREATE TABLE copyrightArguments (ID INTEGER, argument TEXT, PRIMARY KEY(ID AUTOINCREMENT))", true);
+        dbHandler.doAction("CREATE TABLE copyrightPaths (ID INTEGER, path TEXT, argumentIDs TEXT, pathRedirect INTEGER, PRIMARY KEY(ID AUTOINCREMENT))", true);
     }
     else
         dbHandler.setupDatabase();
@@ -79,10 +79,10 @@ void wDBCopyrights::on_btnPathPreferencesRemove_clicked()
     {
         QSqlQueryModel *qryModel = new QSqlQueryModel();
         dbHandler.openDB();
-        qryModel->setQuery(dbHandler.doAction(QString("SELECT * FROM paths WHERE pathRedirect = %1").arg(model->selectedRows().at(0).data().toInt())));
+        qryModel->setQuery(dbHandler.doAction(QString("SELECT * FROM copyrightPaths WHERE pathRedirect = %1").arg(model->selectedRows().at(0).data().toInt())));
 
         if (qryModel->index(0, 0).data().isNull())
-            dbHandler.doAction(QString("DELETE FROM paths WHERE ID = %1").arg(model->selectedRows().at(0).data().toInt()));
+            dbHandler.doAction(QString("DELETE FROM copyrightPaths WHERE ID = %1").arg(model->selectedRows().at(0).data().toInt()));
         else
             ui->statusbar->showMessage("Path is still a connection target from a redirect!", 5000);
 
@@ -107,10 +107,10 @@ void wDBCopyrights::on_btnCopyrightTermsRemove_clicked()
     {
         QSqlQueryModel *qryModel = new QSqlQueryModel();
         dbHandler.openDB();
-        qryModel->setQuery(dbHandler.doAction(QString("SELECT * FROM paths WHERE argumentIDs LIKE '%|%1|%'").arg(model->selectedRows().at(0).data().toInt())));
+        qryModel->setQuery(dbHandler.doAction(QString("SELECT * FROM copyrightPaths WHERE argumentIDs LIKE '%|%1|%'").arg(model->selectedRows().at(0).data().toInt())));
 
         if (qryModel->index(0, 0).data().isNull())
-            dbHandler.doAction(QString("DELETE FROM arguments WHERE ID = %1").arg(model->selectedRows().at(0).data().toInt()));
+            dbHandler.doAction(QString("DELETE FROM copyrightArguments WHERE ID = %1").arg(model->selectedRows().at(0).data().toInt()));
         else
             ui->statusbar->showMessage("Term is still connected with at least one path!", 5000);
 
@@ -122,24 +122,20 @@ void wDBCopyrights::on_btnCopyrightTermsRemove_clicked()
 
 void wDBCopyrights::addPathFinished(int ID, QString path, QString argumentIDs, int redirect)
 {
-    dbHandler.setupDatabase();
-
     if (ID == -1)
-        dbHandler.doAction(QString("INSERT INTO paths (path, argumentIDs, pathRedirect) VALUES ('%1', '%2', %3)").arg(path).arg(argumentIDs).arg(redirect), true);
+        dbHandler.doAction(QString("INSERT INTO copyrightPaths (path, argumentIDs, pathRedirect) VALUES ('%1', '%2', %3)").arg(path).arg(argumentIDs).arg(redirect), true);
     else
-        dbHandler.doAction(QString("UPDATE paths SET path = '%1', argumentIDs = '%2', pathRedirect = %3 WHERE ID = %4").arg(path).arg(argumentIDs).arg(redirect).arg(ID), true);
+        dbHandler.doAction(QString("UPDATE copyrightPaths SET path = '%1', argumentIDs = '%2', pathRedirect = %3 WHERE ID = %4").arg(path).arg(argumentIDs).arg(redirect).arg(ID), true);
 
     updateView();
 }
 
 void wDBCopyrights::addTermFinished(int ID, QString argument)
 {
-    dbHandler.setupDatabase();
-
     if (ID == -1)
-        dbHandler.doAction(QString("INSERT INTO arguments (argument) VALUES ('%1')").arg(argument), true);
+        dbHandler.doAction(QString("INSERT INTO copyrightArguments (argument) VALUES ('%1')").arg(argument), true);
     else
-        dbHandler.doAction(QString("UPDATE arguments SET argument = '%1' WHERE ID = %2").arg(argument).arg(QString::number(ID)), true);
+        dbHandler.doAction(QString("UPDATE copyrightArguments SET argument = '%1' WHERE ID = %2").arg(argument, QString::number(ID)), true);
 
     updateView();
 }
@@ -149,7 +145,7 @@ void wDBCopyrights::updateView()
     // Terms
     QSqlQueryModel *termModel = new QSqlQueryModel();
     dbHandler.openDB();
-    termModel->setQuery(dbHandler.doAction("SELECT * FROM arguments"));
+    termModel->setQuery(dbHandler.doAction("SELECT * FROM copyrightArguments"));
     ui->tvwCopyrightTerms->setModel(termModel);
     dbHandler.closeDB();
 
@@ -158,7 +154,7 @@ void wDBCopyrights::updateView()
     // Paths
     QSqlQueryModel *pathModel = new QSqlQueryModel();
     dbHandler.openDB();
-    pathModel->setQuery(dbHandler.doAction("SELECT * FROM paths"));
+    pathModel->setQuery(dbHandler.doAction("SELECT * FROM copyrightPaths"));
     ui->tvwPathPreferences->setModel(pathModel);
     dbHandler.closeDB();
 
@@ -180,6 +176,6 @@ void wDBCopyrights::on_actionClose_triggered()
 void wDBCopyrights::on_actionBackToHome_triggered()
 {
     close();
-    backToHome();
+    emit backToHome();
 }
 
