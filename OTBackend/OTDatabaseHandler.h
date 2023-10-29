@@ -5,6 +5,20 @@
 #include <QSqlDriver>
 #include <QDebug>
 
+
+/* FORMAL DATABASE SETUP IN HEADER
+
+    // Setup database
+    dbHandler.dbPath = "<dbPath>";
+    if (!QFile(QDir(dbHandler.dbPath).absolutePath()).exists())
+    {
+        dbHandler.setupDatabase(true);
+        dbHandler.doAction("<SQL command>", true);
+    }
+    else
+        dbHandler.setupDatabase();
+*/
+
 class OTDatabaseHandler
 {
 public:
