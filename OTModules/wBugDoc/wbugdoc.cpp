@@ -26,7 +26,9 @@ wBugDoc::wBugDoc(QWidget *parent) :
         qWarning() << "GlobalShortcut: ALT + B";
     }
 
+    ui->statusbar->addPermanentWidget(ui->pgbProgress);
     ui->statusbar->addPermanentWidget(ui->btnWait);
+    ui->pgbProgress->setVisible(false);
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -34,7 +36,6 @@ wBugDoc::wBugDoc(QWidget *parent) :
 wBugDoc::~wBugDoc()
 {
     UnregisterHotKey(NULL, 1);
-
     delete ui;
 }
 
@@ -138,9 +139,9 @@ void wBugDoc::on_btnSaveEntry_clicked()
 
     ui->lblUnsavedChanges->setVisible(false);
 
+    int currentRow = ui->tvwBugs->currentIndex().row();
     loadUI();
-    QModelIndex currentIndex = ui->tvwBugs->currentIndex();
-    ui->tvwBugs->setCurrentIndex(currentIndex);
+    ui->tvwBugs->setCurrentIndex(ui->tvwBugs->model()->index(currentRow, 0));
 }
 
 void wBugDoc::on_ledID_textChanged(const QString &arg1)
@@ -258,7 +259,7 @@ void wBugDoc::on_actionHTML_triggered()
     for (int i = 0; i < bugCount; i++)
     {
         html += "<h2>" + (bugsModel->index(i, 1).data().toString() == "" ? "(ohne Titel)" : bugsModel->index(i, 1).data().toString()) + "</h2>";
-        html += "<p><strong>Ort: </strong>" + (bugsModel->index(i, 3).data().toString().isEmpty() ? "-" : bugsModel->index(i, 3).data().toString()) + "</p>";
+        html += "<p><strong>Ort:</strong> " + (bugsModel->index(i, 3).data().toString().isEmpty() ? "-" : bugsModel->index(i, 3).data().toString()) + "</p>";
         html += "<p><strong>Beschreibung:</strong>" + (bugsModel->index(i, 2).data().toString().contains("\n") ? "<br>" : QString(" ")) + (bugsModel->index(i, 2).data().toString().isEmpty() ? "-" : bugsModel->index(i, 2).data().toString()) + "</p>";
         if (QFile(bugsModel->index(i, 4).data().toString()).exists())
         {
@@ -294,5 +295,43 @@ void wBugDoc::on_actionPreferences_triggered()
     WPREFERENCES = new wPreferences(this, "devTools");
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
+}
+
+
+void wBugDoc::on_btnWebDiskCopy_clicked()
+{
+    ui->pgbProgress->setVisible(true);
+    ui->statusbar->showMessage("Upload picture, getting HTML...");
+    on_btnSaveEntry_clicked();
+
+    QString html;
+
+    dbHandler.openDB();
+    QSqlQueryModel *bugsModel = new QSqlQueryModel();
+    bugsModel->setQuery(dbHandler.doAction(QString("SELECT * FROM bugs WHERE ID = %1").arg(ui->tvwBugs->selectionModel()->selectedRows().at(0).data().toInt())));
+
+    html += "<h2>" + (bugsModel->index(0, 1).data().toString() == "" ? "(ohne Titel)" : bugsModel->index(0, 1).data().toString()) + "</h2>";
+    html += "<p><strong>Ort:</strong> " + (bugsModel->index(0, 3).data().toString().isEmpty() ? "-" : bugsModel->index(0, 3).data().toString()) + "</p>";
+    html += "<p><strong>Beschreibung:</strong>" + (bugsModel->index(0, 2).data().toString().contains("\n") ? "<br>" : QString(" ")) + (bugsModel->index(0, 2).data().toString().isEmpty() ? "-" : bugsModel->index(0, 2).data().toString()) + "</p>";
+
+    if (QFile(bugsModel->index(0, 4).data().toString()).exists())
+    {
+        html += "<p><br></p>";
+
+        QFile *picture = new QFile(bugsModel->index(0, 4).data().toString());
+
+        QString pictureUrl = nc.post(OTLinks::bugDocUploads, picture);
+
+        qInfo() << pictureUrl;
+
+        html += "<p><img src=\"" + pictureUrl + "\"></p>";
+    }
+
+    qInfo() << html;
+
+    dbHandler.closeDB();
+
+    ui->statusbar->clearMessage();
+    ui->pgbProgress->setVisible(false);
 }
 

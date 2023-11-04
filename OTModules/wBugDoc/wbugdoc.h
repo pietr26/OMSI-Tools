@@ -54,6 +54,8 @@ private slots:
 
     void on_actionPreferences_triggered();
 
+    void on_btnWebDiskCopy_clicked();
+
 private:
     Ui::wBugDoc *ui;
     wPreferences *WPREFERENCES;
@@ -69,6 +71,7 @@ private:
     OTMessage msg;
     OTSettings set;
     OTMiscellaneous misc;
+    OTNetworkConnection nc;
 
     OTDatabaseHandler dbHandler;
 
