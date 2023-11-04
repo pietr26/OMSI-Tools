@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>318</width>
+    <width>319</width>
     <height>149</height>
    </rect>
   </property>
@@ -77,6 +77,9 @@
          <iconset resource="../../ressources.qrc">
           <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
         </property>
+        <property name="shortcut">
+         <string>Return</string>
+        </property>
        </widget>
       </item>
      </layout>
@@ -88,7 +91,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>318</width>
+     <width>319</width>
      <height>21</height>
     </rect>
    </property>

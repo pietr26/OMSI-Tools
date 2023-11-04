@@ -23,6 +23,7 @@ wAddWord::wAddWord(bool isNewEntry, QWidget *parent, int ID, QString word) :
     }
 
     on_ledWord_textChanged(ui->ledWord->text());
+    ui->ledWord->setFocus();
 
     qInfo().noquote() << objectName() + " started";
 }

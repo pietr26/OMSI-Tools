@@ -65,8 +65,8 @@ wDBPanel::wDBPanel(QWidget *parent) :
     ui->tvwDuplicates->verticalHeader()->hide();
 
     // Setup database
-    dbHandler.dbPath = dbPath;
-    if (!QFile(QDir(dbPath).absolutePath()).exists())
+    dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/contentSearch.db";
+    if (!QFile(QDir(dbHandler.dbPath).absolutePath()).exists())
     {
         dbHandler.setupDatabase(true);
         dbHandler.doAction("CREATE TABLE paths (ID INTEGER, path varchar(5000), linkID varchar(5000), PRIMARY KEY(ID AUTOINCREMENT))", true);
