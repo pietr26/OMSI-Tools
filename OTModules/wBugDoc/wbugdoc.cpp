@@ -64,18 +64,7 @@ void wBugDoc::on_actionLoad_triggered()
 
     projectFolder = result;
     dbHandler.dbPath = projectFolder + "/data/data.db";
-
-    if (!QFile(projectFolder + "/data/data.db").exists())
-    {
-        QDir().mkdir(projectFolder + "/data");
-        dbHandler.setupDatabase(true);
-        dbHandler.doAction("CREATE TABLE bugs (ID INTEGER, title TEXT, description TEXT, location TEXT, picturePath TEXT, PRIMARY KEY(ID AUTOINCREMENT))", true);
-    }
-    else
-    {
-        dbHandler.setupDatabase();
-        loadUI();
-    }
+    dbHandler.setupDatabase("CREATE TABLE bugs (ID INTEGER, title TEXT, description TEXT, location TEXT, picturePath TEXT, PRIMARY KEY(ID AUTOINCREMENT))");
 
     ui->centralwidget->setEnabled(true);
 }

@@ -834,6 +834,11 @@ public:
 class OTMessage
 {
 public:
+    void tempDBOpenError(QWidget *parent, QString errorTitle)
+    {
+        QMessageBox::critical(parent, errorTitle, QObject::tr("There was an error while open the temporary database. Please try it again or contect the developer."));
+    }
+
     /// Asks if the user wants to set the main dir
     bool setMainDir(QWidget *parent)
     {

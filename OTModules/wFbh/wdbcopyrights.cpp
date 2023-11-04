@@ -16,16 +16,8 @@ wDBCopyrights::wDBCopyrights(QWidget *parent) :
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
-    // Setup database
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
-    if (!QFile(QDir(dbHandler.dbPath).absolutePath()).exists())
-    {
-        dbHandler.setupDatabase(true);
-        dbHandler.doAction("CREATE TABLE copyrightArguments (ID INTEGER, argument TEXT, PRIMARY KEY(ID AUTOINCREMENT))", true);
-        dbHandler.doAction("CREATE TABLE copyrightPaths (ID INTEGER, path TEXT, argumentIDs TEXT, pathRedirect INTEGER, PRIMARY KEY(ID AUTOINCREMENT))", true);
-    }
-    else
-        dbHandler.setupDatabase();
+    dbHandler.setupDatabase("CREATE TABLE copyrightArguments (ID INTEGER, argument TEXT, PRIMARY KEY(ID AUTOINCREMENT)); CREATE TABLE copyrightPaths (ID INTEGER, path TEXT, argumentIDs TEXT, pathRedirect INTEGER, PRIMARY KEY(ID AUTOINCREMENT));");
 
     updateView();
 
