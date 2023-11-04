@@ -160,6 +160,8 @@ public:
     inline static const QUrl csReportLink = QUrl("https://backend.omsi-tools.de/api/csReportLink/");
     inline static const QUrl empty = QUrl("https://backend.omsi-tools.de/api/empty/");
 
+    inline static const QUrl bugDocUploads = QUrl("https://media.omsi-tools.de/bugDocUploads/");
+
     class Wiki
     {
     public:
@@ -182,11 +184,17 @@ public:
     };
 };
 
-/// Calculates disk usage
 class OTNetworkConnection: public QObject
 {
     Q_OBJECT
 public slots:
+    /// [OVERLOADED] POST with file / Returns the downloaded file
+    QByteArray post(const QUrl &url, QFile *file, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>(), unsigned int connectionTimeout = 10000)
+    {
+        lastSuccess = 0;
+        return downloadPostFile(url, params, file, connectionTimeout);
+    }
+
     /// [OVERLOADED] POST / Returns the downloaded file
     QByteArray post(const QUrl &url, QList<QPair<QString, QString>> params = QList<QPair<QString, QString>>(), unsigned int connectionTimeout = 10000)
     {
@@ -259,6 +267,58 @@ private:
 
         connect(&manager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
         reply = manager.post(request, urlParams.toString(QUrl::FullyEncoded).toUtf8());
+
+        connect(reply, &QNetworkReply::downloadProgress, this, &OTNetworkConnection::downloadProgress);
+        loop.exec();
+
+        // Content length:
+        // reply->header(QNetworkRequest::ContentLengthHeader).toInt();
+
+        int httpCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+        lastHttpCode = httpCode;
+
+        qDebug().noquote() << QString("POST finished (HTTP %1)").arg(httpCode);
+
+        if (url.url().contains("omsi-tools.de") && (httpCode == 503))
+        {
+            lastSuccess = -2;
+            qWarning().noquote() << QString("%1 is currently undergoing maintenance (HTTP 503). Please try again later.").arg(url.host());
+        }
+        else if ((httpCode >= 300) || (httpCode == 0))
+        {
+            lastSuccess = -1;
+            return "";
+        }
+        else
+            lastSuccess = 1;
+
+        return reply->readAll();
+    }
+
+    /// Main part of downloading a file
+    QByteArray downloadPostFile(const QUrl &url, QList<QPair<QString, QString>> params, QFile *file, unsigned int connectionTimeout)
+    {
+        qDebug().noquote().nospace() << "POST to '" << url.url() << "'";
+        QNetworkRequest request(url);
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "multipart/form-data");
+        request.setTransferTimeout(connectionTimeout);
+
+        QListIterator<QPair<QString, QString>> paramIterator(params);
+        qDebug().noquote() << "URL params:" << params;
+
+        QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+        QHttpPart imagePart;
+        imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/jpeg"));
+        imagePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"image\"; filename=\"" + QFileInfo(*file).fileName() + "\""));
+        file->open(QFile::ReadOnly);
+        imagePart.setBodyDevice(file);
+        file->setParent(multiPart); // ownership transferred
+        multiPart->append(imagePart);
+
+        QEventLoop loop;
+
+        connect(&manager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
+        reply = manager.post(request, multiPart);
 
         connect(reply, &QNetworkReply::downloadProgress, this, &OTNetworkConnection::downloadProgress);
         loop.exec();
