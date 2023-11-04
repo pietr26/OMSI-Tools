@@ -10,13 +10,14 @@
 
     // Setup database
     dbHandler.dbPath = "<dbPath>";
-    if (!QFile(QDir(dbHandler.dbPath).absolutePath()).exists())
-    {
-        dbHandler.setupDatabase(true);
-        dbHandler.doAction("<SQL command>", true);
-    }
-    else
-        dbHandler.setupDatabase();
+    dbHandler.setupDatabase("<SQLCommandForPotentialFirstSetup>");
+
+----------------------------------
+
+    // Setup database
+    dbHandler.dbPath = "<dbPath>";
+    dbHandler.setupDatabase(&temporaryFile, <dbPathInRessources>);
+
 */
 
 class OTDatabaseHandler
@@ -29,7 +30,7 @@ public:
 
         if (action.length() > 63999)
         {
-            qWarning() << "OTDatabaseHandler error: action string ist too long (> 64000)!";
+            qCritical() << "OTDatabaseHandler error: action string ist too long (> 64000)!";
             return QSqlQuery();
         }
 
@@ -37,7 +38,7 @@ public:
         {
             if (!db.open())
             {
-                qWarning() << "OTDatabaseHandler error: Cannot open database automatically";
+                qCritical() << "OTDatabaseHandler error: Cannot open database automatically";
                 return QSqlQuery();
             }
 
@@ -51,53 +52,93 @@ public:
                 return QSqlQuery(action);
             else
             {
-                qWarning() << "OTDatabaseHandler error: Open database before executing an action or use automaticOpenClose";
+                qCritical() << "OTDatabaseHandler error: Open database before executing an action!";
                 return QSqlQuery();
             }
         }
     }
 
-    bool openDB()
-    {
-        return db.open();
-    }
+    bool openDB() { return db.open(); }
 
-    void closeDB()
-    {
-        db.close();
-    }
+    void closeDB() { db.close(); }
 
-    /// Setup a database
-    void setupDatabase(bool firstSetup = false)
+    /// [OVERLOAD] Setup a database
+    bool setupDatabase(QString queryForFirstSetup = "")
     {
-        if (dbPath.isEmpty()) qWarning() << "Attention: dbPath is empty!";
+        bool firstSetup = false;
+
+        if (dbPath.isEmpty())
+        {
+            qCritical() << "dbPath is empty!";
+            return false;
+        }
+        else if (!QFile(QDir(dbPath).absolutePath()).exists()) firstSetup = true;
+
         if (firstSetup)
         {
-            QDir dir;
-
-            if (!dir.exists(QFileInfo(dbPath).absolutePath()))
-                dir.mkpath(QFileInfo(dbPath).absolutePath());
+            if (!QDir().exists(QFileInfo(dbPath).absolutePath())) QDir().mkpath(QFileInfo(dbPath).absolutePath());
 
             QFile database(dbPath);
-            database.open(QIODevice::WriteOnly);
+            if (!database.open(QIODevice::WriteOnly))
+            {
+                qCritical() << "Could not create database!";
+                return false;
+            }
+
             database.close();
         }
 
         db = QSqlDatabase::addDatabase("QSQLITE");
         db.setDatabaseName(dbPath);
+
+        if (firstSetup && !queryForFirstSetup.isEmpty()) doAction(queryForFirstSetup, true);
+
+        return true;
+    }
+
+    /// [OVERLOAD] Setup a database
+    bool setupDatabase(QTemporaryFile &tempDB, QString dbInResscoures)
+    {
+        if (!tempDB.open())
+        {
+            qCritical() << "Could not open temporary database!";
+            qDebug() << "Temporary file";
+            return false;
+        }
+        else
+        {
+            QFile databaseInRessources(dbInResscoures);
+            if (!databaseInRessources.open(QFile::ReadOnly))
+            {
+                qCritical() << "Could not open ressource database!";
+                qDebug() << "Resource file";
+                return false;
+            }
+            else
+            {
+                QByteArray data = databaseInRessources.readAll();
+                tempDB.write(data);
+
+                databaseInRessources.close();
+            }
+        }
+
+        dbPath = tempDB.fileName();
+        setupDatabase();
+
+        return true;
     }
 
     /// Copys and renames a database
     void createBackup()
     {
-        if (dbPath.isEmpty()) qWarning() << "Attention: dbPath is empty!";
+        if (dbPath.isEmpty()) qWarning() << "dbPath is empty!";
 
         if (QFile(dbPath).exists())
             QFile(dbPath).copy(QFileInfo(dbPath).absolutePath() + "/backups/" + QFileInfo(dbPath).baseName() + "_" + misc.getDate("yyyy-MM-dd") + "_" + misc.getTime("hh-mm-ss-z") + ".db");
     }
 
     QString dbPath;
-
 
 private:
     OTMiscellaneous misc;

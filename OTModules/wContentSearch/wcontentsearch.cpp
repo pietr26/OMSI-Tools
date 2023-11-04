@@ -36,35 +36,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     if (OTInformation::build != OTBuildOptions::Dev)
         ui->actionAddExamples->setVisible(false);
 
-    if (!database.open())
-    {
-        qCritical() << "Could not open link database!";
-        qDebug() << "Temporary file";
-        QMessageBox::critical(this, tr("Content search"), tr("There was an error while open the link database. Please try it again or contect the developer."));
-        close();
-        return;
-    }
-    else
-    {
-        QFile databaseInRessources(":/rec/data/db/contentSearch.db");
-        if (!databaseInRessources.open(QFile::ReadOnly))
-        {
-            qCritical() << "Could not open link database!";
-            QMessageBox::critical(this, tr("Content search"), tr("There was an error while open the link database. Please try it again or contect the developer."));
-            close();
-            return;
-        }
-        else
-        {
-            QByteArray data = databaseInRessources.readAll();
-            database.write(data);
-
-            databaseInRessources.close();
-        }
-    }
-
-    dbHandler.dbPath = database.fileName();
-    dbHandler.setupDatabase();
+    dbHandler.setupDatabase(database, ":/rec/data/db/contentSearch.db");
 
     reloadTabNames();
 

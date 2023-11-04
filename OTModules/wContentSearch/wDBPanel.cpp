@@ -64,16 +64,8 @@ wDBPanel::wDBPanel(QWidget *parent) :
 
     ui->tvwDuplicates->verticalHeader()->hide();
 
-    // Setup database
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/contentSearch.db";
-    if (!QFile(QDir(dbHandler.dbPath).absolutePath()).exists())
-    {
-        dbHandler.setupDatabase(true);
-        dbHandler.doAction("CREATE TABLE paths (ID INTEGER, path varchar(5000), linkID varchar(5000), PRIMARY KEY(ID AUTOINCREMENT))", true);
-        dbHandler.doAction("CREATE TABLE links (ID INTEGER, link varchar(5000), directLinks varchar(5000), information varchar(5000),PRIMARY KEY(ID AUTOINCREMENT))", true);
-    }
-    else
-        dbHandler.setupDatabase();
+    dbHandler.setupDatabase("CREATE TABLE paths (ID INTEGER, path TEXT, linkID TEXT, PRIMARY KEY(ID AUTOINCREMENT)); CREATE TABLE links (ID INTEGER, link TEXT, directLinks TEXT, information TEXT, PRIMARY KEY(ID AUTOINCREMENT));");
 
     ui->ledDirectory->setText(set.read(objectName(), "tempPath").toString());
 
