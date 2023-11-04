@@ -46,7 +46,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     }
     else
     {
-        QFile databaseInRessources(dbPath);
+        QFile databaseInRessources(":/rec/data/db/contentSearch.db");
         if (!databaseInRessources.open(QFile::ReadOnly))
         {
             qCritical() << "Could not open link database!";

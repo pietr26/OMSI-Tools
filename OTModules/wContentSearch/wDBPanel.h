@@ -70,7 +70,6 @@ private:
 
     int cutCount = set.read("main", "mainDir").toString().size() + 1;
 
-    QString dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/contentSearch.db";
     OTDatabaseHandler dbHandler;
 
     QList <QSqlQueryModel*> models;
