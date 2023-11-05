@@ -139,9 +139,6 @@ void wContentSearch::on_actionSearch_triggered()
 
     foreach (QString current, linkIDs)
     {
-        // Remove this if you see it the next time.
-//        if (current == "std")
-//            continue;
         if (current == "TEST") { links << "TEST"; continue; }
 
         QSqlQueryModel *model = new QSqlQueryModel();

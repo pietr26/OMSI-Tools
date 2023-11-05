@@ -54,11 +54,11 @@ void wBugDoc::on_actionClose_triggered()
 void wBugDoc::on_actionLoad_triggered()
 {
     ui->centralwidget->setEnabled(false);
-    QString result = QFileDialog::getExistingDirectory(this, tr("Select / create BugDoc folder..."), (projectFolder.isEmpty() ? "C:/Users/pietr/Desktop" : projectFolder));
+    QString result = QFileDialog::getExistingDirectory(this, "Select / create BugDoc folder...", (projectFolder.isEmpty() ? "C:/Users/pietr/Desktop" : projectFolder));
 
     if (!QDir(result).exists())
     {
-        QMessageBox::warning(this, tr("Directory not found"), tr("The selected directory doesn't exists."));
+        QMessageBox::warning(this, "Directory not found","The selected directory doesn't exists.");
         return;
     }
 
@@ -166,7 +166,7 @@ void wBugDoc::on_ledPicturePath_textChanged(const QString &arg1)
 
 void wBugDoc::on_btnDelete_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Confirm deletion"), tr("Really delete the selected bug entry?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirm deletion", "Really delete the selected bug entry?", QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
 
     if (reply != QMessageBox::Yes) return;
 

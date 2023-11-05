@@ -84,7 +84,7 @@
               <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
             </property>
             <property name="shortcut">
-             <string>Del</string>
+             <string notr="true">Del</string>
             </property>
            </widget>
           </item>
@@ -108,7 +108,7 @@
         <item row="0" column="0">
          <widget class="QLabel" name="lblID">
           <property name="text">
-           <string>ID</string>
+           <string notr="true">ID:</string>
           </property>
          </widget>
         </item>
@@ -122,7 +122,7 @@
         <item row="1" column="0">
          <widget class="QLabel" name="lblTitle">
           <property name="text">
-           <string>Title</string>
+           <string notr="true">Title:</string>
           </property>
          </widget>
         </item>
@@ -132,7 +132,7 @@
         <item row="2" column="0">
          <widget class="QLabel" name="lblDescription">
           <property name="text">
-           <string>Description</string>
+           <string notr="true">Description:</string>
           </property>
          </widget>
         </item>
@@ -146,7 +146,7 @@
         <item row="3" column="0">
          <widget class="QLabel" name="lblLocation">
           <property name="text">
-           <string>Location</string>
+           <string notr="true">Location:</string>
           </property>
          </widget>
         </item>
@@ -156,7 +156,7 @@
         <item row="4" column="0">
          <widget class="QLabel" name="lblPicturePath">
           <property name="text">
-           <string>Picture path</string>
+           <string notr="true">Picture path:</string>
           </property>
          </widget>
         </item>
@@ -208,7 +208,7 @@
          <string notr="true">color: red</string>
         </property>
         <property name="text">
-         <string>Unsaved changes.</string>
+         <string notr="true">Unsaved changes.</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -251,17 +251,17 @@
          </font>
         </property>
         <property name="text">
-         <string>Save entry</string>
+         <string notr="true">Save entry</string>
         </property>
         <property name="shortcut">
-         <string>Ctrl+S</string>
+         <string notr="true">Ctrl+S</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnWait">
         <property name="text">
-         <string>Wait (ALT + B)</string>
+         <string notr="true">Wait (ALT + B)</string>
         </property>
        </widget>
       </item>
@@ -290,7 +290,7 @@
    </property>
    <widget class="QMenu" name="menuBugDoc">
     <property name="title">
-     <string>Window</string>
+     <string notr="true">Window</string>
     </property>
     <addaction name="actionLoad"/>
     <addaction name="separator"/>
@@ -299,13 +299,13 @@
    </widget>
    <widget class="QMenu" name="menuExport">
     <property name="title">
-     <string>Export</string>
+     <string notr="true">Export</string>
     </property>
     <addaction name="actionHTML"/>
    </widget>
    <widget class="QMenu" name="menuSpecials">
     <property name="title">
-     <string>Specials</string>
+     <string notr="true">Specials</string>
     </property>
     <addaction name="actionPreferences"/>
    </widget>
@@ -320,10 +320,16 @@
      <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
    </property>
    <property name="text">
-    <string>Load BugDoc</string>
+    <string notr="true">Load BugDoc</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Load BugDoc</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Load BugDoc</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+O</string>
+    <string notr="true">Ctrl+O</string>
    </property>
   </action>
   <action name="actionBack_to_home">
@@ -332,10 +338,16 @@
      <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
    </property>
    <property name="text">
-    <string>Back to home</string>
+    <string notr="true">Back to home</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Back to home</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Back to home</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+W</string>
+    <string notr="true">Ctrl+W</string>
    </property>
   </action>
   <action name="actionClose">
@@ -344,10 +356,16 @@
      <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
    </property>
    <property name="text">
-    <string>Close</string>
+    <string notr="true">Close</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Close</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Close</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Q</string>
+    <string notr="true">Ctrl+Q</string>
    </property>
   </action>
   <action name="actionHTML">
@@ -356,7 +374,16 @@
      <normaloff>:/rec/data/icons/iconDownloadFile.svg</normaloff>:/rec/data/icons/iconDownloadFile.svg</iconset>
    </property>
    <property name="text">
-    <string>HTML</string>
+    <string notr="true">HTML</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">HTML</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">HTML</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true"/>
    </property>
   </action>
   <action name="actionPreferences">
@@ -365,10 +392,16 @@
      <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
    </property>
    <property name="text">
-    <string>Preferences...</string>
+    <string notr="true">Preferences...</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Preferences</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Preferences</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+E</string>
+    <string notr="true">Ctrl+E</string>
    </property>
   </action>
  </widget>
