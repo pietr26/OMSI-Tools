@@ -77,14 +77,14 @@
       <item row="2" column="1">
        <widget class="QDateEdit" name="daeEnd">
         <property name="displayFormat">
-         <string>dd.MM.</string>
+         <string extracomment="Date format. dd = Date; MM = Month (attention to caps / no caps). Reform the date to language standard if needed.">dd.MM.</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
        <widget class="QDateEdit" name="daeStart">
         <property name="displayFormat">
-         <string>dd.MM.</string>
+         <string extracomment="Date format. dd = Date; MM = Month (attention to caps / no caps). Reform the date to language standard if needed.">dd.MM.</string>
         </property>
        </widget>
       </item>

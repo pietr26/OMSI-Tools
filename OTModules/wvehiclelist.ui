@@ -459,10 +459,16 @@
      <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
    </property>
    <property name="text">
-    <string>Close</string>
+    <string notr="true">Close</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Close</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Close</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Q</string>
+    <string notr="true">Ctrl+Q</string>
    </property>
   </action>
   <action name="actionOpen">
@@ -489,10 +495,16 @@
      <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
    </property>
    <property name="text">
-    <string>Back to home</string>
+    <string notr="true">Back to home</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Back to home</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Back to home</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+W</string>
+    <string notr="true">Ctrl+W</string>
    </property>
   </action>
  </widget>

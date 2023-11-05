@@ -141,7 +141,7 @@
              <widget class="QTabWidget" name="tabWidget">
               <widget class="QWidget" name="tabBugDoc">
                <attribute name="title">
-                <string>BugDoc</string>
+                <string notr="true">BugDoc</string>
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_15">
                 <item>
@@ -155,7 +155,7 @@
                      </sizepolicy>
                     </property>
                     <property name="text">
-                     <string>Screenshot scaling (of its original size):</string>
+                     <string notr="true">Screenshot scaling (of its original size):</string>
                     </property>
                    </widget>
                   </item>

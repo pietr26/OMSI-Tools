@@ -77,8 +77,6 @@ void wCleanup::on_actionAnalyze_triggered()
 
     ui->pgbProgress->setMaximum(ui->pgbProgress->maximum() + globals.size());
 
-    QStringList tiles;
-
     for (int i = 0; i < globals.size(); i++)
     {
         ui->statusbar->showMessage(tr("Read maps (%1 of %2)...").arg(i + 1).arg(globals.size()));
@@ -322,7 +320,7 @@ void wCleanup::on_actionSendFeedback_triggered()
 void wCleanup::on_actionBackToHome_triggered()
 {
     close();
-    backToHome();
+    emit backToHome();
 }
 
 void wCleanup::on_lwgObjects_itemDoubleClicked(QListWidgetItem *item)

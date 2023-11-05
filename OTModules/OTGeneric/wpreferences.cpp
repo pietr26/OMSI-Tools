@@ -538,7 +538,7 @@ void wPreferences::on_btnDevToolsPrefs_clicked()
 {
     ui->lwgSections->clearSelection();
     ui->stwPreferences->setCurrentIndex(0);
-    ui->lblCurrentSection->setText(tr("DevTools"));
+    ui->lblCurrentSection->setText("DevTools");
 }
 
 
