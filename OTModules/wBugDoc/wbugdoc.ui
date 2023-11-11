@@ -102,7 +102,7 @@
      </widget>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,2,0,0,0,0,0">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,2,0,0,0">
       <item>
        <layout class="QFormLayout" name="formLayout">
         <item row="0" column="0">
@@ -168,6 +168,9 @@
             <pointsize>8</pointsize>
            </font>
           </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
        </layout>
@@ -198,24 +201,6 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="lblUnsavedChanges">
-        <property name="font">
-         <font>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: red</string>
-        </property>
-        <property name="text">
-         <string notr="true">Unsaved changes.</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <spacer name="horizontalSpacer">
@@ -233,7 +218,7 @@
         <item>
          <widget class="QPushButton" name="btnWebDiskCopy">
           <property name="text">
-           <string/>
+           <string>Copy text</string>
           </property>
           <property name="icon">
            <iconset resource="../../ressources.qrc">
@@ -241,27 +226,22 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QPushButton" name="btnCopyPicture">
+          <property name="text">
+           <string>Copy picture</string>
+          </property>
+         </widget>
+        </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnSaveEntry">
-        <property name="font">
-         <font>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string notr="true">Save entry</string>
-        </property>
-        <property name="shortcut">
-         <string notr="true">Ctrl+S</string>
-        </property>
-       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnWait">
         <property name="text">
          <string notr="true">Wait (ALT + B)</string>
+        </property>
+        <property name="shortcut">
+         <string notr="true">Ctrl+B</string>
         </property>
        </widget>
       </item>
@@ -405,6 +385,19 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>ledID</tabstop>
+  <tabstop>ledTitle</tabstop>
+  <tabstop>pteDescription</tabstop>
+  <tabstop>ledLocation</tabstop>
+  <tabstop>ledPicturePath</tabstop>
+  <tabstop>btnWait</tabstop>
+  <tabstop>btnWebDiskCopy</tabstop>
+  <tabstop>btnCopyPicture</tabstop>
+  <tabstop>btnAdd</tabstop>
+  <tabstop>btnDelete</tabstop>
+  <tabstop>tvwBugs</tabstop>
+ </tabstops>
  <resources>
   <include location="../../ressources.qrc"/>
  </resources>
