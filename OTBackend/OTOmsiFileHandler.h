@@ -830,7 +830,6 @@ public:
                         if (line == "")
                         {
                             qWarning().noquote() << "Error in AI list: Line " + QString::number(lineCounter) + " is empty!";
-                            stuffobj.missing.vehicles << QObject::tr("[Empty line]");
                             continue;
                         }
 
@@ -856,7 +855,6 @@ public:
                     if (line == "")
                     {
                         qWarning().noquote() << "Error in AI list: Line " + QString::number(lineCounter) + " is empty!";
-                        stuffobj.missing.vehicles << QObject::tr("[Empty line]");
                         continue;
                     }
 
@@ -912,7 +910,6 @@ public:
                 if (line == "")
                 {
                     qWarning().noquote() << "Error in human file: Line " + QString::number(lineCounter) + " is empty!";
-                    stuffobj.missing.humans << QObject::tr("[Empty line]");
                     continue;
                 }
 

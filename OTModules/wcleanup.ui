@@ -90,7 +90,7 @@
         <item>
          <widget class="QListWidget" name="lwgObjects">
           <property name="selectionMode">
-           <enum>QAbstractItemView::MultiSelection</enum>
+           <enum>QAbstractItemView::ExtendedSelection</enum>
           </property>
           <property name="selectionRectVisible">
            <bool>false</bool>
@@ -128,7 +128,7 @@
         <item>
          <widget class="QListWidget" name="lwgSplines">
           <property name="selectionMode">
-           <enum>QAbstractItemView::MultiSelection</enum>
+           <enum>QAbstractItemView::ExtendedSelection</enum>
           </property>
           <property name="selectionRectVisible">
            <bool>false</bool>
@@ -166,7 +166,7 @@
         <item>
          <widget class="QListWidget" name="lwgVehicles">
           <property name="selectionMode">
-           <enum>QAbstractItemView::MultiSelection</enum>
+           <enum>QAbstractItemView::ExtendedSelection</enum>
           </property>
           <property name="selectionRectVisible">
            <bool>false</bool>
