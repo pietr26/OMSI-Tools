@@ -62,6 +62,7 @@ void wCleanup::on_actionAnalyze_triggered()
 
     ui->lwgObjects->clear();
     ui->lwgSplines->clear();
+    ui->lwgVehicles->clear();
     filehandler.stuffobj.clear();
 
     cutCount = set.read("main", "mainDir").toString().size() + 1;
@@ -85,6 +86,7 @@ void wCleanup::on_actionAnalyze_triggered()
         filehandler.setMapPath(globals.at(i));
         filehandler.getTiles();
         filehandler.getItems(filehandler.stuffobj.existing.tiles, false, false);
+        filehandler.getVehicles();
 
         filehandler.stuffobj.existing.removeDuplicates();
     }
@@ -100,8 +102,7 @@ void wCleanup::on_actionAnalyze_triggered()
 
         QStringList scoFolders;
         QDirIterator scoFolder(mainDir + "/Sceneryobjects", QDir::Dirs | QDir::NoDotAndDotDot);
-        while (scoFolder.hasNext())
-            scoFolders << scoFolder.next();
+        while (scoFolder.hasNext()) scoFolders << scoFolder.next();
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Comparing sceneryobjects..."));
@@ -115,8 +116,7 @@ void wCleanup::on_actionAnalyze_triggered()
                 if (QString(mainDir + "/" + iterator.next()).contains(current, Qt::CaseInsensitive))
                     i++;
 
-            if (i == 0)
-                ui->lwgObjects->addItem(current.remove(0, cutCount));
+            if (i == 0) ui->lwgObjects->addItem(current.remove(0, cutCount));
         }
     }
 
@@ -129,8 +129,7 @@ void wCleanup::on_actionAnalyze_triggered()
 
         QStringList sliFolders;
         QDirIterator sliFolder(mainDir + "/Splines", QDir::Dirs | QDir::NoDotAndDotDot);
-        while (sliFolder.hasNext())
-            sliFolders << sliFolder.next();
+        while (sliFolder.hasNext()) sliFolders << sliFolder.next();
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Comparing splines..."));
@@ -144,9 +143,47 @@ void wCleanup::on_actionAnalyze_triggered()
                 if (QString(QFileInfo(mainDir + "/" + iterator.next()).absolutePath()).contains(current, Qt::CaseInsensitive))
                     i++;
 
-            if (i == 0)
-                ui->lwgSplines->addItem(current.remove(0, cutCount));
+            if (i == 0) ui->lwgSplines->addItem(current.remove(0, cutCount));
         }
+    }
+
+
+    // Vehicles:
+    if (!filehandler.stuffobj.existing.sceneryobjects.isEmpty() || !filehandler.stuffobj.existing.vehicles.isEmpty())
+    {
+        QStringList vehiclePaths;
+
+        qInfo() << "Analyze vehicles...";
+        ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
+        ui->statusbar->showMessage(tr("Analyze vehicle folder..."));
+
+        QStringList vehFolders;
+        QDirIterator vehFolder(mainDir + "/Vehicles", QDir::Dirs | QDir::NoDotAndDotDot);
+        while (vehFolder.hasNext()) vehFolders << vehFolder.next();
+
+        ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
+        ui->statusbar->showMessage(tr("Comparing vehicles..."));
+
+        QStringList allExistingVehFolders = filehandler.stuffobj.existing.vehicles + filehandler.stuffobj.existing.sceneryobjects;
+        allExistingVehFolders.removeDuplicates();
+
+        foreach (QString current, vehFolders)
+        {
+            qApp->processEvents();
+            QStringListIterator iterator(allExistingVehFolders);
+
+            int i = 0;
+            while (iterator.hasNext())
+                if (QString(mainDir + "/" + iterator.next()).contains(current, Qt::CaseInsensitive))
+                    i++;
+
+            if (i == 0) vehiclePaths << current.remove(0, cutCount);
+        }
+
+        vehiclePaths.removeOne("Vehicles/Announcements");
+        vehiclePaths.removeOne("Vehicles/Anzeigen");
+
+        ui->lwgVehicles->addItems(vehiclePaths);
     }
 
     ui->btnAnalyze->setEnabled(true);
@@ -154,11 +191,12 @@ void wCleanup::on_actionAnalyze_triggered()
     ui->pgbProgress->setValue(ui->pgbProgress->maximum());
     ui->statusbar->showMessage(tr("Done."), 10000);
 
-    if ((ui->lwgObjects->count() != 0) || (ui->lwgSplines->count() != 0))
+    if ((ui->lwgObjects->count() != 0) || (ui->lwgSplines->count() != 0) || (ui->lwgSplines->count() != 0))
         ui->gbxActions->setVisible(true);
 
     on_lwgObjects_itemSelectionChanged();
     on_lwgSplines_itemSelectionChanged();
+    on_lwgVehicles_itemSelectionChanged();
 
     qInfo() << "Finished.";
 }
@@ -171,10 +209,11 @@ void wCleanup::on_btnStartAction_clicked()
     ui->actionAnalyze->setEnabled(false);
 
     ui->pgbProgress->setValue(0);
-    ui->pgbProgress->setMaximum(3);
+    ui->pgbProgress->setMaximum(4);
 
     ui->lwgObjects->setEnabled(false);
     ui->lwgSplines->setEnabled(false);
+    ui->lwgVehicles->setEnabled(false);
 
     if (ui->rbtnMoveToFolder->isChecked())
     {
@@ -234,7 +273,32 @@ void wCleanup::on_btnStartAction_clicked()
             }
             qDeleteAll(ui->lwgSplines->selectedItems());
 
+            // Vehicles
             ui->pgbProgress->setValue(3);
+            qInfo() << QString("Move selected vehicles to '%1'...").arg(destinationFolder);
+
+            for (int i = 0; i < ui->lwgVehicles->selectedItems().size(); i++)
+            {
+                ui->statusbar->showMessage(tr("Move vehicles (%1 of %2)...").arg(QString::number(i + 1), QString::number(ui->lwgVehicles->selectedItems().count())));
+
+                QDirIterator makePaths(set.read("main", "mainDir").toString() + "/" + ui->lwgVehicles->selectedItems().at(i)->text(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+                while (makePaths.hasNext())
+                    QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
+
+                QDirIterator moveFiles(set.read("main", "mainDir").toString() + "/" + ui->lwgVehicles->selectedItems().at(i)->text(), QDir::Files, QDirIterator::Subdirectories);
+                while (moveFiles.hasNext())
+                {
+                    qApp->processEvents();
+
+                    QString current = moveFiles.next().remove(0, cutCount);
+                    QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
+                }
+
+                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgVehicles->selectedItems().at(i)->text()).removeRecursively();
+            }
+            qDeleteAll(ui->lwgVehicles->selectedItems());
+
+            ui->pgbProgress->setValue(4);
             ui->statusbar->showMessage(tr("Moved selected folders to '%1'.").arg(destinationFolder), 10000);
         }
     }
@@ -250,7 +314,6 @@ void wCleanup::on_btnStartAction_clicked()
                 ui->statusbar->showMessage(tr("Delete sceneryobjects (%1 of %2)...").arg(QString::number(i + 1), QString::number(ui->lwgObjects->selectedItems().count())));
                 QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->selectedItems().at(i)->text()).removeRecursively();
             }
-
             qDeleteAll(ui->lwgObjects->selectedItems());
 
             for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
@@ -259,8 +322,15 @@ void wCleanup::on_btnStartAction_clicked()
                 ui->statusbar->showMessage(tr("Delete splines (%1 of %2)...").arg(QString::number(i + 1), QString::number(ui->lwgSplines->selectedItems().count())));
                 QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->selectedItems().at(i)->text()).removeRecursively();
             }
-
             qDeleteAll(ui->lwgSplines->selectedItems());
+
+            for (int i = 0; i < ui->lwgVehicles->selectedItems().size(); i++)
+            {
+                qApp->processEvents();
+                ui->statusbar->showMessage(tr("Delete vehicles (%1 of %2)...").arg(QString::number(i + 1), QString::number(ui->lwgVehicles->selectedItems().count())));
+                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgVehicles->selectedItems().at(i)->text()).removeRecursively();
+            }
+            qDeleteAll(ui->lwgVehicles->selectedItems());
         }
 
         ui->statusbar->showMessage(tr("Deleted selected folders."), 10000);
@@ -268,12 +338,13 @@ void wCleanup::on_btnStartAction_clicked()
 
     qInfo() << "Finished.";
 
-    if ((ui->lwgObjects->count() == 0) && (ui->lwgSplines->count() == 0))
+    if ((ui->lwgObjects->count() == 0) && (ui->lwgSplines->count() == 0) && (ui->lwgVehicles->count() == 0))
         ui->gbxActions->setVisible(false);
 
 
     ui->lwgObjects->setEnabled(true);
     ui->lwgSplines->setEnabled(true);
+    ui->lwgVehicles->setEnabled(true);
 
     ui->btnStartAction->setEnabled(true);
     ui->btnAnalyze->setEnabled(true);
@@ -281,6 +352,7 @@ void wCleanup::on_btnStartAction_clicked()
 
     on_lwgObjects_itemSelectionChanged();
     on_lwgSplines_itemSelectionChanged();
+    on_lwgVehicles_itemSelectionChanged();
 }
 
 /// Sets text for moving folders
@@ -333,6 +405,11 @@ void wCleanup::on_lwgSplines_itemDoubleClicked(QListWidgetItem *item)
     misc.openInExplorer(set.read("main", "mainDir").toString() + "/" + item->text());
 }
 
+void wCleanup::on_lwgVehicles_itemDoubleClicked(QListWidgetItem *item)
+{
+    misc.openInExplorer(set.read("main", "mainDir").toString() + "/" + item->text());
+}
+
 void wCleanup::on_lwgObjects_itemSelectionChanged()
 {
     ui->lblObjectCount->setText(QString("%1/%2").arg(QString::number(ui->lwgObjects->selectedItems().count()), QString::number(ui->lwgObjects->count())));
@@ -341,4 +418,9 @@ void wCleanup::on_lwgObjects_itemSelectionChanged()
 void wCleanup::on_lwgSplines_itemSelectionChanged()
 {
     ui->lblSplineCount->setText(QString("%1/%2").arg(QString::number(ui->lwgSplines->selectedItems().count()), QString::number(ui->lwgSplines->count())));
+}
+
+void wCleanup::on_lwgVehicles_itemSelectionChanged()
+{
+    ui->lblVehicleCount->setText(QString("%1/%2").arg(QString::number(ui->lwgVehicles->selectedItems().count()), QString::number(ui->lwgVehicles->count())));
 }
