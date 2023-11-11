@@ -456,6 +456,13 @@ public:
         clipboard->setText(copytext);
     }
 
+    void copyPixmap(QPixmap copyPixmap)
+    {
+        qDebug() << "Copy image...";
+        QClipboard* clipboard = QApplication::clipboard();
+        clipboard->setPixmap(copyPixmap);
+    }
+
     /// Checks for an update - index 0: "503": maintenance, "false" = error, "noUpdates" = no updates available, else: new version | index 1: latestVersion
     QStringList getUpdateInformation()
     {

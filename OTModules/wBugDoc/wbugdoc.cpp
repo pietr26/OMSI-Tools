@@ -18,7 +18,6 @@ wBugDoc::wBugDoc(QWidget *parent) :
     if (set.read(objectName(), "screenshotScale").toInt() == 0) set.write(objectName(), "screenshotScale", 2);
 
     ui->centralwidget->setEnabled(false);
-    ui->lblUnsavedChanges->setVisible(false);
 
     if (RegisterHotKey(NULL, 1, MOD_ALT, 'B')) {
         qInfo() << "GlobalShortcut: ALT + B";
@@ -54,7 +53,7 @@ void wBugDoc::on_actionClose_triggered()
 void wBugDoc::on_actionLoad_triggered()
 {
     ui->centralwidget->setEnabled(false);
-    QString result = QFileDialog::getExistingDirectory(this, "Select / create BugDoc folder...", (projectFolder.isEmpty() ? "C:/Users/pietr/Desktop" : projectFolder));
+    QString result = QFileDialog::getExistingDirectory(this, "Select / create BugDoc folder...", (set.read(objectName(), "lastBugDoc").toString().isEmpty() ? "C:/Users/pietr/Desktop" : set.read(objectName(), "lastBugDoc").toString()));
 
     if (!QDir(result).exists())
     {
@@ -63,23 +62,33 @@ void wBugDoc::on_actionLoad_triggered()
     }
 
     projectFolder = result;
+    set.write(objectName(), "lastBugDoc", projectFolder);
     dbHandler.dbPath = projectFolder + "/data/data.db";
     dbHandler.setupDatabase("CREATE TABLE bugs (ID INTEGER, title TEXT, description TEXT, location TEXT, picturePath TEXT, PRIMARY KEY(ID AUTOINCREMENT))");
 
     ui->centralwidget->setEnabled(true);
+    clearSingleBug();
+    loadUI();
 }
 
 void wBugDoc::loadUI()
 {
+    noAutoSave = true;
     QSqlQueryModel *bugModel = new QSqlQueryModel();
+
     dbHandler.openDB();
     bugModel->setQuery(dbHandler.doAction("SELECT ID, title FROM bugs"));
     ui->tvwBugs->setModel(bugModel);
     dbHandler.closeDB();
+
+    ui->tvwBugs->resizeColumnsToContents();
+
+    noAutoSave = false;
 }
 
 void wBugDoc::loadSingleItem()
 {
+    noAutoSave = true;
     int id = ui->tvwBugs->selectionModel()->selectedRows().at(0).data().toInt();
 
     dbHandler.openDB();
@@ -94,11 +103,12 @@ void wBugDoc::loadSingleItem()
     loadPicture();
 
     dbHandler.closeDB();
-    ui->lblUnsavedChanges->setVisible(false);
+    noAutoSave = false;
 }
 
 void wBugDoc::clearSingleBug()
 {
+    noAutoSave = true;
     ui->ledID->clear();
     ui->ledTitle->clear();
     ui->pteDescription->clear();
@@ -106,12 +116,23 @@ void wBugDoc::clearSingleBug()
     ui->ledPicturePath->clear();
     ui->lblPicture->setPixmap(QPixmap());
 
-    ui->lblUnsavedChanges->setVisible(false);
+    noAutoSave = false;
 }
 
 void wBugDoc::loadPicture()
 {
-    ui->lblPicture->setPixmap(QPixmap(ui->ledPicturePath->text()));
+    ui->lblPicture->setPixmap(QPixmap((ui->ledPicturePath->text().contains("%1") ? ui->ledPicturePath->text().arg(projectFolder) : ui->ledPicturePath->text())));
+}
+
+void wBugDoc::save()
+{
+    dbHandler.openDB();
+    dbHandler.doAction(QString("UPDATE bugs SET title = \"%2\", description = \"%3\", location = \"%4\", picturePath = \"%5\" WHERE ID = %1").arg(ui->ledID->text(), ui->ledTitle->text(), ui->pteDescription->toPlainText(), ui->ledLocation->text(), ui->ledPicturePath->text()));
+    dbHandler.closeDB();
+
+    int currentRow = ui->tvwBugs->currentIndex().row();
+    loadUI();
+    ui->tvwBugs->setCurrentIndex(ui->tvwBugs->model()->index(currentRow, 0));
 }
 
 void wBugDoc::on_tvwBugs_activated(const QModelIndex &index)
@@ -120,49 +141,35 @@ void wBugDoc::on_tvwBugs_activated(const QModelIndex &index)
     loadSingleItem();
 }
 
-void wBugDoc::on_btnSaveEntry_clicked()
-{
-    dbHandler.openDB();
-    dbHandler.doAction(QString("UPDATE bugs SET title = \"%2\", description = \"%3\", location = \"%4\", picturePath = \"%5\" WHERE ID = %1").arg(ui->ledID->text(), ui->ledTitle->text(), ui->pteDescription->toPlainText(), ui->ledLocation->text(), ui->ledPicturePath->text()));
-    dbHandler.closeDB();
-
-    ui->lblUnsavedChanges->setVisible(false);
-
-    int currentRow = ui->tvwBugs->currentIndex().row();
-    loadUI();
-    ui->tvwBugs->setCurrentIndex(ui->tvwBugs->model()->index(currentRow, 0));
-}
-
 void wBugDoc::on_ledID_textChanged(const QString &arg1)
 {
     Q_UNUSED(arg1);
-    ui->lblUnsavedChanges->setVisible(true);
+    if (!noAutoSave) save();
 }
 
 void wBugDoc::on_ledTitle_textChanged(const QString &arg1)
 {
     Q_UNUSED(arg1);
-    ui->lblUnsavedChanges->setVisible(true);
+    if (!noAutoSave) save();
 }
 
 void wBugDoc::on_pteDescription_textChanged()
 {
-    ui->lblUnsavedChanges->setVisible(true);
+    if (!noAutoSave) save();
 }
 
 void wBugDoc::on_ledLocation_textChanged(const QString &arg1)
 {
     Q_UNUSED(arg1);
-    ui->lblUnsavedChanges->setVisible(true);
+    if (!noAutoSave) save();
 }
 
 void wBugDoc::on_ledPicturePath_textChanged(const QString &arg1)
 {
     Q_UNUSED(arg1);
-    ui->lblUnsavedChanges->setVisible(true);
+    if (!noAutoSave) save();
     loadPicture();
 }
-
 
 void wBugDoc::on_btnDelete_clicked()
 {
@@ -187,7 +194,6 @@ void wBugDoc::on_btnDelete_clicked()
     catch(...) { }
 }
 
-
 void wBugDoc::on_btnAdd_clicked()
 {
     dbHandler.openDB();
@@ -198,7 +204,6 @@ void wBugDoc::on_btnAdd_clicked()
     ui->tvwBugs->selectRow(ui->tvwBugs->model()->rowCount() - 1);
     loadSingleItem();
 }
-
 
 void wBugDoc::on_btnWait_clicked()
 {
@@ -215,17 +220,16 @@ void wBugDoc::on_btnWait_clicked()
             QPixmap originalScreenshot = screen->grabWindow(0);
 
             QPixmap screenshot = originalScreenshot.scaled(QSize(originalScreenshot.width() / set.read(objectName(), "screenshotScale").toInt(), originalScreenshot.height() / set.read(objectName(), "screenshotScale").toInt()), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-            const QString screenshotPath = projectFolder + QString("/data/bug_%1.jpg").arg(QDateTime().currentDateTime().toString("yyyyMMdd_hhmmss"));
+            const QString screenshotPath = "%1" + QString("/data/bug_%1.jpg").arg(QDateTime().currentDateTime().toString("yyyyMMdd_hhmmss"));
 
-            if (!screenshot.save(screenshotPath, "JPEG")) QMessageBox::warning(this, "Speicherfehler", "Der Screenshot konnte nicht gespeichert werden. Prozedur bitte wiederholen!");
+            if (!screenshot.save(screenshotPath.arg(projectFolder), "JPEG")) QMessageBox::warning(this, "Speicherfehler", "Der Screenshot konnte nicht gespeichert werden. Prozedur bitte wiederholen!");
 
             showNormal();
             on_btnAdd_clicked();
             qApp->processEvents();
 
             ui->ledPicturePath->setText(screenshotPath);
-
-            on_btnSaveEntry_clicked();
+            ui->ledTitle->setFocus();
 
             break;
         }
@@ -250,10 +254,10 @@ void wBugDoc::on_actionHTML_triggered()
         html += "<h2>" + (bugsModel->index(i, 1).data().toString() == "" ? "(ohne Titel)" : bugsModel->index(i, 1).data().toString()) + "</h2>";
         html += "<p><strong>Ort:</strong> " + (bugsModel->index(i, 3).data().toString().isEmpty() ? "-" : bugsModel->index(i, 3).data().toString()) + "</p>";
         html += "<p><strong>Beschreibung:</strong>" + (bugsModel->index(i, 2).data().toString().contains("\n") ? "<br>" : QString(" ")) + (bugsModel->index(i, 2).data().toString().isEmpty() ? "-" : bugsModel->index(i, 2).data().toString()) + "</p>";
-        if (QFile(bugsModel->index(i, 4).data().toString()).exists())
+        if (QFile(bugsModel->index(i, 4).data().toString().contains("%1") ? bugsModel->index(i, 4).data().toString().replace("%1", projectFolder) : bugsModel->index(i, 4).data().toString()).exists())
         {
             html += "<p><br></p>";
-            html += "<p><img src=\"" + bugsModel->index(i, 4).data().toString() + "\" width='600'></p>";
+            html += "<p><img src=\"" + (bugsModel->index(i, 4).data().toString().contains("%1") ? bugsModel->index(i, 4).data().toString().replace("%1", projectFolder) : bugsModel->index(i, 4).data().toString()) + "\" width='600'></p>";
         }
 
         html += "<hr>";
@@ -270,7 +274,6 @@ void wBugDoc::on_actionHTML_triggered()
 
     QPrinter printer(QPrinter::PrinterResolution);
     printer.setOutputFormat(QPrinter::PdfFormat);
-    printer.setPageSize(QPageSize::Custom);
     printer.setOutputFileName(projectFolder + "/output_" + QDateTime().currentDateTime().toString("yyyyMMdd_hhmmss") + ".pdf");
 
     document.print(&printer);
@@ -289,38 +292,58 @@ void wBugDoc::on_actionPreferences_triggered()
 
 void wBugDoc::on_btnWebDiskCopy_clicked()
 {
-    ui->pgbProgress->setVisible(true);
-    ui->statusbar->showMessage("Upload picture, getting HTML...");
-    on_btnSaveEntry_clicked();
-
-    QString html;
+    QString output;
 
     dbHandler.openDB();
     QSqlQueryModel *bugsModel = new QSqlQueryModel();
     bugsModel->setQuery(dbHandler.doAction(QString("SELECT * FROM bugs WHERE ID = %1").arg(ui->tvwBugs->selectionModel()->selectedRows().at(0).data().toInt())));
 
-    html += "<h2>" + (bugsModel->index(0, 1).data().toString() == "" ? "(ohne Titel)" : bugsModel->index(0, 1).data().toString()) + "</h2>";
-    html += "<p><strong>Ort:</strong> " + (bugsModel->index(0, 3).data().toString().isEmpty() ? "-" : bugsModel->index(0, 3).data().toString()) + "</p>";
-    html += "<p><strong>Beschreibung:</strong>" + (bugsModel->index(0, 2).data().toString().contains("\n") ? "<br>" : QString(" ")) + (bugsModel->index(0, 2).data().toString().isEmpty() ? "-" : bugsModel->index(0, 2).data().toString()) + "</p>";
+    output += (bugsModel->index(0, 1).data().toString() == "" ? "" : bugsModel->index(0, 1).data().toString());
+    output += (bugsModel->index(0, 2).data().toString() == "" ? "" : ": " + bugsModel->index(0, 2).data().toString());
+    output += (bugsModel->index(0, 3).data().toString() == "" ? "" : "\n(" + bugsModel->index(0, 3).data().toString() + ")\n\n");
 
-    if (QFile(bugsModel->index(0, 4).data().toString()).exists())
-    {
-        html += "<p><br></p>";
-
-        QFile *picture = new QFile(bugsModel->index(0, 4).data().toString());
-
-        QString pictureUrl = nc.post(OTLinks::bugDocUploads, picture);
-
-        qInfo() << pictureUrl;
-
-        html += "<p><img src=\"" + pictureUrl + "\"></p>";
-    }
-
-    qInfo() << html;
+    misc.copy(output);
 
     dbHandler.closeDB();
 
-    ui->statusbar->clearMessage();
-    ui->pgbProgress->setVisible(false);
+//    ui->pgbProgress->setVisible(true);
+//    ui->statusbar->showMessage("Upload picture, getting HTML...");
+//    on_btnSaveEntry_clicked();
+
+//    QString html;
+
+//    dbHandler.openDB();
+//    QSqlQueryModel *bugsModel = new QSqlQueryModel();
+//    bugsModel->setQuery(dbHandler.doAction(QString("SELECT * FROM bugs WHERE ID = %1").arg(ui->tvwBugs->selectionModel()->selectedRows().at(0).data().toInt())));
+
+//    html += "<h2>" + (bugsModel->index(0, 1).data().toString() == "" ? "(ohne Titel)" : bugsModel->index(0, 1).data().toString()) + "</h2>";
+//    html += "<p><strong>Ort:</strong> " + (bugsModel->index(0, 3).data().toString().isEmpty() ? "-" : bugsModel->index(0, 3).data().toString()) + "</p>";
+//    html += "<p><strong>Beschreibung:</strong>" + (bugsModel->index(0, 2).data().toString().contains("\n") ? "<br>" : QString(" ")) + (bugsModel->index(0, 2).data().toString().isEmpty() ? "-" : bugsModel->index(0, 2).data().toString()) + "</p>";
+
+//    if (QFile(bugsModel->index(0, 4).data().toString()).exists())
+//    {
+//        html += "<p><br></p>";
+
+//        QFile *picture = new QFile(bugsModel->index(0, 4).data().toString());
+
+//        QString pictureUrl = nc.post(OTLinks::bugDocUploads, picture);
+
+//        qInfo() << pictureUrl;
+
+//        html += "<p><img src=\"" + pictureUrl + "\"></p>";
+//    }
+
+//    qInfo() << html;
+
+//    dbHandler.closeDB();
+
+//    ui->statusbar->clearMessage();
+//    ui->pgbProgress->setVisible(false);
+}
+
+
+void wBugDoc::on_btnCopyPicture_clicked()
+{
+    misc.copyPixmap(QPixmap((ui->ledPicturePath->text().contains("%1") ? ui->ledPicturePath->text().arg(projectFolder) : ui->ledPicturePath->text())));
 }
 

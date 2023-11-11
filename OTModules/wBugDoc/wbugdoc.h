@@ -32,8 +32,6 @@ private slots:
 
     void on_tvwBugs_activated(const QModelIndex &index);
 
-    void on_btnSaveEntry_clicked();
-
     void on_ledID_textChanged(const QString &arg1);
 
     void on_ledTitle_textChanged(const QString &arg1);
@@ -56,6 +54,8 @@ private slots:
 
     void on_btnWebDiskCopy_clicked();
 
+    void on_btnCopyPicture_clicked();
+
 private:
     Ui::wBugDoc *ui;
     wPreferences *WPREFERENCES;
@@ -67,6 +67,10 @@ private:
     void clearSingleBug();
 
     void loadPicture();
+
+    void save();
+
+    bool noAutoSave = false;
 
     OTMessage msg;
     OTSettings set;
