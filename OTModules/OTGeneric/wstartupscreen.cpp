@@ -32,6 +32,9 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     windowAnimation->setEasingCurve(QEasingCurve::OutCubic);
     windowAnimation->start(QPropertyAnimation::DeleteWhenStopped);
 
+    if (QDate().currentDate().month() == 12)
+        ui->lblSeasonIcon->setPixmap(QPixmap(":/rec/data/icons/iconChristmas.svg"));
+
     // ---------------
 
 //    QGraphicsOpacityEffect *labelEffect = new QGraphicsOpacityEffect(this);
