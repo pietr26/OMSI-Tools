@@ -224,7 +224,7 @@ void wCleanup::on_btnStartAction_clicked()
             // Sceneryobjects
             ui->pgbProgress->setValue(1);
             ui->statusbar->showMessage(tr("Move sceneryobjects..."));
-            qInfo() << QString("Move selected sceneryobjects to '%1'...").arg(destinationFolder);
+            qInfo().noquote() << QString("Move selected sceneryobjects to '%1'...").arg(destinationFolder);
 
             for (int i = 0; i < ui->lwgObjects->selectedItems().size(); i++)
             {
@@ -250,7 +250,7 @@ void wCleanup::on_btnStartAction_clicked()
 
             // Splines
             ui->pgbProgress->setValue(2);
-            qInfo() << QString("Move selected splines to '%1'...").arg(destinationFolder);
+            qInfo().noquote() << QString("Move selected splines to '%1'...").arg(destinationFolder);
 
             for (int i = 0; i < ui->lwgSplines->selectedItems().size(); i++)
             {
@@ -275,7 +275,7 @@ void wCleanup::on_btnStartAction_clicked()
 
             // Vehicles
             ui->pgbProgress->setValue(3);
-            qInfo() << QString("Move selected vehicles to '%1'...").arg(destinationFolder);
+            qInfo().noquote() << QString("Move selected vehicles to '%1'...").arg(destinationFolder);
 
             for (int i = 0; i < ui->lwgVehicles->selectedItems().size(); i++)
             {
