@@ -6,88 +6,168 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1031</width>
-    <height>772</height>
+    <width>1235</width>
+    <height>1037</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>wProjectManagement</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../../ressources.qrc">
+    <normaloff>:/rec/data/icons/iconServer.svg</normaloff>:/rec/data/icons/iconServer.svg</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <widget class="QPushButton" name="btnPullDownload">
-      <property name="text">
-       <string>Download [Pull]</string>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <item>
+       <widget class="QPushButton" name="btnPullDownload">
+        <property name="text">
+         <string>Download [Pull]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnFetchDownload">
+        <property name="text">
+         <string>Download [Fetch]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnCommitSave">
+        <property name="text">
+         <string>Save [Commit]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnPushUpload">
+        <property name="text">
+         <string>Upload [Push]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnStatusGetStatus">
+        <property name="text">
+         <string>Get status [status]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="btnFetchDownload">
-      <property name="text">
-       <string>Download [Fetch]</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnCommitSave">
-      <property name="text">
-       <string>Save [Commit]</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnPushUpload">
-      <property name="text">
-       <string>Upload [Push]</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer name="verticalSpacer">
+     <widget class="QSplitter" name="splitter_2">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QSplitter" name="splitter">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <widget class="QGroupBox" name="gbxOutputInfo">
+      <widget class="QGroupBox" name="gbxStatus">
        <property name="title">
-        <string>Informationen</string>
+        <string>Status</string>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <widget class="QPlainTextEdit" name="pteOutputInfo">
-          <property name="readOnly">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnDe_selectAll">
+            <property name="text">
+             <string>(De)select all</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="twgStatus">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="sortingEnabled">
            <bool>true</bool>
           </property>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Status</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>File</string>
+           </property>
+          </column>
          </widget>
         </item>
        </layout>
       </widget>
-      <widget class="QGroupBox" name="gbxOutputError">
-       <property name="title">
-        <string>Fehler</string>
+      <widget class="QSplitter" name="splitter">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QPlainTextEdit" name="pteOutputError">
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <widget class="QGroupBox" name="gbxOutputInfo">
+        <property name="title">
+         <string>Output</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QPlainTextEdit" name="pteOutputInfo">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QGroupBox" name="gbxOutputError">
+        <property name="title">
+         <string>Errors</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QPlainTextEdit" name="pteOutputError">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -98,7 +178,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1031</width>
+     <width>1235</width>
      <height>25</height>
     </rect>
    </property>
@@ -106,10 +186,20 @@
     <property name="title">
      <string>Window</string>
     </property>
+    <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionProjectSettings"/>
     <addaction name="actionBackToHome"/>
     <addaction name="actionClose"/>
    </widget>
+   <widget class="QMenu" name="menuSpecials">
+    <property name="title">
+     <string>Specials</string>
+    </property>
+    <addaction name="actionPreferences"/>
+   </widget>
    <addaction name="menuWindow"/>
+   <addaction name="menuSpecials"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionBackToHome">
@@ -134,6 +224,39 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Open Project...</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Preferences...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionProjectSettings">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Project preferences...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
  </widget>

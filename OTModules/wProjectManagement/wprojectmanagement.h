@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
+#include "OTModules/OTGeneric/wpreferences.h"
+#include "wprojectpreferences.h"
+#include <QTableWidgetItem>
+#include <QStandardItemModel>
 
 namespace Ui {
 class wProjectManagement;
@@ -29,14 +33,46 @@ private slots:
 
     void on_btnPushUpload_clicked();
 
+    void on_actionOpen_triggered();
+
+    void on_btnStatusGetStatus_clicked();
+
+    void on_btnDe_selectAll_clicked();
+
+    void on_twgStatus_itemClicked(QTableWidgetItem *item);
+
+    void on_twgStatus_itemDoubleClicked(QTableWidgetItem *item);
+
+    void on_actionPreferences_triggered();
+
+    void on_actionProjectSettings_triggered();
+
 signals:
     void backToHome();
 
 private:
     Ui::wProjectManagement *ui;
     OTSettings set;
+    OTGit git;
 
-    void execGit(QStringList args);
+    wPreferences *WPREFERENCES;
+    wProjectPreferences *WPROJECTPREFERENCES;
+
+    void selectProjectFolder();
+
+    void getGitStatus();
+
+    QStandardItemModel *modelStatus;
+
+    bool isAllSelected = false;
+
+    QFileSystemWatcher *watcher;
+
+    QTimer *fileWatcherTimer = new QTimer(this);
+
+    void restartFileWatcherTimer();
+
+    void enableUi(bool enable);
 };
 
 #endif // WPROJECTMANAGEMENT_H
