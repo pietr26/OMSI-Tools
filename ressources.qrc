@@ -103,5 +103,6 @@
         <file>data/translations/qtbase_ja.qm</file>
         <file>data/translations/qtbase_en.qm</file>
         <file>data/icons/iconChristmas.svg</file>
+        <file>data/icons/iconServer.svg</file>
     </qresource>
 </RCC>
