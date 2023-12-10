@@ -522,3 +522,12 @@ void wStart::on_actionDBPanelKnownWords_triggered()
     close();
 }
 
+
+void wStart::on_tbnProjectManagement_clicked()
+{
+    WPROJECTMANAGEMENT = new wProjectManagement();
+    connect(WPROJECTMANAGEMENT, &wProjectManagement::backToHome, this, &wStart::reopen);
+    WPROJECTMANAGEMENT->show();
+    close();
+}
+

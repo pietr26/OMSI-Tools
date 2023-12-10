@@ -10,6 +10,7 @@
 #include "OTModules/OTGeneric/wreleasenotes.h"
 #include "OTModules/wfonts.h"
 #include "OTModules/wVerifyMap/wverifymap.h"
+#include "OTModules/wProjectManagement/wprojectmanagement.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/OTGeneric/wabout.h"
 #include "OTModules/OTInternals/wdevtools.h"
@@ -95,6 +96,8 @@ private slots:
 
     void on_actionDBPanelKnownWords_triggered();
 
+    void on_tbnProjectManagement_clicked();
+
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;
@@ -114,6 +117,7 @@ private:
     wBugDoc *WBUGDOC;
     wVehicleList *WVEHICLELIST;
     wDBKnownWords *WDBKNOWNWORDS;
+    wProjectManagement *WPROJECTMANAGEMENT;
 
     OTSettings set;
     OTMessage msg;
