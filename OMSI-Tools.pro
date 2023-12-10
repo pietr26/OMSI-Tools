@@ -42,6 +42,8 @@ SOURCES += \
     OTModules/wMaps/wGlobalProps/weditseason.cpp \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wmaps.cpp \
+    OTModules/wProjectManagement/wprojectmanagement.cpp \
+    OTModules/wProjectManagement/wprojectpreferences.cpp \
     OTModules/wcleanup.cpp \
     OTModules/wmapselection.cpp \
     OTModules/wmessageviewer.cpp \
@@ -109,6 +111,8 @@ HEADERS += \
     OTModules/wMaps/wGlobalProps/weditseason.h \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wmaps.h \
+    OTModules/wProjectManagement/wprojectmanagement.h \
+    OTModules/wProjectManagement/wprojectpreferences.h \
     OTModules/wcleanup.h \
     OTModules/wmapselection.h \
     OTModules/wmessageviewer.h \
@@ -150,6 +154,8 @@ FORMS += \
     OTModules/wMaps/wGlobalProps/weditseason.ui \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
     OTModules/wMaps/wmaps.ui \
+    OTModules/wProjectManagement/wprojectmanagement.ui \
+    OTModules/wProjectManagement/wprojectpreferences.ui \
     OTModules/wcleanup.ui \
     OTModules/wmapselection.ui \
     OTModules/wmessageviewer.ui \
