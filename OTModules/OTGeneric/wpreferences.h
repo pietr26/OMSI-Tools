@@ -40,8 +40,6 @@ private slots:
 
     void on_btnClose_clicked();
 
-    void on_btnRestart_clicked();
-
     void on_cobxLanguage_currentIndexChanged(int index);
 
     void on_btnOmsiPath_clicked();

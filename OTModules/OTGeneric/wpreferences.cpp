@@ -15,7 +15,6 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     setWindowTitle("[*] " + OTInformation::name + " - " + tr("preferences"));
 
     ui->btnUseCustomTheme->setVisible(false);
-    ui->btnRestart->setVisible(false);
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(refreshDiskUsage()));
@@ -311,12 +310,6 @@ void wPreferences::on_btnOpenBackupFolder_clicked()
     QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 }
 
-/// Saves and restarts the application
-void wPreferences::on_btnRestart_clicked()
-{
-    misc.restart();
-}
-
 /// Checks for updates
 void wPreferences::on_btnCheckForUpdates_clicked()
 {
@@ -520,10 +513,11 @@ void wPreferences::on_btnSave_clicked()
 
     if (needRestart) {
         QMessageBox::information(this, tr("Restart required"), tr("To fully apply all changed preferences, the application requires a restart."));
-        ui->btnRestart->setVisible(true);
     }
 
     needRestart = false;
+
+    close();
 }
 
 void wPreferences::on_btnUseCustomTheme_clicked()
