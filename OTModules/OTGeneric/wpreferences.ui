@@ -1093,17 +1093,6 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QPushButton" name="btnRestart">
-        <property name="text">
-         <string>Restart</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="btnDevToolsPrefs">
         <property name="text">
          <string notr="true">DevTools Prefs</string>
@@ -1137,7 +1126,7 @@
       <item>
        <widget class="QPushButton" name="btnSave">
         <property name="text">
-         <string>Apply</string>
+         <string>Save</string>
         </property>
         <property name="icon">
          <iconset resource="../../ressources.qrc">
@@ -1155,7 +1144,7 @@
      <x>0</x>
      <y>0</y>
      <width>819</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
