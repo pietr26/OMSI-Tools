@@ -218,7 +218,7 @@
         <item>
          <widget class="QPushButton" name="btnWebDiskCopy">
           <property name="text">
-           <string>Copy text</string>
+           <string notr="true">Copy text</string>
           </property>
           <property name="icon">
            <iconset resource="../../ressources.qrc">
@@ -229,7 +229,7 @@
         <item>
          <widget class="QPushButton" name="btnCopyPicture">
           <property name="text">
-           <string>Copy picture</string>
+           <string notr="true">Copy picture</string>
           </property>
          </widget>
         </item>
