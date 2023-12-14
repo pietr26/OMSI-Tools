@@ -721,6 +721,12 @@ public:
             {
                 QFile parklist(current);
 
+                if (!parklist.open(QFile::ReadOnly | QFile::Text))
+                {
+                    qWarning().noquote() << "Cannot read Parklist:" << current;
+                    continue;
+                }
+
                 QTextStream in(&parklist);
                 in.setEncoding(QStringConverter::System);
                 QString line;
@@ -736,7 +742,7 @@ public:
                         if (checkMissing)
                         {
                             qWarning().noquote() << "Error in parklist '" + current.remove(getMapPath().remove("global.cfg")) + "': Line " + QString::number(lineCounter) + " is empty!";
-                            stuffobj.missing.sceneryobjects << QObject::tr("[Empty line in parklist %1]").arg(current.remove(getMapPath().remove("global.cfg")));
+                            stuffobj.missing.sceneryobjects << QObject::tr("[Empty line in parklist %1]").arg(current.remove(getMapPath().remove("global.cfg"))); // TODO
                         }
 
                         continue;
