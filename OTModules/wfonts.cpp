@@ -1410,7 +1410,7 @@ void wFonts::on_actionBackToHome_triggered()
 
 void wFonts::on_btnEditorPreferences_clicked()
 {
-    WPREFERENCES = new wPreferences(this, "wVerifyMap");
+    WPREFERENCES = new wPreferences(this, "wFonts");
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
 }
