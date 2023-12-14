@@ -797,6 +797,8 @@ public:
 
         aiLists << chronoAiLists;
 
+        QStringList trains;
+
         foreach (QString aiList, aiLists)
         {
             QFile aiListFile(aiList);
@@ -825,7 +827,7 @@ public:
                     in.readLine();
                     lineCounter++;
 
-                    while (line != "[end]")
+                    while (!in.atEnd())
                     {
                         line = in.readLine();
                         lineCounter++;
@@ -851,7 +853,10 @@ public:
                             stuffobj.missing.vehicles << QString(QFileInfo(vehicle).absoluteFilePath()).remove(0, cutCount);
                         }
                         else
+                        {
                             stuffobj.existing.vehicles << QString(QFileInfo(vehicle).absoluteFilePath()).remove(0, cutCount);
+                            if (line.endsWith(".zug")) trains << QFileInfo(vehicle).absoluteFilePath();
+                        }
                     }
                 }
                 else if (line == "[aigroup_depot_typgroup_2]")
@@ -872,10 +877,50 @@ public:
                         stuffobj.missing.vehicles << QString(QFileInfo(vehicle).absoluteFilePath()).remove(0, cutCount);
                     }
                     else
+                    {
                         stuffobj.existing.vehicles << QString(QFileInfo(vehicle).absoluteFilePath()).remove(0, cutCount);
+                        if (line.endsWith(".zug")) trains << QFileInfo(vehicle).absoluteFilePath();
+                    }
                 }
             }
+
             aiListFile.close();
+        }
+
+        trains.removeDuplicates();
+
+        foreach (QString current, trains)
+        {
+            QFile trainFile(current);
+            if (!trainFile.open(QFile::ReadOnly | QFile::Text))
+            {
+                msg.fileOpenErrorCloseOMSI(parent, current);
+                return;
+            }
+
+            QTextStream in(&trainFile);
+            in.setEncoding(QStringConverter::System);
+
+            QString line;
+
+            while (!in.atEnd())
+            {
+                line = in.readLine();
+
+                QFile train(mainDir + "/" + line);
+
+                if (!train.exists())
+                {
+                    qWarning().noquote() << "Vehicle (Train) '" + QFileInfo(train).absoluteFilePath() + "' is missing!";
+                    stuffobj.missing.vehicles << QString(QFileInfo(train).absoluteFilePath()).remove(0, cutCount);
+                }
+                else
+                    stuffobj.existing.vehicles << QString(QFileInfo(train).absoluteFilePath()).remove(0, cutCount);
+
+                line = in.readLine(); // skip direction indicator
+            }
+
+            trainFile.close();
         }
     }
 
