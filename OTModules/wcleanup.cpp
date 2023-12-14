@@ -80,12 +80,12 @@ void wCleanup::on_actionAnalyze_triggered()
 
     for (int i = 0; i < globals.size(); i++)
     {
-        ui->statusbar->showMessage(tr("Read maps (%1 of %2)...").arg(i + 1).arg(globals.size()));
+        ui->statusbar->showMessage(tr("Read maps (%1 / %2: %3)").arg(i + 1).arg(globals.size()).arg(filehandler.readConfig("[friendlyname]", filehandler.getMapPath())));
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
 
         filehandler.setMapPath(globals.at(i));
         filehandler.getTiles();
-        filehandler.getItems(filehandler.stuffobj.existing.tiles, false, false);
+        filehandler.getItems(filehandler.stuffobj.existing.tiles, false);
         filehandler.getVehicles();
 
         filehandler.stuffobj.existing.removeDuplicates();

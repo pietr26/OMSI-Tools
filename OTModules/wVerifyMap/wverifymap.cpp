@@ -214,7 +214,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.getItems(filehandler.stuffobj.existing.tiles);
     qDebug() << "Got sceneryobjects / splines.";
 
-    filehandler.stuffobj.removeDuplicates();
+    filehandler.stuffobj.removeDuplicates(); // TODO: Outsource in their class / functions
 
     QFuture<void> scoFuture;
     QFutureWatcher<void> *scoFutureWatcher  = new QFutureWatcher<void>(this);

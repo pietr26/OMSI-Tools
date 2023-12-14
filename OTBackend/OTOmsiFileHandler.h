@@ -532,13 +532,13 @@ public:
     }
 
     /// Returns results from any configuration file
-    QString readConfig(QString fullLineBeforeContent, QString path, int readLine = 1)
+    QString readConfig(QString fullLineBeforeContent, QString absolutePath, int readLine = 1)
     {
-        if (path.isEmpty()) return "ERR";
+        if (absolutePath.isEmpty()) return "ERR";
 
         cutCount = set.read("main", "mainDir").toString().length() + 1;
 
-        QFile file(path);
+        QFile file(absolutePath);
         if (!file.open(QFile::ReadOnly | QFile::Text))
         {
             qDebug().noquote() << "Cannot open file in readConfig(): Full path: '" + QFileInfo(file).absoluteFilePath() + "'";
@@ -561,7 +561,7 @@ public:
         }
         file.close();
 
-        qDebug().noquote() << "Could not find line after '" + fullLineBeforeContent + "' in file '" + path + "'!";
+        qDebug().noquote() << "Could not find line after '" + fullLineBeforeContent + "' in file '" + absolutePath + "'!";
         return "ERR";
     }
 
@@ -639,7 +639,7 @@ public:
         cutCount = mainDir.length() + 1;
 
         // simplier description.
-        progressName = QObject::tr("Read tiles...");
+        progressName = QObject::tr("Read tiles (%1 / %2)").arg("0", "0");
 
         QStringList a, b;
         if (tiles.length() == 1)
@@ -1215,6 +1215,7 @@ private:
 
             while (!in.atEnd())
             {
+                if (thread == "a") progressName = QObject::tr("Read tiles (%1 / %2)").arg(currentProgress).arg(maxProgress);
                 line = in.readLine();
 
                 if (line == "[object]" || line == "[splineAttachement]" || line == "[attachObj]" || line == "[splineAttachement_repeater]")
