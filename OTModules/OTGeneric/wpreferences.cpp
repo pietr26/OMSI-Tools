@@ -80,15 +80,25 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     // Open direct modes:
     if (openDirect == "mainDirSelection") // Main directory selection
     {
+
         on_btnOmsiPath_clicked();
         QTimer::singleShot(0, this, SLOT(close()));
     }
     else if (openDirect == "devTools") // devTools prefs
-        ui->stwPreferences->setCurrentIndex(0);
+    {
+        ui->lwgSections->setCurrentRow(0);
+    }
     else if (openDirect == "wVerifyMap") // wVerifyMap prefs
-        ui->lwgSections->setCurrentRow(2);
+    {
+        ui->lwgSections->setCurrentRow(1);
+    }
     else if (openDirect == "wFonts") // wFonts prefs
-        ui->lwgSections->setCurrentRow(3);
+    {
+        ui->lwgSections->setCurrentRow(2);
+    }
+    else ui->lwgSections->setCurrentRow(0);
+
+    on_lwgSections_itemClicked(new QListWidgetItem());
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -278,12 +288,7 @@ void wPreferences::refreshDiskUsage()
 /// Closes the application
 void wPreferences::on_btnClose_clicked()
 {
-    if (isWindowModified())
-    {
-        if (msg.unsavedContentLeaveYesNo(this) == 1)
-            close();
-    }
-    else close();
+    on_actionClose_triggered();
 }
 
 /// Deletes the backup folder
@@ -379,7 +384,7 @@ void wPreferences::on_ledAuthor_textChanged(const QString &arg1) { Q_UNUSED(arg1
 
 void wPreferences::on_cbxBackupEnabled_clicked(bool checked) { Q_UNUSED(checked); modified(); }
 
-void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
+void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { modified(); ui->cbxOnlyMapTextures->setEnabled(arg1); }
 
 void wPreferences::on_cbxOnlyMapTextures_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
 
@@ -541,5 +546,16 @@ void wPreferences::on_lwgSections_itemClicked(QListWidgetItem *item)
     Q_UNUSED(item);
     ui->stwPreferences->setCurrentIndex(ui->lwgSections->currentRow() + 1);
     ui->lblCurrentSection->setText(ui->lwgSections->currentItem()->text());
+}
+
+
+void wPreferences::on_actionClose_triggered()
+{
+    if (isWindowModified())
+    {
+        if (msg.unsavedContentLeaveYesNo(this) == 1)
+            close();
+    }
+    else close();
 }
 

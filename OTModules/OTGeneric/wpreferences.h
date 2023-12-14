@@ -92,6 +92,8 @@ private slots:
 
     void on_lwgSections_itemClicked(QListWidgetItem *item);
 
+    void on_actionClose_triggered();
+
 private:
     Ui::wPreferences *ui;
     OTSettings set;
