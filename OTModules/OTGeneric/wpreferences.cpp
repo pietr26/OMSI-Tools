@@ -63,7 +63,7 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
 
     // cobxLogfileMode
     QStringList logfileModes;
-    logfileModes << tr("Off")/* -1 */ << tr("Standard")/* 0 */ << "Debug"/* 1 */ << "Debug+"/* 2 */;
+    logfileModes << tr("Off")/* -1 */ << tr("Standard (recommended)")/* 0 */ << "Debug"/* 1 */ << "Debug+"/* 2 */;
     ui->cobxLogfileMode->addItems(logfileModes);
 
     // cobxAutoUpdateCheck
