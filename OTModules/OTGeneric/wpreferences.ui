@@ -133,7 +133,7 @@
         <item>
          <widget class="QStackedWidget" name="stwPreferences">
           <property name="currentIndex">
-           <number>2</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="pgeDevToolsPrefs">
            <layout class="QVBoxLayout" name="verticalLayout_13">
