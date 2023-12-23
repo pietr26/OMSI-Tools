@@ -26,6 +26,7 @@ SOURCES += \
     OTBackend/OTLogger.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
     OTModules/OTGeneric/wpreferences.cpp \
+    OTModules/OTGeneric/wpromptselector.cpp \
     OTModules/OTGeneric/wselectencoding.cpp \
     OTModules/OTInternals/wregeditor.cpp \
     OTModules/wBugDoc/wbugdoc.cpp \
@@ -42,6 +43,8 @@ SOURCES += \
     OTModules/wMaps/wGlobalProps/weditseason.cpp \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wmaps.cpp \
+    OTModules/wProjectManagement/wcreateproject.cpp \
+    OTModules/wProjectManagement/wmanagefiles.cpp \
     OTModules/wProjectManagement/wprojectmanagement.cpp \
     OTModules/wProjectManagement/wprojectpreferences.cpp \
     OTModules/wcleanup.cpp \
@@ -95,6 +98,7 @@ HEADERS += \
     OTBackend/OTStyleDraw.h \
     OTModules/OTGeneric/wfeedback.h \
     OTModules/OTGeneric/wpreferences.h \
+    OTModules/OTGeneric/wpromptselector.h \
     OTModules/OTGeneric/wselectencoding.h \
     OTModules/OTInternals/wregeditor.h \
     OTModules/wBugDoc/wbugdoc.h \
@@ -111,6 +115,8 @@ HEADERS += \
     OTModules/wMaps/wGlobalProps/weditseason.h \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wmaps.h \
+    OTModules/wProjectManagement/wcreateproject.h \
+    OTModules/wProjectManagement/wmanagefiles.h \
     OTModules/wProjectManagement/wprojectmanagement.h \
     OTModules/wProjectManagement/wprojectpreferences.h \
     OTModules/wcleanup.h \
@@ -138,6 +144,7 @@ HEADERS += \
 FORMS += \
     OTModules/OTGeneric/wfeedback.ui \
     OTModules/OTGeneric/wpreferences.ui \
+    OTModules/OTGeneric/wpromptselector.ui \
     OTModules/OTGeneric/wselectencoding.ui \
     OTModules/OTInternals/wregeditor.ui \
     OTModules/wBugDoc/wbugdoc.ui \
@@ -154,6 +161,8 @@ FORMS += \
     OTModules/wMaps/wGlobalProps/weditseason.ui \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
     OTModules/wMaps/wmaps.ui \
+    OTModules/wProjectManagement/wcreateproject.ui \
+    OTModules/wProjectManagement/wmanagefiles.ui \
     OTModules/wProjectManagement/wprojectmanagement.ui \
     OTModules/wProjectManagement/wprojectpreferences.ui \
     OTModules/wcleanup.ui \
