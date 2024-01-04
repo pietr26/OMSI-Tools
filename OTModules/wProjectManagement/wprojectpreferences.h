@@ -19,6 +19,8 @@ public:
 private slots:
     void on_btnSave_clicked();
 
+    void on_btnClose_clicked();
+
 private:
     Ui::wProjectPreferences *ui;
     OTSettings set;

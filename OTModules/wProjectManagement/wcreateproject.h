@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
+#include <QRegularExpression>
+#include <QValidator>
 
 namespace Ui {
 class wCreateProject;
@@ -17,7 +19,7 @@ public:
     ~wCreateProject();
 
 signals:
-    void creationFinished();
+    void creationFinished(QString path);
 
 private slots:
     void on_btnSelectFolder_clicked();
@@ -37,6 +39,8 @@ private:
     OTGit git;
 
     bool verifyData();
+
+    QValidator *nameValidator;
 };
 
 #endif // WCREATEPROJECT_H

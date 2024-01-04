@@ -4,7 +4,11 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/OTGeneric/wpreferences.h"
+#include "OTModules/OTGeneric/wpromptselector.h"
 #include "wprojectpreferences.h"
+#include "wmanagefiles.h"
+#include "remote/wdownloadproject.h"
+#include "wcreateproject.h"
 #include <QTableWidgetItem>
 #include <QStandardItemModel>
 
@@ -47,6 +51,25 @@ private slots:
 
     void on_actionProjectSettings_triggered();
 
+    void on_actionNewProject_triggered();
+
+    void on_btnTest_clicked();
+
+    void on_btnManageFiles_clicked();
+
+    void on_actionDownloadProject_triggered();
+
+    void on_actionUploadProject_triggered();
+
+    void on_actionCloseProject_triggered();
+
+public slots:
+    void reloadDownloadedProject(QString path);
+
+    void recieveNewProject(QString path);
+
+    void loadProject();
+
 signals:
     void backToHome();
 
@@ -57,8 +80,12 @@ private:
 
     wPreferences *WPREFERENCES;
     wProjectPreferences *WPROJECTPREFERENCES;
+    wCreateProject *WCREATEPROJECT;
+    wPromptSelector *WPROMPTSELECTOR;
+    wDownloadProject *WDOWNLOADPROJECT;
+    wManageFiles *WMANAGEFILES;
 
-    void selectProjectFolder();
+    void selectProjectFolder(bool newProject);
 
     void getGitStatus();
 
@@ -73,6 +100,10 @@ private:
     void restartFileWatcherTimer();
 
     void enableUi(bool enable);
+
+    void clearUi();
+
+    bool checkFolderStatus(bool newProject);
 };
 
 #endif // WPROJECTMANAGEMENT_H

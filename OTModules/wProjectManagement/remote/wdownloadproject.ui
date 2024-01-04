@@ -1,62 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>wCreateProject</class>
- <widget class="QMainWindow" name="wCreateProject">
+ <class>wDownloadProject</class>
+ <widget class="QMainWindow" name="wDownloadProject">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>762</width>
-    <height>310</height>
+    <width>567</width>
+    <height>238</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true">wCreateProject</string>
+   <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <layout class="QFormLayout" name="formLayout">
-      <item row="1" column="0">
-       <widget class="QLabel" name="lblFolder">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblGitURL">
         <property name="text">
-         <string>Project folder:</string>
+         <string>Git URL:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="ledGitURL"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblProjectPath">
+        <property name="text">
+         <string>Project Destination:</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <layout class="QHBoxLayout" name="horizontalLayout">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QLineEdit" name="ledFolder">
+         <widget class="QLineEdit" name="ledProjectPath">
           <property name="readOnly">
            <bool>true</bool>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnSelectFolder">
+         <widget class="QPushButton" name="btnSelectProjectPath">
           <property name="text">
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="../../ressources.qrc">
+           <iconset>
             <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
           </property>
          </widget>
         </item>
        </layout>
       </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="lblname">
-        <property name="text">
-         <string>Name:</string>
+      <item row="2" column="0" colspan="2">
+       <widget class="QLabel" name="lblProjectFolderInfo">
+        <property name="font">
+         <font>
+          <italic>true</italic>
+         </font>
         </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="ledName">
         <property name="text">
-         <string notr="true"/>
+         <string>The project folder will be downloaded to this folder.</string>
         </property>
        </widget>
       </item>
@@ -76,17 +84,30 @@
      </spacer>
     </item>
     <item>
-     <widget class="QLabel" name="lblMessage">
+     <widget class="QLabel" name="lblResetInfo">
       <property name="styleSheet">
-       <string notr="true">color: red;</string>
+       <string notr="true">color: red</string>
       </property>
       <property name="text">
-       <string notr="true"/>
+       <string>By downloading a project in an existing project folder, local files will might be replaced during the process.</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="btnCancel">
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+        <property name="shortcut">
+         <string notr="true">Ctrl+W</string>
+        </property>
+       </widget>
+      </item>
       <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
@@ -101,21 +122,14 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="btnCancel">
-        <property name="text">
-         <string>Cancel</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnCreate">
+       <widget class="QPushButton" name="btnDownload">
         <property name="font">
          <font>
           <bold>true</bold>
          </font>
         </property>
         <property name="text">
-         <string>Create</string>
+         <string notr="true">Download</string>
         </property>
        </widget>
       </item>
@@ -128,15 +142,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>762</width>
+     <width>567</width>
      <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

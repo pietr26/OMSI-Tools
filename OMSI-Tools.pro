@@ -43,6 +43,8 @@ SOURCES += \
     OTModules/wMaps/wGlobalProps/weditseason.cpp \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wmaps.cpp \
+    OTModules/wProjectManagement/remote/wdownloadproject.cpp \
+    OTModules/wProjectManagement/remote/wuploadproject.cpp \
     OTModules/wProjectManagement/wcreateproject.cpp \
     OTModules/wProjectManagement/wmanagefiles.cpp \
     OTModules/wProjectManagement/wprojectmanagement.cpp \
@@ -89,8 +91,8 @@ HEADERS += \
 #    OTBackend/DiscordGameSDK/include/user_manager.h \
 #    OTBackend/DiscordGameSDK/include/voice_manager.h \
     OTBackend/OCC.h \
+    OTBackend/OTExternal.h \
     OTBackend/discordRPC.h \
-    OTBackend/OTDatabaseHandler.h \
     OTBackend/OTGlobal.h \
     OTBackend/OTLogger.h \
     OTBackend/OTOmsiFileHandler.h \
@@ -115,6 +117,8 @@ HEADERS += \
     OTModules/wMaps/wGlobalProps/weditseason.h \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wmaps.h \
+    OTModules/wProjectManagement/remote/wdownloadproject.h \
+    OTModules/wProjectManagement/remote/wuploadproject.h \
     OTModules/wProjectManagement/wcreateproject.h \
     OTModules/wProjectManagement/wmanagefiles.h \
     OTModules/wProjectManagement/wprojectmanagement.h \
@@ -161,6 +165,8 @@ FORMS += \
     OTModules/wMaps/wGlobalProps/weditseason.ui \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
     OTModules/wMaps/wmaps.ui \
+    OTModules/wProjectManagement/remote/wdownloadproject.ui \
+    OTModules/wProjectManagement/remote/wuploadproject.ui \
     OTModules/wProjectManagement/wcreateproject.ui \
     OTModules/wProjectManagement/wmanagefiles.ui \
     OTModules/wProjectManagement/wprojectmanagement.ui \

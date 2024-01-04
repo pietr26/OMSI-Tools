@@ -1,9 +1,9 @@
-#include "wmanagefiles.h"
-#include "ui_wmanagefiles.h"
+#include "wuploadproject.h"
+#include "ui_wuploadproject.h"
 
-wManageFiles::wManageFiles(QWidget *parent)
+wUploadProject::wUploadProject(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::wManageFiles)
+    , ui(new Ui::wUploadProject)
 {
     qInfo().noquote() << "Starting " + objectName() + "...";
 
@@ -14,16 +14,18 @@ wManageFiles::wManageFiles(QWidget *parent)
 
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
-    setWindowTitle(tr("Manage files"));
+    setWindowTitle(tr("Upload project"));
 
     qInfo().noquote() << objectName() + " started";
 }
 
-wManageFiles::~wManageFiles()
+wUploadProject::~wUploadProject()
 {
     delete ui;
 }
 
-// TODO: Use -f in git add:
-//                              git add "file.end" -f
-// ... to ignore the gitignore conventions
+void wUploadProject::on_btnCancel_clicked()
+{
+    close();
+}
+

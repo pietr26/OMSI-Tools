@@ -17,6 +17,7 @@ wProjectManagement::wProjectManagement(QWidget *parent)
     setWindowTitle(OTInformation::name + " - " + tr("Project management"));
 
     enableUi(false);
+    clearUi();
 
     connect(fileWatcherTimer, &QTimer::timeout, this, &wProjectManagement::getGitStatus);
 
@@ -51,6 +52,55 @@ void wProjectManagement::enableUi(bool enable)
     ui->actionProjectSettings->setEnabled(enable);
 }
 
+void wProjectManagement::clearUi()
+{
+    ui->twgStatus->clear();
+    ui->twgStatus->setHorizontalHeaderLabels(QStringList() << tr("Status") << tr("File"));
+    ui->twgStatus->setRowCount(0);
+
+    ui->pteOutputInfo->clear();
+    ui->pteOutputError->clear();
+}
+
+bool wProjectManagement::checkFolderStatus(bool newProject)
+{
+    if (git.projectFolder.isEmpty()) return false;
+
+    QPair<QString, QString> status = git.exec(QStringList() << "rev-parse" << "--is-inside-work-tree");
+
+    if ((status.first.trimmed() != "true") && !newProject)
+    {
+        QMessageBox::warning(this, "Repo not exists", "Dir is not a repo!");
+        return false;
+    }
+    else if ((status.first.trimmed() == "true") && newProject)
+    {
+        QMessageBox::warning(this, "Dir is repo", "The directory is already a repo!");
+        return false;
+    }
+
+    return true;
+}
+
+void wProjectManagement::loadProject()
+{
+    if (!git.projectFolder.isEmpty())
+    {
+        clearUi();
+        enableUi(false);
+
+        set.write(objectName(), "lastProjectFolder", git.projectFolder);
+
+        getGitStatus();
+
+        watcher = new QFileSystemWatcher(QStringList() << git.projectFolder);
+        QObject::connect(watcher, &QFileSystemWatcher::fileChanged, this, &wProjectManagement::restartFileWatcherTimer);
+        QObject::connect(watcher, &QFileSystemWatcher::directoryChanged, this, &wProjectManagement::restartFileWatcherTimer);
+
+        enableUi(true);
+    }
+}
+
 void wProjectManagement::on_btnPullDownload_clicked()
 {
     git.exec(QStringList() << "XXX");
@@ -63,7 +113,8 @@ void wProjectManagement::on_btnFetchDownload_clicked()
 
 void wProjectManagement::on_btnCommitSave_clicked()
 {
-    git.exec(QStringList() << "XXX");
+    // TODO: Identity check
+    QPair<QString, QString> result = git.exec(QStringList() << "commit");
 }
 
 void wProjectManagement::on_btnPushUpload_clicked()
@@ -71,23 +122,18 @@ void wProjectManagement::on_btnPushUpload_clicked()
     git.exec(QStringList() << "XXX");
 }
 
-void wProjectManagement::selectProjectFolder()
+void wProjectManagement::selectProjectFolder(bool newProject = false)
 {
-    git.projectFolder.clear();
     git.projectFolder = QFileDialog::getExistingDirectory(this, tr("Select project folder"), set.read(objectName(), "lastProjectFolder").toString().isEmpty() ? set.read("main", "mainDir").toString() : set.read(objectName(), "lastProjectFolder").toString());
 
-    if (!git.projectFolder.isEmpty())
+    if (!checkFolderStatus(newProject))
     {
-        set.write(objectName(), "lastProjectFolder", git.projectFolder);
-
-        getGitStatus();
-
-        watcher = new QFileSystemWatcher(QStringList() << git.projectFolder);
-        QObject::connect(watcher, &QFileSystemWatcher::fileChanged, this, &wProjectManagement::restartFileWatcherTimer);
-        QObject::connect(watcher, &QFileSystemWatcher::directoryChanged, this, &wProjectManagement::restartFileWatcherTimer);
-
-        enableUi(true);
+        clearUi();
+        enableUi(false);
+        return;
     }
+
+    loadProject();
 }
 
 void wProjectManagement::getGitStatus()
@@ -109,7 +155,7 @@ void wProjectManagement::getGitStatus()
         else if (ident == 'C') status << QPair<QString, QString>(tr("Copied"),                  output[i].remove(0, 3)); // TODO: ?
         else if (ident == 'U') status << QPair<QString, QString>(tr("Updated but unmerged"),    output[i].remove(0, 3)); // TODO: ?
         else if (ident == '?') status << QPair<QString, QString>(tr("Unstaged"),                output[i].remove(0, 3));
-        else                   status << QPair<QString, QString>("???",                         output[i].remove(0, 3));
+      //else                   status << QPair<QString, QString>("???",                         output[i].remove(0, 3));
     }
 
     for (int i = 0; i < status.count(); i++)
@@ -174,7 +220,15 @@ void wProjectManagement::on_twgStatus_itemClicked(QTableWidgetItem *item)
 
 void wProjectManagement::on_twgStatus_itemDoubleClicked(QTableWidgetItem *item)
 {
-    qInfo() << "Diff";
+    QString filename = ui->twgStatus->item(item->row(), 1)->text();
+    if (filename.contains(">")) filename = filename.mid(filename.indexOf(">") + 2);
+
+    QString diff = git.exec(QStringList() << "diff" << filename).first;
+
+    if (diff.isEmpty()) diff = "(no file comparison possible - no changes, or file was deleted)";
+    else if (diff.contains("Binary")) diff = "Binary files - detected file changes";
+
+    ui->pteOutputInfo->setPlainText(diff);
 }
 
 void wProjectManagement::on_actionPreferences_triggered()
@@ -190,3 +244,64 @@ void wProjectManagement::on_actionProjectSettings_triggered()
     WPROJECTPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPROJECTPREFERENCES->show();
 }
+
+void wProjectManagement::on_actionNewProject_triggered()
+{
+    WCREATEPROJECT = new wCreateProject();
+    WCREATEPROJECT->setWindowModality(Qt::ApplicationModal);
+    WCREATEPROJECT->show();
+
+    QObject::connect(WCREATEPROJECT, &wCreateProject::creationFinished, this, &wProjectManagement::recieveNewProject);
+}
+
+void wProjectManagement::on_btnTest_clicked()
+{
+    ui->pteOutputInfo->setPlainText(git.exec(QStringList() << "status").first);
+}
+
+void wProjectManagement::reloadDownloadedProject(QString path)
+{
+    qInfo() << "Downloaded git - path:" << path;
+    git.projectFolder = path;
+    loadProject();
+    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Save changes in project"), tr("To save changes in this project, you need to input a name and an e-mail adress. Input identity now?"));
+
+    if (reply == QMessageBox::Yes) on_actionProjectSettings_triggered();
+}
+
+void wProjectManagement::recieveNewProject(QString path)
+{
+    git.projectFolder = path;
+    loadProject();
+}
+
+void wProjectManagement::on_btnManageFiles_clicked()
+{
+    WMANAGEFILES = new wManageFiles();
+    WMANAGEFILES->setWindowModality(Qt::ApplicationModal);
+    WMANAGEFILES->show();
+}
+
+void wProjectManagement::on_actionDownloadProject_triggered()
+{
+    if (git.projectFolder != "") WDOWNLOADPROJECT = new wDownloadProject(git.exec(QStringList() << "remote" << "get-url" << "origin").first.trimmed(), git.projectFolder);
+    else WDOWNLOADPROJECT = new wDownloadProject();
+
+    WDOWNLOADPROJECT->setWindowModality(Qt::ApplicationModal);
+    WDOWNLOADPROJECT->show();
+
+    QObject::connect(WDOWNLOADPROJECT, &wDownloadProject::downloadFinished, this, &wProjectManagement::reloadDownloadedProject);
+}
+
+void wProjectManagement::on_actionUploadProject_triggered()
+{
+
+}
+
+void wProjectManagement::on_actionCloseProject_triggered()
+{
+    clearUi();
+    enableUi(false);
+    git.projectFolder = "";
+}
+
