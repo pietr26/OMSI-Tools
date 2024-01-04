@@ -694,7 +694,7 @@ public:
             QStringList parklists;
             parklists << getMapPath().remove("global.cfg") + "parklist_p.txt";
 
-            for (int i = 1; i > 100; i++)
+            for (int i = 1; i < 100; i++)
             {
                 QString additionalParklist = getMapPath().remove("global.cfg") + "parklist_p_" + QString::number(i) + ".txt";
                 if (QFile(additionalParklist).exists())
