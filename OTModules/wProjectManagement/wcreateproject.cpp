@@ -16,6 +16,10 @@ wCreateProject::wCreateProject(QWidget *parent)
     setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(tr("Create project"));
 
+    nameValidator = new QRegularExpressionValidator(QRegularExpression("[0-9A-Za-z._-]*"), ui->ledName);
+
+    ui->ledName->setValidator(nameValidator);
+
     ui->btnCreate->setEnabled(false);
 
     qInfo().noquote() << objectName() + " started";
@@ -35,11 +39,39 @@ void wCreateProject::on_btnSelectFolder_clicked()
 
 void wCreateProject::on_btnCreate_clicked()
 {
-    // TODO: git setup
-    // TODO: Create gitignore file
+    QFile readme(ui->ledFolder->text() + "/" + "README.md");
+    git.projectFolder = ui->ledFolder->text();
 
-    emit creationFinished();
-    close();
+    if (!readme.open(QFile::WriteOnly | QFile::Text))
+    {
+        QMessageBox::critical(this, tr("Could not create repository"), tr("The initial README.md file could not be created."));
+    }
+    else
+    {
+        QTextStream readmeIn(&readme);
+        readmeIn << "# " << ui->ledName;
+        readme.close();
+
+        QFile::copy(":/rec/data/base-gitignore.txt", ui->ledFolder->text() + "/.gitignore");
+
+        // TODO: Create gitignore file
+
+        qInfo() << git.exec(QStringList() << "init");
+        qInfo() << git.exec(QStringList() << "git add .");
+        qInfo() << git.exec(QStringList() << "commit" << "-m" << tr("First commit"));
+        qInfo() << git.exec(QStringList() << "branch" << "-M" << "main");
+
+        emit creationFinished(git.projectFolder);
+        close();
+
+        /*
+git add README.md
+  git commit -m "first commit"
+  git branch -M main
+  git remote add origin https://github.com/pietr26/ot-test.git
+  git push -u origin main
+     */
+    }
 }
 
 void wCreateProject::on_btnCancel_clicked()
@@ -67,7 +99,7 @@ bool wCreateProject::verifyData()
     qInfo() << "gitOutput:" << status.first;
     qInfo() << "gitError:" << status.second;
 
-    if (ui->ledName->text().isEmpty())
+    if (ui->ledName->text().isEmpty() || ui->ledFolder->text().isEmpty())
     {
         ui->btnCreate->setEnabled(false);
         return false;

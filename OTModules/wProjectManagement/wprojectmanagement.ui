@@ -57,6 +57,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="btnTest">
+        <property name="text">
+         <string>TEST</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -68,6 +75,13 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnManageFiles">
+        <property name="text">
+         <string>Manage files...</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -124,12 +138,12 @@
           </attribute>
           <column>
            <property name="text">
-            <string>Status</string>
+            <string>1</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>File</string>
+            <string>2</string>
            </property>
           </column>
          </widget>
@@ -186,9 +200,14 @@
     <property name="title">
      <string>Window</string>
     </property>
+    <addaction name="actionNewProject"/>
     <addaction name="actionOpen"/>
     <addaction name="separator"/>
+    <addaction name="actionDownloadProject"/>
+    <addaction name="actionUploadProject"/>
     <addaction name="actionProjectSettings"/>
+    <addaction name="actionCloseProject"/>
+    <addaction name="separator"/>
     <addaction name="actionBackToHome"/>
     <addaction name="actionClose"/>
    </widget>
@@ -257,6 +276,48 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionNewProject">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
+   </property>
+   <property name="text">
+    <string>New project</string>
+   </property>
+  </action>
+  <action name="actionUploadProject">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconUpload.svg</normaloff>:/rec/data/icons/iconUpload.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Upload project...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="actionDownloadProject">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconDownload.svg</normaloff>:/rec/data/icons/iconDownload.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Download project...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionCloseProject">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Close project</string>
    </property>
   </action>
  </widget>
