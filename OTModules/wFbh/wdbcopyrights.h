@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
-#include "OTBackend/OTDatabaseHandler.h"
+#include "OTBackend/OTExternal.h"
 #include "OTModules/wFbh/waddpath.h"
 #include "OTModules/wFbh/waddterm.h"
 #include <QtSql>
