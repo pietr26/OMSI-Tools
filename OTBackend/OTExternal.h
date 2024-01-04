@@ -1,5 +1,5 @@
-#ifndef OTDATABASEHANDLER_H
-#define OTDATABASEHANDLER_H
+#ifndef OTEXTERNAL_H
+#define OTEXTERNAL_H
 #include "OTGlobal.h"
 #include <QtSql>
 #include <QSqlDriver>
@@ -154,6 +154,13 @@ private:
     }
 };
 
-#endif // OTDATABASEHANDLER_H
+class OTDirectXTexConv
+{
+public:
+
+private:
+};
+
+#endif // OTEXTERNAL_H
 
 

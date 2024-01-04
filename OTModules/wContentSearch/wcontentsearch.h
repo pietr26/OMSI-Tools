@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
-#include "OTBackend/OTDatabaseHandler.h"
+#include "OTBackend/OTExternal.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/wContentSearch/wsuggestfiles.h"
