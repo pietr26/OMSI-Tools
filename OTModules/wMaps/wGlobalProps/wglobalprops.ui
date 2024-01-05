@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>660</width>
-    <height>651</height>
+    <height>685</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -829,13 +829,43 @@
      <x>0</x>
      <y>0</y>
      <width>660</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuWindow">
+    <property name="title">
+     <string>Window</string>
+    </property>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuWindow"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset resource="../../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>inputAddEditRemove</class>
+   <extends>QWidget</extends>
+   <header>OTWidgets/inputaddeditremove.h</header>
+   <container>1</container>
+   <slots>
+    <signal>addClicked()</signal>
+    <signal>editClicked()</signal>
+    <signal>removeClicked()</signal>
+   </slots>
+  </customwidget>
   <customwidget>
    <class>input3DCoordinates</class>
    <extends>QWidget</extends>
@@ -855,17 +885,6 @@
    <slots>
     <signal>name1Changed(float)</signal>
     <signal>name2Changed(float)</signal>
-   </slots>
-  </customwidget>
-  <customwidget>
-   <class>inputAddEditRemove</class>
-   <extends>QWidget</extends>
-   <header>OTWidgets/inputaddeditremove.h</header>
-   <container>1</container>
-   <slots>
-    <signal>addClicked()</signal>
-    <signal>editClicked()</signal>
-    <signal>removeClicked()</signal>
    </slots>
   </customwidget>
  </customwidgets>
