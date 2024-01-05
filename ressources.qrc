@@ -105,5 +105,6 @@
         <file>data/icons/iconChristmas.svg</file>
         <file>data/icons/iconServer.svg</file>
         <file>data/base-gitignore.txt</file>
+        <file>data/external/texconv.exe</file>
     </qresource>
 </RCC>

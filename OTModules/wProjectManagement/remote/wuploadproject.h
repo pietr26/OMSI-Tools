@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTExternal.h"
 
 namespace Ui {
 class wUploadProject;

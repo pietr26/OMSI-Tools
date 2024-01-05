@@ -184,39 +184,6 @@ public:
     };
 };
 
-class OTGit
-{
-public:
-    QPair<QString, QString> exec(QStringList args)
-    {
-        if (projectFolder.isEmpty())
-        {
-            qWarning() << "Git: projectFolder is empty!";
-            return QPair<QString, QString>("", "projectFolder is empty!");
-        }
-        else if (!QDir(projectFolder).exists())
-        {
-            qWarning() << "Git: projectFolder is invalid!";
-            return QPair<QString, QString>("", "projectFolder is invalid!");
-        }
-
-        QProcess gitProcess;
-        gitProcess.setWorkingDirectory(projectFolder);
-        gitProcess.start("git", args);
-        gitProcess.waitForFinished();
-
-        QString info = gitProcess.readAllStandardOutput();
-        QString error = gitProcess.readAllStandardError();
-
-        if (info.trimmed() != "") qDebug() << "execGit Info:" << info;
-        if (error.trimmed() != "") qDebug() << "execGit Error:" << error;
-
-        return QPair<QString, QString>(info, error);
-    }
-
-    QString projectFolder;
-};
-
 class OTNetworkConnection : public QObject
 {
     Q_OBJECT
@@ -846,6 +813,11 @@ public:
 
         if (!read("wFonts", "texPreview").isValid())
             write("wFonts", "texPreview", 1);
+
+        if (!QFile("texconv.exe").exists())
+        {
+            qInfo() << QFile().copy(":/rec/data/external/texconv.exe", "texconv.exe");
+        }
     }
 
     QString getCurrentLanguageCode()
