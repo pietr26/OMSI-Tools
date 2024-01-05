@@ -98,6 +98,8 @@ private slots:
 
     void on_tbnProjectManagement_clicked();
 
+    void on_actionDirectXTex_triggered();
+
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;
