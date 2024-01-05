@@ -154,9 +154,87 @@ private:
     }
 };
 
+class OTGit
+{
+public:
+    QPair<QString, QString> exec(QStringList args)
+    {
+        if (projectFolder.isEmpty())
+        {
+            qWarning() << "Git: projectFolder is empty!";
+            return QPair<QString, QString>("", "projectFolder is empty!");
+        }
+        else if (!QDir(projectFolder).exists())
+        {
+            qWarning() << "Git: projectFolder is invalid!";
+            return QPair<QString, QString>("", "projectFolder is invalid!");
+        }
+
+        QProcess gitProcess;
+        gitProcess.setWorkingDirectory(projectFolder);
+        gitProcess.start("git", args);
+        gitProcess.waitForFinished();
+
+        QString info = gitProcess.readAllStandardOutput();
+        QString error = gitProcess.readAllStandardError();
+
+        if (info.trimmed() != "") qDebug() << "execGit Info:" << info;
+        if (error.trimmed() != "") qDebug() << "execGit Error:" << error;
+
+        return QPair<QString, QString>(info, error);
+    }
+
+    QString projectFolder;
+};
+
 class OTDirectXTexConv
 {
 public:
+    bool convert(QString format, QString input, QTemporaryFile &tFile)
+    {
+        QPair<QString, QString> output = exec(QStringList() << "-y" << "-ft" << format << "-o" << QDir::tempPath() << input);
+
+        QString newFile = QDir::tempPath() + "/" + QFileInfo(input).fileName();
+        while (!newFile.endsWith(".")) newFile = newFile.removeLast();
+        newFile.append(format);
+
+        tFile.resize(0);
+
+        QFile nFile(newFile);
+        qInfo() << "nFile:" << nFile.open(QFile::ReadOnly);
+        QByteArray bla = nFile.readAll();
+        qInfo() << "tFile:" << tFile.open();
+        QDataStream in(&tFile);
+        in.writeRawData(bla.constData(), bla.size());
+
+        //tFile.close();
+
+        //QFile(newFile).remove();
+
+        return true;
+    }
+
+    QPair<QString, QString> exec(QStringList args)
+    {
+        if (!QFile("texconv.exe").exists())
+        {
+            qCritical() << "Could not find texconv.exe!";
+            return QPair<QString, QString>("", "ERR: Could not find texconv.exe!");
+        }
+
+        QProcess texconvProcess;
+        texconvProcess.setWorkingDirectory(QApplication::applicationDirPath());
+        texconvProcess.start("texconv.exe", args);
+        texconvProcess.waitForFinished();
+
+        QString info = texconvProcess.readAllStandardOutput();
+        QString error = texconvProcess.readAllStandardError();
+
+        if (info.trimmed() != "") qDebug() << "execTexconv Info:" << info;
+        if (error.trimmed() != "") qDebug() << "execTexconv Error:" << error;
+
+        return QPair<QString, QString>(info, error);
+    }
 
 private:
 };

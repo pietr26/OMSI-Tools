@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTExternal.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wpromptselector.h"
 #include "wprojectpreferences.h"
