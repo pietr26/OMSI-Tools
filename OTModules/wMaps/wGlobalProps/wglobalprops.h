@@ -3,12 +3,12 @@
 
 #include "OTBackend/OTOmsiFileHandler.h"
 #include <QMainWindow>
-#include <OTBackend/OTGlobal.h>
-#include <OTBackend/OCC.h>
-#include <OTWidgets/input3dcoordinates.h>
-#include <OTModules/wMaps/wGlobalProps/weditgroundtexture.h>
+#include "OTBackend/OTGlobal.h"
+#include "OTBackend/OCC.h"
+#include "OTWidgets/input3dcoordinates.h"
+#include "OTModules/wMaps/wGlobalProps/weditgroundtexture.h"
 #include <QStandardItemModel>
-#include <OTModules/wMaps/wGlobalProps/weditseason.h>
+#include "OTModules/wMaps/wGlobalProps/weditseason.h"
 
 namespace Ui {
 class wGlobalProps;
@@ -101,6 +101,8 @@ private slots:
     void on_cuwSeasons_editClicked();
 
     void on_cuwSeasons_removeClicked();
+
+    void on_actionClose_triggered();
 
 private:
     Ui::wGlobalProps *ui;

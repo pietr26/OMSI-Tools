@@ -394,3 +394,9 @@ void wGlobalProps::on_cuwSeasons_removeClicked()
     reloadUI();
 }
 
+
+void wGlobalProps::on_actionClose_triggered()
+{
+    close();
+}
+
