@@ -1477,7 +1477,7 @@ public:
             }
 
             QTextStream in(&global);
-            in.setEncoding(QStringConverter::System);
+            in.setEncoding(QStringConverter::Utf16LE);
             QString line = "";
 
             clear();
@@ -1675,7 +1675,7 @@ public:
             }
 
             QTextStream out(&global);
-            out.setEncoding(QStringConverter::System);
+            out.setEncoding(QStringConverter::Utf16LE);
 
             try {
                 OCBase base;
