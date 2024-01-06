@@ -33,6 +33,25 @@ private slots:
 
     void on_sbxObjectDensity_valueChanged(int arg1);
 
+    void on_cuwZVariance_name1Changed(float );
+
+    void on_cuwZVariance_name2Changed(float );
+
+    void on_sbxTerrainLayerID_textChanged(const QString &arg1);
+
+    void on_actionPresetGrass_triggered();
+
+    void on_tbnObjectPresets_clicked();
+
+    void on_btnSave_clicked();
+
+    void on_btnTilesAll_clicked();
+
+    void on_btnTilesNone_clicked();
+
+signals:
+        void returnGlobalProps(OCMap::Global props);
+
 private:
     Ui::wPlaceObjects *ui;
     OTSettings set;
@@ -49,9 +68,13 @@ private:
 
     void loadUi();
 
-    void placeObjectsFromLayer(QImage &image);
+    QString placeObjectsFromLayer(QImage &image);
 
     void enableUi(bool enable);
+
+    QStringList objectEntries;
+
+    void checkStartEnabled();
 };
 
 #endif // WPLACEOBJECTS_H
