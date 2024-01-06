@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1054</width>
+    <width>1153</width>
     <height>786</height>
    </rect>
   </property>
@@ -97,16 +97,23 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QToolButton" name="tbnObjectPresets">
+          <property name="text">
+           <string>Presets...</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
-      <item row="2" column="0">
+      <item row="3" column="0">
        <widget class="QLabel" name="lblTerrainLayerID">
         <property name="text">
          <string>Terrain Layer ID:</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item row="3" column="1">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QSpinBox" name="sbxTerrainLayerID">
@@ -141,14 +148,14 @@
         </item>
        </layout>
       </item>
-      <item row="1" column="0">
+      <item row="2" column="0">
        <widget class="QLabel" name="lblTileSize">
         <property name="text">
          <string>Tile size:</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
+      <item row="2" column="1">
        <widget class="QDoubleSpinBox" name="dsbxTileSize">
         <property name="suffix">
          <string notr="true"> m</string>
@@ -164,6 +171,35 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblZVariance">
+        <property name="text">
+         <string>z Variance:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="input2DCoordinates" name="cuwZVariance" native="true">
+        <property name="suffix" stdset="0">
+         <string notr="true"> m</string>
+        </property>
+        <property name="decimals" stdset="0">
+         <number>2</number>
+        </property>
+        <property name="min" stdset="0">
+         <double>-1000.000000000000000</double>
+        </property>
+        <property name="max" stdset="0">
+         <double>1000.000000000000000</double>
+        </property>
+        <property name="name1" stdset="0">
+         <string notr="true">Min =</string>
+        </property>
+        <property name="name2" stdset="0">
+         <string notr="true">Max =</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>
@@ -175,19 +211,40 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnTilesAll">
+             <property name="text">
+              <string>All</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnTilesNone">
+             <property name="text">
+              <string>None</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
           <widget class="QListWidget" name="lwgTiles">
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="lblTileInfo">
-           <property name="text">
-            <string>Supports only tiles which are listed in global.cfg file. If selection is empty, the action will be performed on whole map.</string>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -255,6 +312,31 @@
       </item>
      </layout>
     </item>
+    <item>
+     <widget class="QPushButton" name="btnSave">
+      <property name="font">
+       <font>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 yellow, stop: 0.4 red, stop:1 yellow)</string>
+      </property>
+      <property name="text">
+       <string>- !!! Apply changes: Return to map selection and click 'Save' to apply NextIDCode !!! -</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="pgbProgress">
+      <property name="maximum">
+       <number>0</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -262,7 +344,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1054</width>
+     <width>1153</width>
      <height>25</height>
     </rect>
    </property>
@@ -287,6 +369,14 @@
     <string>Ctrl+W</string>
    </property>
   </action>
+  <action name="actionPresetGrass">
+   <property name="text">
+    <string>3D grass (Oberpfalz 3D)</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -298,6 +388,16 @@
     <signal>addClicked()</signal>
     <signal>editClicked()</signal>
     <signal>removeClicked()</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>input2DCoordinates</class>
+   <extends>QWidget</extends>
+   <header>OTWidgets/input2dcoordinates.h</header>
+   <container>1</container>
+   <slots>
+    <signal>name1Changed(float)</signal>
+    <signal>name2Changed(float)</signal>
    </slots>
   </customwidget>
  </customwidgets>
