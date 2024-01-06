@@ -98,13 +98,18 @@ void wMaps::recieveGlobalProps(OCMap::Global globalProps)
 
 void wMaps::on_btnSave_clicked()
 {
+    ui->statusbar->showMessage(tr("Save global.cfg..."));
+    ui->centralwidget->setEnabled(false);
+    qApp->processEvents();
     map.global.write();
+    ui->centralwidget->setEnabled(true);
+    ui->statusbar->showMessage(tr("Global.cfg saved!"));
 }
 
 void wMaps::on_btnPlaceObjects_clicked()
 {
     WPLACEOBJECTS = new wPlaceObjects(map.global, this);
-    //connect(WPLACEOBJECTS, &wPlaceObjects::XXX, this, &wMaps::YYY);
+    connect(WPLACEOBJECTS, &wPlaceObjects::returnGlobalProps, this, &wMaps::recieveGlobalProps);
     WPLACEOBJECTS->show();
 }
 
