@@ -1477,7 +1477,7 @@ public:
             }
 
             QTextStream in(&global);
-            in.setEncoding(QStringConverter::Utf16LE);
+            in.setEncoding(QStringConverter::Latin1);
             QString line = "";
 
             clear();
@@ -1500,6 +1500,13 @@ public:
                             description += line +  "\n";
                             line = in.readLine();
                         }
+
+                        description.replace("Ä", "Ae", Qt::CaseSensitive);
+                        description.replace("Ö", "Oe", Qt::CaseSensitive);
+                        description.replace("Ü", "Ue", Qt::CaseSensitive);
+                        description.replace("ä", "ae", Qt::CaseSensitive);
+                        description.replace("ö", "oe", Qt::CaseSensitive);
+                        description.replace("ü", "ue", Qt::CaseSensitive);
 
                         description = description.trimmed();
                     }
@@ -1637,7 +1644,10 @@ public:
                     {
                         TileInformation tile;
 
-                        tile.position = OC2DCoordinates<int>(in.readLine().toInt(), in.readLine().toInt());
+                        int x = in.readLine().toInt();
+                        int y = in.readLine().toInt();
+
+                        tile.position = OC2DCoordinates<int>(x, y);
                         tile.filename = in.readLine();
 
                         tiles.append(tile);
@@ -1667,6 +1677,10 @@ public:
 
             QFile global(filepath);
 
+            // Backup
+            if (!QDir().exists(QString(filepath).remove("global.cfg") + "/backup")) qDebug() << "Backup dir create:" << QDir().mkdir(QString(filepath).remove("global.cfg") + "/backup");
+            global.copy(QString(filepath).remove("global.cfg") + "/backup/global.cfg");
+
             if (!global.open(QFile::WriteOnly | QFile::Text))
             {
                 // msg.fileOpenErrorCloseOMSI(parent, mapFolderPath); TODO
@@ -1675,7 +1689,8 @@ public:
             }
 
             QTextStream out(&global);
-            out.setEncoding(QStringConverter::Utf16LE);
+            // Notepad++ -> UTF-8 - readable by OMSI!
+            out.setEncoding(QStringConverter::Latin1);
 
             try {
                 OCBase base;
