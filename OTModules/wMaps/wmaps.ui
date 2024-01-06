@@ -74,6 +74,13 @@
      </widget>
     </item>
     <item>
+     <widget class="QPushButton" name="btnPlaceObjects">
+      <property name="text">
+       <string>[ALPHA] Place objects by terrain layer</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -120,13 +127,6 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="btnSave">
-      <property name="text">
-       <string>Save</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -135,7 +135,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">

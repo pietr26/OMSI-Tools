@@ -13,6 +13,8 @@ wMaps::wMaps(QWidget *parent) :
 
     setWindowTitle(OTInformation::name + " - " + tr("map editor"));
 
+    enableUi(false);
+
     // Load prefs
     setStyleSheet(set.read("main", "theme").toString());
 
@@ -54,6 +56,7 @@ void wMaps::on_btnLoadMap_clicked()
 
 void wMaps::recieveSelectedMap(QPair<QString, QString> mapInfo)
 {
+    enableUi(true);
     currentMap = mapInfo;
 
     set.write(objectName(), "mapPath", currentMap.second);
@@ -96,5 +99,18 @@ void wMaps::recieveGlobalProps(OCMap::Global globalProps)
 void wMaps::on_btnSave_clicked()
 {
     map.global.write();
+}
+
+void wMaps::on_btnPlaceObjects_clicked()
+{
+    WPLACEOBJECTS = new wPlaceObjects(map.global, this);
+    //connect(WPLACEOBJECTS, &wPlaceObjects::XXX, this, &wMaps::YYY);
+    WPLACEOBJECTS->show();
+}
+
+void wMaps::enableUi(bool enable)
+{
+    ui->btnEditPropterties->setEnabled(enable);
+    ui->btnPlaceObjects->setEnabled(enable);
 }
 
