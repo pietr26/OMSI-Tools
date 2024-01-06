@@ -1679,6 +1679,7 @@ public:
 
             // Backup
             if (!QDir().exists(QString(filepath).remove("global.cfg") + "/backup")) qDebug() << "Backup dir create:" << QDir().mkdir(QString(filepath).remove("global.cfg") + "/backup");
+            if (QFile(QString(filepath).remove("global.cfg") + "/backup/global.cfg").exists()) QFile(QString(filepath).remove("global.cfg") + "/backup/global.cfg").remove();
             global.copy(QString(filepath).remove("global.cfg") + "/backup/global.cfg");
 
             if (!global.open(QFile::WriteOnly | QFile::Text))
