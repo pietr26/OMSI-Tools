@@ -25,7 +25,7 @@
     <item>
      <widget class="QTabWidget" name="twgGlobalProps">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabInformation">
        <attribute name="title">
@@ -867,6 +867,16 @@
    </slots>
   </customwidget>
   <customwidget>
+   <class>input2DCoordinates</class>
+   <extends>QWidget</extends>
+   <header>OTWidgets/input2dcoordinates.h</header>
+   <container>1</container>
+   <slots>
+    <signal>name1Changed(float)</signal>
+    <signal>name2Changed(float)</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
    <class>input3DCoordinates</class>
    <extends>QWidget</extends>
    <header>OTWidgets/input3dcoordinates.h</header>
@@ -875,16 +885,6 @@
     <signal>name1Changed(float)</signal>
     <signal>name2Changed(float)</signal>
     <signal>name3Changed(float)</signal>
-   </slots>
-  </customwidget>
-  <customwidget>
-   <class>input2DCoordinates</class>
-   <extends>QWidget</extends>
-   <header>OTWidgets/input2dcoordinates.h</header>
-   <container>1</container>
-   <slots>
-    <signal>name1Changed(float)</signal>
-    <signal>name2Changed(float)</signal>
    </slots>
   </customwidget>
  </customwidgets>
