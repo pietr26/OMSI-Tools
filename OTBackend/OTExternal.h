@@ -201,9 +201,9 @@ public:
         tFile.resize(0);
 
         QFile nFile(newFile);
-        qInfo() << "nFile:" << nFile.open(QFile::ReadOnly);
+        nFile.open(QFile::ReadOnly);
         QByteArray bla = nFile.readAll();
-        qInfo() << "tFile:" << tFile.open();
+        tFile.open();
         QDataStream in(&tFile);
         in.writeRawData(bla.constData(), bla.size());
 
