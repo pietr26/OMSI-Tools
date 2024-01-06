@@ -42,6 +42,7 @@ SOURCES += \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp \
     OTModules/wMaps/wGlobalProps/weditseason.cpp \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
+    OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp \
     OTModules/wMaps/wmaps.cpp \
     OTModules/wProjectManagement/remote/wdownloadproject.cpp \
     OTModules/wProjectManagement/remote/wuploadproject.cpp \
@@ -116,6 +117,7 @@ HEADERS += \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.h \
     OTModules/wMaps/wGlobalProps/weditseason.h \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
+    OTModules/wMaps/wPlaceObjects/wplaceobjects.h \
     OTModules/wMaps/wmaps.h \
     OTModules/wProjectManagement/remote/wdownloadproject.h \
     OTModules/wProjectManagement/remote/wuploadproject.h \
@@ -164,6 +166,7 @@ FORMS += \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.ui \
     OTModules/wMaps/wGlobalProps/weditseason.ui \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
+    OTModules/wMaps/wPlaceObjects/wplaceobjects.ui \
     OTModules/wMaps/wmaps.ui \
     OTModules/wProjectManagement/remote/wdownloadproject.ui \
     OTModules/wProjectManagement/remote/wuploadproject.ui \

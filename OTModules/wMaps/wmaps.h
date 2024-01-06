@@ -8,6 +8,7 @@
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/wmapselection.h"
 #include "OTModules/wMaps/wGlobalProps/wglobalprops.h"
+#include "OTModules/wMaps/wPlaceObjects/wplaceobjects.h"
 #include "OTBackend/OCC.h"
 
 namespace Ui {
@@ -46,6 +47,8 @@ private slots:
 
     void on_btnSave_clicked();
 
+    void on_btnPlaceObjects_clicked();
+
 private:
     Ui::wMaps *ui;
 
@@ -56,10 +59,13 @@ private:
     wPreferences *WPREFERENCES;
     wMapSelection *WMAPSELECTION;
     wGlobalProps *WGLOBALPROPS;
+    wPlaceObjects *WPLACEOBJECTS;
 
     QPair<QString, QString> currentMap;
 
     OCMap map;
+
+    void enableUi(bool enable);
 };
 
 #endif // WMAPS_H
