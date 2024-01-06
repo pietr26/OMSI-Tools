@@ -41,6 +41,10 @@ wStart::wStart(QWidget *parent)
 
         ui->menubar->addMenu(devTools);
     }
+    else
+    {
+        ui->tbnMaps->setVisible(false);
+    }
 
     adjustSize();
 
