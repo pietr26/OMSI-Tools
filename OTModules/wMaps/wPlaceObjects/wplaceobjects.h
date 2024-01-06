@@ -31,8 +31,6 @@ private slots:
 
     void on_actionClose_triggered();
 
-    void on_sbxObjectDensity_valueChanged(int arg1);
-
     void on_cuwZVariance_name1Changed(float );
 
     void on_cuwZVariance_name2Changed(float );
@@ -48,6 +46,8 @@ private slots:
     void on_btnTilesAll_clicked();
 
     void on_btnTilesNone_clicked();
+
+    void on_dsbxObjectDensity_valueChanged(double arg1);
 
 signals:
         void returnGlobalProps(OCMap::Global props);

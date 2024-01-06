@@ -80,7 +80,7 @@ void wPlaceObjects::loadUi()
 
 void wPlaceObjects::on_hslObjectDensity_sliderMoved(int position)
 {
-    ui->sbxObjectDensity->setValue(position);
+    ui->dsbxObjectDensity->setValue(QVariant(position).toDouble() / 100);
 }
 
 void wPlaceObjects::on_sbxTerrainLayerID_valueChanged(int arg1)
@@ -190,7 +190,6 @@ void wPlaceObjects::on_btnStart_clicked()
             texconv.convert("bmp", QString(props.filepath).remove("global.cfg") + "texture/map/" + layerName, layerSource);
 
             QImage layer(layerSource.fileName());
-            qInfo() << layerSource.fileName();
 
             QString newObjectEntries = placeObjectsFromLayer(layer);
 
@@ -203,22 +202,27 @@ void wPlaceObjects::on_btnStart_clicked()
 
             if (ui->cbxClearLayer->isChecked()) QFile(originalFilename).remove(); // TODO: Warnung
 
-            // Change map file
-            if (!QDir().exists(QString(props.filepath).remove("global.cfg") + "/backup")) qDebug() << "Backup dir create:" << QDir().mkdir(QString(props.filepath).remove("global.cfg") + "/backup");
-            QFile::copy(QString(props.filepath).remove("global.cfg") + "/" + props.tiles[i].filename, QString(props.filepath).remove("global.cfg") + "/backup/" + props.tiles[i].filename);
-
-            QFile tile(QString(props.filepath).remove("global.cfg") + "/" + props.tiles[i].filename);
-
-            if (tile.open(QFile::WriteOnly | QFile::Text | QFile::Append))
+            if (!ui->cbxDryRun->isChecked())
             {
-                QTextStream out(&tile);
-                out.setEncoding(QStringConverter::Utf16LE);
+                // Change map file
+                if (!QDir().exists(QString(props.filepath).remove("global.cfg") + "/backup")) qDebug() << "Backup dir create:" << QDir().mkdir(QString(props.filepath).remove("global.cfg") + "/backup");
+                if (QFile(QString(props.filepath).remove("global.cfg") + "/backup/" + props.tiles[i].filename).exists()) QFile(QString(props.filepath).remove("global.cfg") + "/backup/" + props.tiles[i].filename).remove();
+                QFile::copy(QString(props.filepath).remove("global.cfg") + "/" + props.tiles[i].filename, QString(props.filepath).remove("global.cfg") + "/backup/" + props.tiles[i].filename);
 
-                out << "\n\n";
-                out << newObjectEntries;
+                QFile tile(QString(props.filepath).remove("global.cfg") + "/" + props.tiles[i].filename);
 
-                tile.close();
+                if (tile.open(QFile::WriteOnly | QFile::Text | QFile::Append))
+                {
+                    QTextStream out(&tile);
+                    out.setEncoding(QStringConverter::Utf16LE);
+
+                    out << "\n\n";
+                    out << newObjectEntries;
+
+                    tile.close();
+                }
             }
+            else qInfo() << "DRY RUN - tile data will NOT be written!";
 
             qApp->processEvents();
         }
@@ -246,17 +250,28 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
             if (image.pixelColor(x, y) == Qt::white)
                 blackPixels << QPoint(x, y);
 
-    float currentDensity = QVariant(ui->hslObjectDensity->value()).toFloat() / 100;
-    float maxDensity = QVariant(ui->hslObjectDensity->maximum()).toFloat() / 100;
+    double currentDensity = ui->dsbxObjectDensity->value();
+    double maxDensity = ui->dsbxObjectDensity->maximum();
 
     int anzZPObj = blackPixels.count() * (ui->dsbxTileSize->value() / width) * ((currentDensity <= 1) ? 1 : maxDensity);
 
+    qInfo() << "------------------------------------------------------------------------------------------------------------";
+    qInfo() << "Black pixels:" << blackPixels.count();
+    qInfo() << "Image width:" << width;
+    qInfo() << "Current density:" << currentDensity;
+    qInfo() << "Max. density:" << maxDensity;
+    qInfo() << "~~~~~~~~~~";
+    qInfo() << "Count of maximal placable objects:" << anzZPObj;
+
     QString result;
+
+    int counter = 0;
 
     for (int i = 0; i < anzZPObj; i++)
     {
         if (QRandomGenerator::global()->generateDouble() < (QVariant(currentDensity).toFloat() / ((currentDensity <= 1) ? 1 : maxDensity)))
         {
+            counter++;
             props.nextIDCode++;
 
             int index = QRandomGenerator::global()->bounded(0, blackPixels.count());
@@ -280,6 +295,10 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
         }
     }
 
+    qInfo() << "Placed objects in fact:" << counter;
+    qInfo() << "Factor of 'placedObjects / totalObjects':" << QVariant(counter).toFloat() / QVariant(anzZPObj).toFloat();
+    qInfo() << "------------------------------------------------------------------------------------------------------------";
+
     return result;
 }
 
@@ -299,11 +318,6 @@ void wPlaceObjects::checkStartEnabled()
 void wPlaceObjects::on_actionClose_triggered()
 {
     close();
-}
-
-void wPlaceObjects::on_sbxObjectDensity_valueChanged(int arg1)
-{
-    ui->hslObjectDensity->setValue(arg1);
 }
 
 void wPlaceObjects::on_cuwZVariance_name1Changed(float value)
@@ -326,7 +340,7 @@ void wPlaceObjects::on_sbxTerrainLayerID_textChanged(const QString &arg1)
 
 void wPlaceObjects::on_actionPresetGrass_triggered()
 {
-    ui->sbxObjectDensity->setValue(45);
+    ui->dsbxObjectDensity->setValue(0.45);
 
     ui->lwgObjects->addItem("Sceneryobjects\\Oberpfalz 3D\\Krummenaab\\Gras.sco");
     ui->lwgObjects->addItem("Sceneryobjects\\Oberpfalz 3D\\Krummenaab\\Gras_2.sco");
@@ -355,4 +369,9 @@ void wPlaceObjects::on_btnTilesAll_clicked()
 void wPlaceObjects::on_btnTilesNone_clicked()
 {
     for (int i = 0; i < ui->lwgTiles->count(); i++) ui->lwgTiles->item(i)->setCheckState(Qt::Unchecked);
+}
+
+void wPlaceObjects::on_dsbxObjectDensity_valueChanged(double arg1)
+{
+    ui->hslObjectDensity->setValue(arg1 * 100);
 }
