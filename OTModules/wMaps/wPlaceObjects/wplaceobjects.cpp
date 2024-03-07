@@ -80,7 +80,7 @@ void wPlaceObjects::loadUi()
 
 void wPlaceObjects::on_hslObjectDensity_sliderMoved(int position)
 {
-    ui->dsbxObjectDensity->setValue(QVariant(position).toDouble() / 100);
+    ui->dsbxObjectDensity->setValue(QVariant(position).toDouble() / DensistySliderFactor);
 }
 
 void wPlaceObjects::on_sbxTerrainLayerID_valueChanged(int arg1)
@@ -243,60 +243,71 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
     int width = image.width();
     int height = image.height();
 
-    QList<QPoint> blackPixels;
+    QList<QPointF> blackPixels;
+
+    // determine target densisty
+    double densisty = ui->dsbxObjectDensity->value(); // ( n / m^2)
+
+    // pixel size
+    float pixelWidth = ui->dsbxTileSize->value() / image.width();
 
     for (int y = 0; y < height; ++y)
         for (int x = 0; x < width; ++x)
             if (image.pixelColor(x, y) == Qt::white)
-                blackPixels << QPoint(x, y);
+                blackPixels << QPointF(x * pixelWidth, y * pixelWidth);
 
-    double currentDensity = ui->dsbxObjectDensity->value();
-    double maxDensity = ui->dsbxObjectDensity->maximum();
+    // determine size of the "allowed" area in m^2
+    float areaSize = pow(pixelWidth, 2) * blackPixels.count(); // ( m / res * n  ^ 2 = m^2 )
 
-    int anzZPObj = blackPixels.count() * (ui->dsbxTileSize->value() / width) * ((currentDensity <= 1) ? 1 : maxDensity);
+    // determine needed amount of objects
+    int   placedObjectsCount = areaSize * densisty; // ( m^2 * n/m^2 = n )
+
+    //int anzZPObj = blackPixels.count() * (ui->dsbxTileSize->value() / width) * ((densisty <= 1) ? 1 : maxDensity);
+
+
 
     qInfo() << "------------------------------------------------------------------------------------------------------------";
     qInfo() << "Black pixels:" << blackPixels.count();
     qInfo() << "Image width:" << width;
-    qInfo() << "Current density:" << currentDensity;
-    qInfo() << "Max. density:" << maxDensity;
+    qInfo() << "density:" << densisty;
     qInfo() << "~~~~~~~~~~";
-    qInfo() << "Count of maximal placable objects:" << anzZPObj;
+    qInfo() << "Count of placing objects:" << placedObjectsCount;
 
     QString result;
 
     int counter = 0;
 
-    for (int i = 0; i < anzZPObj; i++)
+    for (int i = 0; i < placedObjectsCount; i++)
     {
-        if (QRandomGenerator::global()->generateDouble() < (QVariant(currentDensity).toFloat() / ((currentDensity <= 1) ? 1 : maxDensity)))
-        {
-            counter++;
-            props.nextIDCode++;
+        counter++;
+        props.nextIDCode++;
 
-            int index = QRandomGenerator::global()->bounded(0, blackPixels.count());
+        int index = QRandomGenerator::global()->bounded(0, blackPixels.count());
 
-            float xVariance = (QRandomGenerator::global()->bounded(-100, 100) * ((ui->dsbxTileSize->value() / width) / 2)) / 100.0;
-            float yVariance = (QRandomGenerator::global()->bounded(-100, 100) * ((ui->dsbxTileSize->value() / width) / 2)) / 100.0;
+        float varianceX = QVariant(QRandomGenerator::global()->bounded(0, QVariant(pixelWidth * 1000).toInt())).toFloat() / 1000.0;
+        float varianceY = QVariant(QRandomGenerator::global()->bounded(0, QVariant(pixelWidth * 1000).toInt())).toFloat() / 1000.0;
 
-            float x = (blackPixels[index].x() * (ui->dsbxTileSize->value() / width)) + xVariance;
-            float y = (blackPixels[index].y() * (ui->dsbxTileSize->value() / width)) + yVariance; // jaaaaa, ich weiss....
-            y = ui->dsbxTileSize->value() - y;
-            float z;
+        float x = blackPixels[index].x() + varianceX;
+        float y = blackPixels[index].y() + varianceY;
+        y = ui->dsbxTileSize->value() - y; // mirror y (because of different coordinate systems between omsi tiles and pixel coordinates of QPixmap
+        float z;
 
-            if (ui->cuwZVariance->getValue1() == ui->cuwZVariance->getValue2()) z = ui->cuwZVariance->getValue1();
-            else z = QVariant(QRandomGenerator::global()->bounded(QVariant(ui->cuwZVariance->getValue1() * 100).toInt(), QVariant(ui->cuwZVariance->getValue2() * 100).toInt())).toFloat() / 100;
+        if (ui->cuwZVariance->getValue1() == ui->cuwZVariance->getValue2())
+            z = ui->cuwZVariance->getValue1();
+        else
+            z = QVariant(QRandomGenerator::global()->bounded(QVariant(ui->cuwZVariance->getValue1() * 100).toInt(),
+                                                        QVariant(ui->cuwZVariance->getValue2() * 100).toInt())
+                                                        ).toFloat() / 100;
 
-            result += objectEntries[QRandomGenerator::global()->bounded(0, objectEntries.count())].arg(QString::number(props.nextIDCode),
-                                                                                                    QString::number(x),
-                                                                                                    QString::number(y),
-                                                                                                    QString::number(z),
-                                                                                                    QString::number(QRandomGenerator::global()->bounded(0, 36000) / 100.0));
-        }
+        result += objectEntries[QRandomGenerator::global()->bounded(0, objectEntries.count())].arg(QString::number(props.nextIDCode),
+                                                                                                QString::number(x),
+                                                                                                QString::number(y),
+                                                                                                QString::number(z),
+                                                                                                QString::number(QRandomGenerator::global()->bounded(0, 36000) / 100.0));
     }
 
     qInfo() << "Placed objects in fact:" << counter;
-    qInfo() << "Factor of 'placedObjects / totalObjects':" << QVariant(counter).toFloat() / QVariant(anzZPObj).toFloat();
+    qInfo() << "Factor of 'placedObjects / totalObjects':" << QVariant(counter).toFloat() / QVariant(placedObjectsCount).toFloat();
     qInfo() << "------------------------------------------------------------------------------------------------------------";
 
     return result;
@@ -373,5 +384,5 @@ void wPlaceObjects::on_btnTilesNone_clicked()
 
 void wPlaceObjects::on_dsbxObjectDensity_valueChanged(double arg1)
 {
-    ui->hslObjectDensity->setValue(arg1 * 100);
+    ui->hslObjectDensity->setValue(arg1 * DensistySliderFactor);
 }

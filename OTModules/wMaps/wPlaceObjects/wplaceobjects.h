@@ -58,6 +58,8 @@ private:
     OTMiscellaneous misc;
     OTDirectXTexConv texconv;
 
+    static const int DensistySliderFactor = 100;
+
     OCMap::Global props;
 
     QTemporaryFile convertedPreviewImage;
