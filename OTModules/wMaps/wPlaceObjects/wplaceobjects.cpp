@@ -303,6 +303,9 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
                 if (largeImage.pixelColor(x, y) == Qt::white)
                     locations << QPoint(x, y);
 
+        if(locations.empty())
+            break;
+
         int index = QRandomGenerator::global()->bounded(0, locations.count());
         QPoint placePoint = locations[index];
         float minimumDistance = ui->dsbxMinimumDistance->value();
