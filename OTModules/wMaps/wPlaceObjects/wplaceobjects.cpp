@@ -240,6 +240,18 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
     int width = image.width();
     int height = image.height();
 
+    quint64 pixelCount = 0;
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            if (image.pixelColor(x, y) == Qt::white) {
+                image.setPixelColor(x, y, Qt::gray);
+                pixelCount++;
+            } else {
+                image.setPixelColor(x, y, Qt::lightGray);
+            }
+        }
+    }
+
     QImage largeImage = image.scaled(QSize(ui->dsbxTileSize->value(), ui->dsbxTileSize->value()), Qt::IgnoreAspectRatio, Qt::FastTransformation);
 
     QPainter painter(&largeImage);
@@ -250,12 +262,6 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
 
     // pixel size
     float pixelWidth = ui->dsbxTileSize->value() / image.width();
-
-    quint64 pixelCount = 0;
-    for (int y = 0; y < height; ++y)
-        for (int x = 0; x < width; ++x)
-            if (image.pixelColor(x, y) == Qt::white)
-                pixelCount++;
 
     // determine size of the "allowed" area in m^2
     float areaSize = pow(pixelWidth, 2) * pixelCount / 10000.0; // ( m / res * n  ^ 2 = m^2 ) / convert to ha
@@ -286,7 +292,7 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
 
         for(int y = 0; y < largeImage.height(); y++)
             for(int x = 0; x < largeImage.width(); x++)
-                if (largeImage.pixelColor(x, y) == Qt::white)
+                if (largeImage.pixelColor(x, y) == Qt::gray)
                     locations << QPoint(x, y);
 
         if(locations.empty())
