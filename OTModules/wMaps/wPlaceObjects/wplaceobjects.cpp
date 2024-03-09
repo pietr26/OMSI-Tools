@@ -1,6 +1,8 @@
 #include "wplaceobjects.h"
 #include "ui_wplaceobjects.h"
 
+#include <QPainter>
+
 wPlaceObjects::wPlaceObjects(OCMap::Global globalProps, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::wPlaceObjects)
@@ -80,7 +82,7 @@ void wPlaceObjects::loadUi()
 
 void wPlaceObjects::on_hslObjectDensity_sliderMoved(int position)
 {
-    ui->dsbxObjectDensity->setValue(QVariant(position).toDouble() / 100);
+    ui->sbxObjectDensity->setValue(position);
 }
 
 void wPlaceObjects::on_sbxTerrainLayerID_valueChanged(int arg1)
@@ -110,9 +112,6 @@ void wPlaceObjects::on_btnStart_clicked()
     for (int i = 0; i < ui->lwgTiles->count(); i++)
         if (ui->lwgTiles->item(i)->checkState() == Qt::Checked)
             tiles << ui->lwgTiles->item(i)->text();
-
-    ui->pgbProgress->setMaximum(tiles.count() + 1);
-    ui->pgbProgress->setVisible(true);
 
 
     qInfo() << "Get objects data...";
@@ -179,7 +178,6 @@ void wPlaceObjects::on_btnStart_clicked()
         {
             qInfo() << "Checked tile:" << props.tiles[i].filename;
             ui->statusbar->showMessage("Tile: " + props.tiles[i].filename);
-            ui->pgbProgress->setValue(i);
 
             QTemporaryFile layerSource;
 
@@ -231,7 +229,6 @@ void wPlaceObjects::on_btnStart_clicked()
     props.nextIDCode++;
 
     enableUi(true);
-    ui->pgbProgress->setValue(ui->pgbProgress->maximum());
 
     qInfo() << "Finished. New nextIDCode:" << props.nextIDCode;
     ui->statusbar->showMessage("Finished. New nextIDCode: " + QString::number(props.nextIDCode) + " - nextIDCode still not saved (see button)!");
@@ -243,61 +240,95 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
     int width = image.width();
     int height = image.height();
 
-    QList<QPoint> blackPixels;
+    QImage largeImage = image.scaled(QSize(ui->dsbxTileSize->value(), ui->dsbxTileSize->value()), Qt::IgnoreAspectRatio, Qt::FastTransformation);
 
+    QPainter painter(&largeImage);
+    painter.setBrush(QColor(0, 0, 255, 64));
+
+    // determine target densisty
+    int densisty = ui->sbxObjectDensity->value(); // ( n / m^2)
+
+    // pixel size
+    float pixelWidth = ui->dsbxTileSize->value() / image.width();
+
+    quint64 pixelCount = 0;
     for (int y = 0; y < height; ++y)
         for (int x = 0; x < width; ++x)
             if (image.pixelColor(x, y) == Qt::white)
-                blackPixels << QPoint(x, y);
+                pixelCount++;
 
-    double currentDensity = ui->dsbxObjectDensity->value();
-    double maxDensity = ui->dsbxObjectDensity->maximum();
+    // determine size of the "allowed" area in m^2
+    float areaSize = pow(pixelWidth, 2) * pixelCount / 10000.0; // ( m / res * n  ^ 2 = m^2 ) / convert to ha
 
-    int anzZPObj = blackPixels.count() * (ui->dsbxTileSize->value() / width) * ((currentDensity <= 1) ? 1 : maxDensity);
+    // determine needed amount of objects
+    int   placedObjectsCount = areaSize * densisty; // ( m^2 * n/m^2 = n )
 
-    qInfo() << "------------------------------------------------------------------------------------------------------------";
-    qInfo() << "Black pixels:" << blackPixels.count();
-    qInfo() << "Image width:" << width;
-    qInfo() << "Current density:" << currentDensity;
-    qInfo() << "Max. density:" << maxDensity;
-    qInfo() << "~~~~~~~~~~";
-    qInfo() << "Count of maximal placable objects:" << anzZPObj;
+    QLabel *imageLabel = new QLabel(nullptr);
+    imageLabel->setPixmap(QPixmap::fromImage(largeImage));
+    QVBoxLayout layout;
+    layout.addWidget(imageLabel);
+    QWidget *window = new QWidget(nullptr);
+    window->setWindowTitle(tr("Placing preview"));
+    window->setLayout(&layout);
+    if(ui->cbxEnablePreview->isChecked())
+        window->show();
 
     QString result;
 
-    int counter = 0;
+    ui->pgbProgress->setMaximum(placedObjectsCount);
+    ui->pgbProgress->setValue(0);
+    ui->pgbProgress->setVisible(true);
 
-    for (int i = 0; i < anzZPObj; i++)
+    for (int i = 0; i < placedObjectsCount; i++)
     {
-        if (QRandomGenerator::global()->generateDouble() < (QVariant(currentDensity).toFloat() / ((currentDensity <= 1) ? 1 : maxDensity)))
+        props.nextIDCode++;
+        QList<QPoint> locations;
+
+        for(int y = 0; y < largeImage.height(); y++)
+            for(int x = 0; x < largeImage.width(); x++)
+                if (largeImage.pixelColor(x, y) == Qt::white)
+                    locations << QPoint(x, y);
+
+        if(locations.empty())
+            break;
+
+        int index = QRandomGenerator::global()->bounded(0, locations.count());
+        QPoint placePoint = locations[index];
+        float minimumDistance = ui->dsbxMinimumDistance->value();
+        painter.drawEllipse(placePoint.x() - minimumDistance,
+                            placePoint.y() - minimumDistance,
+                            minimumDistance * 2,
+                            minimumDistance * 2);
+
+        largeImage.setPixelColor(placePoint, QColor(255, 0, 0, 255));
+        imageLabel->setPixmap(QPixmap::fromImage(largeImage));
+
+        float x = placePoint.x();
+        float y = placePoint.y();
+        y = ui->dsbxTileSize->value() - y; // mirror y (because of different coordinate systems between omsi tiles and pixel coordinates of QPixmap
+        float z;
+
+        if (ui->cuwZVariance->getValue1() == ui->cuwZVariance->getValue2())
+            z = ui->cuwZVariance->getValue1();
+        else
+            z = QVariant(QRandomGenerator::global()->bounded(QVariant(ui->cuwZVariance->getValue1() * 100).toInt(),
+                                                        QVariant(ui->cuwZVariance->getValue2() * 100).toInt())
+                                                        ).toFloat() / 100;
+
+        result += objectEntries[QRandomGenerator::global()->bounded(0, objectEntries.count())].arg(QString::number(props.nextIDCode),
+                                                                                                QString::number(x),
+                                                                                                QString::number(y),
+                                                                                                QString::number(z),
+                                                                                                QString::number(QRandomGenerator::global()->bounded(0, 36000) / 100.0));
+
+        if(i % 10 == 0)
         {
-            counter++;
-            props.nextIDCode++;
-
-            int index = QRandomGenerator::global()->bounded(0, blackPixels.count());
-
-            float xVariance = (QRandomGenerator::global()->bounded(-100, 100) * ((ui->dsbxTileSize->value() / width) / 2)) / 100.0;
-            float yVariance = (QRandomGenerator::global()->bounded(-100, 100) * ((ui->dsbxTileSize->value() / width) / 2)) / 100.0;
-
-            float x = (blackPixels[index].x() * (ui->dsbxTileSize->value() / width)) + xVariance;
-            float y = (blackPixels[index].y() * (ui->dsbxTileSize->value() / width)) + yVariance; // jaaaaa, ich weiss....
-            y = ui->dsbxTileSize->value() - y;
-            float z;
-
-            if (ui->cuwZVariance->getValue1() == ui->cuwZVariance->getValue2()) z = ui->cuwZVariance->getValue1();
-            else z = QVariant(QRandomGenerator::global()->bounded(QVariant(ui->cuwZVariance->getValue1() * 100).toInt(), QVariant(ui->cuwZVariance->getValue2() * 100).toInt())).toFloat() / 100;
-
-            result += objectEntries[QRandomGenerator::global()->bounded(0, objectEntries.count())].arg(QString::number(props.nextIDCode),
-                                                                                                    QString::number(x),
-                                                                                                    QString::number(y),
-                                                                                                    QString::number(z),
-                                                                                                    QString::number(QRandomGenerator::global()->bounded(0, 36000) / 100.0));
+            ui->pgbProgress->setValue(i + 1);
+            qApp->processEvents();
         }
     }
 
-    qInfo() << "Placed objects in fact:" << counter;
-    qInfo() << "Factor of 'placedObjects / totalObjects':" << QVariant(counter).toFloat() / QVariant(anzZPObj).toFloat();
-    qInfo() << "------------------------------------------------------------------------------------------------------------";
+    ui->pgbProgress->setVisible(false);
 
     return result;
 }
@@ -340,7 +371,7 @@ void wPlaceObjects::on_sbxTerrainLayerID_textChanged(const QString &arg1)
 
 void wPlaceObjects::on_actionPresetGrass_triggered()
 {
-    ui->dsbxObjectDensity->setValue(0.45);
+    ui->sbxObjectDensity->setValue(8000);
 
     ui->lwgObjects->addItem("Sceneryobjects\\Oberpfalz 3D\\Krummenaab\\Gras.sco");
     ui->lwgObjects->addItem("Sceneryobjects\\Oberpfalz 3D\\Krummenaab\\Gras_2.sco");
@@ -371,7 +402,7 @@ void wPlaceObjects::on_btnTilesNone_clicked()
     for (int i = 0; i < ui->lwgTiles->count(); i++) ui->lwgTiles->item(i)->setCheckState(Qt::Unchecked);
 }
 
-void wPlaceObjects::on_dsbxObjectDensity_valueChanged(double arg1)
+void wPlaceObjects::on_sbxObjectDensity_valueChanged(int arg1)
 {
-    ui->hslObjectDensity->setValue(arg1 * 100);
+    ui->hslObjectDensity->setValue(arg1);
 }
