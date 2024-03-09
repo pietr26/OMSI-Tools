@@ -351,7 +351,7 @@ void wPlaceObjects::on_sbxTerrainLayerID_textChanged(const QString &arg1)
 
 void wPlaceObjects::on_actionPresetGrass_triggered()
 {
-    ui->dsbxObjectDensity->setValue(0.45);
+    ui->sbxObjectDensity->setValue(8000);
 
     ui->lwgObjects->addItem("Sceneryobjects\\Oberpfalz 3D\\Krummenaab\\Gras.sco");
     ui->lwgObjects->addItem("Sceneryobjects\\Oberpfalz 3D\\Krummenaab\\Gras_2.sco");
