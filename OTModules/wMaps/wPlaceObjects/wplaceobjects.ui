@@ -103,14 +103,14 @@
         </item>
        </layout>
       </item>
-      <item row="3" column="0">
+      <item row="4" column="0">
        <widget class="QLabel" name="lblTerrainLayerID">
         <property name="text">
          <string>Terrain Layer ID:</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
+      <item row="4" column="1">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QSpinBox" name="sbxTerrainLayerID">
@@ -145,14 +145,14 @@
         </item>
        </layout>
       </item>
-      <item row="2" column="0">
+      <item row="3" column="0">
        <widget class="QLabel" name="lblTileSize">
         <property name="text">
          <string>Tile size:</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item row="3" column="1">
        <widget class="QDoubleSpinBox" name="dsbxTileSize">
         <property name="suffix">
          <string notr="true"> m</string>
@@ -197,7 +197,31 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblMinimumDistance">
+        <property name="text">
+         <string>Minimum distance:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QDoubleSpinBox" name="dsbxMinimumDistance">
+        <property name="suffix">
+         <string notr="true"> m</string>
+        </property>
+        <property name="maximum">
+         <double>100.000000000000000</double>
+        </property>
+       </widget>
+      </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="cbxEnablePreview">
+      <property name="text">
+       <string>Enable Preview</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QCheckBox" name="cbxDryRun">
@@ -351,7 +375,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1153</width>
+     <width>1162</width>
      <height>22</height>
     </rect>
    </property>

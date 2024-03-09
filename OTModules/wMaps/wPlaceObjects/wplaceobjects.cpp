@@ -241,9 +241,9 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
     int height = image.height();
 
     QImage largeImage = image.scaled(QSize(ui->dsbxTileSize->value(), ui->dsbxTileSize->value()), Qt::IgnoreAspectRatio, Qt::FastTransformation);
-    largeImage.save("C://Users/Malte/Desktop/bla.png");
 
-    QPainter p(&largeImage);
+    QPainter painter(&largeImage);
+    painter.setBrush(QColor(0, 0, 255, 64));
 
     // determine target densisty
     int densisty = ui->sbxObjectDensity->value(); // ( n / m^2)
@@ -274,6 +274,16 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
     qInfo() << "~~~~~~~~~~";
     qInfo() << "Count of placing objects:" << placedObjectsCount;
 
+    QLabel *imageLabel = new QLabel(nullptr);
+    imageLabel->setPixmap(QPixmap::fromImage(largeImage));
+    QVBoxLayout layout;
+    layout.addWidget(imageLabel);
+    QWidget *window = new QWidget(nullptr);
+    window->setWindowTitle(tr("Placing preview"));
+    window->setLayout(&layout);
+    if(ui->cbxEnablePreview->isChecked())
+        window->show();
+
     QString result;
 
     int counter = 0;
@@ -294,8 +304,18 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
                     locations << QPoint(x, y);
 
         int index = QRandomGenerator::global()->bounded(0, locations.count());
-        float x = locations[index].x();
-        float y = locations[index].y();
+        QPoint placePoint = locations[index];
+        float minimumDistance = ui->dsbxMinimumDistance->value();
+        painter.drawEllipse(placePoint.x() - minimumDistance,
+                            placePoint.y() - minimumDistance,
+                            minimumDistance * 2,
+                            minimumDistance * 2);
+
+        largeImage.setPixelColor(placePoint, QColor(255, 0, 0, 255));
+        imageLabel->setPixmap(QPixmap::fromImage(largeImage));
+
+        float x = placePoint.x();
+        float y = placePoint.y();
         y = ui->dsbxTileSize->value() - y; // mirror y (because of different coordinate systems between omsi tiles and pixel coordinates of QPixmap
         float z;
 
@@ -318,6 +338,8 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
             qApp->processEvents();
         }
     }
+
+    //largeImage.save("C://Users/Malte/Desktop/bla.png");
 
     ui->pgbProgress->setVisible(false);
 
