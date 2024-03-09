@@ -1,6 +1,8 @@
 #include "wplaceobjects.h"
 #include "ui_wplaceobjects.h"
 
+#include <QPainter>
+
 wPlaceObjects::wPlaceObjects(OCMap::Global globalProps, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::wPlaceObjects)
@@ -111,9 +113,6 @@ void wPlaceObjects::on_btnStart_clicked()
         if (ui->lwgTiles->item(i)->checkState() == Qt::Checked)
             tiles << ui->lwgTiles->item(i)->text();
 
-    ui->pgbProgress->setMaximum(tiles.count() + 1);
-    ui->pgbProgress->setVisible(true);
-
 
     qInfo() << "Get objects data...";
     for (int i = 0; i < ui->lwgObjects->count(); i++)
@@ -179,7 +178,6 @@ void wPlaceObjects::on_btnStart_clicked()
         {
             qInfo() << "Checked tile:" << props.tiles[i].filename;
             ui->statusbar->showMessage("Tile: " + props.tiles[i].filename);
-            ui->pgbProgress->setValue(i);
 
             QTemporaryFile layerSource;
 
@@ -231,7 +229,6 @@ void wPlaceObjects::on_btnStart_clicked()
     props.nextIDCode++;
 
     enableUi(true);
-    ui->pgbProgress->setValue(ui->pgbProgress->maximum());
 
     qInfo() << "Finished. New nextIDCode:" << props.nextIDCode;
     ui->statusbar->showMessage("Finished. New nextIDCode: " + QString::number(props.nextIDCode) + " - nextIDCode still not saved (see button)!");
@@ -243,7 +240,10 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
     int width = image.width();
     int height = image.height();
 
-    QList<QPointF> blackPixels;
+    QImage largeImage = image.scaled(QSize(ui->dsbxTileSize->value(), ui->dsbxTileSize->value()), Qt::IgnoreAspectRatio, Qt::FastTransformation);
+    largeImage.save("C://Users/Malte/Desktop/bla.png");
+
+    QPainter p(&largeImage);
 
     // determine target densisty
     int densisty = ui->sbxObjectDensity->value(); // ( n / m^2)
@@ -251,13 +251,14 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
     // pixel size
     float pixelWidth = ui->dsbxTileSize->value() / image.width();
 
+    quint64 pixelCount = 0;
     for (int y = 0; y < height; ++y)
         for (int x = 0; x < width; ++x)
             if (image.pixelColor(x, y) == Qt::white)
-                blackPixels << QPointF(x * pixelWidth, y * pixelWidth);
+                pixelCount++;
 
     // determine size of the "allowed" area in m^2
-    float areaSize = pow(pixelWidth, 2) * blackPixels.count() / 10000.0; // ( m / res * n  ^ 2 = m^2 ) / convert to ha
+    float areaSize = pow(pixelWidth, 2) * pixelCount / 10000.0; // ( m / res * n  ^ 2 = m^2 ) / convert to ha
 
     // determine needed amount of objects
     int   placedObjectsCount = areaSize * densisty; // ( m^2 * n/m^2 = n )
@@ -267,7 +268,7 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
 
 
     qInfo() << "------------------------------------------------------------------------------------------------------------";
-    qInfo() << "Black pixels:" << blackPixels.count();
+    qInfo() << "pixel count:" << pixelCount;
     qInfo() << "Image width:" << width;
     qInfo() << "density:" << densisty;
     qInfo() << "~~~~~~~~~~";
@@ -277,18 +278,24 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
 
     int counter = 0;
 
+    ui->pgbProgress->setMaximum(placedObjectsCount);
+    ui->pgbProgress->setValue(0);
+    ui->pgbProgress->setVisible(true);
+
     for (int i = 0; i < placedObjectsCount; i++)
     {
         counter++;
         props.nextIDCode++;
+        QList<QPoint> locations;
 
-        int index = QRandomGenerator::global()->bounded(0, blackPixels.count());
+        for(int y = 0; y < largeImage.height(); y++)
+            for(int x = 0; x < largeImage.width(); x++)
+                if (largeImage.pixelColor(x, y) == Qt::white)
+                    locations << QPoint(x, y);
 
-        float varianceX = QVariant(QRandomGenerator::global()->bounded(0, QVariant(pixelWidth * 1000).toInt())).toFloat() / 1000.0;
-        float varianceY = QVariant(QRandomGenerator::global()->bounded(0, QVariant(pixelWidth * 1000).toInt())).toFloat() / 1000.0;
-
-        float x = blackPixels[index].x() + varianceX;
-        float y = blackPixels[index].y() + varianceY;
+        int index = QRandomGenerator::global()->bounded(0, locations.count());
+        float x = locations[index].x();
+        float y = locations[index].y();
         y = ui->dsbxTileSize->value() - y; // mirror y (because of different coordinate systems between omsi tiles and pixel coordinates of QPixmap
         float z;
 
@@ -304,7 +311,15 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
                                                                                                 QString::number(y),
                                                                                                 QString::number(z),
                                                                                                 QString::number(QRandomGenerator::global()->bounded(0, 36000) / 100.0));
+
+        if(i % 10 == 0)
+        {
+            ui->pgbProgress->setValue(i + 1);
+            qApp->processEvents();
+        }
     }
+
+    ui->pgbProgress->setVisible(false);
 
     qInfo() << "Placed objects in fact:" << counter;
     qInfo() << "Factor of 'placedObjects / totalObjects':" << QVariant(counter).toFloat() / QVariant(placedObjectsCount).toFloat();
