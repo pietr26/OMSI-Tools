@@ -20,7 +20,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="lblObjectDensity">
         <property name="text">
-         <string>Objects per m²:</string>
+         <string>Objects per ha:</string>
         </property>
        </widget>
       </item>
@@ -29,19 +29,19 @@
         <item>
          <widget class="QSlider" name="hslObjectDensity">
           <property name="maximum">
-           <number>200</number>
+           <number>20000</number>
           </property>
           <property name="singleStep">
-           <number>10</number>
+           <number>100</number>
           </property>
           <property name="pageStep">
-           <number>10</number>
+           <number>500</number>
           </property>
           <property name="value">
-           <number>25</number>
+           <number>2500</number>
           </property>
           <property name="sliderPosition">
-           <number>25</number>
+           <number>2500</number>
           </property>
           <property name="tracking">
            <bool>true</bool>
@@ -59,12 +59,12 @@
            <enum>QSlider::TicksAbove</enum>
           </property>
           <property name="tickInterval">
-           <number>20</number>
+           <number>500</number>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="dsbxObjectDensity">
+         <widget class="QSpinBox" name="sbxObjectDensity">
           <property name="enabled">
            <bool>true</bool>
           </property>
@@ -86,20 +86,11 @@
           <property name="showGroupSeparator" stdset="0">
            <bool>false</bool>
           </property>
-          <property name="decimals">
-           <number>3</number>
-          </property>
           <property name="maximum">
-           <double>2.000000000000000</double>
-          </property>
-          <property name="singleStep">
-           <double>0.005000000000000</double>
-          </property>
-          <property name="stepType">
-           <enum>QAbstractSpinBox::DefaultStepType</enum>
+           <number>20000</number>
           </property>
           <property name="value">
-           <double>0.250000000000000</double>
+           <number>2500</number>
           </property>
          </widget>
         </item>
@@ -112,14 +103,14 @@
         </item>
        </layout>
       </item>
-      <item row="3" column="0">
+      <item row="4" column="0">
        <widget class="QLabel" name="lblTerrainLayerID">
         <property name="text">
          <string>Terrain Layer ID:</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
+      <item row="4" column="1">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QSpinBox" name="sbxTerrainLayerID">
@@ -154,14 +145,14 @@
         </item>
        </layout>
       </item>
-      <item row="2" column="0">
+      <item row="3" column="0">
        <widget class="QLabel" name="lblTileSize">
         <property name="text">
          <string>Tile size:</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item row="3" column="1">
        <widget class="QDoubleSpinBox" name="dsbxTileSize">
         <property name="suffix">
          <string notr="true"> m</string>
@@ -206,7 +197,31 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblMinimumDistance">
+        <property name="text">
+         <string>Minimum distance:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QDoubleSpinBox" name="dsbxMinimumDistance">
+        <property name="suffix">
+         <string notr="true"> m</string>
+        </property>
+        <property name="maximum">
+         <double>100.000000000000000</double>
+        </property>
+       </widget>
+      </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="cbxEnablePreview">
+      <property name="text">
+       <string>Enable Preview</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QCheckBox" name="cbxDryRun">
@@ -360,8 +375,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1153</width>
-     <height>25</height>
+     <width>1162</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">

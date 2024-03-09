@@ -47,7 +47,7 @@ private slots:
 
     void on_btnTilesNone_clicked();
 
-    void on_dsbxObjectDensity_valueChanged(double arg1);
+    void on_sbxObjectDensity_valueChanged(int arg1);
 
 signals:
         void returnGlobalProps(OCMap::Global props);
