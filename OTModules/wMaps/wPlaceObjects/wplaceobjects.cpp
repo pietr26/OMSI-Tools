@@ -263,17 +263,6 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
     // determine needed amount of objects
     int   placedObjectsCount = areaSize * densisty; // ( m^2 * n/m^2 = n )
 
-    //int anzZPObj = blackPixels.count() * (ui->dsbxTileSize->value() / width) * ((densisty <= 1) ? 1 : maxDensity);
-
-
-
-    qInfo() << "------------------------------------------------------------------------------------------------------------";
-    qInfo() << "pixel count:" << pixelCount;
-    qInfo() << "Image width:" << width;
-    qInfo() << "density:" << densisty;
-    qInfo() << "~~~~~~~~~~";
-    qInfo() << "Count of placing objects:" << placedObjectsCount;
-
     QLabel *imageLabel = new QLabel(nullptr);
     imageLabel->setPixmap(QPixmap::fromImage(largeImage));
     QVBoxLayout layout;
@@ -286,15 +275,12 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
 
     QString result;
 
-    int counter = 0;
-
     ui->pgbProgress->setMaximum(placedObjectsCount);
     ui->pgbProgress->setValue(0);
     ui->pgbProgress->setVisible(true);
 
     for (int i = 0; i < placedObjectsCount; i++)
     {
-        counter++;
         props.nextIDCode++;
         QList<QPoint> locations;
 
@@ -342,13 +328,7 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
         }
     }
 
-    //largeImage.save("C://Users/Malte/Desktop/bla.png");
-
     ui->pgbProgress->setVisible(false);
-
-    qInfo() << "Placed objects in fact:" << counter;
-    qInfo() << "Factor of 'placedObjects / totalObjects':" << QVariant(counter).toFloat() / QVariant(placedObjectsCount).toFloat();
-    qInfo() << "------------------------------------------------------------------------------------------------------------";
 
     return result;
 }
