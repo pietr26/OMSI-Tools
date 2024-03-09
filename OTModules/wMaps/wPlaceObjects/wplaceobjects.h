@@ -47,7 +47,7 @@ private slots:
 
     void on_btnTilesNone_clicked();
 
-    void on_dsbxObjectDensity_valueChanged(double arg1);
+    void on_sbxObjectDensity_valueChanged(int arg1);
 
 signals:
         void returnGlobalProps(OCMap::Global props);
@@ -57,8 +57,6 @@ private:
     OTSettings set;
     OTMiscellaneous misc;
     OTDirectXTexConv texconv;
-
-    static const int DensistySliderFactor = 100;
 
     OCMap::Global props;
 

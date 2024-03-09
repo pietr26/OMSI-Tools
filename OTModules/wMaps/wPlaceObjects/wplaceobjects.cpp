@@ -80,7 +80,7 @@ void wPlaceObjects::loadUi()
 
 void wPlaceObjects::on_hslObjectDensity_sliderMoved(int position)
 {
-    ui->dsbxObjectDensity->setValue(QVariant(position).toDouble() / DensistySliderFactor);
+    ui->sbxObjectDensity->setValue(position);
 }
 
 void wPlaceObjects::on_sbxTerrainLayerID_valueChanged(int arg1)
@@ -246,7 +246,7 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
     QList<QPointF> blackPixels;
 
     // determine target densisty
-    double densisty = ui->dsbxObjectDensity->value(); // ( n / m^2)
+    int densisty = ui->sbxObjectDensity->value(); // ( n / m^2)
 
     // pixel size
     float pixelWidth = ui->dsbxTileSize->value() / image.width();
@@ -257,7 +257,7 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
                 blackPixels << QPointF(x * pixelWidth, y * pixelWidth);
 
     // determine size of the "allowed" area in m^2
-    float areaSize = pow(pixelWidth, 2) * blackPixels.count(); // ( m / res * n  ^ 2 = m^2 )
+    float areaSize = pow(pixelWidth, 2) * blackPixels.count() / 10000.0; // ( m / res * n  ^ 2 = m^2 ) / convert to ha
 
     // determine needed amount of objects
     int   placedObjectsCount = areaSize * densisty; // ( m^2 * n/m^2 = n )
@@ -382,7 +382,7 @@ void wPlaceObjects::on_btnTilesNone_clicked()
     for (int i = 0; i < ui->lwgTiles->count(); i++) ui->lwgTiles->item(i)->setCheckState(Qt::Unchecked);
 }
 
-void wPlaceObjects::on_dsbxObjectDensity_valueChanged(double arg1)
+void wPlaceObjects::on_sbxObjectDensity_valueChanged(int arg1)
 {
-    ui->hslObjectDensity->setValue(arg1 * DensistySliderFactor);
+    ui->hslObjectDensity->setValue(arg1);
 }
