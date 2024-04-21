@@ -148,6 +148,7 @@ public:
     inline static const QUrl support = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683");
     inline static const QUrl survey = QUrl("https://forms.office.com/r/QbbQBQCa21");
     inline static const QUrl github = QUrl("https://github.com/pietr26/OMSI-Tools");
+    inline static const QUrl roadmap = QUrl("https://trello.com/b/wlId7JqM/roadmap-omsi-tools");
 
     inline static const QString apiPath = "https://backend.omsi-tools.de/api/v2/";
     inline static const QUrl latestVersion = QUrl(apiPath + "?ref=currentVersion");

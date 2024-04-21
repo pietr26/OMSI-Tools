@@ -100,6 +100,8 @@ private slots:
 
     void on_actionDirectXTex_triggered();
 
+    void on_actionRoadmap_triggered();
+
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;

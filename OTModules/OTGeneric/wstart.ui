@@ -537,6 +537,7 @@
     </widget>
     <addaction name="actionManual"/>
     <addaction name="actionSendFeedback"/>
+    <addaction name="actionRoadmap"/>
     <addaction name="separator"/>
     <addaction name="actionReleaseNotes"/>
     <addaction name="actionCheckForUpdates"/>
@@ -816,6 +817,15 @@
   <action name="actionDirectXTex">
    <property name="text">
     <string>DirectXTex</string>
+   </property>
+  </action>
+  <action name="actionRoadmap">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconBranch.svg</normaloff>:/rec/data/icons/iconBranch.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Roadmap</string>
    </property>
   </action>
  </widget>
