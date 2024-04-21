@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>916</width>
-    <height>785</height>
+    <height>878</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -849,7 +849,7 @@
      <x>0</x>
      <y>0</y>
      <width>916</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFont">
@@ -891,9 +891,7 @@
     <property name="title">
      <string>Specials</string>
     </property>
-    <addaction name="actionLoadTemplate"/>
     <addaction name="actionFindChar"/>
-    <addaction name="actionCopyChars"/>
     <addaction name="separator"/>
     <addaction name="actionPreferences"/>
    </widget>
@@ -1060,24 +1058,6 @@
     <string notr="true">Del</string>
    </property>
   </action>
-  <action name="actionLoadTemplate">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconDownloadFile.svg</normaloff>:/rec/data/icons/iconDownloadFile.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Load template...</string>
-   </property>
-   <property name="toolTip">
-    <string>Load template...</string>
-   </property>
-   <property name="shortcut">
-    <string notr="true">Ctrl+T</string>
-   </property>
-  </action>
   <action name="actionMoveCharUp">
    <property name="enabled">
     <bool>true</bool>
@@ -1142,21 +1122,6 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+F</string>
-   </property>
-  </action>
-  <action name="actionCopyChars">
-   <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Copy chars</string>
-   </property>
-   <property name="toolTip">
-    <string>Copy chars</string>
-   </property>
-   <property name="shortcut">
-    <string notr="true">Ctrl+G</string>
    </property>
   </action>
   <action name="actionGoToNextError">

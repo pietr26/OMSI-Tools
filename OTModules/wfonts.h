@@ -85,15 +85,11 @@ private slots:
 
     void on_actionGoToNextError_triggered();
 
-    void on_actionLoadTemplate_triggered();
-
     void on_ledCharacter_textChanged(const QString &arg1);
 
     void on_ledComment_textChanged(const QString &arg1);
 
     void on_lvwChars_pressed(const QModelIndex &index);
-
-    void on_actionCopyChars_triggered();
 
     void on_actionShowInExplorer_triggered();
 

@@ -442,7 +442,6 @@ void wFonts::enableFontArea(bool status)
     ui->actionMoveCharUp->setEnabled(status);
     ui->actionDeleteSelection->setEnabled(status);
     ui->actionFindChar->setEnabled(status);
-    ui->actionCopyChars->setEnabled(status);
     ui->actionGoToNextError->setEnabled(status);
 
     if (!status)
@@ -927,61 +926,6 @@ void wFonts::on_actionNewChar_triggered()
     }
 }
 
-/// Loads a template
-void wFonts::on_actionLoadTemplate_triggered()
-{
-    if (unsaved)
-    {
-        int msgResult = msg.unsavedChanges(this);
-        if (msgResult == -1)
-            return;
-        else if (msgResult == 1)
-            save(OTFileMethods::save, font.path);
-    }
-
-    qDebug() << "Load template...";
-
-    // Fill selection stringlist
-    QStringList templates;
-    QString pAZ09 = "A-Z, 0-9";
-    QString pAZaz09 = "A-Z, a-z, 0-9";
-    QString pAZaz09Umlauts = "A-Z, a-z, 0-9 + " + tr("Umlauts");
-    QString p09 = "0-9";
-    templates << pAZ09 << pAZaz09 << pAZaz09Umlauts << p09;
-
-    bool *selection = new bool;
-
-    QInputDialog selectTemplate;
-    QString selectedTemplate = selectTemplate.getItem(this, tr("Select a template"), tr("Template:"), templates, 0, false, selection, Qt::WindowCloseButtonHint);
-
-    // If user pressed OK
-    if (*selection == true)
-    {
-        if (selectedTemplate == pAZ09)
-            open(OTFileMethods::silentOpen, ":/rec/data/fontTemplates/A-Z 0-9.oft");
-
-        else if (selectedTemplate == pAZaz09)
-            open(OTFileMethods::silentOpen, ":/rec/data/fontTemplates/A-Z a-z 0-9.oft");
-
-        else if (selectedTemplate == pAZaz09Umlauts)
-            open(OTFileMethods::silentOpen, ":/rec/data/fontTemplates/A-Z a-z 0-9 Umlauts.oft");
-
-        else if (selectedTemplate == p09)
-            open(OTFileMethods::silentOpen, ":/rec/data/fontTemplates/0-9.oft");
-
-        else
-        {
-            QMessageBox::warning(this, tr("Invalid selection"), tr("The current selection isn't a valid template."));
-            qDebug() << "Invalid template!";
-        }
-        qDebug() << QString("Template: '%1'").arg(selectedTemplate);
-
-        setUnsaved();
-    }
-
-    delete selection;
-}
-
 /// Slot for character changes
 void wFonts::on_ledCharacter_textChanged(const QString &arg1)
 {
@@ -1102,21 +1046,6 @@ void wFonts::reloadCharUI()
 
     checkCharValidity();
     charUIUpdate = false;
-}
-
-/// Copy a list of all chars
-void wFonts::on_actionCopyChars_triggered()
-{
-    qInfo() << "Copy chars...";
-    QString result;
-    foreach (OTCharacterModel current, font.charList)
-        result += current.character;
-
-    QClipboard* clipboard = QApplication::clipboard();
-    clipboard->setText(result);
-
-    ui->statusbar->showMessage(tr("Characters copied!"), 4000);
-
 }
 
 /// Shows current font file in explorer
