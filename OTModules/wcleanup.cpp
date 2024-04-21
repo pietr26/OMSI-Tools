@@ -192,7 +192,7 @@ void wCleanup::on_actionAnalyze_triggered()
     ui->pgbProgress->setValue(ui->pgbProgress->maximum());
     ui->statusbar->showMessage(tr("Done."), 10000);
 
-    if ((ui->lwgObjects->count() != 0) || (ui->lwgSplines->count() != 0) || (ui->lwgSplines->count() != 0))
+    if ((ui->lwgObjects->count() != 0) || (ui->lwgSplines->count() != 0) || (ui->lwgVehicles->count() != 0))
         ui->gbxActions->setVisible(true);
 
     on_lwgObjects_itemSelectionChanged();
