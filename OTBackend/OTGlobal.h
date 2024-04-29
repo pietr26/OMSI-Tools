@@ -96,9 +96,12 @@ public:
     {
     public:
         inline static const QList<QPair<QString, unsigned int>> allVersions = {
-            //QPair<QString, unsigned int>("1.2.0", 37), // without "lite"!
-            //QPair<QString, unsigned int>("1.2.0-beta", 36),
-            QPair<QString, unsigned int>("1.2.0-dev", 35),
+            //QPair<QString, unsigned int>("1.2.0", 40), // without "lite"!
+            //QPair<QString, unsigned int>("1.2.0-beta", 39),
+            //QPair<QString, unsigned int>("1.2.0-dev", 38),
+            //QPair<QString, unsigned int>("1.1.2-lite", 37),
+            //QPair<QString, unsigned int>("1.1.2-beta", 36),
+            QPair<QString, unsigned int>("1.1.2-dev", 35),
             QPair<QString, unsigned int>("1.1.1-lite", 34),
             QPair<QString, unsigned int>("1.1.0-lite", 33),
             QPair<QString, unsigned int>("1.1.0-beta", 32),
