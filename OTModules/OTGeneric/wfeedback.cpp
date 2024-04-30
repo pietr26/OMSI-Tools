@@ -15,7 +15,7 @@ wFeedback::wFeedback(QWidget *parent, QUrl wikiEntry) :
     setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
 
     // Load prefs
-    setStyleSheet(set.read("main","theme").toString());
+    setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(OTInformation::name + " - " + tr("Feedback"));
 
     ui->btnOpenSurvey->setVisible(false);

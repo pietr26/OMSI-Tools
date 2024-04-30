@@ -211,17 +211,10 @@ void wContentSearch::on_btnCopy_clicked()
 }
 
 /// Opens feedback
-void wContentSearch::on_btnReportDeathLink_clicked()
+void wContentSearch::on_btnReportDeadLink_clicked()
 {
-    if (!ui->lwgLinks->selectedItems().isEmpty())
-    {
-        QString links;
-        foreach (QListWidgetItem *current, ui->lwgLinks->selectedItems())
-            links += current->text() + "\n";
-
-        WSUGGESTFILES = new wSuggestFiles(this, links);
-        WSUGGESTFILES->show();
-    }
+    QMessageBox::information(this, tr("Report invalid link"), tr("For reporting an invalid link, please visit the support thread or send an e-mail. Thank you for your assistance!"));
+    on_actionSendFeedback_triggered();
 }
 
 /// Adds paths from a file via fileDialog
@@ -301,13 +294,6 @@ void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
 
     ui->pteInformation->setPlainText(information);
 }
-
-void wContentSearch::on_actionSuggestFiles_triggered()
-{
-    WSUGGESTFILES = new wSuggestFiles(this);
-    WSUGGESTFILES->show();
-}
-
 
 void wContentSearch::on_actionBackToHome_triggered()
 {

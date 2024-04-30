@@ -6,7 +6,6 @@
 #include "OTBackend/OTExternal.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
-#include "OTModules/wContentSearch/wsuggestfiles.h"
 #include "OTModules/wContentSearch/waddfiles.h"
 
 namespace Ui {
@@ -42,15 +41,13 @@ private slots:
 
     void on_btnCopy_clicked();
 
-    void on_btnReportDeathLink_clicked();
+    void on_btnReportDeadLink_clicked();
 
     void on_btnAddFile_clicked();
 
     void on_btnClearLists_clicked();
 
     void on_lwgLinks_currentTextChanged(const QString &currentText);
-
-    void on_actionSuggestFiles_triggered();
 
     void on_actionBackToHome_triggered();
 
@@ -67,7 +64,6 @@ private:
     OTMessage msg;
     OTMiscellaneous misc;
     wPreferences *WPREFERENCES;
-    wSuggestFiles *WSUGGESTFILES;
     wAddFiles *WADDFILES;
 
     OTDatabaseHandler dbHandler;

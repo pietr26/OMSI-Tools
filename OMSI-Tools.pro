@@ -33,7 +33,6 @@ SOURCES += \
     OTModules/wContentSearch/wDBPanel.cpp \
     OTModules/wContentSearch/waddfiles.cpp \
     OTModules/wContentSearch/wcontentsearch.cpp \
-    OTModules/wContentSearch/wsuggestfiles.cpp \
     OTModules/wFbh/waddpath.cpp \
     OTModules/wFbh/waddterm.cpp \
     OTModules/wFbh/waddword.cpp \
@@ -108,7 +107,6 @@ HEADERS += \
     OTModules/wContentSearch/wDBPanel.h \
     OTModules/wContentSearch/waddfiles.h \
     OTModules/wContentSearch/wcontentsearch.h \
-    OTModules/wContentSearch/wsuggestfiles.h \
     OTModules/wFbh/waddpath.h \
     OTModules/wFbh/waddterm.h \
     OTModules/wFbh/waddword.h \
@@ -157,7 +155,6 @@ FORMS += \
     OTModules/wContentSearch/wDBPanel.ui \
     OTModules/wContentSearch/waddfiles.ui \
     OTModules/wContentSearch/wcontentsearch.ui \
-    OTModules/wContentSearch/wsuggestfiles.ui \
     OTModules/wFbh/waddpath.ui \
     OTModules/wFbh/waddterm.ui \
     OTModules/wFbh/waddword.ui \
