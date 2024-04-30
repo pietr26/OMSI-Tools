@@ -544,6 +544,7 @@
     <addaction name="actionSourceCodeOnGitHub"/>
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
+    <addaction name="actionAboutQt"/>
     <addaction name="menuLicenses"/>
    </widget>
    <addaction name="menuFile"/>
@@ -826,6 +827,15 @@
    </property>
    <property name="text">
     <string>Roadmap</string>
+   </property>
+  </action>
+  <action name="actionAboutQt">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconQt.svg</normaloff>:/rec/data/icons/iconQt.svg</iconset>
+   </property>
+   <property name="text">
+    <string>About Qt...</string>
    </property>
   </action>
  </widget>

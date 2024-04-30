@@ -64,10 +64,9 @@ void wAbout::on_btnClose_clicked()
 /// Shows detailed information (framework etc.)
 void wAbout::on_btnMore_clicked()
 {
-    QMessageBox::about(this, tr("More information"), tr("Developed with %1 and %2").arg("Qt 6.6.0", "MinGW 11.2.0") + "\n\n" +
-                                                                         tr("Build type: %1").arg(OTBuildOptions::getBuildName(OTInformation::build)) + "\n" +
-                                                                         tr("Application build: %1").arg(appBuild) + "\n\n" +
-                                                                         tr("Approximate lines of code: %1 (%2)").arg(OTInformation::sourceCodeLength, tr("June 2023")));
+    QMessageBox::about(this, tr("More information"), tr("Build type: %1").arg(OTBuildOptions::getBuildName(OTInformation::build)) + "\n" +
+                                                     tr("Application build: %1").arg(appBuild) + "\n\n" +
+                                                     tr("Approximate lines of code: %1 (%2)").arg(OTInformation::sourceCodeLength, tr("June 2023")));
 }
 
 void wAbout::on_btnFlowerella_clicked()

@@ -547,3 +547,9 @@ void wStart::on_actionRoadmap_triggered()
     QDesktopServices::openUrl(OTLinks::roadmap);
 }
 
+
+void wStart::on_actionAboutQt_triggered()
+{
+    QMessageBox::aboutQt(this);
+}
+

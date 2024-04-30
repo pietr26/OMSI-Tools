@@ -102,6 +102,8 @@ private slots:
 
     void on_actionRoadmap_triggered();
 
+    void on_actionAboutQt_triggered();
+
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;
