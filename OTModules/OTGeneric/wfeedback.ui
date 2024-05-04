@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>348</width>
-    <height>207</height>
+    <height>217</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -88,7 +88,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Survey</string>
+       <string>Feedback form</string>
       </property>
       <property name="icon">
        <iconset resource="../../ressources.qrc">
@@ -149,7 +149,7 @@
      <x>0</x>
      <y>0</y>
      <width>348</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

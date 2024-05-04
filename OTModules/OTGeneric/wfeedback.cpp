@@ -18,8 +18,6 @@ wFeedback::wFeedback(QWidget *parent, QUrl wikiEntry) :
     setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(OTInformation::name + " - " + tr("Feedback"));
 
-    ui->btnOpenSurvey->setVisible(false);
-
     if (wikiEntry.isEmpty())
         ui->btnWikiEntry->setEnabled(false);
 
@@ -43,7 +41,7 @@ void wFeedback::on_btnOpenSupportThread_clicked()
 /// Opens survey
 void wFeedback::on_btnOpenSurvey_clicked()
 {
-    QDesktopServices::openUrl(OTLinks::survey);
+    QDesktopServices::openUrl(OTLinks::feedbackForm);
     close();
 }
 

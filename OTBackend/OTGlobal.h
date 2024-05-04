@@ -149,7 +149,7 @@ class OTLinks
 public:
     inline static const QUrl showroom = QUrl("https://reboot.omsi-webdisk.de/community/thread/4783");
     inline static const QUrl support = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683");
-    inline static const QUrl survey = QUrl("https://forms.office.com/r/QbbQBQCa21");
+    inline static const QUrl feedbackForm = QUrl("https://forms.gle/5VGy7fwohHys18bf9");
     inline static const QUrl github = QUrl("https://github.com/pietr26/OMSI-Tools");
     inline static const QUrl roadmap = QUrl("https://trello.com/b/wlId7JqM/roadmap-omsi-tools");
 
