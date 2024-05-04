@@ -82,7 +82,9 @@ void wCleanup::on_actionAnalyze_triggered()
     {
         filehandler.setMapPath(globals.at(i));
 
-        ui->statusbar->showMessage(tr("Read maps (%1 / %2: %3)").arg(i + 1).arg(globals.size()).arg(filehandler.readConfig("[friendlyname]", filehandler.getMapPath())));
+        QString mapName = filehandler.readConfig("[friendlyname]", filehandler.getMapPath());
+        ui->statusbar->showMessage(tr("Read maps (%1 / %2: %3)").arg(i + 1).arg(globals.size()).arg(mapName));
+        qInfo().noquote() << QString("Read map '%1' (%2)").arg(mapName, filehandler.getMapPath().remove(0, cutCount));
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
 
         filehandler.getTiles();
