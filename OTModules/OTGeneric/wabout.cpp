@@ -35,6 +35,7 @@ wAbout::wAbout(QWidget *parent) :
                               "<li>DerGrafikfehler</li>"
                               "<li>Erilambus</li>"
                               "<li>fOcUs04</li>"
+                              "<li>Lenn</li>"
                               "<li>MeerrettichMeister</li>"
                               "<li>PingPong</li>"
                               "<li>ma7t3</li>"
