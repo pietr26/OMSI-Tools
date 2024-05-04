@@ -264,6 +264,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     {
         qDebug() << "Set view...";
         filehandler.stuffobj.removeDuplicates();
+        filehandler.stuffobj.toBackslash();
 
         // MAP:
         QStringList tiles = filehandler.stuffobj.missing.tiles + filehandler.stuffobj.existing.tiles;

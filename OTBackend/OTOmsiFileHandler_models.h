@@ -6,7 +6,7 @@
 class OTVerifyStuff
 {
 public:
-    class OTVerifyStuffMissing
+    class OTVerifyStuffClass
     {
     public:
         QStringList tiles;
@@ -52,58 +52,21 @@ public:
             vehicles.clear();
             humans.clear();
         }
-    };
 
-    class OTVerifyStuffExisting
-    {
-    public:
-        QStringList tiles;
-        QStringList textures;
-        QStringList globalTextures;
-        QStringList sceneryobjects;
-        QStringList splines;
-        QStringList vehicles;
-        QStringList humans;
-
-        QStringList getAll()
+        void toBackslash()
         {
-            QStringList all;
-            all << tiles;
-            all << textures;
-            all << globalTextures;
-            all << sceneryobjects;
-            all << splines;
-            all << vehicles;
-            all << humans;
-
-            return all;
-        }
-
-        void removeDuplicates()
-        {
-            tiles.removeDuplicates();
-            textures.removeDuplicates();
-            globalTextures.removeDuplicates();
-            sceneryobjects.removeDuplicates();
-            splines.removeDuplicates();
-            vehicles.removeDuplicates();
-            humans.removeDuplicates();
-        }
-
-        void clear()
-        {
-            tiles.clear();
-            textures.clear();
-            globalTextures.clear();
-            sceneryobjects.clear();
-            splines.clear();
-            vehicles.clear();
-            humans.clear();
+            tiles.replaceInStrings("/", "\\");
+            textures.replaceInStrings("/", "\\");
+            globalTextures.replaceInStrings("/", "\\");
+            sceneryobjects.replaceInStrings("/", "\\");
+            splines.replaceInStrings("/", "\\");
+            vehicles.replaceInStrings("/", "\\");
+            humans.replaceInStrings("/", "\\");
         }
     };
 
-    OTVerifyStuffMissing missing;
-    OTVerifyStuffExisting existing;
+    OTVerifyStuffClass missing;
+    OTVerifyStuffClass existing;
 
     void clear()
     {
@@ -115,6 +78,12 @@ public:
     {
         missing.removeDuplicates();
         existing.removeDuplicates();
+    }
+
+    void toBackslash()
+    {
+        missing.toBackslash();
+        existing.toBackslash();
     }
 };
 
