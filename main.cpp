@@ -111,6 +111,9 @@ int main(int argc, char *argv[])
             set.write("main", "startCount", set.read("main", "startCount").toInt() + 1);
         else
             set.write("main", "startCount", 1);
+
+        // Reset advanced verification:
+        set.write("wVerifyMap", "advVerifying", false);
     }
 
     wStartUpScreen *WSTARTUPSCREEN;
