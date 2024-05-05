@@ -38,7 +38,7 @@ void wCleanup::on_btnAnalyze_clicked()
 /// Analyzes the main directory
 void wCleanup::on_actionAnalyze_triggered()
 {
-    qInfo() << "Starting...";
+    qInfo() << "Initialize...";
     ui->statusbar->showMessage(tr("Initialize..."));
 
     if (set.read("main", "mainDir").toString() == "")
@@ -67,24 +67,18 @@ void wCleanup::on_actionAnalyze_triggered()
 
     cutCount = set.read("main", "mainDir").toString().size() + 1;
 
-    QStringList globals;
+    QList<QPair<QString, QString>> globals = filehandler.listMaps();
 
-    QDirIterator mapFolder(set.read("main", "mainDir").toString() + "/maps", QStringList() << "global.cfg", QDir::Files, QDirIterator::Subdirectories);
-    while (mapFolder.hasNext())
-        globals << mapFolder.next();
-
-    qDebug() << globals;
     qInfo() << "Read maps...";
 
     ui->pgbProgress->setMaximum(ui->pgbProgress->maximum() + globals.size());
 
     for (int i = 0; i < globals.size(); i++)
     {
-        filehandler.setMapPath(globals.at(i));
+        filehandler.setMapPath(globals.at(i).second);
 
-        QString mapName = filehandler.readConfig("[friendlyname]", filehandler.getMapPath());
-        ui->statusbar->showMessage(tr("Read maps (%1 / %2: %3)").arg(i + 1).arg(globals.size()).arg(mapName));
-        qInfo().noquote() << QString("Read map '%1' (%2)").arg(mapName, filehandler.getMapPath().remove(0, cutCount));
+        ui->statusbar->showMessage(tr("Read map %1 of %2 (%3)").arg(i + 1).arg(globals.size()).arg(globals.at(i).first));
+        qInfo().noquote() << QString("Read map '%1' (%2)").arg(globals.at(i).first, filehandler.getMapPath().remove(0, cutCount));
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
 
         filehandler.getTiles();
