@@ -147,7 +147,7 @@
       </property>
       <property name="text">
        <string>- !!! -
-This is an alpha version of the module. Please create a backup of the selected card before EVERY use without exception. Errors may still occur despite testing!
+This is an alpha version of the module. Please create a backup of the selected map before EVERY use without exception. Errors may still occur despite testing!
 - !!! -</string>
       </property>
       <property name="alignment">

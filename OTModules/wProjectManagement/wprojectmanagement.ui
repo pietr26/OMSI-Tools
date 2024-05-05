@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>wProjectManagement</string>
+   <string notr="true">wProjectManagement</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../../ressources.qrc">
@@ -230,7 +230,7 @@
     <string>Back to home...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+W</string>
+    <string notr="true">Ctrl+W</string>
    </property>
   </action>
   <action name="actionClose">
@@ -242,7 +242,7 @@
     <string>Close</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Q</string>
+    <string notr="true">Ctrl+Q</string>
    </property>
   </action>
   <action name="actionOpen">
@@ -263,7 +263,7 @@
     <string>Preferences...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+E</string>
+    <string notr="true">Ctrl+E</string>
    </property>
   </action>
   <action name="actionProjectSettings">
@@ -275,7 +275,7 @@
     <string>Project preferences...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+S</string>
+    <string notr="true">Ctrl+S</string>
    </property>
   </action>
   <action name="actionNewProject">
@@ -296,7 +296,7 @@
     <string>Upload project...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+U</string>
+    <string notr="true">Ctrl+U</string>
    </property>
   </action>
   <action name="actionDownloadProject">
@@ -308,7 +308,7 @@
     <string>Download project...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+L</string>
+    <string notr="true">Ctrl+L</string>
    </property>
   </action>
   <action name="actionCloseProject">

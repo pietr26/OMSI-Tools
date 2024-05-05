@@ -817,7 +817,13 @@
   </action>
   <action name="actionDirectXTex">
    <property name="text">
-    <string>DirectXTex</string>
+    <string notr="true">DirectXTex</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">DirectXTex</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">DirectXTex</string>
    </property>
   </action>
   <action name="actionRoadmap">

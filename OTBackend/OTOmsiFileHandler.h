@@ -639,7 +639,7 @@ public:
         cutCount = mainDir.length() + 1;
 
         // simplier description.
-        progressName = QObject::tr("Read tiles (%1 / %2)").arg("0", "0");
+        progressName = QObject::tr("Read tile %1 of %2").arg("0", "0");
 
         QStringList a, b;
         if (tiles.length() == 1)
@@ -1215,7 +1215,7 @@ private:
 
             while (!in.atEnd())
             {
-                if (thread == "a") progressName = QObject::tr("Read tiles (%1 / %2)").arg(currentProgress).arg(maxProgress);
+                if (thread == "a") progressName = QObject::tr("Read tile %1 of %2").arg(currentProgress).arg(maxProgress);
                 line = in.readLine();
 
                 if (line == "[object]" || line == "[splineAttachement]" || line == "[attachObj]" || line == "[splineAttachement_repeater]")

@@ -89,7 +89,7 @@ class OTInformation
 {
 public:
     inline static const QString name = "OMSI-Tools";
-    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Dev;
+    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Beta;
     inline static const QString sourceCodeLength = "25.663";
 
     class versions
@@ -100,7 +100,7 @@ public:
             //QPair<QString, unsigned int>("1.2.0-beta", 39),
             //QPair<QString, unsigned int>("1.2.0-dev", 38),
             //QPair<QString, unsigned int>("1.1.2-lite", 37),
-            //QPair<QString, unsigned int>("1.1.2-beta", 36),
+            QPair<QString, unsigned int>("1.1.2-beta", 36),
             QPair<QString, unsigned int>("1.1.2-dev", 35),
             QPair<QString, unsigned int>("1.1.1-lite", 34),
             QPair<QString, unsigned int>("1.1.0-lite", 33),

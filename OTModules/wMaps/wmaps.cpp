@@ -103,7 +103,7 @@ void wMaps::on_btnSave_clicked()
     qApp->processEvents();
     map.global.write();
     ui->centralwidget->setEnabled(true);
-    ui->statusbar->showMessage(tr("Global.cfg saved!"));
+    ui->statusbar->showMessage(tr("global.cfg saved!"));
 }
 
 void wMaps::on_btnPlaceObjects_clicked()
