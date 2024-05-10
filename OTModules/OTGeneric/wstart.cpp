@@ -68,6 +68,8 @@ wStart::wStart(QWidget *parent)
 
     qInfo().noquote() << objectName() + " started";
 
+    ui->tbnProjectManagement->setVisible(false);
+
     //QTimer::singleShot(1, this, SLOT(on_btnVerifyMap_clicked()));
 }
 
