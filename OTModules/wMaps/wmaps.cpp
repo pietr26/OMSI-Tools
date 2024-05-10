@@ -15,9 +15,6 @@ wMaps::wMaps(QWidget *parent) :
 
     enableUi(false);
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     qInfo().noquote() << objectName() + " started";
 }
 

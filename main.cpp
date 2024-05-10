@@ -12,24 +12,7 @@
 /// Test area for anything
 void testArea()
 {
-//    OTDiscordRPC rpc;
-//    rpc.updateActivity();
 
-//    QString from = "C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/Sankt Peter-Ording";
-
-//    QStringList list;
-//    QDirIterator dir(from, QStringList() << "*.map", QDir::Files);
-
-//    while (dir.hasNext())
-//        list << QFileInfo(dir.next()).fileName();
-
-//    list.removeDuplicates();
-//    list.sort();
-
-//    foreach (QString current, list)
-//    {
-//        QFile::copy("C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/_Kranau/tile_1_-1.map", "C:/Program Files (x86)/Steam/steamapps/common/OMSI 2/maps/Sankt Peter-Ording/newTiles/" + current);
-//    }
 }
 
 /// Cleanup actions after updates
@@ -78,12 +61,12 @@ int main(int argc, char *argv[])
         // Print all prefs to the logfile
         qDebug().noquote() << "Preferences" + set.getAllPreferencesFormatted() + "\n================================================\n";
 
-
         set.setDefaultPreferences();
 
         qInfo().noquote() << "Starting " + OTInformation::name + "...";
 
-        QApplication::setStyle(new OTStyleDraw);
+        //QApplication::setStyle(new OTStyleDraw);
+        qApp->setStyle(QStyleFactory::create(set.read("main", "theme").toString()));
 
         set.loadTranslator();
 

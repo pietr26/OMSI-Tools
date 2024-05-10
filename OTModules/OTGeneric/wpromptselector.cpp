@@ -12,9 +12,6 @@ wPromptSelector::wPromptSelector(QString title, QList<QPair<QString, QString>> c
     adjustSize();
     qDebug() << "UI set";
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     // -----------
 
     setWindowTitle(title);

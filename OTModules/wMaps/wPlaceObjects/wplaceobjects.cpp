@@ -36,9 +36,6 @@ wPlaceObjects::wPlaceObjects(OCMap::Global globalProps, QWidget *parent)
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
     ui->pgbProgress->setVisible(false);
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     qInfo().noquote() << objectName() + " started";
 }
 

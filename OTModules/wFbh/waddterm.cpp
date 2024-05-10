@@ -13,9 +13,6 @@ wAddTerm::wAddTerm(bool isNewEntry, QWidget *parent, int ID, QString argument) :
 
     setWindowTitle("Add / edit term");
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     if (!isNewEntry)
     {
         ui->ledID->setText(QString::number(ID));

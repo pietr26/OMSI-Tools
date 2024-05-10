@@ -13,7 +13,6 @@ wProjectPreferences::wProjectPreferences(QString projectFolder, QWidget *parent)
     qDebug() << "UI set";
 
     // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(tr("Project preferences"));
 
     git.projectFolder = projectFolder;

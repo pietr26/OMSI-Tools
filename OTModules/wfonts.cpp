@@ -49,9 +49,6 @@ wFonts::wFonts(QWidget *parent) :
     ui->twgFont->setCurrentIndex(0);
     ui->gbxSearchChar->setVisible(false);
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     setUnsaved(false);
     ui->lvwChars->setModel(strListChars);
     connect(ui->lvwChars->selectionModel(), &QItemSelectionModel::currentRowChanged, this, &wFonts::charSelectionChanged);

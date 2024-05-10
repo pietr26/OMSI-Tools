@@ -18,9 +18,6 @@ wVehicleList::wVehicleList(QWidget *parent) :
 
     setWindowTitle(OTInformation::name + " - " + tr("vehicle lists"));
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     qInfo().noquote() << objectName() + " started";
 }
 

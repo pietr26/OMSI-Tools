@@ -13,7 +13,6 @@ wProjectManagement::wProjectManagement(QWidget *parent)
     qDebug() << "UI set";
 
     // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(OTInformation::name + " - " + tr("Project management"));
 
     enableUi(false);

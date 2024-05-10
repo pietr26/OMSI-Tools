@@ -9,6 +9,7 @@
 #include <QStandardItemModel>
 #include <QColorDialog>
 #include <QListWidgetItem>
+#include <QStyleFactory>
 
 namespace Ui {
 class wPreferences;
@@ -56,22 +57,6 @@ private slots:
 
     void on_cobxLogfileMode_currentIndexChanged(int index);
 
-    void on_btnThemeBackground_clicked();
-
-    void on_btnThemeFontDisabled_clicked();
-
-    void on_btnThemeBackgroundDisabled_clicked();
-
-    void on_btnThemeBorders_clicked();
-
-    void on_btnThemeAccent_clicked();
-
-    void on_btnThemeFont_clicked();
-
-    void on_btnLoadTheme_clicked();
-
-    void on_btnThemeInputs_clicked();
-
     void on_cbxBackupEnabled_clicked(bool checked);
 
     void on_actionSendFeedback_triggered();
@@ -82,8 +67,6 @@ private slots:
 
     void on_btnSave_clicked();
 
-    void on_btnUseCustomTheme_clicked();
-
     void on_cbxShowNews_stateChanged(int arg1);
 
     void on_cbxKeepPixelRow_stateChanged(int arg1);
@@ -93,6 +76,8 @@ private slots:
     void on_lwgSections_itemClicked(QListWidgetItem *item);
 
     void on_actionClose_triggered();
+
+    void on_cobxTheme_currentIndexChanged(int index);
 
 private:
     Ui::wPreferences *ui;
@@ -114,16 +99,7 @@ private:
 
     void modified();
 
-    QString tcBackground;
-    QString tcFontDisabled;
-    QString tcBackgroundDisabled;
-    QString tcBorders;
-    QString tcAccent;
-    QString tcFont;
-    QString tcInputs;
-    bool useStandardTheme = false;
-
-    bool isFirstSetup = true;
+    bool setupFinished = false;
 
     bool needRestart = false;
 };

@@ -13,7 +13,6 @@ wManageFiles::wManageFiles(QWidget *parent)
     qDebug() << "UI set";
 
     // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(tr("Manage files"));
 
     qInfo().noquote() << objectName() + " started";

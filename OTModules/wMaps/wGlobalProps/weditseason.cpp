@@ -13,9 +13,6 @@ wEditSeason::wEditSeason(OCMap::Global::Season s, int index, QWidget *parent) :
 
     setWindowTitle(tr("Edit season"));
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     seasonIndex = index;
     if (seasonIndex != -1) season = s;
 

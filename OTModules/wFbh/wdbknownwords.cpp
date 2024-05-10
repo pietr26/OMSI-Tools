@@ -14,9 +14,6 @@ wDBKnownWords::wDBKnownWords(QWidget *parent) :
     setWindowTitle(OTInformation::name + " - known words panel");
     resize(misc.sizeWindow(0.2, 0.8));
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
     dbHandler.setupDatabase("CREATE TABLE 'knownWords' ('ID' INTEGER, 'word' TEXT, PRIMARY KEY('ID' AUTOINCREMENT))");
 

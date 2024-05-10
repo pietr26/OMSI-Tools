@@ -14,7 +14,6 @@ wBugDoc::wBugDoc(QWidget *parent) :
     setWindowTitle(OTInformation::name + " - BugDoc");
 
     // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
     if (set.read(objectName(), "screenshotScale").toInt() == 0) set.write(objectName(), "screenshotScale", 2);
 
     ui->centralwidget->setEnabled(false);

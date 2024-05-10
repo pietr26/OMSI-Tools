@@ -13,9 +13,6 @@ wAddWord::wAddWord(bool isNewEntry, QWidget *parent, int ID, QString word) :
 
     setWindowTitle("Add word");
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     if (!isNewEntry)
     {
         ui->ledID->setText(QString::number(ID));

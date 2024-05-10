@@ -13,7 +13,6 @@ wCreateProject::wCreateProject(QWidget *parent)
     qDebug() << "UI set";
 
     // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(tr("Create project"));
 
     nameValidator = new QRegularExpressionValidator(QRegularExpression("[0-9A-Za-z._-]*"), ui->ledName);

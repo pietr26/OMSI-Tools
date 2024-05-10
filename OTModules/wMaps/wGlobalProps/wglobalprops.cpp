@@ -13,9 +13,6 @@ wGlobalProps::wGlobalProps(OCMap::Global globalProps, QWidget *parent) :
 
     setWindowTitle(tr("Edit global properties"));
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     ui->twgGlobalProps->setTabVisible(5, false);
 
     props = globalProps;

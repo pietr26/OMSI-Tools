@@ -15,9 +15,6 @@ wDevTools::wDevTools(QWidget *parent) :
 
     setWindowTitle(OTInformation::name + " - DevTools");
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     setOutputVisible(true);
 
     qInfo().noquote() << objectName() + " started - Note: Internal module, may contains bugs.";

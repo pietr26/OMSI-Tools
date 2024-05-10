@@ -25,9 +25,6 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     ui->hlaVehicles->insertWidget(1, new verifyMapTools(ui->lwgVehiclesAll, ui->lwgVehiclesMissing, this));
     ui->hlaHumans->insertWidget(1, new verifyMapTools(ui->lwgHumansAll, ui->lwgHumansMissing, this));
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     // Connect S&S
     connect(watchProgress, SIGNAL(timeout()), this, SLOT(reloadProgress()));
     ui->pgbProgress->setVisible(false);

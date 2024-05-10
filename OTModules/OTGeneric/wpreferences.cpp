@@ -14,8 +14,6 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
 
     setWindowTitle("[*] " + OTInformation::name + " - " + tr("preferences"));
 
-    ui->btnUseCustomTheme->setVisible(false);
-
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(refreshDiskUsage()));
     timer->start(10000);
@@ -50,9 +48,7 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     model->item(10)->setEnabled(false); // cy
 
     // cobxTheme:
-    ui->cobxTheme->addItem(tr("Standard"));
-    ui->cobxTheme->addItem(tr("Modern light"));
-    ui->cobxTheme->addItem(tr("Modern dark"));
+    ui->cobxTheme->addItems(QStyleFactory::keys());
 
     // lblDiskUsage
     ui->lblDiskUsageSize->setText(tr("Calculating..."));
@@ -75,12 +71,11 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     ui->btnDevToolsPrefs->setVisible(set.devModeEnabled());
 
     loadPreferences();
-    isFirstSetup = false;
+    setupFinished = true;
 
     // Open direct modes:
     if (openDirect == "mainDirSelection") // Main directory selection
     {
-
         on_btnOmsiPath_clicked();
         QTimer::singleShot(0, this, SLOT(close()));
     }
@@ -135,14 +130,16 @@ void wPreferences::loadPreferences()
 
         // Theme
         {
-            // Theme
-            useStandardTheme = set.read("main\\themeData", "useStandardTheme").toBool();
-            ui->gbxThemeAdvanced->setEnabled(!useStandardTheme);
-            reloadThemePreview();
+            QString style = set.read("main", "theme").toString();
 
-
-
-            ui->btnUseCustomTheme->setVisible(useStandardTheme);
+            for (int i = 0; i < ui->cobxTheme->count(); i++)
+            {
+                if (ui->cobxTheme->itemText(i) == style)
+                {
+                    ui->cobxTheme->setCurrentIndex(i);
+                    break;
+                }
+            }
         };
 
         // Backup
@@ -214,17 +211,7 @@ void wPreferences::savePreferences()
 
         // Theme
         {
-            // Theme data
-            set.remove("main\\themeData", "");
-            set.write("main\\themeData", "background", tcBackground);
-            set.write("main\\themeData", "fontDisabled", tcFontDisabled);
-            set.write("main\\themeData", "backgroundDisabled", tcBackgroundDisabled);
-            set.write("main\\themeData", "borders", tcBorders);
-            set.write("main\\themeData", "accent", tcAccent);
-            set.write("main\\themeData", "font", tcFont);
-            set.write("main\\themeData", "inputs", tcInputs);
-
-            set.write("main\\themeData", "useStandardTheme", useStandardTheme);
+            set.write("main", "theme", ui->cobxTheme->currentText());
         };
 
         // Backup
@@ -376,7 +363,7 @@ void wPreferences::on_btnMoreLanguages_clicked()
 
 void wPreferences::on_cobxAutoUpdateCheck_currentIndexChanged(int index) { Q_UNUSED(index); modified(); }
 
-void wPreferences::on_cobxLogfileMode_currentIndexChanged(int index) { Q_UNUSED(index); modified(); needRestart = true; }
+void wPreferences::on_cobxLogfileMode_currentIndexChanged(int index) { Q_UNUSED(index); if (setupFinished) { modified(); needRestart = true; } }
 
 void wPreferences::on_sbxAutosaveDuration_valueChanged(int arg1) { Q_UNUSED(arg1); modified(); }
 
@@ -388,120 +375,16 @@ void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { modified(); 
 
 void wPreferences::on_cbxOnlyMapTextures_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
 
-void wPreferences::on_cbxShowNews_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); needRestart = true; }
+void wPreferences::on_cbxShowNews_stateChanged(int arg1) { Q_UNUSED(arg1); if (setupFinished) { modified(); needRestart = true; } }
 
-void wPreferences::on_cobxLanguage_currentIndexChanged(int index) { Q_UNUSED(index); modified(); needRestart = true; }
+void wPreferences::on_cobxLanguage_currentIndexChanged(int index) { Q_UNUSED(index); modified(); if (setupFinished) { needRestart = true; } }
 
 void wPreferences::on_cbxKeepPixelRow_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
 
 /// Reloads theme preview
 void wPreferences::reloadThemePreview()
 {
-    if (isFirstSetup) tcBackground = set.read("main\\themeData", "background").toString();
-    ui->lblThemeBackground->setStyleSheet(QString("color: %1").arg(tcBackground));
-    if (tcBackground.isEmpty()) ui->lblThemeBackground->setStyleSheet("");
-
-    if (isFirstSetup) tcFontDisabled = set.read("main\\themeData", "fontDisabled").toString();
-    ui->lblThemeFontDisabled->setStyleSheet(QString("color: %1").arg(tcFontDisabled));
-    if (tcFontDisabled.isEmpty()) ui->lblThemeFontDisabled->setStyleSheet("");
-
-    if (isFirstSetup) tcBackgroundDisabled = set.read("main\\themeData", "backgroundDisabled").toString();
-    ui->lblThemeBackgroundDisabled->setStyleSheet(QString("color: %1").arg(tcBackgroundDisabled));
-    if (tcBackgroundDisabled.isEmpty()) ui->lblThemeBackgroundDisabled->setStyleSheet("");
-
-    if (isFirstSetup) tcBorders = set.read("main\\themeData", "borders").toString();
-    ui->lblThemeBorders->setStyleSheet(QString("color: %1").arg(tcBorders));
-    if (tcBorders.isEmpty()) ui->lblThemeBorders->setStyleSheet("");
-
-    if (isFirstSetup) tcAccent = set.read("main\\themeData", "accent").toString();
-    ui->lblThemeAccent->setStyleSheet(QString("color: %1").arg(tcAccent));
-    if (tcAccent.isEmpty()) ui->lblThemeAccent->setStyleSheet("");
-
-    if (isFirstSetup) tcFont = set.read("main\\themeData", "font").toString();
-    ui->lblThemeFont->setStyleSheet(QString("color: %1").arg(tcFont));
-    if (tcFont.isEmpty()) ui->lblThemeFont->setStyleSheet("");
-
-    if (isFirstSetup) tcInputs = set.read("main\\themeData", "inputs").toString();
-    ui->lblThemeInputs->setStyleSheet(QString("color: %1").arg(tcInputs));
-    if (tcInputs.isEmpty()) ui->lblThemeInputs->setStyleSheet("");
-
-    setStyleSheet(set.getStyleSheet(tcBackground, tcFontDisabled, tcBackgroundDisabled, tcBorders, tcAccent, tcFont, tcInputs, useStandardTheme));
-}
-
-/// Opens color dialog for main color
-void wPreferences::on_btnThemeBackground_clicked()
-{
-    QColor color = QColorDialog::getColor(QColor(tcBackground), this, tr("Select background color")).name();
-    if (color.isValid()) tcBackground = color.name();
-    reloadThemePreview();
-    needRestart = true;
-}
-
-/// Opens color dialog for disables color
-void wPreferences::on_btnThemeFontDisabled_clicked()
-{
-    QColor color = QColorDialog::getColor(QColor(tcFontDisabled), this, tr("Select font color for disabled elements"));
-    if (color.isValid()) tcFontDisabled = color.name();
-    reloadThemePreview();
-    needRestart = true;
-}
-
-/// Opens color dialog for disables (darker) color
-void wPreferences::on_btnThemeBackgroundDisabled_clicked()
-{
-    QColor color = QColorDialog::getColor(QColor(tcBackgroundDisabled), this, tr("Select background color for disabled elements"));
-    if (color.isValid()) tcBackgroundDisabled = color.name();
-    reloadThemePreview();
-    needRestart = true;
-}
-
-/// Opens color dialog for accent 1 color
-void wPreferences::on_btnThemeBorders_clicked()
-{
-    QColor color = QColorDialog::getColor(QColor(tcBorders), this, tr("Select border color"));
-    if (color.isValid()) tcBorders = color.name();
-    reloadThemePreview();
-    needRestart = true;
-}
-
-/// Opens color dialog for accent 2 color
-void wPreferences::on_btnThemeAccent_clicked()
-{
-    QColor color = QColorDialog::getColor(QColor(tcAccent), this, tr("Select accent color"));
-    if (color.isValid()) tcAccent = color.name();
-    reloadThemePreview();
-    needRestart = true;
-}
-
-/// Opens color dialog for accent 3 color
-void wPreferences::on_btnThemeFont_clicked()
-{
-    QColor color = QColorDialog::getColor(QColor(tcFont), this, tr("Select font color"));
-    if (color.isValid()) tcFont = color.name();
-    reloadThemePreview();
-    needRestart = true;
-}
-
-/// Opens color dialog for button color
-void wPreferences::on_btnThemeInputs_clicked()
-{
-    QColor color = QColorDialog::getColor(QColor(tcInputs), this, tr("Select input field color"));
-    if (color.isValid()) tcInputs = color.name();
-    reloadThemePreview();
-    needRestart = true;
-}
-
-/// Loads a default theme
-void wPreferences::on_btnLoadTheme_clicked()
-{
-    set.getDefaultThemeData(ui->cobxTheme->currentIndex(), tcBackground, tcFontDisabled, tcBackgroundDisabled, tcBorders, tcAccent, tcFont, tcInputs, useStandardTheme);
-
-    ui->gbxThemeAdvanced->setEnabled(!useStandardTheme);
-    ui->btnUseCustomTheme->setVisible(useStandardTheme);
-    reloadThemePreview();
-    needRestart = true;
-
-    modified();
+    qApp->setStyle(QStyleFactory::create(ui->cobxTheme->currentText()));
 }
 
 /// Opens help dialog
@@ -523,14 +406,6 @@ void wPreferences::on_btnSave_clicked()
     needRestart = false;
 
     close();
-}
-
-void wPreferences::on_btnUseCustomTheme_clicked()
-{
-    ui->gbxThemeAdvanced->setEnabled(true);
-    useStandardTheme = false;
-    reloadThemePreview();
-    ui->btnUseCustomTheme->setVisible(false);
 }
 
 void wPreferences::on_btnDevToolsPrefs_clicked()
@@ -557,5 +432,12 @@ void wPreferences::on_actionClose_triggered()
             close();
     }
     else close();
+}
+
+
+void wPreferences::on_cobxTheme_currentIndexChanged(int index)
+{
+    Q_UNUSED(index);
+    if (setupFinished) reloadThemePreview();
 }
 

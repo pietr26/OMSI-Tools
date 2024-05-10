@@ -32,7 +32,6 @@ wDownloadProject::wDownloadProject(QString gitPath, QString projectPath, QWidget
     ui->ledGitURL->setText(gitPath);
 
     // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(tr("Download project"));
 
     qInfo().noquote() << objectName() + " started";

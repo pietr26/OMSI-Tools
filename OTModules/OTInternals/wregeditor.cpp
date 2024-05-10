@@ -13,9 +13,6 @@ wRegEditor::wRegEditor(QWidget *parent) :
 
     setWindowTitle(OTInformation::name + " - RegEditor");
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     loadRegs();
 
     qInfo().noquote() << objectName() + " started";

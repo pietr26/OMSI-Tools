@@ -11,11 +11,6 @@ wStart::wStart(QWidget *parent)
     ui->setupUi(this);
     qDebug() << "UI set";
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
-    // QList("windowsvista", "Windows", "Fusion")
-
     setWindowTitle(OTInformation::name + " " + OTInformation::versions::currentVersion.first);
 
 #ifdef QT_DEBUG

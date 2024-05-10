@@ -14,7 +14,6 @@ wAbout::wAbout(QWidget *parent) :
     qDebug() << "UI set";
 
     // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
     setWindowTitle(tr("About") + " " + OTInformation::name);

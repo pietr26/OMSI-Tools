@@ -133,7 +133,7 @@
         <item>
          <widget class="QStackedWidget" name="stwPreferences">
           <property name="currentIndex">
-           <number>2</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="pgeDevToolsPrefs">
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -253,9 +253,38 @@
                <attribute name="title">
                 <string>General</string>
                </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_10">
+               <layout class="QVBoxLayout" name="verticalLayout_9">
                 <item>
                  <layout class="QGridLayout" name="gridLayout_2">
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="cobxLanguage">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="whatsThis">
+                     <string/>
+                    </property>
+                    <property name="autoFillBackground">
+                     <bool>false</bool>
+                    </property>
+                    <property name="sizeAdjustPolicy">
+                     <enum>QComboBox::AdjustToContents</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="lblAuthor">
+                    <property name="text">
+                     <string>Author:</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>ledAuthor</cstring>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="0" column="0">
                    <widget class="QLabel" name="lblLanguage">
                     <property name="text">
@@ -263,6 +292,17 @@
                     </property>
                     <property name="buddy">
                      <cstring>cobxLanguage</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QPushButton" name="btnMoreLanguages">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../../ressources.qrc">
+                      <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
                     </property>
                    </widget>
                   </item>
@@ -294,17 +334,6 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="2">
-                   <widget class="QPushButton" name="btnMoreLanguages">
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="../../ressources.qrc">
-                      <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="2" column="0">
                    <widget class="QLabel" name="lblOmsiPath">
                     <property name="text">
@@ -315,77 +344,24 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="lblAuthor">
-                    <property name="text">
-                     <string>Author:</string>
-                    </property>
-                    <property name="buddy">
-                     <cstring>ledAuthor</cstring>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QComboBox" name="cobxLanguage">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="whatsThis">
-                     <string/>
-                    </property>
-                    <property name="autoFillBackground">
-                     <bool>false</bool>
-                    </property>
-                    <property name="sizeAdjustPolicy">
-                     <enum>QComboBox::AdjustToContents</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0" colspan="3">
+                  <item row="4" column="0" colspan="3">
                    <widget class="QCheckBox" name="cbxShowNews">
                     <property name="text">
                      <string>Show news section on home screen</string>
                     </property>
                    </widget>
                   </item>
-                 </layout>
-                </item>
-                <item>
-                 <spacer name="verticalSpacer_2">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="tabTheme">
-               <attribute name="title">
-                <string>Theme</string>
-               </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_4">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_11">
-                  <item>
+                  <item row="3" column="0">
                    <widget class="QLabel" name="lblTheme">
                     <property name="text">
-                     <string>Load theme:</string>
+                     <string>Theme:</string>
                     </property>
                     <property name="buddy">
                      <cstring>cobxTheme</cstring>
                     </property>
                    </widget>
                   </item>
-                  <item>
+                  <item row="3" column="1" colspan="2">
                    <widget class="QComboBox" name="cobxTheme">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -398,324 +374,10 @@
                     </property>
                    </widget>
                   </item>
-                  <item>
-                   <widget class="QPushButton" name="btnLoadTheme">
-                    <property name="text">
-                     <string>Load</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="../../ressources.qrc">
-                      <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_6">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="btnUseCustomTheme">
-                    <property name="text">
-                     <string>Use custom</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="../../ressources.qrc">
-                      <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                    </property>
-                   </widget>
-                  </item>
                  </layout>
                 </item>
                 <item>
-                 <widget class="QGroupBox" name="gbxThemeAdvanced">
-                  <property name="title">
-                   <string>Advanced</string>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_9">
-                   <item>
-                    <layout class="QGridLayout" name="glaTheme">
-                     <item row="0" column="3" rowspan="4">
-                      <widget class="Line" name="line_3">
-                       <property name="orientation">
-                        <enum>Qt::Vertical</enum>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0">
-                      <widget class="QPushButton" name="btnThemeBackground">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../../ressources.qrc">
-                         <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="1">
-                      <widget class="QLabel" name="lblThemeBackground">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string notr="true">■</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="2">
-                      <widget class="QLabel" name="lblThemeBackgroundName">
-                       <property name="text">
-                        <string>Background</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="1">
-                      <widget class="QLabel" name="lblThemeFont">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string notr="true">■</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="0">
-                      <widget class="QPushButton" name="btnThemeFont">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../../ressources.qrc">
-                         <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="2">
-                      <widget class="QLabel" name="lblThemeFontName">
-                       <property name="text">
-                        <string>Font</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="4">
-                      <widget class="QPushButton" name="btnThemeBackgroundDisabled">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../../ressources.qrc">
-                         <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="5">
-                      <widget class="QLabel" name="lblThemeBackgroundDisabled">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string notr="true">■</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="6">
-                      <widget class="QLabel" name="lblThemeBackgroundDisabledName">
-                       <property name="text">
-                        <string>Background (disabled items)</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="0">
-                      <widget class="QPushButton" name="btnThemeBorders">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../../ressources.qrc">
-                         <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="1">
-                      <widget class="QLabel" name="lblThemeBorders">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string notr="true">■</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="2">
-                      <widget class="QLabel" name="lblThemeBordersName">
-                       <property name="text">
-                        <string>Borders</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="4">
-                      <widget class="QPushButton" name="btnThemeFontDisabled">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../../ressources.qrc">
-                         <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="5">
-                      <widget class="QLabel" name="lblThemeFontDisabled">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string notr="true">■</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="6">
-                      <widget class="QLabel" name="lblThemeFontDisabledName">
-                       <property name="text">
-                        <string>Font (disabled items)</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QPushButton" name="btnThemeAccent">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../../ressources.qrc">
-                         <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="1">
-                      <widget class="QLabel" name="lblThemeAccent">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string notr="true">■</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="2">
-                      <widget class="QLabel" name="lblThemeAccentName">
-                       <property name="text">
-                        <string>Accent</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="4">
-                      <widget class="QPushButton" name="btnThemeInputs">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../../ressources.qrc">
-                         <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="5">
-                      <widget class="QLabel" name="lblThemeInputs">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string notr="true">■</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="6">
-                      <widget class="QLabel" name="lblThemeInputsName">
-                       <property name="text">
-                        <string>Input fields</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="verticalSpacer_3">
+                 <spacer name="verticalSpacer_2">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
                   </property>

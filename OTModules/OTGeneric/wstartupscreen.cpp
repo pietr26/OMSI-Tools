@@ -9,7 +9,6 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     ui->setupUi(this);
 
     // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
     ui->lblStatus->setText(tr("Start-up..."));
     setWindowTitle(OTInformation::name + " - " + ui->lblStatus->text());
 

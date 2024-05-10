@@ -13,9 +13,6 @@ wEditGroundTexture::wEditGroundTexture(OCMap::Global::Texture tex, int index, QW
 
     setWindowTitle(tr("Edit terrain texture"));
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     textureIndex = index;
     if (textureIndex != -1) texture = tex;
 

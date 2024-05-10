@@ -601,10 +601,7 @@ public:
         QVariant value = preferences.value(name);
         if (logging) qDebug().noquote().nospace() << "Read pref from " << module << ": "<< name << ", value: " << value;
 
-        if (name == "theme")
-            return getStyleSheet();
-        else
-            return value;
+        return value;
     }
 
     void remove(QString module, QString name)
@@ -615,69 +612,6 @@ public:
     void removeAll()
     {
         QSettings("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat).remove("");
-    }
-
-    /// Returns the whole stylesheet
-    QString getStyleSheet(QString tcBackground = "", QString tcFontDisabled = "", QString tcBackgroundDisabled = "", QString tcBorders = "", QString tcAccent = "", QString tcFont = "", QString tcInputs = "", int useStandardTheme = -1)
-    {
-        if (tcBackground.isEmpty()) tcBackground = read("main\\themeData", "background").toString();
-        if (tcFontDisabled.isEmpty()) tcFontDisabled = read("main\\themeData", "fontDisabled").toString();
-        if (tcBackgroundDisabled.isEmpty()) tcBackgroundDisabled = read("main\\themeData", "backgroundDisabled").toString();
-        if (tcBorders.isEmpty()) tcBorders = read("main\\themeData", "borders").toString();
-        if (tcAccent.isEmpty()) tcAccent = read("main\\themeData", "accent").toString();
-        if (tcFont.isEmpty()) tcFont = read("main\\themeData", "font").toString();
-        if (tcInputs.isEmpty()) tcInputs = read("main\\themeData", "inputs").toString();
-        if (useStandardTheme == -1) useStandardTheme = read("main\\themeData", "useStandardTheme").toBool();
-
-        QFile modularTheme(":/rec/data/themes/modularModern.qss");
-
-        if (!modularTheme.open(QFile::ReadOnly | QFile::Text)) return "";
-
-        if (useStandardTheme) return "";
-
-        QString theme = modularTheme.readAll();
-        theme.replace("%<%background%>%", tcBackground)
-             .replace("%<%fontDisabled%>%", tcFontDisabled)
-             .replace("%<%backgroundDisabled%>%", tcBackgroundDisabled)
-             .replace("%<%borders%>%", tcBorders)
-             .replace("%<%accent%>%", tcAccent)
-             .replace("%<%font%>%", tcFont)
-             .replace("%<%inputs%>%", tcInputs);
-
-        return theme;
-    }
-
-    void getDefaultThemeData(int theme, QString &tcBackground, QString &tcFontDisabled, QString &tcBackgroundDisabled, QString &tcBorders, QString &tcAccent, QString &tcFont, QString &tcInputs, bool &useStandardTheme)
-    {
-        switch (theme)
-        {
-            case 0:     useStandardTheme = true; break; // Standard
-            case 1:     tcBackground = "#F0F0F0"; // modernLight // number ex. Cominear
-
-                        tcFontDisabled = "#787878";
-                        tcBackgroundDisabled = "#F0F0F0";
-
-                        tcBorders = "#000";
-                        tcAccent = "#90C8F6";
-                        tcFont = "#000";
-
-                        tcInputs = "#F0F0F0";
-
-                        useStandardTheme = false; break;
-
-            case 2:     tcBackground = "#3a3a3a"; // modernDark (ex. Combinear) // number ex. Darkeum
-
-                        tcFontDisabled = "#7F7F7F";
-                        tcBackgroundDisabled = "#404040";
-
-                        tcBorders = "#111";
-                        tcAccent = "#b78620";
-                        tcFont = "#fff";
-
-                        tcInputs = "#525252";
-
-                        useStandardTheme = false; break;
-        }
     }
 
     /// Checks if OMSI main dir exists / is valid
@@ -799,21 +733,14 @@ public:
         if (!read("main", "autosave").isValid())
             write("main", "autosave", true);
 
+        if (!read("main", "theme").isValid())
+            write("main", "theme", "windowsvista");
+
         if (!read("main", "autosaveDuration").isValid())
             write("main", "autosaveDuration", 60);
 
-        if (!read("main\\themeData", "useStandardTheme").isValid())
-            write("main\\themeData", "useStandardTheme", true);
-
         if (!read("wStart", "messagesVisible").isValid())
             write("wStart", "messagesVisible", true);
-
-        // TODO: What?
-//        if (!read("wVerifyMap", "advVerifying").isValid())
-//            write("wVerifyMap", "advVerifying", false);
-
-//        if (!read("wVerifyMap", "onlyMapTextures").isValid())
-//            write("wVerifyMap", "onlyMapTextures", false);
 
         if (!read("wFonts", "texPreview").isValid())
             write("wFonts", "texPreview", 1);

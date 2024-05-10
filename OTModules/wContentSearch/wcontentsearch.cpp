@@ -15,9 +15,6 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
 
     setWindowTitle(OTInformation::name + " - " + tr("Content search"));
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     if (paths.empty())
         paths << "";
 

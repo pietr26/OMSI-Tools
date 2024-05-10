@@ -13,9 +13,6 @@ wAddPath::wAddPath(bool isNewEntry, QWidget *parent, int ID, QString path, QStri
 
     setWindowTitle("Add / edit path");
 
-    // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
-
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
     dbHandler.setupDatabase();
     dbHandler.openDB();

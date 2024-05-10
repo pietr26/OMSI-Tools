@@ -13,7 +13,6 @@ wUploadProject::wUploadProject(QWidget *parent)
     qDebug() << "UI set";
 
     // Load prefs
-    setStyleSheet(set.read("main", "theme").toString());
     setWindowTitle(tr("Upload project"));
 
     qInfo().noquote() << objectName() + " started";
