@@ -16,6 +16,7 @@
 #include <QScreen>
 #include <QClipboard>
 #include <QString>
+#include <QStyleFactory>
 
 class OTFileMethods
 {
@@ -971,6 +972,39 @@ public:
     };
 
     static QString serverMaintenance() { return QObject::tr("The application server is currently undergoing maintenance (HTTP 503). Please try again later."); }
+
+    static QList<QPair<QString, QString>> getThemeNames()
+    {
+        QStringList styles = QStyleFactory::keys();
+        QList<QPair<QString, QString>> themes;
+
+        for (int i = 0; i < styles.count(); i++)
+        {
+            themes.append(QPair<QString, QString>(styles[i], ""));
+            if (styles[i] == "windows11")
+            {
+                themes[i].second = "Windows 11";
+            }
+            else if (styles[i] == "windowsvista")
+            {
+                themes[i].second = QObject::tr("Windows standard");
+            }
+            else if (styles[i] == "Windows")
+            {
+                themes[i].second = "Windows XP";
+            }
+            else if (styles[i] == "Fusion")
+            {
+                themes[i].second = "Fusion";
+            }
+            else
+            {
+                themes[i].second = themes[i].first;
+            }
+        }
+
+        return themes;
+    }
 };
 
 class OTInAppMessage

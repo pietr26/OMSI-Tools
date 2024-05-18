@@ -48,7 +48,10 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     model->item(10)->setEnabled(false); // cy
 
     // cobxTheme:
-    ui->cobxTheme->addItems(QStyleFactory::keys());
+    for (int i = 0; i < themes.count(); i++)
+    {
+        ui->cobxTheme->addItem(themes[i].second);
+    }
 
     // lblDiskUsage
     ui->lblDiskUsageSize->setText(tr("Calculating..."));
@@ -106,6 +109,7 @@ wPreferences::~wPreferences()
 void wPreferences::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
+    qApp->setStyle(QStyleFactory::create(set.read("main", "theme").toString()));
 }
 
 void wPreferences::loadPreferences()
@@ -130,11 +134,11 @@ void wPreferences::loadPreferences()
 
         // Theme
         {
-            QString style = set.read("main", "theme").toString();
+            QString theme = set.read("main", "theme").toString();
 
             for (int i = 0; i < ui->cobxTheme->count(); i++)
             {
-                if (ui->cobxTheme->itemText(i) == style)
+                if (themes[i].first == theme)
                 {
                     ui->cobxTheme->setCurrentIndex(i);
                     break;
@@ -211,7 +215,7 @@ void wPreferences::savePreferences()
 
         // Theme
         {
-            set.write("main", "theme", ui->cobxTheme->currentText());
+            set.write("main", "theme", themes[ui->cobxTheme->currentIndex()].first);
         };
 
         // Backup
@@ -384,7 +388,7 @@ void wPreferences::on_cbxKeepPixelRow_stateChanged(int arg1) { Q_UNUSED(arg1); m
 /// Reloads theme preview
 void wPreferences::reloadThemePreview()
 {
-    qApp->setStyle(QStyleFactory::create(ui->cobxTheme->currentText()));
+    qApp->setStyle(QStyleFactory::create(themes[ui->cobxTheme->currentIndex()].first));
 }
 
 /// Opens help dialog

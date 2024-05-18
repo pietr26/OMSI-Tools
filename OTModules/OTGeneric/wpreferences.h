@@ -9,7 +9,6 @@
 #include <QStandardItemModel>
 #include <QColorDialog>
 #include <QListWidgetItem>
-#include <QStyleFactory>
 
 namespace Ui {
 class wPreferences;
@@ -86,6 +85,7 @@ private:
     OTMiscellaneous misc;
     OTFileOperations fop;
     OTDiskUsage dUs;
+    OTStrings strings;
     QTimer *timer;
     wDevTools *WDEVTOOLS;
     wReleaseNotes *WRELEASENOTES;
@@ -102,6 +102,8 @@ private:
     bool setupFinished = false;
 
     bool needRestart = false;
+
+    QList<QPair<QString, QString>> themes = strings.getThemeNames();
 };
 
 #endif // WPREFERENCES_H
