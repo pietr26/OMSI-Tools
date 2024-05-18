@@ -550,3 +550,12 @@ void wStart::on_actionAboutQt_triggered()
     QMessageBox::aboutQt(this);
 }
 
+
+void wStart::on_tbnLFClient_clicked()
+{
+    WLFCLIENT = new wLFClient();
+    connect(WLFCLIENT, &wLFClient::backToHome, this, &wStart::reopen);
+    WLFCLIENT->show();
+    close();
+}
+

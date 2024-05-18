@@ -38,6 +38,7 @@ SOURCES += \
     OTModules/wFbh/waddword.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wdbknownwords.cpp \
+    OTModules/wLFClient/wlfclient.cpp \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp \
     OTModules/wMaps/wGlobalProps/weditseason.cpp \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
@@ -112,6 +113,7 @@ HEADERS += \
     OTModules/wFbh/waddword.h \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wdbknownwords.h \
+    OTModules/wLFClient/wlfclient.h \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.h \
     OTModules/wMaps/wGlobalProps/weditseason.h \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
@@ -160,6 +162,7 @@ FORMS += \
     OTModules/wFbh/waddword.ui \
     OTModules/wFbh/wdbcopyrights.ui \
     OTModules/wFbh/wdbknownwords.ui \
+    OTModules/wLFClient/wlfclient.ui \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.ui \
     OTModules/wMaps/wGlobalProps/weditseason.ui \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \

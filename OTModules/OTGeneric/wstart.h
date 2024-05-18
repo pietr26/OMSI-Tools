@@ -25,6 +25,7 @@
 #include "OTModules/wMaps/wmaps.h"
 #include "OTModules/wBugDoc/wbugdoc.h"
 #include "OTModules/wvehiclelist.h"
+#include "OTModules/wLFClient/wlfclient.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -104,6 +105,8 @@ private slots:
 
     void on_actionAboutQt_triggered();
 
+    void on_tbnLFClient_clicked();
+
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;
@@ -124,6 +127,7 @@ private:
     wVehicleList *WVEHICLELIST;
     wDBKnownWords *WDBKNOWNWORDS;
     wProjectManagement *WPROJECTMANAGEMENT;
+    wLFClient *WLFCLIENT;
 
     OTSettings set;
     OTMessage msg;

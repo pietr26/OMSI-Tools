@@ -178,6 +178,7 @@ public:
         inline static const QUrl maps = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Kartenbearbeitung");
         inline static const QUrl money = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Währungen");
         inline static const QUrl tickets = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Fahrkarten");
+        inline static const QUrl lfClient = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Leistellen-Client");
     };
 
     class WDT
