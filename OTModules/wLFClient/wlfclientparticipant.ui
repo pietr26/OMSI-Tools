@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>wLFClient</class>
- <widget class="QMainWindow" name="wLFClient">
+ <class>wLFClientParticipant</class>
+ <widget class="QMainWindow" name="wLFClientParticipant">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true">wLFClient</string>
+   <string notr="true">wLFClientParticipant</string>
   </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
@@ -68,7 +68,7 @@
     <string>Close</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Q</string>
+    <string notr="true">Ctrl+Q</string>
    </property>
   </action>
   <action name="actionPreferences">

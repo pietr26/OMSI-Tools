@@ -101,5 +101,6 @@
         <file>data/external/texconv.exe</file>
         <file>data/icons/iconQt.svg</file>
         <file>data/icons/iconBus.svg</file>
+        <file>data/icons/iconManageUser.svg</file>
     </qresource>
 </RCC>

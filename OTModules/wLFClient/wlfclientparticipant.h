@@ -1,5 +1,5 @@
-#ifndef WLFCLIENT_H
-#define WLFCLIENT_H
+#ifndef WLFCLIENTPARTICIPANT_H
+#define WLFCLIENTPARTICIPANT_H
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
@@ -7,16 +7,16 @@
 #include "OTModules/OTGeneric/wpreferences.h"
 
 namespace Ui {
-class wLFClient;
+class wLFClientParticipant;
 }
 
-class wLFClient : public QMainWindow
+class wLFClientParticipant : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit wLFClient(QWidget *parent = nullptr);
-    ~wLFClient();
+    explicit wLFClientParticipant(QWidget *parent = nullptr);
+    ~wLFClientParticipant();
 
 private slots:
     void on_actionBackToHome_triggered();
@@ -31,9 +31,9 @@ signals:
     void backToHome();
 
 private:
-    Ui::wLFClient *ui;
+    Ui::wLFClientParticipant *ui;
     OTSettings set;
     wPreferences *WPREFERENCES;
 };
 
-#endif // WLFCLIENT_H
+#endif // WLFCLIENTPARTICIPANT_H

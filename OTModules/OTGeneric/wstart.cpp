@@ -523,7 +523,6 @@ void wStart::on_actionDBPanelKnownWords_triggered()
     close();
 }
 
-
 void wStart::on_tbnProjectManagement_clicked()
 {
     WPROJECTMANAGEMENT = new wProjectManagement();
@@ -532,30 +531,33 @@ void wStart::on_tbnProjectManagement_clicked()
     close();
 }
 
-
 void wStart::on_actionDirectXTex_triggered()
 {
     QMessageBox::about(this, tr("DirectXTex License"), "MIT License\n\nCopyright (c) Microsoft Corporation.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sellcopies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in allcopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THEAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE");
 }
-
 
 void wStart::on_actionRoadmap_triggered()
 {
     QDesktopServices::openUrl(OTLinks::roadmap);
 }
 
-
 void wStart::on_actionAboutQt_triggered()
 {
     QMessageBox::aboutQt(this);
 }
 
-
-void wStart::on_tbnLFClient_clicked()
+void wStart::on_tbnLFClientDispatcher_clicked()
 {
-    WLFCLIENT = new wLFClient();
-    connect(WLFCLIENT, &wLFClient::backToHome, this, &wStart::reopen);
-    WLFCLIENT->show();
+    WLFCLIENTDISPATCHER = new wLFClientDispatcher();
+    connect(WLFCLIENTDISPATCHER, &wLFClientDispatcher::backToHome, this, &wStart::reopen);
+    WLFCLIENTDISPATCHER->show();
     close();
 }
 
+void wStart::on_tbnLFClientParticipant_clicked()
+{
+    WLFCLIENTPARTICIPANT = new wLFClientParticipant();
+    connect(WLFCLIENTPARTICIPANT, &wLFClientParticipant::backToHome, this, &wStart::reopen);
+    WLFCLIENTPARTICIPANT->show();
+    close();
+}
