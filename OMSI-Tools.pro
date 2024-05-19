@@ -204,11 +204,7 @@ TRANSLATIONS += \
     data/translations/tr_fr.ts \
     data/translations/tr_it.ts \
     data/translations/tr_cs.ts \
-    data/translations/tr_cy.ts \
-    data/translations/tr_eo.ts \
-    data/translations/tr_et.ts \
     data/translations/tr_fi.ts \
-    data/translations/tr_is.ts \
     data/translations/tr_ja.ts
 
 # Default rules for deployment.

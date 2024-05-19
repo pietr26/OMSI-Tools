@@ -85,22 +85,22 @@
         <translation>Es gibt noch nicht gespeicherte Änderungen. Trotzdem schließen?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="955"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="951"/>
         <source>Images</source>
         <translation>Grafiken</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="964"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="960"/>
         <source>The source code of %1 is about %2 lines long.</source>
         <translation>Der Quellcode von %1 ist etwa %2 Zeilen lang.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="965"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="961"/>
         <source>%1 was born from a simple console application called &quot;Font Creator&quot;.</source>
         <translation>%1 entstand aus einer einfachen Konsolenanwendung namens &quot;Font-Creator&quot;.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="969"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="965"/>
         <source>Your hard disk is crowded? Clean up your main directory with %1&apos; cleanup tool.</source>
         <translation>Ist die Festplatte voll? Bereinige dein Hauptverzeichnis mit %1&apos; Aufräumer-Tool.</translation>
     </message>
@@ -181,7 +181,7 @@
         <translation>PB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="990"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="986"/>
         <source>Windows standard</source>
         <translation>Windows-Standard</translation>
     </message>
@@ -211,29 +211,29 @@
         <translation>Tiefer Winter</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="966"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="962"/>
         <source>With the updater of %1 you can install updates with one click. It is available through the preferences.</source>
         <translation>Mit dem Updater von %1 kannst du Aktualisierungen mit einem Klick installieren. Er ist über die Einstellungen erreichbar.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="967"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="963"/>
         <source>In the &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;Wiki of %1&lt;/a&gt; you can find useful explanations about all topics.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
         <translation>Im &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;Wiki von %1&lt;/a&gt; findest du nützliche Erklärungen zu allen Themen.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="968"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="964"/>
         <source>Check out the latest developments in the &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;presentation thread in the OMSI-WebDisk&lt;/a&gt;.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
         <translation>Verfolge die aktuellen Entwicklungen im &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;Vorstellungsthread in der OMSI-WebDisk&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="970"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="966"/>
         <source>You&apos;ve started %1 about %2 times.</source>
         <translation>Du hast %1 bereits %2 Mal gestartet.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="974"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="970"/>
         <source>The application server is currently undergoing maintenance (HTTP 503). Please try again later.</source>
         <translation>Der Anwendungsserver befindet sich derzeit in Wartungsarbeiten (HTTP 503). Bitte versuche es später erneut.</translation>
     </message>
@@ -454,7 +454,7 @@ Ist der Pfad korrekt? Andernfalls können in einigen Modulen Probleme auftreten.
         <translation>Juni 2023</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wabout.ui" line="372"/>
+        <location filename="../../OTModules/OTGeneric/wabout.ui" line="375"/>
         <source>More...</source>
         <translation>Mehr...</translation>
     </message>
@@ -2295,8 +2295,8 @@ Dies ist eine Alpha-Version dieses Moduls. Bitte erstelle ohne Ausnahme vor JEDE
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="651"/>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="330"/>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="334"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="321"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="325"/>
         <source>Reset preferences</source>
         <translation>Einstellungen zurücksetzen</translation>
     </message>
@@ -2368,101 +2368,101 @@ Dies ist eine Alpha-Version dieses Moduls. Bitte erstelle ohne Ausnahme vor JEDE
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="57"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="48"/>
         <source>Calculating...</source>
         <translation>Berechnen...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="61"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="52"/>
         <source>s</source>
         <comment>Short version of &apos;seconds&apos;</comment>
         <translation>s</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="65"/>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="70"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="56"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="61"/>
         <source>Off</source>
         <translation>Aus</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="65"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="56"/>
         <source>Standard (recommended)</source>
         <translation>Standard (empfohlen)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="70"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="61"/>
         <source>On start</source>
         <translation>Beim Start</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="70"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="61"/>
         <source>Daily</source>
         <translation>Täglich</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="70"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="61"/>
         <source>Weekly</source>
         <translation>Wöchentlich</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="70"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="61"/>
         <source>Monthly</source>
         <translation>Monatlich</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="288"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="279"/>
         <source>Delete all backups</source>
         <translation>Alle Backups löschen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="288"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="279"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
         <translation>Sollen alle Backups gelöscht werden? Sie werden in den Papierkorb verschoben.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="315"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="306"/>
         <source>Maintenance</source>
         <translation>Wartungsarbeiten</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="317"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="308"/>
         <source>Finshed</source>
         <translation>Fertig</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="317"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="308"/>
         <source>No updates available.</source>
         <translation>Keine Aktualisierungen verfügbar.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="330"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="321"/>
         <source>Should all preferences be reset? This action cannot be undone! Any preferences will be deleted. However, files such as backups are not affected.</source>
         <translation>Sollen allen Einstellungen zurückgesetzt werden? Diese Aktion kann nicht wieder rückgängig gemacht werden! Alle Einstellungen werden gelöscht. Dateien wie Sicherungen sind allerdings nicht betroffen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="334"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="325"/>
         <source>The application will now restart.</source>
         <translation>Die Anwendung startet nun neu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="362"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="353"/>
         <source>More languages</source>
         <translation>Mehr Sprachen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="362"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="353"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation>Du möchtest mehr Sprachen zur Auswahl haben?
 Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut beherrscht, kannst du %1 gerne übersetzen! Melde dich dazu beim Entwickler in der OMSI-WebDisk, auch, wenn du mehr Fragen dazu hast.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="407"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="398"/>
         <source>To fully apply all changed preferences, the application requires a restart.</source>
         <translation>Um alle Einstellungen vollständig anzuwenden, muss die Anwendung neu gestartet werden.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="407"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="398"/>
         <source>Restart required</source>
         <translation>Neustart erforderlich</translation>
     </message>
