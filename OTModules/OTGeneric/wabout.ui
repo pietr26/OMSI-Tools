@@ -65,6 +65,9 @@
          <iconset resource="../../ressources.qrc">
           <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
         </property>
+        <property name="shortcut">
+         <string notr="true">Ctrl+W</string>
+        </property>
         <property name="autoDefault">
          <bool>false</bool>
         </property>

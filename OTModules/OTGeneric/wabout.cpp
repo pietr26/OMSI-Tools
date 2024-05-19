@@ -79,4 +79,3 @@ void wAbout::on_btnFlowerella_clicked()
         ui->statusbar->showMessage("DevTools menu is enabled now. Restart to apply.");
     }
 }
-
