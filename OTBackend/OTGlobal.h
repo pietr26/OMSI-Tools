@@ -941,16 +941,12 @@ class OTStrings
 public:
     // Multilanguage strings
     static inline const QString langCs = "čeština (Czech)";
-    static inline const QString langEt = "eesti (Estonian)";
     static inline const QString langEn = "English";
-    static inline const QString langEo = "Esperanto";
     static inline const QString langFi = "suomi (Finnish)";
     static inline const QString langFr = "français (French)";
     static inline const QString langDe = "Deutsch (German)";
-    static inline const QString langIs = "Íslenska (Icelandic)";
     static inline const QString langIt = "Italiano (Italian)";
     static inline const QString langJa = "日本語 (Japanese)";
-    static inline const QString langCy = "Cymraeg (Welsh)";
 
     static inline const QString textureSuffixes = QObject::tr("Images") + " (*.png *.jpg *.jpeg *.bmp *.dds)";
 
