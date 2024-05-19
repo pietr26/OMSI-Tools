@@ -188,6 +188,16 @@ public:
         inline static const QUrl blackModList = QUrl("https://reboot.omsi-webdisk.de/wiki/entry/140-moderation-allgemeines/#3-Schwarze-Liste-der-Modifikationen");
         inline static const QUrl workflowFilebase = QUrl("https://reboot.omsi-webdisk.de/wiki/entry/143-moderation-arbeit-in-der-filebase/#2-Datei-Eintrge");
     };
+
+    class lfClient
+    {
+    public:
+        inline static const QString apiPath = "https://backend.omsi-tools.de/api/lfClient/v1/";
+        inline static const QUrl getSpeakRequests = QUrl(apiPath + "getAllSpeakRequests.php");
+        inline static const QUrl getParticipant = QUrl(apiPath + "getParticipantData.php");
+        inline static const QUrl getParticipants = QUrl(apiPath + "getAllParticipants.php");
+        inline static const QUrl setSpeakRequest = QUrl(apiPath + "requestSpeak.php");
+    };
 };
 
 class OTNetworkConnection : public QObject
