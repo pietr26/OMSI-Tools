@@ -138,6 +138,8 @@ public:
             QFile(dbPath).copy(QFileInfo(dbPath).absolutePath() + "/backups/" + QFileInfo(dbPath).baseName() + "_" + misc.getDate("yyyy-MM-dd") + "_" + misc.getTime("hh-mm-ss-z") + ".db");
     }
 
+    QString lastError() { return db.lastError().text(); }
+
     QString dbPath;
 
 private:
