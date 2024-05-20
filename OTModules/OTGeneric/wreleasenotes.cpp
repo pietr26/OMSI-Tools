@@ -59,7 +59,7 @@ void wReleaseNotes::downloadReleaseNotes(QString version)
 
     if (version == "") version = ui->cbxBranch->currentText();
 
-    QString releaseNotes = nc.post(QUrl(OTLinks::releaseNotes.toString() + "&lang=" + set.getCurrentLanguageCode() + "&version=" + version));
+    QString releaseNotes = nc.post(QUrl(OTLinks::releaseNotes + "&lang=" + set.getCurrentLanguageCode() + "&version=" + version));
     if (nc.lastSuccess == 1)
         ui->teedReleaseNotes->setHtml(releaseNotes);
     else if (nc.lastSuccess == -2)

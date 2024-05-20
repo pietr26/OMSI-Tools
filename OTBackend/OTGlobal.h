@@ -148,55 +148,55 @@ public:
 class OTLinks
 {
 public:
-    inline static const QUrl showroom = QUrl("https://reboot.omsi-webdisk.de/community/thread/4783");
-    inline static const QUrl support = QUrl("https://reboot.omsi-webdisk.de/community/thread/5683");
-    inline static const QUrl feedbackForm = QUrl("https://forms.gle/5VGy7fwohHys18bf9");
-    inline static const QUrl github = QUrl("https://github.com/pietr26/OMSI-Tools");
-    inline static const QUrl roadmap = QUrl("https://trello.com/b/wlId7JqM/roadmap-omsi-tools");
+    inline static const QString showroom = "https://reboot.omsi-webdisk.de/community/thread/4783";
+    inline static const QString support = "https://reboot.omsi-webdisk.de/community/thread/5683";
+    inline static const QString feedbackForm = "https://forms.gle/5VGy7fwohHys18bf9";
+    inline static const QString github = "https://github.com/pietr26/OMSI-Tools";
+    inline static const QString roadmap = "https://trello.com/b/wlId7JqM/roadmap-omsi-tools";
 
     inline static const QString apiPath = "https://backend.omsi-tools.de/api/v2/";
-    inline static const QUrl latestVersion = QUrl(apiPath + "?ref=currentVersion");
-    inline static const QUrl releaseNotes = QUrl(apiPath + "?ref=releaseNotes");
-    inline static const QUrl versionBranches = QUrl(apiPath + "?ref=versionBranches");
-    inline static const QUrl inAppMessages = QUrl(apiPath + "?ref=messages");
-    inline static const QUrl download = QUrl(apiPath + "?ref=downloadLink");
+    inline static const QString latestVersion = apiPath + "?ref=currentVersion";
+    inline static const QString releaseNotes = apiPath + "?ref=releaseNotes";
+    inline static const QString versionBranches = apiPath + "?ref=versionBranches";
+    inline static const QString inAppMessages = apiPath + "?ref=messages";
+    inline static const QString download = apiPath + "?ref=downloadLink";
 
-    inline static const QUrl csSuggestFiles = QUrl("https://backend.omsi-tools.de/api/csSuggestFiles/");
-    inline static const QUrl csReportLink = QUrl("https://backend.omsi-tools.de/api/csReportLink/");
-    inline static const QUrl empty = QUrl("https://backend.omsi-tools.de/api/empty/");
+    inline static const QString csSuggestFiles = "https://backend.omsi-tools.de/api/csSuggestFiles/";
+    inline static const QString csReportLink = "https://backend.omsi-tools.de/api/csReportLink/";
+    inline static const QString empty = "https://backend.omsi-tools.de/api/empty/";
 
-    inline static const QUrl bugDocUploads = QUrl("https://media.omsi-tools.de/bugDocUploads/");
+    inline static const QString bugDocUploads = "https://media.omsi-tools.de/bugDocUploads/";
 
     class Wiki
     {
     public:
-        inline static const QUrl general = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Hauptseite");
-        inline static const QUrl fonts = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Schriften");
-        inline static const QUrl cleanup = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Aufräumer");
-        inline static const QUrl contentSearch = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Inhaltssuche");
-        inline static const QUrl verifyMap = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Kartenüberprüfung");
-        inline static const QUrl preferences = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Einstellungen");
-        inline static const QUrl maps = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Kartenbearbeitung");
-        inline static const QUrl money = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Währungen");
-        inline static const QUrl tickets = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Fahrkarten");
-        inline static const QUrl lfClient = QUrl("https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Leistellen-Client");
+        inline static const QString general = "https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Hauptseite";
+        inline static const QString fonts = "https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Schriften";
+        inline static const QString cleanup = "https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Aufräumer";
+        inline static const QString contentSearch = "https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Inhaltssuche";
+        inline static const QString verifyMap = "https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Kartenüberprüfung";
+        inline static const QString preferences = "https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Einstellungen";
+        inline static const QString maps = "https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Kartenbearbeitung";
+        inline static const QString money = "https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Währungen";
+        inline static const QString tickets = "https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Fahrkarten";
+        inline static const QString lfClient = "https://wiki.omsi-tools.de/Spezial:Meine_Sprache/Leistellen-Client";
     };
 
     class WDT
     {
     public:
-        inline static const QUrl blackModList = QUrl("https://reboot.omsi-webdisk.de/wiki/entry/140-moderation-allgemeines/#3-Schwarze-Liste-der-Modifikationen");
-        inline static const QUrl workflowFilebase = QUrl("https://reboot.omsi-webdisk.de/wiki/entry/143-moderation-arbeit-in-der-filebase/#2-Datei-Eintrge");
+        inline static const QString blackModList = "https://reboot.omsi-webdisk.de/wiki/entry/140-moderation-allgemeines/#3-Schwarze-Liste-der-Modifikationen";
+        inline static const QString workflowFilebase = "https://reboot.omsi-webdisk.de/wiki/entry/143-moderation-arbeit-in-der-filebase/#2-Datei-Eintrge";
     };
 
     class lfClient
     {
     public:
         inline static const QString apiPath = "https://backend.omsi-tools.de/api/lfClient/v1/";
-        inline static const QUrl getSpeakRequests = QUrl(apiPath + "getAllSpeakRequests.php");
-        inline static const QUrl getParticipant = QUrl(apiPath + "getParticipantData.php");
-        inline static const QUrl getParticipants = QUrl(apiPath + "getAllParticipants.php");
-        inline static const QUrl setSpeakRequest = QUrl(apiPath + "requestSpeak.php");
+        inline static const QString getSpeakRequests = apiPath + "getAllSpeakRequests.php";
+        inline static const QString getParticipant = apiPath + "getParticipantData.php";
+        inline static const QString getParticipants = apiPath + "getAllParticipants.php";
+        inline static const QString setSpeakRequest = apiPath + "requestSpeak.php";
     };
 };
 
@@ -970,8 +970,8 @@ public:
             QPair<QString, unsigned int>(QObject::tr("The source code of %1 is about %2 lines long.").arg(OTInformation::name, OTInformation::sourceCodeLength), 8000),
             QPair<QString, unsigned int>(QObject::tr("%1 was born from a simple console application called \"Font Creator\".").arg(OTInformation::name), 10000),
             QPair<QString, unsigned int>(QObject::tr("With the updater of %1 you can install updates with one click. It is available through the preferences.").arg(OTInformation::name), 13000),
-            QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.", "Copy whole source text to prevent translations faults in HTML code").arg(OTInformation::name, OTLinks::Wiki::general.toString()), 11000),
-            QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.", "Copy whole source text to prevent translations faults in HTML code").arg(OTLinks::showroom.toString()), 11000),
+            QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.", "Copy whole source text to prevent translations faults in HTML code").arg(OTInformation::name, OTLinks::Wiki::general), 11000),
+            QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.", "Copy whole source text to prevent translations faults in HTML code").arg(OTLinks::showroom), 11000),
             QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTInformation::name), 10000),
             QPair<QString, unsigned int>(QObject::tr("You've started %1 about %2 times.").arg(OTInformation::name).arg(set.read("main", "startCount").toString()), 8000)
         };
