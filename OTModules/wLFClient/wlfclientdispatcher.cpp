@@ -13,6 +13,9 @@ wLFClientDispatcher::wLFClientDispatcher(QWidget *parent)
 
     setWindowTitle(OTInformation::name + " - " + tr("Control center trip") + " - " + tr("dispatcher dashboard"));
 
+    centralWidget()->setVisible(false);
+    createDockWidgets();
+
     qInfo().noquote() << objectName() + " started";
 }
 
@@ -42,4 +45,12 @@ void wLFClientDispatcher::on_actionHelp_triggered()
 {
     wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::lfClient);
     WFEEDBACK->show();
+}
+
+void wLFClientDispatcher::createDockWidgets()
+{
+    QDockWidget *dock = new QDockWidget(tr("Information", "plural form"), this);
+    dock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dock->setWidget(WDGINFORMATION);
+    addDockWidget(Qt::LeftDockWidgetArea, dock);
 }

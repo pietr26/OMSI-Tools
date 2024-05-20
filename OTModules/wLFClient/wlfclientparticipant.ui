@@ -6,20 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>722</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string notr="true">wLFClientParticipant</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout"/>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>722</width>
      <height>25</height>
     </rect>
    </property>
@@ -33,6 +35,8 @@
     <property name="title">
      <string>Window</string>
     </property>
+    <addaction name="actionLogin"/>
+    <addaction name="separator"/>
     <addaction name="actionBackToHome"/>
     <addaction name="actionClose"/>
    </widget>
@@ -90,6 +94,18 @@
    </property>
    <property name="text">
     <string>Help</string>
+   </property>
+  </action>
+  <action name="actionLogin">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconKey.svg</normaloff>:/rec/data/icons/iconKey.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Login...</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+L</string>
    </property>
   </action>
  </widget>

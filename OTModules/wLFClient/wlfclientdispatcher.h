@@ -2,9 +2,12 @@
 #define WLFCLIENTDISPATCHER_H
 
 #include <QMainWindow>
+#include <QDockWidget>
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/OTGeneric/wpreferences.h"
+#include "Widgets/wdginformation.h"
+#include "OTModules/wLFClient/wlogin.h"
 
 namespace Ui {
 class wLFClientDispatcher;
@@ -34,6 +37,12 @@ private:
     Ui::wLFClientDispatcher *ui;
     OTSettings set;
     wPreferences *WPREFERENCES;
+    wLogin *WLOGIN;
+    wdgInformation *WDGINFORMATION = new wdgInformation();
+
+    OTNetworkConnection nc;
+
+    void createDockWidgets();
 };
 
 #endif // WLFCLIENTDISPATCHER_H

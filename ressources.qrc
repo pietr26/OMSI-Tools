@@ -94,5 +94,6 @@
         <file>data/icons/iconQt.svg</file>
         <file>data/icons/iconBus.svg</file>
         <file>data/icons/iconManageUser.svg</file>
+        <file>data/icons/iconPhone.svg</file>
     </qresource>
 </RCC>

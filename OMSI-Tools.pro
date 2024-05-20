@@ -38,8 +38,13 @@ SOURCES += \
     OTModules/wFbh/waddword.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wdbknownwords.cpp \
+    OTModules/wLFClient/Widgets/wdgactions.cpp \
+    OTModules/wLFClient/Widgets/wdginformation.cpp \
+    OTModules/wLFClient/Widgets/wdgnotifications.cpp \
+    OTModules/wLFClient/Widgets/wdgtrips.cpp \
     OTModules/wLFClient/wlfclientdispatcher.cpp \
     OTModules/wLFClient/wlfclientparticipant.cpp \
+    OTModules/wLFClient/wlogin.cpp \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp \
     OTModules/wMaps/wGlobalProps/weditseason.cpp \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
@@ -114,8 +119,13 @@ HEADERS += \
     OTModules/wFbh/waddword.h \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wdbknownwords.h \
+    OTModules/wLFClient/Widgets/wdgactions.h \
+    OTModules/wLFClient/Widgets/wdginformation.h \
+    OTModules/wLFClient/Widgets/wdgnotifications.h \
+    OTModules/wLFClient/Widgets/wdgtrips.h \
     OTModules/wLFClient/wlfclientdispatcher.h \
     OTModules/wLFClient/wlfclientparticipant.h \
+    OTModules/wLFClient/wlogin.h \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.h \
     OTModules/wMaps/wGlobalProps/weditseason.h \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
@@ -164,8 +174,13 @@ FORMS += \
     OTModules/wFbh/waddword.ui \
     OTModules/wFbh/wdbcopyrights.ui \
     OTModules/wFbh/wdbknownwords.ui \
+    OTModules/wLFClient/Widgets/wdgactions.ui \
+    OTModules/wLFClient/Widgets/wdginformation.ui \
+    OTModules/wLFClient/Widgets/wdgnotifications.ui \
+    OTModules/wLFClient/Widgets/wdgtrips.ui \
     OTModules/wLFClient/wlfclientdispatcher.ui \
     OTModules/wLFClient/wlfclientparticipant.ui \
+    OTModules/wLFClient/wlogin.ui \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.ui \
     OTModules/wMaps/wGlobalProps/weditseason.ui \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
