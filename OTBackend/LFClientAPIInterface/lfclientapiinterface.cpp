@@ -40,6 +40,20 @@ bool LFClientAPIInterface::logout() {
     return ok;
 }
 
+LfCApiGlobalData LFClientAPIInterface::getGlobalData() {
+    QNetworkRequest req = createNewRequest(GetGlobalData);
+    QNetworkReply *r = m->get(req);
+    while(!r->isFinished())
+        qApp->processEvents();
+
+    bool ok;
+    QJsonObject obj = handleReply(r, &ok);
+    if(ok) {
+        return LfCApiGlobalData(this, obj);
+    } else
+        return LfCApiGlobalData(this);
+}
+
 QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoint, const QList<QPair<QString, QString>> &parameters) const {
     QString url = "http://localhost/lfclient/";
     switch(endpoint) {

@@ -47,9 +47,10 @@ signals:
 private:
     Ui::wLFClientParticipant *ui;
     OTSettings set;
+    LFClientAPIInterface *api = new LFClientAPIInterface(this);
     wPreferences *WPREFERENCES;
     wLogin *WLOGIN;
-    wdgInformation *WDGINFORMATION = new wdgInformation();
+    wdgInformation *WDGINFORMATION = new wdgInformation(this, api);
     wdgActions *WDGACTIONS = new wdgActions();
     wdgTrips *WDGTRIPS = new wdgTrips();
     wdgNotifications *WDGNOTIFICATIONS = new wdgNotifications();
@@ -58,7 +59,6 @@ private:
 
     void createDockWidgets();
 
-    LFClientAPIInterface *api;
 };
 
 #endif // WLFCLIENTPARTICIPANT_H

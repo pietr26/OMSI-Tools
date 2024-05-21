@@ -6,8 +6,7 @@
 wLFClientParticipant::wLFClientParticipant(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::wLFClientParticipant),
-    WLOGIN(new wLogin(this)),
-    api(new LFClientAPIInterface(this))
+    WLOGIN(new wLogin(this))
 {
     qInfo().noquote() << "Starting " + objectName() + "...";
     qDebug() << "Set up UI...";
