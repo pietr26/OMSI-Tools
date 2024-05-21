@@ -1,9 +1,13 @@
 #include "wlfclientparticipant.h"
 #include "ui_wlfclientparticipant.h"
 
+#include <QMessageBox>
+
 wLFClientParticipant::wLFClientParticipant(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::wLFClientParticipant)
+    , ui(new Ui::wLFClientParticipant),
+    WLOGIN(new wLogin(this)),
+    api(new LFClientAPIInterface(this))
 {
     qInfo().noquote() << "Starting " + objectName() + "...";
     qDebug() << "Set up UI...";
@@ -15,6 +19,8 @@ wLFClientParticipant::wLFClientParticipant(QWidget *parent)
 
     centralWidget()->setVisible(false);
     createDockWidgets();
+
+    connect(WLOGIN, &wLogin::accepted, this, &wLFClientParticipant::handleLogin);
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -72,7 +78,34 @@ void wLFClientParticipant::createDockWidgets()
 
 void wLFClientParticipant::on_actionLogin_triggered()
 {
-    WLOGIN = new wLogin();
     WLOGIN->show();
+}
+
+void wLFClientParticipant::handleLogin() {
+    WLOGIN->setDisabled(true);
+    const QString username = WLOGIN->username();
+    const QString password = WLOGIN->password();
+    bool ok = api->login(username, password);
+    WLOGIN->setEnabled(true);
+    if(ok)
+        WLOGIN->close();
+    else {
+        QString errorDescription;
+        switch(api->errorType()) {
+            case LFClientAPIInterface::LoginUserNotFound:  errorDescription = LFClientAPIInterface::userNotFoundDescription;  break;
+            case LFClientAPIInterface::LoginWrongPassword: errorDescription = LFClientAPIInterface::wrongPasswordDescription; break;
+            default: tr("unkown error"); break;
+        }
+
+        QMessageBox::warning(WLOGIN, tr("Login failed"), errorDescription, QMessageBox::Ok);
+    }
+}
+
+void wLFClientParticipant::on_actionLogout_triggered() {
+    QMessageBox::StandardButton msg = QMessageBox::warning(this, tr("Logout"), tr("Do you really want to log out?"), QMessageBox::Yes|QMessageBox::No);
+    if(msg != QMessageBox::Yes)
+        return;
+
+    api->logout();
 }
 

@@ -12,6 +12,8 @@
 #include "Widgets/wdgnotifications.h"
 #include "OTModules/wLFClient/wlogin.h"
 
+#include "OTBackend/LFClientAPIInterface/lfclientapiinterface.h"
+
 namespace Ui {
 class wLFClientParticipant;
 }
@@ -35,6 +37,10 @@ private slots:
 
     void on_actionLogin_triggered();
 
+    void handleLogin();
+
+    void on_actionLogout_triggered();
+
 signals:
     void backToHome();
 
@@ -51,6 +57,8 @@ private:
     OTNetworkConnection nc;
 
     void createDockWidgets();
+
+    LFClientAPIInterface *api;
 };
 
 #endif // WLFCLIENTPARTICIPANT_H

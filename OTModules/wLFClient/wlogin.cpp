@@ -11,6 +11,13 @@ wLogin::wLogin(QWidget *parent)
     //adjustSize();
     qDebug() << "UI set";
 
+    QAction *actionEnter  = this->addAction("");
+    QAction *actionCancel = this->addAction("");
+    actionEnter->setShortcuts({QKeySequence(Qt::Key_Enter), QKeySequence(Qt::Key_Return)});
+    actionCancel->setShortcut(QKeySequence(Qt::Key_Escape));
+    connect(actionEnter,  &QAction::triggered, this, &wLogin::on_buttonBox_accepted);
+    connect(actionCancel, &QAction::triggered, this, &wLogin::on_buttonBox_rejected);
+
     setWindowTitle(OTInformation::name + " - " + tr("Control center trip") + " - " + tr("login"));
 
     qInfo().noquote() << objectName() + " started";
@@ -21,14 +28,19 @@ wLogin::~wLogin()
     delete ui;
 }
 
-void wLogin::on_pushButton_2_clicked()
-{
-    close();
+QString wLogin::username() const {
+    return ui->ledUsername->text();
 }
 
+QString wLogin::password() const {
+    return ui->ledPassword->text();
+}
 
-void wLogin::on_actionClose_triggered()
-{
+void wLogin::on_buttonBox_accepted() {
+    emit accepted();
+}
+
+void wLogin::on_buttonBox_rejected() {
     close();
 }
 
