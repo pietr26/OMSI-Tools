@@ -16,10 +16,15 @@ public:
     explicit wLogin(QWidget *parent = nullptr);
     ~wLogin();
 
-private slots:
-    void on_pushButton_2_clicked();
+    QString username() const;
+    QString password() const;
 
-    void on_actionClose_triggered();
+private slots:
+    void on_buttonBox_accepted();
+    void on_buttonBox_rejected();
+
+signals:
+    void accepted();
 
 private:
     Ui::wLogin *ui;

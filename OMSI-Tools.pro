@@ -23,6 +23,7 @@ SOURCES += \
 #    OTBackend/DiscordGameSDK/include/types.cpp \
 #    OTBackend/DiscordGameSDK/include/user_manager.cpp \
 #    OTBackend/DiscordGameSDK/include/voice_manager.cpp \
+    OTBackend/LFClientAPIInterface/lfclientapiinterface.cpp \
     OTBackend/OTLogger.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
     OTModules/OTGeneric/wpreferences.cpp \
@@ -97,6 +98,7 @@ HEADERS += \
 #    OTBackend/DiscordGameSDK/include/types.h \
 #    OTBackend/DiscordGameSDK/include/user_manager.h \
 #    OTBackend/DiscordGameSDK/include/voice_manager.h \
+    OTBackend/LFClientAPIInterface/lfclientapiinterface.h \
     OTBackend/OCC.h \
     OTBackend/OTExternal.h \
     OTBackend/discordRPC.h \

@@ -1,9 +1,12 @@
 #include "wdginformation.h"
 #include "ui_wdginformation.h"
 
-wdgInformation::wdgInformation(QWidget *parent)
+#include "OTBackend/LFClientAPIInterface/lfclientapiinterface.h"
+
+wdgInformation::wdgInformation(QWidget *parent, LFClientAPIInterface *api)
     : QWidget(parent)
-    , ui(new Ui::wdgInformation)
+    , ui(new Ui::wdgInformation),
+    api(api)
 {
     ui->setupUi(this);
 
@@ -26,15 +29,22 @@ wdgInformation::~wdgInformation()
 
 void wdgInformation::reloadUi1s()
 {
+    QTime omsiTime = QTime::currentTime().addSecs(timeDiff);
+
     ui->lcdRealTimeHours->display(QTime::currentTime().hour());
     ui->lcdRealTimeMinutes->display(QTime::currentTime().minute());
     ui->lcdRealTimeSeconds->display(QTime::currentTime().second());
+
+    ui->lcdOMSITimeHours->display(omsiTime.hour());
+    ui->lcdOMSITimeMinutes->display(omsiTime.minute());
+    ui->lcdOMSITimeSeconds->display(omsiTime.second());
 }
 
 void wdgInformation::reloadUi5s()
 {
     qDebug() << "Getting data...";
 
-    QByteArray bytearray = nc.get(OTLinks::lfClient::apiPath + "?name=map");
-    ui->ledMap->setText(QJsonDocument::fromJson(bytearray).object().value("map").toString());
+    LfCApiGlobalData data = api->getGlobalData();
+    timeDiff = data.timeDiff();
+    ui->ledMap->setText(data.mapName());
 }

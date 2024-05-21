@@ -22,7 +22,7 @@
      <x>0</x>
      <y>0</y>
      <width>722</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSpecials">
@@ -36,6 +36,7 @@
      <string>Window</string>
     </property>
     <addaction name="actionLogin"/>
+    <addaction name="actionLogout"/>
     <addaction name="separator"/>
     <addaction name="actionBackToHome"/>
     <addaction name="actionClose"/>
@@ -106,6 +107,15 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="icon">
+    <iconset resource="../../ressources.qrc">
+     <normaloff>:/rec/data/icons/iconLogout.svg</normaloff>:/rec/data/icons/iconLogout.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Logout</string>
    </property>
   </action>
  </widget>
