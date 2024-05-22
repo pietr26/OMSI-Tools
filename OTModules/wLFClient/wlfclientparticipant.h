@@ -53,7 +53,7 @@ private:
     wdgInformation *WDGINFORMATION = new wdgInformation(this, api);
     wdgActions *WDGACTIONS = new wdgActions();
     wdgTrips *WDGTRIPS = new wdgTrips();
-    wdgNotifications *WDGNOTIFICATIONS = new wdgNotifications();
+    wdgNotifications *WDGNOTIFICATIONS = new wdgNotifications(this, api);
 
     OTNetworkConnection nc;
 
