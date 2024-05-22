@@ -4,6 +4,8 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
+#include "OTBackend/OTGlobal.h"
+
 
 LFClientAPIInterface::LFClientAPIInterface(QObject *parent) :
     QObject(parent),
@@ -89,7 +91,13 @@ QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoi
 
     QNetworkRequest req((QUrl(url)));
     if(endpoint != Login)
-        req.setRawHeader("Authorization", _currentToken.toLocal8Bit());
+        req.setRawHeader("Authorization", "Bearer " + _currentToken.toLocal8Bit());
+
+    req.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::AlwaysNetwork);
+    req.setAttribute(QNetworkRequest::CookieSaveControlAttribute, QNetworkRequest::Manual);
+
+    req.setRawHeader(QByteArray("Host"), QByteArray("backend.omsi-tools.de"));
+    req.setRawHeader(QByteArray("User-Agent"), QByteArray("OMSI-Tools/" + OTInformation::versions::currentVersion.first.toUtf8()));
 
     return req;
 }
