@@ -41,6 +41,7 @@ SOURCES += \
     OTModules/wFbh/wdbknownwords.cpp \
     OTModules/wLFClient/Widgets/wdgactions.cpp \
     OTModules/wLFClient/Widgets/wdginformation.cpp \
+    OTModules/wLFClient/Widgets/wdgnotification.cpp \
     OTModules/wLFClient/Widgets/wdgnotifications.cpp \
     OTModules/wLFClient/Widgets/wdgtrips.cpp \
     OTModules/wLFClient/wlfclientdispatcher.cpp \
@@ -123,6 +124,7 @@ HEADERS += \
     OTModules/wFbh/wdbknownwords.h \
     OTModules/wLFClient/Widgets/wdgactions.h \
     OTModules/wLFClient/Widgets/wdginformation.h \
+    OTModules/wLFClient/Widgets/wdgnotification.h \
     OTModules/wLFClient/Widgets/wdgnotifications.h \
     OTModules/wLFClient/Widgets/wdgtrips.h \
     OTModules/wLFClient/wlfclientdispatcher.h \
@@ -178,6 +180,7 @@ FORMS += \
     OTModules/wFbh/wdbknownwords.ui \
     OTModules/wLFClient/Widgets/wdgactions.ui \
     OTModules/wLFClient/Widgets/wdginformation.ui \
+    OTModules/wLFClient/Widgets/wdgnotification.ui \
     OTModules/wLFClient/Widgets/wdgnotifications.ui \
     OTModules/wLFClient/Widgets/wdgtrips.ui \
     OTModules/wLFClient/wlfclientdispatcher.ui \

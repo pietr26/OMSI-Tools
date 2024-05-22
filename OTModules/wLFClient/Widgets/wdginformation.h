@@ -27,8 +27,6 @@ private:
     void reloadUi1s();
     void reloadUi5s();
 
-    OTNetworkConnection nc;
-
     LFClientAPIInterface *api;
     int timeDiff = 0;
 };

@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QListView" name="lvwNotifications">
+    <widget class="QListWidget" name="lwgNotifications">
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>
@@ -25,8 +25,8 @@
      <property name="horizontalScrollMode">
       <enum>QAbstractItemView::ScrollPerPixel</enum>
      </property>
-     <property name="wordWrap">
-      <bool>true</bool>
+     <property name="resizeMode">
+      <enum>QListView::Adjust</enum>
      </property>
     </widget>
    </item>
