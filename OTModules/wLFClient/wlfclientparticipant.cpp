@@ -56,20 +56,24 @@ void wLFClientParticipant::createDockWidgets()
 {
     QDockWidget *dock = new QDockWidget(tr("Information", "plural form"), this);
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
     dock->setWidget(WDGINFORMATION);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
 
     dock = new QDockWidget(tr("Actions"), this);
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
     dock->setWidget(WDGACTIONS);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
 
     dock = new QDockWidget(tr("Trips"), this);
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
     dock->setWidget(WDGTRIPS);
     addDockWidget(Qt::RightDockWidgetArea, dock);
 
     dock = new QDockWidget(tr("Notifications"), this);
+    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
     dock->setWidget(WDGNOTIFICATIONS);
     addDockWidget(Qt::TopDockWidgetArea, dock);

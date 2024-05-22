@@ -64,6 +64,8 @@ public:
 
     explicit LFClientAPIInterface(QObject *parent);
 
+    bool isLoggedIn();
+
     ErrorType errorType() const;
     QString errorString() const;
     QString currentToken() const;
@@ -81,6 +83,7 @@ private:
     QJsonObject handleReply(QNetworkReply *, bool *ok = nullptr, int *httpCode = nullptr);
 
 signals:
+    void loginStatusChanged(bool);
 
 private:
     QNetworkAccessManager *m;
