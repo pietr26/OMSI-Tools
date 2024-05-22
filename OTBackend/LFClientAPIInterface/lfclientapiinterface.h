@@ -26,7 +26,7 @@ public:
         {
             LFCApiSingleNotification notf;
 
-            notf.lines = array[i].toObject().value("lines").toString().split(",");
+            notf.lines = array[i].toObject().value("affected_lines").toString().split(",");
             notf.title = array[i].toObject().value("title").toString();
             notf.text = array[i].toObject().value("text").toString();
 
