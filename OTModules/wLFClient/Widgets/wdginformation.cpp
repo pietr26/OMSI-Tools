@@ -20,6 +20,9 @@ wdgInformation::wdgInformation(QWidget *parent, LFClientAPIInterface *api)
 
     reloadUi1s();
     reloadUi5s();
+
+    connect(api, &LFClientAPIInterface::loginStatusChanged, this, &wdgInformation::reloadUi1s);
+    connect(api, &LFClientAPIInterface::loginStatusChanged, this, &wdgInformation::reloadUi5s);
 }
 
 wdgInformation::~wdgInformation()
@@ -35,9 +38,15 @@ void wdgInformation::reloadUi1s()
     ui->lcdRealTimeMinutes->display(QTime::currentTime().minute());
     ui->lcdRealTimeSeconds->display(QTime::currentTime().second());
 
-    ui->lcdOMSITimeHours->display(omsiTime.hour());
-    ui->lcdOMSITimeMinutes->display(omsiTime.minute());
-    ui->lcdOMSITimeSeconds->display(omsiTime.second());
+    if(api->isLoggedIn()) {
+        ui->lcdOMSITimeHours->display(omsiTime.hour());
+        ui->lcdOMSITimeMinutes->display(omsiTime.minute());
+        ui->lcdOMSITimeSeconds->display(omsiTime.second());
+    } else {
+        ui->lcdOMSITimeHours->display(88);
+        ui->lcdOMSITimeMinutes->display(88);
+        ui->lcdOMSITimeSeconds->display(88);
+    }
 }
 
 void wdgInformation::reloadUi5s()
@@ -46,5 +55,8 @@ void wdgInformation::reloadUi5s()
 
     LfCApiGlobalData data = api->getGlobalData();
     timeDiff = data.timeDiff();
-    ui->ledMap->setText(data.mapName());
+    if(api->isLoggedIn())
+        ui->ledMap->setText(data.mapName());
+    else
+        ui->ledMap->setText("---");
 }

@@ -10,6 +10,10 @@ LFClientAPIInterface::LFClientAPIInterface(QObject *parent) :
     m(new QNetworkAccessManager(this)) {
 }
 
+bool LFClientAPIInterface::isLoggedIn() {
+    return !_currentToken.isEmpty();
+}
+
 LFClientAPIInterface::ErrorType LFClientAPIInterface::errorType() const {return _errorType;}
 QString LFClientAPIInterface::errorString() const {return _errorString;}
 QString LFClientAPIInterface::currentToken() const {return _currentToken;}
@@ -23,8 +27,10 @@ bool LFClientAPIInterface::login(const QString &username, const QString &passwor
 
     bool ok;
     QJsonObject obj = handleReply(r, &ok);
-    if(ok)
+    if(ok) {
         _currentToken = obj.value("token").toString();
+        emit loginStatusChanged(true);
+    }
 
     return ok;
 }
@@ -37,6 +43,10 @@ bool LFClientAPIInterface::logout() {
 
     bool ok;
     QJsonObject obj = handleReply(r, &ok);
+    if(ok) {
+        _currentToken = "";
+        emit loginStatusChanged(false);
+    }
     return ok;
 }
 
