@@ -76,6 +76,21 @@ LFCApiGlobalData LFClientAPIInterface::getGlobalData() {
         return LFCApiGlobalData(this);
 }
 
+LFCApiNotifications LFClientAPIInterface::getNotifications()
+{
+    QNetworkRequest req = createNewRequest(GetNotifications);
+    QNetworkReply *r = m->get(req);
+    while(!r->isFinished())
+        qApp->processEvents();
+
+    bool ok;
+    QJsonObject obj = handleReply(r, &ok);
+    if(ok) {
+        return LFCApiNotifications(obj);
+    } else
+        return LFCApiNotifications();
+}
+
 QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoint, const QList<QPair<QString, QString>> &parameters) const {
     QString url = "https://backend.omsi-tools.de/api/lfClient/v1/";
     switch(endpoint) {
@@ -83,6 +98,7 @@ QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoi
         case GetAllParticipants: url += "getAllParticipants.php";  break;
         case GetAllSpeakRequest: url += "getAllSpeakRequests.php"; break;
         case GetGlobalData:      url += "getGlobalData.php";       break;
+        case GetNotifications:   url += "getNotifications.php";    break;
         case GetParticipant:     url += "getParticipant.php";      break;
         case Login:              url += "login.php";               break;
         case Logout:             url += "logout.php";              break;

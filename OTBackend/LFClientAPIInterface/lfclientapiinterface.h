@@ -8,33 +8,31 @@
 
 #include <QNetworkAccessManager>
 
-class LFCApiNotifications : public QObject {
-    Q_OBJECT
+class LFCApiSingleNotification {
+public:
+    LFCApiSingleNotification() { }
+    QStringList lines;
+    QString title;
+    QString text;
+};
+
+class LFCApiNotifications : public QList<LFCApiSingleNotification> {
 
 public:
-    explicit LFCApiNotifications(QObject *parent, const QJsonObject &obj = {}) :
-        QObject(parent) {
+    explicit LFCApiNotifications(const QJsonObject &obj = {}) {
         QJsonArray array = obj.value("results").toArray();
 
         for (int i = 0; i < array.count(); i++)
         {
-            Notification notf;
+            LFCApiSingleNotification notf;
 
             notf.lines = array[i].toObject().value("lines").toString().split(",");
             notf.title = array[i].toObject().value("title").toString();
             notf.text = array[i].toObject().value("text").toString();
+
+            append(notf);
         }
     }
-
-    class Notification {
-    public:
-        Notification() { }
-        QStringList lines;
-        QString title;
-        QString text;
-    };
-
-    QList<Notification> notifications;
 };
 
 class LFCApiGlobalData : public QObject {
@@ -85,6 +83,7 @@ public:
         GetAllParticipants,
         GetAllSpeakRequest,
         GetGlobalData,
+        GetNotifications,
         GetParticipant,
         Login,
         Logout,
@@ -104,6 +103,8 @@ public:
     bool logout();
 
     LFCApiGlobalData getGlobalData();
+
+    LFCApiNotifications getNotifications();
 
     static inline const QString userNotFoundDescription  = QObject::tr("The specified user was not found.");
     static inline const QString wrongPasswordDescription = QObject::tr("The password is wrong.");

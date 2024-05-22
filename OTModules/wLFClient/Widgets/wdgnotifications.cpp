@@ -22,20 +22,21 @@ wdgNotifications::~wdgNotifications()
 void wdgNotifications::reloadUi10s()
 {
     int currentRow = ui->lwgNotifications->currentRow();
-    qInfo() << "currentRow:" << currentRow;
-    qInfo() << "count:" << ui->lwgNotifications->count();
-    //LFCApiGlobalData notifications = api->getNotifications();
 
-    //for (int i = 0; i < notifications.count(); i++) ...
+    ui->lwgNotifications->clear();
+    LFCApiNotifications notifications = api->getNotifications();
 
-    wdgNotification *notification = new wdgNotification(QStringList() << "76", "Straßensperrung Nordspitze", "Vom X zum Y ist der Bereich vor der Haltestelle \"Nordspitze, Bahnhof\" (Ri. Einsteindorf) gesperrt.\n\nFür alle betroffenen Linien ist eine Ersatzhaltestelle in der Nebenstraße aufgestellt.\n\nEs entstehen keine Verspätungen", this);
-    notification->adjustSize();
-    QListWidgetItem *item = new QListWidgetItem();
+    for (int i = 0; i < notifications.count(); i++)
+    {
+        wdgNotification *notification = new wdgNotification(notifications[i].lines, notifications[i].title, notifications[i].text, this);
+        notification->adjustSize();
+        QListWidgetItem *item = new QListWidgetItem();
 
-    item->setSizeHint(notification->sizeHint());
-    ui->lwgNotifications->addItem(item);
+        item->setSizeHint(notification->sizeHint());
+        ui->lwgNotifications->addItem(item);
 
-    ui->lwgNotifications->setItemWidget(item, notification);
+        ui->lwgNotifications->setItemWidget(item, notification);
+    }
 
     if (currentRow <= ui->lwgNotifications->count() - 1) ui->lwgNotifications->setCurrentRow(currentRow);
 }

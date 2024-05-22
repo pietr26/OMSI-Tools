@@ -51,10 +51,12 @@ void wdgInformation::reloadUi1s()
 
 void wdgInformation::reloadUi5s()
 {
-    qDebug() << "Getting data...";
+
 
     if (api->isLoggedIn())
     {
+        qDebug() << "Getting data...";
+
         LFCApiGlobalData data = api->getGlobalData();
         timeDiff = data.timeDiff();
         ui->ledMap->setText(data.mapName());
