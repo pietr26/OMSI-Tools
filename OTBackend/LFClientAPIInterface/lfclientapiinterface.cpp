@@ -65,7 +65,7 @@ LFCApiGlobalData LFClientAPIInterface::getGlobalData() {
 }
 
 QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoint, const QList<QPair<QString, QString>> &parameters) const {
-    QString url = "http://localhost/lfclient/";
+    QString url = "http://backend.omsi-tools.de/api/lfClient/v1/";
     switch(endpoint) {
         case AnswerSpeakRequest: url += "answerSpeakRequest.php";  break;
         case GetAllParticipants: url += "getAllParticipants.php";  break;
