@@ -44,7 +44,7 @@ void wdgInformation::reloadUi5s()
 {
     qDebug() << "Getting data...";
 
-    LfCApiGlobalData data = api->getGlobalData();
+    LFCApiGlobalData data = api->getGlobalData();
     timeDiff = data.timeDiff();
     ui->ledMap->setText(data.mapName());
 }

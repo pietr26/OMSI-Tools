@@ -7,18 +7,18 @@
 
 #include <QNetworkAccessManager>
 
-class LfCApiGlobalData : public QObject {
+class LFCApiGlobalData : public QObject {
     Q_OBJECT
 
 public:
-    explicit LfCApiGlobalData(QObject *parent, const QJsonObject &obj = {}) :
-    QObject(parent) {
+    explicit LFCApiGlobalData(QObject *parent, const QJsonObject &obj = {}) :
+        QObject(parent) {
         _mapName =   obj.value("map").toString();
         _timeDiff =  obj.value("time_diff").toInt();
         _lockTrips = obj.value("lock_trips").toBool();
     }
 
-    explicit LfCApiGlobalData(LfCApiGlobalData &other) {
+    explicit LFCApiGlobalData(LFCApiGlobalData &other) {
         _mapName   = other.mapName();
         _timeDiff  = other.timeDiff();
         _lockTrips = other.lockTrips();
@@ -71,7 +71,7 @@ public:
     bool login(const QString &username, const QString &password);
     bool logout();
 
-    LfCApiGlobalData getGlobalData();
+    LFCApiGlobalData getGlobalData();
 
     static inline const QString userNotFoundDescription  = QObject::tr("The specified user was not found.");
     static inline const QString wrongPasswordDescription = QObject::tr("The password is wrong.");

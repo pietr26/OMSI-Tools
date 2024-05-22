@@ -40,7 +40,7 @@ bool LFClientAPIInterface::logout() {
     return ok;
 }
 
-LfCApiGlobalData LFClientAPIInterface::getGlobalData() {
+LFCApiGlobalData LFClientAPIInterface::getGlobalData() {
     QNetworkRequest req = createNewRequest(GetGlobalData);
     QNetworkReply *r = m->get(req);
     while(!r->isFinished())
@@ -49,9 +49,9 @@ LfCApiGlobalData LFClientAPIInterface::getGlobalData() {
     bool ok;
     QJsonObject obj = handleReply(r, &ok);
     if(ok) {
-        return LfCApiGlobalData(this, obj);
+        return LFCApiGlobalData(this, obj);
     } else
-        return LfCApiGlobalData(this);
+        return LFCApiGlobalData(this);
 }
 
 QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoint, const QList<QPair<QString, QString>> &parameters) const {
