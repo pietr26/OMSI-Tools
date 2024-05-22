@@ -4,8 +4,38 @@
 #include <QObject>
 
 #include <QJsonObject>
+#include <QJsonArray>
 
 #include <QNetworkAccessManager>
+
+class LFCApiNotifications : public QObject {
+    Q_OBJECT
+
+public:
+    explicit LFCApiNotifications(QObject *parent, const QJsonObject &obj = {}) :
+        QObject(parent) {
+        QJsonArray array = obj.value("results").toArray();
+
+        for (int i = 0; i < array.count(); i++)
+        {
+            Notification notf;
+
+            notf.lines = array[i].toObject().value("lines").toString().split(",");
+            notf.title = array[i].toObject().value("title").toString();
+            notf.text = array[i].toObject().value("text").toString();
+        }
+    }
+
+    class Notification {
+    public:
+        Notification() { }
+        QStringList lines;
+        QString title;
+        QString text;
+    };
+
+    QList<Notification> notifications;
+};
 
 class LFCApiGlobalData : public QObject {
     Q_OBJECT
