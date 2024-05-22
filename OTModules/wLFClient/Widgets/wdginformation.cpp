@@ -38,7 +38,7 @@ void wdgInformation::reloadUi1s()
     ui->lcdRealTimeMinutes->display(QTime::currentTime().minute());
     ui->lcdRealTimeSeconds->display(QTime::currentTime().second());
 
-    if(api->isLoggedIn()) {
+    if (api->isLoggedIn()) {
         ui->lcdOMSITimeHours->display(omsiTime.hour());
         ui->lcdOMSITimeMinutes->display(omsiTime.minute());
         ui->lcdOMSITimeSeconds->display(omsiTime.second());
@@ -53,10 +53,11 @@ void wdgInformation::reloadUi5s()
 {
     qDebug() << "Getting data...";
 
-    LFCApiGlobalData data = api->getGlobalData();
-    timeDiff = data.timeDiff();
-    if(api->isLoggedIn())
+    if (api->isLoggedIn())
+    {
+        LFCApiGlobalData data = api->getGlobalData();
+        timeDiff = data.timeDiff();
         ui->ledMap->setText(data.mapName());
-    else
-        ui->ledMap->setText("---");
+    }
+    else ui->ledMap->setText("---");
 }
