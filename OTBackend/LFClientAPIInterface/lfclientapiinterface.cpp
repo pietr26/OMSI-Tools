@@ -74,9 +74,9 @@ LFCApiNotifications LFClientAPIInterface::getNotifications()
     bool ok;
     QJsonObject obj = handleReply(r, &ok);
     if(ok) {
-        return LFCApiNotifications(this, obj);
+        return LFCApiNotifications(obj);
     } else
-        return LFCApiNotifications(this);
+        return LFCApiNotifications();
 }
 
 QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoint, const QList<QPair<QString, QString>> &parameters) const {

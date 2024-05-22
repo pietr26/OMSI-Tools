@@ -17,10 +17,9 @@ public:
 };
 
 class LFCApiNotifications : public QList<LFCApiSingleNotification> {
-    Q_OBJECT
 
 public:
-    explicit LFCApiNotifications(QObject *parent, const QJsonObject &obj = {}) {
+    explicit LFCApiNotifications(const QJsonObject &obj = {}) {
         QJsonArray array = obj.value("results").toArray();
 
         for (int i = 0; i < array.count(); i++)
