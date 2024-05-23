@@ -24,14 +24,10 @@ bool LFClientAPIInterface::login(const QString &username, const QString &passwor
 
 
     QNetworkRequest req = createNewRequest(Login);
-    qInfo() << req.url();
     QJsonObject loginObj;
     loginObj.insert("username", username);
     loginObj.insert("password", password);
     QJsonDocument jDoc(loginObj);
-
-    QList<QByteArray> headers = req.rawHeaderList();
-    qInfo() << headers;
 
     QNetworkReply *r = m->post(req, jDoc.toJson());
     while(!r->isFinished())
