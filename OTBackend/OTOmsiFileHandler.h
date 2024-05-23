@@ -799,6 +799,8 @@ public:
 
         QStringList trains;
 
+        QStringList aigroups;
+
         foreach (QString aiList, aiLists)
         {
             QFile aiListFile(aiList);
@@ -821,7 +823,7 @@ public:
 
                 if (line == "[aigroup_2]")
                 {
-                    in.readLine();
+                    aigroups.append(in.readLine());
                     lineCounter++;
 
                     in.readLine();
@@ -859,9 +861,15 @@ public:
                         }
                     }
                 }
+                else if (line == "[aigroup_depot]") // Only for aigroups for trains
+                {
+                    aigroups.append(in.readLine());
+                    lineCounter++;
+                }
                 else if (line == "[aigroup_depot_typgroup_2]")
                 {
                     line = in.readLine();
+                    lineCounter++;
 
                     if (line == "")
                     {
@@ -907,15 +915,32 @@ public:
             {
                 line = in.readLine();
 
-                QFile train(mainDir + "/" + line);
-
-                if (!train.exists())
+                if (!line.isEmpty())
                 {
-                    qWarning().noquote() << "Vehicle (Train) '" + QFileInfo(train).absoluteFilePath() + "' is missing!";
-                    stuffobj.missing.vehicles << QString(QFileInfo(train).absoluteFilePath()).remove(0, cutCount);
+                    QFile train(mainDir + "/" + line);
+
+                    if (train.exists()){
+                        if (QString(QFileInfo(train).absoluteFilePath()).remove(0, cutCount) == "")
+                            qInfo() << "bla";
+
+                        stuffobj.existing.vehicles << QString(QFileInfo(train).absoluteFilePath()).remove(0, cutCount);}
+                    else
+                    {
+                        if (!aigroups.contains(line)) // TODO for rework
+                        {
+                            if (line.contains("/"))
+                            {
+                                qWarning().noquote() << "Vehicle (Train) '" + QFileInfo(train).absoluteFilePath() + "' is missing!";
+                                stuffobj.missing.vehicles << QString(QFileInfo(train).absoluteFilePath()).remove(0, cutCount);
+                            }
+                            else
+                            {
+                                qWarning().noquote() << "Aigroup for vehicle (Train) '" + line + "' is missing!";
+                                stuffobj.missing.vehicles << "[Aigroup] " + line;
+                            }
+                        }
+                    }
                 }
-                else
-                    stuffobj.existing.vehicles << QString(QFileInfo(train).absoluteFilePath()).remove(0, cutCount);
 
                 line = in.readLine(); // skip direction indicator
             }
