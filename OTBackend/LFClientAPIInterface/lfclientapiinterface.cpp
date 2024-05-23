@@ -71,9 +71,9 @@ LFCApiGlobalData LFClientAPIInterface::getGlobalData() {
     bool ok;
     QJsonObject obj = handleReply(r, &ok);
     if(ok) {
-        return LFCApiGlobalData(this, obj);
+        return LFCApiGlobalData(obj);
     } else
-        return LFCApiGlobalData(this);
+        return LFCApiGlobalData();
 }
 
 QList<LFCApiNotification> LFClientAPIInterface::getNotifications()

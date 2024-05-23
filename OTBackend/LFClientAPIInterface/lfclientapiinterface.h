@@ -42,21 +42,12 @@ private:
     QString _title, _text;
 };
 
-class LFCApiGlobalData : public QObject {
-    Q_OBJECT
-
+class LFCApiGlobalData {
 public:
-    explicit LFCApiGlobalData(QObject *parent, const QJsonObject &obj = {}) :
-        QObject(parent) {
+    explicit LFCApiGlobalData(const QJsonObject &obj = {}) {
         _mapName =   obj.value("map").toString();
         _timeDiff =  obj.value("time_diff").toInt();
         _lockTrips = obj.value("lock_trips").toBool();
-    }
-
-    explicit LFCApiGlobalData(LFCApiGlobalData &other) {
-        _mapName   = other.mapName();
-        _timeDiff  = other.timeDiff();
-        _lockTrips = other.lockTrips();
     }
 
     QString mapName() const {return _mapName;}
