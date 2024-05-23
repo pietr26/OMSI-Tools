@@ -24,12 +24,8 @@ bool LFClientAPIInterface::login(const QString &username, const QString &passwor
 
 
     QNetworkRequest req = createNewRequest(Login);
-    QJsonObject loginObj;
-    loginObj.insert("username", username);
-    loginObj.insert("password", password);
-    QJsonDocument jDoc(loginObj);
-
-    QNetworkReply *r = m->post(req, jDoc.toJson());
+    req.setRawHeader("Authorization", "Basic " + QString(username + ":" + password).toLocal8Bit().toBase64());
+    QNetworkReply *r = m->get(req);
     while(!r->isFinished())
         qApp->processEvents();
 
