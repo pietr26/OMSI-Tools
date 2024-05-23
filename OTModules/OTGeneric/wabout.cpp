@@ -26,8 +26,8 @@ wAbout::wAbout(QWidget *parent) :
     QString generalInformation = tr("%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.").arg(OTInformation::name) + "<br/>" + tr("The Project has been started at January 22, 2021 and it's still in an early state of development.") + "<br/><br/>" + tr("%1 is licensed under the %2.").arg(OTInformation::name, "<a style=\"color: lightblue\" href=\"https://www.gnu.de/documents/gpl-2.0.en.html\">GNU General Public License v2.0</a>");
 
     QString credits = QString("<b>%1:</b>").arg(tr("Development")) +
-                      QString("<ul><li>Bamp <i>(%1)</i></li>").arg(tr("Management, application development")) +
-                      QString("<li>ma7t3 <i>(%1)</i></li></ul>").arg(tr("Web development")) +
+                      QString("<ul><li>Bamp <i>(%1)</i></li>").arg(tr("Management, development")) +
+                      QString("<li>ma7t3 <i>(%1)</i></li></ul>").arg(tr("development")) +
                       QString("<b>%1:</b>").arg(tr("Beta testers")) +
                       QString("<ul><li>Dari19</li>"
                               "<li>der_Nik_</li>"
@@ -41,7 +41,7 @@ wAbout::wAbout(QWidget *parent) :
                               "<li>TobiB</li></ul>") +
                       QString("<b>%1:</b>").arg(tr("Translators")) +
                       QString("<ul><li>Dari19 <i>(%1)</i></li>").arg(tr("italian")) +
-                      QString("<li>PG_97 <i>(%1)</i></li>").arg(tr("french")) +
+                      QString("<li>Erilambus <i>(%1)</i></li>").arg(tr("french")) +
                       QString("<li>tfc <i>(%1)</i></li></ul>").arg(tr("czech"));
 
     ui->lblInformation->setText(generalInformation + "<br/><br/><br/>");
@@ -66,7 +66,7 @@ void wAbout::on_btnMore_clicked()
 {
     QMessageBox::about(this, tr("More information"), tr("Build type: %1").arg(OTBuildOptions::getBuildName(OTInformation::build)) + "\n" +
                                                      tr("Application build: %1").arg(appBuild) + "\n\n" +
-                                                     tr("Approximate lines of code: %1 (%2)").arg(OTInformation::sourceCodeLength, tr("June 2023")));
+                                                     tr("Approximate lines of code: %1 (%2)").arg(OTInformation::sourceCodeLength, tr("May 2024")));
 }
 
 void wAbout::on_btnFlowerella_clicked()
