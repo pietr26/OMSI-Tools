@@ -28,11 +28,11 @@ void wdgNotifications::reloadUi10s()
 
     ui->lwgNotifications->clear();
     if(api->isLoggedIn()) {
-        LFCApiNotifications notifications = api->getNotifications();
+        QList<LFCApiNotification> notifications = api->getNotifications();
 
         for (int i = 0; i < notifications.count(); i++)
         {
-            wdgNotification *notification = new wdgNotification(notifications[i].lines, notifications[i].title, notifications[i].text, this);
+            wdgNotification *notification = new wdgNotification(notifications[i].afftectedLines(), notifications[i].title(), notifications[i].text(), this);
             notification->adjustSize();
             QListWidgetItem *item = new QListWidgetItem();
 

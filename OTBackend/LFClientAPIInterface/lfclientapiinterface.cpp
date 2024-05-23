@@ -76,7 +76,7 @@ LFCApiGlobalData LFClientAPIInterface::getGlobalData() {
         return LFCApiGlobalData(this);
 }
 
-LFCApiNotifications LFClientAPIInterface::getNotifications()
+QList<LFCApiNotification> LFClientAPIInterface::getNotifications()
 {
     QNetworkRequest req = createNewRequest(GetNotifications);
     QNetworkReply *r = m->get(req);
@@ -85,10 +85,13 @@ LFCApiNotifications LFClientAPIInterface::getNotifications()
 
     bool ok;
     QJsonObject obj = handleReply(r, &ok);
+    QList<LFCApiNotification> result;
     if(ok) {
-        return LFCApiNotifications(obj);
-    } else
-        return LFCApiNotifications();
+        QJsonArray arr = obj.value("results").toArray();
+        for(int i = 0; i < arr.count(); i++)
+            result << LFCApiNotification(arr.at(i).toObject());
+    }
+    return result;
 }
 
 QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoint, const QList<QPair<QString, QString>> &parameters) const {

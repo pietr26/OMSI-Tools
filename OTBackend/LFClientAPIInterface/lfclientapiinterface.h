@@ -16,23 +16,30 @@ public:
     QString text;
 };
 
-class LFCApiNotifications : public QList<LFCApiSingleNotification> {
-
+class LFCApiNotification {
 public:
-    explicit LFCApiNotifications(const QJsonObject &obj = {}) {
-        QJsonArray array = obj.value("results").toArray();
+    explicit LFCApiNotification(const QJsonObject &obj = {}) {
+        QJsonArray affectedLines = obj.value("affected_lines").toArray();
 
-        for (int i = 0; i < array.count(); i++)
-        {
-            LFCApiSingleNotification notf;
-
-            notf.lines = array[i].toObject().value("affected_lines").toString().split(",");
-            notf.title = array[i].toObject().value("title").toString();
-            notf.text = array[i].toObject().value("text").toString();
-
-            append(notf);
-        }
+        _id            = obj.value("id").toInt();
+        _enabled       = obj.value("enabled").toBool();
+        for(int i = 0; i < affectedLines.count(); i++)
+            _affectedLines << affectedLines.at(i).toString();
+        _title         = obj.value("title").toString();
+        _text          = obj.value("text").toString();
     }
+
+    int         id()             const {return _id;}
+    bool        isEnabled()      const {return _enabled;}
+    QStringList afftectedLines() const {return _affectedLines;}
+    QString     title()          const {return _title;}
+    QString     text()           const {return _text;}
+
+private:
+    int _id;
+    bool _enabled;
+    QStringList _affectedLines;
+    QString _title, _text;
 };
 
 class LFCApiGlobalData : public QObject {
@@ -104,7 +111,7 @@ public:
 
     LFCApiGlobalData getGlobalData();
 
-    LFCApiNotifications getNotifications();
+    QList<LFCApiNotification> getNotifications();
 
     static inline const QString userNotFoundDescription  = QObject::tr("The specified user was not found.");
     static inline const QString wrongPasswordDescription = QObject::tr("The password is wrong.");
