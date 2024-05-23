@@ -21,8 +21,6 @@ QString LFClientAPIInterface::errorString() const {return _errorString;}
 QString LFClientAPIInterface::currentToken() const {return _currentToken;}
 
 bool LFClientAPIInterface::login(const QString &username, const QString &password) {
-
-
     QNetworkRequest req = createNewRequest(Login);
     req.setRawHeader("Authorization", "Basic " + QString(username + ":" + password).toLocal8Bit().toBase64());
     QNetworkReply *r = m->get(req);
@@ -32,7 +30,8 @@ bool LFClientAPIInterface::login(const QString &username, const QString &passwor
     bool ok;
     QJsonObject obj = handleReply(r, &ok);
     if(ok) {
-        _currentToken = obj.value("token").toString();
+        _currentToken  = obj.value("token").toString();
+        _currentUserID = obj.value("user_id").toString();
         emit loginStatusChanged(true);
     }
 

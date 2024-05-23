@@ -117,6 +117,7 @@ signals:
 private:
     QNetworkAccessManager *m;
     QString _currentToken;
+    QString _currentUserID;
 
     ErrorType _errorType;
     QString _errorString;
