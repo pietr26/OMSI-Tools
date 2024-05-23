@@ -23,7 +23,7 @@ private slots:
 private:
     Ui::wdgActions *ui;
 
-    void sendStatus();
+    void updateButtons();
 };
 
 #endif // WDGACTIONS_H

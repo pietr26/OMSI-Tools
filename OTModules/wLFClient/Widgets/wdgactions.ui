@@ -29,8 +29,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #70AD47;
-color: black;</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Speech request</string>
@@ -68,8 +67,7 @@ color: black;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #C00000 ;
-color: black;</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Report crash</string>
