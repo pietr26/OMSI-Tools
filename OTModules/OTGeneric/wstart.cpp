@@ -353,7 +353,7 @@ void wStart::on_actionReleaseNotes_triggered()
 /// Opens the manual, currenty only in german
 void wStart::on_actionManual_triggered()
 {
-    QDesktopServices::openUrl(QUrl("file:///" + QApplication::applicationDirPath() + "/_docs/OMSI-Tools - Handbuch DE.pdf"));
+    QDesktopServices::openUrl(QUrl("file:///" + QApplication::applicationDirPath() + "/_docs"));
 }
 
 /// Opens link to github repository
