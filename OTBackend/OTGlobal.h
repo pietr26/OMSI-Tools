@@ -745,8 +745,11 @@ public:
         if (!read("main", "autosave").isValid())
             write("main", "autosave", true);
 
-        if (!read("main", "theme").isValid())
-            write("main", "theme", "windowsvista");
+        bool themeOk = false;
+        read("main", "theme").toString().toInt(&themeOk);
+
+        if (!read("main", "theme").isValid() || themeOk)
+            write("main", "theme", "Fusion");
 
         if (!read("main", "autosaveDuration").isValid())
             write("main", "autosaveDuration", 60);
