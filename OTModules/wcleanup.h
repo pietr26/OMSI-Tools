@@ -45,13 +45,9 @@ private slots:
 
     void on_lwgSplines_itemDoubleClicked(QListWidgetItem *item);
 
-    void on_lwgObjects_itemSelectionChanged();
-
-    void on_lwgSplines_itemSelectionChanged();
-
-    void on_lwgVehicles_itemSelectionChanged();
-
     void on_lwgVehicles_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_actionBulkMarkInCurrentList_triggered();
 
 signals:
     void backToHome();
