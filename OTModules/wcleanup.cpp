@@ -83,9 +83,10 @@ void wCleanup::on_actionAnalyze_triggered()
         filehandler.getTiles();
         filehandler.getItems(filehandler.stuffobj.existing.tiles, false);
         filehandler.getVehicles();
-
-        filehandler.stuffobj.existing.removeDuplicates();
     }
+
+    filehandler.stuffobj.existing.removeDuplicates();
+    filehandler.stuffobj.toBackslash();
 
     const QString mainDir = set.read("main", "mainDir").toString();
 
@@ -98,7 +99,7 @@ void wCleanup::on_actionAnalyze_triggered()
 
         QStringList scoFolders;
         QDirIterator scoFolder(mainDir + "/Sceneryobjects", QDir::Dirs | QDir::NoDotAndDotDot);
-        while (scoFolder.hasNext()) scoFolders << scoFolder.next();
+        while (scoFolder.hasNext()) scoFolders << scoFolder.next().replace("/", "\\");
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Comparing sceneryobjects..."));
@@ -109,7 +110,7 @@ void wCleanup::on_actionAnalyze_triggered()
 
             int i = 0;
             while (iterator.hasNext())
-                if (QString(mainDir + "/" + iterator.next()).contains(current, Qt::CaseInsensitive))
+                if (QString(mainDir + "/" + iterator.next()).replace("/", "\\").contains(current, Qt::CaseInsensitive))
                     i++;
 
             if (i == 0) ui->lwgObjects->addItem(current.remove(0, cutCount));
@@ -125,10 +126,11 @@ void wCleanup::on_actionAnalyze_triggered()
 
         QStringList sliFolders;
         QDirIterator sliFolder(mainDir + "/Splines", QDir::Dirs | QDir::NoDotAndDotDot);
-        while (sliFolder.hasNext()) sliFolders << sliFolder.next();
+        while (sliFolder.hasNext()) sliFolders << sliFolder.next().replace("/", "\\");
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Comparing splines..."));
+
         foreach (QString current, sliFolders)
         {
             qApp->processEvents();
@@ -136,7 +138,7 @@ void wCleanup::on_actionAnalyze_triggered()
 
             int i = 0;
             while (iterator.hasNext())
-                if (QString(QFileInfo(mainDir + "/" + iterator.next()).absolutePath()).contains(current, Qt::CaseInsensitive))
+                if (QString(QFileInfo(mainDir + "/" + iterator.next()).absolutePath()).replace("/", "\\").contains(current, Qt::CaseInsensitive))
                     i++;
 
             if (i == 0) ui->lwgSplines->addItem(current.remove(0, cutCount));
@@ -155,7 +157,7 @@ void wCleanup::on_actionAnalyze_triggered()
 
         QStringList vehFolders;
         QDirIterator vehFolder(mainDir + "/Vehicles", QDir::Dirs | QDir::NoDotAndDotDot);
-        while (vehFolder.hasNext()) vehFolders << vehFolder.next();
+        while (vehFolder.hasNext()) vehFolders << vehFolder.next().replace("/", "\\");
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Comparing vehicles..."));
@@ -170,14 +172,14 @@ void wCleanup::on_actionAnalyze_triggered()
 
             int i = 0;
             while (iterator.hasNext())
-                if (QString(mainDir + "/" + iterator.next()).contains(current, Qt::CaseInsensitive))
+                if (QString(mainDir + "/" + iterator.next()).replace("/", "\\").contains(current, Qt::CaseInsensitive))
                     i++;
 
             if (i == 0) vehiclePaths << current.remove(0, cutCount);
         }
 
-        vehiclePaths.removeOne("Vehicles/Announcements");
-        vehiclePaths.removeOne("Vehicles/Anzeigen");
+        vehiclePaths.removeOne("Vehicles\\Announcements");
+        vehiclePaths.removeOne("Vehicles\\Anzeigen");
 
         ui->lwgVehicles->addItems(vehiclePaths);
     }
