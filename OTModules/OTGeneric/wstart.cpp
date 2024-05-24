@@ -507,14 +507,6 @@ void wStart::on_actionDBPanelWDTFbh_triggered()
     close();
 }
 
-void wStart::on_actionVehLists_triggered()
-{
-    WVEHICLELIST = new wVehicleList();
-    connect(WVEHICLELIST, &wVehicleList::backToHome, this, &wStart::reopen);
-    WVEHICLELIST->show();
-    close();
-}
-
 void wStart::on_actionDBPanelKnownWords_triggered()
 {
     WDBKNOWNWORDS = new wDBKnownWords();

@@ -24,7 +24,6 @@
 #include "OTModules/wFbh/wdbcopyrights.h"
 #include "OTModules/wMaps/wmaps.h"
 #include "OTModules/wBugDoc/wbugdoc.h"
-#include "OTModules/wvehiclelist.h"
 #include "OTModules/wLFClient/wlfclientparticipant.h"
 #include "OTModules/wLFClient/wlfclientdispatcher.h"
 #include <QJsonArray>
@@ -94,8 +93,6 @@ private slots:
 
     void on_actionDBPanelWDTFbh_triggered();
 
-    void on_actionVehLists_triggered();
-
     void on_actionDBPanelKnownWords_triggered();
 
     void on_tbnProjectManagement_clicked();
@@ -127,7 +124,6 @@ private:
     wDBCopyrights *WDBCOPYRIGHTS;
     wMaps *WMAPS;
     wBugDoc *WBUGDOC;
-    wVehicleList *WVEHICLELIST;
     wDBKnownWords *WDBKNOWNWORDS;
     wProjectManagement *WPROJECTMANAGEMENT;
     wLFClientParticipant *WLFCLIENTPARTICIPANT;
