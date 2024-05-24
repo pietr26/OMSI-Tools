@@ -760,9 +760,12 @@ public:
         if (!read("wFonts", "texPreview").isValid())
             write("wFonts", "texPreview", 1);
 
-        if (!QFile("texconv.exe").exists())
+        if (!QFile("texconv.exe").exists()) qInfo() << "Extract textconv.exe:" << QFile().copy(":/rec/data/external/texconv.exe", "texconv.exe");
+
+        if (!QFile("_docs/Handbuch DE.pdf").exists())
         {
-            qInfo() << QFile().copy(":/rec/data/external/texconv.exe", "texconv.exe");
+            QDir().mkdir("_docs");
+            qInfo() << "Extract manuals:" << QFile().copy(":/rec/data/manual/Handbuch DE.pdf", "_docs/Handbuch DE.pdf");
         }
     }
 
