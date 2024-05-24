@@ -96,5 +96,6 @@
         <file>data/icons/iconManageUser.svg</file>
         <file>data/icons/iconPhone.svg</file>
         <file>data/icons/iconLogout.svg</file>
+        <file>data/manual/Handbuch DE.pdf</file>
     </qresource>
 </RCC>
