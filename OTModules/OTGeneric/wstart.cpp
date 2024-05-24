@@ -63,8 +63,6 @@ wStart::wStart(QWidget *parent)
 
     qInfo().noquote() << objectName() + " started";
 
-    ui->tbnProjectManagement->setVisible(false);
-
     //QTimer::singleShot(1, this, SLOT(on_btnVerifyMap_clicked()));
 }
 
@@ -512,14 +510,6 @@ void wStart::on_actionDBPanelKnownWords_triggered()
     WDBKNOWNWORDS = new wDBKnownWords();
     connect(WDBKNOWNWORDS, &wDBKnownWords::backToHome, this, &wStart::reopen);
     WDBKNOWNWORDS->show();
-    close();
-}
-
-void wStart::on_tbnProjectManagement_clicked()
-{
-    WPROJECTMANAGEMENT = new wProjectManagement();
-    connect(WPROJECTMANAGEMENT, &wProjectManagement::backToHome, this, &wStart::reopen);
-    WPROJECTMANAGEMENT->show();
     close();
 }
 

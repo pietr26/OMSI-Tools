@@ -10,7 +10,6 @@
 #include "OTModules/OTGeneric/wreleasenotes.h"
 #include "OTModules/wfonts.h"
 #include "OTModules/wVerifyMap/wverifymap.h"
-#include "OTModules/wProjectManagement/wprojectmanagement.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/OTGeneric/wabout.h"
 #include "OTModules/OTInternals/wdevtools.h"
@@ -95,8 +94,6 @@ private slots:
 
     void on_actionDBPanelKnownWords_triggered();
 
-    void on_tbnProjectManagement_clicked();
-
     void on_actionDirectXTex_triggered();
 
     void on_actionRoadmap_triggered();
@@ -125,7 +122,6 @@ private:
     wMaps *WMAPS;
     wBugDoc *WBUGDOC;
     wDBKnownWords *WDBKNOWNWORDS;
-    wProjectManagement *WPROJECTMANAGEMENT;
     wLFClientParticipant *WLFCLIENTPARTICIPANT;
     wLFClientDispatcher *WLFCLIENTDISPATCHER;
 

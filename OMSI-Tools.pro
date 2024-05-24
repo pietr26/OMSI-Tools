@@ -52,12 +52,6 @@ SOURCES += \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp \
     OTModules/wMaps/wmaps.cpp \
-    OTModules/wProjectManagement/remote/wdownloadproject.cpp \
-    OTModules/wProjectManagement/remote/wuploadproject.cpp \
-    OTModules/wProjectManagement/wcreateproject.cpp \
-    OTModules/wProjectManagement/wmanagefiles.cpp \
-    OTModules/wProjectManagement/wprojectmanagement.cpp \
-    OTModules/wProjectManagement/wprojectpreferences.cpp \
     OTModules/wcleanup.cpp \
     OTModules/wmapselection.cpp \
     OTModules/wmessageviewer.cpp \
@@ -134,12 +128,6 @@ HEADERS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.h \
     OTModules/wMaps/wmaps.h \
-    OTModules/wProjectManagement/remote/wdownloadproject.h \
-    OTModules/wProjectManagement/remote/wuploadproject.h \
-    OTModules/wProjectManagement/wcreateproject.h \
-    OTModules/wProjectManagement/wmanagefiles.h \
-    OTModules/wProjectManagement/wprojectmanagement.h \
-    OTModules/wProjectManagement/wprojectpreferences.h \
     OTModules/wcleanup.h \
     OTModules/wmapselection.h \
     OTModules/wmessageviewer.h \
@@ -189,12 +177,6 @@ FORMS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.ui \
     OTModules/wMaps/wmaps.ui \
-    OTModules/wProjectManagement/remote/wdownloadproject.ui \
-    OTModules/wProjectManagement/remote/wuploadproject.ui \
-    OTModules/wProjectManagement/wcreateproject.ui \
-    OTModules/wProjectManagement/wmanagefiles.ui \
-    OTModules/wProjectManagement/wprojectmanagement.ui \
-    OTModules/wProjectManagement/wprojectpreferences.ui \
     OTModules/wcleanup.ui \
     OTModules/wmapselection.ui \
     OTModules/wmessageviewer.ui \
