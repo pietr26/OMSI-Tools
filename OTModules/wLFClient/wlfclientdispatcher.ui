@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string notr="true">wLFClientDispatcher</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../../ressources.qrc">
+    <normaloff>:/rec/data/icons/wLFClientDispatcher.svg</normaloff>:/rec/data/icons/wLFClientDispatcher.svg</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -89,6 +93,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

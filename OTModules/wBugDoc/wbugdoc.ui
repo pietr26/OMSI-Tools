@@ -219,7 +219,7 @@
           </property>
           <property name="icon">
            <iconset resource="../../ressources.qrc">
-            <normaloff>:/rec/data/icons/iconFbh.png</normaloff>:/rec/data/icons/iconFbh.png</iconset>
+            <normaloff>:/rec/data/icons/webdisk-tools.png</normaloff>:/rec/data/icons/webdisk-tools.png</iconset>
           </property>
          </widget>
         </item>

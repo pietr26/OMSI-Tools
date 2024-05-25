@@ -1,23 +1,23 @@
 <RCC>
     <qresource prefix="/rec">
-        <file>data/icons/iconChar.svg</file>
-        <file>data/icons/iconSearch.svg</file>
-        <file>data/icons/iconWorld.svg</file>
-        <file>data/icons/iconOMSI-Tools.svg</file>
-        <file>data/icons/iconOMSI-Tools.ico</file>
-        <file>data/icons/iconBroom.svg</file>
+        <file>data/icons/wFonts.svg</file>
+        <file>data/icons/wContentSearch.svg</file>
+        <file>data/icons/wVerifyMap.svg</file>
+        <file>data/icons/logo.svg</file>
+        <file>data/icons/logo.ico</file>
+        <file>data/icons/wCleanup.svg</file>
         <file>data/translations/tr_de.qm</file>
         <file>data/translations/tr_fr.qm</file>
         <file>data/translations/tr_it.qm</file>
         <file>data/translations/qtbase_de.qm</file>
         <file>data/translations/qtbase_fr.qm</file>
         <file>data/translations/qtbase_it.qm</file>
-        <file>data/icons/iconFbh.png</file>
-        <file>data/icons/iconCircle_blue.svg</file>
-        <file>data/icons/iconMap.svg</file>
+        <file>data/icons/webdisk-tools.png</file>
+        <file>data/icons/mark.svg</file>
+        <file>data/icons/wMaps.svg</file>
         <file>data/db/contentSearch.db</file>
         <file>data/db/webdisk-tools.db</file>
-        <file>data/icons/iconFlowerella.svg</file>
+        <file>data/icons/flowerella.svg</file>
         <file>data/translations/tr_fi.ts</file>
         <file>data/translations/tr_ja.ts</file>
         <file>data/flags/de.svg</file>
@@ -33,12 +33,12 @@
         <file>data/translations/qtbase_fi.qm</file>
         <file>data/translations/qtbase_ja.qm</file>
         <file>data/translations/qtbase_en.qm</file>
-        <file>data/icons/iconChristmas.svg</file>
+        <file>data/icons/christmas.svg</file>
         <file>data/base-gitignore.txt</file>
         <file>data/external/texconv.exe</file>
-        <file>data/icons/iconQt.svg</file>
-        <file>data/icons/iconBus.svg</file>
-        <file>data/icons/iconManageUser.svg</file>
+        <file>data/icons/qt.svg</file>
+        <file>data/icons/wLFClientParticipant.svg</file>
+        <file>data/icons/wLFClientDispatcher.svg</file>
         <file>data/manual/Handbuch DE.pdf</file>
     </qresource>
 </RCC>

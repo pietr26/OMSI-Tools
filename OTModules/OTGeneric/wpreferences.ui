@@ -91,7 +91,7 @@
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconOMSI-Tools.svg</normaloff>:/rec/data/icons/iconOMSI-Tools.svg</iconset>
+           <normaloff>:/rec/data/icons/logo.svg</normaloff>:/rec/data/icons/logo.svg</iconset>
          </property>
         </item>
         <item>
@@ -100,7 +100,7 @@
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconMap.svg</normaloff>:/rec/data/icons/iconMap.svg</iconset>
+           <normaloff>:/rec/data/icons/wVerifyMap.svg</normaloff>:/rec/data/icons/wVerifyMap.svg</iconset>
          </property>
         </item>
         <item>
@@ -109,7 +109,7 @@
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconChar.svg</normaloff>:/rec/data/icons/iconChar.svg</iconset>
+           <normaloff>:/rec/data/icons/wFonts.svg</normaloff>:/rec/data/icons/wFonts.svg</iconset>
          </property>
         </item>
        </widget>

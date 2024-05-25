@@ -24,7 +24,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../../ressources.qrc">
-    <normaloff>:/rec/data/icons/iconOMSI-Tools.svg</normaloff>:/rec/data/icons/iconOMSI-Tools.svg</iconset>
+    <normaloff>:/rec/data/icons/logo.svg</normaloff>:/rec/data/icons/logo.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -65,7 +65,7 @@
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconChar.svg</normaloff>:/rec/data/icons/iconChar.svg</iconset>
+           <normaloff>:/rec/data/icons/wFonts.svg</normaloff>:/rec/data/icons/wFonts.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -109,7 +109,7 @@
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconMap.svg</normaloff>:/rec/data/icons/iconMap.svg</iconset>
+           <normaloff>:/rec/data/icons/wMaps.svg</normaloff>:/rec/data/icons/wMaps.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -184,7 +184,7 @@
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconWorld.svg</normaloff>:/rec/data/icons/iconWorld.svg</iconset>
+           <normaloff>:/rec/data/icons/wVerifyMap.svg</normaloff>:/rec/data/icons/wVerifyMap.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -228,7 +228,7 @@
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+           <normaloff>:/rec/data/icons/wContentSearch.svg</normaloff>:/rec/data/icons/wContentSearch.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -303,7 +303,7 @@
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
+           <normaloff>:/rec/data/icons/wCleanup.svg</normaloff>:/rec/data/icons/wCleanup.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -378,7 +378,7 @@
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconBus.svg</normaloff>:/rec/data/icons/iconBus.svg</iconset>
+           <normaloff>:/rec/data/icons/wLFClientParticipant.svg</normaloff>:/rec/data/icons/wLFClientParticipant.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -422,7 +422,7 @@
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
-           <normaloff>:/rec/data/icons/iconManageUser.svg</normaloff>:/rec/data/icons/iconManageUser.svg</iconset>
+           <normaloff>:/rec/data/icons/wLFClientDispatcher.svg</normaloff>:/rec/data/icons/wLFClientDispatcher.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -818,7 +818,7 @@
   <action name="actionDBPanelWDTFbh">
    <property name="icon">
     <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconFbh.png</normaloff>:/rec/data/icons/iconFbh.png</iconset>
+     <normaloff>:/rec/data/icons/webdisk-tools.png</normaloff>:/rec/data/icons/webdisk-tools.png</iconset>
    </property>
    <property name="text">
     <string notr="true">WebDisk-Tools: Filebase-Helper</string>
@@ -883,7 +883,7 @@
   <action name="actionAboutQt">
    <property name="icon">
     <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQt.svg</normaloff>:/rec/data/icons/iconQt.svg</iconset>
+     <normaloff>:/rec/data/icons/qt.svg</normaloff>:/rec/data/icons/qt.svg</iconset>
    </property>
    <property name="text">
     <string>About Qt...</string>

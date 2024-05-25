@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string notr="true">wLFClientParticipant</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../../ressources.qrc">
+    <normaloff>:/rec/data/icons/wLFClientParticipant.svg</normaloff>:/rec/data/icons/wLFClientParticipant.svg</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout"/>
   </widget>
@@ -113,6 +117,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

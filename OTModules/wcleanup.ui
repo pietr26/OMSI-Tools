@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../ressources.qrc">
-    <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
+    <normaloff>:/rec/data/icons/wCleanup.svg</normaloff>:/rec/data/icons/wCleanup.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">

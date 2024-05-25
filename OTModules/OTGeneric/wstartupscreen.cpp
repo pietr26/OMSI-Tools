@@ -32,7 +32,7 @@ wStartUpScreen::wStartUpScreen(QWidget *parent) :
     windowAnimation->start(QPropertyAnimation::DeleteWhenStopped);
 
     if (QDate().currentDate().month() == 12)
-        ui->lblSeasonIcon->setPixmap(QPixmap(":/rec/data/icons/iconChristmas.svg"));
+        ui->lblSeasonIcon->setPixmap(QPixmap(":/rec/data/icons/christmas.svg"));
 
     // ---------------
 
