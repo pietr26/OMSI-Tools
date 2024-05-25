@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <QCommandLinkButton>
-#include <OTBackend/OTGlobal.h>
 
 namespace Ui {
 class wPromptSelector;
@@ -22,8 +21,6 @@ signals:
 
 private:
     Ui::wPromptSelector *ui;
-
-    OTSettings set;
 };
 
 #endif // WPROMPTSELECTOR_H

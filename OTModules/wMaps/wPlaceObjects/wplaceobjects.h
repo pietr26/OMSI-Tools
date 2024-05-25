@@ -55,7 +55,6 @@ signals:
 private:
     Ui::wPlaceObjects *ui;
     OTSettings set;
-    OTMiscellaneous misc;
     OTDirectXTexConv texconv;
 
     OCMap::Global props;

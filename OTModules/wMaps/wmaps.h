@@ -52,9 +52,7 @@ private slots:
 private:
     Ui::wMaps *ui;
 
-    OTMessage msg;
     OTSettings set;
-    OTMiscellaneous misc;
     OTOMSIFileHandler filehandler;
     wPreferences *WPREFERENCES;
     wMapSelection *WMAPSELECTION;

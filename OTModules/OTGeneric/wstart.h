@@ -2,8 +2,6 @@
 #define WSTART_H
 
 #include <QMainWindow>
-#include <QCloseEvent>
-#include <QFutureWatcher>
 #include "OTModules/wcleanup.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
@@ -25,9 +23,6 @@
 #include "OTModules/wBugDoc/wbugdoc.h"
 #include "OTModules/wLFClient/wlfclientparticipant.h"
 #include "OTModules/wLFClient/wlfclientdispatcher.h"
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonObject>
 
 namespace Ui {
 class wStart;

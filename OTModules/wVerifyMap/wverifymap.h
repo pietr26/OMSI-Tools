@@ -7,13 +7,7 @@
 #include "OTWidgets/verifymaptools.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
-#include <QFileDialog>
-#include <QProgressDialog>
-#include <QTimer>
-#include <QtConcurrent>
-#include <QFuture>
 #include <QListWidgetItem>
-#include <QShortcut>
 #include <QKeySequence>
 #include <QKeyEvent>
 
@@ -101,7 +95,6 @@ private:
     Ui::wVerifyMap *ui;
     OTMessage msg;
     OTSettings set;
-    OTMiscellaneous misc;
     wContentSearch *WCONTENTSEARCH;
     wPreferences *WPREFERENCES;
 

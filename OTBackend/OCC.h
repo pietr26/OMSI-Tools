@@ -1,7 +1,7 @@
 #ifndef OCC_H
 #define OCC_H
 
-#include "OTGlobal.h"
+#include "OTBackend/OTGlobal.h"
 
 class OCBase
 {
@@ -639,13 +639,13 @@ public:
         QList<Action> actions;
     };
 
-    void test()
-    {
-        Container tmp;
-        Variable var;
-        Number num;
-        tmp.actions.append(var);
-    }
+    // void test()
+    // {
+    //     Container tmp;
+    //     Variable var;
+    //     Number num;
+    //     tmp.actions.append(var);
+    // }
 
     QList<Container> script;
 };
@@ -1025,11 +1025,11 @@ public:
             {
                 switch (type)
                 {
-                    case 0: return QObject::tr("Summer");
                     case 1: return QObject::tr("Spring");
                     case 2: return QObject::tr("Autumn");
                     case 3: return QObject::tr("Winter");
                     case 4: return QObject::tr("Deep winter");
+                    default: return QObject::tr("Summer");
                 }
             }
 

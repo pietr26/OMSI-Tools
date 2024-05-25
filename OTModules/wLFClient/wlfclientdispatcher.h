@@ -35,7 +35,6 @@ signals:
 
 private:
     Ui::wLFClientDispatcher *ui;
-    OTSettings set;
     wPreferences *WPREFERENCES;
     wLogin *WLOGIN;
     wdgInformation *WDGINFORMATION = new wdgInformation();

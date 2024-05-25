@@ -2,7 +2,6 @@
 #define WADDWORD_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
 
 namespace Ui {
 class wAddWord;
@@ -26,7 +25,6 @@ private slots:
 
 private:
     Ui::wAddWord *ui;
-    OTSettings set;
 };
 
 #endif // WADDWORD_H

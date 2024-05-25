@@ -2,12 +2,10 @@
 #define WCLEANUP_H
 
 #include <QMainWindow>
-#include <QtConcurrent>
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wfeedback.h"
-#include <QListWidgetItem>
 
 namespace Ui {
 class wCleanup;

@@ -46,7 +46,6 @@ signals:
 
 private:
     Ui::wLFClientParticipant *ui;
-    OTSettings set;
     LFClientAPIInterface *api = new LFClientAPIInterface(this);
     wPreferences *WPREFERENCES;
     wLogin *WLOGIN;

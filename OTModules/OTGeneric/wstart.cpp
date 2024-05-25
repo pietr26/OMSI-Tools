@@ -123,8 +123,6 @@ void wStart::loadMessagesOld()
                 }
                 messageData.enDescription.remove("[enDescrEnd]");
 
-                QStringList parseEn = messageData.enDescription.split("\r");
-
                 i++; messageData.deTitle = messages.at(i);
                 i++; messageData.deShortDescription = messages.at(i);
 

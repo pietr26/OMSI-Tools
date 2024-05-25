@@ -2,7 +2,6 @@
 #define WSELECTENCODING_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
 
 namespace Ui {
 class wSelectEncoding;
@@ -24,8 +23,6 @@ private slots:
 
 private:
     Ui::wSelectEncoding *ui;
-
-    OTSettings set;
 };
 
 #endif // WSELECTENCODING_H

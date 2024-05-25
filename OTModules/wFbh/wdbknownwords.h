@@ -2,8 +2,8 @@
 #define WDBKNOWNWORDS_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTExternal.h"
+#include "OTBackend/OTGlobal.h"
 #include "waddword.h"
 
 namespace Ui {
@@ -34,9 +34,8 @@ signals:
 
 private:
     Ui::wDBKnownWords *ui;
-    OTSettings set;
-    OTMiscellaneous misc;
     OTDatabaseHandler dbHandler;
+    OTMiscellaneous misc;
 
     void updateView();
 

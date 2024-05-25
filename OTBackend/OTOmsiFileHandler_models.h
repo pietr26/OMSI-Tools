@@ -1,7 +1,8 @@
 #ifndef OTOMSIFILEHANDLER_MODELS_H
 #define OTOMSIFILEHANDLER_MODELS_H
 
-#include "OTGlobal.h"
+#include <QString>
+#include <QStringList>
 
 class OTVerifyStuff
 {

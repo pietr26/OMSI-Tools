@@ -2,7 +2,6 @@
 #define WADDPATH_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTExternal.h"
 #include <QtSql>
 
@@ -30,7 +29,6 @@ signals:
 
 private:
     Ui::wAddPath *ui;
-    OTSettings set;
     OTDatabaseHandler dbHandler;
 };
 

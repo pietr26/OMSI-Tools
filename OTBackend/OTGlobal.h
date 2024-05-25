@@ -7,7 +7,6 @@
 #include <QDir>
 #include <QTime>
 #include <QDate>
-#include <QDebug>
 #include <QApplication>
 #include <QProcess>
 #include <QFileDialog>
@@ -15,7 +14,6 @@
 #include <QDesktopServices>
 #include <QScreen>
 #include <QClipboard>
-#include <QString>
 #include <QStyleFactory>
 
 class OTFileMethods
@@ -979,7 +977,7 @@ public:
             QPair<QString, unsigned int>(QObject::tr("In the <a style='color: lightblue' href='%2'>Wiki of %1</a> you can find useful explanations about all topics.", "Copy whole source text to prevent translations faults in HTML code").arg(OTInformation::name, OTLinks::Wiki::general), 11000),
             QPair<QString, unsigned int>(QObject::tr("Check out the latest developments in the <a style='color: lightblue' href='%1'>presentation thread in the OMSI-WebDisk</a>.", "Copy whole source text to prevent translations faults in HTML code").arg(OTLinks::showroom), 11000),
             QPair<QString, unsigned int>(QObject::tr("Your hard disk is crowded? Clean up your main directory with %1' cleanup tool.").arg(OTInformation::name), 10000),
-            QPair<QString, unsigned int>(QObject::tr("You've started %1 about %2 times.").arg(OTInformation::name).arg(set.read("main", "startCount").toString()), 8000)
+            QPair<QString, unsigned int>(QObject::tr("You've started %1 about %2 times.").arg(OTInformation::name, set.read("main", "startCount").toString()), 8000)
         };
     };
 

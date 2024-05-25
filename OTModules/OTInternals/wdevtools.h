@@ -3,11 +3,6 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
-#include <QFileDialog>
-#include <QClipboard>
-#include <QProgressDialog>
-#include <QMessageBox>
-#include <QDebug>
 
 namespace Ui {
 class wDevTools;

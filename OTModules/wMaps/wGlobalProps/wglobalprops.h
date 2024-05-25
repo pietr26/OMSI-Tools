@@ -1,13 +1,13 @@
 #ifndef WGLOBALPROPS_H
 #define WGLOBALPROPS_H
 
-#include "OTBackend/OTOmsiFileHandler.h"
+
 #include <QMainWindow>
+#include "OTBackend/OTOmsiFileHandler.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OCC.h"
 #include "OTWidgets/input3dcoordinates.h"
 #include "OTModules/wMaps/wGlobalProps/weditgroundtexture.h"
-#include <QStandardItemModel>
 #include "OTModules/wMaps/wGlobalProps/weditseason.h"
 
 namespace Ui {

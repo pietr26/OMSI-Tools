@@ -1,6 +1,6 @@
 QT       += core widgets gui network concurrent sql printsupport
 
-CONFIG += c++17 #console
+CONFIG += c++17
 
 DEFINES += QT_MESSAGELOGCONTEXT
 
@@ -9,20 +9,6 @@ DEFINES += QT_MESSAGELOGCONTEXT
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-#    OTBackend/DiscordGameSDK/include/achievement_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/activity_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/application_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/core.cpp \
-#    OTBackend/DiscordGameSDK/include/image_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/lobby_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/network_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/overlay_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/relationship_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/storage_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/store_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/types.cpp \
-#    OTBackend/DiscordGameSDK/include/user_manager.cpp \
-#    OTBackend/DiscordGameSDK/include/voice_manager.cpp \
     OTBackend/LFClientAPIInterface/lfclientapiinterface.cpp \
     OTBackend/OTLogger.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
@@ -75,32 +61,13 @@ SOURCES += \
     OTModules/OTGeneric/wstartupscreen.cpp
 
 HEADERS += \
-#    OTBackend/DiscordGameSDK/include/achievement_manager.h \
-#    OTBackend/DiscordGameSDK/include/activity_manager.h \
-#    OTBackend/DiscordGameSDK/include/application_manager.h \
-#    OTBackend/DiscordGameSDK/include/core.h \
-#    OTBackend/DiscordGameSDK/include/discord.h \
-#    OTBackend/DiscordGameSDK/include/event.h \
-#    OTBackend/DiscordGameSDK/include/ffi.h \
-#    OTBackend/DiscordGameSDK/include/image_manager.h \
-#    OTBackend/DiscordGameSDK/include/lobby_manager.h \
-#    OTBackend/DiscordGameSDK/include/network_manager.h \
-#    OTBackend/DiscordGameSDK/include/overlay_manager.h \
-#    OTBackend/DiscordGameSDK/include/relationship_manager.h \
-#    OTBackend/DiscordGameSDK/include/storage_manager.h \
-#    OTBackend/DiscordGameSDK/include/store_manager.h \
-#    OTBackend/DiscordGameSDK/include/types.h \
-#    OTBackend/DiscordGameSDK/include/user_manager.h \
-#    OTBackend/DiscordGameSDK/include/voice_manager.h \
     OTBackend/LFClientAPIInterface/lfclientapiinterface.h \
     OTBackend/OCC.h \
     OTBackend/OTExternal.h \
-    OTBackend/discordRPC.h \
     OTBackend/OTGlobal.h \
     OTBackend/OTLogger.h \
     OTBackend/OTOmsiFileHandler.h \
     OTBackend/OTOmsiFileHandler_models.h \
-    OTBackend/OTStyleDraw.h \
     OTModules/OTGeneric/wfeedback.h \
     OTModules/OTGeneric/wpreferences.h \
     OTModules/OTGeneric/wpromptselector.h \
@@ -218,7 +185,3 @@ RESOURCES += \
 
 DISTFILES += \
     devNotes
-
-#LIBS += -LD:/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/lib -ldiscord_game_sdk
-#INCLUDEPATH += D:/OMSI-Tools/OMSI-Tools/OTBackend/DiscordGameSDK/include
-

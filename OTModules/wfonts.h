@@ -7,18 +7,8 @@
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTGeneric/wselectencoding.h"
-#include <QListWidgetItem>
 #include <QItemSelectionModel>
-#include <QFileDialog>
-#include <QFile>
-#include <QDir>
-#include <QTextStream>
-#include <QMessageBox>
-#include <QDebug>
-#include <QInputDialog>
 #include <QCloseEvent>
-#include <QTimer>
-#include <QShortcut>
 #include <QGraphicsScene>
 
 namespace Ui {

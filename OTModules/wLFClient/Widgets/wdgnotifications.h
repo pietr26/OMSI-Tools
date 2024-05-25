@@ -3,8 +3,7 @@
 
 #include <QWidget>
 #include <QStandardItemModel>
-#include "OTBackend/OTGlobal.h"
-
+#include <QTimer>
 #include "OTBackend/LFClientAPIInterface/lfclientapiinterface.h"
 #include "OTModules/wLFClient/Widgets/wdgnotification.h"
 

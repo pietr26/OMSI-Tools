@@ -15,7 +15,7 @@ wSelectEncoding::wSelectEncoding(QWidget *parent) :
     setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
 
     // Load prefs
-    setWindowTitle(tr("Select encoding..."));
+    setWindowTitle(tr("Select encoding"));
 
 
     qInfo().noquote() << objectName() + " started";
@@ -30,14 +30,14 @@ void wSelectEncoding::on_btnSelect_clicked()
 {
     switch (ui->cobxEncoding->currentIndex())
     {
-        case 0: encodingSelected(QStringConverter::Latin1); break;
-        case 1: encodingSelected(QStringConverter::Utf8); break;
-        case 2: encodingSelected(QStringConverter::Utf16); break;
-        case 3: encodingSelected(QStringConverter::Utf16LE); break;
-        case 4: encodingSelected(QStringConverter::Utf16BE); break;
-        case 5: encodingSelected(QStringConverter::Utf32); break;
-        case 6: encodingSelected(QStringConverter::Utf32LE); break;
-        case 7: encodingSelected(QStringConverter::Utf32BE); break;
+        case 0: emit encodingSelected(QStringConverter::Latin1); break;
+        case 1: emit encodingSelected(QStringConverter::Utf8); break;
+        case 2: emit encodingSelected(QStringConverter::Utf16); break;
+        case 3: emit encodingSelected(QStringConverter::Utf16LE); break;
+        case 4: emit encodingSelected(QStringConverter::Utf16BE); break;
+        case 5: emit encodingSelected(QStringConverter::Utf32); break;
+        case 6: emit encodingSelected(QStringConverter::Utf32LE); break;
+        case 7: emit encodingSelected(QStringConverter::Utf32BE); break;
     }
 
     close();

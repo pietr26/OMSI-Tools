@@ -7,7 +7,6 @@
 #include "OTModules/OTGeneric/wreleasenotes.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include <QStandardItemModel>
-#include <QColorDialog>
 #include <QListWidgetItem>
 
 namespace Ui {

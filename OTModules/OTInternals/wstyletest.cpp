@@ -142,6 +142,6 @@ void wStyleTest::on_actionClose_triggered()
 void wStyleTest::on_actionBackToHome_triggered()
 {
     close();
-    backToHome();
+    emit backToHome();
 }
 

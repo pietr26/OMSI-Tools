@@ -2,7 +2,6 @@
 #define WDBCOPYRIGHTS_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTExternal.h"
 #include "OTModules/wFbh/waddpath.h"
 #include "OTModules/wFbh/waddterm.h"
@@ -46,8 +45,6 @@ signals:
 private:
     Ui::wDBCopyrights *ui;
 
-    OTSettings set;
-    OTMiscellaneous misc;
     OTDatabaseHandler dbHandler;
 
     void updateView();

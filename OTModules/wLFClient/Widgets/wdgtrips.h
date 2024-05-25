@@ -2,7 +2,6 @@
 #define WDGTRIPS_H
 
 #include <QWidget>
-#include "OTBackend/OTGlobal.h"
 #include <QStandardItemModel>
 
 namespace Ui {

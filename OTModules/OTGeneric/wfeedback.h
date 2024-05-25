@@ -27,7 +27,6 @@ private slots:
 
 private:
     Ui::wFeedback *ui;
-    OTSettings set;
     OTMiscellaneous misc;
 
     QUrl wikiurl;

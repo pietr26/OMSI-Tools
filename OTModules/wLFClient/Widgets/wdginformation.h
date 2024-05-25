@@ -1,9 +1,8 @@
 #ifndef WDGINFORMATION_H
 #define WDGINFORMATION_H
 
-#include "OTBackend/OTGlobal.h"
 #include <QWidget>
-
+#include <QTimer>
 #include "OTBackend/LFClientAPIInterface/lfclientapiinterface.h"
 
 namespace Ui {

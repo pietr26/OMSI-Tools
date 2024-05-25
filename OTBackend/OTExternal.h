@@ -1,9 +1,9 @@
 #ifndef OTEXTERNAL_H
 #define OTEXTERNAL_H
+
 #include "OTGlobal.h"
 #include <QtSql>
 #include <QSqlDriver>
-#include <QDebug>
 
 
 /* FORMAL DATABASE SETUP IN HEADER

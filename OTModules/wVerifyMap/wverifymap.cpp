@@ -442,7 +442,7 @@ void wVerifyMap::on_btnReloadMaps_clicked()
 void wVerifyMap::on_actionBackToHome_triggered()
 {
     close();
-    backToHome();
+    emit backToHome();
 }
 
 void wVerifyMap::on_btnToTiles_clicked() { ui->twgVerfying->setCurrentIndex(1); }

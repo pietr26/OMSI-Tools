@@ -31,7 +31,6 @@ private slots:
 private:
     Ui::wMapSelection *ui;
     OTOMSIFileHandler filehandler;
-    OTSettings set;
     OTMiscellaneous misc;
 
     void loadList(bool withPath = false);

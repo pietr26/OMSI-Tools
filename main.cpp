@@ -6,8 +6,6 @@
 #include <QDebug>
 #include <QFile>
 #include "OTBackend/OTLogger.h"
-#include "OTBackend/OTStyleDraw.h"
-#include "OTBackend/discordRPC.h"
 
 /// Test area for anything
 void testArea()
@@ -65,7 +63,6 @@ int main(int argc, char *argv[])
 
         qInfo().noquote() << "Starting " + OTInformation::name + "...";
 
-        //QApplication::setStyle(new OTStyleDraw);
         qApp->setStyle(QStyleFactory::create(set.read("main", "theme").toString()));
 
         set.loadTranslator();

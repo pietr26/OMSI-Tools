@@ -2,7 +2,6 @@
 #define VERIFYMAPTOOLS_H
 
 #include <QWidget>
-#include <QListWidget>
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 

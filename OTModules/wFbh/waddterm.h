@@ -2,7 +2,6 @@
 #define WADDTERM_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
 
 namespace Ui {
 class wAddTerm;
@@ -26,8 +25,6 @@ signals:
 
 private:
     Ui::wAddTerm *ui;
-
-    OTSettings set;
 };
 
 #endif // WADDTERM_H

@@ -75,7 +75,7 @@ void wRegEditor::loadRegs()
 void wRegEditor::on_actionBackToHome_triggered()
 {
     close();
-    backToHome();
+    emit backToHome();
 }
 
 void wRegEditor::on_actionClose_triggered()
