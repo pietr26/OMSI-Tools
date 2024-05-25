@@ -1,1 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 476.1L192 421.2V35.9L384 90.8V476.1zm32-1.2V88.4L543.1 37.5c15.8-6.3 32.9 5.3 32.9 22.3V394.6c0 9.8-6 18.6-15.1 22.3L416 474.8zM15.1 95.1L160 37.2V423.6L32.9 474.5C17.1 480.8 0 469.2 0 452.2V117.4c0-9.8 6-18.6 15.1-22.3z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 576 512"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="iconMap.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.2255859"
+     inkscape:cx="142.78884"
+     inkscape:cy="209.28765"
+     inkscape:window-width="2560"
+     inkscape:window-height="1511"
+     inkscape:window-x="3831"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path
+     d="M 15.1,95.1 160,37.2 V 423.6 L 32.9,474.5 C 17.1,480.8 0,469.2 0,452.2 V 117.4 C 0,107.6 6,98.8 15.1,95.1 Z"
+     id="path1-7"
+     inkscape:label="1"
+     style="fill:#dfb670;fill-opacity:1" />
+  <path
+     d="M 384,476.1 192,421.2 V 35.9 l 192,54.9 z"
+     id="path1-0"
+     inkscape:label="2"
+     style="fill:#cc9f51;fill-opacity:1" />
+  <path
+     d="M 416,474.9 V 88.4 L 543.1,37.5 c 15.8,-6.3 32.9,5.3 32.9,22.3 v 334.8 c 0,9.8 -6,18.6 -15.1,22.3 L 416,474.8 Z"
+     id="path1-3"
+     inkscape:label="3"
+     style="fill:#dfb670;fill-opacity:1" />
+</svg>

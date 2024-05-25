@@ -1,1 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M288 0C422.4 0 512 35.2 512 80V96l0 32c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32l0 160c0 17.7-14.3 32-32 32v32c0 17.7-14.3 32-32 32H416c-17.7 0-32-14.3-32-32V448H192v32c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32l0-32c-17.7 0-32-14.3-32-32l0-160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h0V96h0V80C64 35.2 153.6 0 288 0zM128 160v96c0 17.7 14.3 32 32 32H272V128H160c-17.7 0-32 14.3-32 32zM304 288H416c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32H304V288zM144 400a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm288 0a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM384 80c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16s7.2 16 16 16H368c8.8 0 16-7.2 16-16z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 576 512"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="iconBus.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.2255859"
+     inkscape:cx="232.54183"
+     inkscape:cy="206.0239"
+     inkscape:window-width="2560"
+     inkscape:window-height="1511"
+     inkscape:window-x="3831"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+  <path
+     d="M 384,448 H 192 m -96,0 C 78.3,448 64,433.7 64,416 V 96 96 80 C 64,35.2 153.6,0 288,0 422.4,0 512,35.2 512,80 v 16 320 c 0,17.7 -14.3,32 -32,32 M 128,160 v 96 c 0,17.7 14.3,32 32,32 H 272 V 128 H 160 c -17.7,0 -32,14.3 -32,32 z m 176,128 h 112 c 17.7,0 32,-14.3 32,-32 v -96 c 0,-17.7 -14.3,-32 -32,-32 H 304 Z M 144,400 c 17.67312,0 31.99999,-14.32689 31.99999,-32 0,-17.67311 -14.32687,-32 -31.99999,-32 -17.67312,0 -31.99999,14.32689 -31.99999,32 0,17.67311 14.32687,32 31.99999,32 z m 288,0 c 17.67312,0 31.99999,-14.32689 31.99999,-32 0,-17.67311 -14.32687,-32 -31.99999,-32 -17.67312,0 -31.99999,14.32689 -31.99999,32 0,17.67311 14.32687,32 31.99999,32 z M 384,80 c 0,-8.8 -7.2,-16 -16,-16 H 314.13546 208 c -8.8,0 -16,7.2 -16,16 0,8.8 7.2,16 16,16 h 160 c 8.8,0 16,-7.2 16,-16 z"
+     id="path1"
+     sodipodi:nodetypes="ccccccssscccsssccsscssssccsssssssssssscsssss"
+     inkscape:label="main"
+     style="fill:#718d60;fill-opacity:1" />
+  <path
+     d="m 144,400 c 17.67312,0 31.99999,-14.32689 31.99999,-32 0,-17.67311 -14.32687,-32 -31.99999,-32 -17.67312,0 -31.99999,14.32689 -31.99999,32 0,17.67311 14.32687,32 31.99999,32 z m 288,0 c 17.67312,0 31.99999,-14.32689 31.99999,-32 0,-17.67311 -14.32687,-32 -31.99999,-32 -17.67312,0 -31.99999,14.32689 -31.99999,32 0,17.67311 14.32687,32 31.99999,32 z"
+     id="path1-1"
+     inkscape:label="lights"
+     style="fill:#f8df01;fill-opacity:1" />
+  <path
+     d="m 480,448 v 32 c 0,17.7 -14.3,32 -32,32 h -32 c -17.7,0 -32,-14.3 -32,-32 V 448 H 192 v 32 c 0,17.7 -14.3,32 -32,32 h -32 c -17.7,0 -32,-14.3 -32,-32 v -32"
+     id="path1-7"
+     inkscape:label="wheels"
+     sodipodi:nodetypes="cssssccssssc"
+     style="fill:#505050;fill-opacity:1" />
+  <path
+     d="m 384,80 c 0,-8.8 -7.20001,-16 -16,-16 H 314.13545 261.06773 208 c -8.8,0 -16,7.2 -16,16 0,8.8 7.2,16 16,16 h 160 c 8.79999,0 16,-7.2 16,-16 z"
+     id="path1-0"
+     inkscape:label="matrix"
+     sodipodi:nodetypes="ssccsssss"
+     style="fill:#2f2f2f;fill-opacity:1" />
+  <path
+     d="m 128,160 v 96 c 0,17.7 14.3,32 32,32 H 272 V 128 H 160 c -17.7,0 -32,14.3 -32,32 z m 176,128 h 112 c 17.7,0 32,-14.3 32,-32 v -96 c 0,-17.7 -14.3,-32 -32,-32 H 304 Z"
+     id="path1-6"
+     inkscape:label="windows"
+     style="fill:#53a8e8;fill-opacity:1" />
+  <path
+     d="M 64,256 C 46.3,256 32,241.7 32,224 v -64 c 0,-17.7 14.3,-32 32,-32 v 0 m 0,0 h 448 m 0,0 c 17.7,0 32,14.3 32,32 v 64 c 0,17.7 -14.3,32 -32,32"
+     id="path1-4"
+     sodipodi:nodetypes="csssccccssc"
+     inkscape:label="mirrors"
+     style="fill:#828282;fill-opacity:1" />
+</svg>

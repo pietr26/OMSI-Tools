@@ -1,1 +1,58 @@
-<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   aria-hidden="true"
+   focusable="false"
+   data-prefix="fas"
+   data-icon="search"
+   class="svg-inline--fa fa-search fa-w-16"
+   role="img"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="iconSearch.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1"
+     inkscape:cx="32"
+     inkscape:cy="342.5"
+     inkscape:window-width="2560"
+     inkscape:window-height="1511"
+     inkscape:window-x="3831"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <path
+     fill="currentColor"
+     d="M 372,336 C 399.6,300.7 416,256.3 416,208 416,93.1 322.9,0 208,0 93.1,0 0,93.1 0,208 c 0,114.9 93.1,208 208,208 48.3,0 92.7,-16.4 128,-44 M 208,336 C 137.3,336 80,278.8 80,208 80,137.3 137.2,80 208,80 c 70.7,0 128,57.2 128,128 0,70.7 -57.2,128 -128,128 z"
+     id="path1"
+     sodipodi:nodetypes="csssscsssss"
+     style="fill:#bdbdbd;fill-opacity:1"
+     inkscape:label="main-out" />
+  <path
+     fill="currentColor"
+     d="m 336,372 v 16.3 c 0,6.4 2.5,12.5 7,17 l 99.7,99.7 c 9.4,9.4 24.6,9.4 33.9,0 l 28.3,-28.3 c 9.4,-9.4 9.4,-24.6 0.1,-34 l -99.7,-99.69999 c -4.5,-4.5 -10.6,-7 -17,-7 H 372"
+     id="path1-2"
+     sodipodi:nodetypes="cssscscssc"
+     style="fill:#616161;fill-opacity:1"
+     inkscape:label="handle" />
+  <path
+     d="M 208,336 C 137.3,336 80,278.8 80,208 80,137.3 137.2,80 208,80 c 70.7,0 128,57.2 128,128 0,70.7 -57.2,128 -128,128 z"
+     style="fill:#b3e5fc;fill-opacity:1"
+     id="path1-3"
+     sodipodi:nodetypes="sssss"
+     inkscape:label="main-in" />
+</svg>
