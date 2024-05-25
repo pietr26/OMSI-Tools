@@ -9,6 +9,20 @@ DEFINES += QT_MESSAGELOGCONTEXT
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    OTBackend/DiscordRPC/achievement_manager.cpp \
+    OTBackend/DiscordRPC/activity_manager.cpp \
+    OTBackend/DiscordRPC/application_manager.cpp \
+    OTBackend/DiscordRPC/core.cpp \
+    OTBackend/DiscordRPC/image_manager.cpp \
+    OTBackend/DiscordRPC/lobby_manager.cpp \
+    OTBackend/DiscordRPC/network_manager.cpp \
+    OTBackend/DiscordRPC/overlay_manager.cpp \
+    OTBackend/DiscordRPC/relationship_manager.cpp \
+    OTBackend/DiscordRPC/storage_manager.cpp \
+    OTBackend/DiscordRPC/store_manager.cpp \
+    OTBackend/DiscordRPC/types.cpp \
+    OTBackend/DiscordRPC/user_manager.cpp \
+    OTBackend/DiscordRPC/voice_manager.cpp \
     OTBackend/LFClientAPIInterface/lfclientapiinterface.cpp \
     OTBackend/OTLogger.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
@@ -61,6 +75,23 @@ SOURCES += \
     OTModules/OTGeneric/wstartupscreen.cpp
 
 HEADERS += \
+    OTBackend/DiscordRPC/achievement_manager.h \
+    OTBackend/DiscordRPC/activity_manager.h \
+    OTBackend/DiscordRPC/application_manager.h \
+    OTBackend/DiscordRPC/core.h \
+    OTBackend/DiscordRPC/discord.h \
+    OTBackend/DiscordRPC/event.h \
+    OTBackend/DiscordRPC/ffi.h \
+    OTBackend/DiscordRPC/image_manager.h \
+    OTBackend/DiscordRPC/lobby_manager.h \
+    OTBackend/DiscordRPC/network_manager.h \
+    OTBackend/DiscordRPC/overlay_manager.h \
+    OTBackend/DiscordRPC/relationship_manager.h \
+    OTBackend/DiscordRPC/storage_manager.h \
+    OTBackend/DiscordRPC/store_manager.h \
+    OTBackend/DiscordRPC/types.h \
+    OTBackend/DiscordRPC/user_manager.h \
+    OTBackend/DiscordRPC/voice_manager.h \
     OTBackend/LFClientAPIInterface/lfclientapiinterface.h \
     OTBackend/OCC.h \
     OTBackend/OTExternal.h \
@@ -68,6 +99,7 @@ HEADERS += \
     OTBackend/OTLogger.h \
     OTBackend/OTOmsiFileHandler.h \
     OTBackend/OTOmsiFileHandler_models.h \
+    OTBackend/discordrpc.h \
     OTModules/OTGeneric/wfeedback.h \
     OTModules/OTGeneric/wpreferences.h \
     OTModules/OTGeneric/wpromptselector.h \
@@ -185,3 +217,5 @@ RESOURCES += \
 
 DISTFILES += \
     devNotes
+
+LIBS += $$PWD/OTBackend/DiscordRPC/discord_game_sdk.dll
