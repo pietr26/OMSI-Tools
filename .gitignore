@@ -1,7 +1,4 @@
-data/otherStuff
 data/db/backups
 lrelease-pro.bat
 lupdate-pro.bat
 OMSI-Tools.pro.user
-doxygen
-build/*
