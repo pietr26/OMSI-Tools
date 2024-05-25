@@ -16,6 +16,8 @@
 #include <QClipboard>
 #include <QStyleFactory>
 
+#include "DiscordGameSDK.h"
+
 class OTFileMethods
 {
 public:

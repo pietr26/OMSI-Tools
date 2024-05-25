@@ -45,7 +45,7 @@ void DiscordGameSDK::clearActivity()
     DiscordGameSDK::activity.SetDetails("---");
     DiscordGameSDK::activity.SetState("---");
     DiscordGameSDK::activity.GetAssets().SetLargeImage("logo");
-    DiscordGameSDK::activity.GetAssets().SetLargeText(OTInformation::versions::currentVersion.first.toLatin1());
+    DiscordGameSDK::activity.GetAssets().SetLargeText("");
     DiscordGameSDK::activity.SetType(discord::ActivityType::Playing);
 }
 

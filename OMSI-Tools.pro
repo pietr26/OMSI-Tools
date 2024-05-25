@@ -219,4 +219,4 @@ RESOURCES += \
 DISTFILES += \
     devNotes
 
-LIBS += $$PWD/OTBackend/DiscordRPC/discord_game_sdk.dll
+LIBS += $$PWD/OTBackend/DiscordGameSDK/discord_game_sdk.dll

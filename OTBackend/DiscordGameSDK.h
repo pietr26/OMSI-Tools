@@ -1,9 +1,11 @@
 #ifndef DISCORDGAMESDK_H
 #define DISCORDGAMESDK_H
 
-#include "DiscordRPC/discord.h"
+#include "DiscordGameSDK/discord.h"
 #include <csignal>
 #include <QString>
+#include <QDebug>
+#include <QThread>
 
 struct DiscordState {
     std::unique_ptr<discord::Core> core;
