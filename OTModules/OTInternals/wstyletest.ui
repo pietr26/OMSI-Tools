@@ -6,16 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>969</height>
+    <width>610</width>
+    <height>1134</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string notr="true">MainWindow</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
-    <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
+   <iconset theme="mail-message-new"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_25">
@@ -1222,8 +1221,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>514</width>
-               <height>695</height>
+               <width>541</width>
+               <height>815</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1240,8 +1239,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>482</width>
-                   <height>2066</height>
+                   <width>502</width>
+                   <height>2982</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -1673,8 +1672,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>572</width>
-     <height>21</height>
+     <width>610</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
@@ -1728,7 +1727,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="minimumSize">
     <size>
      <width>572</width>
-     <height>60</height>
+     <height>64</height>
     </size>
    </property>
    <property name="features">
@@ -1773,8 +1772,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
   </action>
   <action name="actionBackToHome">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+    <iconset theme="go-home"/>
    </property>
    <property name="text">
     <string notr="true">Back to home</string>
@@ -1791,8 +1789,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string notr="true">Close</string>
@@ -1808,9 +1805,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    </property>
   </action>
  </widget>
- <resources>
-  <include location="../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>pushButton_3</sender>

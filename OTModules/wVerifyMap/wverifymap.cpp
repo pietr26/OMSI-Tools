@@ -429,7 +429,7 @@ void wVerifyMap::on_cobxMapName_currentIndexChanged(int index)
     if (QFile(picture).exists())
         ui->lblPicture->setPixmap(QPixmap(picture));
     else
-        ui->lblPicture->setPixmap(QPixmap(":/rec/data/icons/iconUnvisible.svg").scaled(185, 140));
+        ui->lblPicture->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::CameraPhoto).pixmap(128, 128));
 }
 
 /// Reloads map list

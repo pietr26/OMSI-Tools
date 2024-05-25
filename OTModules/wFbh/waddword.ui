@@ -7,15 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>319</width>
-    <height>149</height>
+    <height>175</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string notr="true">wAddWord</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
-    <normaloff>:/rec/data/icons/iconChar.svg</normaloff>:/rec/data/icons/iconChar.svg</iconset>
+   <iconset theme="format-text-bold"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -73,10 +72,6 @@
         <property name="text">
          <string notr="true">Save</string>
         </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
-        </property>
         <property name="shortcut">
          <string notr="true">Return</string>
         </property>
@@ -92,14 +87,12 @@
      <x>0</x>
      <y>0</y>
      <width>319</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

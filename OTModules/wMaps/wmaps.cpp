@@ -67,7 +67,7 @@ void wMaps::recieveSelectedMap(QPair<QString, QString> mapInfo)
     if (QFile(picture).exists())
         ui->lblPicture->setPixmap(QPixmap(picture));
     else
-        ui->lblPicture->setPixmap(QPixmap(":/rec/data/icons/iconUnvisible.svg").scaled(185, 140));
+        ui->lblPicture->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::CameraPhoto).pixmap(128, 128));
 
     map.global = OCMap::Global();
     map.global.filepath = currentMap.second;

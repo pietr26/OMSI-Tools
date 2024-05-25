@@ -35,8 +35,7 @@
       <string>Speech request</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../ressources.qrc">
-       <normaloff>:/rec/data/icons/iconPhone.svg</normaloff>:/rec/data/icons/iconPhone.svg</iconset>
+      <iconset theme="call-start"/>
      </property>
      <property name="iconSize">
       <size>
@@ -73,8 +72,7 @@
       <string>Report crash</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../ressources.qrc">
-       <normaloff>:/rec/data/icons/iconCrash.svg</normaloff>:/rec/data/icons/iconCrash.svg</iconset>
+      <iconset theme="dialog-error"/>
      </property>
      <property name="iconSize">
       <size>
@@ -92,8 +90,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

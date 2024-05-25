@@ -58,10 +58,6 @@
         <property name="text">
          <string>Load map...</string>
         </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
-        </property>
        </widget>
       </item>
      </layout>
@@ -197,8 +193,7 @@ This is an alpha version of the module. Please create a backup of the selected m
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+    <iconset theme="document-properties"/>
    </property>
    <property name="text">
     <string>Preferences...</string>
@@ -212,8 +207,7 @@ This is an alpha version of the module. Please create a backup of the selected m
   </action>
   <action name="actionBackToHome">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+    <iconset theme="go-home"/>
    </property>
    <property name="text">
     <string>Back to home</string>
@@ -224,8 +218,7 @@ This is an alpha version of the module. Please create a backup of the selected m
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string>Close</string>
@@ -236,8 +229,7 @@ This is an alpha version of the module. Please create a backup of the selected m
   </action>
   <action name="actionSendFeedback">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+    <iconset theme="dialog-question"/>
    </property>
    <property name="text">
     <string>Help</string>
@@ -248,8 +240,7 @@ This is an alpha version of the module. Please create a backup of the selected m
   </action>
   <action name="actionLoadMap">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+    <iconset theme="folder-open"/>
    </property>
    <property name="text">
     <string>Load map...</string>

@@ -37,25 +37,6 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="lblUpdateIcon">
-       <property name="maximumSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap resource="../ressources.qrc">:/rec/data/icons/iconDownload_blue.svg</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QLabel" name="lblUpdate">
        <property name="font">
         <font>
@@ -176,8 +157,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

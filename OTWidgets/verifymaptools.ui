@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>42</width>
-    <height>70</height>
+    <width>50</width>
+    <height>83</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -26,8 +26,7 @@
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="../ressources.qrc">
-       <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
+      <iconset theme="edit-copy"/>
      </property>
      <property name="autoRaise">
       <bool>false</bool>
@@ -40,8 +39,7 @@
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="../ressources.qrc">
-       <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+      <iconset theme="system-search"/>
      </property>
      <property name="autoRaise">
       <bool>false</bool>
@@ -51,8 +49,7 @@
   </layout>
   <action name="actionCopyFromAll">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconLeft.svg</normaloff>:/rec/data/icons/iconLeft.svg</iconset>
+    <iconset theme="media-seek-backward"/>
    </property>
    <property name="text">
     <string>All files</string>
@@ -63,8 +60,7 @@
   </action>
   <action name="actionCopyFromMissing">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+    <iconset theme="media-seek-forward"/>
    </property>
    <property name="text">
     <string>Missing files only</string>
@@ -75,8 +71,7 @@
   </action>
   <action name="actionSearchFromAll">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconLeft.svg</normaloff>:/rec/data/icons/iconLeft.svg</iconset>
+    <iconset theme="media-seek-backward"/>
    </property>
    <property name="text">
     <string>All files</string>
@@ -87,8 +82,7 @@
   </action>
   <action name="actionSearchFromMissing">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
+    <iconset theme="media-seek-forward"/>
    </property>
    <property name="text">
     <string>Missing files only</string>
@@ -98,8 +92,6 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

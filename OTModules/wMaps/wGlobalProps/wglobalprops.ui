@@ -61,8 +61,7 @@
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="../../../ressources.qrc">
-                <normaloff>:/rec/data/icons/iconLink.svg</normaloff>:/rec/data/icons/iconLink.svg</iconset>
+               <iconset theme="insert-link"/>
               </property>
               <property name="checkable">
                <bool>true</bool>
@@ -310,8 +309,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="../../../ressources.qrc">
-                   <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+                  <iconset theme="folder-open"/>
                  </property>
                 </widget>
                </item>
@@ -814,6 +812,11 @@
       </item>
       <item>
        <widget class="QPushButton" name="btnSave">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="text">
          <string>Save</string>
         </property>
@@ -843,8 +846,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string>Close</string>
@@ -888,8 +890,6 @@
    </slots>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

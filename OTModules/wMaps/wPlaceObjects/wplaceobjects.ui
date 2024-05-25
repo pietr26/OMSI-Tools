@@ -390,8 +390,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string>Close</string>
@@ -432,8 +431,6 @@
    </slots>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

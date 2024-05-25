@@ -14,8 +14,7 @@
    <string notr="true">wBugDoc</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
-    <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+   <iconset theme="zoom-fit-best"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -69,8 +68,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
+             <iconset theme="list-add"/>
             </property>
            </widget>
           </item>
@@ -80,8 +78,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+             <iconset theme="edit-clear"/>
             </property>
             <property name="shortcut">
              <string notr="true">Del</string>
@@ -265,7 +262,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuBugDoc">
@@ -296,8 +293,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionLoad">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+    <iconset theme="folder-open"/>
    </property>
    <property name="text">
     <string notr="true">Load BugDoc</string>
@@ -314,8 +310,7 @@
   </action>
   <action name="actionBack_to_home">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+    <iconset theme="go-home"/>
    </property>
    <property name="text">
     <string notr="true">Back to home</string>
@@ -332,8 +327,7 @@
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string notr="true">Close</string>
@@ -350,8 +344,7 @@
   </action>
   <action name="actionHTML">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconDownloadFile.svg</normaloff>:/rec/data/icons/iconDownloadFile.svg</iconset>
+    <iconset theme="document-print-preview"/>
    </property>
    <property name="text">
     <string notr="true">HTML</string>
@@ -368,8 +361,7 @@
   </action>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+    <iconset theme="document-properties"/>
    </property>
    <property name="text">
     <string notr="true">Preferences...</string>

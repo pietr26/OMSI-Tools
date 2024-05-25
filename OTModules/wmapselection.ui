@@ -30,8 +30,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
+         <iconset theme="view-refresh"/>
         </property>
        </widget>
       </item>
@@ -58,10 +57,6 @@
         <property name="text">
          <string>Confirm</string>
         </property>
-        <property name="icon">
-         <iconset resource="../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
-        </property>
        </widget>
       </item>
      </layout>
@@ -74,11 +69,29 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuWindow">
+    <property name="title">
+     <string>Window</string>
+    </property>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuWindow"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset theme="application-exit"/>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../ressources.qrc"/>

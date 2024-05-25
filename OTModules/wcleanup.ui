@@ -44,10 +44,6 @@
         <property name="text">
          <string>Analyse!</string>
         </property>
-        <property name="icon">
-         <iconset resource="../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-        </property>
        </widget>
       </item>
      </layout>
@@ -194,10 +190,6 @@
            <property name="text">
             <string notr="true">btnStartAction</string>
            </property>
-           <property name="icon">
-            <iconset resource="../ressources.qrc">
-             <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
-           </property>
           </widget>
          </item>
         </layout>
@@ -271,8 +263,7 @@
   </widget>
   <action name="actionAnalyze">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+    <iconset theme="system-search"/>
    </property>
    <property name="text">
     <string>Analyse</string>
@@ -283,8 +274,7 @@
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string>Close</string>
@@ -295,8 +285,7 @@
   </action>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+    <iconset theme="document-properties"/>
    </property>
    <property name="text">
     <string>Preferences...</string>
@@ -310,8 +299,7 @@
   </action>
   <action name="actionSendFeedback">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+    <iconset theme="dialog-question"/>
    </property>
    <property name="text">
     <string>Help</string>
@@ -322,8 +310,7 @@
   </action>
   <action name="actionBackToHome">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+    <iconset theme="go-home"/>
    </property>
    <property name="text">
     <string>Back to home</string>
@@ -333,6 +320,9 @@
    </property>
   </action>
   <action name="actionBulkMarkInCurrentList">
+   <property name="icon">
+    <iconset theme="edit-select-all"/>
+   </property>
    <property name="text">
     <string>Bulk mark in current list</string>
    </property>

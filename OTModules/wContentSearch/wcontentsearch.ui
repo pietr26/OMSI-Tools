@@ -56,10 +56,6 @@
             <property name="text">
              <string>Add files...</string>
             </property>
-            <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
-            </property>
             <property name="checkable">
              <bool>false</bool>
             </property>
@@ -80,8 +76,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+             <iconset theme="folder-open"/>
             </property>
            </widget>
           </item>
@@ -120,10 +115,6 @@
                 <property name="text">
                  <string>Clear lists</string>
                 </property>
-                <property name="icon">
-                 <iconset resource="../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
-                </property>
                </widget>
               </item>
               <item>
@@ -143,10 +134,6 @@
                <widget class="QPushButton" name="btnRemove">
                 <property name="text">
                  <string>Remove selection</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
                 </property>
                 <property name="autoExclusive">
                  <bool>true</bool>
@@ -186,10 +173,6 @@
                 </property>
                 <property name="text">
                  <string>Search!</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
                 </property>
                </widget>
               </item>
@@ -257,20 +240,12 @@
                 <property name="text">
                  <string>Open in browser...</string>
                 </property>
-                <property name="icon">
-                 <iconset resource="../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconWorld.svg</normaloff>:/rec/data/icons/iconWorld.svg</iconset>
-                </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="btnCopy">
                 <property name="text">
                  <string>Copy</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconCopy.svg</normaloff>:/rec/data/icons/iconCopy.svg</iconset>
                 </property>
                </widget>
               </item>
@@ -283,10 +258,6 @@
               </property>
               <property name="text">
                <string>Report invalid link...</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../../ressources.qrc">
-                <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
               </property>
              </widget>
             </item>
@@ -380,8 +351,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSearch">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+    <iconset theme="edit-find"/>
    </property>
    <property name="text">
     <string>Search</string>
@@ -392,8 +362,7 @@
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string>Close</string>
@@ -404,8 +373,7 @@
   </action>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+    <iconset theme="document-properties"/>
    </property>
    <property name="text">
     <string>Preferences...</string>
@@ -419,8 +387,7 @@
   </action>
   <action name="actionRemoveSelection">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+    <iconset theme="edit-clear"/>
    </property>
    <property name="text">
     <string>Remove selection</string>
@@ -431,8 +398,7 @@
   </action>
   <action name="actionAddList">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
+    <iconset theme="format-justify-left"/>
    </property>
    <property name="text">
     <string>Add list...</string>
@@ -443,8 +409,7 @@
   </action>
   <action name="actionSendFeedback">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+    <iconset theme="dialog-question"/>
    </property>
    <property name="text">
     <string>Help</string>
@@ -455,8 +420,7 @@
   </action>
   <action name="actionBackToHome">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+    <iconset theme="go-home"/>
    </property>
    <property name="text">
     <string>Back to home</string>
@@ -466,6 +430,9 @@
    </property>
   </action>
   <action name="actionAddExamples">
+   <property name="icon">
+    <iconset theme="tools-check-spelling"/>
+   </property>
    <property name="text">
     <string notr="true">Add examples</string>
    </property>

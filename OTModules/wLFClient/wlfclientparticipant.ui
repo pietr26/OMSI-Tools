@@ -22,7 +22,7 @@
      <x>0</x>
      <y>0</y>
      <width>722</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSpecials">
@@ -54,8 +54,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionBackToHome">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+    <iconset theme="go-home"/>
    </property>
    <property name="text">
     <string>Back to home</string>
@@ -66,8 +65,7 @@
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string>Close</string>
@@ -78,8 +76,7 @@
   </action>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+    <iconset theme="document-properties"/>
    </property>
    <property name="text">
     <string>Preferences...</string>
@@ -90,8 +87,7 @@
   </action>
   <action name="actionHelp">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+    <iconset theme="dialog-question"/>
    </property>
    <property name="text">
     <string>Help</string>
@@ -99,8 +95,7 @@
   </action>
   <action name="actionLogin">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconKey.svg</normaloff>:/rec/data/icons/iconKey.svg</iconset>
+    <iconset theme="window-new"/>
    </property>
    <property name="text">
     <string>Login...</string>
@@ -111,16 +106,13 @@
   </action>
   <action name="actionLogout">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconLogout.svg</normaloff>:/rec/data/icons/iconLogout.svg</iconset>
+    <iconset theme="system-log-out"/>
    </property>
    <property name="text">
     <string>Logout</string>
    </property>
   </action>
  </widget>
- <resources>
-  <include location="../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

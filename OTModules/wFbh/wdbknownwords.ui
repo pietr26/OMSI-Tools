@@ -14,8 +14,7 @@
    <string notr="true">wDBKnownWords</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
-    <normaloff>:/rec/data/icons/iconChar.svg</normaloff>:/rec/data/icons/iconChar.svg</iconset>
+   <iconset theme="format-text-bold"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -40,8 +39,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
+         <iconset theme="list-add"/>
         </property>
        </widget>
       </item>
@@ -51,8 +49,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+         <iconset theme="edit-clear"/>
         </property>
        </widget>
       </item>
@@ -85,7 +82,7 @@
      <x>0</x>
      <y>0</y>
      <width>357</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">
@@ -100,8 +97,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionBackToHome">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+    <iconset theme="go-home"/>
    </property>
    <property name="text">
     <string notr="true">Back to home</string>
@@ -118,8 +114,7 @@
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string notr="true">Close</string>
@@ -135,8 +130,6 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

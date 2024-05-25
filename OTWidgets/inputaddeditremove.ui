@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>28</width>
+    <width>33</width>
     <height>149</height>
    </rect>
   </property>
@@ -32,8 +32,7 @@
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="../ressources.qrc">
-       <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
+      <iconset theme="list-add"/>
      </property>
     </widget>
    </item>
@@ -43,8 +42,7 @@
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="../ressources.qrc">
-       <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
+      <iconset theme="mail-message-new"/>
      </property>
     </widget>
    </item>
@@ -54,8 +52,7 @@
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="../ressources.qrc">
-       <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+      <iconset theme="edit-clear"/>
      </property>
     </widget>
    </item>
@@ -74,8 +71,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

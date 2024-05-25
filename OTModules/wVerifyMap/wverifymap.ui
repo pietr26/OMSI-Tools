@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>564</width>
-    <height>680</height>
+    <width>637</width>
+    <height>738</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -48,8 +48,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
+         <iconset theme="view-refresh"/>
         </property>
         <property name="flat">
          <bool>true</bool>
@@ -62,8 +61,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+         <iconset theme="document-properties"/>
         </property>
         <property name="flat">
          <bool>true</bool>
@@ -101,10 +99,6 @@
         </property>
         <property name="text">
          <string>Start!</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
         </property>
        </widget>
       </item>
@@ -419,8 +413,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconTabClosed.svg</normaloff>:/rec/data/icons/iconTabClosed.svg</iconset>
+             <iconset theme="media-playback-start"/>
             </property>
            </widget>
           </item>
@@ -430,8 +423,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconTabClosed.svg</normaloff>:/rec/data/icons/iconTabClosed.svg</iconset>
+             <iconset theme="media-playback-start"/>
             </property>
            </widget>
           </item>
@@ -441,8 +433,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconTabClosed.svg</normaloff>:/rec/data/icons/iconTabClosed.svg</iconset>
+             <iconset theme="media-playback-start"/>
             </property>
            </widget>
           </item>
@@ -452,8 +443,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconTabClosed.svg</normaloff>:/rec/data/icons/iconTabClosed.svg</iconset>
+             <iconset theme="media-playback-start"/>
             </property>
            </widget>
           </item>
@@ -463,8 +453,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconTabClosed.svg</normaloff>:/rec/data/icons/iconTabClosed.svg</iconset>
+             <iconset theme="media-playback-start"/>
             </property>
            </widget>
           </item>
@@ -474,8 +463,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconTabClosed.svg</normaloff>:/rec/data/icons/iconTabClosed.svg</iconset>
+             <iconset theme="media-playback-start"/>
             </property>
            </widget>
           </item>
@@ -1044,8 +1032,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>564</width>
-     <height>21</height>
+     <width>637</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMap">
@@ -1077,8 +1065,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string>Close</string>
@@ -1089,8 +1076,7 @@
   </action>
   <action name="actionStartVerifying">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+    <iconset theme="edit-find"/>
    </property>
    <property name="text">
     <string>Start verifying</string>
@@ -1101,8 +1087,7 @@
   </action>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+    <iconset theme="document-properties"/>
    </property>
    <property name="text">
     <string>Preferences...</string>
@@ -1116,8 +1101,7 @@
   </action>
   <action name="actionSendFeedback">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+    <iconset theme="dialog-question"/>
    </property>
    <property name="text">
     <string>Help</string>
@@ -1128,8 +1112,7 @@
   </action>
   <action name="actionBackToHome">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+    <iconset theme="go-home"/>
    </property>
    <property name="text">
     <string>Back to home</string>

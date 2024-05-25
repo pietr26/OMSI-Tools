@@ -1,49 +1,10 @@
 <RCC>
     <qresource prefix="/rec">
-        <file>data/icons/iconAdd.svg</file>
-        <file>data/icons/iconAddFile.svg</file>
-        <file>data/icons/iconAddFolder.svg</file>
-        <file>data/icons/iconAttention.svg</file>
-        <file>data/icons/iconBug.svg</file>
         <file>data/icons/iconChar.svg</file>
-        <file>data/icons/iconCheck.svg</file>
-        <file>data/icons/iconClock.svg</file>
-        <file>data/icons/iconCopy.svg</file>
-        <file>data/icons/iconDelete.svg</file>
-        <file>data/icons/iconDown.svg</file>
-        <file>data/icons/iconDownload.svg</file>
-        <file>data/icons/iconDownloadFile.svg</file>
-        <file>data/icons/iconInfo.svg</file>
-        <file>data/icons/iconKey.svg</file>
-        <file>data/icons/iconLanguage.svg</file>
-        <file>data/icons/iconOpen.svg</file>
-        <file>data/icons/iconQuit.svg</file>
-        <file>data/icons/iconRedo.svg</file>
-        <file>data/icons/iconResize.svg</file>
-        <file>data/icons/iconRight.svg</file>
-        <file>data/icons/iconSave.svg</file>
-        <file>data/icons/iconSaveAs.svg</file>
         <file>data/icons/iconSearch.svg</file>
-        <file>data/icons/iconPreferences.svg</file>
-        <file>data/icons/iconToBin.svg</file>
-        <file>data/icons/iconUndo.svg</file>
-        <file>data/icons/iconUp.svg</file>
-        <file>data/icons/iconUploadFile.svg</file>
         <file>data/icons/iconWorld.svg</file>
-        <file>data/icons/iconUnvisible.svg</file>
-        <file>data/icons/iconUpload.svg</file>
-        <file>data/icons/iconDatabase.svg</file>
-        <file>data/icons/iconToolbox.svg</file>
-        <file>data/icons/iconList.svg</file>
-        <file>data/icons/iconVisible.svg</file>
         <file>data/icons/iconOMSI-Tools.svg</file>
         <file>data/icons/iconOMSI-Tools.ico</file>
-        <file>data/icons/iconLink.svg</file>
-        <file>data/icons/iconCrash.svg</file>
-        <file>data/icons/iconSwitch.svg</file>
-        <file>data/icons/iconTabClosed.svg</file>
-        <file>data/icons/iconTabOpened.svg</file>
-        <file>data/icons/iconBook.svg</file>
         <file>data/icons/iconBroom.svg</file>
         <file>data/translations/tr_de.qm</file>
         <file>data/translations/tr_fr.qm</file>
@@ -51,27 +12,12 @@
         <file>data/translations/qtbase_de.qm</file>
         <file>data/translations/qtbase_fr.qm</file>
         <file>data/translations/qtbase_it.qm</file>
-        <file>data/icons/iconLeft.svg</file>
         <file>data/icons/iconFbh.png</file>
-        <file>data/icons/iconDownload_blue.svg</file>
-        <file>data/icons/iconComment.svg</file>
-        <file>data/icons/iconGitHub.svg</file>
-        <file>data/icons/iconDuplicate.svg</file>
-        <file>data/icons/iconZip.svg</file>
-        <file>data/icons/iconWiki.svg</file>
         <file>data/icons/iconCircle_blue.svg</file>
-        <file>data/icons/iconPaste.svg</file>
-        <file>data/icons/iconOpen_blue.svg</file>
         <file>data/icons/iconMap.svg</file>
         <file>data/db/contentSearch.db</file>
         <file>data/db/webdisk-tools.db</file>
-        <file>data/icons/iconLight.svg</file>
-        <file>data/icons/iconSend.svg</file>
-        <file>data/icons/iconRule.svg</file>
-        <file>data/icons/iconHome.svg</file>
-        <file>data/icons/iconPlay.svg</file>
         <file>data/icons/iconFlowerella.svg</file>
-        <file>data/icons/iconBranch.svg</file>
         <file>data/translations/tr_fi.ts</file>
         <file>data/translations/tr_ja.ts</file>
         <file>data/flags/de.svg</file>
@@ -88,14 +34,11 @@
         <file>data/translations/qtbase_ja.qm</file>
         <file>data/translations/qtbase_en.qm</file>
         <file>data/icons/iconChristmas.svg</file>
-        <file>data/icons/iconServer.svg</file>
         <file>data/base-gitignore.txt</file>
         <file>data/external/texconv.exe</file>
         <file>data/icons/iconQt.svg</file>
         <file>data/icons/iconBus.svg</file>
         <file>data/icons/iconManageUser.svg</file>
-        <file>data/icons/iconPhone.svg</file>
-        <file>data/icons/iconLogout.svg</file>
         <file>data/manual/Handbuch DE.pdf</file>
     </qresource>
 </RCC>

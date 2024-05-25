@@ -23,7 +23,7 @@
    <string notr="true">Loading...</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="../../ressources.qrc">
     <normaloff>:/rec/data/icons/iconOMSI-Tools.svg</normaloff>:/rec/data/icons/iconOMSI-Tools.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -64,7 +64,7 @@
           <string>Font creation</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconChar.svg</normaloff>:/rec/data/icons/iconChar.svg</iconset>
          </property>
          <property name="iconSize">
@@ -108,7 +108,7 @@
           <string>Map editor</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconMap.svg</normaloff>:/rec/data/icons/iconMap.svg</iconset>
          </property>
          <property name="iconSize">
@@ -183,7 +183,7 @@
           <string>Map verification</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconWorld.svg</normaloff>:/rec/data/icons/iconWorld.svg</iconset>
          </property>
          <property name="iconSize">
@@ -227,7 +227,7 @@
           <string>Content search</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
          </property>
          <property name="iconSize">
@@ -302,7 +302,7 @@
           <string>Cleanup</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
          </property>
          <property name="iconSize">
@@ -377,7 +377,7 @@
           <string>Participant</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconBus.svg</normaloff>:/rec/data/icons/iconBus.svg</iconset>
          </property>
          <property name="iconSize">
@@ -421,7 +421,7 @@
           <string>Dispatcher</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="../../ressources.qrc">
            <normaloff>:/rec/data/icons/iconManageUser.svg</normaloff>:/rec/data/icons/iconManageUser.svg</iconset>
          </property>
          <property name="iconSize">
@@ -530,8 +530,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
+          <iconset theme="view-refresh"/>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -608,6 +607,10 @@
      <property name="title">
       <string>Licenses</string>
      </property>
+     <property name="icon">
+      <iconset theme="help-about"/>
+     </property>
+     <addaction name="actionAboutQt"/>
      <addaction name="actionDirectXTex"/>
     </widget>
     <addaction name="actionManual"/>
@@ -619,7 +622,6 @@
     <addaction name="actionSourceCodeOnGitHub"/>
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
-    <addaction name="actionAboutQt"/>
     <addaction name="menuLicenses"/>
    </widget>
    <addaction name="menuFile"/>
@@ -628,8 +630,7 @@
   </widget>
   <action name="actionClose">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string>Close</string>
@@ -640,8 +641,7 @@
   </action>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+    <iconset theme="document-properties"/>
    </property>
    <property name="text">
     <string>Preferences...</string>
@@ -655,8 +655,7 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconInfo.svg</normaloff>:/rec/data/icons/iconInfo.svg</iconset>
+    <iconset theme="dialog-information"/>
    </property>
    <property name="text">
     <string notr="true">about</string>
@@ -673,8 +672,7 @@
   </action>
   <action name="actionSendFeedback">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+    <iconset theme="dialog-question"/>
    </property>
    <property name="text">
     <string>Help</string>
@@ -685,8 +683,7 @@
   </action>
   <action name="actionReleaseNotes">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconSwitch.svg</normaloff>:/rec/data/icons/iconSwitch.svg</iconset>
+    <iconset theme="format-justify-left"/>
    </property>
    <property name="text">
     <string>Release notes</string>
@@ -697,8 +694,7 @@
   </action>
   <action name="actionManual">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconBook.svg</normaloff>:/rec/data/icons/iconBook.svg</iconset>
+    <iconset theme="document-open"/>
    </property>
    <property name="text">
     <string>Manual</string>
@@ -706,8 +702,7 @@
   </action>
   <action name="actionSourceCodeOnGitHub">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconGitHub.svg</normaloff>:/rec/data/icons/iconGitHub.svg</iconset>
+    <iconset theme="insert-link"/>
    </property>
    <property name="text">
     <string>Source code on GitHub</string>
@@ -715,8 +710,7 @@
   </action>
   <action name="actionRestart">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
+    <iconset theme="view-refresh"/>
    </property>
    <property name="text">
     <string>Restart</string>
@@ -724,8 +718,7 @@
   </action>
   <action name="actionCheckForUpdates">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconDownload.svg</normaloff>:/rec/data/icons/iconDownload.svg</iconset>
+    <iconset theme="media-playlist-repeat"/>
    </property>
    <property name="text">
     <string>Check for updates...</string>
@@ -742,8 +735,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconToolbox.svg</normaloff>:/rec/data/icons/iconToolbox.svg</iconset>
+    <iconset theme="computer"/>
    </property>
    <property name="text">
     <string notr="true">Dashboard...</string>
@@ -760,8 +752,7 @@
   </action>
   <action name="actionApplicationCrashSimulation">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconCrash.svg</normaloff>:/rec/data/icons/iconCrash.svg</iconset>
+    <iconset theme="dialog-error"/>
    </property>
    <property name="text">
     <string notr="true">Application crash simulation</string>
@@ -778,8 +769,7 @@
   </action>
   <action name="actionStyleTest">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconBroom.svg</normaloff>:/rec/data/icons/iconBroom.svg</iconset>
+    <iconset theme="mail-message-new"/>
    </property>
    <property name="text">
     <string notr="true">StyleTest...</string>
@@ -796,8 +786,7 @@
   </action>
   <action name="actionRegEditor">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconBranch.svg</normaloff>:/rec/data/icons/iconBranch.svg</iconset>
+    <iconset theme="computer"/>
    </property>
    <property name="text">
     <string notr="true">RegEditor...</string>
@@ -814,8 +803,7 @@
   </action>
   <action name="actionDBPanelContentSearch">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+    <iconset theme="edit-find"/>
    </property>
    <property name="text">
     <string notr="true">Content search</string>
@@ -829,7 +817,7 @@
   </action>
   <action name="actionDBPanelWDTFbh">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconFbh.png</normaloff>:/rec/data/icons/iconFbh.png</iconset>
    </property>
    <property name="text">
@@ -844,8 +832,7 @@
   </action>
   <action name="actionBugDoc">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+    <iconset theme="zoom-fit-best"/>
    </property>
    <property name="text">
     <string notr="true">BugDoc</string>
@@ -855,27 +842,11 @@
    </property>
    <property name="toolTip">
     <string notr="true">BugDoc</string>
-   </property>
-  </action>
-  <action name="actionVehLists">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconList.svg</normaloff>:/rec/data/icons/iconList.svg</iconset>
-   </property>
-   <property name="text">
-    <string notr="true">VehLists</string>
-   </property>
-   <property name="iconText">
-    <string notr="true">VehLists</string>
-   </property>
-   <property name="toolTip">
-    <string notr="true">VehLists</string>
    </property>
   </action>
   <action name="actionDBPanelKnownWords">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconChar.svg</normaloff>:/rec/data/icons/iconChar.svg</iconset>
+    <iconset theme="format-text-bold"/>
    </property>
    <property name="text">
     <string notr="true">Known words</string>
@@ -903,8 +874,7 @@
   </action>
   <action name="actionRoadmap">
    <property name="icon">
-    <iconset>
-     <normaloff>:/rec/data/icons/iconBranch.svg</normaloff>:/rec/data/icons/iconBranch.svg</iconset>
+    <iconset theme="insert-link"/>
    </property>
    <property name="text">
     <string>Roadmap</string>
@@ -912,7 +882,7 @@
   </action>
   <action name="actionAboutQt">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../ressources.qrc">
      <normaloff>:/rec/data/icons/iconQt.svg</normaloff>:/rec/data/icons/iconQt.svg</iconset>
    </property>
    <property name="text">
@@ -920,6 +890,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

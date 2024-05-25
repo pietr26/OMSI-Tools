@@ -20,8 +20,7 @@
    <string notr="true">wReleaseNotes</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
-    <normaloff>:/rec/data/icons/iconSwitch.svg</normaloff>:/rec/data/icons/iconSwitch.svg</iconset>
+   <iconset theme="format-justify-left"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -146,20 +145,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <property name="text">
          <string>Download and install</string>
         </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconDownload.svg</normaloff>:/rec/data/icons/iconDownload.svg</iconset>
-        </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnClose">
         <property name="text">
          <string>Close</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../ressources.qrc">
-          <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
         </property>
         <property name="shortcut">
          <string notr="true">Esc</string>
@@ -176,14 +167,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <x>0</x>
      <y>0</y>
      <width>900</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

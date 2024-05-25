@@ -31,7 +31,6 @@ wStart::wStart(QWidget *parent)
         devTools->addAction(ui->actionStyleTest);
         devTools->addAction(ui->actionApplicationCrashSimulation);
         devTools->addAction(ui->actionRegEditor);
-        devTools->addAction(ui->actionVehLists);
         devTools->addAction(ui->actionBugDoc);
 
         ui->menubar->addMenu(devTools);

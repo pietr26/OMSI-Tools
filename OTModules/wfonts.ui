@@ -225,8 +225,7 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+                 <iconset theme="folder-open"/>
                 </property>
                </widget>
               </item>
@@ -245,8 +244,7 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+                 <iconset theme="folder-open"/>
                 </property>
                </widget>
               </item>
@@ -344,10 +342,6 @@
                   <property name="text">
                    <string>Delete</string>
                   </property>
-                  <property name="icon">
-                   <iconset resource="../ressources.qrc">
-                    <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
-                  </property>
                  </widget>
                 </item>
                 <item>
@@ -356,8 +350,7 @@
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="../ressources.qrc">
-                    <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+                   <iconset theme="document-properties"/>
                   </property>
                   <property name="flat">
                    <bool>true</bool>
@@ -391,8 +384,7 @@
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="../ressources.qrc">
-                    <normaloff>:/rec/data/icons/iconUp.svg</normaloff>:/rec/data/icons/iconUp.svg</iconset>
+                   <iconset theme="go-up"/>
                   </property>
                   <property name="autoRepeat">
                    <bool>true</bool>
@@ -414,8 +406,7 @@
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="../ressources.qrc">
-                    <normaloff>:/rec/data/icons/iconDown.svg</normaloff>:/rec/data/icons/iconDown.svg</iconset>
+                   <iconset theme="go-down"/>
                   </property>
                   <property name="autoRepeat">
                    <bool>true</bool>
@@ -438,10 +429,6 @@
                <widget class="QPushButton" name="btnNewChar">
                 <property name="text">
                  <string>New character</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../ressources.qrc">
-                  <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
                 </property>
                </widget>
               </item>
@@ -646,10 +633,6 @@
                      <property name="text">
                       <string>Find</string>
                      </property>
-                     <property name="icon">
-                      <iconset resource="../ressources.qrc">
-                       <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
-                     </property>
                      <property name="autoDefault">
                       <bool>false</bool>
                      </property>
@@ -673,8 +656,7 @@
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="../ressources.qrc">
-                       <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+                      <iconset theme="application-exit"/>
                      </property>
                      <property name="flat">
                       <bool>true</bool>
@@ -703,10 +685,6 @@
                     <widget class="QPushButton" name="btnNextResult">
                      <property name="text">
                       <string>Next Result</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="../ressources.qrc">
-                       <normaloff>:/rec/data/icons/iconRight.svg</normaloff>:/rec/data/icons/iconRight.svg</iconset>
                      </property>
                      <property name="shortcut">
                       <string notr="true">F3</string>
@@ -812,8 +790,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../ressources.qrc">
-             <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
+            <iconset theme="view-refresh"/>
            </property>
           </widget>
          </item>
@@ -864,8 +841,7 @@
       <string>Recently opened fonts</string>
      </property>
      <property name="icon">
-      <iconset resource="../ressources.qrc">
-       <normaloff>:/rec/data/icons/iconClock.svg</normaloff>:/rec/data/icons/iconClock.svg</iconset>
+      <iconset theme="document-open-recent"/>
      </property>
     </widget>
     <addaction name="actionNewFont"/>
@@ -934,8 +910,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+    <iconset theme="folder-open"/>
    </property>
    <property name="text">
     <string>Open...</string>
@@ -952,8 +927,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSave.svg</normaloff>:/rec/data/icons/iconSave.svg</iconset>
+    <iconset theme="document-save"/>
    </property>
    <property name="text">
     <string>Save</string>
@@ -967,8 +941,7 @@
   </action>
   <action name="actionSaveAs">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSaveAs.svg</normaloff>:/rec/data/icons/iconSaveAs.svg</iconset>
+    <iconset theme="document-save-as"/>
    </property>
    <property name="text">
     <string>Save as...</string>
@@ -982,8 +955,7 @@
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string>Close</string>
@@ -997,8 +969,7 @@
   </action>
   <action name="actionNewFont">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconAddFile.svg</normaloff>:/rec/data/icons/iconAddFile.svg</iconset>
+    <iconset theme="document-new"/>
    </property>
    <property name="text">
     <string>New font</string>
@@ -1012,8 +983,7 @@
   </action>
   <action name="actionPreferences">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconPreferences.svg</normaloff>:/rec/data/icons/iconPreferences.svg</iconset>
+    <iconset theme="document-properties"/>
    </property>
    <property name="text">
     <string>Preferences...</string>
@@ -1027,8 +997,7 @@
   </action>
   <action name="actionNewChar">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconAdd.svg</normaloff>:/rec/data/icons/iconAdd.svg</iconset>
+    <iconset theme="list-add"/>
    </property>
    <property name="text">
     <string>New character</string>
@@ -1045,8 +1014,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconDelete.svg</normaloff>:/rec/data/icons/iconDelete.svg</iconset>
+    <iconset theme="edit-clear"/>
    </property>
    <property name="text">
     <string>Delete character</string>
@@ -1063,8 +1031,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconUp.svg</normaloff>:/rec/data/icons/iconUp.svg</iconset>
+    <iconset theme="go-up"/>
    </property>
    <property name="text">
     <string>Move character up</string>
@@ -1081,8 +1048,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconDown.svg</normaloff>:/rec/data/icons/iconDown.svg</iconset>
+    <iconset theme="go-down"/>
    </property>
    <property name="text">
     <string>Move character down</string>
@@ -1096,8 +1062,7 @@
   </action>
   <action name="actionReload">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconRedo.svg</normaloff>:/rec/data/icons/iconRedo.svg</iconset>
+    <iconset theme="view-refresh"/>
    </property>
    <property name="text">
     <string>Reload</string>
@@ -1111,8 +1076,7 @@
   </action>
   <action name="actionFindChar">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconSearch.svg</normaloff>:/rec/data/icons/iconSearch.svg</iconset>
+    <iconset theme="system-search"/>
    </property>
    <property name="text">
     <string>Find char...</string>
@@ -1126,8 +1090,7 @@
   </action>
   <action name="actionGoToNextError">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+    <iconset theme="tools-check-spelling"/>
    </property>
    <property name="text">
     <string>Go to next error</string>
@@ -1138,8 +1101,7 @@
   </action>
   <action name="actionShowInExplorer">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconVisible.svg</normaloff>:/rec/data/icons/iconVisible.svg</iconset>
+    <iconset theme="document-open"/>
    </property>
    <property name="text">
     <string>Show in explorer...</string>
@@ -1150,8 +1112,7 @@
   </action>
   <action name="actionSendFeedback">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconBug.svg</normaloff>:/rec/data/icons/iconBug.svg</iconset>
+    <iconset theme="dialog-question"/>
    </property>
    <property name="text">
     <string>Help</string>
@@ -1162,8 +1123,7 @@
   </action>
   <action name="actionDelete">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconToBin.svg</normaloff>:/rec/data/icons/iconToBin.svg</iconset>
+    <iconset theme="edit-delete"/>
    </property>
    <property name="text">
     <string>Delete</string>
@@ -1174,8 +1134,7 @@
   </action>
   <action name="actionDuplicateCharacter">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconDuplicate.svg</normaloff>:/rec/data/icons/iconDuplicate.svg</iconset>
+    <iconset theme="edit-copy"/>
    </property>
    <property name="text">
     <string>Duplicate character</string>
@@ -1189,8 +1148,7 @@
   </action>
   <action name="actionOpenWithEncoding">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+    <iconset theme="document-open"/>
    </property>
    <property name="text">
     <string>Open with encoding...</string>
@@ -1198,8 +1156,7 @@
   </action>
   <action name="actionBackToHome">
    <property name="icon">
-    <iconset resource="../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+    <iconset theme="go-home"/>
    </property>
    <property name="text">
     <string>Back to home</string>

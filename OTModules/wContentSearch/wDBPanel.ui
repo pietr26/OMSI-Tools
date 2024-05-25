@@ -14,8 +14,7 @@
    <string notr="true">wDBPanel</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
-    <normaloff>:/rec/data/icons/iconDatabase.svg</normaloff>:/rec/data/icons/iconDatabase.svg</iconset>
+   <iconset theme="edit-find"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -57,8 +56,7 @@
              <string notr="true"/>
             </property>
             <property name="icon">
-             <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/iconOpen.svg</normaloff>:/rec/data/icons/iconOpen.svg</iconset>
+             <iconset theme="folder-open"/>
             </property>
            </widget>
           </item>
@@ -186,10 +184,6 @@
             <property name="text">
              <string notr="true">Start!</string>
             </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>:/rec/data/icons/iconOpen.png</normaloff>:/rec/data/icons/iconOpen.png</iconset>
-            </property>
            </widget>
           </item>
          </layout>
@@ -262,20 +256,12 @@
                <property name="text">
                 <string notr="true">Old</string>
                </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>:/rec/data/icons/iconDeleteFile.png</normaloff>:/rec/data/icons/iconDeleteFile.png</iconset>
-               </property>
               </widget>
              </item>
              <item>
               <widget class="QPushButton" name="btnSelectAllNew">
                <property name="text">
                 <string notr="true">New</string>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>:/rec/data/icons/iconAdd.png</normaloff>:/rec/data/icons/iconAdd.png</iconset>
                </property>
               </widget>
              </item>
@@ -298,10 +284,6 @@
                <property name="text">
                 <string notr="true">Old</string>
                </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>:/rec/data/icons/iconDeleteFile.png</normaloff>:/rec/data/icons/iconDeleteFile.png</iconset>
-               </property>
                <property name="shortcut">
                 <string notr="true">Ctrl+Shift+O</string>
                </property>
@@ -311,10 +293,6 @@
               <widget class="QPushButton" name="btnSelectNew">
                <property name="text">
                 <string notr="true">New</string>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>:/rec/data/icons/iconAdd.png</normaloff>:/rec/data/icons/iconAdd.png</iconset>
                </property>
                <property name="shortcut">
                 <string notr="true">Ctrl+Shift+N</string>
@@ -352,7 +330,7 @@
      <x>0</x>
      <y>0</y>
      <width>860</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">
@@ -385,8 +363,7 @@
   </widget>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconQuit.svg</normaloff>:/rec/data/icons/iconQuit.svg</iconset>
+    <iconset theme="application-exit"/>
    </property>
    <property name="text">
     <string notr="true">Close</string>
@@ -403,8 +380,7 @@
   </action>
   <action name="actionBackToHome">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconHome.svg</normaloff>:/rec/data/icons/iconHome.svg</iconset>
+    <iconset theme="go-home"/>
    </property>
    <property name="text">
     <string notr="true">Back to home</string>
@@ -420,6 +396,9 @@
    </property>
   </action>
   <action name="actionStandard">
+   <property name="icon">
+    <iconset theme="zoom-fit-best"/>
+   </property>
    <property name="text">
     <string notr="true">Standard</string>
    </property>
@@ -431,6 +410,9 @@
    </property>
   </action>
   <action name="actionWidth1Height05">
+   <property name="icon">
+    <iconset theme="view-fullscreen"/>
+   </property>
    <property name="text">
     <string notr="true">width 1, height 0.5</string>
    </property>
@@ -443,8 +425,7 @@
   </action>
   <action name="actionCreateBackup">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
-     <normaloff>:/rec/data/icons/iconZip.svg</normaloff>:/rec/data/icons/iconZip.svg</iconset>
+    <iconset theme="document-save"/>
    </property>
    <property name="text">
     <string notr="true">Create backup</string>
@@ -460,8 +441,6 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

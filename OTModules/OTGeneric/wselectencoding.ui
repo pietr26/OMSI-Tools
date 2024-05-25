@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>275</width>
-    <height>115</height>
+    <height>134</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -67,10 +67,6 @@
       <property name="text">
        <string>Select</string>
       </property>
-      <property name="icon">
-       <iconset resource="../../ressources.qrc">
-        <normaloff>:/rec/data/icons/iconCheck.svg</normaloff>:/rec/data/icons/iconCheck.svg</iconset>
-      </property>
      </widget>
     </item>
    </layout>
@@ -81,14 +77,12 @@
      <x>0</x>
      <y>0</y>
      <width>275</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="../../ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
