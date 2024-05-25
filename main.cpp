@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QFile>
 #include "OTBackend/OTLogger.h"
+#include "OTBackend/DiscordGameSDK.h"
+#include <QThreadPool>
 
 /// Test area for anything
 void testArea()
@@ -95,6 +97,13 @@ int main(int argc, char *argv[])
 
         // Reset advanced verification:
         set.write("wVerifyMap", "advVerifying", false);
+
+        // Start DiscordGameSDK:
+        DiscordGameSDK *discord = new DiscordGameSDK();
+
+        QFuture<void> discordFuture = QtConcurrent::run([discord]() {
+            discord->exec();
+        });
     }
 
     wStartUpScreen *WSTARTUPSCREEN;

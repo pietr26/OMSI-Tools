@@ -9,20 +9,21 @@ DEFINES += QT_MESSAGELOGCONTEXT
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    OTBackend/DiscordRPC/achievement_manager.cpp \
-    OTBackend/DiscordRPC/activity_manager.cpp \
-    OTBackend/DiscordRPC/application_manager.cpp \
-    OTBackend/DiscordRPC/core.cpp \
-    OTBackend/DiscordRPC/image_manager.cpp \
-    OTBackend/DiscordRPC/lobby_manager.cpp \
-    OTBackend/DiscordRPC/network_manager.cpp \
-    OTBackend/DiscordRPC/overlay_manager.cpp \
-    OTBackend/DiscordRPC/relationship_manager.cpp \
-    OTBackend/DiscordRPC/storage_manager.cpp \
-    OTBackend/DiscordRPC/store_manager.cpp \
-    OTBackend/DiscordRPC/types.cpp \
-    OTBackend/DiscordRPC/user_manager.cpp \
-    OTBackend/DiscordRPC/voice_manager.cpp \
+    OTBackend/DiscordGameSDK.cpp \
+    OTBackend/DiscordGameSDK/achievement_manager.cpp \
+    OTBackend/DiscordGameSDK/activity_manager.cpp \
+    OTBackend/DiscordGameSDK/application_manager.cpp \
+    OTBackend/DiscordGameSDK/core.cpp \
+    OTBackend/DiscordGameSDK/image_manager.cpp \
+    OTBackend/DiscordGameSDK/lobby_manager.cpp \
+    OTBackend/DiscordGameSDK/network_manager.cpp \
+    OTBackend/DiscordGameSDK/overlay_manager.cpp \
+    OTBackend/DiscordGameSDK/relationship_manager.cpp \
+    OTBackend/DiscordGameSDK/storage_manager.cpp \
+    OTBackend/DiscordGameSDK/store_manager.cpp \
+    OTBackend/DiscordGameSDK/types.cpp \
+    OTBackend/DiscordGameSDK/user_manager.cpp \
+    OTBackend/DiscordGameSDK/voice_manager.cpp \
     OTBackend/LFClientAPIInterface/lfclientapiinterface.cpp \
     OTBackend/OTLogger.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
@@ -75,23 +76,24 @@ SOURCES += \
     OTModules/OTGeneric/wstartupscreen.cpp
 
 HEADERS += \
-    OTBackend/DiscordRPC/achievement_manager.h \
-    OTBackend/DiscordRPC/activity_manager.h \
-    OTBackend/DiscordRPC/application_manager.h \
-    OTBackend/DiscordRPC/core.h \
-    OTBackend/DiscordRPC/discord.h \
-    OTBackend/DiscordRPC/event.h \
-    OTBackend/DiscordRPC/ffi.h \
-    OTBackend/DiscordRPC/image_manager.h \
-    OTBackend/DiscordRPC/lobby_manager.h \
-    OTBackend/DiscordRPC/network_manager.h \
-    OTBackend/DiscordRPC/overlay_manager.h \
-    OTBackend/DiscordRPC/relationship_manager.h \
-    OTBackend/DiscordRPC/storage_manager.h \
-    OTBackend/DiscordRPC/store_manager.h \
-    OTBackend/DiscordRPC/types.h \
-    OTBackend/DiscordRPC/user_manager.h \
-    OTBackend/DiscordRPC/voice_manager.h \
+    OTBackend/DiscordGameSDK.h \
+    OTBackend/DiscordGameSDK/achievement_manager.h \
+    OTBackend/DiscordGameSDK/activity_manager.h \
+    OTBackend/DiscordGameSDK/application_manager.h \
+    OTBackend/DiscordGameSDK/core.h \
+    OTBackend/DiscordGameSDK/discord.h \
+    OTBackend/DiscordGameSDK/event.h \
+    OTBackend/DiscordGameSDK/ffi.h \
+    OTBackend/DiscordGameSDK/image_manager.h \
+    OTBackend/DiscordGameSDK/lobby_manager.h \
+    OTBackend/DiscordGameSDK/network_manager.h \
+    OTBackend/DiscordGameSDK/overlay_manager.h \
+    OTBackend/DiscordGameSDK/relationship_manager.h \
+    OTBackend/DiscordGameSDK/storage_manager.h \
+    OTBackend/DiscordGameSDK/store_manager.h \
+    OTBackend/DiscordGameSDK/types.h \
+    OTBackend/DiscordGameSDK/user_manager.h \
+    OTBackend/DiscordGameSDK/voice_manager.h \
     OTBackend/LFClientAPIInterface/lfclientapiinterface.h \
     OTBackend/OCC.h \
     OTBackend/OTExternal.h \
@@ -99,7 +101,6 @@ HEADERS += \
     OTBackend/OTLogger.h \
     OTBackend/OTOmsiFileHandler.h \
     OTBackend/OTOmsiFileHandler_models.h \
-    OTBackend/discordrpc.h \
     OTModules/OTGeneric/wfeedback.h \
     OTModules/OTGeneric/wpreferences.h \
     OTModules/OTGeneric/wpromptselector.h \
