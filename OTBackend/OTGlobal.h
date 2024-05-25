@@ -787,6 +787,16 @@ public:
 
         return true;
     }
+
+    void loadBaseStyleheet()
+    {
+        QString stylesheet;
+
+        // set default (better) height:
+        stylesheet += "QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox, QDateTimeEdit, QDateEdit, QTimeEdit, QButton { height: 25px; }";
+
+        qApp->setStyleSheet(stylesheet);
+    }
 };
 
 /// Message class

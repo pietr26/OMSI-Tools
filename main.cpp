@@ -64,6 +64,7 @@ int main(int argc, char *argv[])
         qInfo().noquote() << "Starting " + OTInformation::name + "...";
 
         qApp->setStyle(QStyleFactory::create(set.read("main", "theme").toString()));
+        set.loadBaseStyleheet();
 
         set.loadTranslator();
 
