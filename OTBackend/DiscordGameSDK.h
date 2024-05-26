@@ -12,16 +12,14 @@ struct DiscordState {
     std::unique_ptr<discord::Core> core;
 };
 
-namespace {
-volatile bool interrupted{ false };
-}
-
 class DiscordGameSDK
 {
 public:
     explicit DiscordGameSDK();
 
     static void exec();
+
+    static void stop();
 
     static void update();
 
@@ -45,6 +43,8 @@ private:
     static discord::Core* core;
 
     static bool blockExcecution;
+
+    static bool stopped;
 };
 
 #endif // DISCORDGAMESDK_H

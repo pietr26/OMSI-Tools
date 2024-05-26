@@ -1,7 +1,7 @@
 #include "DiscordGameSDK.h"
 
 
- DiscordGameSDK::DiscordGameSDK()
+DiscordGameSDK::DiscordGameSDK()
 {
     qInfo() << "Initialize DiscordGameSDK...";
     discord::Core::Create(1244025640064127017, DiscordCreateFlags_Default, &core);
@@ -9,6 +9,7 @@
 
     if (!state.core) {
         qWarning() << "Failed to instantiate Discord!";
+        blockExcecution = true;
         return;
     }
 
@@ -19,25 +20,35 @@
 
 void DiscordGameSDK::exec()
 {
-    qInfo() << "Excecuting DiscordGameSDK...";
-
-    update();
-
-    std::signal(SIGINT, [](int) { interrupted = true; });
-
-    do
+    if (!blockExcecution)
     {
-        state.core->RunCallbacks();
-        QThread::msleep(500);
+        qInfo() << "Excecuting DiscordGameSDK...";
+        update();
+
+        do
+        {
+            state.core->RunCallbacks();
+            QThread::msleep(500);
+        }
+        while (!stopped);
     }
-    while (!interrupted);
+}
+
+void DiscordGameSDK::stop()
+{
+    qInfo() << "Stopping DiscordGameSDK...";
+    stopped = true;
 }
 
 void DiscordGameSDK::update()
 {
-    state.core->ActivityManager().UpdateActivity(activity, [](discord::Result result) {
-        qInfo() << ((result == discord::Result::Ok) ? "Succeeded" : "Failed") << "updating Discord RPC!";
-    });
+    if (!blockExcecution)
+    {
+        state.core->ActivityManager().UpdateActivity(activity, [](discord::Result result)
+        {
+            qInfo() << ((result == discord::Result::Ok) ? "Succeeded" : "Failed") << "updating Discord RPC!";
+        });
+    }
 }
 
 void DiscordGameSDK::clearActivity()
@@ -64,3 +75,5 @@ void DiscordGameSDK::setImage(QString key, QString tooltip) { activity.GetAssets
 discord::Activity DiscordGameSDK::activity = {};
 DiscordState DiscordGameSDK::state = {};
 discord::Core* DiscordGameSDK::core = {};
+bool DiscordGameSDK::blockExcecution = false;
+bool DiscordGameSDK::stopped = false;

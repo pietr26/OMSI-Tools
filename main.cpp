@@ -120,7 +120,11 @@ int main(int argc, char *argv[])
 
     int exec = a.exec();
 
+    // Actions on close
+    DiscordGameSDK::stop();
+
     qInfo().noquote() << OTInformation::name + " is closing...";
     set.write("main", "closeCheck", true);
+
     return exec;
 }
