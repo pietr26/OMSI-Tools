@@ -6,6 +6,7 @@
 #include <QString>
 #include <QDebug>
 #include <QThread>
+#include <QDateTime>
 
 struct DiscordState {
     std::unique_ptr<discord::Core> core;
@@ -30,9 +31,9 @@ public:
 
     static void setStatus(QString action);
 
-    static void setStart(discord::Timestamp epochTimestamp);
+    static void setStart(QDateTime epochTimestamp = QDateTime());
 
-    static void setEnd(discord::Timestamp epochTimestamp);
+    static void setEnd(QDateTime epochTimestamp = QDateTime());
 
     static void setIcon(QString key, QString tooltip = "");
 
@@ -42,6 +43,8 @@ private:
     static discord::Activity activity;
     static DiscordState state;
     static discord::Core* core;
+
+    static bool blockExcecution;
 };
 
 #endif // DISCORDGAMESDK_H

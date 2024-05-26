@@ -53,9 +53,9 @@ void DiscordGameSDK::setModule(QString name) { activity.SetDetails(name.toUtf8()
 
 void DiscordGameSDK::setStatus(QString action) { activity.SetState(action.toUtf8()); }
 
-void DiscordGameSDK::setStart(discord::Timestamp epochTimestamp) { activity.GetTimestamps().SetStart(epochTimestamp); }
+void DiscordGameSDK::setStart(QDateTime epochTimestamp) { activity.GetTimestamps().SetStart(epochTimestamp.currentSecsSinceEpoch()); }
 
-void DiscordGameSDK::setEnd(discord::Timestamp epochTimestamp) { activity.GetTimestamps().SetEnd(epochTimestamp); }
+void DiscordGameSDK::setEnd(QDateTime epochTimestamp) { activity.GetTimestamps().SetEnd(epochTimestamp.currentSecsSinceEpoch()); }
 
 void DiscordGameSDK::setIcon(QString key, QString tooltip) { activity.GetAssets().SetSmallImage(key.toUtf8()); activity.GetAssets().SetSmallText(tooltip.toUtf8()); }
 
