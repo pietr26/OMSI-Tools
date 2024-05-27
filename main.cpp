@@ -104,6 +104,9 @@ int main(int argc, char *argv[])
         QFuture<void> discordFuture = QtConcurrent::run([discord]() {
             discord->exec();
         });
+
+        DiscordGameSDK::setModule("Developing");
+        DiscordGameSDK::setStatus("a brand new version :P");
     }
 
     wStartUpScreen *WSTARTUPSCREEN;
