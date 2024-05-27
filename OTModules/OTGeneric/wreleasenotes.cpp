@@ -1,7 +1,7 @@
 #include "wreleasenotes.h"
 #include "ui_wreleasenotes.h"
 
-wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newVersion) :
+wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newVersion, bool viaUpdater) :
     QMainWindow(parent),
     ui(new Ui::wReleaseNotes)
 {
@@ -24,15 +24,19 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
     branches.removeAll(QString(""));
     ui->cbxBranch->addItems(branches);
 
+    ui->btnUpdateNow->setEnabled(viaUpdater);
+    ui->lblDownloadManually->setVisible(!viaUpdater);
+
     if (!updateAvailable)
     {
+        ui->lblDownloadManually->setVisible(false);
         ui->btnUpdateNow->setVisible(false);
+        ui->btnUpdateManually->setVisible(false);
         ui->lblNewUpdate->setVisible(false);
         ui->lblNewVersion->setVisible(false);
-        ui->cbxClearAppDir->setVisible(false);
     }
 
-    ui->lblClearAppDirInfo->setVisible(false);
+    ui->lblDownloadManually->setText(tr("A new version of %1 is available. Since you installed a portable version, you have to update %1 manually.").arg(OTInformation::name));
 
     ui->lblCurrentVersion->setText("<b>" + tr("Current version:") + "</b> " + OTInformation::versions::currentVersion.first);
 
@@ -77,22 +81,17 @@ void wReleaseNotes::on_btnClose_clicked()
 /// Calls the prefs and execute the update
 void wReleaseNotes::on_btnUpdateNow_clicked()
 {
-    misc.startUpdate(this, ui->cbxClearAppDir->isChecked());
+    misc.startMaintenanceTool();
 }
-
-/// Sets information text for application directory cleanup
-void wReleaseNotes::on_cbxClearAppDir_stateChanged(int arg1)
-{
-    if (arg1 == 2)
-        ui->lblClearAppDirInfo->setVisible(true);
-    else
-        ui->lblClearAppDirInfo->setVisible(false);
-}
-
 
 void wReleaseNotes::on_cbxBranch_currentIndexChanged(int index)
 {
     Q_UNUSED(index);
     if (setupFinished)
         downloadReleaseNotes(ui->cbxBranch->currentText());
+}
+
+void wReleaseNotes::on_btnUpdateManually_clicked()
+{
+    QDesktopServices::openUrl(OTLinks::GitHub::releases);
 }

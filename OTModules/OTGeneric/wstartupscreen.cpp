@@ -109,14 +109,14 @@ void wStartUpScreen::updateCheck()
     {
         update = misc.getUpdateInformation();
 
-        if (update.at(0) == "503")
+        /*if (update.first == -2)
             QMessageBox::information(this, tr("Maintenance"), OTStrings::serverMaintenance());
-        else if (update.at(0) == "noUpdates")
+        else*/ if (update.first == 0)
         {
             set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
             finished();
         }
-        else if (update.at(0) != "false")
+        else if (update.first > 0)
         {
             ui->lblStatus->setText(tr("Found update"));
             ui->btnClose->setEnabled(true);

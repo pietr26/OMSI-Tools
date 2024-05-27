@@ -13,7 +13,7 @@ class newUpdate : public QWidget
     Q_OBJECT
 
 public:
-    explicit newUpdate(QStringList updateInformation, QWidget *parent = nullptr);
+    explicit newUpdate(QPair<int, QString> updateInformation, QWidget *parent = nullptr);
     ~newUpdate();
 
 signals:
@@ -28,7 +28,7 @@ private:
     Ui::newUpdate *ui;
 
     wReleaseNotes *WRELEASENOTES;
-    QStringList updateInformation;
+    QPair<int, QString> updateInformation;
 };
 
 #endif // NEWUPDATE_H

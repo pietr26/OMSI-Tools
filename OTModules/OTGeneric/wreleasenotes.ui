@@ -104,19 +104,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </widget>
     </item>
     <item>
-     <widget class="QCheckBox" name="cbxClearAppDir">
-      <property name="text">
-       <string>Clear application directory</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="lblClearAppDirInfo">
-      <property name="styleSheet">
-       <string notr="true">color: red</string>
+     <widget class="QLabel" name="lblDownloadManually">
+      <property name="font">
+       <font>
+        <italic>true</italic>
+       </font>
       </property>
       <property name="text">
-       <string>Attention: This option deletes the entire application directory including all files (even those that do not originate from the application).</string>
+       <string>lblDownloadManually</string>
       </property>
      </widget>
     </item>
@@ -143,7 +138,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
          </font>
         </property>
         <property name="text">
-         <string>Download and install</string>
+         <string>Open maintenance tool</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnUpdateManually">
+        <property name="text">
+         <string>Download manually</string>
         </property>
        </widget>
       </item>

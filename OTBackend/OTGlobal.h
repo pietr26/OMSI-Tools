@@ -486,70 +486,82 @@ public:
         clipboard->setPixmap(copyPixmap);
     }
 
-    /// Checks for an update - index 0: "503": maintenance, "false" = error, "noUpdates" = no updates available, else: new version | index 1: latestVersion
-    QStringList getUpdateInformation()
+    /// Checks for an update
+    //  first:
+    //      -2: maintenance
+    //      -1: manually update error
+    //      0: no updates available
+    //      1: update only manually available
+    //      2: update via mt available
+    //  second: latestVersion
+    QPair<int, QString> getUpdateInformation()
     {
+        qInfo() << "Check for updates...";
 
-        qDebug() << "Check for updates...";
+        int status;
+
+        if (!QFile::exists("../OMSI-Tools_Updater.exe"))
+        {
+            qInfo() << "Maintenance tool is not available.";
+            status = -1;
+        }
+        else
+        {
+            qInfo() << "Maintenance tool is available.";
+            qInfo() << "Starting maintenance tool - checking for updates";
+
+            QStringList args;
+            args << "ch";
+
+            QProcess *process = new QProcess();
+            process->start("../OMSI-Tools_Updater.exe", args);
+            qInfo() << "Dir:" << process->workingDirectory();
+
+            process->waitForFinished(10000);
+            QString output = process->readAllStandardOutput();
+            qDebug() << "mt output:" << output;
+
+            if (output.contains("<updates>")) status = 1;
+            else if (output.contains("There are currently no updates available")) status = 0;
+            else status = -1;
+
+            qDebug() << "mt status:" << status;
+        }
+
         OTNetworkConnection nc;
         const QString latestVersion = nc.post(OTLinks::latestVersion);
-        QStringList list;
+        QPair<int, QString> list;
 
-        if (nc.lastSuccess == -2)
-            list << "503";
-        else if (latestVersion == "")
-            list << "false";
-        else if (latestVersion == OTInformation::versions::currentVersion.first)
-            list << "noUpdates";
-        else
-            list << latestVersion;
+        // fill first:
+        if (nc.lastSuccess == -2) list.first = -2;
+        else if (status != -1)
+        {
+            if (status == 0) list.first = 0;
+            else if (status == 1) list.first = 2;
+        }
+        else if (status == -1)
+        {
+            if (latestVersion == "") list.first = -1;
+            else if (latestVersion == OTInformation::versions::currentVersion.first) list.first = 0;
+            else list.first = 1;
+        }
 
-        list << latestVersion;
+        // fill second:
+        list.second = latestVersion;
+
+        qDebug() << "Update information:" << list;
+
         return list;
     }
 
-    /// Searches for updates and returns information to the user
-    void startUpdate(QWidget *parent, bool clearAppDir)
+    void startMaintenanceTool()
     {
-        qDebug() << "Create tempAppDir and copy files...";
-
-        QDirIterator dirIterator(QApplication::applicationDirPath(), QStringList{"*.*"}, QDir::Files, QDirIterator::Subdirectories);
-        while (dirIterator.hasNext())
-        {
-            QString file = dirIterator.next();
-
-            QDir().mkdir(QDir::tempPath() + "/OMSI-Tools_tempAppDir");
-
-            QString newFilePath = QDir::tempPath() + "/OMSI-Tools_tempAppDir/" + file.remove(0, QApplication::applicationDirPath().size() + 1);
-            QDir().mkpath(QFileInfo(newFilePath).absolutePath());
-
-            qDebug().noquote() << "New path:" << newFilePath;
-            if (QFile(newFilePath).exists())
-                QFile(newFilePath).remove();
-
-            qDebug().noquote() << "From path:" << QApplication::applicationDirPath() + "/" + file;
-            qDebug() << "-----------------------------------------------------------------";
-            QFile(QApplication::applicationDirPath() + "/" + file).copy(newFilePath);
-        }
-        qDebug() << "Finished.";
-
         QStringList args;
-        args << "callFromMainApplication";
-        args << QApplication::applicationDirPath();
+        args << "--su";
+        QProcess *process = new QProcess();
+        process->start("../OMSI-Tools_Updater.exe", args);
 
-        if (clearAppDir)
-            args << "clearAppDir";
-
-        if (!QProcess::startDetached(QDir::tempPath() + "/OMSI-Tools_tempAppDir/OMSI-Tools_Updater.exe", args))
-        {
-            qWarning() << "There was an error while starting the updater (with name 'OMSI-Tools_Updater.exe').";
-            QMessageBox::warning(parent, QObject::tr("Updating %1").arg(OTInformation::name), QObject::tr("There was an error while starting the updater. Please retry it or contact the developer."));
-        }
-        else
-        {
-            qInfo() << "Start Updater...";
-            QApplication::quit();
-        }
+        QApplication::quit();
     }
 };
 
