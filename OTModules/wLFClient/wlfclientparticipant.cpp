@@ -90,8 +90,11 @@ void wLFClientParticipant::handleLogin() {
     const QString password = WLOGIN->password();
     bool ok = api->login(username, password);
     WLOGIN->setEnabled(true);
-    if(ok)
+    if(ok) {
         WLOGIN->close();
+        ui->actionLogin ->setVisible(false);
+        ui->actionLogout->setVisible(true);
+    }
     else {
         QString errorDescription;
         switch(api->errorType()) {
@@ -110,5 +113,7 @@ void wLFClientParticipant::on_actionLogout_triggered() {
         return;
 
     api->logout();
+    ui->actionLogin ->setVisible(true);
+    ui->actionLogout->setVisible(false);
 }
 
