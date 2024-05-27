@@ -2,6 +2,7 @@
 
 #include "ffi.h"
 #include "event.h"
+#include <cstdint>
 #ifdef _WIN32
 #include <Windows.h>
 #include <dxgi.h>
