@@ -13,7 +13,7 @@ class wReleaseNotes : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit wReleaseNotes(QWidget *parent = nullptr, bool updateAvailable = false, QString newVersion = "");
+    explicit wReleaseNotes(QWidget *parent = nullptr, bool updateAvailable = false, QString newVersion = "", bool viaUpdater = false);
     ~wReleaseNotes();
 
 private slots:
@@ -23,9 +23,9 @@ private slots:
 
     void on_btnUpdateNow_clicked();
 
-    void on_cbxClearAppDir_stateChanged(int arg1);
-
     void on_cbxBranch_currentIndexChanged(int index);
+
+    void on_btnUpdateManually_clicked();
 
 private:
     Ui::wReleaseNotes *ui;

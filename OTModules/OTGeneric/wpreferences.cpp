@@ -300,16 +300,18 @@ void wPreferences::on_btnOpenBackupFolder_clicked()
 /// Checks for updates
 void wPreferences::on_btnCheckForUpdates_clicked()
 {
-    QStringList update = misc.getUpdateInformation();
+    QPair<int, QString> update = misc.getUpdateInformation();
 
-    if (update.at(0) == "503")
+    if (update.first == -2)
         QMessageBox::information(this, tr("Maintenance"), OTStrings::serverMaintenance());
-    else if (update.at(0) == "noUpdates")
+    else if (update.first == -1)
+        QMessageBox::warning(this, tr("Failed"), tr("Could not check for updates: unknown error.") + "\n(-1)");
+    else if (update.first == 0)
         QMessageBox::information(this, tr("Finshed"), tr("No updates available."));
-    else if (update.at(0) != "false")
+    else if (update.first > 0)
     {
         hide();
-        WRELEASENOTES = new wReleaseNotes(this, true, update.at(1));
+        WRELEASENOTES = new wReleaseNotes(this, true, update.second, (update.first == 2) ? true : false);
         WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
         WRELEASENOTES->show();
     }

@@ -49,7 +49,7 @@ private:
 #endif
 
     QString updateVersion;
-    QStringList update;
+    QPair<int, QString> update;
 };
 
 #endif // WSTARTUPSCREEN_H

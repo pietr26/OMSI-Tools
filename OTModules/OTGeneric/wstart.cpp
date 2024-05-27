@@ -381,18 +381,9 @@ void wStart::on_actionRestart_triggered()
 /// Checks for updates
 void wStart::on_actionCheckForUpdates_triggered()
 {
-    QStringList update = misc.getUpdateInformation();
-
-    if (update.at(0) == "503")
-        QMessageBox::information(this, tr("Maintenance"), OTStrings::serverMaintenance());
-    else if (update.at(0) == "noUpdates")
-        QMessageBox::information(this, tr("Finshed"), tr("No updates available."));
-    else if (update.at(0) != "false")
-    {
-        WRELEASENOTES = new wReleaseNotes(this, true, update.at(1));
-        WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
-        WRELEASENOTES->show();
-    }
+    on_actionPreferences_triggered();
+    qApp->processEvents();
+    WPREFERENCES->on_btnCheckForUpdates_clicked();
 }
 
 void wStart::on_tbnFonts_clicked()

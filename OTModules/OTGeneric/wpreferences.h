@@ -21,6 +21,9 @@ public:
     explicit wPreferences(QWidget *parent = nullptr, QString openDirect = "");
     ~wPreferences();
 
+public slots:
+    void on_btnCheckForUpdates_clicked();
+
 private slots:
 
     void closeEvent (QCloseEvent *event);
@@ -30,8 +33,6 @@ private slots:
     void on_btnOpenBackupFolder_clicked();
 
     void refreshDiskUsage();
-
-    void on_btnCheckForUpdates_clicked();
 
     void on_btnResetPreferences_clicked();
 

@@ -1,14 +1,14 @@
 #include "newupdate.h"
 #include "ui_newupdate.h"
 
-newUpdate::newUpdate(QStringList update, QWidget *parent) :
+newUpdate::newUpdate(QPair<int, QString> update, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::newUpdate)
 {
     ui->setupUi(this);
 
     updateInformation = update;
-    ui->lblNewVersion->setText(updateInformation.at(1));
+    ui->lblNewVersion->setText(updateInformation.second);
     ui->lblCurrentVersion->setText(OTInformation::versions::currentVersion.first);
 }
 
@@ -20,7 +20,7 @@ newUpdate::~newUpdate()
 /// Opens wReleaseNotes to show latest update notes
 void newUpdate::on_btnView_clicked()
 {
-    WRELEASENOTES = new wReleaseNotes(this, true, updateInformation.at(1));
+    WRELEASENOTES = new wReleaseNotes(this, true, updateInformation.second, (updateInformation.first == 2) ? true : false);
     WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
     WRELEASENOTES->show();
 }
@@ -28,6 +28,6 @@ void newUpdate::on_btnView_clicked()
 /// Calls a signal for opening the home screen
 void newUpdate::on_btnDisard_clicked()
 {
-    goToStartScreen();
+    emit goToStartScreen();
     setVisible(false);
 }
