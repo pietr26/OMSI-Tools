@@ -354,7 +354,7 @@ void wStart::on_actionManual_triggered()
 /// Opens link to github repository
 void wStart::on_actionSourceCodeOnGitHub_triggered()
 {
-    QDesktopServices::openUrl(OTLinks::github);
+    QDesktopServices::openUrl(OTLinks::GitHub::main);
 }
 
 /// Shows a message at a defined start count

@@ -151,7 +151,14 @@ public:
     inline static const QString showroom = "https://reboot.omsi-webdisk.de/community/thread/4783";
     inline static const QString support = "https://reboot.omsi-webdisk.de/community/thread/5683";
     inline static const QString feedbackForm = "https://forms.gle/5VGy7fwohHys18bf9";
-    inline static const QString github = "https://github.com/pietr26/OMSI-Tools";
+
+    class GitHub
+    {
+    public:
+        inline static const QString main = "https://github.com/pietr26/OMSI-Tools";
+        inline static const QString releases = main + "/releases";
+    };
+
     inline static const QString roadmap = "https://trello.com/b/wlId7JqM/roadmap-omsi-tools";
 
     inline static const QString apiPath = "https://backend.omsi-tools.de/api/v2/";
