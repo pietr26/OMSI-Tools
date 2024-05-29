@@ -922,9 +922,10 @@ public:
                         stuffobj.existing.vehicles << QString(QFileInfo(train).absoluteFilePath()).remove(0, cutCount);}
                     else
                     {
-                        if (!aigroups.contains(line)) // TODO for rework
+                        if (!aigroups.contains(line)) // TODO for rework - maybe error phrone
                         {
-                            if (line.contains("/"))
+                            qInfo() << line;
+                            if (line.contains("\\"))
                             {
                                 qWarning().noquote() << "Vehicle (Train) '" + QFileInfo(train).absoluteFilePath() + "' is missing!";
                                 stuffobj.missing.vehicles << QString(QFileInfo(train).absoluteFilePath()).remove(0, cutCount);
