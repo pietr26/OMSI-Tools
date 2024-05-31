@@ -8,10 +8,8 @@
         <file>data/icons/wCleanup.svg</file>
         <file>data/translations/tr_de.qm</file>
         <file>data/translations/tr_fr.qm</file>
-        <file>data/translations/tr_it.qm</file>
         <file>data/translations/qtbase_de.qm</file>
         <file>data/translations/qtbase_fr.qm</file>
-        <file>data/translations/qtbase_it.qm</file>
         <file>data/icons/webdisk-tools.png</file>
         <file>data/icons/mark.svg</file>
         <file>data/icons/wMaps.svg</file>
@@ -24,7 +22,6 @@
         <file>data/flags/en.svg</file>
         <file>data/flags/fi.svg</file>
         <file>data/flags/fr.svg</file>
-        <file>data/flags/it.svg</file>
         <file>data/flags/ja.svg</file>
         <file>data/translations/qtbase_cs.qm</file>
         <file>data/translations/tr_cs.qm</file>
@@ -40,5 +37,9 @@
         <file>data/icons/wLFClientParticipant.svg</file>
         <file>data/icons/wLFClientDispatcher.svg</file>
         <file>data/manual/Handbuch DE.pdf</file>
+        <file>data/translations/tr_de.ts</file>
+        <file>data/translations/tr_fi.qm</file>
+        <file>data/translations/tr_fr.ts</file>
+        <file>data/translations/tr_ja.qm</file>
     </qresource>
 </RCC>

@@ -22,27 +22,21 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/de.svg"), OTStrings::langDe); // 1
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), OTStrings::langFr); // 2
 
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/it.svg"), OTStrings::langIt); // 3
-
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cs.svg"), OTStrings::langCs); // 4
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fi.svg"), OTStrings::langFi); // 5
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/ja.svg"), OTStrings::langJa); // 6
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cs.svg"), OTStrings::langCs); // 3
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fi.svg"), OTStrings::langFi); // 4
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/ja.svg"), OTStrings::langJa); // 5
 
     // Disable languages:
     auto* model = qobject_cast<QStandardItemModel*>(ui->cobxLanguage->model());
     // model->item(0)->setEnabled(false); // en
     // model->item(1)->setEnabled(false); // de
     // model->item(2)->setEnabled(false); // fr
-    model->item(3)->setEnabled(false); // it
-    // model->item(4)->setEnabled(false); // cs
-    model->item(5)->setEnabled(false); // fi
-    model->item(6)->setEnabled(false); // ja
+    // model->item(3)->setEnabled(false); // cs
+    model->item(4)->setEnabled(false); // fi
+    model->item(5)->setEnabled(false); // ja
 
     // cobxTheme:
-    for (int i = 0; i < themes.count(); i++)
-    {
-        ui->cobxTheme->addItem(themes[i].second);
-    }
+    for (int i = 0; i < themes.count(); i++) ui->cobxTheme->addItem(themes[i].second);
 
     // lblDiskUsage
     ui->lblDiskUsageSize->setText(tr("Calculating..."));

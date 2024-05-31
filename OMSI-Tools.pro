@@ -201,7 +201,6 @@ FORMS += \
 TRANSLATIONS += \
     data/translations/tr_de.ts \
     data/translations/tr_fr.ts \
-    data/translations/tr_it.ts \
     data/translations/tr_cs.ts \
     data/translations/tr_fi.ts \
     data/translations/tr_ja.ts

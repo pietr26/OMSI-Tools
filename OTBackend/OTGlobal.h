@@ -796,7 +796,6 @@ public:
             case 0: return "en"; break;
             case 1: return "de"; break;
             case 2: return "fr"; break;
-            case 3: return "it"; break;
             case 4: return "cz"; break;
             default: return "err";
         }
