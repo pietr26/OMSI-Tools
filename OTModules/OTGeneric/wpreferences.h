@@ -36,8 +36,6 @@ private slots:
 
     void on_btnResetPreferences_clicked();
 
-    void on_btnCreateDesktopShortcut_clicked();
-
     void on_btnClose_clicked();
 
     void on_cobxLanguage_currentIndexChanged(int index);

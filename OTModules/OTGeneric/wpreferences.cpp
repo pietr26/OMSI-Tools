@@ -329,12 +329,6 @@ void wPreferences::on_btnResetPreferences_clicked()
     }
 }
 
-/// Creates a desktop shortcut
-void wPreferences::on_btnCreateDesktopShortcut_clicked()
-{
-    fop.createShortcut(qApp->applicationFilePath(), QDir().homePath() + QString("/Desktop/%1.lnk").arg(OTInformation::name), this);
-}
-
 /// Sets OMSI path
 void wPreferences::on_btnOmsiPath_clicked()
 {
