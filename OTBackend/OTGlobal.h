@@ -14,9 +14,11 @@
 #include <QDesktopServices>
 #include <QScreen>
 #include <QClipboard>
+#include <QStyle>
 #include <QStyleFactory>
 
 #include "DiscordGameSDK.h"
+
 
 class OTFileMethods
 {
@@ -813,7 +815,7 @@ public:
         QString stylesheet;
 
         // set default (better) height:
-        stylesheet += "QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox, QDateTimeEdit, QDateEdit, QTimeEdit, QButton { height: 25px; }";
+        if (QApplication::style()->name() == "windows11") stylesheet += "QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox, QDateTimeEdit, QDateEdit, QTimeEdit, QButton { height: 25px; }";
 
         qApp->setStyleSheet(stylesheet);
     }
