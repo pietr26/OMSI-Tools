@@ -11,7 +11,7 @@
 ==================================================
 
 (1) BACKEND | ENCODING
-    Encoding since Qt 6.x, especially 3ncoding of files created by OMSI
+    Encoding since Qt 6.x, especially encoding of files created by OMSI
     There have been encoding problems with ä, ö, ü, ß etc.
     Since the update to Qt 6.x, especially in the map check (via OTOmsiFileHandler).
     To fix this problem, the encoding (ideally) of each QTextStream must be set to QStringConverter::System:
