@@ -99,14 +99,14 @@ int main(int argc, char *argv[])
         set.write("wVerifyMap", "advVerifying", false);
 
         // Start DiscordGameSDK:
-        DiscordGameSDK *discord = new DiscordGameSDK();
+        // DiscordGameSDK *discord = new DiscordGameSDK();
 
-        QFuture<void> discordFuture = QtConcurrent::run([discord]() {
-            discord->exec();
-        });
+        // QFuture<void> discordFuture = QtConcurrent::run([discord]() {
+        //     discord->exec();
+        // });
 
-        DiscordGameSDK::setModule("Developing");
-        DiscordGameSDK::setStatus("a brand new version :P");
+        // DiscordGameSDK::setModule("Developing");
+        // DiscordGameSDK::setStatus("a brand new version :P");
     }
 
     wStartUpScreen *WSTARTUPSCREEN;
@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
     int exec = a.exec();
 
     // Actions on close
-    DiscordGameSDK::stop();
+    //DiscordGameSDK::stop();
 
     qInfo().noquote() << OTInformation::name + " is closing...";
     set.write("main", "closeCheck", true);
