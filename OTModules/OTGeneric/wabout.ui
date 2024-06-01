@@ -251,7 +251,7 @@
          <x>0</x>
          <y>0</y>
          <width>878</width>
-         <height>285</height>
+         <height>283</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -334,7 +334,7 @@
             </property>
             <property name="icon">
              <iconset resource="../../ressources.qrc">
-              <normaloff>:/rec/data/icons/flowererella.svg</normaloff>:/rec/data/icons/flowererella.svg</iconset>
+              <normaloff>:/rec/data/icons/flowerella.svg</normaloff>:/rec/data/icons/flowerella.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
