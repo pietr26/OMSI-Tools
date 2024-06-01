@@ -20,13 +20,8 @@ void updateCleanup()
 {
     qInfo() << "Update installed, remove old files...";
 
-    // Necessary for every update:
+    // Necessary for every update up to 1.1.2-lite:
     QDir(QDir::tempPath() + "/OMSI-Tools_tempAppDir").removeRecursively();
-
-    // Necessary for specified versions:
-
-    // 001: >  1.0.0-lite - Remove unused image libaries
-    // Moved to Updater (permission conflicts)
 }
 
 /// Main function
