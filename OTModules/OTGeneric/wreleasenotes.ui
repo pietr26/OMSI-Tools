@@ -111,7 +111,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </font>
       </property>
       <property name="text">
-       <string>lblDownloadManually</string>
+       <string notr="true">lblDownloadManually</string>
       </property>
      </widget>
     </item>
