@@ -42,6 +42,8 @@ SOURCES += \
     OTModules/wFbh/wdbknownwords.cpp \
     OTModules/wLFClient/Widgets/wdgactions.cpp \
     OTModules/wLFClient/Widgets/wdginformation.cpp \
+    OTModules/wLFClient/Widgets/wdgmanagetrips.cpp \
+    OTModules/wLFClient/Widgets/wdgmanageusers.cpp \
     OTModules/wLFClient/Widgets/wdgnotification.cpp \
     OTModules/wLFClient/Widgets/wdgnotifications.cpp \
     OTModules/wLFClient/Widgets/wdgtrips.cpp \
@@ -117,6 +119,8 @@ HEADERS += \
     OTModules/wFbh/wdbknownwords.h \
     OTModules/wLFClient/Widgets/wdgactions.h \
     OTModules/wLFClient/Widgets/wdginformation.h \
+    OTModules/wLFClient/Widgets/wdgmanagetrips.h \
+    OTModules/wLFClient/Widgets/wdgmanageusers.h \
     OTModules/wLFClient/Widgets/wdgnotification.h \
     OTModules/wLFClient/Widgets/wdgnotifications.h \
     OTModules/wLFClient/Widgets/wdgtrips.h \
@@ -166,6 +170,8 @@ FORMS += \
     OTModules/wFbh/wdbknownwords.ui \
     OTModules/wLFClient/Widgets/wdgactions.ui \
     OTModules/wLFClient/Widgets/wdginformation.ui \
+    OTModules/wLFClient/Widgets/wdgmanagetrips.ui \
+    OTModules/wLFClient/Widgets/wdgmanageusers.ui \
     OTModules/wLFClient/Widgets/wdgnotification.ui \
     OTModules/wLFClient/Widgets/wdgnotifications.ui \
     OTModules/wLFClient/Widgets/wdgtrips.ui \
