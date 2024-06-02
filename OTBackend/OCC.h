@@ -546,7 +546,7 @@ public:
     class Condition
     {
     public:
-        enum Opteration
+        enum Operation
         {
             notEqual = 0,
             equal = 1,
@@ -559,7 +559,7 @@ public:
         static_assert(std::is_same_v<T, float> || std::is_same_v<T, int> || std::is_same_v<T, bool> || std::is_same_v<T, QVariant>, "The type T must be either float, int or bool.");
         QString variable;
         T value;
-        Opteration operation;
+        Operation operation;
     };
 
     bool isLoopSound;
@@ -946,7 +946,7 @@ public:
     float distanceFromPosition;
 };
 
-class OCMap {
+class OCMap { // TODO: override clear function
 public:
     /** @brief <code>global.cfg</code> - Defines global settings for a map.
      * <hr>
@@ -1504,6 +1504,7 @@ public:
                         description.replace("ä", "ae", Qt::CaseSensitive);
                         description.replace("ö", "oe", Qt::CaseSensitive);
                         description.replace("ü", "ue", Qt::CaseSensitive);
+                        description.replace("ß", "ss", Qt::CaseSensitive);
 
                         description = description.trimmed();
                     }
@@ -1650,14 +1651,14 @@ public:
                         tiles.append(tile);
                     }
                 }
+
+                global.close();
             }
             catch (...)
             {
                 global.close();
                 return FileIOResponse::errCritical;
             }
-
-            global.close();
 
             seasons = sortSeasons(seasons);
 
@@ -1840,14 +1841,14 @@ public:
                 }
 
                 out << "\n";
+
+                global.close();
             }
             catch (...)
             {
                 global.close();
                 return FileIOResponse::errCritical;
             }
-
-            global.close();
 
             return FileIOResponse::valid;
         }
