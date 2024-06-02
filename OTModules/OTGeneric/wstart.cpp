@@ -73,107 +73,6 @@ wStart::~wStart()
     delete ui;
 }
 
-/// Loads the messages
-void wStart::loadMessagesOld()
-{
-    QStringList messages = QString(nc.post(OTLinks::inAppMessages)).split("\n");
-    ui->dwgMessages->setWindowTitle(tr("News"));
-
-    if (nc.lastSuccess == -1)
-        ui->dwgMessages->setWindowTitle(tr("News - no internet connection"));
-    else if (nc.lastSuccess == -2)
-    {
-        OTInAppMessage messageData;
-        messageData.ID = "-1";
-        messageData.publicity = 1;
-        messageData.versions = QStringList("all");
-        messageData.start = QDateTime::currentDateTime();
-        messageData.end = QDateTime::currentDateTime().addYears(10);
-        messageData.enTitle = "Maintenance work";
-        messageData.enShortDescription = "The application server is currently undergoing maintenance";
-        messageData.enDescription = "The application server is currently undergoing maintenance. During this time the updater, messages and the other functions with application server connection are not available. Please come back again later.";
-        messageData.deTitle = "Wartungsarbeiten";
-        messageData.deShortDescription = "Der Anwendungsserver befindet sich derzeit in Wartungsarbeiten";
-        messageData.deDescription = "Der Anwendungsserver befindet sich derzeit in Wartungsarbeiten. Während dieser Zeit sind Aktualisierungen, Nachrichten und weitere Funktionen mit Verbindung zum Anwendungsserver nicht verfügbar. Bitte schaue später wieder vorbei.";
-
-        message *widget = new message(messageData, this);
-        QListWidgetItem *item = new QListWidgetItem();
-        item->setSizeHint(widget->sizeHint());
-
-        ui->lwgMessages->addItem(item);
-        ui->lwgMessages->setItemWidget(item, widget);
-    }
-    else
-    {
-        for (int i = 0; i < messages.size(); i++)
-        {
-            if (messages.at(i) == "[news]")
-            {
-                OTInAppMessage messageData;
-                i++; messageData.ID = messages.at(i);
-                i++; messageData.publicity = QVariant(messages.at(i)).toInt();
-                i++; messageData.start = QDateTime::fromString(messages.at(i), "yyyy-MM-dd HH:mm:ss");
-                i++; messageData.end = QDateTime::fromString(messages.at(i), "yyyy-MM-dd HH:mm:ss");
-                i++; messageData.slug = messages.at(i);
-                i++; messageData.versions = messages.at(i).split("|");
-                i++; messageData.enTitle = messages.at(i);
-                i++; messageData.enShortDescription = messages.at(i);
-
-                while (messages.at(i) != "[enDescrEnd]")
-                {
-                    i++; messageData.enDescription += messages.at(i);
-                }
-                messageData.enDescription.remove("[enDescrEnd]");
-
-                i++; messageData.deTitle = messages.at(i);
-                i++; messageData.deShortDescription = messages.at(i);
-
-                while (messages.at(i) != "[deDescrEnd]")
-                {
-                    i++; messageData.deDescription += messages.at(i);
-                }
-                messageData.deDescription.remove("[deDescrEnd]");
-
-                i++; messageData.image = messages.at(i);
-
-                i++; messageData.trashbin = QVariant(messages.at(i)).toInt();
-                if (messageData.trashbin) continue;
-
-                if ((OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) {
-                    if ((messageData.publicity == 0) || (messageData.publicity == 3))
-                        continue;
-                }
-                else {
-                    if ((messageData.publicity == 0) || (messageData.publicity == 2) || (messageData.publicity == 3) || (messageData.publicity == 5))
-                        continue;
-                }
-
-                /*
-                 * 0 = deactivated
-                 * 1 = in-App
-                 * 2 = in-App (Beta only)
-                 * 3 = Website
-                 * 4 = in-App + Website
-                 * 5 = in-App (Beta only) + Website
-                */
-
-                if (!(messageData.versions.contains("all") || messageData.versions.contains(OTInformation::versions::currentVersion.first)))
-                    continue;
-
-                if ((QDateTime::currentDateTime().secsTo(messageData.start) <= 0) && (QDateTime::currentDateTime().secsTo(messageData.end) >= 0))
-                {
-                    message *widget = new message(messageData, this);
-                    QListWidgetItem *item = new QListWidgetItem();
-                    item->setSizeHint(widget->sizeHint());
-
-                    ui->lwgMessages->addItem(item);
-                    ui->lwgMessages->setItemWidget(item, widget);
-                }
-            }
-        }
-    }
-}
-
 void wStart::loadMessages()
 {
     QByteArray messageString = nc.post(OTLinks::inAppMessages);
@@ -223,6 +122,9 @@ void wStart::loadMessages()
 
             messageData.versions = singleMessage["versions"].toString().split("|");
 
+            messageData.isImportant = singleMessage["is_important"].toBool();
+            messageData.isVirutal = singleMessage["is_virtual"].toBool();
+
             messageData.enTitle = singleMessage["enTitle"].toString();
             messageData.enShortDescription = singleMessage["enShortDescription"].toString();
             messageData.enDescription = singleMessage["enDescription"].toString();
@@ -232,11 +134,6 @@ void wStart::loadMessages()
             messageData.deDescription = singleMessage["deDescription"].toString();
 
             messageData.image = singleMessage["image"].toString();
-
-            messageData.trashbin = singleMessage["trashbin"].toBool();
-            messageData.deletedAt = QDateTime::fromString(singleMessage["deletedAt"].toString(), "yyyy-MM-dd HH:mm:ss");
-
-            if (messageData.trashbin) continue;
 
             if ((OTInformation::build == OTBuildOptions::Dev) || (OTInformation::build == OTBuildOptions::Alpha) || (OTInformation::build == OTBuildOptions::Beta)) {
                 if ((messageData.publicity == 0) || (messageData.publicity == 3))
@@ -267,6 +164,10 @@ void wStart::loadMessages()
 
                 ui->lwgMessages->addItem(item);
                 ui->lwgMessages->setItemWidget(item, widget);
+
+                if (messageData.isImportant && !set.read("main\\messages", messageData.ID).toBool()) on_lwgMessages_itemDoubleClicked(item);
+
+                if (messageData.isVirutal) item->setHidden(true);
             }
         }
     }

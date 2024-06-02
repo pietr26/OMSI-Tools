@@ -1053,6 +1053,9 @@ public:
     QString slug;
     QStringList versions;
 
+    bool isImportant;
+    bool isVirutal;
+
     QString enTitle;
     QString enShortDescription;
     QString enDescription;
@@ -1062,9 +1065,6 @@ public:
     QString deDescription;
 
     QString image;
-
-    int trashbin;
-    QDateTime deletedAt;
 };
 
 #endif // OTGLOBAL_H
