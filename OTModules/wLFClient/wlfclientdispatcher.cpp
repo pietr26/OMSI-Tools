@@ -1,9 +1,12 @@
 #include "wlfclientdispatcher.h"
 #include "ui_wlfclientdispatcher.h"
 
+#include <QMessageBox>
+
 wLFClientDispatcher::wLFClientDispatcher(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::wLFClientDispatcher)
+    , ui(new Ui::wLFClientDispatcher),
+    WLOGIN(new wLogin(this))
 {
     qInfo().noquote() << "Starting " + objectName() + "...";
     qDebug() << "Set up UI...";
@@ -16,6 +19,8 @@ wLFClientDispatcher::wLFClientDispatcher(QWidget *parent)
     centralWidget()->setVisible(false);
     createDockWidgets();
 
+    connect(WLOGIN, &wLogin::accepted, this, &wLFClientDispatcher::handleLogin);
+
     qInfo().noquote() << objectName() + " started";
 }
 
@@ -27,7 +32,7 @@ wLFClientDispatcher::~wLFClientDispatcher()
 void wLFClientDispatcher::on_actionBackToHome_triggered()
 {
     close();
-    backToHome();
+    emit backToHome();
 }
 
 void wLFClientDispatcher::on_actionClose_triggered()
@@ -51,6 +56,58 @@ void wLFClientDispatcher::createDockWidgets()
 {
     QDockWidget *dock = new QDockWidget(tr("Information", "plural form"), this);
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
     dock->setWidget(WDGINFORMATION);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
+
+    dock = new QDockWidget(tr("Users"), this);
+    dock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
+    dock->setWidget(WDGMANAGEUSERS);
+    addDockWidget(Qt::RightDockWidgetArea, dock);
+
+    dock = new QDockWidget(tr("Manage trips"), this);
+    dock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
+    dock->setWidget(WDGMANAGETRIPS);
+    addDockWidget(Qt::BottomDockWidgetArea, dock);
 }
+
+void wLFClientDispatcher::on_actionLogin_triggered()
+{
+    WLOGIN->show();
+}
+
+void wLFClientDispatcher::handleLogin() {
+    WLOGIN->setDisabled(true);
+    const QString username = WLOGIN->username();
+    const QString password = WLOGIN->password();
+    bool ok = api->login(username, password);
+    WLOGIN->setEnabled(true);
+    if(ok) {
+        WLOGIN->close();
+        ui->actionLogin ->setVisible(false);
+        ui->actionLogout->setVisible(true);
+    }
+    else {
+        QString errorDescription;
+        switch(api->errorType()) {
+            case LFClientAPIInterface::LoginUserNotFound:  errorDescription = LFClientAPIInterface::userNotFoundDescription;  break;
+            case LFClientAPIInterface::LoginWrongPassword: errorDescription = LFClientAPIInterface::wrongPasswordDescription; break;
+            default: tr("unkown error"); break;
+        }
+
+        QMessageBox::warning(WLOGIN, tr("Login failed"), errorDescription, QMessageBox::Ok);
+    }
+}
+
+void wLFClientDispatcher::on_actionLogout_triggered() {
+    QMessageBox::StandardButton msg = QMessageBox::warning(this, tr("Logout"), tr("Do you really want to log out?"), QMessageBox::Yes | QMessageBox::No);
+    if(msg != QMessageBox::Yes)
+        return;
+
+    api->logout();
+    ui->actionLogin ->setVisible(true);
+    ui->actionLogout->setVisible(false);
+}
+
