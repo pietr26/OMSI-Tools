@@ -61,13 +61,8 @@ public:
         case Lite:          return "Lite";          break;
         case Prerelease:    return "Prerelease";    break;
         case Release:       return "Release";       break;
-        default:            return "undefined";     break;
+        default:            return "unknown";       break;
         }
-
-        /* Do not use:
-         * case EA: return "EA"; break;
-         * case Lite: return "Lite"; break;
-         */
     }
 };
 
@@ -82,7 +77,7 @@ public:
             return;
         }
         else if (msgResult == 1)
-            save(OTFileMethods::save, font.path);
+            save(...);
     }
 */
 
