@@ -108,7 +108,7 @@ void wLFClientParticipant::handleLogin() {
 }
 
 void wLFClientParticipant::on_actionLogout_triggered() {
-    QMessageBox::StandardButton msg = QMessageBox::warning(this, tr("Logout"), tr("Do you really want to log out?"), QMessageBox::Yes|QMessageBox::No);
+    QMessageBox::StandardButton msg = QMessageBox::warning(this, tr("Logout"), tr("Do you really want to log out?"), QMessageBox::Yes | QMessageBox::No);
     if(msg != QMessageBox::Yes)
         return;
 
