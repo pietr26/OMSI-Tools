@@ -38,6 +38,8 @@ wStart::wStart(QWidget *parent)
     else
     {
         ui->tbnMaps->setVisible(false);
+        ui->tbnLFClientParticipant->setVisible(false);
+        ui->tbnLFClientDispatcher->setVisible(false);
     }
 
     adjustSize();
