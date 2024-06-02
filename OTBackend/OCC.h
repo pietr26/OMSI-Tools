@@ -1456,18 +1456,15 @@ public:
          *   - Multiple occurrences: <code>true</code>*/
         QList<TileInformation> tiles;
 
-        // file path for global.cfg
-        QString filepath;
-
         FileIOResponse read() override
         {
-            if (filepath.isEmpty())
+            if (dir.isEmpty())
             {
                 qWarning() << "Reading process of Global stopped: No file path given.";
                 return FileIOResponse::errFileDoesntExist;
             }
 
-            QFile global(filepath);
+            QFile global(dir + "/global.cfg");
 
             if (!global.open(QFile::ReadOnly | QFile::Text))
             {
@@ -1669,18 +1666,18 @@ public:
 
         FileIOResponse write() override
         {
-            if (filepath.isEmpty())
+            if (dir.isEmpty())
             {
                 qWarning() << "Writing process of Global stopped: No file path given.";
                 return FileIOResponse::errFileDoesntExist;
             }
 
-            QFile global(filepath);
+            QFile global(dir + "/global.cfg");
 
             // Backup
-            if (!QDir().exists(QString(filepath).remove("global.cfg") + "/backup")) qDebug() << "Backup dir create:" << QDir().mkdir(QString(filepath).remove("global.cfg") + "/backup");
-            if (QFile(QString(filepath).remove("global.cfg") + "/backup/global.cfg").exists()) QFile(QString(filepath).remove("global.cfg") + "/backup/global.cfg").remove();
-            global.copy(QString(filepath).remove("global.cfg") + "/backup/global.cfg");
+            if (!QDir().exists(dir + "/backup")) qDebug() << "Backup dir create:" << QDir().mkdir(dir + "/backup");
+            if (QFile(dir + "/backup/global.cfg").exists()) QFile(dir + "/backup/global.cfg").remove();
+            global.copy(dir + "/backup/global.cfg");
 
             if (!global.open(QFile::WriteOnly | QFile::Text))
             {
@@ -2170,6 +2167,8 @@ public:
     QList<Holiday> holidaysSingle; // holidays.txt | holidays_[LGC].txt // TODO: see list class
     bool hasAilist; // ailists.txt
     bool hasAilistLow; // ailists_#low.txt
+
+    inline static QString dir = "";
 };
 
 class OCMoney { // *.cfg

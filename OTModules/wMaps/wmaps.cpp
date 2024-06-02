@@ -61,8 +61,7 @@ void wMaps::recieveSelectedMap(QPair<QString, QString> mapInfo)
     ui->ledCurrentMap->setText(mapInfo.first);
 
     // picture
-    QString picture = currentMap.second + "picture.jpg";
-    picture.remove("global.cfg");
+    QString picture = currentMap.second.remove("global.cfg") + "picture.jpg";
 
     if (QFile(picture).exists())
         ui->lblPicture->setPixmap(QPixmap(picture));
@@ -70,7 +69,7 @@ void wMaps::recieveSelectedMap(QPair<QString, QString> mapInfo)
         ui->lblPicture->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::CameraPhoto).pixmap(128, 128));
 
     map.global = OCMap::Global();
-    map.global.filepath = currentMap.second;
+    map.dir = currentMap.second.remove("/global.cfg");
     map.global.read();
 }
 

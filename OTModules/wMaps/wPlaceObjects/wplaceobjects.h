@@ -50,14 +50,14 @@ private slots:
     void on_sbxObjectDensity_valueChanged(int arg1);
 
 signals:
-        void returnGlobalProps(OCMap::Global props);
+    void returnGlobalProps(OCMap::Global props);
 
 private:
     Ui::wPlaceObjects *ui;
     OTSettings set;
     OTDirectXTexConv texconv;
 
-    OCMap::Global props;
+    OCMap map;
 
     QTemporaryFile convertedPreviewImage;
 

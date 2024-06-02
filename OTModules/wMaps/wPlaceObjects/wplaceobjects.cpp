@@ -18,14 +18,14 @@ wPlaceObjects::wPlaceObjects(OCMap::Global globalProps, QWidget *parent)
     ui->cuwObjects->setEditEnabled(false);
     checkObjectList();
 
-    props = globalProps;
+    map.global = globalProps;
 
     loadUi();
 
     ui->cuwZVariance->setValue1(0);
     ui->cuwZVariance->setValue2(0);
 
-    ui->sbxTerrainLayerID->setMaximum(props.groundTextures.count() - 1);
+    ui->sbxTerrainLayerID->setMaximum(map.global.groundTextures.count() - 1);
     on_sbxTerrainLayerID_valueChanged(ui->sbxTerrainLayerID->value());
     on_hslObjectDensity_sliderMoved(ui->hslObjectDensity->value());
 
@@ -69,7 +69,7 @@ void wPlaceObjects::checkObjectList()
 
 void wPlaceObjects::loadUi()
 {
-    foreach (OCMap::Global::TileInformation current, props.tiles)
+    foreach (OCMap::Global::TileInformation current, map.global.tiles)
     {
         QListWidgetItem *item = new QListWidgetItem(QString("%1 / %2\t%3").arg(QString::number(current.position.x), QString::number(current.position.y), current.filename));
         item->setCheckState(Qt::Unchecked);
@@ -84,18 +84,18 @@ void wPlaceObjects::on_hslObjectDensity_sliderMoved(int position)
 
 void wPlaceObjects::on_sbxTerrainLayerID_valueChanged(int arg1)
 {
-    ui->lblLayerTexture->setText(props.groundTextures[arg1].mainTex);
+    ui->lblLayerTexture->setText(map.global.groundTextures[arg1].mainTex);
 
-    if (props.groundTextures[arg1].mainTex.endsWith(".dds"))
+    if (map.global.groundTextures[arg1].mainTex.endsWith(".dds"))
     {
-        texconv.convert("bmp", set.read("main", "mainDir").toString() + "/" + props.groundTextures[arg1].mainTex, convertedPreviewImage);
+        texconv.convert("bmp", set.read("main", "mainDir").toString() + "/" + map.global.groundTextures[arg1].mainTex, convertedPreviewImage);
         test = QPixmap(convertedPreviewImage.fileName());
         ui->lblLayerTexturePicture->setPixmap(test);
         qInfo() << convertedPreviewImage.fileName();
     }
     else
     {
-        ui->lblLayerTexturePicture->setPixmap(QPixmap(set.read("main", "mainDir").toString() + "/" + props.groundTextures[arg1].mainTex));
+        ui->lblLayerTexturePicture->setPixmap(QPixmap(set.read("main", "mainDir").toString() + "/" + map.global.groundTextures[arg1].mainTex));
     }
 }
 
@@ -173,16 +173,16 @@ void wPlaceObjects::on_btnStart_clicked()
     {
         if (ui->lwgTiles->item(i)->checkState() == Qt::Checked)
         {
-            qInfo() << "Checked tile:" << props.tiles[i].filename;
-            ui->statusbar->showMessage("Tile: " + props.tiles[i].filename);
+            qInfo() << "Checked tile:" << map.global.tiles[i].filename;
+            ui->statusbar->showMessage("Tile: " + map.global.tiles[i].filename);
 
             QTemporaryFile layerSource;
 
-            QString layerName = props.tiles[i].filename + "." + QString::number(ui->sbxTerrainLayerID->value()) + ".dds";
+            QString layerName = map.global.tiles[i].filename + "." + QString::number(ui->sbxTerrainLayerID->value()) + ".dds";
 
-            QString originalFilename = QString(props.filepath).remove("global.cfg") + "texture/map/" + layerName;
+            QString originalFilename = map.dir + "texture/map/" + layerName;
 
-            texconv.convert("bmp", QString(props.filepath).remove("global.cfg") + "texture/map/" + layerName, layerSource);
+            texconv.convert("bmp", map.dir + "texture/map/" + layerName, layerSource);
 
             QImage layer(layerSource.fileName());
 
@@ -200,11 +200,11 @@ void wPlaceObjects::on_btnStart_clicked()
             if (!ui->cbxDryRun->isChecked())
             {
                 // Change map file
-                if (!QDir().exists(QString(props.filepath).remove("global.cfg") + "/backup")) qDebug() << "Backup dir create:" << QDir().mkdir(QString(props.filepath).remove("global.cfg") + "/backup");
-                if (QFile(QString(props.filepath).remove("global.cfg") + "/backup/" + props.tiles[i].filename).exists()) QFile(QString(props.filepath).remove("global.cfg") + "/backup/" + props.tiles[i].filename).remove();
-                QFile::copy(QString(props.filepath).remove("global.cfg") + "/" + props.tiles[i].filename, QString(props.filepath).remove("global.cfg") + "/backup/" + props.tiles[i].filename);
+                if (!QDir().exists(map.dir + "/backup")) qDebug() << "Backup dir create:" << QDir().mkdir(map.dir + "/backup");
+                if (QFile(map.dir + "/backup/" + map.global.tiles[i].filename).exists()) QFile(map.dir + "/backup/" + map.global.tiles[i].filename).remove();
+                QFile::copy(map.dir + "/" + map.global.tiles[i].filename, map.dir + "/backup/" + map.global.tiles[i].filename);
 
-                QFile tile(QString(props.filepath).remove("global.cfg") + "/" + props.tiles[i].filename);
+                QFile tile(map.dir + "/" + map.global.tiles[i].filename);
 
                 if (tile.open(QFile::WriteOnly | QFile::Text | QFile::Append))
                 {
@@ -223,12 +223,12 @@ void wPlaceObjects::on_btnStart_clicked()
         }
     }
 
-    props.nextIDCode++;
+    map.global.nextIDCode++;
 
     enableUi(true);
 
-    qInfo() << "Finished. New nextIDCode:" << props.nextIDCode;
-    ui->statusbar->showMessage("Finished. New nextIDCode: " + QString::number(props.nextIDCode) + " - nextIDCode still not saved (see button)!");
+    qInfo() << "Finished. New nextIDCode:" << map.global.nextIDCode;
+    ui->statusbar->showMessage("Finished. New nextIDCode: " + QString::number(map.global.nextIDCode) + " - nextIDCode still not saved (see button)!");
 }
 
 QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
@@ -284,7 +284,7 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
 
     for (int i = 0; i < placedObjectsCount; i++)
     {
-        props.nextIDCode++;
+        map.global.nextIDCode++;
         QList<QPoint> locations;
 
         for(int y = 0; y < largeImage.height(); y++)
@@ -318,7 +318,7 @@ QString wPlaceObjects::placeObjectsFromLayer(QImage &image)
                                                         QVariant(ui->cuwZVariance->getValue2() * 100).toInt())
                                                         ).toFloat() / 100;
 
-        result += objectEntries[QRandomGenerator::global()->bounded(0, objectEntries.count())].arg(QString::number(props.nextIDCode),
+        result += objectEntries[QRandomGenerator::global()->bounded(0, objectEntries.count())].arg(QString::number(map.global.nextIDCode),
                                                                                                 QString::number(x),
                                                                                                 QString::number(y),
                                                                                                 QString::number(z),
@@ -391,7 +391,7 @@ void wPlaceObjects::on_tbnObjectPresets_clicked()
 
 void wPlaceObjects::on_btnSave_clicked()
 {
-    emit returnGlobalProps(props);
+    emit returnGlobalProps(map.global);
     close();
 }
 

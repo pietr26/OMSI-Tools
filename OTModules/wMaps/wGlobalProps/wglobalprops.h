@@ -115,7 +115,7 @@ private:
 
     bool setupFinished;
 
-    OCMap::Global props;
+    OCMap map;
 
     QStandardItemModel *modelGroundTextures;
     QStandardItemModel *modelSeasons;
