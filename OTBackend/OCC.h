@@ -2153,8 +2153,241 @@ public:
 
     };
 
+    class TTData : public OCFile
+    {
+    public:
+        class Trip
+        {
+        public:
+            class Station
+            {
+            public:
+                int objectID;
+                int trackIndexParent;
+                QString name;
+                int tileID;
+                float awkwardValue1;
+                float awkwardValue2;
+                float awkwardValue3;
+                float awkwardValue4;
+            };
+
+            class Profile
+            {
+            public:
+                QString name;
+                QTime duration; // TODO: good type for use-cases?
+            };
+
+            QString name;
+            QString trackName;
+            QString terminus;
+            QString line;
+
+            QList<Station> stations;
+            QList<Profile> profiles;
+        };
+
+        class Tour
+        {
+        public:
+            class TripInformation
+            {
+            public:
+                QString name;
+                int profileIndex;
+                QTime start;
+            };
+
+            enum Day
+            {
+                Monday = 1,
+                Tuesday = 2,
+                Wednesday = 4,
+                Thursday = 8,
+                Friday = 16,
+                Saturday = 32,
+                Sunday = 64,
+                Holiday = 128,
+                Hols = 256,
+                NoHols = 512
+            };
+
+            Q_DECLARE_FLAGS(Days, Day)
+
+            QString name;
+            QString aiGroupName;
+            Days days;
+            QList<TripInformation> trips;
+        };
+
+        class Line
+        {
+        public:
+            QString name;
+            bool userAllowed = false;
+            unsigned int priority;
+
+            QList<Tour> tours;
+        };
+
+        QList<Trip> trips;
+        QList<Line> lines;
+
+        FileIOResponse read() override
+        {
+            clear();
+
+            QDirIterator dirIteratorTtp(dir + "/TTData", QStringList() << "*.ttp", QDir::Files, QDirIterator::Subdirectories);
+
+            // Trips
+            while (dirIteratorTtp.hasNext())
+            {
+                QFile ttp(dirIteratorTtp.next());
+                if (!ttp.open(QFile::ReadOnly | QFile::Text))
+                {
+                    // msg.fileOpenErrorCloseOMSI(parent, dir); TODO
+                    qDebug().noquote() << "Cannot open file: Full path: '" + QFileInfo(ttp).absoluteFilePath() + "'";
+                    return FileIOResponse::errFileNotOpen;
+                }
+
+                Trip trip;
+                trip.name = QFileInfo(ttp).baseName();
+
+                QTextStream in(&ttp);
+                in.setEncoding(QStringConverter::Latin1);
+                QString line = "";
+
+                try
+                {
+                    while (!in.atEnd())
+                    {
+                        line = in.readLine();
+
+                        if (line == "[trip]")
+                        {
+                            trip.trackName = in.readLine();
+                            trip.terminus = in.readLine();
+                            trip.line = in.readLine();
+                        }
+                        else if (line == "[station]")
+                        {
+                            Trip::Station station;
+                            station.objectID = in.readLine().toInt();
+                            station.trackIndexParent = in.readLine().toInt();
+                            station.name = in.readLine();
+                            station.tileID = in.readLine().toInt();
+                            station.awkwardValue1 = in.readLine().toFloat();
+                            station.awkwardValue2 = in.readLine().toFloat();
+                            station.awkwardValue3 = in.readLine().toFloat();
+                            station.awkwardValue4 = in.readLine().toFloat();
+
+                            trip.stations << station;
+                        }
+                        else if (line == "[profile]")
+                        {
+                            Trip::Profile profile;
+                            profile.name = in.readLine();
+                            profile.duration = QTime::fromMSecsSinceStartOfDay(in.readLine().toFloat() * 60 * 1000);
+
+                            trip.profiles << profile;
+                        }
+                    }
+
+                    ttp.close();
+
+                    trips << trip;
+                }
+                catch (...)
+                {
+                    ttp.close();
+                    return FileIOResponse::errCritical;
+                }
+            }
+
+            QDirIterator dirIteratorTtl(dir + "/TTData", QStringList() << "*.ttl", QDir::Files, QDirIterator::Subdirectories);
+
+            // Lines & Tours
+            while (dirIteratorTtl.hasNext())
+            {
+                QFile ttl(dirIteratorTtl.next());
+                if (!ttl.open(QFile::ReadOnly | QFile::Text))
+                {
+                    // msg.fileOpenErrorCloseOMSI(parent, dir); TODO
+                    qDebug().noquote() << "Cannot open file: Full path: '" + QFileInfo(ttl).absoluteFilePath() + "'";
+                    return FileIOResponse::errFileNotOpen;
+                }
+
+                Line lineTT;
+                lineTT.name = QFileInfo(ttl).baseName();
+
+                QTextStream in(&ttl);
+                in.setEncoding(QStringConverter::Latin1);
+                QString line = "";
+
+                try
+                {
+                    while (!in.atEnd())
+                    {
+                        line = in.readLine();
+
+                        if (line == "[userallowed]") lineTT.userAllowed = true;
+                        else if (line == "[priority]") lineTT.priority = in.readLine().toInt();
+                        else if (line == "[newtour]")
+                        {
+                            Tour tour;
+                            tour.name = in.readLine();
+                            tour.aiGroupName = in.readLine();
+
+                            int dayValue = in.readLine().toInt();
+
+                            while (true)
+                            {
+                                if      (dayValue >= 512) { tour.days |= Tour::Hols;      dayValue -= 512; }
+                                else if (dayValue >= 256) { tour.days |= Tour::NoHols;    dayValue -= 256; }
+                                else if (dayValue >= 128) { tour.days |= Tour::Holiday;   dayValue -= 128; }
+                                else if (dayValue >= 64)  { tour.days |= Tour::Sunday;    dayValue -= 64; }
+                                else if (dayValue >= 32)  { tour.days |= Tour::Saturday;  dayValue -= 32; }
+                                else if (dayValue >= 16)  { tour.days |= Tour::Friday;    dayValue -= 16; }
+                                else if (dayValue >= 8)   { tour.days |= Tour::Thursday;  dayValue -= 8; }
+                                else if (dayValue >= 4)   { tour.days |= Tour::Wednesday; dayValue -= 4; }
+                                else if (dayValue >= 2)   { tour.days |= Tour::Tuesday;   dayValue -= 2; }
+                                else if (dayValue >= 1)   { tour.days |= Tour::Monday;    break; }
+                                else break;
+                            }
+
+                            lineTT.tours << tour;
+                        }
+                        else if (line == "[addtrip]")
+                        {
+                            Tour::TripInformation tripInformation;
+
+                            tripInformation.name = in.readLine();
+                            tripInformation.profileIndex = in.readLine().toInt();
+                            tripInformation.start = QTime::fromMSecsSinceStartOfDay(in.readLine().toFloat() * 60 * 1000);
+
+                            lineTT.tours.last().trips << tripInformation;
+                        }
+                    }
+
+                    ttl.close();
+
+                    lines << lineTT;
+                }
+                catch (...)
+                {
+                    ttl.close();
+                    return FileIOResponse::errCritical;
+                }
+            }
+
+            return FileIOResponse::valid;
+        }
+    };
+
     Global global;
     Timezone timezone;
+    TTData ttData;
     QList<CarUse> carUses;
     QList<QString> humans; // humans.txt
     QList<QString> drivers; // drivers.txt
@@ -2171,6 +2404,8 @@ public:
 
     inline static QString dir = "";
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(OCMap::TTData::Tour::Days);
 
 class OCMoney { // *.cfg
 public:
