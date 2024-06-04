@@ -27,9 +27,17 @@ ScrollingText::~ScrollingText() {
     delete ui;
 }
 
+QString ScrollingText::text() const {
+    return _text;
+}
+
 void ScrollingText::setText(const QString &newText) {
     _text = newText;
     recalcTextWidthCache();
+}
+
+int ScrollingText::speed() const {
+    return _speed;
 }
 
 void ScrollingText::setSpeed(const int &newSpeed) {
@@ -37,14 +45,26 @@ void ScrollingText::setSpeed(const int &newSpeed) {
     recalcMovePixels();
 }
 
+ScrollingText::Direction ScrollingText::direction() const {
+    return _direction;
+}
+
 void ScrollingText::setDirection(const Direction &newDirection) {
     _direction = newDirection;
+}
+
+QFont ScrollingText::font() const {
+    return _font;
 }
 
 void ScrollingText::setFont(const QFont &newFont) {
     _font = newFont;
     recalcTextWidthCache();
     recalcFontDescent();
+}
+
+int ScrollingText::fps() const {
+    return _fps;
 }
 
 void ScrollingText::setFps(const int &newFps) {

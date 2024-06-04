@@ -30,26 +30,8 @@
      </property>
     </widget>
    </item>
-   <item>
-    <widget class="ScrollingText" name="scrollingText" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>50</height>
-      </size>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>ScrollingText</class>
-   <extends>QWidget</extends>
-   <header>OTWidgets\scrollingtext.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
