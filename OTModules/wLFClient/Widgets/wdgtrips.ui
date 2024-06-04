@@ -24,6 +24,13 @@
      </property>
     </widget>
    </item>
+   <item>
+    <widget class="QPushButton" name="btnTest">
+     <property name="text">
+      <string>Test</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>
