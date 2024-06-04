@@ -67,6 +67,7 @@ SOURCES += \
     OTWidgets/invalidmaindir.cpp \
     OTWidgets/message.cpp \
     OTWidgets/newupdate.cpp \
+    OTWidgets/scrollingtext.cpp \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
     OTModules/OTInternals/wdevtools.cpp \
@@ -147,6 +148,7 @@ HEADERS += \
     OTWidgets/invalidmaindir.h \
     OTWidgets/message.h \
     OTWidgets/newupdate.h \
+    OTWidgets/scrollingtext.h \
     OTWidgets/verifymaptools.h \
     OTModules/OTGeneric/wabout.h \
     OTModules/OTGeneric/wreleasenotes.h \
@@ -198,6 +200,7 @@ FORMS += \
     OTWidgets/invalidmaindir.ui \
     OTWidgets/message.ui \
     OTWidgets/newupdate.ui \
+    OTWidgets/scrollingtext.ui \
     OTWidgets/verifymaptools.ui \
     OTModules/OTGeneric/wabout.ui \
     OTModules/OTGeneric/wreleasenotes.ui \
