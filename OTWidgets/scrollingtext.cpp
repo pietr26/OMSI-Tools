@@ -98,7 +98,7 @@ void ScrollingText::paintEvent(QPaintEvent *e) {
             _currentPosition -= _textWidthCache;
 
         if(_currentPosition < - textOverlap)
-            p.drawText(_currentPosition + _textWidthCache, height(), _text);
+            p.drawText(_currentPosition + _textWidthCache, height() - _fontDescendCache, _text);
     }
 
     p.end();
