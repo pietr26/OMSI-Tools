@@ -108,7 +108,7 @@ QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoi
         parameterString << current.first + "=" + current.second;
     }
 
-    qDebug().noquote() << "params: " << parameterString;
+    qDebug().noquote() << "params:" << parameterString;
 
     if(!parameterString.isEmpty())
         url += "?" + parameterString.join("&");

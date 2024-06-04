@@ -9,8 +9,10 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
-class LFCApiSingleNotification {
 #include "OTBackend/OTGlobal.h"
+
+class LFCApiSingleNotification
+{
 public:
     LFCApiSingleNotification() { }
     QStringList lines;
@@ -18,9 +20,11 @@ public:
     QString text;
 };
 
-class LFCApiNotification {
+class LFCApiNotification
+{
 public:
-    explicit LFCApiNotification(const QJsonObject &obj = {}) {
+    explicit LFCApiNotification(const QJsonObject &obj = {})
+    {
         QJsonArray affectedLines = obj.value("affected_lines").toArray();
 
         _id            = obj.value("id").toInt();
@@ -31,11 +35,11 @@ public:
         _text          = obj.value("text").toString();
     }
 
-    int         id()             const {return _id;}
-    bool        isEnabled()      const {return _enabled;}
-    QStringList afftectedLines() const {return _affectedLines;}
-    QString     title()          const {return _title;}
-    QString     text()           const {return _text;}
+    int         id()             const { return _id; }
+    bool        isEnabled()      const { return _enabled; }
+    QStringList afftectedLines() const { return _affectedLines; }
+    QString     title()          const { return _title; }
+    QString     text()           const { return _text; }
 
 private:
     int _id;
