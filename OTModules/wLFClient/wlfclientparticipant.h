@@ -50,8 +50,8 @@ private:
     wPreferences *WPREFERENCES;
     wLogin *WLOGIN;
     wdgInformation *WDGINFORMATION = new wdgInformation(this, api);
-    wdgActions *WDGACTIONS = new wdgActions();
-    wdgTrips *WDGTRIPS = new wdgTrips();
+    wdgActions *WDGACTIONS = new wdgActions(this, api);
+    wdgTrips *WDGTRIPS = new wdgTrips(this, api);
     wdgNotifications *WDGNOTIFICATIONS = new wdgNotifications(this, api);
 
     OTNetworkConnection nc;
