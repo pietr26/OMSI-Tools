@@ -33,7 +33,8 @@ bool LFClientAPIInterface::login(const QString &username, const QString &passwor
         _currentToken  = obj.value("token").toString();
         _currentUserID = obj.value("user_id").toString();
         emit loginStatusChanged(true);
-    }
+        qInfo() << "LFClient: Login successful.";
+    } else qInfo() << "LFClient: Login failed.";
 
     return ok;
 }
@@ -49,11 +50,14 @@ bool LFClientAPIInterface::logout() {
     if(ok) {
         _currentToken = "";
         emit loginStatusChanged(false);
-    }
+        qInfo() << "LFClient: Logout successful.";
+    } else qInfo() << "LFClient: Logout failed.";
     return ok;
 }
 
-LFCApiGlobalData LFClientAPIInterface::getGlobalData() {
+LFCApiGlobalData LFClientAPIInterface::getGlobalData()
+{
+    qInfo() << "LFClient: get global data...";
     QNetworkRequest req = createNewRequest(GetGlobalData);
     QNetworkReply *r = m->get(req);
     while(!r->isFinished())
@@ -61,6 +65,7 @@ LFCApiGlobalData LFClientAPIInterface::getGlobalData() {
 
     bool ok;
     QJsonObject obj = handleReply(r, &ok);
+    qDebug().noquote() << "json:" << obj;
     if(ok) {
         return LFCApiGlobalData(obj);
     } else
@@ -69,6 +74,7 @@ LFCApiGlobalData LFClientAPIInterface::getGlobalData() {
 
 QList<LFCApiNotification> LFClientAPIInterface::getNotifications()
 {
+    qInfo() << "LFClient: get notifications...";
     QNetworkRequest req = createNewRequest(GetNotifications);
     QNetworkReply *r = m->get(req);
     while(!r->isFinished())
@@ -76,6 +82,7 @@ QList<LFCApiNotification> LFClientAPIInterface::getNotifications()
 
     bool ok;
     QJsonObject obj = handleReply(r, &ok);
+    qDebug().noquote() << "json:" << obj;
     QList<LFCApiNotification> result;
     if(ok) {
         QJsonArray arr = obj.value("results").toArray();
@@ -100,11 +107,15 @@ QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoi
         case UpdateUserStatus:   url += "updateUserStatus.php";    break;
     };
 
+    qDebug().noquote() << "LFClient: request to" << url;
+
     QStringList parameterString;
     for(int i = 0; i < parameters.count(); ++i) {
         QPair<QString, QString> current = parameters[i];
         parameterString << current.first + "=" + current.second;
     }
+
+    qDebug().noquote() << "params: " << parameterString;
 
     if(!parameterString.isEmpty())
         url += "?" + parameterString.join("&");
@@ -124,6 +135,8 @@ QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoi
 
 QJsonObject LFClientAPIInterface::handleReply(QNetworkReply *r, bool *ok, int *httpCode) {
     const int statusCode = r->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+
+    qDebug().noquote() << "LFClient: request status" << statusCode;
 
     if(httpCode)
         *httpCode = statusCode;
