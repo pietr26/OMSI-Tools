@@ -1,8 +1,6 @@
 #include "wdginformation.h"
 #include "ui_wdginformation.h"
 
-#include "OTBackend/LFClientAPIInterface/lfclientapiinterface.h"
-
 wdgInformation::wdgInformation(QWidget *parent, LFClientAPIInterface *api)
     : QWidget(parent)
     , ui(new Ui::wdgInformation),
