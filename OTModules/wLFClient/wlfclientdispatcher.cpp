@@ -19,6 +19,11 @@ wLFClientDispatcher::wLFClientDispatcher(QWidget *parent)
     centralWidget()->setVisible(false);
     createDockWidgets();
 
+    if (OTInformation::build == OTBuildOptions::Dev) ui->statusbar->addPermanentWidget(ui->lblRequests);
+    else ui->lblRequests->setVisible(false);
+
+    connect(api, &LFClientAPIInterface::requestRequested, this, &wLFClientDispatcher::recieveRequestCount);
+
     connect(WLOGIN, &wLogin::accepted, this, &wLFClientDispatcher::handleLogin);
 
     qInfo().noquote() << objectName() + " started";
@@ -71,6 +76,12 @@ void wLFClientDispatcher::createDockWidgets()
     dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
     dock->setWidget(WDGMANAGETRIPS);
     addDockWidget(Qt::BottomDockWidgetArea, dock);
+}
+
+void wLFClientDispatcher::recieveRequestCount()
+{
+    requestCount++;
+    ui->lblRequests->setText("Requests: " + QString::number(requestCount));
 }
 
 void wLFClientDispatcher::on_actionLogin_triggered()

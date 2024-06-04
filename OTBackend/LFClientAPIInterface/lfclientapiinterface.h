@@ -234,6 +234,7 @@ private:
 
 signals:
     void loginStatusChanged(bool);
+    void requestRequested() const;
 
 private:
     QNetworkAccessManager *m;

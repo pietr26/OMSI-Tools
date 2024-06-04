@@ -194,6 +194,7 @@ QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoi
     };
 
     qDebug().noquote() << "LFClient: request to" << url;
+    emit requestRequested();
 
     QStringList parameterString;
     for(int i = 0; i < parameters.count(); ++i) {

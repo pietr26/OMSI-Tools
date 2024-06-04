@@ -40,6 +40,8 @@ private slots:
 
     void on_actionLogout_triggered();
 
+    void recieveRequestCount();
+
 signals:
     void backToHome();
 
@@ -56,6 +58,7 @@ private:
 
     void createDockWidgets();
 
+    int requestCount = 0;
 };
 
 #endif // WLFCLIENTDISPATCHER_H

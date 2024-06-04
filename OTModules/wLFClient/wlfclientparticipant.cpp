@@ -19,6 +19,11 @@ wLFClientParticipant::wLFClientParticipant(QWidget *parent)
     centralWidget()->setVisible(false);
     createDockWidgets();
 
+    if (OTInformation::build == OTBuildOptions::Dev) ui->statusbar->addPermanentWidget(ui->lblRequests);
+    else ui->lblRequests->setVisible(false);
+
+    connect(api, &LFClientAPIInterface::requestRequested, this, &wLFClientParticipant::recieveRequestCount);
+
     connect(WLOGIN, &wLogin::accepted, this, &wLFClientParticipant::handleLogin);
 
     qInfo().noquote() << objectName() + " started";
@@ -77,6 +82,12 @@ void wLFClientParticipant::createDockWidgets()
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
     dock->setWidget(WDGNOTIFICATIONS);
     addDockWidget(Qt::TopDockWidgetArea, dock);
+}
+
+void wLFClientParticipant::recieveRequestCount()
+{
+    requestCount++;
+    ui->lblRequests->setText("Requests: " + QString::number(requestCount));
 }
 
 void wLFClientParticipant::on_actionLogin_triggered()
