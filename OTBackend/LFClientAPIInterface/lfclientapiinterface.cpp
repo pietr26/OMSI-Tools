@@ -1,12 +1,5 @@
 #include "lfclientapiinterface.h"
 
-#include <QtCore>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-
-#include "OTBackend/OTGlobal.h"
-
-
 LFClientAPIInterface::LFClientAPIInterface(QObject *parent) :
     QObject(parent),
     m(new QNetworkAccessManager(this)) {

@@ -7,8 +7,10 @@
 #include <QJsonArray>
 
 #include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 class LFCApiSingleNotification {
+#include "OTBackend/OTGlobal.h"
 public:
     LFCApiSingleNotification() { }
     QStringList lines;
