@@ -26,9 +26,9 @@ void wdgNotifications::reloadUi10s()
 {
     int currentRow = ui->lwgNotifications->currentRow();
 
-    ui->lwgNotifications->clear();
     if(api->isLoggedIn()) {
         QList<LFCApiNotification> notifications = api->getNotifications();
+        ui->lwgNotifications->clear();
 
         for (int i = 0; i < notifications.count(); i++)
         {
@@ -43,5 +43,5 @@ void wdgNotifications::reloadUi10s()
         }
 
         if (currentRow <= ui->lwgNotifications->count() - 1) ui->lwgNotifications->setCurrentRow(currentRow);
-    }
+    } else ui->lwgNotifications->clear();
 }

@@ -24,11 +24,12 @@ private:
 
     LFClientAPIInterface *api;
 
-    void reloadUi10s();
-
     QTimer *timer10s;
 
     QStandardItemModel *notifications;
+
+private slots:
+    void reloadUi10s();
 };
 
 #endif // WDGNOTIFICATIONS_H
