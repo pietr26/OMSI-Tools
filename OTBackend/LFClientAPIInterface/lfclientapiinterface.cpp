@@ -85,6 +85,94 @@ QList<LFCApiNotification> LFClientAPIInterface::getNotifications()
     return result;
 }
 
+QList<LFCApiTrip> LFClientAPIInterface::getMyTrips()
+{
+    qInfo() << "LFClient: get trips...";
+    QNetworkRequest req = createNewRequest(GetMyTrips);
+    QNetworkReply *r = m->get(req);
+    while(!r->isFinished())
+        qApp->processEvents();
+
+    bool ok;
+    QJsonObject obj = handleReply(r, &ok);
+    qDebug().noquote() << "json:" << obj;
+    QList<LFCApiTrip> result;
+    if(ok) {
+        QJsonArray arr = obj.value("results").toArray();
+        for(int i = 0; i < arr.count(); i++)
+            result << LFCApiTrip(arr.at(i).toObject());
+    }
+    return result;
+}
+
+LFCApiVehicle LFClientAPIInterface::getVehicle(const int &id)
+{
+    qInfo() << "LFClient: get vehicle...";
+    QList<QPair<QString, QString>> params;
+    params << QPair<QString, QString>("id", QString::number(id));
+
+    QNetworkRequest req = createNewRequest(GetVehicle, params);
+    QNetworkReply *r = m->get(req);
+    while(!r->isFinished())
+        qApp->processEvents();
+
+    bool ok;
+    QJsonObject obj = handleReply(r, &ok);
+    qDebug().noquote() << "json:" << obj;
+    LFCApiVehicle result;
+    if(ok)  return LFCApiVehicle(obj);
+    else return LFCApiVehicle();
+}
+
+QList<LFCApiVehicle> LFClientAPIInterface::getAllVehicles()
+{
+    qInfo() << "LFClient: get vehicles...";
+    QNetworkRequest req = createNewRequest(GetAllVehicles);
+    QNetworkReply *r = m->get(req);
+    while(!r->isFinished())
+        qApp->processEvents();
+
+    bool ok;
+    QJsonObject obj = handleReply(r, &ok);
+    qDebug().noquote() << "json:" << obj;
+    QList<LFCApiVehicle> result;
+    if(ok) {
+        QJsonArray arr = obj.value("results").toArray();
+        for(int i = 0; i < arr.count(); i++)
+            result << LFCApiVehicle(arr.at(i).toObject());
+    }
+    return result;
+}
+
+LFCApiSpeakRequest LFClientAPIInterface::getMySpeakRequest()
+{
+    qInfo() << "LFClient: get own speak request...";
+
+    QNetworkRequest req = createNewRequest(GetMySpeakRequest);
+    QNetworkReply *r = m->get(req);
+    while(!r->isFinished())
+        qApp->processEvents();
+
+    bool ok;
+    QJsonObject obj = handleReply(r, &ok);
+    qDebug().noquote() << "json:" << obj;
+    LFCApiVehicle result;
+    if(ok)  return LFCApiSpeakRequest(obj.value("value").toInt());
+    else return LFCApiSpeakRequest();
+}
+
+void LFClientAPIInterface::requestSpeak(LFCApiSpeakRequest request)
+{
+    qInfo() << "LFClient: send speak request...";
+    QList<QPair<QString, QString>> params;
+    params << QPair<QString, QString>("speakRequest", QString::number(request));
+
+    QNetworkRequest req = createNewRequest(RequestSpeak, params);
+    QNetworkReply *r = m->get(req);
+    while(!r->isFinished())
+        qApp->processEvents();
+}
+
 QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoint, const QList<QPair<QString, QString>> &parameters) const {
     QString url = "https://backend.omsi-tools.de/api/lfClient/v1/";
     switch(endpoint) {
@@ -98,6 +186,11 @@ QNetworkRequest LFClientAPIInterface::createNewRequest(const ApiEndpoint &endpoi
         case Logout:             url += "logout.php";              break;
         case RequestSpeak:       url += "requestSpeak.php";        break;
         case UpdateUserStatus:   url += "updateUserStatus.php";    break;
+        case GetTrips:           url += "getTrips.php";            break;
+        case GetMyTrips:         url += "getMyTrips.php";          break;
+        case GetVehicle:         url += "getVehicle.php";          break;
+        case GetAllVehicles:     url += "getAllVehicles.php";      break;
+        case GetMySpeakRequest:  url += "getMySpeakRequest.php";   break;
     };
 
     qDebug().noquote() << "LFClient: request to" << url;
