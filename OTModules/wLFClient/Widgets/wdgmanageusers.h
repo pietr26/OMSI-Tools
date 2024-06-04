@@ -14,7 +14,7 @@ class wdgManageUsers : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgManageUsers(QWidget *parent = nullptr, LFClientAPIInterface *api = nullptr);
+    explicit wdgManageUsers(QWidget *parent, LFClientAPIInterface *api);
     ~wdgManageUsers();
 
 private:

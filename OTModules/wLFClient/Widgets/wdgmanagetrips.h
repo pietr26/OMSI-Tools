@@ -14,7 +14,7 @@ class wdgManageTrips : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgManageTrips(QWidget *parent = nullptr, LFClientAPIInterface *api = nullptr);
+    explicit wdgManageTrips(QWidget *parent, LFClientAPIInterface *api);
     ~wdgManageTrips();
 
 private:

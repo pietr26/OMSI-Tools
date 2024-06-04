@@ -16,7 +16,7 @@ class wdgNotifications : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgNotifications(QWidget *parent = nullptr, LFClientAPIInterface *api = nullptr);
+    explicit wdgNotifications(QWidget *parent, LFClientAPIInterface *api);
     ~wdgNotifications();
 
 private:

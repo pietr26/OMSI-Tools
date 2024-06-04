@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "OTBackend/LFClientAPIInterface/lfclientapiinterface.h"
+
 namespace Ui {
 class wdgActions;
 }
@@ -12,7 +14,7 @@ class wdgActions : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgActions(QWidget *parent = nullptr);
+    explicit wdgActions(QWidget *parent, LFClientAPIInterface *api);
     ~wdgActions();
 
 private slots:

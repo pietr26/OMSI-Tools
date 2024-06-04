@@ -14,7 +14,7 @@ class wdgInformation : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgInformation(QWidget *parent = nullptr, LFClientAPIInterface *api = nullptr);
+    explicit wdgInformation(QWidget *parent, LFClientAPIInterface *api);
     ~wdgInformation();
 
 private:
@@ -23,11 +23,12 @@ private:
     QTimer *timer1s;
     QTimer *timer10s;
 
-    void reloadUi1s();
-    void reloadUi10s();
-
     LFClientAPIInterface *api;
     int timeDiff = 0;
+
+private slots:
+    void reloadUi1s();
+    void reloadUi10s();
 };
 
 #endif // WDGINFORMATION_H
