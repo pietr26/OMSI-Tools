@@ -24,7 +24,7 @@ public:
     void setText(const QString &);
     void setSpeed(const int &);
     void setDirection(const Direction &);
-    void setFontSize(const int &);
+    void setFont(const QFont & = QFont());
     void setFps(const int &);
 
 

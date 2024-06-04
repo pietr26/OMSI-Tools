@@ -41,8 +41,8 @@ void ScrollingText::setDirection(const Direction &newDirection) {
     _direction = newDirection;
 }
 
-void ScrollingText::setFontSize(const int &newSize) {
-    _font.setPixelSize(newSize);
+void ScrollingText::setFont(const QFont &newFont) {
+    _font = newFont;
     recalcTextWidthCache();
     recalcFontDescent();
 }
