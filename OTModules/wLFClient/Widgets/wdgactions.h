@@ -25,7 +25,14 @@ private slots:
 private:
     Ui::wdgActions *ui;
 
-    void updateButtons();
+    QTimer *timer5s;
+
+    LFClientAPIInterface *api;
+
+    void reloadUi(bool speak, bool crash, bool sendRequest = false);
+
+private slots:
+    void reloadUi5s();
 };
 
 #endif // WDGACTIONS_H
