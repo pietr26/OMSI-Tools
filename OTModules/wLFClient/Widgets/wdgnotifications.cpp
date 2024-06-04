@@ -14,8 +14,8 @@ wdgNotifications::wdgNotifications(QWidget *parent, LFClientAPIInterface *api)
 
     connect(api, &LFClientAPIInterface::loginStatusChanged, this, &wdgNotifications::reloadUi10s);
 
-    //ui->scrollingText->setText("Dies ist ein Lauftext lol!Hier geht es noch weiter, das ist nämlich ein sehr langer Text");
-    ui->scrollingText->setText("Dies ist ein Lauftext lol!");
+    ui->scrollingText->setText("Hier geht es nach unten: gg");
+    //ui->scrollingText->setText("Dies ist ein Lauftext lol!");
     ui->scrollingText->setFontSize(30);
     ui->scrollingText->setSpeed(100);
     ui->scrollingText->setDirection(ScrollingText::RightDirection);

@@ -33,6 +33,7 @@ private:
 
     void recalcTextWidthCache();
     void recalcMovePixels();
+    void recalcFontDescent();
     void paintEvent(QPaintEvent *) override;
 
     QString _text;
@@ -44,6 +45,7 @@ private:
     QFont _font;
 
     int _textWidthCache;
+    int _fontDescendCache;
 
     QTimer timer;
 };
