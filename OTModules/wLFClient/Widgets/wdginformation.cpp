@@ -14,15 +14,15 @@ wdgInformation::wdgInformation(QWidget *parent, LFClientAPIInterface *api)
     connect(timer1s, &QTimer::timeout, this, &wdgInformation::reloadUi1s);
     timer1s->start(1000);
 
-    timer5s = new QTimer(this);
-    connect(timer5s, &QTimer::timeout, this, &wdgInformation::reloadUi5s);
-    timer5s->start(5000);
+    timer10s = new QTimer(this);
+    connect(timer10s, &QTimer::timeout, this, &wdgInformation::reloadUi10s);
+    timer10s->start(10000);
 
     reloadUi1s();
-    reloadUi5s();
+    reloadUi10s();
 
     connect(api, &LFClientAPIInterface::loginStatusChanged, this, &wdgInformation::reloadUi1s);
-    connect(api, &LFClientAPIInterface::loginStatusChanged, this, &wdgInformation::reloadUi5s);
+    connect(api, &LFClientAPIInterface::loginStatusChanged, this, &wdgInformation::reloadUi10s);
 }
 
 wdgInformation::~wdgInformation()
@@ -49,10 +49,8 @@ void wdgInformation::reloadUi1s()
     }
 }
 
-void wdgInformation::reloadUi5s()
+void wdgInformation::reloadUi10s()
 {
-
-
     if (api->isLoggedIn())
     {
         qDebug() << "Getting data...";

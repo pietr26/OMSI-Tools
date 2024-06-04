@@ -21,10 +21,10 @@ private:
     Ui::wdgInformation *ui;
 
     QTimer *timer1s;
-    QTimer *timer5s;
+    QTimer *timer10s;
 
     void reloadUi1s();
-    void reloadUi5s();
+    void reloadUi10s();
 
     LFClientAPIInterface *api;
     int timeDiff = 0;
