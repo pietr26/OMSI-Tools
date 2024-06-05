@@ -22,7 +22,7 @@
     <item>
      <widget class="QLabel" name="lblRequests">
       <property name="text">
-       <string>Requests: 0</string>
+       <string notr="true">Requests: 0</string>
       </property>
      </widget>
     </item>

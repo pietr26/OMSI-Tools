@@ -43,7 +43,7 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     refreshDiskUsage();
 
     // sbAutosaveDuration
-    ui->sbxAutosaveDuration->setSuffix(" " + tr("s", "Short version of 'seconds'"));
+    ui->sbxAutosaveDuration->setSuffix(" s");
 
     // cobxLogfileMode
     QStringList logfileModes;
