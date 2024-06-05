@@ -10,6 +10,7 @@
 #include "Widgets/wdgactions.h"
 #include "Widgets/wdgtrips.h"
 #include "Widgets/wdgnotifications.h"
+#include "Widgets/wdgtrip.h"
 #include "OTModules/wLFClient/wlogin.h"
 
 #include "OTBackend/LFClientAPIInterface/lfclientapiinterface.h"
@@ -55,6 +56,7 @@ private:
     wdgActions *WDGACTIONS = new wdgActions(this, api);
     wdgTrips *WDGTRIPS = new wdgTrips(this, api);
     wdgNotifications *WDGNOTIFICATIONS = new wdgNotifications(this, api);
+    wdgTrip *WDGTRIP = new wdgTrip(this);
 
     OTNetworkConnection nc;
 

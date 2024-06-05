@@ -30,8 +30,14 @@ private:
 
     QTimer *timer10s;
 
+    QList<LFCApiTrip> tripData;
+
+signals:
+    void tripSelectionChanged(QList<LFCApiTrip> trips, int index);
+
 private slots:
     void reloadUi10s();
+    void on_tvwTrips_doubleClicked(const QModelIndex &index);
 };
 
 #endif // WDGTRIPS_H

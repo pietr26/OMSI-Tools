@@ -59,29 +59,41 @@ void wLFClientParticipant::on_actionHelp_triggered()
 
 void wLFClientParticipant::createDockWidgets()
 {
-    QDockWidget *dock = new QDockWidget(tr("Information", "plural form"), this);
-    dock->setAllowedAreas(Qt::AllDockWidgetAreas);
-    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
-    dock->setWidget(WDGINFORMATION);
-    addDockWidget(Qt::LeftDockWidgetArea, dock);
+    disconnect(WDGTRIP, nullptr, nullptr, nullptr);
 
-    dock = new QDockWidget(tr("Actions"), this);
-    dock->setAllowedAreas(Qt::AllDockWidgetAreas);
-    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
-    dock->setWidget(WDGACTIONS);
-    addDockWidget(Qt::LeftDockWidgetArea, dock);
+    QDockWidget *dockInformation = new QDockWidget(tr("Information", "plural form"), this);
+    dockInformation->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dockInformation->setFeatures(dockInformation->features() & ~QDockWidget::DockWidgetClosable);
+    dockInformation->setWidget(WDGINFORMATION);
+    addDockWidget(Qt::LeftDockWidgetArea, dockInformation);
 
-    dock = new QDockWidget(tr("Trips"), this);
-    dock->setAllowedAreas(Qt::AllDockWidgetAreas);
-    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
-    dock->setWidget(WDGTRIPS);
-    addDockWidget(Qt::RightDockWidgetArea, dock);
+    QDockWidget *dockActions = new QDockWidget(tr("Actions"), this);
+    dockActions->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dockActions->setFeatures(dockActions->features() & ~QDockWidget::DockWidgetClosable);
+    dockActions->setWidget(WDGACTIONS);
+    addDockWidget(Qt::LeftDockWidgetArea, dockActions);
 
-    dock = new QDockWidget(tr("Notifications"), this);
-    dock->setFeatures(dock->features() & ~QDockWidget::DockWidgetClosable);
-    dock->setAllowedAreas(Qt::AllDockWidgetAreas);
-    dock->setWidget(WDGNOTIFICATIONS);
-    addDockWidget(Qt::TopDockWidgetArea, dock);
+    QDockWidget *dockNotifications = new QDockWidget(tr("Notifications"), this);
+    dockNotifications->setFeatures(dockNotifications->features() & ~QDockWidget::DockWidgetClosable);
+    dockNotifications->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dockNotifications->setWidget(WDGNOTIFICATIONS);
+    addDockWidget(Qt::TopDockWidgetArea, dockNotifications);
+
+    QDockWidget *dockTrip = new QDockWidget(tr("Trip"), this);
+    dockTrip->setFeatures(dockTrip->features() & ~QDockWidget::DockWidgetClosable);
+    dockTrip->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dockTrip->setWidget(WDGTRIP);
+    addDockWidget(Qt::RightDockWidgetArea, dockTrip);
+
+    QDockWidget *dockTrips = new QDockWidget(tr("Trips"), this);
+    dockTrips->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dockTrips->setFeatures(dockTrips->features() & ~QDockWidget::DockWidgetClosable);
+    dockTrips->setWidget(WDGTRIPS);
+    addDockWidget(Qt::RightDockWidgetArea, dockTrips);
+
+    connect(WDGTRIPS, &wdgTrips::tripSelectionChanged, WDGTRIP, &wdgTrip::changeTrip);
+
+    splitDockWidget(dockNotifications, dockTrip, Qt::Horizontal);
 }
 
 void wLFClientParticipant::recieveRequestCount()

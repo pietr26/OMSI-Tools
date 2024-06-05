@@ -34,7 +34,7 @@ void wdgTrips::reloadUi10s()
 {
     if (api->isLoggedIn())
     {
-        QList<LFCApiTrip> tripData = api->getMyTrips();
+        tripData = api->getMyTrips();
 
         trips = new QStandardItemModel(tripData.count(), 6);
         trips->setHeaderData(0, Qt::Horizontal, tr("Vehicle"));
@@ -69,4 +69,9 @@ void wdgTrips::reloadUi10s()
         trips = new QStandardItemModel();
         ui->tvwTrips->setModel(trips);
     }
+}
+
+void wdgTrips::on_tvwTrips_doubleClicked(const QModelIndex &index)
+{
+    tripSelectionChanged(tripData, index.row());
 }

@@ -46,6 +46,7 @@ SOURCES += \
     OTModules/wLFClient/Widgets/wdgmanageusers.cpp \
     OTModules/wLFClient/Widgets/wdgnotification.cpp \
     OTModules/wLFClient/Widgets/wdgnotifications.cpp \
+    OTModules/wLFClient/Widgets/wdgtrip.cpp \
     OTModules/wLFClient/Widgets/wdgtrips.cpp \
     OTModules/wLFClient/wlfclientdispatcher.cpp \
     OTModules/wLFClient/wlfclientparticipant.cpp \
@@ -124,6 +125,7 @@ HEADERS += \
     OTModules/wLFClient/Widgets/wdgmanageusers.h \
     OTModules/wLFClient/Widgets/wdgnotification.h \
     OTModules/wLFClient/Widgets/wdgnotifications.h \
+    OTModules/wLFClient/Widgets/wdgtrip.h \
     OTModules/wLFClient/Widgets/wdgtrips.h \
     OTModules/wLFClient/wlfclientdispatcher.h \
     OTModules/wLFClient/wlfclientparticipant.h \
@@ -176,6 +178,7 @@ FORMS += \
     OTModules/wLFClient/Widgets/wdgmanageusers.ui \
     OTModules/wLFClient/Widgets/wdgnotification.ui \
     OTModules/wLFClient/Widgets/wdgnotifications.ui \
+    OTModules/wLFClient/Widgets/wdgtrip.ui \
     OTModules/wLFClient/Widgets/wdgtrips.ui \
     OTModules/wLFClient/wlfclientdispatcher.ui \
     OTModules/wLFClient/wlfclientparticipant.ui \
