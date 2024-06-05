@@ -37,7 +37,7 @@ signals:
 
 private slots:
     void reloadUi10s();
-    void on_tvwTrips_clicked(const QModelIndex &index);
+    void onCurrentTripChanged();
 };
 
 #endif // WDGTRIPS_H

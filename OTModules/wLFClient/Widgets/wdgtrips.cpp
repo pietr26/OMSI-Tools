@@ -63,6 +63,7 @@ void wdgTrips::reloadUi10s()
 
         ui->tvwTrips->setModel(trips);
         ui->tvwTrips->resizeColumnsToContents();
+        connect(ui->tvwTrips->selectionModel(), &QItemSelectionModel::selectionChanged, this, &wdgTrips::onCurrentTripChanged);
     }
     else
     {
@@ -71,8 +72,6 @@ void wdgTrips::reloadUi10s()
     }
 }
 
-void wdgTrips::on_tvwTrips_clicked(const QModelIndex &index)
-{
-    emit tripSelectionChanged(tripData, index.row());
+void wdgTrips::onCurrentTripChanged() {
+    emit tripSelectionChanged(tripData, ui->tvwTrips->selectionModel()->currentIndex().row());
 }
-
