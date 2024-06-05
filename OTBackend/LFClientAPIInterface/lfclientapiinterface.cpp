@@ -99,9 +99,24 @@ QList<LFCApiTrip> LFClientAPIInterface::getMyTrips()
     QList<LFCApiTrip> result;
     if(ok) {
         QJsonArray arr = obj.value("results").toArray();
-        for(int i = 0; i < arr.count(); i++)
+        for(int i = 0; i < arr.count(); i++) {
             result << LFCApiTrip(arr.at(i).toObject());
+        }
     }
+
+    // remove empty trips
+    if(result.isEmpty())
+        return {};
+
+    // filter and remove empty trips
+    for(int i = 0; i < result.count(); i++) {
+        if(result[i].busstops().isEmpty()) {
+            result.remove(i);
+            i--;
+        }
+    }
+
+    std::sort(result.begin(), result.end(), [](LFCApiTrip a, LFCApiTrip b) {return a.busstops()[0].time() < b.busstops()[0].time();});
     return result;
 }
 
