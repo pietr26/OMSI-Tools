@@ -71,7 +71,8 @@ void wdgTrips::reloadUi10s()
     }
 }
 
-void wdgTrips::on_tvwTrips_doubleClicked(const QModelIndex &index)
+void wdgTrips::on_tvwTrips_clicked(const QModelIndex &index)
 {
-    tripSelectionChanged(tripData, index.row());
+    emit tripSelectionChanged(tripData, index.row());
 }
+
