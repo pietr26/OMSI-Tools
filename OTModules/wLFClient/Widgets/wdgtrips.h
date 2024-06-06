@@ -15,7 +15,7 @@ class wdgTrips : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgTrips(QWidget *parent = nullptr, LFClientAPIInterface *api = nullptr);
+    explicit wdgTrips(QWidget *parent, LFClientAPIInterface *api);
     ~wdgTrips();
 
 private slots:

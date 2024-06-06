@@ -14,21 +14,24 @@ class wdgTrip : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgTrip(QWidget *parent);
+    explicit wdgTrip(QWidget *parent, LFClientAPIInterface *api);
     ~wdgTrip();
 
 private:
     Ui::wdgTrip *ui;
 
-    void loadUi();
-
     QList<LFCApiTrip> tripData;
+
+    LFClientAPIInterface *api;
 
     QStandardItemModel *trip;
     int currentIndex;
 
 public slots:
     void changeTrip(QList<LFCApiTrip> trips, int index);
+
+private slots:
+    void loadUi();
 };
 
 #endif // WDGTRIP_H
