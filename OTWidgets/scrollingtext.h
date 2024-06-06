@@ -15,6 +15,7 @@ class ScrollingText : public QWidget {
     Q_PROPERTY(int       speed     READ speed     WRITE setSpeed     NOTIFY speedChanged)
     Q_PROPERTY(Direction direction READ direction WRITE setDirection NOTIFY directionChanged)
     Q_PROPERTY(QFont     font      READ font      WRITE setFont      NOTIFY fontChanged)
+    Q_PROPERTY(QColor    textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
     Q_PROPERTY(int       fps       READ fps       WRITE setFps       NOTIFY fpsChanged)
 
 public:
@@ -38,6 +39,10 @@ public:
     QFont font() const;
     void setFont(const QFont & = QFont());
 
+    QColor textColor() const;
+    void setTextColor(const QColor &);
+    void resetColor();
+
     int fps() const;
     void setFps(const int &);
 
@@ -46,6 +51,7 @@ signals:
     void speedChanged(const int &);
     void directionChanged(const Direction &);
     void fontChanged(const QFont &);
+    void textColorChanged(const QColor &);
     void fpsChanged(const int &);
 
 private:
@@ -56,16 +62,17 @@ private:
     void recalcFontDescent();
     void paintEvent(QPaintEvent *) override;
 
-    QString _text;
-    int _speed;
-    int _currentPosition;
-    int _fps;
-    int _movePixels;
+    QString   _text;
+    int       _speed;
+    float     _currentPosition;
+    int       _fps;
+    float     _movePixels;
     Direction _direction;
-    QFont _font;
+    QFont     _font;
+    QColor    _color;
 
-    int _textWidthCache;
-    int _fontDescendCache;
+    int       _textWidthCache;
+    int       _fontDescendCache;
 
     QTimer timer;
 };

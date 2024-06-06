@@ -6,7 +6,7 @@
 ScrollingText::ScrollingText(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ScrollingText),
-    _speed(1),
+    _speed(80),
     _currentPosition(0),
     _fps(40),
     _movePixels(0),
@@ -16,7 +16,9 @@ ScrollingText::ScrollingText(QWidget *parent) :
 
     recalcFontDescent();
 
-    timer.setInterval(25);
+    setFps(40);
+    setFont(_font);
+
     connect(&timer, &QTimer::timeout, this, [this](){
         update();
     });
@@ -61,6 +63,23 @@ void ScrollingText::setFont(const QFont &newFont) {
     _font = newFont;
     recalcTextWidthCache();
     recalcFontDescent();
+
+    QFontMetrics fm(_font);
+    setMinimumHeight(fm.height());
+}
+
+QColor ScrollingText::textColor() const {
+    return _color;
+}
+
+void ScrollingText::setTextColor(const QColor &newColor) {
+    _color = newColor;
+    emit textColorChanged(_color);
+}
+
+void ScrollingText::resetColor() {
+    _color = QColor();
+    emit textColorChanged(_color);
 }
 
 int ScrollingText::fps() const {
@@ -69,7 +88,7 @@ int ScrollingText::fps() const {
 
 void ScrollingText::setFps(const int &newFps) {
     _fps = newFps;
-    timer.setInterval((1.0 / (float)_fps * 1000.0));
+    timer.setInterval((1.0 / (float)_fps) * 1000.0);
     recalcMovePixels();
 }
 
@@ -97,28 +116,31 @@ void ScrollingText::paintEvent(QPaintEvent *e) {
         _currentPosition -= _movePixels;
 
     QPainter p(this);
+    p.setPen(_color);
     p.setFont(_font);
     p.drawText(_currentPosition, height() - _fontDescendCache, _text);
 
     if(_textWidthCache < wdgWidth) {
+        if(_currentPosition < 0)
+            p.drawText(_currentPosition + wdgWidth, height() - _fontDescendCache, _text);
+
         if(_currentPosition > wdgWidth - _textWidthCache)
             _currentPosition = - _textWidthCache;
 
         if(_currentPosition < - _textWidthCache)
             _currentPosition += wdgWidth;
-
-        if(_currentPosition < 0)
-            p.drawText(_currentPosition + wdgWidth, height() - _fontDescendCache, _text);
     } else {
         const int textOverlap = _textWidthCache - wdgWidth;
+
+        if(_currentPosition < - textOverlap)
+            p.drawText(_currentPosition + _textWidthCache, height() - _fontDescendCache, _text);
+
         if(_currentPosition < - _textWidthCache)
             _currentPosition += _textWidthCache;
 
         if(_currentPosition > 0)
             _currentPosition -= _textWidthCache;
 
-        if(_currentPosition < - textOverlap)
-            p.drawText(_currentPosition + _textWidthCache, height() - _fontDescendCache, _text);
     }
 
     p.end();
