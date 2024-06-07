@@ -40,6 +40,7 @@ wStart::wStart(QWidget *parent)
         ui->tbnMaps->setVisible(false);
         ui->tbnLFClientParticipant->setVisible(false);
         ui->tbnLFClientDispatcher->setVisible(false);
+        ui->gbxControlCenterTrip->setVisible(false);
     }
 
     adjustSize();

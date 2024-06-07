@@ -342,7 +342,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="gbxTools">
+     <widget class="QGroupBox" name="gbxControlCenterTrip">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>

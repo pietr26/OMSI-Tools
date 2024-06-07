@@ -104,3 +104,9 @@ void wReleaseNotes::on_btnUpdateManually_clicked()
 {
     QDesktopServices::openUrl(OTLinks::GitHub::releases);
 }
+
+void wReleaseNotes::on_actionClose_triggered()
+{
+    close();
+}
+

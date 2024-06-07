@@ -27,6 +27,8 @@ private slots:
 
     void on_btnUpdateManually_clicked();
 
+    void on_actionClose_triggered();
+
 private:
     Ui::wReleaseNotes *ui;
     OTSettings set;
