@@ -294,12 +294,12 @@ void wPreferences::on_btnOpenBackupFolder_clicked()
 /// Checks for updates
 void wPreferences::on_btnCheckForUpdates_clicked()
 {
-    QPair<int, QString> update = misc.getUpdateInformation();
+    QPair<int, QString> update = updater->getUpdateInformation();
 
     if (update.first == -2)
         QMessageBox::information(this, tr("Maintenance"), OTStrings::serverMaintenance());
     else if (update.first == -1)
-        QMessageBox::warning(this, tr("Failed"), tr("Could not check for updates: unknown error.") + "\n(-1)");
+        QMessageBox::warning(this, tr("Failed"), tr("Could not check for updates. Please check your internet connection and try again.") + "\n(-1)");
     else if (update.first == 0)
         QMessageBox::information(this, tr("Finshed"), tr("No updates available."));
     else if (update.first > 0)

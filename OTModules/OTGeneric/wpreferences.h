@@ -81,6 +81,7 @@ private:
     OTSettings set;
     OTMessage msg;
     OTMiscellaneous misc;
+    OTUpdater *updater = new OTUpdater();
     OTFileOperations fop;
     OTDiskUsage dUs;
     OTStrings strings;

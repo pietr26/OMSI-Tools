@@ -138,7 +138,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
          </font>
         </property>
         <property name="text">
-         <string>Open maintenance tool</string>
+         <string>Update now</string>
         </property>
        </widget>
       </item>
@@ -160,6 +160,19 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="pgbProgress">
+      <property name="maximum">
+       <number>0</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

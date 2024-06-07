@@ -36,7 +36,10 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
         ui->lblNewVersion->setVisible(false);
     }
 
-    ui->lblDownloadManually->setText(tr("A new version of %1 is available. Since you installed a portable version, you have to update %1 manually.").arg(OTInformation::name));
+    ui->statusbar->addPermanentWidget(ui->pgbProgress);
+    ui->pgbProgress->setVisible(false);
+
+    ui->lblDownloadManually->setText(tr("Since you installed a portable version, you have to update %1 manually.").arg(OTInformation::name));
 
     ui->lblCurrentVersion->setText("<b>" + tr("Current version:") + "</b> " + OTInformation::versions::currentVersion.first);
 
@@ -81,7 +84,13 @@ void wReleaseNotes::on_btnClose_clicked()
 /// Calls the prefs and execute the update
 void wReleaseNotes::on_btnUpdateNow_clicked()
 {
-    misc.startMaintenanceTool();
+    QMessageBox::information(this, tr("Install update"), tr("%1 closes for installing the new version. Please wait until %1 has been restarted.\nDepending on the computer performance and the internet connection, this process may take a moment.").arg(OTInformation::name));
+
+    ui->centralwidget->setEnabled(false);
+    ui->pgbProgress->setVisible(true);
+    ui->statusbar->showMessage(tr("Start update..."));
+
+    updater->start();
 }
 
 void wReleaseNotes::on_cbxBranch_currentIndexChanged(int index)

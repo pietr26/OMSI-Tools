@@ -31,7 +31,7 @@ private:
     Ui::wReleaseNotes *ui;
     OTSettings set;
     OTNetworkConnection nc;
-    OTMiscellaneous misc;
+    OTUpdater *updater = new OTUpdater();
 
     bool setupFinished = false;
 };

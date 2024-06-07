@@ -35,6 +35,7 @@ private:
     Ui::wStartUpScreen *ui;
     OTSettings set;
     OTMiscellaneous misc;
+    OTUpdater *updater = new OTUpdater();
     wStart *WSTART;
     firstSetup *FIRSTSETUP;
     newUpdate *NEWUPDATE;

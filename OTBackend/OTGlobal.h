@@ -481,8 +481,42 @@ public:
         QClipboard* clipboard = QApplication::clipboard();
         clipboard->setPixmap(copyPixmap);
     }
+};
 
-    /// Checks for an update
+class OTUpdater : public QThread
+{
+    Q_OBJECT
+public:
+    OTUpdater() { }
+
+    void run() Q_DECL_OVERRIDE
+    {
+        qDebug() << "OTUpdater: Perform updateMt...";
+
+        QStringList args;
+        args << "--accept-licenses" << "--default-answer" << "--confirm-command" << "update" << "maintenancetool";
+
+        QProcess *process = new QProcess();
+        process->start("../OMSI-Tools_Updater.exe", args);
+
+        qDebug() << "mt update status:" << process->waitForFinished();
+
+        qDebug() << "OTUpdater: updated maintenacetool.";
+
+        // -------------------------------------------------
+
+        qDebug() << "OTUpdater: Perform updateAll...";
+
+        args.clear();
+        args << "--accept-licenses" << "--default-answer" << "--confirm-command" << "update";
+
+        process = new QProcess();
+        process->start("../OMSI-Tools_Updater.exe", args);
+
+        QApplication::quit();
+    }
+
+
     //  first:
     //      -2: maintenance
     //      -1: manually update error
@@ -517,7 +551,7 @@ public:
             QString output = process->readAllStandardOutput();
             qDebug() << "mt output:" << output;
 
-            if (output.contains("<updates>")) status = 1;
+            if (output.contains("id=\"latest\"")) status = 1;
             else if (output.contains("There are currently no updates available")) status = 0;
             else status = -1;
 
@@ -550,10 +584,11 @@ public:
         return list;
     }
 
-    void startMaintenanceTool()
+    void openMaintenancetool()
     {
         QStringList args;
-        args << "--su";
+        args << "-su";
+
         QProcess *process = new QProcess();
         process->start("../OMSI-Tools_Updater.exe", args);
 

@@ -107,7 +107,7 @@ void wStartUpScreen::updateCheck()
 
     if (checkForUpdate)
     {
-        update = misc.getUpdateInformation();
+        update = updater->getUpdateInformation();
 
         /*if (update.first == -2)
             QMessageBox::information(this, tr("Maintenance"), OTStrings::serverMaintenance());
