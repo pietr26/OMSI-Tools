@@ -29,6 +29,11 @@
         <translation>&apos;Omsi.exe&apos; nebylo nalezeno v hlavním adresáři hry.Zvolili jste správnou cestu adresáře? Pokud ne, může v některých modulech docházet k chybám.Chcete vybrat novou cestu k adresáři?</translation>
     </message>
     <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="859"/>
+        <source>There was an error while open the temporary database. Please try it again or contact the developer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Pro další používání aplikace je potřeba přidat hlavní složku s OMSI. Chcete ji přidat nyní?</translation>
@@ -118,11 +123,6 @@
         <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <source>OMSI main directory not found</source>
         <translation>Hlavní složka s OMSI nenalezena</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="859"/>
-        <source>There was an error while open the temporary database. Please try it again or contect the developer.</source>
-        <translation>Při otevírání dočasné databáze došlo k chybě. Zkus to prosím znovu, nebo kontaktujte vývojáře.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="915"/>
@@ -2490,8 +2490,14 @@ Bohužel není současné chvíli k dispozici více jazyků. Pokud znáte svůj 
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="155"/>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="199"/>
         <source>Close</source>
         <translation>Zavřít</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="187"/>
+        <source>Window</source>
+        <translation type="unfinished">Okno</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="15"/>
@@ -2670,8 +2676,8 @@ Depending on the computer performance and the internet connection, this process 
         <translation>Speciální</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="57"/>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="79"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="58"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="80"/>
         <source>News</source>
         <translation>Novinky</translation>
     </message>
@@ -2681,17 +2687,17 @@ Depending on the computer performance and the internet connection, this process 
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="50"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="51"/>
         <source>About %1</source>
         <translation>Informace %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="82"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="83"/>
         <source>News - no internet connection</source>
         <translation>Novinky - žádné internetové připojení</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="409"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="410"/>
         <source>DirectXTex License</source>
         <translation>DirextXTex Licence</translation>
     </message>

@@ -40,7 +40,7 @@
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="859"/>
-        <source>There was an error while open the temporary database. Please try it again or contect the developer.</source>
+        <source>There was an error while open the temporary database. Please try it again or contact the developer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2483,7 +2483,13 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="155"/>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="199"/>
         <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="187"/>
+        <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2683,23 +2689,23 @@ Depending on the computer performance and the internet connection, this process 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="50"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="51"/>
         <source>About %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="57"/>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="79"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="58"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="80"/>
         <source>News</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="82"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="83"/>
         <source>News - no internet connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="409"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="410"/>
         <source>DirectXTex License</source>
         <translation type="unfinished"></translation>
     </message>

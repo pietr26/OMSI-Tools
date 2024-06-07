@@ -59,6 +59,11 @@
         <translation>Konnte &quot;Omsi.exe&quot; nicht finden</translation>
     </message>
     <message>
+        <location filename="../../OTBackend/OTGlobal.h" line="859"/>
+        <source>There was an error while open the temporary database. Please try it again or contact the developer.</source>
+        <translation>Die temporäre Datenbank konnte nicht geöffnet werden. Bitte versuche es erneut oder kontaktiere den Entwickler.</translation>
+    </message>
+    <message>
         <location filename="../../OTBackend/OTGlobal.h" line="877"/>
         <location filename="../../OTBackend/OTGlobal.h" line="899"/>
         <source>Unsaved changes</source>
@@ -98,11 +103,6 @@
         <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <source>OMSI main directory not found</source>
         <translation>OMSI-Hauptverzeichnis nicht gefunden</translation>
-    </message>
-    <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="859"/>
-        <source>There was an error while open the temporary database. Please try it again or contect the developer.</source>
-        <translation>Die temporäre Datenbank konnte nicht geöffnet werden. Bitte versuche es erneut oder kontaktiere den Entwickler.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="915"/>
@@ -2490,8 +2490,14 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="155"/>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="199"/>
         <source>Close</source>
         <translation>Schließen</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="187"/>
+        <source>Window</source>
+        <translation type="unfinished">Fenster</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="15"/>
@@ -2671,8 +2677,8 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         <translation>Speicherplatz</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="57"/>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="79"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="58"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="80"/>
         <source>News</source>
         <translation>Neuigkeiten</translation>
     </message>
@@ -2682,17 +2688,17 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="50"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="51"/>
         <source>About %1</source>
         <translation>Über %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="82"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="83"/>
         <source>News - no internet connection</source>
         <translation>Neuigkeiten - keine Internetverbindung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="409"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="410"/>
         <source>DirectXTex License</source>
         <translation>DirectXTex-Lizenz</translation>
     </message>
