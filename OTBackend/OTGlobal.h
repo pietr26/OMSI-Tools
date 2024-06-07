@@ -587,7 +587,7 @@ public:
     void openMaintenancetool()
     {
         QStringList args;
-        args << "-su";
+        args << "--start-updater";
 
         QProcess *process = new QProcess();
         process->start("../OMSI-Tools_Updater.exe", args);
