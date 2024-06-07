@@ -4,174 +4,174 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="880"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="915"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Die ausgewählte Datei existiert nicht oder ist lesegeschützt.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="671"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="706"/>
         <source>Select the OMSI main directory...</source>
         <translation>OMSI-Hauptverzeichnis auswählen...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="586"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="621"/>
         <source>Successfully created shortcut!</source>
         <translation>Verknüpfung erfolgreich erstellt!</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="591"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="626"/>
         <source>Could not create shortcut in %1.</source>
         <translation>Die Verknüpfung in %1 konnte nicht erstellt werden.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="653"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="688"/>
         <source>&apos;Omsi.exe&apos; could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
         <translation>&apos;Omsi.exe&apos; konnte im ausgewählten Verzeichnis nicht gefunden werden. Ist der Pfad korrekt? Andernfalls können in einigen Modulen Probleme auftreten. Soll jetzt ein neuer Pfad ausgewählt werden?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="831"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Um fortzufahren, benötigt die Anwendung das OMSI-Hauptverzeichnis. Soll es jetzt ausgewählt werden?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="892"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="927"/>
         <source>There are no chars in the font.</source>
         <translation>Es gibt keine Zeichen in der Schrift.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="898"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="933"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation>&apos;%1&apos; konnte nicht gespeichert werden. Wenn OMSI läuft, bitte schließen und erneut versuchen.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="586"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="621"/>
         <source>Success</source>
         <translation>Erfolgreich</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="591"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="626"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="653"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="688"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <translation>Konnte &quot;Omsi.exe&quot; nicht finden</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="842"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="864"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="877"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="899"/>
         <source>Unsaved changes</source>
         <translation>Ungespeicherte Änderungen</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="842"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="877"/>
         <source>There are unsaved changes.</source>
         <translation>Es gibt noch nicht gespeicherte Änderungen.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="864"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="899"/>
         <source>There are unsaved changes. Close anyway?</source>
         <translation>Es gibt noch nicht gespeicherte Änderungen. Trotzdem schließen?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="991"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1026"/>
         <source>Images</source>
         <translation>Grafiken</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1000"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1035"/>
         <source>The source code of %1 is about %2 lines long.</source>
         <translation>Der Quellcode von %1 ist etwa %2 Zeilen lang.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1001"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1036"/>
         <source>%1 was born from a simple console application called &quot;Font Creator&quot;.</source>
         <translation>%1 entstand aus einer einfachen Konsolenanwendung namens &quot;Font-Creator&quot;.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1005"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1040"/>
         <source>Your hard disk is crowded? Clean up your main directory with %1&apos; cleanup tool.</source>
         <translation>Ist die Festplatte voll? Bereinige dein Hauptverzeichnis mit %1&apos; Aufräumer-Tool.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="831"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <source>OMSI main directory not found</source>
         <translation>OMSI-Hauptverzeichnis nicht gefunden</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="824"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="859"/>
         <source>There was an error while open the temporary database. Please try it again or contect the developer.</source>
         <translation>Die temporäre Datenbank konnte nicht geöffnet werden. Bitte versuche es erneut oder kontaktiere den Entwickler.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="880"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="886"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="915"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="921"/>
         <source>Error while opening file</source>
         <translation>Datei konnte nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="886"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="921"/>
         <source>There was an error while opening &apos;%1&apos;. If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
         <translation>&apos;%1&apos; konnte nicht geöffnet werden. Wenn OMSI geöffnet ist, schließe es und versuche es erneut. Überprüfe, ob die Datei (noch) existiert.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="892"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="927"/>
         <source>No chars in font</source>
         <translation>Keine Zeichen in Schrift</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="898"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="933"/>
         <source>Save error</source>
         <translation>Speicherfehler</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="904"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="939"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation>Dieses Modul ist wegen Zeitmangel bei den Entwicklungen leider noch deaktiviert. Bitte halte in den nächsten Tagen nach neuen Aktualisierungen ausschau.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="904"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="939"/>
         <source>Module still deactivated</source>
         <translation>Modul noch deaktiviert</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="970"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1005"/>
         <source>Bytes</source>
         <translation>Bytes</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="971"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1006"/>
         <source>kB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation>kB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="972"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1007"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="973"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1008"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="974"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1009"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation>TB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="975"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1010"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation>PB</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1026"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1061"/>
         <source>Windows standard</source>
         <translation>Windows-Standard</translation>
     </message>
@@ -201,29 +201,29 @@
         <translation>Tiefer Winter</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1002"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1037"/>
         <source>With the updater of %1 you can install updates with one click. It is available through the preferences.</source>
         <translation>Mit dem Updater von %1 kannst du Aktualisierungen mit einem Klick installieren. Er ist über die Einstellungen erreichbar.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1003"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1038"/>
         <source>In the &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;Wiki of %1&lt;/a&gt; you can find useful explanations about all topics.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
         <translation>Im &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;Wiki von %1&lt;/a&gt; findest du nützliche Erklärungen zu allen Themen.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1004"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1039"/>
         <source>Check out the latest developments in the &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;presentation thread in the OMSI-WebDisk&lt;/a&gt;.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
         <translation>Verfolge die aktuellen Entwicklungen im &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;Vorstellungsthread in der OMSI-WebDisk&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1006"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1041"/>
         <source>You&apos;ve started %1 about %2 times.</source>
         <translation>Du hast %1 bereits %2 Mal gestartet.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1010"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1045"/>
         <source>The application server is currently undergoing maintenance (HTTP 503). Please try again later.</source>
         <translation>Der Anwendungsserver befindet sich derzeit in Wartungsarbeiten (HTTP 503). Bitte versuche es später erneut.</translation>
     </message>
@@ -2420,8 +2420,8 @@ Dies ist eine Alpha-Version dieses Moduls. Bitte erstelle ohne Ausnahme vor JEDE
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="302"/>
-        <source>Could not check for updates: unknown error.</source>
-        <translation>Es konnten keine Aktualisierungen abgefragt werden: unbekannter Fehler.</translation>
+        <source>Could not check for updates. Please check your internet connection and try again.</source>
+        <translation>Es konnten keine Aktualisierungen abgefragt werden. Bitte überprüfe deine Internetverbindung und versuche es erneut.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="304"/>
@@ -2480,8 +2480,8 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="141"/>
-        <source>Open maintenance tool</source>
-        <translation>Wartungstool öffnen</translation>
+        <source>Update now</source>
+        <translation>Jetzt aktualisieren</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="148"/>
@@ -2500,31 +2500,48 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="21"/>
-        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="62"/>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="65"/>
         <source>Loading...</source>
         <translation>Laden...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="39"/>
-        <source>A new version of %1 is available. Since you installed a portable version, you have to update %1 manually.</source>
-        <translation>Eine neue Version von %1 ist verfügbar. Da du eine portable Version installiert hast, musst du %1 manuell aktualisieren.</translation>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="42"/>
+        <source>Since you installed a portable version, you have to update %1 manually.</source>
+        <translation>Da du eine portable Version installiert hast, musst du %1 manuell aktualisieren.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="41"/>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="44"/>
         <source>Current version:</source>
         <translation>Aktuelle Version:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="44"/>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="47"/>
         <source>New version:</source>
         <translation>Neue Version:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="72"/>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="75"/>
         <source>The release notes couldn&apos;t be downloaded. Please check if your computer has a working internet connection, retry it or contact the developer.
 HTTP %1</source>
         <translation>Die Versionshinweise konnten nicht heruntergeladen werden. Bitte überprüfe, ob dein Computer mit dem Internet verbunden ist, versuche es erneut oder kontaktiere den Entwickler.
 HTTP %1</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="87"/>
+        <source>Install update</source>
+        <translation>Aktualisieren</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="87"/>
+        <source>%1 closes for installing the new version. Please wait until %1 has been restarted.
+Depending on the computer performance and the internet connection, this process may take a moment.</source>
+        <translation>%1 schließt sich, um die neue Version zu installieren. Bitte warte, bis %1 sich neu gestartet hat.
+Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang einen Moment dauern.</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="91"/>
+        <source>Start update...</source>
+        <translation>Aktualisierung starten...</translation>
     </message>
 </context>
 <context>
@@ -2967,33 +2984,33 @@ HTTP %1</translation>
 <context>
     <name>wdgTrip</name>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="20"/>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="27"/>
         <source>stops</source>
         <comment>busstops</comment>
         <translation>Haltestellen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="23"/>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="30"/>
         <source>Time</source>
         <translation>Zeit</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="24"/>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="31"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="25"/>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="32"/>
         <source>Delay</source>
         <translation>Verspätung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="26"/>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="33"/>
         <source>Note</source>
         <translation>Anmerkungen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="38"/>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="45"/>
         <source>Stop cancelled</source>
         <translation>Halt entfällt</translation>
     </message>

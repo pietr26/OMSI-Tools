@@ -4,159 +4,159 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="592"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="621"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="592"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="621"/>
         <source>Successfully created shortcut!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="597"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="626"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="597"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="626"/>
         <source>Could not create shortcut in %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="659"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="688"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="659"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="688"/>
         <source>&apos;Omsi.exe&apos; could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="677"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="706"/>
         <source>Select the OMSI main directory...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="830"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="859"/>
         <source>There was an error while open the temporary database. Please try it again or contect the developer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="837"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <source>OMSI main directory not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="837"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="848"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="870"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="877"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="899"/>
         <source>Unsaved changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="848"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="877"/>
         <source>There are unsaved changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="870"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="899"/>
         <source>There are unsaved changes. Close anyway?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="886"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="892"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="915"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="921"/>
         <source>Error while opening file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="886"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="915"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="892"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="921"/>
         <source>There was an error while opening &apos;%1&apos;. If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="898"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="927"/>
         <source>No chars in font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="898"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="927"/>
         <source>There are no chars in the font.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="904"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="933"/>
         <source>Save error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="904"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="933"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="910"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="939"/>
         <source>Module still deactivated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="910"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="939"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="976"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1005"/>
         <source>Bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="977"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1006"/>
         <source>kB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="978"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1007"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="979"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1008"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="980"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1009"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="981"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1010"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="997"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1026"/>
         <source>Images</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1032"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1061"/>
         <source>Windows standard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -186,44 +186,44 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1006"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1035"/>
         <source>The source code of %1 is about %2 lines long.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1007"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1036"/>
         <source>%1 was born from a simple console application called &quot;Font Creator&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1008"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1037"/>
         <source>With the updater of %1 you can install updates with one click. It is available through the preferences.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1009"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1038"/>
         <source>In the &lt;a style=&apos;color: lightblue&apos; href=&apos;%2&apos;&gt;Wiki of %1&lt;/a&gt; you can find useful explanations about all topics.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1010"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1039"/>
         <source>Check out the latest developments in the &lt;a style=&apos;color: lightblue&apos; href=&apos;%1&apos;&gt;presentation thread in the OMSI-WebDisk&lt;/a&gt;.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1011"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1040"/>
         <source>Your hard disk is crowded? Clean up your main directory with %1&apos; cleanup tool.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1012"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1041"/>
         <source>You&apos;ve started %1 about %2 times.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1016"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1045"/>
         <source>The application server is currently undergoing maintenance (HTTP 503). Please try again later.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -244,23 +244,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="76"/>
+        <location filename="../../main.cpp" line="71"/>
         <source>Crash detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="76"/>
+        <location filename="../../main.cpp" line="71"/>
         <source>%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.
 Open the path of the logfile?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/LFClientAPIInterface/lfclientapiinterface.h" line="107"/>
+        <location filename="../../OTBackend/LFClientAPIInterface/lfclientapiinterface.h" line="229"/>
         <source>The specified user was not found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/LFClientAPIInterface/lfclientapiinterface.h" line="108"/>
+        <location filename="../../OTBackend/LFClientAPIInterface/lfclientapiinterface.h" line="230"/>
         <source>The password is wrong.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1736,94 +1736,130 @@ No font will be opened.</source>
 <context>
     <name>wLFClientDispatcher</name>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="32"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="42"/>
         <source>Specials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="38"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="48"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="45"/>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="92"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="58"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="105"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="59"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="72"/>
         <source>Back to home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="70"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="83"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="81"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="94"/>
         <source>Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="14"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="116"/>
+        <source>Login...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="127"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="116"/>
+        <source>Logout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="17"/>
         <source>Control center trip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="14"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="17"/>
         <source>dispatcher dashboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="52"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="62"/>
         <source>Information</source>
         <comment>plural form</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="68"/>
+        <source>Users</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="74"/>
+        <source>Manage trips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="108"/>
+        <source>unkown error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="111"/>
+        <source>Login failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="116"/>
+        <source>Do you really want to log out?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>wLFClientParticipant</name>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="34"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="42"/>
         <source>Specials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="40"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="48"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="50"/>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="97"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="58"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="105"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="64"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="72"/>
         <source>Back to home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="75"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="83"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="86"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="94"/>
         <source>Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="105"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="116"/>
         <source>Login...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="116"/>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="111"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="127"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="134"/>
         <source>Logout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1838,38 +1874,43 @@ No font will be opened.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="57"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="64"/>
         <source>Information</source>
         <comment>plural form</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="63"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="70"/>
         <source>Actions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="69"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="82"/>
+        <source>Trip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="88"/>
         <source>Trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="75"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="76"/>
         <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="103"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="126"/>
         <source>unkown error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="106"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="129"/>
         <source>Login failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="111"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="134"/>
         <source>Do you really want to log out?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1997,12 +2038,12 @@ This is an alpha version of the module. Please create a backup of the selected m
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wMaps/wmaps.cpp" line="98"/>
+        <location filename="../../OTModules/wMaps/wmaps.cpp" line="97"/>
         <source>Save global.cfg...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wMaps/wmaps.cpp" line="103"/>
+        <location filename="../../OTModules/wMaps/wmaps.cpp" line="102"/>
         <source>global.cfg saved!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2321,12 +2362,6 @@ This is an alpha version of the module. Please create a backup of the selected m
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="46"/>
-        <source>s</source>
-        <comment>Short version of &apos;seconds&apos;</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="50"/>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="55"/>
         <source>Off</source>
@@ -2379,7 +2414,7 @@ This is an alpha version of the module. Please create a backup of the selected m
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="302"/>
-        <source>Could not check for updates: unknown error.</source>
+        <source>Could not check for updates. Please check your internet connection and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2438,7 +2473,7 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="141"/>
-        <source>Open maintenance tool</source>
+        <source>Update now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2458,29 +2493,45 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="21"/>
-        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="62"/>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="65"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="39"/>
-        <source>A new version of %1 is available. Since you installed a portable version, you have to update %1 manually.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="41"/>
-        <source>Current version:</source>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="42"/>
+        <source>Since you installed a portable version, you have to update %1 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="44"/>
+        <source>Current version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="47"/>
         <source>New version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="72"/>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="75"/>
         <source>The release notes couldn&apos;t be downloaded. Please check if your computer has a working internet connection, retry it or contact the developer.
 HTTP %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="87"/>
+        <source>Install update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="87"/>
+        <source>%1 closes for installing the new version. Please wait until %1 has been restarted.
+Depending on the computer performance and the internet connection, this process may take a moment.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="91"/>
+        <source>Start update...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2632,25 +2683,23 @@ HTTP %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="48"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="50"/>
         <source>About %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="55"/>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="78"/>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="178"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="57"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="79"/>
         <source>News</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="81"/>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="181"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="82"/>
         <source>News - no internet connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="506"/>
+        <location filename="../../OTModules/OTGeneric/wstart.cpp" line="409"/>
         <source>DirectXTex License</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2890,13 +2939,18 @@ HTTP %1</source>
 <context>
     <name>wdgActions</name>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgactions.ui" line="35"/>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgactions.ui" line="37"/>
         <source>Speech request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgactions.ui" line="72"/>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgactions.ui" line="74"/>
         <source>Report crash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgactions.ui" line="106"/>
+        <source>- Talk in progress -</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2919,20 +2973,74 @@ HTTP %1</source>
     </message>
 </context>
 <context>
-    <name>wdgTrips</name>
+    <name>wdgTrip</name>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgtrips.cpp" line="11"/>
-        <source>Code</source>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="27"/>
+        <source>stops</source>
+        <comment>busstops</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgtrips.cpp" line="12"/>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="30"/>
+        <source>Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="31"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="32"/>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="33"/>
+        <source>Note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrip.cpp" line="45"/>
+        <source>Stop cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>wdgTrips</name>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrips.cpp" line="40"/>
+        <source>Vehicle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrips.cpp" line="41"/>
+        <source>Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrips.cpp" line="42"/>
+        <source>Route</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrips.cpp" line="43"/>
+        <source>Trip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrips.cpp" line="44"/>
         <source>From</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/Widgets/wdgtrips.cpp" line="13"/>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrips.cpp" line="45"/>
         <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/Widgets/wdgtrips.ui" line="39"/>
+        <source>Test</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
