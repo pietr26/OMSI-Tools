@@ -11,7 +11,13 @@ wMaps::wMaps(QWidget *parent) :
     //adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - " + tr("map editor"));
+    setWindowTitle(OTInformation::name + " - " + tr("Map editor"));
+
+    DiscordGameSDK::setModule(tr("Map editor"));
+    DiscordGameSDK::setStatus(tr("Editing a map's properties"));
+    DiscordGameSDK::start();
+    DiscordGameSDK::setIcon("wmaps");
+    DiscordGameSDK::update();
 
     enableUi(false);
 

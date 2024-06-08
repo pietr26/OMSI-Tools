@@ -29,22 +29,26 @@ public:
 
     static void setStatus(QString action);
 
-    static void setStart(QDateTime epochTimestamp = QDateTime());
+    static void start();
 
-    static void setEnd(QDateTime epochTimestamp = QDateTime());
+    static void setEnd(QDateTime epochTimestamp);
 
     static void setIcon(QString key, QString tooltip = "");
 
     static void setImage(QString key, QString tooltip = "");
 
+    static void setBlockUpdate(bool blockUpdate) { _blockUpdate = blockUpdate; }
+
 private:
-    static discord::Activity activity;
-    static DiscordState state;
-    static discord::Core* core;
+    static discord::Activity _activity;
+    static DiscordState _state;
+    static discord::Core* _core;
 
-    static bool blockExcecution;
+    static bool _blockExcecution;
 
-    static bool stopped;
+    static bool _stopped;
+
+    static bool _blockUpdate;
 };
 
 #endif // DISCORDGAMESDK_H

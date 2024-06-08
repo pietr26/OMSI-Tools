@@ -13,7 +13,13 @@ wCleanup::wCleanup(QWidget *parent) :
     qDebug() << "UI set";
 
     // Load prefs
-    setWindowTitle(OTInformation::name + " - " + tr("cleanup"));
+    setWindowTitle(OTInformation::name + " - " + tr("Cleanup"));
+
+    DiscordGameSDK::setModule(tr("Cleanup"));
+    DiscordGameSDK::setStatus(tr("Tidying up the OMSI directory"));
+    DiscordGameSDK::start();
+    DiscordGameSDK::setIcon("wcleanup");
+    DiscordGameSDK::update();
 
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
     ui->pgbProgress->setVisible(false);

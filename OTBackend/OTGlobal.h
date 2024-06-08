@@ -86,7 +86,7 @@ class OTInformation
 {
 public:
     inline static const QString name = "OMSI-Tools";
-    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Dev;
+    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Beta;
     inline static const QString sourceCodeLength = "34.905";
 
     class versions

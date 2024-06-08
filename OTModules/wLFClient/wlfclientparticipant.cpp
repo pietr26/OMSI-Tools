@@ -16,6 +16,12 @@ wLFClientParticipant::wLFClientParticipant(QWidget *parent)
 
     setWindowTitle(OTInformation::name + " - " + tr("Control center trip") + " - " + tr("participant dashboard"));
 
+    DiscordGameSDK::setModule(tr("Control center trip"));
+    DiscordGameSDK::setStatus(tr("Driving"));
+    DiscordGameSDK::start();
+    DiscordGameSDK::setIcon("wlfclientparticipant");
+    DiscordGameSDK::update();
+
     centralWidget()->setVisible(false);
     createDockWidgets();
 

@@ -4,12 +4,12 @@
 DiscordGameSDK::DiscordGameSDK()
 {
     qInfo() << "Initialize DiscordGameSDK...";
-    discord::Core::Create(1244025640064127017, DiscordCreateFlags_Default, &core);
-    state.core.reset(core);
+    discord::Core::Create(1244025640064127017, DiscordCreateFlags_Default, &_core);
+    _state.core.reset(_core);
 
-    if (!state.core) {
+    if (!_state.core) {
         qWarning() << "Failed to instantiate Discord!";
-        blockExcecution = true;
+        _blockExcecution = true;
         return;
     }
 
@@ -20,31 +20,31 @@ DiscordGameSDK::DiscordGameSDK()
 
 void DiscordGameSDK::exec()
 {
-    if (!blockExcecution)
+    if (!_blockExcecution)
     {
         qInfo() << "Excecuting DiscordGameSDK...";
         update();
 
         do
         {
-            state.core->RunCallbacks();
+            _state.core->RunCallbacks();
             QThread::msleep(500);
         }
-        while (!stopped);
+        while (!_stopped);
     }
 }
 
 void DiscordGameSDK::stop()
 {
     qInfo() << "Stopping DiscordGameSDK...";
-    stopped = true;
+    _stopped = true;
 }
 
 void DiscordGameSDK::update()
 {
-    if (!blockExcecution)
+    if (!_blockExcecution)
     {
-        state.core->ActivityManager().UpdateActivity(activity, [](discord::Result result)
+        _state.core->ActivityManager().UpdateActivity(_activity, [](discord::Result result)
         {
             qInfo() << ((result == discord::Result::Ok) ? "Succeeded" : "Failed") << "updating Discord RPC!";
         });
@@ -53,27 +53,30 @@ void DiscordGameSDK::update()
 
 void DiscordGameSDK::clearActivity()
 {
-    DiscordGameSDK::activity.SetDetails("---");
-    DiscordGameSDK::activity.SetState("---");
-    DiscordGameSDK::activity.GetAssets().SetLargeImage("logo");
-    DiscordGameSDK::activity.GetAssets().SetLargeText("");
-    DiscordGameSDK::activity.SetType(discord::ActivityType::Playing);
+    DiscordGameSDK::_activity.SetDetails("---");
+    DiscordGameSDK::_activity.SetState("---");
+    DiscordGameSDK::_activity.GetAssets().SetLargeImage("logo");
+    DiscordGameSDK::_activity.GetAssets().SetLargeText("");
+    DiscordGameSDK::_activity.SetType(discord::ActivityType::Playing);
+    DiscordGameSDK::start();
+    DiscordGameSDK::update();
 }
 
-void DiscordGameSDK::setModule(QString name) { activity.SetDetails(name.toUtf8()); }
+void DiscordGameSDK::setModule(QString name) { if (!_blockUpdate) _activity.SetDetails(name.toUtf8()); }
 
-void DiscordGameSDK::setStatus(QString action) { activity.SetState(action.toUtf8()); }
+void DiscordGameSDK::setStatus(QString action) { if (!_blockUpdate) _activity.SetState(action.toUtf8()); }
 
-void DiscordGameSDK::setStart(QDateTime epochTimestamp) { activity.GetTimestamps().SetStart(epochTimestamp.currentSecsSinceEpoch()); }
+void DiscordGameSDK::start() { if (!_blockUpdate) _activity.GetTimestamps().SetStart(QDateTime::currentDateTime().currentSecsSinceEpoch()); }
 
-void DiscordGameSDK::setEnd(QDateTime epochTimestamp) { activity.GetTimestamps().SetEnd(epochTimestamp.currentSecsSinceEpoch()); }
+void DiscordGameSDK::setEnd(QDateTime epochTimestamp) { if (!_blockUpdate) _activity.GetTimestamps().SetEnd(epochTimestamp.currentSecsSinceEpoch()); }
 
-void DiscordGameSDK::setIcon(QString key, QString tooltip) { activity.GetAssets().SetSmallImage(key.toUtf8()); activity.GetAssets().SetSmallText(tooltip.toUtf8()); }
+void DiscordGameSDK::setIcon(QString key, QString tooltip) { if (!_blockUpdate) { _activity.GetAssets().SetSmallImage(key.toUtf8()); _activity.GetAssets().SetSmallText(tooltip.toUtf8()); } }
 
-void DiscordGameSDK::setImage(QString key, QString tooltip) { activity.GetAssets().SetLargeImage(key.toUtf8()); activity.GetAssets().SetLargeText(tooltip.toUtf8()); }
+void DiscordGameSDK::setImage(QString key, QString tooltip) { if (!_blockUpdate) { _activity.GetAssets().SetLargeImage(key.toUtf8()); _activity.GetAssets().SetLargeText(tooltip.toUtf8()); } }
 
-discord::Activity DiscordGameSDK::activity = {};
-DiscordState DiscordGameSDK::state = {};
-discord::Core* DiscordGameSDK::core = {};
-bool DiscordGameSDK::blockExcecution = false;
-bool DiscordGameSDK::stopped = false;
+discord::Activity DiscordGameSDK::_activity = {};
+DiscordState DiscordGameSDK::_state = {};
+discord::Core* DiscordGameSDK::_core = {};
+bool DiscordGameSDK::_blockExcecution = false;
+bool DiscordGameSDK::_stopped = false;
+bool DiscordGameSDK::_blockUpdate = false;

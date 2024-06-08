@@ -11,7 +11,14 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     //adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - " + tr("map verify"));
+    setWindowTitle(OTInformation::name + " - " + tr("Map verification"));
+
+    DiscordGameSDK::setModule(tr("Map verification"));
+    DiscordGameSDK::setStatus(tr("Checking a map"));
+    DiscordGameSDK::start();
+    DiscordGameSDK::setIcon("wverifymap");
+    DiscordGameSDK::update();
+
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
 
     loadMapList();

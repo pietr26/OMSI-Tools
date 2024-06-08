@@ -561,126 +561,132 @@ Le chemin d&apos;accès est-il correct ? Dans le cas contraire, des problèmes p
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="16"/>
-        <source>cleanup</source>
-        <translation>faire du rangement</translation>
+        <location filename="../../OTModules/wcleanup.cpp" line="18"/>
+        <source>Cleanup</source>
+        <translation type="unfinished">Nettoyage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="41"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="19"/>
+        <source>Tidying up the OMSI directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wcleanup.cpp" line="47"/>
         <source>Initialize...</source>
         <translation>Initialiser...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="49"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="55"/>
         <source>No main directory selected.</source>
         <translation>Aucun répertoire principal n&apos;a été sélectionné.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="79"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="85"/>
         <source>Read map %1 of %2 (%3)</source>
         <translation>Lecture de la carte %1 de %2 (%3)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="98"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="104"/>
         <source>Analyze sceneryobject folder...</source>
         <translation>Analyser le dossier des sceneryobjects...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="105"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="111"/>
         <source>Comparing sceneryobjects...</source>
         <translation>Comparaison des objets du paysage...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="125"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="131"/>
         <source>Analyze spline folder...</source>
         <translation>Analyser le dossier spline...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="132"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="138"/>
         <source>Comparing splines...</source>
         <translation>Comparer les splines...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="156"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="162"/>
         <source>Analyze vehicle folder...</source>
         <translation>Analyser le dossier du vehicles...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="163"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="169"/>
         <source>Comparing vehicles...</source>
         <translation>Comparer les vehicles...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="190"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="196"/>
         <source>Done.</source>
         <translation>Claqué.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="227"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="233"/>
         <source>Select destination folder...</source>
         <translation>Sélectionner le dossier de destination...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="233"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="239"/>
         <source>Move sceneryobjects...</source>
         <translation>Déplacer les objets du décor...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="238"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="244"/>
         <source>Move sceneryobjects (%1 of %2)...</source>
         <translation>Déplacer les sceneryobjects (%1 de %2)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="266"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="272"/>
         <source>Move splines (%1 of %2)...</source>
         <translation>Déplacer les splines (%1 de %2)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="293"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="299"/>
         <source>Move vehicles (%1 of %2)...</source>
         <translation>Déplacer les vehicles (%1 de %2)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="315"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="321"/>
         <source>Moved selected folders to &apos;%1&apos;.</source>
         <translation>Déplacement des dossiers sélectionnés vers &apos;%1&apos;.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="320"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="326"/>
         <source>Delete files permanently</source>
         <translation>Supprimer des fichiers de façon permanente</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="320"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="326"/>
         <source>Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?</source>
         <translation>Veuillez garder à l&apos;esprit que cette option supprimera tous les fichiers de manière PERMANENTE. Après la suppression, il n&apos;y a aucune possibilité de les restaurer. Continuer ?</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="328"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="334"/>
         <source>Delete sceneryobjects (%1 of %2)...</source>
         <translation>Supprimer les sceneryobjects (%1 de %2)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="339"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="345"/>
         <source>Delete splines (%1 of %2)...</source>
         <translation>Supprimer les splines (%1 de %2)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="350"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="356"/>
         <source>Delete vehicles (%1 of %2)...</source>
         <translation>Supprimer les vehicles (%1 de %2)...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="358"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="364"/>
         <source>Deleted selected folders.</source>
         <translation>Suppression des dossiers sélectionnés.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="379"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="385"/>
         <source>Select destination folder &amp;&amp; move...</source>
         <translation>Sélectionner le dossier de destination &amp;&amp; déplacer...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wcleanup.cpp" line="385"/>
+        <location filename="../../OTModules/wcleanup.cpp" line="391"/>
         <source>Delete permanently</source>
         <translation>Supprimer définitivement</translation>
     </message>
@@ -797,97 +803,103 @@ Le chemin d&apos;accès est-il correct ? Dans le cas contraire, des problèmes p
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="16"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="18"/>
         <source>Content search</source>
         <translation>Recherche de contenu</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="101"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="107"/>
         <source>No files available for searching.</source>
         <translation>Aucun fichier n&apos;est disponible pour la recherche.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="190"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="196"/>
         <source>Open selected URLs...</source>
         <translation>Ouvrir les URLs sélectionnés...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="206"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="212"/>
         <source>Copied selected URLs.</source>
         <translation>Copie les URLs sélectionnés.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="220"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="226"/>
         <source>Text files</source>
         <translation>Fichiers texte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="220"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="226"/>
         <source>All files</source>
         <translation>Tous les dossiers</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="91"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="97"/>
         <source>Links (%1)</source>
         <translation>Liens (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="92"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="19"/>
+        <source>Searches missing files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="98"/>
         <source>Not found (%1)</source>
         <translation>Non trouvé (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="93"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="99"/>
         <source>Standard content (%1)</source>
         <comment>Please use plural; Optional original text: &apos;Standard files&apos;</comment>
         <translation>Contenu standard (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="94"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="100"/>
         <source>Direct links (%1)</source>
         <translation>Liens directs (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="213"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="219"/>
         <source>Report invalid link</source>
         <translation>Signaler un lien invalide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="213"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="219"/>
         <source>For reporting an invalid link, please visit the support thread or send an e-mail. Thank you for your assistance!</source>
         <translation>Pour signaler un lien invalide, veuillez consulter le fil de discussion ou envoyer un courriel. Nous vous remercions de votre aide !</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="220"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="226"/>
         <source>Select file with paths...</source>
         <translation>Sélectionner le fichier avec les chemins...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="243"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="249"/>
         <source>%1 path(s) will be added to the list.</source>
         <translation>Le(s) chemin(s) %1 sera(ont) ajouté(s) à la liste.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="243"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="249"/>
         <source>Add files</source>
         <translation>Ajouter des fichiers</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="246"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="252"/>
         <source>Process aborted.</source>
         <translation>Processus interrompu.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="286"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="292"/>
         <source>Downloading might not work with Google Chrome.</source>
         <translation>Le téléchargement peut ne pas fonctionner avec Google Chrome.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="288"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="294"/>
         <source>Direct download link - the download will start directly after opening the URL.</source>
         <translation>Lien de téléchargement direct - le téléchargement commencera directement après l&apos;ouverture de l&apos;URL.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="290"/>
+        <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="296"/>
         <source>Archive password:</source>
         <translation>Mot de passe de l&apos;archive :</translation>
     </message>
@@ -1295,136 +1307,142 @@ Le chemin d&apos;accès est-il correct ? Dans le cas contraire, des problèmes p
         <translation>Passez à l&apos;erreur suivante</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="686"/>
-        <location filename="../../OTModules/wfonts.cpp" line="688"/>
+        <location filename="../../OTModules/wfonts.cpp" line="692"/>
+        <location filename="../../OTModules/wfonts.cpp" line="694"/>
         <source>fonts</source>
         <translation>fonts</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="479"/>
-        <location filename="../../OTModules/wfonts.cpp" line="624"/>
+        <location filename="../../OTModules/wfonts.cpp" line="485"/>
+        <location filename="../../OTModules/wfonts.cpp" line="630"/>
         <source>OMSI font file</source>
         <translation>Fichier de police OMSI</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="100"/>
+        <location filename="../../OTModules/wfonts.cpp" line="16"/>
+        <location filename="../../OTModules/wfonts.cpp" line="18"/>
+        <source>Font creation</source>
+        <translation type="unfinished">Création de polices</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wfonts.cpp" line="19"/>
+        <source>Creating a font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wfonts.cpp" line="106"/>
         <source>Invalid format</source>
         <translation>Format non valide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="105"/>
+        <location filename="../../OTModules/wfonts.cpp" line="111"/>
         <source>Open font file</source>
         <translation>Ouvrir un fichier de police</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="479"/>
+        <location filename="../../OTModules/wfonts.cpp" line="485"/>
         <source>Open font...</source>
         <translation>Ouvrir la police...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="661"/>
+        <location filename="../../OTModules/wfonts.cpp" line="667"/>
         <source>Error: The file could not be saved.</source>
         <translation>Erreur : Le fichier n&apos;a pas pu être enregistré.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="671"/>
+        <location filename="../../OTModules/wfonts.cpp" line="677"/>
         <source>File saved successfully.</source>
         <translation>Fichier enregistré avec succès.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1088"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1094"/>
         <source>The entered character could not be found.</source>
         <translation>Le caractère saisi n&apos;a pas pu être trouvé.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1088"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1094"/>
         <source>Character not found</source>
         <translation>Caractère non trouvé</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1115"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1155"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1121"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1161"/>
         <source>The end of the font was reached, search from top</source>
         <translation>La fin de la police a été atteinte, recherche à partir du haut</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1124"/>
-        <location filename="../../OTModules/wfonts.cpp" line="1144"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1130"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1150"/>
         <source>No other character found according to the search criteria.</source>
         <translation>Aucun autre caractère trouvé selon les critères de recherche.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="772"/>
+        <location filename="../../OTModules/wfonts.cpp" line="778"/>
         <source>Error in character &apos;%1&apos;</source>
         <translation>Erreur dans le caractère &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="16"/>
-        <source>font creation</source>
-        <translation>création de polices</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wfonts.cpp" line="100"/>
+        <location filename="../../OTModules/wfonts.cpp" line="106"/>
         <source>The dropped file is no font file (*.oft)!</source>
         <translation>Le fichier déposé n&apos;est pas un fichier de police (*.oft) !</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="105"/>
+        <location filename="../../OTModules/wfonts.cpp" line="111"/>
         <source>Open drag and drop font file now?
 %1</source>
         <translation>Ouvrir le fichier de police par glisser-déposer maintenant ? %1</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="521"/>
+        <location filename="../../OTModules/wfonts.cpp" line="527"/>
         <source>Open font</source>
         <translation>Font ouverte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="521"/>
+        <location filename="../../OTModules/wfonts.cpp" line="527"/>
         <source>Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files.
 No font will be opened.</source>
         <translation>Attention : Le fichier de police sélectionné contient plus d&apos;une police. L&apos;application ne peut pas lire plusieurs polices. Veuillez diviser chaque police de ce fichier en fichiers distincts.
 Aucune police ne sera ouverte.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="794"/>
+        <location filename="../../OTModules/wfonts.cpp" line="800"/>
         <source>There aren&apos;t any errors. The font is valid.</source>
         <translation>Il n&apos;y a pas d&apos;erreurs. La police est valide.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="864"/>
+        <location filename="../../OTModules/wfonts.cpp" line="870"/>
         <source>Select color texture...</source>
         <translatorcomment>INFORMATION seitens mir (Bamp): Damit ist keine Aufzählung, sondern das Wort &quot;Farbtextur&quot; bzw. eben &quot;Color texture&quot; gemeint. ;-) // Ursprungsübersetzung entfernt</translatorcomment>
         <translation>Sélectionnez la couleur, la texture...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="864"/>
-        <location filename="../../OTModules/wfonts.cpp" line="883"/>
+        <location filename="../../OTModules/wfonts.cpp" line="870"/>
+        <location filename="../../OTModules/wfonts.cpp" line="889"/>
         <source>Bitmap picture</source>
         <translation>Image bitmap</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="883"/>
+        <location filename="../../OTModules/wfonts.cpp" line="889"/>
         <source>Select alpha texture...</source>
         <translation>Sélectionner la texture alpha...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1054"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1060"/>
         <source>The font file (still) doesn&apos;t exist.</source>
         <translation>Le fichier de font n&apos;existe pas (encore).</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1285"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1291"/>
         <source>Delete font</source>
         <translation>Supprimer le font</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="1285"/>
+        <location filename="../../OTModules/wfonts.cpp" line="1291"/>
         <source>The font will be moved to the trash.</source>
         <translation>Le font sera déplacée dans la corbeille.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wfonts.cpp" line="624"/>
+        <location filename="../../OTModules/wfonts.cpp" line="630"/>
         <source>Save font</source>
         <translation>Sauvegarder la police</translation>
     </message>
@@ -1776,12 +1794,13 @@ Aucune police ne sera ouverte.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wLFClient/wlfclientdispatcher.ui" line="127"/>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="116"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="122"/>
         <source>Logout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="17"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="19"/>
         <source>Control center trip</source>
         <translation>Déclenchement du centre de contrôle</translation>
     </message>
@@ -1791,33 +1810,38 @@ Aucune police ne sera ouverte.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="62"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="20"/>
+        <source>Managing the control center trip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="68"/>
         <source>Information</source>
         <comment>plural form</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="68"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="74"/>
         <source>Users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="74"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="80"/>
         <source>Manage trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="108"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="114"/>
         <source>unkown error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="111"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="117"/>
         <source>Login failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="116"/>
+        <location filename="../../OTModules/wLFClient/wlfclientdispatcher.cpp" line="122"/>
         <source>Do you really want to log out?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1862,12 +1886,13 @@ Aucune police ne sera ouverte.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wLFClient/wlfclientparticipant.ui" line="127"/>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="134"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="140"/>
         <source>Logout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="17"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="19"/>
         <source>Control center trip</source>
         <translation>Déclenchement du centre de contrôle</translation>
     </message>
@@ -1877,43 +1902,48 @@ Aucune police ne sera ouverte.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="64"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="20"/>
+        <source>Driving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="70"/>
         <source>Information</source>
         <comment>plural form</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="70"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="76"/>
         <source>Actions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="82"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="88"/>
         <source>Trip</source>
         <translation>Voyage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="88"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="94"/>
         <source>Trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="76"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="82"/>
         <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="126"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="132"/>
         <source>unkown error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="129"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="135"/>
         <source>Login failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="134"/>
+        <location filename="../../OTModules/wLFClient/wlfclientparticipant.cpp" line="140"/>
         <source>Do you really want to log out?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2039,16 +2069,22 @@ Il s&apos;agit d&apos;une version alpha du module. Veuillez créer une sauvegard
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.cpp" line="14"/>
-        <source>map editor</source>
-        <translation>éditeur de cartes</translation>
+        <location filename="../../OTModules/wMaps/wmaps.cpp" line="16"/>
+        <source>Map editor</source>
+        <translation type="unfinished">Éditeur de cartes</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wMaps/wmaps.cpp" line="97"/>
+        <location filename="../../OTModules/wMaps/wmaps.cpp" line="17"/>
+        <source>Editing a map&apos;s properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wMaps/wmaps.cpp" line="103"/>
         <source>Save global.cfg...</source>
         <translation>Sauvegarder le fichier global.cfg...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wMaps/wmaps.cpp" line="102"/>
+        <location filename="../../OTModules/wMaps/wmaps.cpp" line="108"/>
         <source>global.cfg saved!</source>
         <translation>global.cfg sauvegardé !</translation>
     </message>
@@ -2745,7 +2781,7 @@ En fonction des performances de l&apos;ordinateur et de la connexion internet, c
     <name>wVerifyMap</name>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1082"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="161"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="168"/>
         <source>Start verifying</source>
         <translation>Commencer à vérifier</translation>
     </message>
@@ -2894,11 +2930,6 @@ En fonction des performances de l&apos;ordinateur et de la connexion internet, c
         <translation>Retour à l&apos;accueil</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="14"/>
-        <source>map verify</source>
-        <translation>vérifier la carte</translation>
-    </message>
-    <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="593"/>
         <source>Textures</source>
         <translation>Textures</translation>
@@ -2920,32 +2951,43 @@ En fonction des performances de l&apos;ordinateur et de la connexion internet, c
         <translation>Préférences</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="31"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="14"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="16"/>
+        <source>Map verification</source>
+        <translation type="unfinished">Vérification des cartes</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="17"/>
+        <source>Checking a map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="38"/>
         <source>Press %1 to start the verification.</source>
         <translation>Appuyez sur %1 pour lancer la vérification.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="163"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="170"/>
         <source>Running...</source>
         <translation>Courir...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="195"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="202"/>
         <source>The selected map file doesn&apos;t exist.</source>
         <translation>Le fichier de carte sélectionné n&apos;existe pas.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="195"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="202"/>
         <source>Map file doesn&apos;t exist</source>
         <translation>Le fichier de carte n&apos;existe pas</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="357"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="364"/>
         <source>Verification finished.</source>
         <translation>Vérification terminée.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="439"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="446"/>
         <source>Reloaded map list.</source>
         <translation>Liste des cartes rechargées.</translation>
     </message>

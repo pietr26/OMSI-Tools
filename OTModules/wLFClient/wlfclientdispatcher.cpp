@@ -16,6 +16,12 @@ wLFClientDispatcher::wLFClientDispatcher(QWidget *parent)
 
     setWindowTitle(OTInformation::name + " - " + tr("Control center trip") + " - " + tr("dispatcher dashboard"));
 
+    DiscordGameSDK::setModule(tr("Control center trip"));
+    DiscordGameSDK::setStatus(tr("Managing the control center trip"));
+    DiscordGameSDK::start();
+    DiscordGameSDK::setIcon("wlfclientdispatcher");
+    DiscordGameSDK::update();
+
     centralWidget()->setVisible(false);
     createDockWidgets();
 

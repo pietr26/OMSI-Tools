@@ -13,7 +13,13 @@ wFonts::wFonts(QWidget *parent) :
     adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - " + tr("font creation"));
+    setWindowTitle(OTInformation::name + " - " + tr("Font creation"));
+
+    DiscordGameSDK::setModule(tr("Font creation"));
+    DiscordGameSDK::setStatus(tr("Creating a font"));
+    DiscordGameSDK::start();
+    DiscordGameSDK::setIcon("wfonts");
+    DiscordGameSDK::update();
 
     loadRecentFiles();
 

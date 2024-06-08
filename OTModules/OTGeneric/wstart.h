@@ -67,7 +67,7 @@ private slots:
 
     void on_tbnCleanup_clicked();
 
-    void reopen() { show(); }
+    void reopen() { show(); DiscordGameSDK::clearActivity(); }
 
     void on_tbnMaps_clicked();
 

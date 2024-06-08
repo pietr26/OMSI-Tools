@@ -94,14 +94,29 @@ int main(int argc, char *argv[])
         set.write("wVerifyMap", "advVerifying", false);
 
         // Start DiscordGameSDK:
-        // DiscordGameSDK *discord = new DiscordGameSDK();
+        DiscordGameSDK *discord = new DiscordGameSDK();
 
-        // QFuture<void> discordFuture = QtConcurrent::run([discord]() {
-        //     discord->exec();
-        // });
+        QFuture<void> discordFuture = QtConcurrent::run([discord]() {
+            discord->exec();
+        });
 
-        // DiscordGameSDK::setModule("Developing");
-        // DiscordGameSDK::setStatus("a brand new version :P");
+#ifdef QT_DEBUG
+        DiscordGameSDK::clearActivity();
+        DiscordGameSDK::setModule("Debugging");
+        DiscordGameSDK::setStatus("all the way to hell");
+        DiscordGameSDK::update();
+        DiscordGameSDK::setBlockUpdate(true);
+#else
+        if (OTInformation::build == OTBuildOptions::Dev)
+        {
+            DiscordGameSDK::clearActivity();
+            DiscordGameSDK::setModule("Developing");
+            DiscordGameSDK::setStatus(QString("a brand new version of %1").arg(OTInformation::name));
+            DiscordGameSDK::update();
+            DiscordGameSDK::setBlockUpdate(true);
+        }
+        else DiscordGameSDK::clearActivity();
+#endif
     }
 
     wStartUpScreen *WSTARTUPSCREEN;
@@ -118,8 +133,10 @@ int main(int argc, char *argv[])
 
     int exec = a.exec();
 
+    // --------------------------------------------
     // Actions on close
-    //DiscordGameSDK::stop();
+
+    DiscordGameSDK::stop();
 
     qInfo().noquote() << OTInformation::name + " is closing...";
     set.write("main", "closeCheck", true);
