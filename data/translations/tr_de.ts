@@ -697,7 +697,7 @@ Ist der Pfad korrekt? Andernfalls können in einigen Modulen Probleme auftreten.
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="29"/>
         <source>Search input</source>
-        <translation>EIngabe</translation>
+        <translation>Eingabe</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="189"/>
@@ -2497,7 +2497,7 @@ Leider gibt es momentan keine weiteren Sprachen. Wenn du eine Sprache aber gut b
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="187"/>
         <source>Window</source>
-        <translation type="unfinished">Fenster</translation>
+        <translation>Fenster</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="15"/>
