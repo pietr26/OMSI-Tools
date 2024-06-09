@@ -62,20 +62,17 @@ wVerifyMap::~wVerifyMap()
     delete ui;
 }
 
-/// Opens bug report module
 void wVerifyMap::on_actionSendFeedback_triggered()
 {
     wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::verifyMap);
     WFEEDBACK->show();
 }
 
-/// Starts verifying
 void wVerifyMap::on_actionStartVerifying_triggered()
 {
     on_btnStartVerifying_clicked();
 }
 
-/// Selects all items from lwg's and deletes them (and more)
 void wVerifyMap::selectAllAndClear()
 {
     qDebug() << "Clear view...";
@@ -133,7 +130,6 @@ void wVerifyMap::selectAllAndClear()
 }
 
 
-/// Reloads progress state
 void wVerifyMap::reloadProgress()
 {
     ui->pgbProgress->setMinimum(0);
@@ -142,7 +138,6 @@ void wVerifyMap::reloadProgress()
     ui->statusbar->showMessage(filehandler.progressName);
 }
 
-/// Starts / ends the progress
 void wVerifyMap::startEndWatchProgress(bool state)
 {
     if (state)
@@ -156,7 +151,6 @@ void wVerifyMap::startEndWatchProgress(bool state)
     }
 }
 
-/// Starts verifying
 void wVerifyMap::enableView(bool enable)
 {
     ui->btnStartVerifying->setEnabled(enable);
@@ -366,7 +360,6 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     endVerifying();
 }
 
-/// Ends verifying
 void wVerifyMap::endVerifying()
 {
     startEndWatchProgress(false);
@@ -374,20 +367,17 @@ void wVerifyMap::endVerifying()
     setToButtons();
 }
 
-/// Closes the application
 void wVerifyMap::on_actionClose_triggered()
 {
     QApplication::quit();
 }
 
-/// Opens the prefs
 void wVerifyMap::on_actionPreferences_triggered()
 {
     WPREFERENCES = new wPreferences();
     WPREFERENCES->show();
 }
 
-/// Shows the verification prefs
 void wVerifyMap::on_btnVerificationPreferences_clicked()
 {
     WPREFERENCES = new wPreferences(this, "wVerifyMap");
@@ -395,7 +385,6 @@ void wVerifyMap::on_btnVerificationPreferences_clicked()
     WPREFERENCES->show();
 }
 
-/// Loads map list
 void wVerifyMap::loadMapList()
 {
     mapListSetupFinished = false;
@@ -420,7 +409,6 @@ void wVerifyMap::loadMapList()
     mapListSetupFinished = true;
 }
 
-/// Sets UI for a new map
 void wVerifyMap::on_cobxMapName_currentIndexChanged(int index)
 {
     if ((!mapListSetupFinished) || mapList.isEmpty())
@@ -439,7 +427,6 @@ void wVerifyMap::on_cobxMapName_currentIndexChanged(int index)
         ui->lblPicture->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::CameraPhoto).pixmap(128, 128));
 }
 
-/// Reloads map list
 void wVerifyMap::on_btnReloadMaps_clicked()
 {
     loadMapList();

@@ -56,32 +56,27 @@ wContentSearch::~wContentSearch()
     delete ui;
 }
 
-/// Redirect
 void wContentSearch::on_actionPreferences_triggered()
 {
     WPREFERENCES = new wPreferences();
     WPREFERENCES->show();
 }
 
-/// Redirect
 void wContentSearch::on_actionClose_triggered()
 {
     QApplication::quit();
 }
 
-/// Redirect
 void wContentSearch::on_btnRemove_clicked()
 {
     on_actionRemoveSelection_triggered();
 }
 
-/// Redirect
 void wContentSearch::on_btnSearch_clicked()
 {
     on_actionSearch_triggered();
 }
 
-/// Removes current selection from user's input
 void wContentSearch::on_actionRemoveSelection_triggered()
 {
     if ((ui->lwgUserSearch->selectedItems().size() != 0))
@@ -91,7 +86,6 @@ void wContentSearch::on_actionRemoveSelection_triggered()
     }
 }
 
-/// Searchs for user input
 void wContentSearch::reloadTabNames()
 {
     ui->twgExtras->setTabText(0, tr("Links (%1)").arg(ui->lwgLinks->count()));
@@ -169,7 +163,6 @@ void wContentSearch::on_actionSearch_triggered()
     ui->btnClearLists->setVisible(true);
 }
 
-/// Adds lists to user input
 void wContentSearch::on_btnAddList_clicked()
 {
     WADDFILES = new wAddFiles(this);
@@ -177,7 +170,6 @@ void wContentSearch::on_btnAddList_clicked()
     WADDFILES->show();
 }
 
-/// Opens bug report module
 void wContentSearch::on_actionSendFeedback_triggered()
 {
     wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::contentSearch);
@@ -185,7 +177,6 @@ void wContentSearch::on_actionSendFeedback_triggered()
     WFEEDBACK->show();
 }
 
-/// Opens the selected URL in Browser / file system
 void wContentSearch::on_btnOpenInBrowser_clicked()
 {
     if (ui->lwgLinks->selectedItems().size() != 0)
@@ -197,7 +188,6 @@ void wContentSearch::on_btnOpenInBrowser_clicked()
     }
 }
 
-/// Copies links
 void wContentSearch::on_btnCopy_clicked()
 {
     if (ui->lwgLinks->selectedItems().size() != 0)
@@ -213,14 +203,12 @@ void wContentSearch::on_btnCopy_clicked()
     }
 }
 
-/// Opens feedback
 void wContentSearch::on_btnReportDeadLink_clicked()
 {
     QMessageBox::information(this, tr("Report invalid link"), tr("For reporting an invalid link, please visit the support thread or send an e-mail. Thank you for your assistance!"));
     on_actionSendFeedback_triggered();
 }
 
-/// Adds paths from a file via fileDialog
 void wContentSearch::on_btnAddFile_clicked()
 {
     QString filename = QFileDialog::getOpenFileName(this, tr("Select file with paths..."), QStandardPaths::displayName(QStandardPaths::DesktopLocation), QString("%1 (*.txt);; %2 (*.*)").arg(tr("Text files"), tr("All files")));
@@ -255,7 +243,6 @@ void wContentSearch::on_btnAddFile_clicked()
         msg.fileOpenError(this);
 }
 
-/// Clears view
 void wContentSearch::clearView(bool withoutUserInput)
 {
     if (!withoutUserInput)
@@ -272,7 +259,6 @@ void wContentSearch::clearView(bool withoutUserInput)
     qApp->processEvents();
 }
 
-/// Clear all lists from user action
 void wContentSearch::on_btnClearLists_clicked()
 {
     clearView();
@@ -280,7 +266,6 @@ void wContentSearch::on_btnClearLists_clicked()
     ui->pgbProgress->setVisible(false);
 }
 
-/// Sets information for selected link
 void wContentSearch::on_lwgLinks_currentTextChanged(const QString &currentText)
 {
     QSqlQueryModel *model = new QSqlQueryModel();
@@ -303,7 +288,6 @@ void wContentSearch::on_actionBackToHome_triggered()
     close();
     backToHome();
 }
-
 
 void wContentSearch::on_actionAddExamples_triggered()
 {

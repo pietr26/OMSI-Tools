@@ -25,7 +25,6 @@ wDevTools::~wDevTools()
     delete ui;
 }
 
-/// Get list of Items
 void wDevTools::on_btnGetListOfFiles_clicked()
 {
     qDebug() << "Start to get list of files...";
@@ -56,7 +55,6 @@ void wDevTools::on_btnGetListOfFiles_clicked()
     }
 }
 
-/// Get keywords of files
 void wDevTools::on_btnGetKeywords_clicked()
 {
     if (ui->pteGetLinesThatContains->toPlainText().isEmpty())
@@ -136,13 +134,11 @@ void wDevTools::on_btnGetKeywords_clicked()
     }
 }
 
-/// Select the file output path
 void wDevTools::on_tbnOutputPathSelection_clicked()
 {
     ui->ledOutputPath->setText(QFileDialog::getExistingDirectory(this, "Select path..."));
 }
 
-/// Pushes text to view
 bool wDevTools::pushToOutput(QString result)
 {
     try
@@ -175,7 +171,6 @@ bool wDevTools::pushToOutput(QString result)
 
 }
 
-/// Controls visible of elements
 void wDevTools::setOutputVisible(bool mode)
 {
     if (mode)
@@ -192,7 +187,6 @@ void wDevTools::setOutputVisible(bool mode)
     }
 }
 
-/// Counts lines
 void wDevTools::on_btnLineCounter_clicked()
 {
     countLinesFiles.append(QFileDialog::getOpenFileNames(this, "Select files to analyse", set.read("main", "mainDir").toString(), omsiFilesFilter));
@@ -262,19 +256,16 @@ void wDevTools::on_btnLineCounterStart_clicked()
     ui->btnLineCounterStart->setText("Start");
 }
 
-/// Catches click at 'Output to GUI'
 void wDevTools::on_rbnOutputToGUI_clicked()
 {
     setOutputVisible(true);
 }
 
-/// Catches click at 'Output to File'
 void wDevTools::on_rbnOutputToFile_clicked()
 {
     setOutputVisible(false);
 }
 
-/// Lists alls sound files from a sound.cfg
 void wDevTools::on_btnSoundFileLister_clicked()
 {
     QStringList files = QFileDialog::getOpenFileNames(this, "Select files to analyse", set.read("main", "mainDir").toString(), "OMSI sound files (*.cfg)");
@@ -307,4 +298,3 @@ void wDevTools::on_btnSoundFileLister_clicked()
 
     pushToOutput(resultStr);
 }
-

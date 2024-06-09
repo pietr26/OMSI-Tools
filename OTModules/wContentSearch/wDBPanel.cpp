@@ -77,19 +77,16 @@ wDBPanel::~wDBPanel()
     delete ui;
 }
 
-/// Slot for Link entering
 void wDBPanel::on_rbtnLink_clicked()
 {
     ui->ledLink->setEnabled(true);
 }
 
-/// Slot for Link entering
 void wDBPanel::on_rbtnStandardContent_clicked()
 {
     ui->ledLink->setEnabled(false);
 }
 
-/// Starts analysing
 void wDBPanel::reloadSelectGroupBoxes()
 {
     if (strListModelDuplicates->rowCount() == 0)
@@ -282,13 +279,11 @@ void wDBPanel::on_btnStart_clicked()
     qInfo() << "database comparision / appending finished.";
 }
 
-/// Closes the window
 void wDBPanel::on_actionClose_triggered()
 {
     close();
 }
 
-/// Slot for directory changes
 void wDBPanel::on_ledDirectory_textChanged(const QString &arg1)
 {
     set.write(objectName(), "tempPath", arg1);
@@ -300,7 +295,6 @@ void wDBPanel::on_ledDirectory_textChanged(const QString &arg1)
         ui->btnStart->setEnabled(true);
 }
 
-/// Changes the current duplicate item
 void wDBPanel::on_lvwDuplicates_clicked(const QModelIndex &index)
 {
     ui->tvwDuplicates->setModel(models.at(index.row()));
@@ -308,13 +302,11 @@ void wDBPanel::on_lvwDuplicates_clicked(const QModelIndex &index)
     ui->tvwDuplicates->resizeRowsToContents();
 }
 
-/// Opens a folder to scan
 void wDBPanel::on_btnOpenFolder_clicked()
 {
     ui->ledDirectory->setText(QFileDialog::getExistingDirectory(this, "", set.read(objectName(), "tempPath").toString()));
 }
 
-/// Removes current from duplicate list
 void wDBPanel::removeCurrentFromList(bool all)
 {
     if (all)
@@ -342,7 +334,6 @@ void wDBPanel::removeCurrentFromList(bool all)
     ui->tvwDuplicates->setModel(model);
 }
 
-/// Selects the new one from a duplicate
 void wDBPanel::on_btnSelectNew_clicked()
 {
     if (ui->lvwDuplicates->currentIndex().row() == -1)
@@ -351,13 +342,11 @@ void wDBPanel::on_btnSelectNew_clicked()
     selectNew();
 }
 
-/// Selects the old one from a duplicate
 void wDBPanel::on_btnSelectOld_clicked()
 {
     removeCurrentFromList();
 }
 
-/// Select all new entries
 void wDBPanel::on_btnSelectAllNew_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::warning(this, "Confirm action", "Do you really want to select <b>all NEW</b> entries?", QMessageBox::YesAll | QMessageBox::Cancel);
@@ -381,7 +370,6 @@ void wDBPanel::on_btnSelectAllNew_clicked()
     ui->pgbProgress->setMaximum(1);
 }
 
-/// Select all old entries
 void wDBPanel::on_btnSelectAllOld_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::warning(this, "Confirm action", "Do you really want to select <b>all OLD</b> entries?", QMessageBox::YesAll | QMessageBox::Cancel);
@@ -400,7 +388,6 @@ void wDBPanel::on_btnSelectAllOld_clicked()
     ui->statusbar->showMessage("Finished.");
 }
 
-/// Merge function for select new buttons
 void wDBPanel::selectNew()
 {
     dbHandler.doAction(QString("DELETE FROM paths WHERE path='%1'").arg(ui->lvwDuplicates->currentIndex().data().toString()), true);
@@ -412,7 +399,6 @@ void wDBPanel::selectNew()
     removeCurrentFromList();
 }
 
-/// Unlocks the source group box
 void wDBPanel::on_btnUnlockSource_clicked()
 {
     ui->gbxFileProperties->setEnabled(true);
@@ -426,7 +412,6 @@ void wDBPanel::on_btnUnlockSource_clicked()
     ui->gbxSelectAll->setEnabled(false);
     ui->gbxSelectSingle->setEnabled(false);
 }
-
 
 void wDBPanel::on_actionBackToHome_triggered()
 {

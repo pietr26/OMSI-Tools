@@ -10,13 +10,11 @@
 #include "OTBackend/DiscordGameSDK.h"
 #include <QThreadPool>
 
-/// Test area for anything
 void testArea()
 {
 
 }
 
-/// Cleanup actions after updates
 void updateCleanup()
 {
     qInfo() << "Update installed, remove old files...";
@@ -25,7 +23,6 @@ void updateCleanup()
     QDir(QDir::tempPath() + "/OMSI-Tools_tempAppDir").removeRecursively();
 }
 
-/// Main function
 int main(int argc, char *argv[])
 {
     OTSettings set;

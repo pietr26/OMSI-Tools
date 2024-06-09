@@ -34,13 +34,11 @@ wCleanup::~wCleanup()
     delete ui;
 }
 
-/// Wrapped to on_actionAnalyze_triggered();
 void wCleanup::on_btnAnalyze_clicked()
 {
     on_actionAnalyze_triggered();
 }
 
-/// Analyzes the main directory
 void wCleanup::on_actionAnalyze_triggered()
 {
     qInfo() << "Initialize...";
@@ -205,7 +203,6 @@ void wCleanup::on_actionAnalyze_triggered()
     qInfo() << "Finished.";
 }
 
-/// Starts a cleanup action
 void wCleanup::on_btnStartAction_clicked()
 {
     ui->btnStartAction->setEnabled(false);
@@ -379,25 +376,21 @@ void wCleanup::on_btnStartAction_clicked()
     ui->actionAnalyze->setEnabled(true);
 }
 
-/// Sets text for moving folders
 void wCleanup::on_rbtnMoveToFolder_clicked()
 {
     ui->btnStartAction->setText(tr("Select destination folder && move..."));
 }
 
-/// Sets text for deleting folders
 void wCleanup::on_rbtnDelete_clicked()
 {
     ui->btnStartAction->setText(tr("Delete permanently"));
 }
 
-/// Closes the window (wrapped)
 void wCleanup::on_actionClose_triggered()
 {
     close();
 }
 
-/// Opens the prefs
 void wCleanup::on_actionPreferences_triggered()
 {
     WPREFERENCES = new wPreferences();
@@ -405,7 +398,6 @@ void wCleanup::on_actionPreferences_triggered()
     WPREFERENCES->show();
 }
 
-/// Open help dialog
 void wCleanup::on_actionSendFeedback_triggered()
 {
     wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::cleanup);

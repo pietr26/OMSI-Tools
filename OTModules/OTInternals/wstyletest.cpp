@@ -42,13 +42,11 @@ wStyleTest::~wStyleTest()
     delete ui;
 }
 
-/// Sets progress bar value
 void wStyleTest::on_horizontalSlider_valueChanged(int value)
 {
     ui->progressBar->setValue(value);
 }
 
-/// Loads a stylesheet
 void wStyleTest::loadStyleSheet(QString file)
 {
     Q_UNUSED(file);
@@ -66,31 +64,26 @@ void wStyleTest::loadStyleSheet(QString file)
         setStyleSheet("");
 }
 
-/// Shows toolbutton menu
 void wStyleTest::on_toolButton_clicked()
 {
     ui->toolButton->showMenu();
 }
 
-/// Sets no stylesheet
 void wStyleTest::on_btnSetThemeNone_clicked()
 {
     ui->ledStyle->clear();
 }
 
-/// Sets combinear theme (outdated!)
 void wStyleTest::on_btnSetThemeCombinear_clicked()
 {
     ui->ledStyle->setText("D:/OMSI-Tools/OMSI-Tools/data/themes/Combinear.qss");
 }
 
-/// Sets darkeum theme (outdated!)
 void wStyleTest::on_btnSetThemeDarkeum_clicked()
 {
     ui->ledStyle->setText("D:/OMSI-Tools/OMSI-Tools/data/themes/Darkeum.qss");
 }
 
-/// Saves test stylesheet and starts file watcher for changes
 void wStyleTest::on_ledStyle_textChanged(const QString &arg1)
 {
     Q_UNUSED(arg1);
@@ -105,7 +98,6 @@ void wStyleTest::on_ledStyle_textChanged(const QString &arg1)
     loadStyleSheet(ui->ledStyle->text());
 }
 
-/// Set modular stylesheet
 void wStyleTest::on_btnReloadStylePrefs_clicked()
 {
     QFile modularStyle("D:/OMSI-Tools/OMSI-Tools/data/themes/modularModern.qss");

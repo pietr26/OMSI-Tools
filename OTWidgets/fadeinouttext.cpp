@@ -27,7 +27,6 @@ fadeInOutText::~fadeInOutText()
     delete ui;
 }
 
-/// Hides the text (slot)
 void fadeInOutText::hideText()
 {
     labelAnimation->setStartValue(1);
@@ -37,7 +36,6 @@ void fadeInOutText::hideText()
     QTimer::singleShot(fadeInOutTime + 200, this, &fadeInOutText::showText);
 }
 
-/// Shows a random text (slot)
 void fadeInOutText::showText()
 {
     int randomIndex;

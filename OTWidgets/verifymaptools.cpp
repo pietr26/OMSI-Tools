@@ -21,7 +21,6 @@ verifyMapTools::~verifyMapTools()
     delete ui;
 }
 
-/// Copies missing objects
 void verifyMapTools::copy(QListWidget *lwg)
 {
     if (lwg->count() == 0)
@@ -36,7 +35,6 @@ void verifyMapTools::copy(QListWidget *lwg)
     misc.copy(copytext);
 }
 
-/// Search for paths in wContentSearch
 void verifyMapTools::search(QListWidget *lwg)
 {
     if (lwg->count() == 0)
@@ -56,38 +54,14 @@ void verifyMapTools::search(QListWidget *lwg)
     }
 }
 
-/// Shows menu for copy button
-void verifyMapTools::on_tbnCopy_clicked()
-{
-    ui->tbnCopy->showMenu();
-}
+void verifyMapTools::on_tbnCopy_clicked() { ui->tbnCopy->showMenu(); }
 
-/// Shows menu for search button
-void verifyMapTools::on_tbnSearch_clicked()
-{
-    ui->tbnSearch->showMenu();
-}
+void verifyMapTools::on_tbnSearch_clicked() { ui->tbnSearch->showMenu(); }
 
-/// Copies all file paths
-void verifyMapTools::on_actionCopyFromAll_triggered()
-{
-    copy(listWidgetAllParent);
-}
+void verifyMapTools::on_actionCopyFromAll_triggered() { copy(listWidgetAllParent); }
 
-/// Copies missing file paths
-void verifyMapTools::on_actionCopyFromMissing_triggered()
-{
-    copy(listWidgetMissingParent);
-}
+void verifyMapTools::on_actionCopyFromMissing_triggered() { copy(listWidgetMissingParent); }
 
-/// Searchs all file paths
-void verifyMapTools::on_actionSearchFromAll_triggered()
-{
-    search(listWidgetAllParent);
-}
+void verifyMapTools::on_actionSearchFromAll_triggered() { search(listWidgetAllParent); }
 
-/// Searchs missing file paths
-void verifyMapTools::on_actionSearchFromMissing_triggered()
-{
-    search(listWidgetMissingParent);
-}
+void verifyMapTools::on_actionSearchFromMissing_triggered() { search(listWidgetMissingParent); }

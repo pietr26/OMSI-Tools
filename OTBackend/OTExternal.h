@@ -62,7 +62,6 @@ public:
 
     void closeDB() { db.close(); }
 
-    /// [OVERLOAD] Setup a database
     bool setupDatabase(QString queryForFirstSetup = "")
     {
         bool firstSetup = false;
@@ -96,7 +95,6 @@ public:
         return true;
     }
 
-    /// [OVERLOAD] Setup a database
     bool setupDatabase(QTemporaryFile &tempDB, QString dbInResscoures)
     {
         if (!tempDB.open())
@@ -129,7 +127,6 @@ public:
         return true;
     }
 
-    /// Copys and renames a database
     void createBackup()
     {
         if (dbPath.isEmpty()) qWarning() << "dbPath is empty!";
@@ -146,7 +143,6 @@ private:
     OTMiscellaneous misc;
     QSqlDatabase db;
 
-    /// Opens a database
     bool open()
     {
         if (!db.open())
@@ -208,10 +204,6 @@ public:
         tFile.open();
         QDataStream in(&tFile);
         in.writeRawData(bla.constData(), bla.size());
-
-        //tFile.close();
-
-        //QFile(newFile).remove();
 
         return true;
     }

@@ -49,7 +49,6 @@ public:
         return variables;
     }
 
-    /// verify a list of sceneryobjects
     void verifyObjects(QStringList &objects)
     {
         const QString mainDir = set.read("main", "mainDir").toString();
@@ -344,15 +343,11 @@ public:
         }
     }
 
-    /// verify a list of splines
     void verifySplines(QStringList &splines)
     {
         const QString mainDir = set.read("main", "mainDir").toString();
 
         cutCount = mainDir.length() + 1;
-
-        /*progressName = QObject::tr("Checking splines...");
-        maxProgress = splines.length();*/
 
         foreach (QString current, splines)
         {
@@ -423,7 +418,6 @@ public:
         }
     }
 
-    /// Checks if a texture exists
     bool checkTexture(QString fullPath, QString relPath)
     {
         const QString mainDir = set.read("main", "mainDir").toString();
@@ -451,7 +445,6 @@ public:
         return true;
     }
 
-    /// Sets the map path
     void setMapPath(QString path, bool clearStuffobj = false)
     {
         mapPath = path;
@@ -459,13 +452,8 @@ public:
         if (clearStuffobj) stuffobj.clear();
     }
 
-    /// Resturns the map path
-    QString getMapPath()
-    {
-        return mapPath;
-    }
+    QString getMapPath() { return mapPath; }
 
-    /// Returns a list of all maps - first: name; second: full path
     QList<QPair<QString, QString>> listMaps()
     {
         QList<QPair<QString, QString>> returnList;
@@ -485,7 +473,6 @@ public:
         return returnList;
     }
 
-    /// Returns a list of all moneypacks - first: name; second: full path
     QList<QPair<QString, QString>> listMoney()
     {
         QList<QPair<QString, QString>> returnList;
@@ -506,7 +493,6 @@ public:
         return returnList;
     }
 
-    /// Returns a list of all ticketpacks - first: name; second: full path
     QList<QPair<QString, QString>> listTicketpacks()
     {
         QList<QPair<QString, QString>> returnList;
@@ -527,7 +513,6 @@ public:
         return returnList;
     }
 
-    /// Returns results from any configuration file
     QString readConfig(QString fullLineBeforeContent, QString absolutePath, int readLine = 1)
     {
         if (absolutePath.isEmpty()) return "ERR";
@@ -561,7 +546,6 @@ public:
         return "ERR";
     }
 
-    /// Gets tiles from a map
     void getTiles(QWidget *parent = 0)
     {
         cutCount = set.read("main", "mainDir").toString().length() + 1;
@@ -627,7 +611,6 @@ public:
         global.close();
     }
 
-    /// Gets items from a map
     void getItems(QStringList &tiles, bool checkMissing = true, bool includeParklists = true)
     {
         const QString mainDir = set.read("main", "mainDir").toString();
@@ -773,7 +756,6 @@ public:
         bLoop->deleteLater();
     }
 
-    /// Get vehicles of a map
     void getVehicles(QWidget *parent = 0)
     {
         const QString mainDir = set.read("main", "mainDir").toString();
@@ -946,7 +928,6 @@ public:
         }
     }
 
-    /// Get humans of a map
     void getHumans(QWidget *parent = 0)
     {
         const QString mainDir = set.read("main", "mainDir").toString();
@@ -1000,7 +981,6 @@ public:
         }
     }
 
-    /// Checks if the texture layers of a map exists
     void checkTextureLayers(QWidget *parent = 0)
     {
         const QString mainDir = set.read("main", "mainDir").toString();
@@ -1048,7 +1028,6 @@ public:
         }
     }
 
-    /// Opens a font
     OTFontModel openFont(QString path, QStringConverter::Encoding encoding)
     {
         OTFontModel font;
@@ -1132,7 +1111,6 @@ public:
         return font;
     }
 
-    /// Saves a font
     bool saveFont(OTFontModel font)
     {
         QFile file(font.path);

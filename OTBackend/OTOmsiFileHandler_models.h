@@ -88,7 +88,6 @@ public:
     }
 };
 
-/// Contains all informations about a font character
 class OTCharacterModel
 {
 public:
@@ -108,7 +107,6 @@ public:
     QString comment;
 };
 
-/// Contains all informations about a font
 class OTFontModel
 {
 public:

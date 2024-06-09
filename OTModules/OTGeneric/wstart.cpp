@@ -198,7 +198,6 @@ void wStart::loadMessages()
     }
 }
 
-/// Reloads the message system
 void wStart::on_btnReloadMessages_clicked()
 {
     ui->lwgMessages->clear();
@@ -211,7 +210,6 @@ void wStart::on_lwgMessages_itemDoubleClicked(QListWidgetItem *item)
     msg->showDescription();
 }
 
-/// Opens the prefs
 void wStart::on_actionPreferences_triggered()
 {
     WPREFERENCES = new wPreferences();
@@ -219,7 +217,6 @@ void wStart::on_actionPreferences_triggered()
     WPREFERENCES->show();
 }
 
-/// Shows the about message
 void wStart::on_actionAbout_triggered()
 {
     WABOUT = new wAbout(this);
@@ -227,7 +224,6 @@ void wStart::on_actionAbout_triggered()
     WABOUT->show();
 }
 
-/// Closes the apllication
 void wStart::on_actionClose_triggered()
 {
     close();
@@ -250,7 +246,6 @@ checkMainDir:
     return true;
 }
 
-/// Opens bug report module
 void wStart::on_actionSendFeedback_triggered()
 {
     WFEEDBACK = new wFeedback(this, OTLinks::Wiki::general);
@@ -258,7 +253,6 @@ void wStart::on_actionSendFeedback_triggered()
     WFEEDBACK->show();
 }
 
-/// Opens the release notes
 void wStart::on_actionReleaseNotes_triggered()
 {
     WRELEASENOTES = new wReleaseNotes(this);
@@ -266,25 +260,21 @@ void wStart::on_actionReleaseNotes_triggered()
     WRELEASENOTES->show();
 }
 
-/// Opens the manual, currenty only in german
 void wStart::on_actionManual_triggered()
 {
     QDesktopServices::openUrl(QUrl("file:///" + QApplication::applicationDirPath() + "/_docs"));
 }
 
-/// Opens link to github repository
 void wStart::on_actionSourceCodeOnGitHub_triggered()
 {
     QDesktopServices::openUrl(OTLinks::GitHub::main);
 }
 
-/// Restarts application
 void wStart::on_actionRestart_triggered()
 {
     misc.restart();
 }
 
-/// Checks for updates
 void wStart::on_actionCheckForUpdates_triggered()
 {
     on_actionPreferences_triggered();
@@ -341,7 +331,6 @@ void wStart::on_tbnMapVerification_clicked()
     close();
 }
 
-/// Opens DevTools
 void wStart::on_actionDashboard_triggered()
 {
     WDEVTOOLS = new wDevTools();
@@ -349,7 +338,6 @@ void wStart::on_actionDashboard_triggered()
     close();
 }
 
-/// Chrash simulation
 void wStart::on_actionApplicationCrashSimulation_triggered()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Application crash simulation", "Press 'Yes' to start to simulate an applicaiton crash.");
@@ -358,7 +346,6 @@ void wStart::on_actionApplicationCrashSimulation_triggered()
         qFatal("Application crash simulation started by user");
 }
 
-/// Opens Style Test
 void wStart::on_actionStyleTest_triggered()
 {
     WSTYLETEST = new wStyleTest();
@@ -412,15 +399,9 @@ void wStart::on_actionDirectXTex_triggered()
     QMessageBox::about(this, tr("DirectXTex License"), "MIT License\n\nCopyright (c) Microsoft Corporation.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sellcopies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in allcopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THEAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE");
 }
 
-void wStart::on_actionRoadmap_triggered()
-{
-    QDesktopServices::openUrl(OTLinks::roadmap);
-}
+void wStart::on_actionRoadmap_triggered() { QDesktopServices::openUrl(OTLinks::roadmap); }
 
-void wStart::on_actionAboutQt_triggered()
-{
-    QMessageBox::aboutQt(this);
-}
+void wStart::on_actionAboutQt_triggered() { QMessageBox::aboutQt(this); }
 
 void wStart::on_tbnLFClientDispatcher_clicked()
 {

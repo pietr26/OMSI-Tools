@@ -59,7 +59,6 @@ wReleaseNotes::~wReleaseNotes()
     delete ui;
 }
 
-/// Downloads current release notes
 void wReleaseNotes::downloadReleaseNotes(QString version)
 {
     ui->teedReleaseNotes->setText(tr("Loading..."));
@@ -75,13 +74,8 @@ void wReleaseNotes::downloadReleaseNotes(QString version)
         ui->teedReleaseNotes->setText(tr("The release notes couldn't be downloaded. Please check if your computer has a working internet connection, retry it or contact the developer.\nHTTP %1").arg(nc.lastHttpCode));
 }
 
-/// Closes the window
-void wReleaseNotes::on_btnClose_clicked()
-{
-    close();
-}
+void wReleaseNotes::on_btnClose_clicked() { close(); }
 
-/// Calls the prefs and execute the update
 void wReleaseNotes::on_btnUpdateNow_clicked()
 {
     QMessageBox::information(this, tr("Install update"), tr("%1 closes for installing the new version. Please wait until %1 has been restarted.\nDepending on the computer performance and the internet connection, this process may take a moment.").arg(OTInformation::name));
@@ -105,8 +99,4 @@ void wReleaseNotes::on_btnUpdateManually_clicked()
     QDesktopServices::openUrl(OTLinks::GitHub::releases);
 }
 
-void wReleaseNotes::on_actionClose_triggered()
-{
-    close();
-}
-
+void wReleaseNotes::on_actionClose_triggered() { close(); }

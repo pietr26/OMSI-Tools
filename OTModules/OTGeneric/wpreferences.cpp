@@ -244,19 +244,16 @@ void wPreferences::modified()
     setWindowModified(true);
 }
 
-/// Refreshes disk usage for backup folder
 void wPreferences::refreshDiskUsage()
 {
     ui->lblDiskUsageSize->setText(dUs.formatSize("backup"));
 }
 
-/// Closes the application
 void wPreferences::on_btnClose_clicked()
 {
     on_actionClose_triggered();
 }
 
-/// Deletes the backup folder
 void wPreferences::on_btnDeleteAllBackups_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Delete all backups"), tr("Should all backups be deleted? They will be moved to the recycle bin."));
@@ -270,7 +267,6 @@ void wPreferences::on_btnDeleteAllBackups_clicked()
     }
 }
 
-/// Opens the backup folder
 void wPreferences::on_btnOpenBackupFolder_clicked()
 {
     QDir().mkdir("backup");
@@ -280,7 +276,6 @@ void wPreferences::on_btnOpenBackupFolder_clicked()
     QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 }
 
-/// Checks for updates
 void wPreferences::on_btnCheckForUpdates_clicked()
 {
     QPair<int, QString> update = updater->getUpdateInformation();
@@ -300,7 +295,6 @@ void wPreferences::on_btnCheckForUpdates_clicked()
     }
 }
 
-/// Resets the prefs
 void wPreferences::on_btnResetPreferences_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Reset preferences"), tr("Should all preferences be reset? This action cannot be undone! Any preferences will be deleted. However, files such as backups are not affected."), QMessageBox::Reset | QMessageBox::Cancel);
@@ -312,7 +306,6 @@ void wPreferences::on_btnResetPreferences_clicked()
     }
 }
 
-/// Sets OMSI path
 void wPreferences::on_btnOmsiPath_clicked()
 {
     QString mainDir = set.getOmsiPath(this, true, ui->ledOmsiPath->text());
@@ -320,13 +313,11 @@ void wPreferences::on_btnOmsiPath_clicked()
     modified();
 }
 
-/// Opens the logfile path in explorer
 void wPreferences::on_btnOpenLogfilePath_clicked()
 {
     fop.showInExplorer(qApp->applicationDirPath() + "/logfile.txt");
 }
 
-/// Shows a promotion to apply to a translator
 void wPreferences::on_btnMoreLanguages_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::information(this, tr("More languages"), tr("You want to have more languages to choose from?\nUnfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.").arg(OTInformation::name), QMessageBox::Open | QMessageBox::Cancel);
@@ -355,13 +346,11 @@ void wPreferences::on_cobxLanguage_currentIndexChanged(int index) { Q_UNUSED(ind
 
 void wPreferences::on_cbxKeepPixelRow_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
 
-/// Reloads theme preview
 void wPreferences::reloadThemePreview()
 {
     qApp->setStyle(QStyleFactory::create(themes[ui->cobxTheme->currentIndex()].first));
 }
 
-/// Opens help dialog
 void wPreferences::on_actionSendFeedback_triggered()
 {
     wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::preferences);
@@ -389,14 +378,12 @@ void wPreferences::on_btnDevToolsPrefs_clicked()
     ui->lblCurrentSection->setText("DevTools");
 }
 
-
 void wPreferences::on_lwgSections_itemClicked(QListWidgetItem *item)
 {
     Q_UNUSED(item);
     ui->stwPreferences->setCurrentIndex(ui->lwgSections->currentRow() + 1);
     ui->lblCurrentSection->setText(ui->lwgSections->currentItem()->text());
 }
-
 
 void wPreferences::on_actionClose_triggered()
 {
@@ -408,10 +395,8 @@ void wPreferences::on_actionClose_triggered()
     else close();
 }
 
-
 void wPreferences::on_cobxTheme_currentIndexChanged(int index)
 {
     Q_UNUSED(index);
     if (setupFinished) reloadThemePreview();
 }
-

@@ -81,7 +81,6 @@ public:
     }
 */
 
-/// [STATIC] General application information
 class OTInformation
 {
 public:
@@ -140,7 +139,6 @@ public:
     };
 };
 
-/// [STATIC] Collection of links
 class OTLinks
 {
 public:
@@ -263,7 +261,6 @@ private slots:
 private:
     QNetworkAccessManager manager;
 
-    /// Main part of downloading a file
     QByteArray downloadPost(const QUrl &url, QList<QPair<QString, QString>> params, unsigned int connectionTimeout)
     {
         qDebug().noquote().nospace() << "POST to '" << url.url() << "'";
@@ -314,7 +311,6 @@ private:
         return reply->readAll();
     }
 
-    /// Main part of downloading a file
     QByteArray downloadPostFile(const QUrl &url, QList<QPair<QString, QString>> params, QFile *file, unsigned int connectionTimeout)
     {
         qDebug().noquote().nospace() << "POST to '" << url.url() << "'";
@@ -366,7 +362,6 @@ private:
         return reply->readAll();
     }
 
-    /// Main part of downloading a file
     QByteArray downloadGet(const QUrl &url, unsigned int connectionTimeout)
     {
         qDebug().noquote().nospace() << "GET to '" << url.url() << "'";
@@ -404,7 +399,6 @@ private:
         return reply->readAll();
     }
 
-    /// Saves the download file to a local file
     void saveToFile(const QString filepath, const QByteArray content)
     {
         QFile file(filepath);
@@ -415,11 +409,9 @@ private:
     }
 };
 
-/// Class for miscellaneous
 class OTMiscellaneous
 {
 public:
-    /// Opens a file in explorer
     void openInExplorer(QString path)
     {
         QStringList args;
@@ -429,7 +421,6 @@ public:
         process->start("explorer.exe", args);
     }
 
-    /// Restarts the application
     void restart()
     {
         qInfo() << "Restart application...";
@@ -437,19 +428,11 @@ public:
         QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
     }
 
-    /// Returns curreent time
-    QString getTime(QString format = "hh:mm:ss")
-    {
-        return QTime::currentTime().toString(format);
-    }
+    QString getTime(QString format = "hh:mm:ss") { return QTime::currentTime().toString(format); }
 
-    /// Returns current date
-    QString getDate(QString format = "dd.MM.yyyy")
-    {
-        return QDate::currentDate().toString(format);
-    }
+    QString getDate(QString format = "dd.MM.yyyy") { return QDate::currentDate().toString(format); }
 
-    /// Sizes the window in dependence to the screen geometry
+    /// Sizes the window in relation to the screen geometry
     QSize sizeWindow(double width, double height)
     {
         QScreen *screen = QGuiApplication::primaryScreen();
@@ -467,7 +450,6 @@ public:
         return screen->geometry().center() - parent->rect().center();
     }
 
-    /// Puts a string to clipboard
     void copy(QString copytext)
     {
         qDebug() << "Copy string...";
@@ -475,7 +457,7 @@ public:
         clipboard->setText(copytext);
     }
 
-    void copyPixmap(QPixmap copyPixmap)
+    void copy(QPixmap copyPixmap)
     {
         qDebug() << "Copy image...";
         QClipboard* clipboard = QApplication::clipboard();
@@ -596,24 +578,20 @@ public:
     }
 };
 
-/// Class for file operations
 class OTFileOperations
 {
 public:
-    /// Returns an universal file header
     QString writeFileHeader()
     {
         return "File created with " + OTInformation::name + " " + OTInformation::versions::currentVersion.first + " on " + misc.getDate() + ", " + misc.getTime() + "\n\n";
     }
 
-    /// Checks if the backups folder exists
     void createBackupFolder()
     {
         if (!QDir("backup").exists())
             QDir().mkdir("backup");
     }
 
-    /// Creates a shortcut
     void createShortcut(QString filepath, QString shortcutLocation, QWidget *parent)
     {
         if (QFile(filepath).link(shortcutLocation))
@@ -628,7 +606,6 @@ public:
         }
     }
 
-    /// Selects a folder or file in explorer
     void showInExplorer(QString absolutePath)
     {
         // ATTENTION: This will NOT work in the OneDrive folder - I don't know why.
@@ -644,11 +621,9 @@ private:
     OTMiscellaneous misc;
 };
 
-/// Setting reader, writer etc.
 class OTSettings
 {
 public:
-    /// Writes a setting
     void write(QString module, QString name, QVariant value)
     {
         QSettings preferences(OTInformation::name, module);
@@ -656,7 +631,6 @@ public:
         qDebug().noquote().nospace() << "Write pref to " << module << ": "<< name << ", value: " << value;
     }
 
-    /// Reads a setting
     QVariant read(QString module, QString name, bool logging = true)
     {
         QSettings preferences(OTInformation::name, module);
@@ -666,17 +640,10 @@ public:
         return value;
     }
 
-    void remove(QString module, QString name)
-    {
-        QSettings(OTInformation::name, module).remove(name);
-    }
+    void remove(QString module, QString name) { QSettings(OTInformation::name, module).remove(name); }
 
-    void removeAll()
-    {
-        QSettings("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat).remove("");
-    }
+    void removeAll() { QSettings("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat).remove(""); }
 
-    /// Checks if OMSI main dir exists / is valid
     bool checkMainDir(QWidget *parent, QString mainDir, bool openMessage)
     {
         if (!mainDir.isEmpty() && !QFileInfo(QFile(mainDir + "/Omsi.exe")).exists())
@@ -697,7 +664,6 @@ public:
         return !mainDir.isEmpty();
     }
 
-    /// Select and control OMSI main dir path. Returns the OMSI path.
     QString getOmsiPath(QWidget *parent, bool openMessage = true, QString path = "")
     {
         if (path.isEmpty())
@@ -710,7 +676,6 @@ public:
         return mainDir;
     }
 
-    /// Gets all prefs keys and its values
     QList<QPair<QString, QVariant>> getAllPreferences()
     {
         QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat);
@@ -724,7 +689,6 @@ public:
         return settings;
     }
 
-    /// Gets all prefs keys and its values in a console formatting
     QString getAllPreferencesFormatted()
     {
         QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat);
@@ -737,7 +701,6 @@ public:
         return returnString;
     }
 
-    /// Installs a translator
     void loadTranslator()
     {
         QTranslator *translator = new QTranslator();
@@ -783,7 +746,6 @@ public:
         }
     }
 
-    /// Sets default needed preferences
     void setDefaultPreferences()
     {
         if (!read("main", "autoUpdateCheck").isValid())
@@ -850,7 +812,6 @@ public:
     }
 };
 
-/// Message class
 class OTMessage
 {
 public:
@@ -859,7 +820,6 @@ public:
         QMessageBox::critical(parent, errorTitle, QObject::tr("There was an error while open the temporary database. Please try it again or contact the developer."));
     }
 
-    /// Asks if the user wants to set the main dir
     bool setMainDir(QWidget *parent)
     {
         qDebug() << "Message: Action needs main directory. Set now (Yes/No)?";
@@ -870,7 +830,6 @@ public:
         return true;
     }
 
-    /// universal unsaved-Message (with Save, Discard and Cancel). Returns 'save = 1', 'discard = 0' or 'cancel = -1'
     int unsavedChanges(QWidget *parent)
     {
         qDebug() << "Message: Save unsaved changes (Save/Discard/Cancel)?";
@@ -892,7 +851,6 @@ public:
         }
     }
 
-    /// universal unsaved-Message (with Yes and No). Returns 'Yes = 1' or 'No = 0'
     bool unsavedContentLeaveYesNo(QWidget *parent)
     {
         qDebug() << "Message: Save unsaved changes / leave (Yes/No)?";
@@ -909,42 +867,32 @@ public:
         }
     }
 
-    /// If the user wants to open a file via a button and the file doesn't exist, this message es helpful
-    void fileOpenError(QWidget *parent)
-    {
-        QMessageBox::information(parent, QObject::tr("Error while opening file"), QObject::tr("The selected file doesn't exists or is read-protected."));
-    }
+    void fileOpenError(QWidget *parent) { QMessageBox::information(parent, QObject::tr("Error while opening file"), QObject::tr("The selected file doesn't exists or is read-protected.")); }
 
-    /// Could not open a file from OMSI main dir
     void fileOpenErrorCloseOMSI(QWidget *parent, QString filename)
     {
         QMessageBox::critical(parent, QObject::tr("Error while opening file"), QString(QObject::tr("There was an error while opening '%1'. If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.")).arg(filename));
     }
 
-    /// Font module: No chars in font
     void noCharsInFont(QWidget *parent)
     {
         QMessageBox::warning(parent, QObject::tr("No chars in font"), QObject::tr("There are no chars in the font."));
     }
 
-    /// There was en error while saving a file
     void fileSaveError(QString filename, QWidget *parent = 0)
     {
         QMessageBox::warning(parent, QObject::tr("Save error"), QString(QObject::tr("There was an save error '%1'. If OMSI is running, please close it and retry it.")).arg(filename));
     }
 
-    /// A module is due to narrow time deactivated
     void moduleDisabled(QWidget *parent = 0)
     {
         QMessageBox::information(parent, QObject::tr("Module still deactivated"), QObject::tr("Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days."));
     }
 };
 
-/// Calculates disk usage
 class OTDiskUsage
 {
 public:
-    /// Returns disk usage of directory 'dirPath'
     QString formatSize(QString dirPath)
     {
         qint64 size = calcDirSize(dirPath);
@@ -962,7 +910,6 @@ public:
         return QString("%0 %1").arg(outputSize, 0, 'f', 2).arg(units[i]);;
     }
 
-    /// Formats bytes values into other units if necessary
     QString calculateSize(qint64 size)
     {
         int i;
@@ -979,7 +926,6 @@ public:
     }
 
 private:
-    /// Calculates size in bytes of a directory
     qint64 calcDirSize(QString dirPath)
     {
         qint64 size = 0;
@@ -1010,7 +956,6 @@ private:
                           QObject::tr("PB", "Short version of 'Petabyte'")};
 };
 
-/// [STATIC] Class for some global needed strings
 class OTStrings
 {
 public:
@@ -1025,7 +970,6 @@ public:
 
     static inline const QString textureSuffixes = QObject::tr("Images") + " (*.png *.jpg *.jpeg *.bmp *.dds)";
 
-    /// Fun facts (funFact, time in ms)
     static QList<QPair<QString, unsigned int>> getFunFacts()
     {
         OTSettings set;
