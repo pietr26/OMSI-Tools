@@ -96,8 +96,6 @@ private slots:
 
     void on_lblUpdate_linkActivated(const QString &link);
 
-    void on_lblMainDir_linkActivated(const QString &link);
-
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;

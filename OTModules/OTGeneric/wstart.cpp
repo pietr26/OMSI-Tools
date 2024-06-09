@@ -417,10 +417,3 @@ void wStart::on_lblUpdate_linkActivated(const QString &link)
     WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
     WRELEASENOTES->show();
 }
-
-void wStart::on_lblMainDir_linkActivated(const QString &link)
-{
-    Q_UNUSED(link);
-    set.write("main", "mainDir", set.getOmsiPath(this, false));
-    misc.restart();
-}
