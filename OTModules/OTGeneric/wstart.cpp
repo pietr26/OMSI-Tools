@@ -50,7 +50,6 @@ wStart::wStart(QWidget *parent)
     ui->statusbar->addPermanentWidget(ui->lblUpdateInfo);
     ui->statusbar->addPermanentWidget(ui->lblUpdateVersion);
     ui->statusbar->addPermanentWidget(ui->lblUpdate);
-    ui->fraMainDir->setVisible(false);
 
     adjustSize();
 
@@ -70,9 +69,6 @@ wStart::wStart(QWidget *parent)
     ui->dwgMessages->setVisible(set.read(objectName(), "messagesVisible").toBool());
 
     checkForUpdates(); // and show frame if update is available
-
-    // Frame: Invalid OMSI Dir
-    if (!set.checkMainDir(this, set.read("main", "mainDir").toString(), false)) ui->fraMainDir->setVisible(true);
 
     // Restore state (for dockwidget)
     QVariant state = set.read(objectName(), "state");
