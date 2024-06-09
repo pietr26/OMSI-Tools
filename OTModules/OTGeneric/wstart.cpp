@@ -86,53 +86,15 @@ wStart::~wStart()
 
 void wStart::checkForUpdates()
 {
-    QVariant checkVersion = set.read("main", "autoUpdateCheck");
-    QVariant lastAutoUpdateCheck = set.read("main", "lastAutoUpdateCheck").toString();
-    bool checkForUpdate = false;
+    updateInformation = updater->getUpdateInformation();
 
-    QDate lastCheck;
-    lastCheck.setDate(lastAutoUpdateCheck.toString().remove(4, 4).toInt(),
-                      lastAutoUpdateCheck.toString().remove(0, 4).remove(2, 2).toInt(),
-                      lastAutoUpdateCheck.toString().remove(0, 6).toInt());
-
-    // On start
-    if (checkVersion == 1)
-        checkForUpdate = true;
-
-    // If updates enabled, but there's no lastAutoUpdateCheck
-    else if (!lastAutoUpdateCheck.isValid() && (checkVersion != 0))
-        checkForUpdate = true;
-
-    // Daily
-    else if ((checkVersion == 2) &&
-             (lastAutoUpdateCheck.toString() != misc.getDate("yyyyMMdd")))
-        checkForUpdate = true;
-
-    // Weekly
-    else if ((checkVersion == 3) &&
-             (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addDays(7).toString("yyyyMMdd")))
-        checkForUpdate = true;
-
-    // Monthly
-    else if ((checkVersion == 4) &&
-             (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addMonths(1).toString("yyyyMMdd")))
-        checkForUpdate = true;
-
-    if (checkForUpdate)
+    if (updateInformation.first > 0)
     {
-        updateInformation = updater->getUpdateInformation();
+        ui->lblUpdateInfo->setVisible(true);
+        ui->lblUpdateVersion->setVisible(true);
+        ui->lblUpdate->setVisible(true);
 
-        if (updateInformation.first == 0) set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
-        else if (updateInformation.first > 0)
-        {
-            ui->lblUpdateInfo->setVisible(true);
-            ui->lblUpdateVersion->setVisible(true);
-            ui->lblUpdate->setVisible(true);
-
-            ui->lblUpdateVersion->setText(updateInformation.second);
-
-            set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
-        }
+        ui->lblUpdateVersion->setText(updateInformation.second);
     }
 }
 

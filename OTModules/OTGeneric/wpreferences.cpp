@@ -50,11 +50,6 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     logfileModes << tr("Off")/* -1 */ << tr("Standard (recommended)")/* 0 */ << "Debug"/* 1 */ << "Debug+"/* 2 */;
     ui->cobxLogfileMode->addItems(logfileModes);
 
-    // cobxAutoUpdateCheck
-    QStringList updateModes;
-    updateModes << tr("Off")/* 0 */ << tr("On start")/* 1 */ << tr("Daily")/* 2 */ << tr("Weekly")/* 3 */ << tr("Monthly")/* 4 */;
-    ui->cobxAutoUpdateCheck->addItems(updateModes);
-
     // btnDevTools
     ui->btnDevToolsPrefs->setVisible(set.devModeEnabled());
 
@@ -144,9 +139,6 @@ void wPreferences::loadPreferences()
         {
             // Logfile mode
             ui->cobxLogfileMode->setCurrentIndex(set.read("main", "logfileMode").toInt() + 1);
-
-            // Auto update check
-            ui->cobxAutoUpdateCheck->setCurrentIndex(set.read("main", "autoUpdateCheck").toInt());
         };
     };
 
@@ -216,9 +208,6 @@ void wPreferences::savePreferences()
         {
             // Logfile mode
             set.write("main", "logfileMode", ui->cobxLogfileMode->currentIndex() - 1);
-
-            // Auto update check
-            set.write("main", "autoUpdateCheck", ui->cobxAutoUpdateCheck->currentIndex());
         };
     };
 
