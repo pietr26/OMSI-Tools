@@ -1,4 +1,5 @@
-#include "OTModules/OTGeneric/wstartupscreen.h"
+#include "OTModules/OTGeneric/wstart.h"
+#include "OTModules/OTGeneric/wfirstsetup.h"
 #include "OTBackend/OTGlobal.h"
 
 #include <QApplication>
@@ -119,16 +120,24 @@ int main(int argc, char *argv[])
 #endif
     }
 
-    wStartUpScreen *WSTARTUPSCREEN;
+    wStart *WSTART;
+    wFirstSetup *WFIRSTSETUP;
 
 //    if ((QCoreApplication::arguments().size() >= 2) && (QCoreApplication::arguments().at(1) == "..."))
 //    {
 //        // ...
 //    }
 //    else
+
+    if (!set.read("main", "language").isValid())
     {
-        WSTARTUPSCREEN = new wStartUpScreen();
-        WSTARTUPSCREEN->show();
+        WFIRSTSETUP = new wFirstSetup();
+        WFIRSTSETUP->show();
+    }
+    else
+    {
+        WSTART = new wStart();
+        WSTART->show();
     }
 
     int exec = a.exec();

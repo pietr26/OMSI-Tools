@@ -679,7 +679,7 @@ public:
     /// Checks if OMSI main dir exists / is valid
     bool checkMainDir(QWidget *parent, QString mainDir, bool openMessage)
     {
-        if (mainDir != "" && !QFileInfo(QFile(mainDir + "/Omsi.exe")).exists())
+        if (!mainDir.isEmpty() && !QFileInfo(QFile(mainDir + "/Omsi.exe")).exists())
         {
             qWarning().noquote() << "'" + mainDir + "' isn't an OMSI path!";
 
@@ -694,7 +694,7 @@ public:
             return false;
         }
 
-        return true;
+        return !mainDir.isEmpty();
     }
 
     /// Select and control OMSI main dir path. Returns the OMSI path.

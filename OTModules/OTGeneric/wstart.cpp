@@ -27,6 +27,7 @@ wStart::wStart(QWidget *parent)
             dbpanels->addAction(ui->actionDBPanelKnownWords);
 
             devTools->addMenu(dbpanels);
+
         devTools->addAction(ui->actionDashboard);
         devTools->addAction(ui->actionStyleTest);
         devTools->addAction(ui->actionApplicationCrashSimulation);
@@ -43,14 +44,23 @@ wStart::wStart(QWidget *parent)
         ui->gbxControlCenterTrip->setVisible(false);
     }
 
+    ui->lblUpdateInfo->setVisible(false);
+    ui->lblUpdateVersion->setVisible(false);
+    ui->lblUpdate->setVisible(false);
+    ui->statusbar->addPermanentWidget(ui->lblUpdateInfo);
+    ui->statusbar->addPermanentWidget(ui->lblUpdateVersion);
+    ui->statusbar->addPermanentWidget(ui->lblUpdate);
+    ui->fraMainDir->setVisible(false);
+
     adjustSize();
+
+    if (QDate().currentDate().month() == 12)
+        ui->lblSeasonIcon->setPixmap(QPixmap(":/rec/data/icons/christmas.svg"));
 
     ui->dwgMessages->setVisible(set.read(objectName(), "messagesVisible").toBool());
     move(misc.centerPosition(this));
 
     ui->actionAbout->setText(tr("About %1").arg(OTInformation::name));
-
-    startCounterMsgSender();
 
     fadeInOutText *facts = new fadeInOutText(OTStrings::getFunFacts());
     ui->vlaFacts->addWidget(facts);
@@ -59,19 +69,75 @@ wStart::wStart(QWidget *parent)
     loadMessages();
     ui->dwgMessages->setVisible(set.read(objectName(), "messagesVisible").toBool());
 
+    checkForUpdates(); // and show frame if update is available
+
+    // Frame: Invalid OMSI Dir
+    if (!set.checkMainDir(this, set.read("main", "mainDir").toString(), false)) ui->fraMainDir->setVisible(true);
+
+    // Restore state (for dockwidget)
     QVariant state = set.read(objectName(), "state");
     if (state.isValid())
         restoreState(state.toByteArray());
 
     qInfo().noquote() << objectName() + " started";
-
-    //QTimer::singleShot(1, this, SLOT(on_btnVerifyMap_clicked()));
 }
 
 wStart::~wStart()
 {
     qInfo().noquote() << objectName() << "is closing...";
     delete ui;
+}
+
+void wStart::checkForUpdates()
+{
+    QVariant checkVersion = set.read("main", "autoUpdateCheck");
+    QVariant lastAutoUpdateCheck = set.read("main", "lastAutoUpdateCheck").toString();
+    bool checkForUpdate = false;
+
+    QDate lastCheck;
+    lastCheck.setDate(lastAutoUpdateCheck.toString().remove(4, 4).toInt(),
+                      lastAutoUpdateCheck.toString().remove(0, 4).remove(2, 2).toInt(),
+                      lastAutoUpdateCheck.toString().remove(0, 6).toInt());
+
+    // On start
+    if (checkVersion == 1)
+        checkForUpdate = true;
+
+    // If updates enabled, but there's no lastAutoUpdateCheck
+    else if (!lastAutoUpdateCheck.isValid() && (checkVersion != 0))
+        checkForUpdate = true;
+
+    // Daily
+    else if ((checkVersion == 2) &&
+             (lastAutoUpdateCheck.toString() != misc.getDate("yyyyMMdd")))
+        checkForUpdate = true;
+
+    // Weekly
+    else if ((checkVersion == 3) &&
+             (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addDays(7).toString("yyyyMMdd")))
+        checkForUpdate = true;
+
+    // Monthly
+    else if ((checkVersion == 4) &&
+             (QDate::currentDate().toString("yyyyMMdd") >= lastCheck.addMonths(1).toString("yyyyMMdd")))
+        checkForUpdate = true;
+
+    if (checkForUpdate)
+    {
+        updateInformation = updater->getUpdateInformation();
+
+        if (updateInformation.first == 0) set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
+        else if (updateInformation.first > 0)
+        {
+            ui->lblUpdateInfo->setVisible(true);
+            ui->lblUpdateVersion->setVisible(true);
+            ui->lblUpdate->setVisible(true);
+
+            ui->lblUpdateVersion->setText(updateInformation.second);
+
+            set.write("main", "lastAutoUpdateCheck", misc.getDate("yyyyMMdd"));
+        }
+    }
 }
 
 void wStart::loadMessages()
@@ -209,14 +275,7 @@ void wStart::on_actionClose_triggered()
     close();
 }
 
-/// Reopen test, coming soon... https:/\nrello.com/c/8nOzgfSg
-void wStart::reopenTest(QObject*)
-{
-    show();
-    qDebug() << "Show!";
-}
-
-bool wStart::checkMainDir()
+bool wStart::checkMainDir() // TODO: do better. :P
 {
 checkMainDir:
     if (set.read("main", "mainDir").toString().isEmpty())
@@ -259,21 +318,6 @@ void wStart::on_actionManual_triggered()
 void wStart::on_actionSourceCodeOnGitHub_triggered()
 {
     QDesktopServices::openUrl(OTLinks::GitHub::main);
-}
-
-/// Shows a message at a defined start count
-void wStart::startCounterMsgSender()
-{
-    //unsigned int count = set.read("main", "startCount").toInt();
-
-//    if ((count >= 5) && (set.read("main\\startCountMessages", "feedbackForm").toString() != "true"))
-//    {
-//        QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Feedback"), tr("You are welcome to give us feedback about %1 so we can improve our software.").arg(OTInformation::name), QMessageBox::Yes | QMessageBox::No);
-//        set.write("main\\startCountMessages", "feedbackForm", true);
-
-//        if (reply == QMessageBox::Yes)
-//            QDesktopServices::openUrl(OTLinks::survey);
-//    }
 }
 
 /// Restarts application
@@ -434,4 +478,19 @@ void wStart::on_tbnLFClientParticipant_clicked()
     connect(WLFCLIENTPARTICIPANT, &wLFClientParticipant::backToHome, this, &wStart::reopen);
     WLFCLIENTPARTICIPANT->show();
     close();
+}
+
+void wStart::on_lblUpdate_linkActivated(const QString &link)
+{
+    Q_UNUSED(link);
+    WRELEASENOTES = new wReleaseNotes(this, true, updateInformation.second, (updateInformation.first == 2) ? true : false);
+    WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
+    WRELEASENOTES->show();
+}
+
+void wStart::on_lblMainDir_linkActivated(const QString &link)
+{
+    Q_UNUSED(link);
+    set.write("main", "mainDir", set.getOmsiPath(this, false));
+    misc.restart();
 }

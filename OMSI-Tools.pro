@@ -27,6 +27,7 @@ SOURCES += \
     OTBackend/LFClientAPIInterface/lfclientapiinterface.cpp \
     OTBackend/OTLogger.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
+    OTModules/OTGeneric/wfirstsetup.cpp \
     OTModules/OTGeneric/wpreferences.cpp \
     OTModules/OTGeneric/wpromptselector.cpp \
     OTModules/OTGeneric/wselectencoding.cpp \
@@ -61,13 +62,10 @@ SOURCES += \
     OTModules/wmessageviewer.cpp \
     OTModules/OTInternals/wstyletest.cpp \
     OTWidgets/fadeinouttext.cpp \
-    OTWidgets/firstsetup.cpp \
     OTWidgets/input2dcoordinates.cpp \
     OTWidgets/input3dcoordinates.cpp \
     OTWidgets/inputaddeditremove.cpp \
-    OTWidgets/invalidmaindir.cpp \
     OTWidgets/message.cpp \
-    OTWidgets/newupdate.cpp \
     OTWidgets/scrollingtext.cpp \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
@@ -76,8 +74,7 @@ SOURCES += \
     OTModules/wVerifyMap/wverifymap.cpp \
     OTModules/OTGeneric/wabout.cpp \
     OTModules/OTGeneric/wreleasenotes.cpp \
-    OTModules/OTGeneric/wstart.cpp \
-    OTModules/OTGeneric/wstartupscreen.cpp
+    OTModules/OTGeneric/wstart.cpp
 
 HEADERS += \
     OTBackend/DiscordGameSDK.h \
@@ -106,6 +103,7 @@ HEADERS += \
     OTBackend/OTOmsiFileHandler.h \
     OTBackend/OTOmsiFileHandler_models.h \
     OTModules/OTGeneric/wfeedback.h \
+    OTModules/OTGeneric/wfirstsetup.h \
     OTModules/OTGeneric/wpreferences.h \
     OTModules/OTGeneric/wpromptselector.h \
     OTModules/OTGeneric/wselectencoding.h \
@@ -143,22 +141,19 @@ HEADERS += \
     OTModules/wVerifyMap/wverifymap.h \
     OTModules/OTInternals/wstyletest.h \
     OTWidgets/fadeinouttext.h \
-    OTWidgets/firstsetup.h \
     OTWidgets/input2dcoordinates.h \
     OTWidgets/input3dcoordinates.h \
     OTWidgets/inputaddeditremove.h \
-    OTWidgets/invalidmaindir.h \
     OTWidgets/message.h \
-    OTWidgets/newupdate.h \
     OTWidgets/scrollingtext.h \
     OTWidgets/verifymaptools.h \
     OTModules/OTGeneric/wabout.h \
     OTModules/OTGeneric/wreleasenotes.h \
-    OTModules/OTGeneric/wstart.h \
-    OTModules/OTGeneric/wstartupscreen.h
+    OTModules/OTGeneric/wstart.h
 
 FORMS += \
     OTModules/OTGeneric/wfeedback.ui \
+    OTModules/OTGeneric/wfirstsetup.ui \
     OTModules/OTGeneric/wpreferences.ui \
     OTModules/OTGeneric/wpromptselector.ui \
     OTModules/OTGeneric/wselectencoding.ui \
@@ -196,19 +191,15 @@ FORMS += \
     OTModules/wVerifyMap/wverifymap.ui \
     OTModules/OTInternals/wstyletest.ui \
     OTWidgets/fadeinouttext.ui \
-    OTWidgets/firstsetup.ui \
     OTWidgets/input2dcoordinates.ui \
     OTWidgets/input3dcoordinates.ui \
     OTWidgets/inputaddeditremove.ui \
-    OTWidgets/invalidmaindir.ui \
     OTWidgets/message.ui \
-    OTWidgets/newupdate.ui \
     OTWidgets/scrollingtext.ui \
     OTWidgets/verifymaptools.ui \
     OTModules/OTGeneric/wabout.ui \
     OTModules/OTGeneric/wreleasenotes.ui \
-    OTModules/OTGeneric/wstart.ui \
-    OTModules/OTGeneric/wstartupscreen.ui
+    OTModules/OTGeneric/wstart.ui
 
 TRANSLATIONS += \
     data/translations/tr_de.ts \

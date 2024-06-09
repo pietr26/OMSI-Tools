@@ -43,8 +43,6 @@ private slots:
 
     void on_actionClose_triggered();
 
-    void reopenTest(QObject*);
-
     void on_actionSendFeedback_triggered();
 
     void on_actionManual_triggered();
@@ -99,6 +97,10 @@ private slots:
 
     void on_tbnLFClientParticipant_clicked();
 
+    void on_lblUpdate_linkActivated(const QString &link);
+
+    void on_lblMainDir_linkActivated(const QString &link);
+
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;
@@ -119,6 +121,7 @@ private:
     wDBKnownWords *WDBKNOWNWORDS;
     wLFClientParticipant *WLFCLIENTPARTICIPANT;
     wLFClientDispatcher *WLFCLIENTDISPATCHER;
+    OTUpdater *updater = new OTUpdater();
 
     OTSettings set;
     OTMessage msg;
@@ -126,11 +129,14 @@ private:
     OTFileOperations fop;
     OTNetworkConnection nc;
 
-    void startCounterMsgSender();
     bool checkMainDir();
 
     void loadMessagesOld();
     void loadMessages();
+    void checkForUpdates();
+
+    QString updateVersion;
+    QPair<int, QString> updateInformation;
 };
 
 #endif // WSTART_H

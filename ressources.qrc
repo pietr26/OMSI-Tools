@@ -41,5 +41,6 @@
         <file>data/translations/tr_fi.qm</file>
         <file>data/translations/tr_fr.ts</file>
         <file>data/translations/tr_ja.qm</file>
+        <file>data/icons/markYellow.svg</file>
     </qresource>
 </RCC>
