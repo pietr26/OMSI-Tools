@@ -838,23 +838,6 @@
     <string notr="true"/>
    </property>
   </action>
-  <action name="actionStyleTest">
-   <property name="icon">
-    <iconset theme="mail-message-new"/>
-   </property>
-   <property name="text">
-    <string notr="true">StyleTest...</string>
-   </property>
-   <property name="iconText">
-    <string notr="true">StyleTest</string>
-   </property>
-   <property name="toolTip">
-    <string notr="true">StyleTest</string>
-   </property>
-   <property name="shortcut">
-    <string notr="true">Ctrl+S</string>
-   </property>
-  </action>
   <action name="actionRegEditor">
    <property name="icon">
     <iconset theme="computer"/>

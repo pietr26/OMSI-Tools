@@ -44,10 +44,7 @@ void wBugDoc::on_actionBack_to_home_triggered()
 }
 
 
-void wBugDoc::on_actionClose_triggered()
-{
-    QApplication::quit();
-}
+void wBugDoc::on_actionClose_triggered() { QApplication::quit(); }
 
 void wBugDoc::on_actionLoad_triggered()
 {
@@ -288,7 +285,6 @@ void wBugDoc::on_actionPreferences_triggered()
     WPREFERENCES->show();
 }
 
-
 void wBugDoc::on_btnWebDiskCopy_clicked()
 {
     QString output;
@@ -340,9 +336,7 @@ void wBugDoc::on_btnWebDiskCopy_clicked()
 //    ui->pgbProgress->setVisible(false);
 }
 
-
 void wBugDoc::on_btnCopyPicture_clicked()
 {
-    misc.copyPixmap(QPixmap((ui->ledPicturePath->text().contains("%1") ? ui->ledPicturePath->text().arg(projectFolder) : ui->ledPicturePath->text())));
+    misc.copy(QPixmap((ui->ledPicturePath->text().contains("%1") ? ui->ledPicturePath->text().arg(projectFolder) : ui->ledPicturePath->text())));
 }
-

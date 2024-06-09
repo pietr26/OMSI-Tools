@@ -60,7 +60,6 @@ SOURCES += \
     OTModules/wcleanup.cpp \
     OTModules/wmapselection.cpp \
     OTModules/wmessageviewer.cpp \
-    OTModules/OTInternals/wstyletest.cpp \
     OTWidgets/fadeinouttext.cpp \
     OTWidgets/input2dcoordinates.cpp \
     OTWidgets/input3dcoordinates.cpp \
@@ -139,7 +138,6 @@ HEADERS += \
     OTModules/OTInternals/wdevtools.h \
     OTModules/wfonts.h \
     OTModules/wVerifyMap/wverifymap.h \
-    OTModules/OTInternals/wstyletest.h \
     OTWidgets/fadeinouttext.h \
     OTWidgets/input2dcoordinates.h \
     OTWidgets/input3dcoordinates.h \
@@ -189,7 +187,6 @@ FORMS += \
     OTModules/OTInternals/wdevtools.ui \
     OTModules/wfonts.ui \
     OTModules/wVerifyMap/wverifymap.ui \
-    OTModules/OTInternals/wstyletest.ui \
     OTWidgets/fadeinouttext.ui \
     OTWidgets/input2dcoordinates.ui \
     OTWidgets/input3dcoordinates.ui \

@@ -11,7 +11,6 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/OTGeneric/wabout.h"
 #include "OTModules/OTInternals/wdevtools.h"
-#include "OTModules/OTInternals/wstyletest.h"
 #include "OTModules/OTInternals/wregeditor.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTModules/wContentSearch/wDBPanel.h"
@@ -75,8 +74,6 @@ private slots:
 
     void on_actionApplicationCrashSimulation_triggered();
 
-    void on_actionStyleTest_triggered();
-
     void on_actionRegEditor_triggered();
 
     void on_actionBugDoc_triggered();
@@ -112,7 +109,6 @@ private:
     wContentSearch *WCONTENTSEARCH;
     wReleaseNotes *WRELEASENOTES;
     wAbout *WABOUT;
-    wStyleTest *WSTYLETEST;
     wFeedback *WFEEDBACK;
     wCleanup *WCLEANUP;
     wDBCopyrights *WDBCOPYRIGHTS;

@@ -29,7 +29,6 @@ wStart::wStart(QWidget *parent)
             devTools->addMenu(dbpanels);
 
         devTools->addAction(ui->actionDashboard);
-        devTools->addAction(ui->actionStyleTest);
         devTools->addAction(ui->actionApplicationCrashSimulation);
         devTools->addAction(ui->actionRegEditor);
         devTools->addAction(ui->actionBugDoc);
@@ -344,14 +343,6 @@ void wStart::on_actionApplicationCrashSimulation_triggered()
 
     if (reply == QMessageBox::Yes)
         qFatal("Application crash simulation started by user");
-}
-
-void wStart::on_actionStyleTest_triggered()
-{
-    WSTYLETEST = new wStyleTest();
-    connect(WSTYLETEST, &wStyleTest::backToHome, this, &wStart::reopen);
-    WSTYLETEST->show();
-    close();
 }
 
 void wStart::on_actionRegEditor_triggered()
