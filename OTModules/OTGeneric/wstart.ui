@@ -57,7 +57,7 @@
        <string notr="true">color: #008AFF</string>
       </property>
       <property name="text">
-       <string>version</string>
+       <string notr="true">version</string>
       </property>
      </widget>
     </item>
