@@ -15,7 +15,7 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 
     DiscordGameSDK::setModule(tr("Map verification"));
     DiscordGameSDK::setStatus(tr("Checking a map"));
-    DiscordGameSDK::start();
+    DiscordGameSDK::setStart();
     DiscordGameSDK::setIcon("wverifymap");
     DiscordGameSDK::update();
 

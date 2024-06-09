@@ -15,7 +15,7 @@ wMaps::wMaps(QWidget *parent) :
 
     DiscordGameSDK::setModule(tr("Map editor"));
     DiscordGameSDK::setStatus(tr("Editing a map's properties"));
-    DiscordGameSDK::start();
+    DiscordGameSDK::setStart();
     DiscordGameSDK::setIcon("wmaps");
     DiscordGameSDK::update();
 

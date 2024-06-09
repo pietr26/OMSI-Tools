@@ -18,7 +18,7 @@ wLFClientParticipant::wLFClientParticipant(QWidget *parent)
 
     DiscordGameSDK::setModule(tr("Control center trip"));
     DiscordGameSDK::setStatus(tr("Driving"));
-    DiscordGameSDK::start();
+    DiscordGameSDK::setStart();
     DiscordGameSDK::setIcon("wlfclientparticipant");
     DiscordGameSDK::update();
 

@@ -18,7 +18,7 @@ wLFClientDispatcher::wLFClientDispatcher(QWidget *parent)
 
     DiscordGameSDK::setModule(tr("Control center trip"));
     DiscordGameSDK::setStatus(tr("Managing the control center trip"));
-    DiscordGameSDK::start();
+    DiscordGameSDK::setStart();
     DiscordGameSDK::setIcon("wlfclientdispatcher");
     DiscordGameSDK::update();
 

@@ -17,7 +17,7 @@ wCleanup::wCleanup(QWidget *parent) :
 
     DiscordGameSDK::setModule(tr("Cleanup"));
     DiscordGameSDK::setStatus(tr("Tidying up the OMSI directory"));
-    DiscordGameSDK::start();
+    DiscordGameSDK::setStart();
     DiscordGameSDK::setIcon("wcleanup");
     DiscordGameSDK::update();
 

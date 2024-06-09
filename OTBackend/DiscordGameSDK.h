@@ -29,9 +29,13 @@ public:
 
     static void setStatus(QString action);
 
-    static void start();
+    static void setStart(QDateTime epochTimestamp = QDateTime());
+
+    static void setStart(bool enable);
 
     static void setEnd(QDateTime epochTimestamp);
+
+    static void setEnd(bool enable);
 
     static void setIcon(QString key, QString tooltip = "");
 

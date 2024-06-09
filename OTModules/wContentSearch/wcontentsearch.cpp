@@ -17,7 +17,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
 
     DiscordGameSDK::setModule(tr("Content search"));
     DiscordGameSDK::setStatus(tr("Searches missing files"));
-    DiscordGameSDK::start();
+    DiscordGameSDK::setStart();
     DiscordGameSDK::setIcon("wcontentsearch");
     DiscordGameSDK::update();
 

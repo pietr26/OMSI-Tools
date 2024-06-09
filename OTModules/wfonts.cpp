@@ -17,7 +17,7 @@ wFonts::wFonts(QWidget *parent) :
 
     DiscordGameSDK::setModule(tr("Font creation"));
     DiscordGameSDK::setStatus(tr("Creating a font"));
-    DiscordGameSDK::start();
+    DiscordGameSDK::setStart();
     DiscordGameSDK::setIcon("wfonts");
     DiscordGameSDK::update();
 
