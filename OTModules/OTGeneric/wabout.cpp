@@ -23,7 +23,7 @@ wAbout::wAbout(QWidget *parent) :
 
     ui->lblAdditionalVersion->setText(QString("%1 (%2)<br/><br/>").arg(appBuild).arg(OTInformation::versions::currentVersion.second));
 
-    QString generalInformation = tr("%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.").arg(OTInformation::name) + "<br/>" + tr("The Project has been started at January 22, 2021 and it's still in an early state of development.") + "<br/><br/>" + tr("%1 is licensed under the %2.").arg(OTInformation::name, "<a style=\"color: lightblue\" href=\"https://www.gnu.de/documents/gpl-2.0.en.html\">GNU General Public License v2.0</a>");
+    QString generalInformation = tr("%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.").arg(OTInformation::name) + "<br/>" + tr("The Project has been started at January 22, 2021 and it's still in an early state of development.") + "<br/><br/>" + tr("%1 is licensed under the %2.").arg(OTInformation::name, "<a style=\"color: blue\" href=\"https://www.gnu.de/documents/gpl-2.0.en.html\">GNU General Public License v2.0</a>");
 
     QString credits = QString("<b>%1:</b>").arg(tr("Development")) +
                       QString("<ul><li>Bamp <i>(%1)</i></li>").arg(tr("Management, development")) +
