@@ -85,7 +85,7 @@ class OTInformation
 {
 public:
     inline static const QString name = "OMSI-Tools";
-    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Beta;
+    inline static const OTBuildOptions::buildOptions build = OTBuildOptions::Dev;
     inline static const QString sourceCodeLength = "34.905";
 
     class versions
@@ -779,6 +779,21 @@ public:
             QDir().mkdir("_docs");
             qInfo() << "Extract manuals:" << QFile().copy(":/rec/data/manual/Handbuch DE.pdf", "_docs/Handbuch DE.pdf");
         }
+    }
+
+    void setDefaultPreferencesWDT()
+    {
+        bool themeWDTOk = false;
+        read("WDT", "theme").toString().toInt(&themeWDTOk);
+
+        if (!read("WDT", "theme").isValid() || themeWDTOk)
+            write("WDT", "theme", "Fusion");
+
+        if (!read("WDT", "welcomeDE").isValid())
+            write("WDT", "welcomeDE", "Hallo");
+
+        if (!read("WDT", "welcomeEN").isValid())
+            write("WDT", "welcomeEN", "Hello");
     }
 
     QString getCurrentLanguageCode()
