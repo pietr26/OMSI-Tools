@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
         // Print all prefs to the logfile
         qDebug().noquote() << "Preferences" + set.getAllPreferencesFormatted() + "\n================================================\n";
 
-        set.setDefaultPreferences();
+        set.setPreferencesOnStart();
 
         qInfo().noquote() << "Starting " + OTInformation::name + "...";
 
@@ -87,9 +87,6 @@ int main(int argc, char *argv[])
             set.write("main", "startCount", set.read("main", "startCount").toInt() + 1);
         else
             set.write("main", "startCount", 1);
-
-        // Reset advanced verification:
-        set.write("wVerifyMap", "advVerifying", false);
 
         // Start DiscordGameSDK:
         DiscordGameSDK *discord = new DiscordGameSDK();

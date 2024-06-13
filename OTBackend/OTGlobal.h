@@ -746,7 +746,7 @@ public:
         }
     }
 
-    void setDefaultPreferences()
+    void setPreferencesOnStart()
     {
         if (!read("main", "autoUpdateCheck").isValid())
             write("main", "autoUpdateCheck", 2);
@@ -779,9 +779,11 @@ public:
             QDir().mkdir("_docs");
             qInfo() << "Extract manuals:" << QFile().copy(":/rec/data/manual/Handbuch DE.pdf", "_docs/Handbuch DE.pdf");
         }
+
+        write("wVerifyMap", "advVerifying", false);
     }
 
-    void setDefaultPreferencesWDT()
+    void setPreferencesOnStartWDT()
     {
         bool themeWDTOk = false;
         read("WDT", "theme").toString().toInt(&themeWDTOk);
