@@ -4,7 +4,7 @@
 DiscordGameSDK::DiscordGameSDK()
 {
     qInfo() << "Initialize DiscordGameSDK...";
-    discord::Core::Create(1244025640064127017, DiscordCreateFlags_Default, &_core);
+    discord::Core::Create(1244025640064127017, DiscordCreateFlags_NoRequireDiscord, &_core);
     _state.core.reset(_core);
 
     if (!_state.core) {
