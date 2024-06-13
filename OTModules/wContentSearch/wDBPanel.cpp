@@ -462,9 +462,9 @@ void wDBPanel::on_actionGetLinkStatusCSV_triggered()
         QString url = qry.value(1).toString();
 
         nc.get(QUrl(url));
-        QString status = QString::number(nc.lastHttpCode);
+        int status = nc.lastHttpCode;
 
-        result << QString("%1, %2, %3").arg(id, url, status);
+        if (status != 200) result << QString("%1, %2, %3").arg(id, url, QString::number(status));
 
         i++;
     }
