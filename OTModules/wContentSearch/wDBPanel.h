@@ -55,6 +55,8 @@ private slots:
 
     void on_actionCreateBackup_triggered();
 
+    void on_actionGetLinkStatusCSV_triggered();
+
 signals:
     void backToHome();
 
@@ -63,6 +65,7 @@ private:
 
     OTSettings set;
     OTMiscellaneous misc;
+    OTNetworkConnection nc;
 
     QStringList standardFilter;
     QStringListModel *strListModelDuplicates;

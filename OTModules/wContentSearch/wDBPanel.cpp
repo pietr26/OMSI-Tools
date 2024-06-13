@@ -416,7 +416,7 @@ void wDBPanel::on_btnUnlockSource_clicked()
 void wDBPanel::on_actionBackToHome_triggered()
 {
     close();
-    backToHome();
+    emit backToHome();
 }
 
 void wDBPanel::on_actionStandard_triggered()
@@ -434,3 +434,60 @@ void wDBPanel::on_actionCreateBackup_triggered()
     dbHandler.createBackup();
     ui->statusbar->showMessage("Backup created.", 5000);
 }
+
+void wDBPanel::on_actionGetLinkStatusCSV_triggered()
+{
+    QSqlQueryModel *qryLinkModel = new QSqlQueryModel;
+
+    setEnabled(false);
+    ui->pgbProgress->setVisible(true);
+    ui->pgbProgress->setMinimum(0);
+    ui->pgbProgress->setMaximum(0);
+
+    qryLinkModel->setQuery(dbHandler.doAction("SELECT COUNT(*) FROM links", true));
+
+    int count = qryLinkModel->index(0, 0).data().toInt();
+    ui->pgbProgress->setMaximum(count);
+
+    QStringList result;
+    dbHandler.openDB();
+    QSqlQuery qry = dbHandler.doAction("SELECT ID, link FROM links");
+
+    int i = 0;
+
+    while (qry.next())
+    {
+        ui->pgbProgress->setValue(i);
+        QString id = qry.value(0).toString();
+        QString url = qry.value(1).toString();
+
+        nc.get(QUrl(url));
+        QString status = QString::number(nc.lastHttpCode);
+
+        result << QString("%1, %2, %3").arg(id, url, status);
+
+        i++;
+    }
+
+    dbHandler.closeDB();
+
+    QString filename = QFileDialog::getSaveFileName(this, "Save CSV file", QStandardPaths::writableLocation(QStandardPaths::DesktopLocation) + "/urlData" + misc.getDate("yyyy-MM-dd") + ".csv", "CSV file (*.csv)");
+
+    QFile file(filename);
+
+    if (!file.open(QFile::Text | QFile::WriteOnly))
+    {
+        QMessageBox::warning(this, "Error", "Could not open file for writing.");
+        setEnabled(true);
+        return;
+    }
+
+    QTextStream out(&file);
+
+    out << result.join("\n");
+
+    file.close();
+
+    setEnabled(true);
+}
+

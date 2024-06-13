@@ -357,6 +357,7 @@
      <string notr="true">Database</string>
     </property>
     <addaction name="actionCreateBackup"/>
+    <addaction name="actionGetLinkStatusCSV"/>
    </widget>
    <addaction name="menuWindow"/>
    <addaction name="menuDatabase"/>
@@ -438,6 +439,17 @@
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionGetLinkStatusCSV">
+   <property name="text">
+    <string notr="true">Get link status (CSV)</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Get link status (CSV)</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Get link status (CSV)</string>
    </property>
   </action>
  </widget>
