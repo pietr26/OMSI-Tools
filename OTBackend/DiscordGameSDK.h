@@ -50,8 +50,6 @@ private:
 
     static bool _blockExcecution;
 
-    static bool _stopped;
-
     static bool _blockUpdate;
 };
 
