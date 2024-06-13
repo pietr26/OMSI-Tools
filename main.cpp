@@ -89,6 +89,8 @@ int main(int argc, char *argv[])
             set.write("main", "startCount", 1);
 
         // Start DiscordGameSDK:
+        if (!set.read("main", "useDiscordGameSDK").toBool())
+            DiscordGameSDK::stop();
         DiscordGameSDK *discord = new DiscordGameSDK();
 
         QFuture<void> discordFuture = QtConcurrent::run([discord]() {

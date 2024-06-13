@@ -102,18 +102,7 @@ void wPreferences::loadPreferences()
             int languageIndex = set.read("main", "language").toInt();
             ui->cobxLanguage->setCurrentIndex(languageIndex);
 
-            // Author
-            ui->ledAuthor->setText(set.read("main", "author").toString());
-
-            // Omsi Path
-            ui->ledOmsiPath->setText(set.read("main", "mainDir").toString());
-
-            // News section
-            ui->cbxShowNews->setChecked(set.read("wStart", "messagesVisible").toBool());
-        };
-
-        // Theme
-        {
+            // Theme
             QString theme = set.read("main", "theme").toString();
 
             for (int i = 0; i < ui->cobxTheme->count(); i++)
@@ -124,6 +113,21 @@ void wPreferences::loadPreferences()
                     break;
                 }
             }
+
+            // Author
+            ui->ledAuthor->setText(set.read("main", "author").toString());
+
+            // Omsi Path
+            ui->ledOmsiPath->setText(set.read("main", "mainDir").toString());
+
+            // Logfile mode
+            ui->cobxLogfileMode->setCurrentIndex(set.read("main", "logfileMode").toInt() + 1);
+
+            // News section
+            ui->cbxShowNews->setChecked(set.read("wStart", "messagesVisible").toBool());
+
+            // DiscordGameSDK
+            ui->cbxDiscordGameSDK->setChecked(set.read("main", "useDiscordGameSDK").toBool());
         };
 
         // Backup
@@ -133,12 +137,6 @@ void wPreferences::loadPreferences()
 
             // Auto save duration
             ui->sbxAutosaveDuration->setValue(set.read("main", "autosaveDuration").toInt());
-        };
-
-        // Misc
-        {
-            // Logfile mode
-            ui->cobxLogfileMode->setCurrentIndex(set.read("main", "logfileMode").toInt() + 1);
         };
     };
 
@@ -180,19 +178,23 @@ void wPreferences::savePreferences()
             // Language
             set.write("main", "language", ui->cobxLanguage->currentIndex());
 
+            // Theme
+            set.write("main", "theme", themes[ui->cobxTheme->currentIndex()].first);
+
             // Author
             set.write("main", "author", ui->ledAuthor->text());
 
             // Omsi Path
             set.write("main", "mainDir", ui->ledOmsiPath->text());
 
+            // Logfile mode
+            set.write("main", "logfileMode", ui->cobxLogfileMode->currentIndex() - 1);
+
             // News section
             set.write("wStart", "messagesVisible", ui->cbxShowNews->isChecked());
-        };
 
-        // Theme
-        {
-            set.write("main", "theme", themes[ui->cobxTheme->currentIndex()].first);
+            // News section
+            set.write("main", "useDiscordGameSDK", ui->cbxDiscordGameSDK->isChecked());
         };
 
         // Backup
@@ -202,12 +204,6 @@ void wPreferences::savePreferences()
 
             // Auto save duration
             set.write("main", "autosaveDuration", ui->sbxAutosaveDuration->value());
-        };
-
-        // Misc
-        {
-            // Logfile mode
-            set.write("main", "logfileMode", ui->cobxLogfileMode->currentIndex() - 1);
         };
     };
 
@@ -345,6 +341,8 @@ void wPreferences::on_cbxShowNews_stateChanged(int arg1) { Q_UNUSED(arg1); if (s
 void wPreferences::on_cobxLanguage_currentIndexChanged(int index) { Q_UNUSED(index); modified(); if (setupFinished) { needRestart = true; } }
 
 void wPreferences::on_cbxKeepPixelRow_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
+
+void wPreferences::on_cbxDiscordGameSDK_stateChanged(int arg1) { Q_UNUSED(arg1); if (setupFinished) { modified(); needRestart = true; } }
 
 void wPreferences::reloadThemePreview()
 {

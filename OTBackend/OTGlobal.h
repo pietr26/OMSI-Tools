@@ -766,6 +766,9 @@ public:
         if (!read("main", "autosaveDuration").isValid())
             write("main", "autosaveDuration", 60);
 
+        if (!read("main", "useDiscordGameSDK").isValid())
+            write("main", "useDiscordGameSDK", true);
+
         if (!read("wStart", "messagesVisible").isValid())
             write("wStart", "messagesVisible", true);
 

@@ -76,6 +76,8 @@ private slots:
 
     void on_cobxTheme_currentIndexChanged(int index);
 
+    void on_cbxDiscordGameSDK_stateChanged(int arg1);
+
 private:
     Ui::wPreferences *ui;
     OTSettings set;
