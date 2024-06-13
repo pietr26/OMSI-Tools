@@ -69,7 +69,7 @@ SOURCES += \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
     OTModules/OTInternals/wdevtools.cpp \
-    OTModules/wfonts.cpp \
+    OTModules/wFonts/wfonts.cpp \
     OTModules/wVerifyMap/wverifymap.cpp \
     OTModules/OTGeneric/wabout.cpp \
     OTModules/OTGeneric/wreleasenotes.cpp \
@@ -136,7 +136,7 @@ HEADERS += \
     OTModules/wmapselection.h \
     OTModules/wmessageviewer.h \
     OTModules/OTInternals/wdevtools.h \
-    OTModules/wfonts.h \
+    OTModules/wFonts/wfonts.h \
     OTModules/wVerifyMap/wverifymap.h \
     OTWidgets/fadeinouttext.h \
     OTWidgets/input2dcoordinates.h \
@@ -185,7 +185,7 @@ FORMS += \
     OTModules/wmapselection.ui \
     OTModules/wmessageviewer.ui \
     OTModules/OTInternals/wdevtools.ui \
-    OTModules/wfonts.ui \
+    OTModules/wFonts/wfonts.ui \
     OTModules/wVerifyMap/wverifymap.ui \
     OTWidgets/fadeinouttext.ui \
     OTWidgets/input2dcoordinates.ui \
