@@ -6,7 +6,7 @@
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/OTGeneric/wreleasenotes.h"
-#include "OTModules/wfonts.h"
+#include "OTModules/wFonts/wfonts.h"
 #include "OTModules/wVerifyMap/wverifymap.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/OTGeneric/wabout.h"

@@ -5,11 +5,10 @@
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
-#include "OTModules/OTGeneric/wfeedback.h"
-#include "OTGeneric/wselectencoding.h"
-#include <QItemSelectionModel>
-#include <QCloseEvent>
-#include <QGraphicsScene>
+#include <QDockWidget>
+#include "Widgets/wdggeneral.h"
+#include "Widgets/wdgchars.h"
+#include "Widgets/wdgpreview.h"
 
 namespace Ui {
 class wFonts;
@@ -24,108 +23,9 @@ public:
     ~wFonts();
 
 private slots:
-
-    void closeEvent (QCloseEvent *event);
-
-    void dragEnterEvent(QDragEnterEvent *e);
-
-    void dropEvent(QDropEvent *e);
-
-    void resizeEvent(QResizeEvent *event);
-
-    void on_actionPreferences_triggered();
-
-    void on_actionNewChar_triggered();
-
-    void on_btnNewChar_clicked();
-
-    void on_btnDeleteSelection_clicked();
-
-    void on_actionDeleteSelection_triggered();
-
-    void on_actionNewFont_triggered();
-
-    void on_actionClose_triggered();
-
-    void on_actionOpen_triggered();
-
-    void on_actionSaveAs_triggered();
-
-    void on_btnMoveUp_clicked();
-
-    void on_btnMoveDown_clicked();
-
-    void on_actionMoveCharUp_triggered();
-
-    void on_actionMoveCharDown_triggered();
-
-    void on_actionSave_triggered();
-
-    void on_actionReload_triggered();
-
-    void autosave();
-
-    void on_actionFindChar_triggered();
-
-    void on_ledFontName_textChanged(const QString &arg1);
-
-    void on_ledColorTexture_textChanged(const QString &arg1);
-
-    void on_ledAlphaTexture_textChanged(const QString &arg1);
-
-    void on_actionGoToNextError_triggered();
-
-    void on_ledCharacter_textChanged(const QString &arg1);
-
-    void on_ledComment_textChanged(const QString &arg1);
-
-    void on_lvwChars_pressed(const QModelIndex &index);
-
-    void on_actionShowInExplorer_triggered();
-
-    void on_btnAlphaTexture_clicked();
-
-    void on_btnColorTexture_clicked();
-
-    void on_btnFind_clicked();
-
-    void on_btnNextResult_clicked();
-
-    void on_btnCloseSearch_clicked();
-
-    void on_ledSearch_textChanged(const QString &arg1);
-
-    void on_ledSearch_returnPressed();
-
-    void on_actionSendFeedback_triggered();
-
-    void charSelectionChanged(const QModelIndex &newSel, const QModelIndex &oldSel);
-
-    void on_sbxMaxHeigthOfChars_textChanged(const QString &arg1);
-
-    void on_sbxDistanceBetweenChars_textChanged(const QString &arg1);
-
-    void on_sbxLeftPixel_textChanged(const QString &arg1);
-
-    void on_sbxRightPixel_textChanged(const QString &arg1);
-
-    void on_sbxHighestPixelInFontRow_textChanged(const QString &arg1);
-
-    void on_cobxPreviewOptions_currentIndexChanged(int index);
-
-    void on_btnReloadTexPreview_clicked();
-
-    void on_actionDelete_triggered();
-
-    void on_actionDuplicateCharacter_triggered();
-
-    void on_actionOpenWithEncoding_triggered();
-
-    void selectedEncoding(QStringConverter::Encoding selectedEncoding = QStringConverter::Latin1);
-
     void on_actionBackToHome_triggered();
 
-    void on_btnEditorPreferences_clicked();
+    void on_actionClose_triggered();
 
 signals:
     void backToHome();
@@ -133,66 +33,16 @@ signals:
 private:
     Ui::wFonts *ui;
     wPreferences *WPREFERENCES;
-    OTMessage msg;
     OTSettings set;
-    OTMiscellaneous misc;
-    OTFileOperations fop;
     OTOMSIFileHandler filehandler;
-    QTimer *timer;
 
-    bool unsaved = false;
-
-    int maxRecentFileCount = 10;
-
-    QStringListModel *strListChars;
-
-    void setTitle(QString filen = "empty");
-
-    QString save(OTFileMethods::fileMethods method, QString filen = "");
-
-    void open(OTFileMethods::fileMethods method, QString filen = "", QStringConverter::Encoding encoding = QStringConverter::Latin1);
-
-    void updateRecentFiles(QString newFile);
-
-    void selectAllAndClear(bool onlyChar = false);
-
-    void move(int selection, QString action);
-
-    void enableFontArea(bool status);
-
-    void enableView(bool status);
-
-    void reloadCharList(bool addChar = false);
-
-    void reloadCharUI();
+    wdgGeneral *WDGGENERAL = new wdgGeneral(this, font);
+    wdgChars *WDGCHARS = new wdgChars(this, font);
+    wdgPreview *WDGPREVIEW = new wdgPreview(this, font);
 
     OTFontModel font;
 
-    void loadRecentFiles();
-
-    void saveRecentFiles(QString absoluteNewFilePath);
-
-    void setUnsaved(bool state = true);
-
-    void checkPropValidity();
-
-    void checkCharValidity();
-
-    QString currentSearch;
-
-    bool charListUpdate = false;
-
-    bool charUIUpdate = false;
-
-    QGraphicsScene *texPreviewScene;
-
-    void loadTexPreview();
-
-    void resizeTexPreview();
-
-    bool setupFinished = false;
-
-    void reloadTotalCharLabel();
+    void createDockWidgets();
 };
 
 #endif // WFONTS_H

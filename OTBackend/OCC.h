@@ -827,7 +827,7 @@ public:
         QString name;
         QString colorTexture;
         QString alphaTexture;
-        int maxHeightOfChars = -1; // TODO: '1-'?
+        int maxHeightOfChars = -1; // TODO: '-1'?
         int distanceBetweenChars = -1; // TODO: '-1'?
 
         QList<Character> characters;

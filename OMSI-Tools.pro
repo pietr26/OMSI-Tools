@@ -41,6 +41,10 @@ SOURCES += \
     OTModules/wFbh/waddword.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wdbknownwords.cpp \
+    OTModules/wFonts/Widgets/wdgchars.cpp \
+    OTModules/wFonts/Widgets/wdggeneral.cpp \
+    OTModules/wFonts/Widgets/wdgpreview.cpp \
+    OTModules/wFonts/wfonts.cpp \
     OTModules/wLFClient/Widgets/wdgactions.cpp \
     OTModules/wLFClient/Widgets/wdginformation.cpp \
     OTModules/wLFClient/Widgets/wdgmanagetrips.cpp \
@@ -69,7 +73,6 @@ SOURCES += \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
     OTModules/OTInternals/wdevtools.cpp \
-    OTModules/wFonts/wfonts.cpp \
     OTModules/wVerifyMap/wverifymap.cpp \
     OTModules/OTGeneric/wabout.cpp \
     OTModules/OTGeneric/wreleasenotes.cpp \
@@ -116,6 +119,10 @@ HEADERS += \
     OTModules/wFbh/waddword.h \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wdbknownwords.h \
+    OTModules/wFonts/Widgets/wdgchars.h \
+    OTModules/wFonts/Widgets/wdggeneral.h \
+    OTModules/wFonts/Widgets/wdgpreview.h \
+    OTModules/wFonts/wfonts.h \
     OTModules/wLFClient/Widgets/wdgactions.h \
     OTModules/wLFClient/Widgets/wdginformation.h \
     OTModules/wLFClient/Widgets/wdgmanagetrips.h \
@@ -136,7 +143,6 @@ HEADERS += \
     OTModules/wmapselection.h \
     OTModules/wmessageviewer.h \
     OTModules/OTInternals/wdevtools.h \
-    OTModules/wFonts/wfonts.h \
     OTModules/wVerifyMap/wverifymap.h \
     OTWidgets/fadeinouttext.h \
     OTWidgets/input2dcoordinates.h \
@@ -165,6 +171,10 @@ FORMS += \
     OTModules/wFbh/waddword.ui \
     OTModules/wFbh/wdbcopyrights.ui \
     OTModules/wFbh/wdbknownwords.ui \
+    OTModules/wFonts/Widgets/wdgchars.ui \
+    OTModules/wFonts/Widgets/wdggeneral.ui \
+    OTModules/wFonts/Widgets/wdgpreview.ui \
+    OTModules/wFonts/wfonts.ui \
     OTModules/wLFClient/Widgets/wdgactions.ui \
     OTModules/wLFClient/Widgets/wdginformation.ui \
     OTModules/wLFClient/Widgets/wdgmanagetrips.ui \
@@ -185,7 +195,6 @@ FORMS += \
     OTModules/wmapselection.ui \
     OTModules/wmessageviewer.ui \
     OTModules/OTInternals/wdevtools.ui \
-    OTModules/wFonts/wfonts.ui \
     OTModules/wVerifyMap/wverifymap.ui \
     OTWidgets/fadeinouttext.ui \
     OTWidgets/input2dcoordinates.ui \
