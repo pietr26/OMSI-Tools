@@ -13,11 +13,67 @@ class wdgChars : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgChars(QWidget *parent, OTFontModel &font);
+    explicit wdgChars(QWidget *parent, OTFontModel *font);
     ~wdgChars();
+
+private slots:
+    void on_btnNewChar_clicked();
+
+    void on_btnDeleteSelection_clicked();
+
+    void on_btnMoveUp_clicked();
+
+    void on_btnMoveDown_clicked();
+
+    void on_ledCharacter_textChanged(const QString &arg1);
+
+    void on_sbxLeftPixel_textChanged(const QString &arg1);
+
+    void on_sbxRightPixel_textChanged(const QString &arg1);
+
+    void on_sbxHighestPixelInFontRow_textChanged(const QString &arg1);
+
+    void on_ledComment_textChanged(const QString &arg1);
+
+    void on_btnFind_clicked();
+
+    void on_btnNextResult_clicked();
+
+    void on_btnEditorPreferences_clicked();
+
+    void on_lvwChars_pressed(const QModelIndex &index);
+
+public slots:
+    void reloadUi();
 
 private:
     Ui::wdgChars *ui;
+
+    OTSettings set;
+    OTMessage msg;
+
+    OTFontModel *_font;
+
+    void newChar();
+
+    void reloadCharList(bool addChar);
+
+    bool charListUpdate = false;
+
+    bool charUIUpdate = false;
+
+    QStringListModel *strListChars = new QStringListModel();
+
+    void switchCurrentChar();
+    void checkCharValidity();
+
+    void clear(bool onlyChar);
+
+    void moveChar(int selection, QString action);
+
+    QString currentSearch;
+
+    void charSelectionChanged(const QModelIndex &newSel, const QModelIndex &oldSel);
 };
 
 #endif // WDGCHARS_H

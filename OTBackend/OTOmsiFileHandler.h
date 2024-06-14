@@ -1028,18 +1028,16 @@ public:
         }
     }
 
-    OTFontModel openFont(QString path, QStringConverter::Encoding encoding)
+    void openFont(OTFontModel *font, QStringConverter::Encoding encoding)
     {
-        OTFontModel font;
-        font.path = path;
-
-        QFile file(font.path);
+        QFile file(font->path);
 
         if (!file.open(QFile::ReadOnly | QFile::Text))
         {
             qWarning().noquote() << "Font could not be opened: '" + QFileInfo(file).absoluteFilePath() + "'";
-            font.error = true;
-            return font;
+            font->clear();
+            font->error = true;
+            return;
         }
 
         QTextStream in(&file);
@@ -1058,13 +1056,13 @@ public:
                 {
                     fontCounter++;
                     // ... and save it to model
-                    font.name = in.readLine().toUtf8();
-                    font.colorTexture = in.readLine().toUtf8();
-                    font.alphaTexture = in.readLine().toUtf8();
+                    font->name = in.readLine().toUtf8();
+                    font->colorTexture = in.readLine().toUtf8();
+                    font->alphaTexture = in.readLine().toUtf8();
                     QString maxHeightOfChars = in.readLine().toUtf8();
-                    font.maxHeightOfChars = (maxHeightOfChars == "") ? -1 : maxHeightOfChars.toInt();
+                    font->maxHeightOfChars = (maxHeightOfChars == "") ? -1 : maxHeightOfChars.toInt();
                     QString distanceBetweenChars = in.readLine().toUtf8();
-                    font.distanceBetweenChars = (distanceBetweenChars == "") ? -1 : distanceBetweenChars.toInt();
+                    font->distanceBetweenChars = (distanceBetweenChars == "") ? -1 : distanceBetweenChars.toInt();
                 }
 
                 else if (line == "[char]")
@@ -1089,7 +1087,7 @@ public:
                     else if (line.contains("//"))
                         character.comment = line.remove(0, 3);
 
-                    font.charList.append(character);
+                    font->charList.append(character);
                 }
 
                 // Attention: This code needs to be here. Else there will be some problems with a [char] directly below a previous char entry.
@@ -1098,22 +1096,21 @@ public:
         }
         catch (...)
         {
-            font.error = true;
             qCritical().noquote() << "Font could not be read: '" + QFileInfo(file).absoluteFilePath() + "'";
-            return font;
+            font->clear();
+            font->error = true;
+            return;
         }
 
         if (fontCounter > 1)
-            font.moreThanOneFont = true;
+            font->moreThanOneFont = true;
 
         file.close();
-
-        return font;
     }
 
-    bool saveFont(OTFontModel font)
+    bool saveFont(OTFontModel *font)
     {
-        QFile file(font.path);
+        QFile file(font->path);
 
         if (!file.open(QFile::WriteOnly | QFile::Text))
         {
@@ -1130,32 +1127,32 @@ public:
         QString extraHashs = "##";
 
         // set in fontnameLength x "#" to cover the name completely
-        for (int i = 0; i < font.name.length(); i++)
+        for (int i = 0; i < font->name.length(); i++)
             extraHashs += "#";
 
         // Header No. 2
         out << "####################" << extraHashs << "\n";
-        out << "Font name:\t\t\t" << font.name << "\n";
-        out << "Total characters:\t" << font.charList.length() << "\n";
+        out << "Font name:\t\t\t" << font->name << "\n";
+        out << "Total characters:\t" << font->charList.length() << "\n";
         out << "Author:\t\t\t\t" << set.read("main", "author").toString() << "\n";
         out << "####################" << extraHashs << "\n";
         out << "\n";
 
         out << "[newfont]" << "\n";
-        out << font.name << "\n";
-        out << font.colorTexture << "\n";
-        out << font.alphaTexture << "\n";
+        out << font->name << "\n";
+        out << font->colorTexture << "\n";
+        out << font->alphaTexture << "\n";
 
         // variable = (condition) ? expressionTrue : expressionFalse;
 
-        QString maxHeightOfChars = (font.maxHeightOfChars == -1) ? "" : QString::number(font.maxHeightOfChars);
+        QString maxHeightOfChars = (font->maxHeightOfChars == -1) ? "" : QString::number(font->maxHeightOfChars);
         out << maxHeightOfChars << "\n";
-        QString distanceBetweenChars = (font.distanceBetweenChars == -1) ? "" : QString::number(font.distanceBetweenChars);
+        QString distanceBetweenChars = (font->distanceBetweenChars == -1) ? "" : QString::number(font->distanceBetweenChars);
         out << distanceBetweenChars << "\n";
 
         out << "\n";
 
-        foreach (OTCharacterModel current, font.charList)
+        foreach (OTCharacterModel current, font->charList)
         {
             // Writing process
             out << "[char]" << "\n";
