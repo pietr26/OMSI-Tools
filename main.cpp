@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
 
 #ifdef QT_DEBUG
         DiscordGameSDK::clearActivity();
-        DiscordGameSDK::setModule("Debugging");
+        DiscordGameSDK::setModule("Debugging ☹");
         DiscordGameSDK::setStatus("all the way to hell");
         DiscordGameSDK::update();
         DiscordGameSDK::setBlockUpdate(true);
