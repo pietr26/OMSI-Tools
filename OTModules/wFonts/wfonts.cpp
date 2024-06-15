@@ -111,7 +111,7 @@ void wFonts::on_actionOpenWithEncoding_triggered()
 
 void wFonts::on_actionReload_triggered()
 {
-    if (_font->path != "") open(OTFileMethods::reOpen, _font->path);
+    if (_font->path != "") open(OTFileMethods::reopen, _font->path);
 }
 
 void wFonts::on_actionSave_triggered()

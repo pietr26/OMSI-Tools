@@ -26,7 +26,7 @@ public:
     enum methods
     {
         open = 1,
-        reOpen = 2,
+        reopen = 2,
         silentOpen = 3,
         save = 4,
         saveAs = 5,
