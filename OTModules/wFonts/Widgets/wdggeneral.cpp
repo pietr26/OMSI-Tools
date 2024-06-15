@@ -61,7 +61,7 @@ void wdgGeneral::on_ledFontName_textChanged(const QString &arg1)
 {
     _font->name = arg1;
     checkPropValidity();
-    //checkCharValidity();
+    emit checkCharValidity();
     setWindowModified(true);
 }
 
@@ -70,7 +70,7 @@ void wdgGeneral::on_ledColorTexture_textChanged(const QString &arg1)
 {
     _font->colorTexture = arg1;
     checkPropValidity();
-    //checkCharValidity();
+    emit checkCharValidity();
     setWindowModified(true);
 
     //loadTexPreview();
@@ -81,7 +81,7 @@ void wdgGeneral::on_ledAlphaTexture_textChanged(const QString &arg1)
 {
     _font->alphaTexture = arg1;
     checkPropValidity();
-    //checkCharValidity();
+    emit checkCharValidity();
     setWindowModified(true);
 
     //loadTexPreview();
@@ -129,7 +129,7 @@ void wdgGeneral::on_sbxMaxHeigthOfChars_textChanged(const QString &arg1)
 {
     _font->maxHeightOfChars = arg1.toInt();
     checkPropValidity();
-    //checkCharValidity();
+    emit checkCharValidity();
     setWindowModified(true);
 }
 
@@ -138,14 +138,12 @@ void wdgGeneral::on_sbxDistanceBetweenChars_textChanged(const QString &arg1)
 {
     _font->distanceBetweenChars = arg1.toInt();
     checkPropValidity();
-    //checkCharValidity();
+    emit checkCharValidity();
     setWindowModified(true);
 }
 
 void wdgGeneral::reloadUi()
 {
-    qInfo() << "It's a me, wdgGeneral!";
-
     ui->ledFontName->setText(_font->name);
     ui->ledColorTexture->setText(_font->colorTexture);
     ui->ledAlphaTexture->setText(_font->alphaTexture);

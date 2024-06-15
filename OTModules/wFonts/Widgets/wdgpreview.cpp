@@ -34,8 +34,6 @@ void wdgPreview::on_btnReloadTexPreview_clicked()
 
 void wdgPreview::reloadUi()
 {
-    qInfo() << "It's a me, wdgPreview!";
-
     QString tex;
 
     if (set.read(objectName(), "texPreview").toInt() == 0)

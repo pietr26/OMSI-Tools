@@ -34,6 +34,11 @@ private slots:
 public slots:
     void reloadUi();
 
+signals:
+    void setModified();
+
+    void checkCharValidity();
+
 private:
     Ui::wdgGeneral *ui;
 

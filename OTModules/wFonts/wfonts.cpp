@@ -35,6 +35,8 @@ wFonts::wFonts(QWidget *parent)
     connect(this, &wFonts::reloadUi, WDGCHARS, &wdgChars::reloadUi);
     connect(this, &wFonts::reloadUi, WDGPREVIEW, &wdgPreview::reloadUi);
 
+    connect (WDGGENERAL, &wdgGeneral::checkCharValidity, WDGCHARS, &wdgChars::checkCharValidity);
+
     createDockWidgets();
 
     //ui->actionGoToNextError->setEnabled(false);
