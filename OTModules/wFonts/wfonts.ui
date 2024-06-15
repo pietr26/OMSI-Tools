@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>959</width>
-    <height>626</height>
+    <width>903</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>959</width>
+     <width>903</width>
      <height>25</height>
     </rect>
    </property>
@@ -98,14 +98,7 @@
     <addaction name="separator"/>
     <addaction name="actionMoveCharUp"/>
     <addaction name="actionMoveCharDown"/>
-   </widget>
-   <widget class="QMenu" name="menuDebugging">
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="title">
-     <string>Debugging</string>
-    </property>
+    <addaction name="separator"/>
     <addaction name="actionGoToNextError"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -117,7 +110,6 @@
    <addaction name="menuFont"/>
    <addaction name="menuEdit"/>
    <addaction name="menuSpecials"/>
-   <addaction name="menuDebugging"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

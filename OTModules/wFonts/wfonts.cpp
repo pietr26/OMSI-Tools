@@ -306,7 +306,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
         return;
     }
 
-    if (isWindowModified())
+    if (isWindowModified() == true)
     {
         int msgResult = msg.unsavedChanges(this);
         if (msgResult == -1)
@@ -316,41 +316,33 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
     }
 
     qInfo() << "Open file" << filen;
-    qDebug().noquote() << "Open method:" << method;
+    _font->clear();
+    _font->path = filen;
+
     if (method == OTFileMethods::open)
     {
-        if (filen == "")
+        if (_font->path.isEmpty())
         {
             qDebug() << "Open with file dialog";
-            filen = QFileDialog::getOpenFileName(this, tr("Open font..."), set.read("main", "mainDir").toString() + "/Fonts", tr("OMSI font file") + " (*.oft)");
-            if (filen == "")
-                return;
-            else
-                ;//selectAllAndClear();
+            _font->path = QFileDialog::getOpenFileName(this, tr("Open font..."), set.read("main", "mainDir").toString() + "/Fonts", tr("OMSI font file") + " (*.oft)");
+            if (_font->path.isEmpty()) return;
+            else emit reloadUi();
         }
-        _font->path = filen;
+
+        saveRecentFiles(QDir().absoluteFilePath(_font->path));
     }
 
-    // Make an direct (= more saver) autosave by coping the file
     if (method != OTFileMethods::silentOpen)
     {
+        // Make an direct (= more saver) autosave by coping the file
         qDebug() << "Create font file backup...";
         QFile::copy(_font->path, "backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + " " + _font->name + "_afterOpen.oft");
-    }
 
-    // Cut out only the file name and put it into the window title
-    if (method != OTFileMethods::silentOpen)
-    {
+        // Cut out only the file name and put it into the window title
         QFileInfo fileInfo(QFile(_font->path).fileName());
         QString filenameWithoutPath(fileInfo.fileName());
         setTitle(filenameWithoutPath);
     }
-
-    if (method == OTFileMethods::open)
-        saveRecentFiles(QDir().absoluteFilePath(_font->path));
-
-    if (method == OTFileMethods::silentOpen)
-        _font->path = filen;
 
     filehandler.openFont(_font, encoding);
     if (_font->error)
@@ -364,11 +356,9 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
         if (method != OTFileMethods::silentOpen)
             QMessageBox::warning(this, tr("Open font"), tr("Attention: The selected font file contains more than one font. The application cannot read multiple fonts. Please split each font in this file into seperate files.\nNo font will be opened."));
 
-        //setUnsaved(false);
+        setWindowModified(false);
         return;
     }
-
-    //setUnsaved();
 
     emit reloadUi();
 
