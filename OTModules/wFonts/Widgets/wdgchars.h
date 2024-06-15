@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "OTBackend/OTOmsiFileHandler.h"
+#include "OTModules/OTGeneric/wpreferences.h"
 
 namespace Ui {
 class wdgChars;
@@ -46,6 +47,11 @@ private slots:
 public slots:
     void reloadUi();
 
+    void checkCharValidity();
+
+signals:
+    void setModified();
+
 private:
     Ui::wdgChars *ui;
 
@@ -54,9 +60,9 @@ private:
 
     OTFontModel *_font;
 
-    void newChar();
+    wPreferences *WPREFERENCES = new wPreferences(this, "wFonts");
 
-    void reloadCharList(bool addChar);
+    void newChar();
 
     bool charListUpdate = false;
 
@@ -65,7 +71,6 @@ private:
     QStringListModel *strListChars = new QStringListModel();
 
     void switchCurrentChar();
-    void checkCharValidity();
 
     void clear(bool onlyChar);
 

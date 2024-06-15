@@ -33,36 +33,9 @@ wFonts::wFonts(QWidget *parent) :
 
     fop.createBackupFolder();
 
-    // Set only-Numbers
-    ui->sbxHighestPixelInFontRow->clear();
-    ui->sbxLeftPixel->clear();
-    ui->sbxRightPixel->clear();
-    ui->sbxMaxHeigthOfChars->clear();
-    ui->sbxDistanceBetweenChars->clear();
-
-    // and for Debug-Action
-    ui->actionGoToNextError->setEnabled(false);
-
-    ui->btnNextResult->setEnabled(false);
-    ui->btnFind->setEnabled(false);
-
     enableFontArea(false);
-
-    loadTexPreview();
-
-    strListChars = new QStringListModel();
-
-    ui->twgFont->setCurrentIndex(0);
-    ui->gbxSearchChar->setVisible(false);
-
-    setUnsaved(false);
-    ui->lvwChars->setModel(strListChars);
-    connect(ui->lvwChars->selectionModel(), &QItemSelectionModel::currentRowChanged, this, &wFonts::charSelectionChanged);
+    
     checkPropValidity();
-
-    // First setup - if not, the application will crash in wFonts::resizeEvent()
-    texPreviewScene = new QGraphicsScene(this);
-    ui->grvTexPreview->setScene(texPreviewScene);
 
     setupFinished = true;
 
@@ -255,40 +228,7 @@ void wFonts::setUnsaved(bool state)
 
 void wFonts::checkPropValidity()
 {
-    ui->lblFontName->setStyleSheet("");
-    ui->lblColorTexture->setStyleSheet("");
-    ui->lblAlphaTexture->setStyleSheet("");
-    ui->lblMaxHeigthOfChars->setStyleSheet("");
-    ui->lblDistanceBetweenChars->setStyleSheet("");
-
-    if (font.name == "")
-        ui->lblFontName->setStyleSheet("color:red");
-
-    if ((font.colorTexture != "") && !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + font.colorTexture).exists())
-        ui->lblColorTexture->setStyleSheet("color:red");
-
-    if (font.alphaTexture == "" || !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture).exists())
-        ui->lblAlphaTexture->setStyleSheet("color:red");
-
-    if (ui->sbxMaxHeigthOfChars->text() == "" || (font.maxHeightOfChars == 0))
-        ui->lblMaxHeigthOfChars->setStyleSheet("color:red");
-
-    if (ui->sbxDistanceBetweenChars->text() == "")
-        ui->lblDistanceBetweenChars->setStyleSheet("color:red");
-
-    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture).exists())
-    {
-        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture);
-
-        if (alphaTexture.width() != 0 || alphaTexture.height() != 0)
-        {
-            if (font.maxHeightOfChars > QString::number(alphaTexture.height()).toInt())
-                ui->lblMaxHeigthOfChars->setStyleSheet("color:red");
-
-            if (font.distanceBetweenChars > QString::number(alphaTexture.width()).toInt())
-                ui->lblDistanceBetweenChars->setStyleSheet("color:red");
-        }
-    }
+    
 }
 
 void wFonts::checkCharValidity()
@@ -390,26 +330,7 @@ void wFonts::selectAllAndClear(bool onlyChar)
 
 void wFonts::move(int selection, QString action)
 {
-    if ((selection == 0 && action == "UP") || (selection > font.charList.size() - 1 && action == "DOWN"))
-        return;
-
-    int moving;
-
-    if (action == "UP")
-        moving = selection - 1;
-    else if (action == "DOWN")
-        moving = selection + 1;
-    else
-    {
-        qWarning().noquote() << "Invalid move parameter: " + action;
-        return;
-    }
-    setUnsaved();
-
-    // Move the selected item down / up
-    font.charList.move(selection, moving);
-    reloadCharList();
-    ui->lvwChars->setCurrentIndex(strListChars->index(moving));
+    
 }
 
 void wFonts::enableFontArea(bool status)

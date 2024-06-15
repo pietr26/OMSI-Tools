@@ -180,8 +180,6 @@ private:
 
     QString currentSearch;
 
-    bool charListUpdate = false;
-
     bool charUIUpdate = false;
 
     QGraphicsScene *texPreviewScene;
