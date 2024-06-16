@@ -33,6 +33,7 @@ wFonts::wFonts(QWidget *parent)
 
     connect(this, &wFonts::reloadUi, WDGGENERAL, &wdgGeneral::reloadUi);
     connect(this, &wFonts::reloadUi, WDGCHARS, &wdgChars::reloadUi);
+    connect(this, &wFonts::reloadUi, WDGCHARS, &wdgChars::switchCurrentChar);
     connect(this, &wFonts::reloadUi, WDGPREVIEW, &wdgPreview::reloadUi);
 
     connect(WDGGENERAL, &wdgGeneral::setModified, this, &wFonts::setWindowModified);

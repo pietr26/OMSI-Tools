@@ -49,6 +49,8 @@ public slots:
 
     void checkCharValidity();
 
+    void switchCurrentChar();
+
 signals:
     void setModified(bool state);
 
@@ -69,8 +71,6 @@ private:
     bool charUIUpdate = false;
 
     QStringListModel *strListChars = new QStringListModel();
-
-    void switchCurrentChar();
 
     void clear(bool onlyChar);
 

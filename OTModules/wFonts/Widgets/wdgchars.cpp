@@ -258,7 +258,7 @@ void wdgChars::newChar()
 void wdgChars::switchCurrentChar()
 {
     charUIUpdate = true;
-    OTCharacterModel character = _font->charList.isEmpty() ? OTCharacterModel() : _font->charList.at(ui->lvwChars->currentIndex().row());
+    OTCharacterModel character = (_font->charList.isEmpty() || ui->lvwChars->currentIndex().row() <= -1) ? OTCharacterModel() : _font->charList.at(ui->lvwChars->currentIndex().row());
 
     ui->ledCharacter->setText(character.character);
 
