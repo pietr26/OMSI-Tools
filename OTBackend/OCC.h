@@ -922,7 +922,8 @@ public:
         out.setEncoding(QStringConverter::Latin1);
 
         try {
-            out << fop.writeFileHeader() << "\n";
+            OCBase base;
+            out << base.writeFileHeader() << "\n";
             out << "\n";
             out << "Author: " << set.read("main", "author").toString() << "\n";
             out << "Font count:" << fonts.count() << "\n";
@@ -978,7 +979,6 @@ public:
 private:
     QString _path;
     QStringConverter::Encoding _encoding;
-    OTFileOperations fop;
     OTSettings set;
 };
 

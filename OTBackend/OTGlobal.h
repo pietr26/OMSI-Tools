@@ -581,7 +581,7 @@ public:
 class OTFileOperations
 {
 public:
-    QString writeFileHeader()
+    Q_DECL_DEPRECATED QString writeFileHeader()
     {
         return "File created with " + OTInformation::name + " " + OTInformation::versions::currentVersion.first + " on " + misc.getDate() + ", " + misc.getTime() + "\n\n";
     }
