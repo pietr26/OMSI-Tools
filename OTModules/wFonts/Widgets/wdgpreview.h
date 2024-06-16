@@ -2,7 +2,7 @@
 #define WDGPREVIEW_H
 
 #include <QWidget>
-#include "OTBackend/OTOmsiFileHandler.h"
+#include "OTBackend/OCC.h"
 #include <QGraphicsScene>
 
 namespace Ui {
@@ -14,7 +14,7 @@ class wdgPreview : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgPreview(QWidget *parent, OTFontModel *font);
+    explicit wdgPreview(QWidget *parent, OCFont *font);
     ~wdgPreview();
 
 private slots:
@@ -29,12 +29,16 @@ public slots:
 
     void resizeEvent(QResizeEvent *event);
 
+    void changeFontIndex(int index);
+
 private:
     Ui::wdgPreview *ui;
 
     OTSettings set;
 
-    OTFontModel *_font;
+    OCFont *_font;
+
+    int currentFontIndex = 0;
 
     QGraphicsScene *texPreviewScene = new QGraphicsScene();
 };

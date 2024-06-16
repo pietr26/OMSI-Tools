@@ -876,6 +876,8 @@ public:
         {
             while (!in.atEnd())
             {
+                line = in.readLine();
+
                 if (line == "[newfont]")
                 {
                     fonts.append(SingleFont());

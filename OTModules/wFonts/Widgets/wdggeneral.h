@@ -2,7 +2,7 @@
 #define WDGGENERAL_H
 
 #include <QWidget>
-#include "OTBackend/OTOmsiFileHandler.h"
+#include "OTBackend/OCC.h"
 
 namespace Ui {
 class wdgGeneral;
@@ -13,7 +13,7 @@ class wdgGeneral : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgGeneral(QWidget *parent, OTFontModel *font);
+    explicit wdgGeneral(QWidget *parent, OCFont *font);
     ~wdgGeneral();
 
 private slots:
@@ -27,12 +27,16 @@ private slots:
 
     void on_btnAlphaTexture_clicked();
 
-    void on_sbxMaxHeigthOfChars_textChanged(const QString &arg1);
+    void on_sbxMaxHeigthOfChars_valueChanged(int arg1);
 
-    void on_sbxDistanceBetweenChars_textChanged(const QString &arg1);
+    void on_sbxDistanceBetweenChars_valueChanged(int arg1);
+
+    void on_cobxCurrentFont_currentIndexChanged(int index);
 
 public slots:
     void reloadUi();
+
+    void changeFontIndex(int index);
 
 signals:
     void setModified(bool state);
@@ -41,14 +45,20 @@ signals:
 
     void reloadPreview();
 
+    void fontIndexChanged(int index);
+
 private:
     Ui::wdgGeneral *ui;
 
     OTSettings set;
 
-    OTFontModel *_font;
+    OCFont *_font;
+
+    int currentFontIndex = 0;
 
     void checkPropValidity();
+
+    bool setupFinished = false;
 };
 
 #endif // WDGGENERAL_H

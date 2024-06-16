@@ -1,16 +1,12 @@
 #include "wdgchars.h"
 #include "ui_wdgchars.h"
 
-wdgChars::wdgChars(QWidget *parent, OTFontModel *font)
+wdgChars::wdgChars(QWidget *parent, OCFont *font)
     : QWidget(parent)
     , ui(new Ui::wdgChars),
     _font(font)
 {
     ui->setupUi(this);
-
-    ui->sbxHighestPixelInFontRow->clear();
-    ui->sbxLeftPixel->clear();
-    ui->sbxRightPixel->clear();
 
     ui->btnNextResult->setEnabled(false);
     ui->btnFind->setEnabled(false);
@@ -35,11 +31,11 @@ void wdgChars::on_btnNewChar_clicked()
 
 void wdgChars::on_btnDeleteSelection_clicked()
 {
-    qDebug().noquote() << QString("Delete char '%1' at position %2...").arg(_font->charList.at(ui->lvwChars->currentIndex().row()).character).arg(ui->lvwChars->currentIndex().row());
+    qDebug().noquote() << QString("Delete char '%1' at position %2...").arg(_font->fonts[currentFontIndex].characters.at(ui->lvwChars->currentIndex().row()).character()).arg(ui->lvwChars->currentIndex().row());
 
-    if (ui->lvwChars->currentIndex().row() != -1) _font->charList.removeAt(ui->lvwChars->currentIndex().row());
+    if (ui->lvwChars->currentIndex().row() != -1) _font->fonts[currentFontIndex].characters.removeAt(ui->lvwChars->currentIndex().row());
 
-    qDebug() << "Font charlist count:" << _font->charList.count();
+    qDebug() << "Font charlist count:" << _font->fonts[currentFontIndex].characters.count();
 
     reloadUi();
     switchCurrentChar();
@@ -49,19 +45,19 @@ void wdgChars::on_btnDeleteSelection_clicked()
 
 void wdgChars::on_btnMoveUp_clicked()
 {
-    if (_font->charList.count() != 0) moveChar(ui->lvwChars->currentIndex().row(), "UP");
+    if (_font->fonts[currentFontIndex].characters.count() != 0) moveChar(ui->lvwChars->currentIndex().row(), "UP");
 }
 
 void wdgChars::on_btnMoveDown_clicked()
 {
-    if (ui->lvwChars->currentIndex().row() != _font->charList.count() - 1) moveChar(ui->lvwChars->currentIndex().row(), "DOWN");
+    if (ui->lvwChars->currentIndex().row() != _font->fonts[currentFontIndex].characters.count() - 1) moveChar(ui->lvwChars->currentIndex().row(), "DOWN");
 }
 
-void wdgChars::on_ledCharacter_textChanged(const QString &arg1)
+void wdgChars::on_ledCharacter_textChanged(const QString &arg1) // TODO: to  read-out number
 {
-    if (_font->charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    if (_font->fonts[currentFontIndex].characters.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
     {
-        _font->charList[ui->lvwChars->currentIndex().row()].character = arg1;
+        _font->fonts[currentFontIndex].characters[ui->lvwChars->currentIndex().row()].character() = arg1;
         if (!charUIUpdate) reloadUi();
     }
 
@@ -69,28 +65,11 @@ void wdgChars::on_ledCharacter_textChanged(const QString &arg1)
     emit setModified(true);
 }
 
-void wdgChars::on_sbxLeftPixel_textChanged(const QString &arg1)
+void wdgChars::on_sbxLeftPixel_valueChanged(int arg1)
 {
-    if (_font->charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    if (_font->fonts[currentFontIndex].characters.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
     {
-        if (arg1.isEmpty()) _font->charList[ui->lvwChars->currentIndex().row()].leftPixel = -1;
-        else _font->charList[ui->lvwChars->currentIndex().row()].leftPixel = arg1.toInt();
-
-        if (!charUIUpdate) reloadUi();
-    }
-
-    checkCharValidity();
-    emit setModified(true);
-}
-
-
-void wdgChars::on_sbxRightPixel_textChanged(const QString &arg1)
-{
-    if (_font->charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
-    {
-        if (arg1.isEmpty()) _font->charList[ui->lvwChars->currentIndex().row()].rightPixel = -1;
-        else _font->charList[ui->lvwChars->currentIndex().row()].rightPixel = arg1.toInt();
-
+        _font->fonts[currentFontIndex].characters[ui->lvwChars->currentIndex().row()].setLeftPixel(arg1);
         if (!charUIUpdate) reloadUi();
     }
 
@@ -99,13 +78,11 @@ void wdgChars::on_sbxRightPixel_textChanged(const QString &arg1)
 }
 
 
-void wdgChars::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
+void wdgChars::on_sbxRightPixel_valueChanged(int arg1)
 {
-    if (_font->charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    if (_font->fonts[currentFontIndex].characters.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
     {
-        if (arg1.isEmpty()) _font->charList[ui->lvwChars->currentIndex().row()].highestPixelInFontRow = -1;
-        else _font->charList[ui->lvwChars->currentIndex().row()].highestPixelInFontRow = arg1.toInt();
-
+        _font->fonts[currentFontIndex].characters[ui->lvwChars->currentIndex().row()].setRightPixel(arg1);
         if (!charUIUpdate) reloadUi();
     }
 
@@ -113,16 +90,22 @@ void wdgChars::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
     emit setModified(true);
 }
 
-void wdgChars::on_ledComment_textChanged(const QString &arg1)
-{
-    if (_font->charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1) _font->charList[ui->lvwChars->currentIndex().row()].comment = arg1;
 
+void wdgChars::on_sbxHighestPixelInFontRow_valueChanged(int arg1)
+{
+    if (_font->fonts[currentFontIndex].characters.count() != 0 && ui->lvwChars->currentIndex().row() != -1)
+    {
+        _font->fonts[currentFontIndex].characters[ui->lvwChars->currentIndex().row()].setHighestPixelInFontRow(arg1);
+        if (!charUIUpdate) reloadUi();
+    }
+
+    checkCharValidity();
     emit setModified(true);
 }
 
 void wdgChars::on_btnFind_clicked()
 {
-    if (_font->charList.count() == 0)
+    if (_font->fonts[currentFontIndex].characters.count() == 0)
     {
         msg.noCharsInFont(this);
         return;
@@ -137,9 +120,9 @@ void wdgChars::on_btnFind_clicked()
     // Search for char
     ui->lvwChars->setCurrentIndex(strListChars->index(0));
 
-    for (int i = 0; i < _font->charList.count(); i++)
+    for (int i = 0; i < _font->fonts[currentFontIndex].characters.count(); i++)
     {
-        if (_font->charList.at(i).character == currentSearch)
+        if (_font->fonts[currentFontIndex].characters.at(i).character() == currentSearch)
         {
             qDebug().noquote() << QString("Char '%1' found at position %2.").arg(currentSearch).arg(i + 1);
             switchCurrentChar();
@@ -161,13 +144,13 @@ void wdgChars::on_btnNextResult_clicked()
     qDebug() << "Go to next search result";
     if (currentSearch != "")
     {
-        if (_font->charList.count() == 1)
+        if (_font->fonts[currentFontIndex].characters.count() == 1)
             return;
 
         int i = ui->lvwChars->currentIndex().row();
-
-        QList<OTCharacterModel> tempList;
-        tempList = _font->charList;
+        
+        QList<OCFont::SingleFont::Character> tempList;
+        tempList = _font->fonts[currentFontIndex].characters;
         tempList.removeAt(ui->lvwChars->currentIndex().row());
 
         bool secondRound = false;
@@ -189,7 +172,7 @@ void wdgChars::on_btnNextResult_clicked()
                 switchCurrentChar();
                 return;
             }
-            else if (tempList.at(i).character == currentSearch)
+            else if (tempList.at(i).character() == currentSearch)
             {
                 if (i > ui->lvwChars->currentIndex().row() || i == ui->lvwChars->currentIndex().row())
                     i++;
@@ -237,7 +220,7 @@ void wdgChars::newChar()
     if(ui->sbxHighestPixelInFontRow->text().isEmpty()) prevPixelRow = -1;
     else prevPixelRow = ui->sbxHighestPixelInFontRow->value();
 
-    _font->charList.insert(ui->lvwChars->currentIndex().row() + 1, OTCharacterModel());
+    _font->fonts[currentFontIndex].characters.insert(ui->lvwChars->currentIndex().row() + 1, OCFont::SingleFont::Character());
 
     reloadUi();
     emit setModified(true);
@@ -251,30 +234,33 @@ void wdgChars::newChar()
     if ((set.read(objectName(), "keepPixelRow").toBool()) && (prevPixelRow != -1))
     {
         ui->sbxHighestPixelInFontRow->setValue(prevPixelRow);
-        on_sbxHighestPixelInFontRow_textChanged(QString::number(prevPixelRow));
+        on_sbxHighestPixelInFontRow_valueChanged(prevPixelRow);
     }
 }
 
 void wdgChars::switchCurrentChar()
 {
     charUIUpdate = true;
-    OTCharacterModel character = (_font->charList.isEmpty() || ui->lvwChars->currentIndex().row() <= -1) ? OTCharacterModel() : _font->charList.at(ui->lvwChars->currentIndex().row());
+    OCFont::SingleFont::Character character = (_font->fonts[currentFontIndex].characters.isEmpty() || ui->lvwChars->currentIndex().row() <= -1) ? OCFont::SingleFont::Character() : _font->fonts[currentFontIndex].characters.at(ui->lvwChars->currentIndex().row());
 
-    ui->ledCharacter->setText(character.character);
+    ui->ledCharacter->setText(character.character());
 
-    if (character.leftPixel != -1) ui->sbxLeftPixel->setValue(character.leftPixel);
+    if (character.leftPixel() != -1) ui->sbxLeftPixel->setValue(character.leftPixel());
     else ui->sbxLeftPixel->clear();
 
-    if (character.rightPixel != -1) ui->sbxRightPixel->setValue(character.rightPixel);
+    if (character.rightPixel() != -1) ui->sbxRightPixel->setValue(character.rightPixel());
     else ui->sbxRightPixel->clear();
 
-    if (character.highestPixelInFontRow != -1) ui->sbxHighestPixelInFontRow->setValue(character.highestPixelInFontRow);
+    if (character.highestPixelInFontRow() != -1) ui->sbxHighestPixelInFontRow->setValue(character.highestPixelInFontRow());
     else ui->sbxHighestPixelInFontRow->clear();
-
-    ui->ledComment->setText(character.comment);
 
     checkCharValidity();
     charUIUpdate = false;
+}
+
+void wdgChars::changeFontIndex(int index)
+{
+    currentFontIndex = index;
 }
 
 void wdgChars::checkCharValidity()
@@ -284,48 +270,48 @@ void wdgChars::checkCharValidity()
     ui->lblLeftPixel->setStyleSheet("");
     ui->lblHighestPixelInFontRow->setStyleSheet("");
 
-    if (_font->charList.isEmpty() || (ui->lvwChars->currentIndex().row() == -1)) return;
+    if (_font->fonts[currentFontIndex].characters.isEmpty() || (ui->lvwChars->currentIndex().row() == -1)) return;
 
-    OTCharacterModel character = _font->charList.at(ui->lvwChars->currentIndex().row());
+    OCFont::SingleFont::Character character = _font->fonts[currentFontIndex].characters.at(ui->lvwChars->currentIndex().row());
 
-    if (character.character.isEmpty()) ui->lblCharacter->setStyleSheet("color:red");
+    if (character.character().isEmpty()) ui->lblCharacter->setStyleSheet("color:red");
     else
     {
         QList<QString> tempCharList;
-        foreach (OTCharacterModel current, _font->charList)
-            tempCharList << current.character;
+        foreach (OCFont::SingleFont::Character current, _font->fonts[currentFontIndex].characters)
+            tempCharList << current.character();
 
-        if (tempCharList.indexOf(character.character) != -1)
+        if (tempCharList.indexOf(character.character()) != -1)
         {
-            tempCharList.removeAt(tempCharList.indexOf(character.character));
-            if (tempCharList.indexOf(character.character) != -1)
+            tempCharList.removeAt(tempCharList.indexOf(character.character()));
+            if (tempCharList.indexOf(character.character()) != -1)
                 ui->lblCharacter->setStyleSheet("color:red");
         }
     }
 
-    if (character.leftPixel > character.rightPixel)
+    if (character.leftPixel() > character.rightPixel())
     {
         ui->lblRightPixel->setStyleSheet("color:goldenrod");
         ui->lblLeftPixel->setStyleSheet("color:goldenrod");
     }
 
-    if (character.rightPixel == -1) ui->lblRightPixel->setStyleSheet("color:red");
-    if (character.leftPixel == -1) ui->lblLeftPixel->setStyleSheet("color:red");
-    if (character.highestPixelInFontRow == -1) ui->lblHighestPixelInFontRow->setStyleSheet("color:red");
+    if (character.rightPixel() == -1) ui->lblRightPixel->setStyleSheet("color:red");
+    if (character.leftPixel() == -1) ui->lblLeftPixel->setStyleSheet("color:red");
+    if (character.highestPixelInFontRow() == -1) ui->lblHighestPixelInFontRow->setStyleSheet("color:red");
 
-    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->alphaTexture).exists())
+    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts[currentFontIndex].alphaTexture()).exists())
     {
-        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->alphaTexture);
+        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts[currentFontIndex].alphaTexture());
 
         if ((alphaTexture.width() != 0) || (alphaTexture.height() != 0))
         {
-            if (character.rightPixel > QString::number(alphaTexture.width()).toInt())
+            if (character.rightPixel() > QString::number(alphaTexture.width()).toInt())
                 ui->lblRightPixel->setStyleSheet("color:red");
 
-            if (character.leftPixel > QString::number(alphaTexture.width()).toInt())
+            if (character.leftPixel() > QString::number(alphaTexture.width()).toInt())
                 ui->lblLeftPixel->setStyleSheet("color:red");
 
-            if (character.highestPixelInFontRow > QString::number(alphaTexture.width()).toInt())
+            if (character.highestPixelInFontRow() > QString::number(alphaTexture.width()).toInt())
                 ui->lblHighestPixelInFontRow->setStyleSheet("color:red");
         }
     }
@@ -334,7 +320,7 @@ void wdgChars::checkCharValidity()
 void wdgChars::moveChar(int selection, QString action) // TODO: make better
 {
     if (((selection == 0) && (action == "UP")) ||
-        ((selection > _font->charList.count() - 1) && (action == "DOWN")))
+        ((selection > _font->fonts[currentFontIndex].characters.count() - 1) && (action == "DOWN")))
         return;
 
     int moving;
@@ -349,7 +335,7 @@ void wdgChars::moveChar(int selection, QString action) // TODO: make better
     emit setModified(true);
 
     // Move the selected item down / up
-    _font->charList.move(selection, moving);
+    _font->fonts[currentFontIndex].characters.move(selection, moving);
     reloadUi();
     ui->lvwChars->setCurrentIndex(strListChars->index(moving));
 }
@@ -379,8 +365,8 @@ void wdgChars::reloadUi()
 
     QStringList chars;
 
-    foreach (OTCharacterModel current, _font->charList)
-        chars << current.character;
+    foreach (OCFont::SingleFont::Character current, _font->fonts[currentFontIndex].characters)
+        chars << current.character();
 
     strListChars->setStringList(chars);
     ui->lvwChars->setModel(strListChars);
@@ -392,15 +378,15 @@ void wdgChars::reloadUi()
     else
         ui->lvwChars->setCurrentIndex(strListChars->index(-1));
 
-    ui->lblCharCount->setText(QString::number(_font->charList.count()));
+    ui->lblCharCount->setText(QString::number(_font->fonts[currentFontIndex].characters.count()));
     charListUpdate = false;
 
     checkCharValidity();
 
-    ui->btnDeleteSelection->setDisabled(_font->charList.isEmpty());
+    ui->btnDeleteSelection->setDisabled(_font->fonts[currentFontIndex].characters.isEmpty());
 
     ui->btnMoveUp->setEnabled(ui->lvwChars->currentIndex().row() > 0);
-    ui->btnMoveDown->setEnabled(ui->lvwChars->currentIndex().row() < (_font->charList.count() - 1));
+    ui->btnMoveDown->setEnabled(ui->lvwChars->currentIndex().row() < (_font->fonts[currentFontIndex].characters.count() - 1));
 
     // TODO FOR Char position preview: Reload tex preview here (maybe in thread)
 }

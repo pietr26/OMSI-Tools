@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTBackend/OTGlobal.h"
-#include "OTBackend/OTOmsiFileHandler.h"
+#include "OTBackend/OCC.h"
 #include <QDockWidget>
 #include "Widgets/wdggeneral.h"
 #include "Widgets/wdgchars.h"
@@ -45,6 +45,8 @@ private slots:
 
     void resizeEvent(QResizeEvent *event);
 
+    void recieveFontIndex(int index);
+
 signals:
     void backToHome();
 
@@ -52,13 +54,14 @@ signals:
 
     void resizePreview();
 
+    void changeFontIndex(int index);
+
 private:
     Ui::wFonts *ui;
     wPreferences *WPREFERENCES;
     OTSettings set;
     OTMessage msg;
     OTMiscellaneous misc;
-    OTOMSIFileHandler filehandler;
 
     wdgGeneral *WDGGENERAL;
     wdgChars *WDGCHARS;
@@ -66,7 +69,7 @@ private:
 
     wSelectEncoding *WSELECTENCODING;
 
-    OTFontModel *_font;
+    OCFont *_font;
 
     int maxRecentFileCount = 10;
 
@@ -77,6 +80,10 @@ private:
     void loadRecentFiles();
     void open(OTFileMethods::fileMethods method, QString filen = "", QStringConverter::Encoding encoding = QStringConverter::Latin1);
     void selectedEncoding(QStringConverter::Encoding selectedEncoding);
+
+    void setVisiblilty();
+
+    int currentFontIndex;
 };
 
 #endif // WFONTS_H

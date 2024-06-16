@@ -15,6 +15,9 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
+    <widget class="QComboBox" name="cobxCurrentFont"/>
+   </item>
+   <item>
     <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
       <widget class="QLabel" name="lblFontName">
@@ -84,6 +87,19 @@
        </item>
       </layout>
      </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="lblAlphaTexture">
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Alpha texture:</string>
+       </property>
+       <property name="buddy">
+        <cstring>ledAlphaTexture</cstring>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
@@ -119,19 +135,6 @@
        </item>
       </layout>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="lblAlphaTexture">
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="text">
-        <string>Alpha texture:</string>
-       </property>
-       <property name="buddy">
-        <cstring>ledAlphaTexture</cstring>
-       </property>
-      </widget>
-     </item>
      <item row="3" column="0">
       <widget class="QLabel" name="lblMaxHeigthOfChars">
        <property name="toolTip">
@@ -142,19 +145,6 @@
        </property>
        <property name="buddy">
         <cstring>sbxMaxHeigthOfChars</cstring>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="lblDistanceBetweenChars">
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="text">
-        <string>Distance between characters:</string>
-       </property>
-       <property name="buddy">
-        <cstring>sbxDistanceBetweenChars</cstring>
        </property>
       </widget>
      </item>
@@ -182,6 +172,19 @@
        </property>
        <property name="value">
         <number>1</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="lblDistanceBetweenChars">
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Distance between characters:</string>
+       </property>
+       <property name="buddy">
+        <cstring>sbxDistanceBetweenChars</cstring>
        </property>
       </widget>
      </item>

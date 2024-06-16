@@ -1,7 +1,7 @@
 #include "wdgpreview.h"
 #include "ui_wdgpreview.h"
 
-wdgPreview::wdgPreview(QWidget *parent, OTFontModel *font)
+wdgPreview::wdgPreview(QWidget *parent, OCFont *font)
     : QWidget(parent)
     , ui(new Ui::wdgPreview),
     _font(font)
@@ -26,6 +26,11 @@ void wdgPreview::resizeEvent(QResizeEvent *event)
     resizeTexPreview();
 }
 
+void wdgPreview::changeFontIndex(int index)
+{
+    currentFontIndex = index;
+}
+
 void wdgPreview::on_cobxPreviewOptions_currentIndexChanged(int index)
 {
     if (/*setupFinished*/ true) /*TODO*/set.write(objectName(), "texPreview", index);
@@ -40,12 +45,7 @@ void wdgPreview::on_btnReloadTexPreview_clicked()
 
 void wdgPreview::reloadUi()
 {
-    QString tex;
-
-    if (set.read(objectName(), "texPreview").toInt() == 0)
-        tex = set.read("main", "mainDir").toString() + "/Fonts/" + _font->colorTexture;
-    else
-        tex = set.read("main", "mainDir").toString() + "/Fonts/" + _font->alphaTexture;
+    QString tex = set.read("main", "mainDir").toString() + "/Fonts/" + (set.read(objectName(), "texPreview").toInt() == 0 ? _font->fonts[currentFontIndex].colorTexture() : _font->fonts[currentFontIndex].alphaTexture());
 
     ui->cobxPreviewOptions->setCurrentIndex(set.read(objectName(), "texPreview").toInt());
 

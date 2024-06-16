@@ -2,7 +2,7 @@
 #define WDGCHARS_H
 
 #include <QWidget>
-#include "OTBackend/OTOmsiFileHandler.h"
+#include "OTBackend/OCC.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 
 namespace Ui {
@@ -14,7 +14,7 @@ class wdgChars : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgChars(QWidget *parent, OTFontModel *font);
+    explicit wdgChars(QWidget *parent, OCFont *font);
     ~wdgChars();
 
 private slots:
@@ -28,13 +28,11 @@ private slots:
 
     void on_ledCharacter_textChanged(const QString &arg1);
 
-    void on_sbxLeftPixel_textChanged(const QString &arg1);
+    void on_sbxLeftPixel_valueChanged(int arg1);
 
-    void on_sbxRightPixel_textChanged(const QString &arg1);
+    void on_sbxRightPixel_valueChanged(int arg1);
 
-    void on_sbxHighestPixelInFontRow_textChanged(const QString &arg1);
-
-    void on_ledComment_textChanged(const QString &arg1);
+    void on_sbxHighestPixelInFontRow_valueChanged(int arg1);
 
     void on_btnFind_clicked();
 
@@ -51,8 +49,12 @@ public slots:
 
     void switchCurrentChar();
 
+    void changeFontIndex(int index);
+
 signals:
     void setModified(bool state);
+
+    void reloadActionStates();
 
 private:
     Ui::wdgChars *ui;
@@ -60,7 +62,7 @@ private:
     OTSettings set;
     OTMessage msg;
 
-    OTFontModel *_font;
+    OCFont *_font;
 
     wPreferences *WPREFERENCES = new wPreferences(this, "wFonts");
 
@@ -69,6 +71,8 @@ private:
     bool charListUpdate = false;
 
     bool charUIUpdate = false;
+
+    int currentFontIndex = 0;
 
     QStringListModel *strListChars = new QStringListModel();
 
