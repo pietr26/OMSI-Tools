@@ -88,7 +88,7 @@ public:
     }
 };
 
-class OTCharacterModel
+class [[deprecated("will be replaced in OCC")]] OTCharacterModel
 {
 public:
     OTCharacterModel(QString ca = "", int lP = -1, int rP = -1, int hP = -1, QString co = "")
@@ -107,7 +107,7 @@ public:
     QString comment;
 };
 
-class OTFontModel
+class [[deprecated("will be replaced in OCC")]] OTFontModel
 {
 public:
     bool error = false;
@@ -134,11 +134,5 @@ public:
         charList.clear();
     }
 };
-
-
-
-
-
-
 
 #endif // OTOMSIFILEHANDLER_MODELS_H

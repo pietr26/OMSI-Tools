@@ -1028,6 +1028,7 @@ public:
         }
     }
 
+    [[deprecated("will be replaced in OCC")]]
     void openFont(OTFontModel *font, QStringConverter::Encoding encoding)
     {
         QFile file(font->path);
@@ -1108,6 +1109,7 @@ public:
         file.close();
     }
 
+    [[deprecated("and will be replaced in OCC")]]
     bool saveFont(OTFontModel *font)
     {
         QFile file(font->path);
