@@ -20,6 +20,12 @@ wdgPreview::~wdgPreview()
     delete ui;
 }
 
+void wdgPreview::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+    resizeTexPreview();
+}
+
 void wdgPreview::on_cobxPreviewOptions_currentIndexChanged(int index)
 {
     if (/*setupFinished*/ true) /*TODO*/set.write(objectName(), "texPreview", index);
@@ -54,7 +60,7 @@ void wdgPreview::reloadUi()
     }
 }
 
-void wdgPreview::resizeTexPreview() // TODO: on window resize?
+void wdgPreview::resizeTexPreview()
 {
     ui->grvTexPreview->fitInView(texPreviewScene->sceneRect(), Qt::KeepAspectRatio);
 }

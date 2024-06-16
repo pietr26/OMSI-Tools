@@ -72,9 +72,8 @@ void wdgGeneral::on_ledColorTexture_textChanged(const QString &arg1)
     emit checkCharValidity();
     emit setModified(true);
 
-    //loadTexPreview();
+    emit reloadPreview();
 }
-
 
 void wdgGeneral::on_ledAlphaTexture_textChanged(const QString &arg1)
 {
@@ -83,7 +82,7 @@ void wdgGeneral::on_ledAlphaTexture_textChanged(const QString &arg1)
     emit checkCharValidity();
     emit setModified(true);
 
-    //loadTexPreview();
+    emit reloadPreview();
 }
 
 void wdgGeneral::on_btnColorTexture_clicked()

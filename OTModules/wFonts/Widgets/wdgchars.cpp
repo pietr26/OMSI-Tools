@@ -402,5 +402,5 @@ void wdgChars::reloadUi()
     ui->btnMoveUp->setEnabled(ui->lvwChars->currentIndex().row() > 0);
     ui->btnMoveDown->setEnabled(ui->lvwChars->currentIndex().row() < (_font->charList.count() - 1));
 
-    // Reload tex preview here (maybe in thread)
+    // TODO FOR Char position preview: Reload tex preview here (maybe in thread)
 }

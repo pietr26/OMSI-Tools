@@ -41,6 +41,9 @@ wFonts::wFonts(QWidget *parent)
 
     connect(WDGGENERAL, &wdgGeneral::checkCharValidity, WDGCHARS, &wdgChars::checkCharValidity);
 
+    connect(this, &wFonts::resizePreview, WDGPREVIEW, &wdgPreview::resizeTexPreview);
+    connect(WDGGENERAL, &wdgGeneral::reloadPreview, WDGPREVIEW, &wdgPreview::reloadUi);
+
     createDockWidgets();
 
     //ui->actionGoToNextError->setEnabled(false);
@@ -51,6 +54,13 @@ wFonts::wFonts(QWidget *parent)
 wFonts::~wFonts()
 {
     delete ui;
+}
+
+void wFonts::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+
+    emit resizePreview();
 }
 
 void wFonts::on_actionBackToHome_triggered()

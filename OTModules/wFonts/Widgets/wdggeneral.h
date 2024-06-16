@@ -39,6 +39,8 @@ signals:
 
     void checkCharValidity();
 
+    void reloadPreview();
+
 private:
     Ui::wdgGeneral *ui;
 

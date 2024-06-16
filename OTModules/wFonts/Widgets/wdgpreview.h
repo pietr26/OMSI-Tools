@@ -25,14 +25,16 @@ private slots:
 public slots:
     void reloadUi();
 
+    void resizeTexPreview();
+
+    void resizeEvent(QResizeEvent *event);
+
 private:
     Ui::wdgPreview *ui;
 
     OTSettings set;
 
     OTFontModel *_font;
-
-    void resizeTexPreview();
 
     QGraphicsScene *texPreviewScene = new QGraphicsScene();
 };

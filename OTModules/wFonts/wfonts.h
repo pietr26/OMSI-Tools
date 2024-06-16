@@ -43,10 +43,14 @@ private slots:
 
     void on_actionShowInExplorer_triggered();
 
+    void resizeEvent(QResizeEvent *event);
+
 signals:
     void backToHome();
 
     void reloadUi();
+
+    void resizePreview();
 
 private:
     Ui::wFonts *ui;
