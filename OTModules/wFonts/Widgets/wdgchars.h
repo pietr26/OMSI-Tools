@@ -50,7 +50,7 @@ public slots:
     void checkCharValidity();
 
 signals:
-    void setModified();
+    void setModified(bool state);
 
 private:
     Ui::wdgChars *ui;

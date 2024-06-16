@@ -44,7 +44,7 @@ void wdgChars::on_btnDeleteSelection_clicked()
     reloadUi();
     switchCurrentChar();
 
-    emit setModified();
+    emit setModified(true);
 }
 
 void wdgChars::on_btnMoveUp_clicked()
@@ -66,7 +66,7 @@ void wdgChars::on_ledCharacter_textChanged(const QString &arg1)
     }
 
     checkCharValidity();
-    emit setModified();
+    emit setModified(true);
 }
 
 void wdgChars::on_sbxLeftPixel_textChanged(const QString &arg1)
@@ -80,7 +80,7 @@ void wdgChars::on_sbxLeftPixel_textChanged(const QString &arg1)
     }
 
     checkCharValidity();
-    emit setModified();
+    emit setModified(true);
 }
 
 
@@ -95,7 +95,7 @@ void wdgChars::on_sbxRightPixel_textChanged(const QString &arg1)
     }
 
     checkCharValidity();
-    emit setModified();
+    emit setModified(true);
 }
 
 
@@ -110,14 +110,14 @@ void wdgChars::on_sbxHighestPixelInFontRow_textChanged(const QString &arg1)
     }
 
     checkCharValidity();
-    emit setModified();
+    emit setModified(true);
 }
 
 void wdgChars::on_ledComment_textChanged(const QString &arg1)
 {
     if (_font->charList.count() != 0 && ui->lvwChars->currentIndex().row() != -1) _font->charList[ui->lvwChars->currentIndex().row()].comment = arg1;
 
-    emit setModified();
+    emit setModified(true);
 }
 
 void wdgChars::on_btnFind_clicked()
@@ -240,7 +240,7 @@ void wdgChars::newChar()
     _font->charList.insert(ui->lvwChars->currentIndex().row() + 1, OTCharacterModel());
 
     reloadUi();
-    emit setModified();
+    emit setModified(true);
 
     ui->lvwChars->setCurrentIndex(strListChars->index(ui->lvwChars->currentIndex().row() + 1));
 
@@ -346,7 +346,7 @@ void wdgChars::moveChar(int selection, QString action) // TODO: make better
         qWarning().noquote() << "Invalid move parameter: " + action;
         return;
     }
-    emit setModified();
+    emit setModified(true);
 
     // Move the selected item down / up
     _font->charList.move(selection, moving);

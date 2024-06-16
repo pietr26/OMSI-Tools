@@ -35,7 +35,10 @@ wFonts::wFonts(QWidget *parent)
     connect(this, &wFonts::reloadUi, WDGCHARS, &wdgChars::reloadUi);
     connect(this, &wFonts::reloadUi, WDGPREVIEW, &wdgPreview::reloadUi);
 
-    connect (WDGGENERAL, &wdgGeneral::checkCharValidity, WDGCHARS, &wdgChars::checkCharValidity);
+    connect(WDGGENERAL, &wdgGeneral::setModified, this, &wFonts::setWindowModified);
+    connect(WDGCHARS, &wdgChars::setModified, this, &wFonts::setWindowModified);
+
+    connect(WDGGENERAL, &wdgGeneral::checkCharValidity, WDGCHARS, &wdgChars::checkCharValidity);
 
     createDockWidgets();
 
@@ -216,9 +219,9 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
 void wFonts::setTitle(QString filen)
 {
     if (filen.isEmpty())
-        wFonts::setWindowTitle(OTInformation::name + " - " + tr("Font creation"));
+        wFonts::setWindowTitle("[*] " + OTInformation::name + " - " + tr("Font creation"));
     else
-        wFonts::setWindowTitle(OTInformation::name + " - " + tr("Font creation") + " (" + filen + ")");
+        wFonts::setWindowTitle("[*] " + OTInformation::name + " - " + tr("Font creation") + " (" + filen + ")");
 }
 
 void wFonts::loadRecentFiles()

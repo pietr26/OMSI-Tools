@@ -35,7 +35,7 @@ public slots:
     void reloadUi();
 
 signals:
-    void setModified();
+    void setModified(bool state);
 
     void checkCharValidity();
 

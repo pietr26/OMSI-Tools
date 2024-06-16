@@ -62,16 +62,15 @@ void wdgGeneral::on_ledFontName_textChanged(const QString &arg1)
     _font->name = arg1;
     checkPropValidity();
     emit checkCharValidity();
-    setWindowModified(true);
+    emit setModified(true);
 }
-
 
 void wdgGeneral::on_ledColorTexture_textChanged(const QString &arg1)
 {
     _font->colorTexture = arg1;
     checkPropValidity();
     emit checkCharValidity();
-    setWindowModified(true);
+    emit setModified(true);
 
     //loadTexPreview();
 }
@@ -82,11 +81,10 @@ void wdgGeneral::on_ledAlphaTexture_textChanged(const QString &arg1)
     _font->alphaTexture = arg1;
     checkPropValidity();
     emit checkCharValidity();
-    setWindowModified(true);
+    emit setModified(true);
 
     //loadTexPreview();
 }
-
 
 void wdgGeneral::on_btnColorTexture_clicked()
 {
@@ -100,12 +98,11 @@ void wdgGeneral::on_btnColorTexture_clicked()
     if (ui->ledColorTexture->text() != _font->colorTexture)
     {
         qDebug() << QString("New color texture: '%1'").arg(filename);
-        setWindowModified(true);
+        emit setModified(true);
     }
 
     ui->ledColorTexture->setText(_font->colorTexture);
 }
-
 
 void wdgGeneral::on_btnAlphaTexture_clicked()
 {
@@ -118,28 +115,26 @@ void wdgGeneral::on_btnAlphaTexture_clicked()
     if (ui->ledAlphaTexture->text() != _font->alphaTexture)
     {
         qDebug() << QString("New alpha texture: '%1'").arg(filename);
-        setWindowModified(true);
+        emit setModified(true);
     }
 
     ui->ledAlphaTexture->setText(_font->alphaTexture);
 }
-
 
 void wdgGeneral::on_sbxMaxHeigthOfChars_textChanged(const QString &arg1)
 {
     _font->maxHeightOfChars = arg1.toInt();
     checkPropValidity();
     emit checkCharValidity();
-    setWindowModified(true);
+    emit setModified(true);
 }
-
 
 void wdgGeneral::on_sbxDistanceBetweenChars_textChanged(const QString &arg1)
 {
     _font->distanceBetweenChars = arg1.toInt();
     checkPropValidity();
     emit checkCharValidity();
-    setWindowModified(true);
+    emit setModified(true);
 }
 
 void wdgGeneral::reloadUi()
@@ -152,4 +147,3 @@ void wdgGeneral::reloadUi()
 
     checkPropValidity();
 }
-
