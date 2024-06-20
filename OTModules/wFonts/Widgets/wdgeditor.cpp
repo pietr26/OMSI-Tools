@@ -93,7 +93,13 @@ void wdgEditor::on_btnNewFont_clicked()
 
 void wdgEditor::on_btnDeleteSelection_clicked()
 {
-    if (_font->selection.contains(OCFont::Selection::Character)) _font->fonts[_font->selection[OCFont::Selection::Font]].characters.removeAt(ui->tvwChars->currentIndex().row());
+    if (_font->selection.contains(OCFont::Selection::Character))
+    {
+        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.removeAt(ui->tvwChars->currentIndex().row());
+
+        if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.isEmpty())
+            ui->tvwChars->setCurrentIndex(ui->tvwChars->currentIndex().parent());
+    }
     else if (_font->selection.contains(OCFont::Selection::Font)) _font->fonts.removeAt(ui->tvwChars->currentIndex().row());
     else return;
 
@@ -436,7 +442,7 @@ void wdgEditor::moveChar(int sel, Move action)
     emit setModified(true);
     reloadUi();
 
-    if (_font->selection.contains(OCFont::Selection::Character)) ui->tvwChars->setCurrentIndex(model->index(moving, 0, ui->tvwChars->selectionModel()->currentIndex().parent()));
+    if (_font->selection.contains(OCFont::Selection::Character)) ui->tvwChars->setCurrentIndex(model->index(moving, 0, ui->tvwChars->currentIndex().parent()));
     else if (_font->selection.contains(OCFont::Selection::Font)) ui->tvwChars->setCurrentIndex(model->index(moving, 0));
 }
 
