@@ -27,34 +27,18 @@ wFonts::wFonts(QWidget *parent)
     ui->pgbProgress->setVisible(false);
     centralWidget()->setVisible(false);
 
-    // "Pfusch" (german) - a thing you've done in a very ugly and unstable way. // TODO remove later, only used to prohibite a crash
-    _font->setPath("C:/Users/pietr/Desktop/test1.oft");
-    _font->read();
-
-    WDGGENERAL = new wdgGeneral(this, _font);
     WDGCHARS = new wdgChars(this, _font);
     WDGPREVIEW = new wdgPreview(this, _font);
 
-    connect(this, &wFonts::reloadUi, WDGGENERAL, &wdgGeneral::reloadUi);
     connect(this, &wFonts::reloadUi, WDGCHARS, &wdgChars::reloadUi);
-    connect(this, &wFonts::reloadUi, WDGCHARS, &wdgChars::switchCurrentChar);
+    connect(this, &wFonts::reloadUi, WDGCHARS, &wdgChars::switchSelection);
     connect(this, &wFonts::reloadUi, WDGPREVIEW, &wdgPreview::reloadUi);
 
-    connect(WDGCHARS, &wdgChars::reloadActionStates, this, &wFonts::setVisiblilty);
-
-    connect(WDGGENERAL, &wdgGeneral::setModified, this, &wFonts::setWindowModified);
-    connect(WDGCHARS, &wdgChars::setModified, this, &wFonts::setWindowModified);
-
-    connect(WDGGENERAL, &wdgGeneral::checkCharValidity, WDGCHARS, &wdgChars::checkCharValidity);
-
     connect(this, &wFonts::resizePreview, WDGPREVIEW, &wdgPreview::resizeTexPreview);
-    connect(WDGGENERAL, &wdgGeneral::reloadPreview, WDGPREVIEW, &wdgPreview::reloadUi);
 
-
-    connect(WDGGENERAL, &wdgGeneral::fontIndexChanged, this, &wFonts::recieveFontIndex);
-    connect(this, &wFonts::changeFontIndex, WDGGENERAL, &wdgGeneral::changeFontIndex);
-    connect(this, &wFonts::changeFontIndex, WDGCHARS, &wdgChars::changeFontIndex);
-    connect(this, &wFonts::changeFontIndex, WDGPREVIEW, &wdgPreview::changeFontIndex);
+    connect(WDGCHARS, &wdgChars::reloadPreview, WDGPREVIEW, &wdgPreview::reloadUi);
+    connect(WDGCHARS, &wdgChars::reloadActionStates, this, &wFonts::setVisiblilty);
+    connect(WDGCHARS, &wdgChars::setModified, this, &wFonts::setWindowModified);
 
     createDockWidgets();
 
@@ -94,15 +78,10 @@ void wFonts::on_actionClose_triggered()
 
 void wFonts::createDockWidgets()
 {
-    QDockWidget *dockGeneral = new QDockWidget(tr("General"), this);
-    dockGeneral->setAllowedAreas(Qt::AllDockWidgetAreas);
-    dockGeneral->setWidget(WDGGENERAL);
-    addDockWidget(Qt::LeftDockWidgetArea, dockGeneral);
-
     QDockWidget *dockChars = new QDockWidget(tr("Characters"), this);
     dockChars->setAllowedAreas(Qt::AllDockWidgetAreas);
     dockChars->setWidget(WDGCHARS);
-    addDockWidget(Qt::RightDockWidgetArea, dockChars);
+    addDockWidget(Qt::TopDockWidgetArea, dockChars);
 
     QDockWidget *dockPreview = new QDockWidget(tr("Preview"), this);
     dockPreview->setAllowedAreas(Qt::AllDockWidgetAreas);
@@ -208,9 +187,9 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
     if (method == OTFileMethods::backupSave)
     {
         if ((_font->fonts[currentFontIndex].name().isEmpty()) || (_font->fonts[currentFontIndex].name() != " "))
-            tempFont->path() = QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + " " + _font->fonts[currentFontIndex].name() + ".oft");
+            tempFont->setPath(QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + " " + _font->fonts[currentFontIndex].name() + ".oft"));
         else
-            tempFont->path() = QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + ".oft");
+            tempFont->setPath(QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + ".oft"));
     }
 
     qDebug() << "Direct path:" << tempFont->path();
@@ -342,22 +321,23 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
             save(OTFileMethods::save, _font->path());
     }
 
-    qInfo() << "Open file" << filen;
     _font->clear();
-    _font->path() = filen;
+    _font->setPath(filen);
 
     if (method == OTFileMethods::open)
     {
         if (_font->path().isEmpty())
         {
             qDebug() << "Open with file dialog";
-            _font->path() = QFileDialog::getOpenFileName(this, tr("Open font..."), set.read("main", "mainDir").toString() + "/Fonts", tr("OMSI font file") + " (*.oft)");
+            _font->setPath(QFileDialog::getOpenFileName(this, tr("Open font..."), set.read("main", "mainDir").toString() + "/Fonts", tr("OMSI font file") + " (*.oft)"));
             if (_font->path().isEmpty()) return;
             else emit reloadUi();
         }
 
         saveRecentFiles(QDir().absoluteFilePath(_font->path()));
     }
+
+    qInfo() << "Open file" << _font->path();
 
     if (method != OTFileMethods::silentOpen)
     {

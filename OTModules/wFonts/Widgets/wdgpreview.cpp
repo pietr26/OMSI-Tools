@@ -26,11 +26,6 @@ void wdgPreview::resizeEvent(QResizeEvent *event)
     resizeTexPreview();
 }
 
-void wdgPreview::changeFontIndex(int index)
-{
-    currentFontIndex = index;
-}
-
 void wdgPreview::on_cobxPreviewOptions_currentIndexChanged(int index)
 {
     if (/*setupFinished*/ true) /*TODO*/set.write(objectName(), "texPreview", index);
@@ -45,18 +40,26 @@ void wdgPreview::on_btnReloadTexPreview_clicked()
 
 void wdgPreview::reloadUi()
 {
-    QString tex = set.read("main", "mainDir").toString() + "/Fonts/" + (set.read(objectName(), "texPreview").toInt() == 0 ? _font->fonts[currentFontIndex].colorTexture() : _font->fonts[currentFontIndex].alphaTexture());
-
-    ui->cobxPreviewOptions->setCurrentIndex(set.read(objectName(), "texPreview").toInt());
-
-    if (QFile(tex).exists())
+    if (_font->selection.contains(OCFont::Selection::Font))
     {
-        // 'QGraphicsScene::clear()' is not enough - it doesn't reset the draw aera size
+        QString tex = set.read("main", "mainDir").toString() + "/Fonts/" + (set.read(objectName(), "texPreview").toInt() == 0 ? _font->fonts[_font->selection[OCFont::Selection::Font]].colorTexture() : _font->fonts[_font->selection[OCFont::Selection::Font]].alphaTexture());
+
+        ui->cobxPreviewOptions->setCurrentIndex(set.read(objectName(), "texPreview").toInt());
+
+        // QGraphicsScene::clear() is not enough - it doesn't reset the draw aera size
         texPreviewScene = new QGraphicsScene(this);
         ui->grvTexPreview->setScene(texPreviewScene);
 
-        texPreviewScene->addPixmap(tex);
-        resizeTexPreview();
+        if (QFile(tex).exists())
+        {
+            texPreviewScene->addPixmap(tex);
+            resizeTexPreview();
+        }
+    }
+    else
+    {
+        texPreviewScene = new QGraphicsScene(this);
+        ui->grvTexPreview->setScene(texPreviewScene);
     }
 }
 

@@ -972,11 +972,26 @@ public:
 
     virtual void clear() override { fonts.clear(); _path.clear(); _encoding = QStringConverter::Latin1; }
 
+    int totalCharacterCount()
+    {
+        int characterCount = 0;
+        foreach (OCFont::SingleFont font, fonts) characterCount += font.characters.count();
+        return characterCount;
+    }
+
     inline QString path() const { return _path; }
     inline void setPath(const QString &newPath) { _path = newPath; }
 
     inline QStringConverter::Encoding encoding() const { return _encoding; }
     inline void setEncoding(QStringConverter::Encoding newEncoding) { _encoding = newEncoding; }
+
+    enum Selection
+    {
+        Font,
+        Character
+    };
+
+    QMap<Selection, int> selection;
 
 private:
     QString _path;

@@ -6,7 +6,6 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OCC.h"
 #include <QDockWidget>
-#include "Widgets/wdggeneral.h"
 #include "Widgets/wdgchars.h"
 #include "Widgets/wdgpreview.h"
 
@@ -63,7 +62,6 @@ private:
     OTMessage msg;
     OTMiscellaneous misc;
 
-    wdgGeneral *WDGGENERAL;
     wdgChars *WDGCHARS;
     wdgPreview *WDGPREVIEW;
 

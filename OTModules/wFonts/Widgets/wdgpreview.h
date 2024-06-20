@@ -29,16 +29,12 @@ public slots:
 
     void resizeEvent(QResizeEvent *event);
 
-    void changeFontIndex(int index);
-
 private:
     Ui::wdgPreview *ui;
 
     OTSettings set;
 
     OCFont *_font;
-
-    int currentFontIndex = 0;
 
     QGraphicsScene *texPreviewScene = new QGraphicsScene();
 };
