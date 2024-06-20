@@ -105,16 +105,16 @@ void wdgChars::on_btnDeleteSelection_clicked()
 void wdgChars::on_btnMoveUp_clicked()
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
-    if ((_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0) && (ui->tvwChars->currentIndex().parent().row() != 1)) moveChar(ui->tvwChars->currentIndex().row(), "UP");
+    if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1) moveChar(ui->tvwChars->currentIndex().row(), "UP");
 }
 
 void wdgChars::on_btnMoveDown_clicked()
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
-    if ((ui->tvwChars->currentIndex().row() != _font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && (ui->tvwChars->currentIndex().parent().row() != 1)) moveChar(ui->tvwChars->currentIndex().row(), "DOWN");
+    if (ui->tvwChars->currentIndex().row() != (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1) moveChar(ui->tvwChars->currentIndex().row(), "DOWN");
 }
 
-void wdgChars::on_ledCharacter_textChanged(const QString &arg1) // TODO: to  read-out number
+void wdgChars::on_ledCharacter_textChanged(const QString &arg1) // TODO: to read-out number
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
@@ -322,7 +322,7 @@ void wdgChars::switchSelection()
 
 void wdgChars::checkCharValidity()
 {
-    if (!_font->selection.contains(OCFont::Selection::Character)) return; // TODO: Check of all characters
+    if (!_font->selection.contains(OCFont::Selection::Character)) return; // TODO: Check of all characters (with in-TreeView stylesheeting)
 
     ui->lblCharacter->setStyleSheet("");
     ui->lblRightPixel->setStyleSheet("");
@@ -336,7 +336,7 @@ void wdgChars::checkCharValidity()
     if (character.character().isEmpty()) ui->lblCharacter->setStyleSheet("color:red");
     else
     {
-        QList<QString> tempCharList; // TODO: use QStringList, lol?
+        QStringList tempCharList;
         foreach (OCFont::SingleFont::Character current, _font->fonts[_font->selection[OCFont::Selection::Font]].characters)
             tempCharList << current.character();
 
@@ -362,7 +362,7 @@ void wdgChars::checkCharValidity()
     {
         QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts[_font->selection[OCFont::Selection::Font]].alphaTexture());
 
-        if ((alphaTexture.width() != 0) || (alphaTexture.height() != 0))
+        if (alphaTexture.width() != 0 || alphaTexture.height() != 0)
         {
             if (character.rightPixel() > QString::number(alphaTexture.width()).toInt())
                 ui->lblRightPixel->setStyleSheet("color:red");
@@ -420,8 +420,8 @@ void wdgChars::moveChar(int sel, QString action) // TODO: make better
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
 
-    if (((sel == 0) && (action == "UP")) ||
-        ((sel > _font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && (action == "DOWN")))
+    if ((sel == 0 && action == "UP") ||
+        (sel > (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && action == "DOWN"))
         return;
 
     int moving;

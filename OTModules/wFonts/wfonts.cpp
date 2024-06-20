@@ -170,7 +170,7 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
         _font->setPath(filen);
     }
 
-    if ((method != OTFileMethods::backupSave) && (_font->path().isEmpty()))
+    if (method != OTFileMethods::backupSave && _font->path().isEmpty())
         return "";
 
     if (method != OTFileMethods::backupSave)
@@ -186,7 +186,7 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
     OCFont *tempFont = _font;
     if (method == OTFileMethods::backupSave)
     {
-        if ((_font->fonts[currentFontIndex].name().isEmpty()) || (_font->fonts[currentFontIndex].name() != " "))
+        if (_font->fonts[currentFontIndex].name().isEmpty() || _font->fonts[currentFontIndex].name() != " ")
             tempFont->setPath(QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + " " + _font->fonts[currentFontIndex].name() + ".oft"));
         else
             tempFont->setPath(QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + ".oft"));
