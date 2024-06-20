@@ -514,6 +514,8 @@ void wdgChars::on_ledFontName_textChanged(const QString &arg1)
     if (_font->selection[OCFont::Selection::Font] == -1) return;
 
     _font->fonts[_font->selection[OCFont::Selection::Font]].setName(arg1);
+
+    reloadUi();
     checkPropValidity();
     checkCharValidity();
     emit setModified(true);
@@ -525,11 +527,13 @@ void wdgChars::on_ledColorTexture_textChanged(const QString &arg1)
     if (_font->selection[OCFont::Selection::Font] == -1) return;
 
     _font->fonts[_font->selection[OCFont::Selection::Font]].setColorTexture(arg1);
+
+    reloadUi();
     checkPropValidity();
     checkCharValidity();
     emit setModified(true);
 
-    //emit reloadPreview();
+    emit reloadPreview();
 }
 
 void wdgChars::on_btnColorTexture_clicked()
@@ -558,11 +562,13 @@ void wdgChars::on_ledAlphaTexture_textChanged(const QString &arg1)
     if (_font->selection[OCFont::Selection::Font] == -1) return;
 
     _font->fonts[_font->selection[OCFont::Selection::Font]].setAlphaTexture(arg1);
+
+    reloadUi();
     checkPropValidity();
     checkCharValidity();
     emit setModified(true);
 
-    //emit reloadPreview();
+    emit reloadPreview();
 }
 
 void wdgChars::on_btnAlphaTexture_clicked()
@@ -590,6 +596,8 @@ void wdgChars::on_sbxMaxHeigthOfChars_valueChanged(int arg1)
     if (_font->selection[OCFont::Selection::Font] == -1) return;
 
     _font->fonts[_font->selection[OCFont::Selection::Font]].setMaxHeightOfChars(arg1);
+
+    reloadUi();
     checkPropValidity();
     checkCharValidity();
     emit setModified(true);
@@ -601,10 +609,9 @@ void wdgChars::on_sbxDistanceBetweenChars_valueChanged(int arg1)
     if (_font->selection[OCFont::Selection::Font] == -1) return;
 
     _font->fonts[_font->selection[OCFont::Selection::Font]].setDistanceBetweenChars(arg1);
+
+    reloadUi();
     checkPropValidity();
     checkCharValidity();
     emit setModified(true);
 }
-
-
-
