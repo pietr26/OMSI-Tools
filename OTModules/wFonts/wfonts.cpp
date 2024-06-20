@@ -27,18 +27,18 @@ wFonts::wFonts(QWidget *parent)
     ui->pgbProgress->setVisible(false);
     centralWidget()->setVisible(false);
 
-    WDGCHARS = new wdgEditor(this, _font);
+    WDGEDITOR = new wdgEditor(this, _font);
     WDGPREVIEW = new wdgPreview(this, _font);
 
-    connect(this, &wFonts::reloadUi, WDGCHARS, &wdgEditor::reloadUi);
-    connect(this, &wFonts::reloadUi, WDGCHARS, &wdgEditor::switchSelection);
+    connect(this, &wFonts::reloadUi, WDGEDITOR, &wdgEditor::reloadUi);
+    connect(this, &wFonts::reloadUi, WDGEDITOR, &wdgEditor::switchSelection);
     connect(this, &wFonts::reloadUi, WDGPREVIEW, &wdgPreview::reloadUi);
 
     connect(this, &wFonts::resizePreview, WDGPREVIEW, &wdgPreview::resizeTexPreview);
 
-    connect(WDGCHARS, &wdgEditor::reloadPreview, WDGPREVIEW, &wdgPreview::reloadUi);
-    connect(WDGCHARS, &wdgEditor::reloadActionStates, this, &wFonts::setVisiblilty);
-    connect(WDGCHARS, &wdgEditor::setModified, this, &wFonts::setWindowModified);
+    connect(WDGEDITOR, &wdgEditor::reloadPreview, WDGPREVIEW, &wdgPreview::reloadUi);
+    connect(WDGEDITOR, &wdgEditor::reloadActionStates, this, &wFonts::setVisiblilty);
+    connect(WDGEDITOR, &wdgEditor::setModified, this, &wFonts::setWindowModified);
 
     createDockWidgets();
 
@@ -78,10 +78,10 @@ void wFonts::on_actionClose_triggered()
 
 void wFonts::createDockWidgets()
 {
-    QDockWidget *dockChars = new QDockWidget(tr("Editor"), this);
-    dockChars->setAllowedAreas(Qt::AllDockWidgetAreas);
-    dockChars->setWidget(WDGCHARS);
-    addDockWidget(Qt::TopDockWidgetArea, dockChars);
+    QDockWidget *dockEditor = new QDockWidget(tr("Editor"), this);
+    dockEditor->setAllowedAreas(Qt::AllDockWidgetAreas);
+    dockEditor->setWidget(WDGEDITOR);
+    addDockWidget(Qt::TopDockWidgetArea, dockEditor);
 
     QDockWidget *dockPreview = new QDockWidget(tr("Preview"), this);
     dockPreview->setAllowedAreas(Qt::AllDockWidgetAreas);

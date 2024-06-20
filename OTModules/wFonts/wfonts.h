@@ -62,7 +62,7 @@ private:
     OTMessage msg;
     OTMiscellaneous misc;
 
-    wdgEditor *WDGCHARS;
+    wdgEditor *WDGEDITOR;
     wdgPreview *WDGPREVIEW;
 
     wSelectEncoding *WSELECTENCODING;
