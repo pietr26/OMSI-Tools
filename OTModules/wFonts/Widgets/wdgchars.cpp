@@ -461,7 +461,7 @@ void wdgChars::reloadUi()
         QStandardItem *fontItem = new QStandardItem(font.name().isEmpty() ? QString("(%1)").arg(tr("unnamed")) : font.name());
         fontItem->setRowCount(font.characters.count());
 
-        for (int j = 0; j < font.characters.count(); j++) fontItem->setChild(j, 0, new QStandardItem(font.characters[j].character()));
+        for (int j = 0; j < font.characters.count(); j++) fontItem->setChild(j, 0, new QStandardItem(font.characters[j].character().isEmpty() ? QString("(%1)").arg(tr("unnamed")) : font.characters[j].character()));
 
         model->invisibleRootItem()->appendRow(fontItem);
     }
