@@ -63,20 +63,13 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
         QTimer::singleShot(0, this, SLOT(close()));
     }
     else if (openDirect == "devTools") // devTools prefs
-    {
         ui->lwgSections->setCurrentRow(0);
-    }
     else if (openDirect == "wVerifyMap") // wVerifyMap prefs
-    {
         ui->lwgSections->setCurrentRow(1);
-    }
     else if (openDirect == "wFonts") // wFonts prefs
-    {
         ui->lwgSections->setCurrentRow(2);
-    }
-    else ui->lwgSections->setCurrentRow(0);
-
-    on_lwgSections_itemClicked(new QListWidgetItem());
+    else
+        ui->lwgSections->setCurrentRow(0);
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -376,10 +369,9 @@ void wPreferences::on_btnDevToolsPrefs_clicked()
     ui->lblCurrentSection->setText("DevTools");
 }
 
-void wPreferences::on_lwgSections_itemClicked(QListWidgetItem *item)
+void wPreferences::on_lwgSections_currentRowChanged(int currentRow)
 {
-    Q_UNUSED(item);
-    ui->stwPreferences->setCurrentIndex(ui->lwgSections->currentRow() + 1);
+    ui->stwPreferences->setCurrentIndex(currentRow + 1);
     ui->lblCurrentSection->setText(ui->lwgSections->currentItem()->text());
 }
 

@@ -70,7 +70,7 @@ private slots:
 
     void on_btnDevToolsPrefs_clicked();
 
-    void on_lwgSections_itemClicked(QListWidgetItem *item);
+    void on_lwgSections_currentRowChanged(int currentRow);
 
     void on_actionClose_triggered();
 
