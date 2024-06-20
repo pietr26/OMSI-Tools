@@ -2311,7 +2311,7 @@ Dies ist eine Alpha-Version dieses Moduls. Bitte erstelle ohne Ausnahme vor JEDE
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="558"/>
         <source>Check for updates</source>
-        <translation>Auf Aktualsierungen prüfen</translation>
+        <translation>Auf Aktualisierungen prüfen</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="595"/>
