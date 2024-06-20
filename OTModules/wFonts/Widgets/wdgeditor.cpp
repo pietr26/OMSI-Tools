@@ -1,9 +1,9 @@
-#include "wdgchars.h"
-#include "ui_wdgchars.h"
+#include "wdgeditor.h"
+#include "ui_wdgeditor.h"
 
-wdgChars::wdgChars(QWidget *parent, OCFont *font) // TODO: rename class and all contexts
+wdgEditor::wdgEditor(QWidget *parent, OCFont *font) // TODO: rename class and all contexts
     : QWidget(parent)
-    , ui(new Ui::wdgChars),
+    , ui(new Ui::wdgEditor),
     _font(font)
 {
     ui->setupUi(this);
@@ -20,12 +20,12 @@ wdgChars::wdgChars(QWidget *parent, OCFont *font) // TODO: rename class and all 
     switchSelection();
 }
 
-wdgChars::~wdgChars()
+wdgEditor::~wdgEditor()
 {
     delete ui;
 }
 
-void wdgChars::on_btnNewChar_clicked()
+void wdgEditor::on_btnNewChar_clicked()
 {
     if (!_font->selection.contains(OCFont::Selection::Font)) return;
 
@@ -61,7 +61,7 @@ void wdgChars::on_btnNewChar_clicked()
     if (set.read(objectName(), "keepPixelRow").toBool()) ui->sbxHighestPixelInFontRow->setValue(prevPixelRow);
 }
 
-void wdgChars::on_btnNewFont_clicked()
+void wdgEditor::on_btnNewFont_clicked()
 {
     QPersistentModelIndex currentIndex = ui->tvwChars->currentIndex();
     QPair<int, int> currentSelection(currentIndex.parent().row(), currentIndex.row());
@@ -91,7 +91,7 @@ void wdgChars::on_btnNewFont_clicked()
     ui->ledFontName->setFocus();
 }
 
-void wdgChars::on_btnDeleteSelection_clicked()
+void wdgEditor::on_btnDeleteSelection_clicked()
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     _font->fonts[_font->selection[OCFont::Selection::Font]].characters.removeAt(ui->tvwChars->currentIndex().row());
@@ -102,19 +102,19 @@ void wdgChars::on_btnDeleteSelection_clicked()
     emit setModified(true);
 }
 
-void wdgChars::on_btnMoveUp_clicked()
+void wdgEditor::on_btnMoveUp_clicked()
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1) moveChar(ui->tvwChars->currentIndex().row(), "UP");
 }
 
-void wdgChars::on_btnMoveDown_clicked()
+void wdgEditor::on_btnMoveDown_clicked()
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     if (ui->tvwChars->currentIndex().row() != (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1) moveChar(ui->tvwChars->currentIndex().row(), "DOWN");
 }
 
-void wdgChars::on_ledCharacter_textChanged(const QString &arg1) // TODO: to read-out number
+void wdgEditor::on_ledCharacter_textChanged(const QString &arg1)
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
@@ -127,7 +127,7 @@ void wdgChars::on_ledCharacter_textChanged(const QString &arg1) // TODO: to read
     emit setModified(true);
 }
 
-void wdgChars::on_sbxLeftPixel_valueChanged(int arg1)
+void wdgEditor::on_sbxLeftPixel_valueChanged(int arg1)
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
@@ -140,7 +140,7 @@ void wdgChars::on_sbxLeftPixel_valueChanged(int arg1)
     emit setModified(true);
 }
 
-void wdgChars::on_sbxRightPixel_valueChanged(int arg1)
+void wdgEditor::on_sbxRightPixel_valueChanged(int arg1)
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
@@ -153,7 +153,7 @@ void wdgChars::on_sbxRightPixel_valueChanged(int arg1)
     emit setModified(true);
 }
 
-void wdgChars::on_sbxHighestPixelInFontRow_valueChanged(int arg1)
+void wdgEditor::on_sbxHighestPixelInFontRow_valueChanged(int arg1)
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
@@ -166,7 +166,7 @@ void wdgChars::on_sbxHighestPixelInFontRow_valueChanged(int arg1)
     emit setModified(true);
 }
 
-void wdgChars::on_btnFind_clicked() // TODO
+void wdgEditor::on_btnFind_clicked() // TODO
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     currentSearch = ui->ledSearch->text();
@@ -197,7 +197,7 @@ void wdgChars::on_btnFind_clicked() // TODO
     ui->btnNextResult->setEnabled(false);
 }
 
-void wdgChars::on_btnNextResult_clicked()
+void wdgEditor::on_btnNextResult_clicked()
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     qDebug() << "Go to next search result";
@@ -265,13 +265,13 @@ void wdgChars::on_btnNextResult_clicked()
     }
 }
 
-void wdgChars::on_btnEditorPreferences_clicked()
+void wdgEditor::on_btnEditorPreferences_clicked()
 {
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
 }
 
-void wdgChars::switchSelection()
+void wdgEditor::switchSelection()
 {
     _font->selection.clear();
 
@@ -320,7 +320,7 @@ void wdgChars::switchSelection()
     emit reloadPreview();
 }
 
-void wdgChars::checkCharValidity()
+void wdgEditor::checkCharValidity()
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return; // TODO: Check of all characters (with in-TreeView stylesheeting)
 
@@ -376,7 +376,7 @@ void wdgChars::checkCharValidity()
     }
 }
 
-void wdgChars::checkPropValidity()
+void wdgEditor::checkPropValidity()
 {
     if (!_font->selection.contains(OCFont::Selection::Font)) return;
 
@@ -416,7 +416,7 @@ void wdgChars::checkPropValidity()
     }
 }
 
-void wdgChars::moveChar(int sel, QString action) // TODO: make better
+void wdgEditor::moveChar(int sel, QString action) // TODO: make better
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
 
@@ -441,7 +441,7 @@ void wdgChars::moveChar(int sel, QString action) // TODO: make better
     ui->tvwChars->setCurrentIndex(model->index(moving, 0));
 }
 
-void wdgChars::reloadUi()
+void wdgEditor::reloadUi()
 {
     int currentScrollbarPosition = ui->tvwChars->verticalScrollBar()->value();
     QPersistentModelIndex currentIndex = ui->tvwChars->currentIndex();
@@ -503,12 +503,12 @@ void wdgChars::reloadUi()
     // TODO FOR Char position preview: Reload tex preview here (maybe in thread)
 }
 
-void wdgChars::on_btnTest_clicked()
+void wdgEditor::on_btnTest_clicked()
 {
     reloadUi();
 }
 
-void wdgChars::on_ledFontName_textChanged(const QString &arg1)
+void wdgEditor::on_ledFontName_textChanged(const QString &arg1)
 {
     if (!_font->selection.contains(OCFont::Selection::Font)) return;
     if (_font->selection[OCFont::Selection::Font] == -1) return;
@@ -521,7 +521,7 @@ void wdgChars::on_ledFontName_textChanged(const QString &arg1)
     emit setModified(true);
 }
 
-void wdgChars::on_ledColorTexture_textChanged(const QString &arg1)
+void wdgEditor::on_ledColorTexture_textChanged(const QString &arg1)
 {
     if (!_font->selection.contains(OCFont::Selection::Font)) return;
     if (_font->selection[OCFont::Selection::Font] == -1) return;
@@ -536,7 +536,7 @@ void wdgChars::on_ledColorTexture_textChanged(const QString &arg1)
     emit reloadPreview();
 }
 
-void wdgChars::on_btnColorTexture_clicked()
+void wdgEditor::on_btnColorTexture_clicked()
 {
     if (!_font->selection.contains(OCFont::Selection::Font)) return;
     if (_font->selection[OCFont::Selection::Font] == -1) return;
@@ -556,7 +556,7 @@ void wdgChars::on_btnColorTexture_clicked()
     ui->ledColorTexture->setText(_font->fonts[_font->selection[OCFont::Selection::Font]].colorTexture());
 }
 
-void wdgChars::on_ledAlphaTexture_textChanged(const QString &arg1)
+void wdgEditor::on_ledAlphaTexture_textChanged(const QString &arg1)
 {
     if (!_font->selection.contains(OCFont::Selection::Font)) return;
     if (_font->selection[OCFont::Selection::Font] == -1) return;
@@ -571,7 +571,7 @@ void wdgChars::on_ledAlphaTexture_textChanged(const QString &arg1)
     emit reloadPreview();
 }
 
-void wdgChars::on_btnAlphaTexture_clicked()
+void wdgEditor::on_btnAlphaTexture_clicked()
 {
     if (!_font->selection.contains(OCFont::Selection::Font)) return;
     if (_font->selection[OCFont::Selection::Font] == -1) return;
@@ -590,7 +590,7 @@ void wdgChars::on_btnAlphaTexture_clicked()
     ui->ledAlphaTexture->setText(_font->fonts[_font->selection[OCFont::Selection::Font]].alphaTexture());
 }
 
-void wdgChars::on_sbxMaxHeigthOfChars_valueChanged(int arg1)
+void wdgEditor::on_sbxMaxHeigthOfChars_valueChanged(int arg1)
 {
     if (!_font->selection.contains(OCFont::Selection::Font)) return;
     if (_font->selection[OCFont::Selection::Font] == -1) return;
@@ -603,7 +603,7 @@ void wdgChars::on_sbxMaxHeigthOfChars_valueChanged(int arg1)
     emit setModified(true);
 }
 
-void wdgChars::on_sbxDistanceBetweenChars_valueChanged(int arg1)
+void wdgEditor::on_sbxDistanceBetweenChars_valueChanged(int arg1)
 {
     if (!_font->selection.contains(OCFont::Selection::Font)) return;
     if (_font->selection[OCFont::Selection::Font] == -1) return;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>wdgChars</class>
- <widget class="QWidget" name="wdgChars">
+ <class>wdgEditor</class>
+ <widget class="QWidget" name="wdgEditor">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true">wdgChars</string>
+   <string notr="true">wdgEditor</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_6">
    <item>

@@ -1,5 +1,5 @@
-#ifndef WDGCHARS_H
-#define WDGCHARS_H
+#ifndef WDGEDITOR_H
+#define WDGEDITOR_H
 
 #include <QWidget>
 #include "OTBackend/OCC.h"
@@ -7,17 +7,17 @@
 #include <QScrollBar>
 
 namespace Ui {
-class wdgChars;
+class wdgEditor;
 }
 
-class wdgChars : public QWidget
+class wdgEditor : public QWidget
 
 {
     Q_OBJECT
 
 public:
-    explicit wdgChars(QWidget *parent, OCFont *font);
-    ~wdgChars();
+    explicit wdgEditor(QWidget *parent, OCFont *font);
+    ~wdgEditor();
 
 private slots:
     void on_btnNewChar_clicked();
@@ -76,7 +76,7 @@ signals:
     void reloadPreview();
 
 private:
-    Ui::wdgChars *ui;
+    Ui::wdgEditor *ui;
 
     OTSettings set;
     OTMessage msg;
@@ -94,4 +94,4 @@ private:
     QString currentSearch;
 };
 
-#endif // WDGCHARS_H
+#endif // WDGEDITOR_H

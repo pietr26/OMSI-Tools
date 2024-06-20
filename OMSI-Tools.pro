@@ -41,7 +41,7 @@ SOURCES += \
     OTModules/wFbh/waddword.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wdbknownwords.cpp \
-    OTModules/wFonts/Widgets/wdgchars.cpp \
+    OTModules/wFonts/Widgets/wdgeditor.cpp \
     OTModules/wFonts/Widgets/wdgpreview.cpp \
     OTModules/wFonts/wfonts.cpp \
     OTModules/wLFClient/Widgets/wdgactions.cpp \
@@ -118,7 +118,7 @@ HEADERS += \
     OTModules/wFbh/waddword.h \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wdbknownwords.h \
-    OTModules/wFonts/Widgets/wdgchars.h \
+    OTModules/wFonts/Widgets/wdgeditor.h \
     OTModules/wFonts/Widgets/wdgpreview.h \
     OTModules/wFonts/wfonts.h \
     OTModules/wLFClient/Widgets/wdgactions.h \
@@ -169,7 +169,7 @@ FORMS += \
     OTModules/wFbh/waddword.ui \
     OTModules/wFbh/wdbcopyrights.ui \
     OTModules/wFbh/wdbknownwords.ui \
-    OTModules/wFonts/Widgets/wdgchars.ui \
+    OTModules/wFonts/Widgets/wdgeditor.ui \
     OTModules/wFonts/Widgets/wdgpreview.ui \
     OTModules/wFonts/wfonts.ui \
     OTModules/wLFClient/Widgets/wdgactions.ui \

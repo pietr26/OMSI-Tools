@@ -6,7 +6,7 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OCC.h"
 #include <QDockWidget>
-#include "Widgets/wdgchars.h"
+#include "Widgets/wdgeditor.h"
 #include "Widgets/wdgpreview.h"
 
 #include "OTModules/OTGeneric/wselectencoding.h"
@@ -62,7 +62,7 @@ private:
     OTMessage msg;
     OTMiscellaneous misc;
 
-    wdgChars *WDGCHARS;
+    wdgEditor *WDGCHARS;
     wdgPreview *WDGPREVIEW;
 
     wSelectEncoding *WSELECTENCODING;
