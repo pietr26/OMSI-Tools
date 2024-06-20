@@ -83,13 +83,19 @@ private:
 
     OCFont *_font;
 
+    enum Move
+    {
+        Up,
+        Down
+    };
+
     wPreferences *WPREFERENCES = new wPreferences(this, "wFonts");
 
     QStandardItemModel *model = new QStandardItemModel();
 
     void clear(bool onlyChar);
 
-    void moveChar(int selection, QString action);
+    void moveChar(int selection, Move action);
 
     QString currentSearch;
 };

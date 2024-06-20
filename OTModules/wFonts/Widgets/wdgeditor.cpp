@@ -1,7 +1,7 @@
 #include "wdgeditor.h"
 #include "ui_wdgeditor.h"
 
-wdgEditor::wdgEditor(QWidget *parent, OCFont *font) // TODO: rename class and all contexts
+wdgEditor::wdgEditor(QWidget *parent, OCFont *font)
     : QWidget(parent)
     , ui(new Ui::wdgEditor),
     _font(font)
@@ -93,8 +93,9 @@ void wdgEditor::on_btnNewFont_clicked()
 
 void wdgEditor::on_btnDeleteSelection_clicked()
 {
-    if (!_font->selection.contains(OCFont::Selection::Character)) return;
-    _font->fonts[_font->selection[OCFont::Selection::Font]].characters.removeAt(ui->tvwChars->currentIndex().row());
+    if (_font->selection.contains(OCFont::Selection::Character)) _font->fonts[_font->selection[OCFont::Selection::Font]].characters.removeAt(ui->tvwChars->currentIndex().row());
+    else if (_font->selection.contains(OCFont::Selection::Font)) _font->fonts.removeAt(ui->tvwChars->currentIndex().row());
+    else return;
 
     reloadUi();
     switchSelection();
@@ -104,14 +105,14 @@ void wdgEditor::on_btnDeleteSelection_clicked()
 
 void wdgEditor::on_btnMoveUp_clicked()
 {
-    if (!_font->selection.contains(OCFont::Selection::Character)) return;
-    if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1) moveChar(ui->tvwChars->currentIndex().row(), "UP");
+    if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1)
+        moveChar(ui->tvwChars->currentIndex().row(), Move::Up);
 }
 
 void wdgEditor::on_btnMoveDown_clicked()
 {
-    if (!_font->selection.contains(OCFont::Selection::Character)) return;
-    if (ui->tvwChars->currentIndex().row() != (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1) moveChar(ui->tvwChars->currentIndex().row(), "DOWN");
+    if (ui->tvwChars->currentIndex().row() != (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1)
+        moveChar(ui->tvwChars->currentIndex().row(), Move::Down);
 }
 
 void wdgEditor::on_ledCharacter_textChanged(const QString &arg1)
@@ -182,7 +183,6 @@ void wdgEditor::on_btnFind_clicked() // TODO
     {
         if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.at(i).character() == currentSearch)
         {
-            qDebug().noquote() << QString("Char '%1' found at position %2.").arg(currentSearch).arg(i + 1);
             switchSelection();
             return;
         }
@@ -190,7 +190,6 @@ void wdgEditor::on_btnFind_clicked() // TODO
         ui->tvwChars->setCurrentIndex(model->index(i + 1, 0));
     }
 
-    // If char couldn't be found
     QMessageBox::information(this, tr("Character not found"), tr("The entered character could not be found."));
     qDebug() << "Character not found.";
     currentSearch = "";
@@ -271,6 +270,7 @@ void wdgEditor::on_btnEditorPreferences_clicked()
     WPREFERENCES->show();
 }
 
+// Reloads prop editor state
 void wdgEditor::switchSelection()
 {
     _font->selection.clear();
@@ -416,31 +416,31 @@ void wdgEditor::checkPropValidity()
     }
 }
 
-void wdgEditor::moveChar(int sel, QString action) // TODO: make better
+void wdgEditor::moveChar(int sel, Move action)
 {
-    if (!_font->selection.contains(OCFont::Selection::Character)) return;
+    if (!_font->selection.contains(OCFont::Selection::Font)) return;
 
-    if ((sel == 0 && action == "UP") ||
-        (sel > (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && action == "DOWN"))
-        return;
+    if (action == Move::Up && sel == 0) return;
+    if (action == Move::Down && _font->selection.contains(OCFont::Selection::Character) && sel > (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1)) return;
+    if (action == Move::Down && _font->selection.contains(OCFont::Selection::Character) && sel > (_font->fonts.count() - 1)) return;
 
-    int moving;
+    int moving = action == Move::Up ? sel - 1 : sel + 1;
 
-    if (action == "UP") moving = sel - 1;
-    else if (action == "DOWN") moving = sel + 1;
+    if (_font->selection.contains(OCFont::Selection::Character))
+        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.move(sel, moving);
+    else if (_font->selection.contains(OCFont::Selection::Font))
+        _font->fonts.move(sel, moving);
     else
-    {
-        qWarning().noquote() << "Invalid move parameter: " + action;
         return;
-    }
-    emit setModified(true);
 
-    // Move the selected item down / up
-    _font->fonts[_font->selection[OCFont::Selection::Font]].characters.move(sel, moving);
+    emit setModified(true);
     reloadUi();
-    ui->tvwChars->setCurrentIndex(model->index(moving, 0));
+
+    if (_font->selection.contains(OCFont::Selection::Character)) ui->tvwChars->setCurrentIndex(model->index(moving, 0, ui->tvwChars->selectionModel()->currentIndex().parent()));
+    else if (_font->selection.contains(OCFont::Selection::Font)) ui->tvwChars->setCurrentIndex(model->index(moving, 0));
 }
 
+// Reloads TreeView
 void wdgEditor::reloadUi()
 {
     int currentScrollbarPosition = ui->tvwChars->verticalScrollBar()->value();
@@ -495,10 +495,15 @@ void wdgEditor::reloadUi()
     // checkCharValidity();
     // checkPropValidity();
 
-    ui->btnDeleteSelection->setDisabled((ui->tvwChars->currentIndex().parent().row() == -1) || (model->rowCount() == 0)); // TODO: Support font deletion
+    ui->btnDeleteSelection->setDisabled(model->rowCount() == 0);
 
-    ui->btnMoveUp->setEnabled((ui->tvwChars->currentIndex().parent().row() != -1) && (ui->tvwChars->currentIndex().row() > 0)); // TODO: Support movable fonts
-    ui->btnMoveDown->setEnabled((ui->tvwChars->currentIndex().parent().row() != -1) && (ui->tvwChars->currentIndex().row() < (_font->fonts[ui->tvwChars->currentIndex().parent().row()].characters.count() - 1))); // TODO: Support movable fonts
+    ui->btnMoveUp->setEnabled(ui->tvwChars->currentIndex().row() > 0);
+    if (_font->selection.contains(OCFont::Selection::Character))
+        ui->btnMoveDown->setEnabled(ui->tvwChars->currentIndex().row() < (_font->fonts[ui->tvwChars->currentIndex().parent().row()].characters.count() - 1));
+    else if (_font->selection.contains(OCFont::Selection::Font))
+        ui->btnMoveDown->setEnabled(ui->tvwChars->currentIndex().row() < (_font->fonts.count() - 1));
+    else
+        ui->btnMoveDown->setEnabled(false);
 
     // TODO FOR Char position preview: Reload tex preview here (maybe in thread)
 }
