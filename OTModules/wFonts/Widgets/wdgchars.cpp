@@ -51,9 +51,9 @@ void wdgChars::on_btnNewChar_clicked()
 
     // Control current selection
     if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
-        ui->tvwChars->selectionModel()->setCurrentIndex(model->index(_font->fonts[currentSelection.second].characters.count() - 1, 0, model->index(currentSelection.second, 0)), QItemSelectionModel::Select | QItemSelectionModel::Rows);
+        ui->tvwChars->setCurrentIndex(model->index(_font->fonts[currentSelection.second].characters.count() - 1, 0, model->index(currentSelection.second, 0)));
     else // character is primarily selected
-        ui->tvwChars->selectionModel()->setCurrentIndex(model->index(ui->tvwChars->currentIndex().row() + 1, 0, model->index(currentSelection.first, 0)), QItemSelectionModel::Select | QItemSelectionModel::Rows);
+        ui->tvwChars->setCurrentIndex(model->index(ui->tvwChars->currentIndex().row() + 1, 0, model->index(currentSelection.first, 0)));
 
     ui->stwProperties->setCurrentIndex(1);
     ui->ledCharacter->setFocus();
@@ -83,9 +83,9 @@ void wdgChars::on_btnNewFont_clicked()
 
     // Control current selection
     if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
-        ui->tvwChars->selectionModel()->setCurrentIndex(model->index(currentSelection.second + 1, 0), QItemSelectionModel::Select | QItemSelectionModel::Rows);
+        ui->tvwChars->setCurrentIndex(model->index(currentSelection.second + 1, 0));
     else // character is primarily selected
-        ui->tvwChars->selectionModel()->setCurrentIndex(model->index(currentSelection.first + 1, 0), QItemSelectionModel::Select | QItemSelectionModel::Rows);
+        ui->tvwChars->setCurrentIndex(model->index(currentSelection.first + 1, 0));
 
     ui->stwProperties->setCurrentIndex(0);
     ui->ledFontName->setFocus();
@@ -483,11 +483,10 @@ void wdgChars::reloadUi()
         prevNewSelection = model->index(currentSelection.second - 1, 0, model->index(currentSelection.first, 0));
     }
 
-    /*if (_font->fonts[currentSelection.first].characters.isEmpty() && !_font->fonts.isEmpty()) ui->tvwChars->selectionModel()->setCurrentIndex(model->index(currentSelection.first, 0), QItemSelectionModel::Select | QItemSelectionModel::Rows);
-    else*/ if (newSelection.isValid())
-        ui->tvwChars->selectionModel()->setCurrentIndex(newSelection, QItemSelectionModel::Select | QItemSelectionModel::Rows);
+    if (newSelection.isValid())
+        ui->tvwChars->setCurrentIndex(newSelection);
     else if (prevNewSelection.isValid())
-        ui->tvwChars->selectionModel()->setCurrentIndex(prevNewSelection, QItemSelectionModel::Select | QItemSelectionModel::Rows);
+        ui->tvwChars->setCurrentIndex(prevNewSelection);
 
     ui->tvwChars->verticalScrollBar()->setValue(currentScrollbarPosition);
 
