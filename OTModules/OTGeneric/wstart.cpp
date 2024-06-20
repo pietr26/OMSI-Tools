@@ -333,6 +333,7 @@ void wStart::on_tbnMapVerification_clicked()
 void wStart::on_actionDashboard_triggered()
 {
     WDEVTOOLS = new wDevTools();
+    connect(WDEVTOOLS, &wDevTools::backToHome, this, &wStart::reopen);
     WDEVTOOLS->show();
     close();
 }
@@ -341,8 +342,7 @@ void wStart::on_actionApplicationCrashSimulation_triggered()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Application crash simulation", "Press 'Yes' to start to simulate an applicaiton crash.");
 
-    if (reply == QMessageBox::Yes)
-        qFatal("Application crash simulation started by user");
+    if (reply == QMessageBox::Yes) qFatal("Application crash simulation started by user");
 }
 
 void wStart::on_actionRegEditor_triggered()

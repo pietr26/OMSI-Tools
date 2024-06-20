@@ -298,3 +298,14 @@ void wDevTools::on_btnSoundFileLister_clicked()
 
     pushToOutput(resultStr);
 }
+
+void wDevTools::on_actionBackToHome_triggered()
+{
+    emit backToHome();
+    close();
+}
+
+void wDevTools::on_actionClose_triggered()
+{
+    close();
+}

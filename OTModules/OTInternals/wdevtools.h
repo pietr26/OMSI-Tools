@@ -34,6 +34,13 @@ private slots:
 
     void on_btnLineCounterStart_clicked();
 
+    void on_actionBackToHome_triggered();
+
+    void on_actionClose_triggered();
+
+signals:
+    void backToHome();
+
 private:
     Ui::wDevTools *ui;
     OTSettings set;

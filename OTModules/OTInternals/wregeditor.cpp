@@ -74,11 +74,11 @@ void wRegEditor::loadRegs()
 
 void wRegEditor::on_actionBackToHome_triggered()
 {
-    close();
     emit backToHome();
+    close();
 }
 
 void wRegEditor::on_actionClose_triggered()
 {
-    QApplication::quit();
+    close();
 }

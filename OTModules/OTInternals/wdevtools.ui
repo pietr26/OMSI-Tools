@@ -177,6 +177,62 @@
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuWidnow">
+    <property name="tearOffEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string notr="true">Window</string>
+    </property>
+    <addaction name="actionBackToHome"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuWidnow"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionBackToHome">
+   <property name="icon">
+    <iconset theme="go-home"/>
+   </property>
+   <property name="text">
+    <string notr="true">Back to home</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Back to home</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Back to home</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset theme="application-exit"/>
+   </property>
+   <property name="text">
+    <string notr="true">Close</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Close</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Close</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Q</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
