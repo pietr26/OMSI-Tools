@@ -205,7 +205,7 @@ void wBugDoc::on_btnWait_clicked()
 {
     showMinimized();
 
-    MSG msg = {0};
+    MSG msg = {0, 0, 0, 0, 0, {0, 0}};
     while (GetMessage(&msg, NULL, 0, 0) != 0)
     {
         if (msg.message == WM_HOTKEY)
