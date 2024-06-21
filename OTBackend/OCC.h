@@ -925,14 +925,14 @@ public:
 
         try {
             OCBase base;
-            out << base.writeFileHeader() << "\n";
-            out << "\n";
+            out << base.writeFileHeader();
             out << "Author: " << set.read("main", "author").toString() << "\n";
-            out << "Font count:" << fonts.count() << "\n";
+            out << "Font count: " << fonts.count() << "\n";
+            out << "Total characters: " << totalCharacterCount() << "\n";
             out << "\n";
 
             foreach (SingleFont font, fonts) {
-                out << "########################################" << "\n";
+                out << "#############################################" << "\n";
                 out << "Font name:\t\t\t" << font.name() << "\n";
                 out << "Total characters:\t" << font.characters.count() << "\n";
                 out << "\n";
