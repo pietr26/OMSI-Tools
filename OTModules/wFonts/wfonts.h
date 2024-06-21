@@ -28,7 +28,7 @@ private slots:
 
     void on_actionClose_triggered();
 
-    void on_actionNewFont_triggered();
+    void on_actionNewFile_triggered();
 
     void on_actionOpen_triggered();
 

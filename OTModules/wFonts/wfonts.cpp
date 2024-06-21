@@ -42,7 +42,7 @@ wFonts::wFonts(QWidget *parent)
 
     createDockWidgets();
 
-    //ui->actionGoToNextError->setEnabled(false);
+    ui->menuEdit->addActions(WDGEDITOR->actionsEdit);
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -89,7 +89,7 @@ void wFonts::createDockWidgets()
     addDockWidget(Qt::BottomDockWidgetArea, dockPreview);
 }
 
-void wFonts::on_actionNewFont_triggered()
+void wFonts::on_actionNewFile_triggered()
 {
     if (!isWindowModified())
     {
@@ -374,9 +374,4 @@ void wFonts::setVisiblilty()
 {
     ui->actionReload->setEnabled(_font->path().isEmpty() || !QFile(_font->path()).exists());
     ui->actionShowInExplorer->setEnabled(_font->path().isEmpty() || !QFile(_font->path()).exists());
-
-    ui->actionDeleteSelection->setEnabled(!_font->fonts[currentFontIndex].characters.isEmpty());
-    ui->actionGoToNextError->setEnabled(!_font->fonts[currentFontIndex].characters.isEmpty());
-
-    // TODO: moveUp, moveDown
 }

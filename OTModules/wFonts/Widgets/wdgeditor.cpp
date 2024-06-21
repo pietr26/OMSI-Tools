@@ -8,13 +8,62 @@ wdgEditor::wdgEditor(QWidget *parent, OCFont *font)
 {
     ui->setupUi(this);
 
-    ui->btnNextResult->setEnabled(false);
-    ui->btnFind->setEnabled(false);
-
-    ui->gbxSearchChar->setVisible(false);
-
     ui->tvwChars->setModel(model);
     connect(ui->tvwChars->selectionModel(), &QItemSelectionModel::currentRowChanged, this, [this](){ ui->tvwChars->selectionModel()->blockSignals(true); switchSelection(); reloadUi(); ui->tvwChars->selectionModel()->blockSignals(false); });
+
+    // Create and connect actions --------------------------------------------------------------------
+    actionAddFont = new QAction(QIcon::fromTheme("list-add"), "Add font"); actionAddFont->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
+    actionsEdit << actionAddFont;
+    actionAddCharacter = new QAction(QIcon::fromTheme("list-add"), "Add character"); actionAddCharacter->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Tab));
+    actionsEdit << actionAddCharacter;
+    actionDeleteItem = new QAction(QIcon::fromTheme("edit-clear"), "Delete item"); actionDeleteItem->setShortcut(Qt::Key_Delete);
+    actionsEdit << actionDeleteItem;
+    actionMoveUp = new QAction(QIcon::fromTheme("go-up"), "Move item up"); actionMoveUp->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Up));
+    actionsEdit << actionMoveUp;
+    actionMoveDown = new QAction(QIcon::fromTheme("go-down"), "Move item down"); actionMoveDown->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Down));
+    actionsEdit << actionMoveDown;
+    actionSearch = new QAction(QIcon::fromTheme("edit-find"), "Search"); actionSearch->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));
+    actionsEdit << actionSearch; ui->ledSearch->addAction(actionSearch, QLineEdit::TrailingPosition);
+    actionGoToNextError = new QAction(QIcon::fromTheme("tools-check-spelling"), "Go no next error"); actionGoToNextError->setShortcut(Qt::Key_F5);
+    actionsEdit << actionGoToNextError;
+
+    ui->tvwChars->addActions(actionsEdit);
+
+    connect(actionAddFont, &QAction::triggered, this, &wdgEditor::addFont);
+    connect(actionAddCharacter, &QAction::triggered, this, &wdgEditor::addCharacter);
+    connect(actionDeleteItem, &QAction::triggered, this, &wdgEditor::deleteItem);
+    connect(actionMoveUp, &QAction::triggered, this, [this]() {
+        if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1)
+            moveChar(ui->tvwChars->currentIndex().row(), Move::Up);
+    });
+    connect(actionMoveDown, &QAction::triggered, this, [this]() {
+        if (ui->tvwChars->currentIndex().row() != (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1)
+            moveChar(ui->tvwChars->currentIndex().row(), Move::Down);
+    });
+    connect(actionSearch, &QAction::triggered, this, &wdgEditor::search);
+    connect(actionGoToNextError, &QAction::triggered, this, &wdgEditor::goToNextError);
+
+    connect(ui->btnAddFont, &QPushButton::clicked, this, &wdgEditor::addFont);
+    connect(ui->btnAddCharacter, &QPushButton::clicked, this, &wdgEditor::addCharacter);
+    connect(ui->btnDeleteItem, &QPushButton::clicked, this, &wdgEditor::deleteItem);
+    connect(ui->btnMoveUp, &QPushButton::clicked, this, [this]() {
+        if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1)
+            moveChar(ui->tvwChars->currentIndex().row(), Move::Up);
+    });
+    connect(ui->btnMoveDown, &QPushButton::clicked, this, [this]() {
+        if (ui->tvwChars->currentIndex().row() != (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1)
+            moveChar(ui->tvwChars->currentIndex().row(), Move::Down);
+    });
+
+    connect(actionAddFont, &QAction::enabledChanged, ui->btnAddFont, &QPushButton::setEnabled);
+    connect(actionAddCharacter, &QAction::enabledChanged, ui->btnAddCharacter, &QPushButton::setEnabled);
+    connect(actionDeleteItem, &QAction::enabledChanged, ui->btnDeleteItem, &QPushButton::setEnabled);
+    connect(actionMoveUp, &QAction::enabledChanged, ui->btnMoveUp, &QPushButton::setEnabled);
+    connect(actionMoveDown, &QAction::enabledChanged, ui->btnMoveDown, &QPushButton::setEnabled);
+
+    // --------------------------------------------------------------
+
+    ui->fraSearch->setVisible(false);
 
     reloadUi();
     switchSelection();
@@ -23,102 +72,6 @@ wdgEditor::wdgEditor(QWidget *parent, OCFont *font)
 wdgEditor::~wdgEditor()
 {
     delete ui;
-}
-
-void wdgEditor::on_btnNewChar_clicked()
-{
-    if (!_font->selection.contains(OCFont::Selection::Font)) return;
-
-    int prevPixelRow = ui->sbxHighestPixelInFontRow->value();
-
-    QPersistentModelIndex currentIndex = ui->tvwChars->currentIndex();
-    QPair<int, int> currentSelection(currentIndex.parent().row(), currentIndex.row());
-
-    /* 'Adding characters' policy - if selection is...
-     *  - a font: place character on bottom
-     *  - a character: place character under current character
-     */
-
-    // Add new char to object
-     if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
-        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.append(OCFont::SingleFont::Character());
-    else // character is primarily selected
-        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.insert(ui->tvwChars->currentIndex().row() + 1, OCFont::SingleFont::Character());
-
-    emit setModified(true);
-    reloadUi();
-    switchSelection();
-
-    // Control current selection
-    if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
-        ui->tvwChars->setCurrentIndex(model->index(_font->fonts[currentSelection.second].characters.count() - 1, 0, model->index(currentSelection.second, 0)));
-    else // character is primarily selected
-        ui->tvwChars->setCurrentIndex(model->index(ui->tvwChars->currentIndex().row() + 1, 0, model->index(currentSelection.first, 0)));
-
-    ui->stwProperties->setCurrentIndex(1);
-    ui->ledCharacter->setFocus();
-
-    if (set.read(objectName(), "keepPixelRow").toBool()) ui->sbxHighestPixelInFontRow->setValue(prevPixelRow);
-}
-
-void wdgEditor::on_btnNewFont_clicked()
-{
-    QPersistentModelIndex currentIndex = ui->tvwChars->currentIndex();
-    QPair<int, int> currentSelection(currentIndex.parent().row(), currentIndex.row());
-
-    /* 'Adding font' policy: place font under current font; select it
-     */
-
-    // Add new font to object
-    if (_font->fonts.isEmpty()) // font file is empty
-        _font->fonts.append(OCFont::SingleFont());
-    else if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
-        _font->fonts.insert(currentSelection.second + 1, OCFont::SingleFont());
-    else // character is primarily selected
-        _font->fonts.insert(currentSelection.first + 1, OCFont::SingleFont());
-
-    emit setModified(true);
-    reloadUi();
-    switchSelection();
-
-    // Control current selection
-    if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
-        ui->tvwChars->setCurrentIndex(model->index(currentSelection.second + 1, 0));
-    else // character is primarily selected
-        ui->tvwChars->setCurrentIndex(model->index(currentSelection.first + 1, 0));
-
-    ui->stwProperties->setCurrentIndex(0);
-    ui->ledFontName->setFocus();
-}
-
-void wdgEditor::on_btnDeleteSelection_clicked()
-{
-    if (_font->selection.contains(OCFont::Selection::Character))
-    {
-        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.removeAt(ui->tvwChars->currentIndex().row());
-
-        if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.isEmpty())
-            ui->tvwChars->setCurrentIndex(ui->tvwChars->currentIndex().parent());
-    }
-    else if (_font->selection.contains(OCFont::Selection::Font)) _font->fonts.removeAt(ui->tvwChars->currentIndex().row());
-    else return;
-
-    reloadUi();
-    switchSelection();
-
-    emit setModified(true);
-}
-
-void wdgEditor::on_btnMoveUp_clicked()
-{
-    if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1)
-        moveChar(ui->tvwChars->currentIndex().row(), Move::Up);
-}
-
-void wdgEditor::on_btnMoveDown_clicked()
-{
-    if (ui->tvwChars->currentIndex().row() != (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1)
-        moveChar(ui->tvwChars->currentIndex().row(), Move::Down);
 }
 
 void wdgEditor::on_ledCharacter_textChanged(const QString &arg1)
@@ -173,14 +126,162 @@ void wdgEditor::on_sbxHighestPixelInFontRow_valueChanged(int arg1)
     emit setModified(true);
 }
 
-void wdgEditor::on_btnFind_clicked() // TODO
+void wdgEditor::on_btnEditorPreferences_clicked()
 {
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
+}
+
+// Reloads prop editor state
+void wdgEditor::switchSelection()
+{
+    _font->selection.clear();
+
+    QModelIndex currentIndex = ui->tvwChars->currentIndex();
+
+    if (currentIndex.parent().row() == -1)
+    {
+        if (currentIndex.row() == -1) // selection is nothing
+        {
+            ui->stwProperties->setEnabled(false);
+            actionAddCharacter->setEnabled(false);
+        }
+        else // selection is a font
+        {
+            _font->selection[OCFont::Selection::Font] = currentIndex.row();
+
+            ui->stwProperties->setCurrentIndex(0);
+            ui->stwProperties->setEnabled(true);
+            actionAddCharacter->setEnabled(true);
+
+            ui->ledFontName->setText(_font->fonts[currentIndex.row()].name());
+            ui->ledColorTexture->setText(_font->fonts[currentIndex.row()].colorTexture());
+            ui->ledAlphaTexture->setText(_font->fonts[currentIndex.row()].alphaTexture());
+            ui->sbxMaxHeigthOfChars->setValue(_font->fonts[currentIndex.row()].maxHeightOfChars());
+            ui->sbxDistanceBetweenChars->setValue(_font->fonts[currentIndex.row()].distanceBetweenChars());
+        }
+    }
+    else // selection is a character
+    {
+        _font->selection[OCFont::Selection::Font] = currentIndex.parent().row();
+        _font->selection[OCFont::Selection::Character] = currentIndex.row();
+
+        ui->stwProperties->setCurrentIndex(1);
+        ui->stwProperties->setEnabled(true);
+        actionAddCharacter->setEnabled(true);
+
+        OCFont::SingleFont::Character character = _font->fonts[currentIndex.parent().row()].characters.at(currentIndex.row());
+
+        ui->ledCharacter->setText(character.character());
+        ui->sbxLeftPixel->setValue(character.leftPixel());
+        ui->sbxRightPixel->setValue(character.rightPixel());
+        ui->sbxHighestPixelInFontRow->setValue(character.highestPixelInFontRow());
+    }
+
+    checkCharValidity();
+    emit reloadPreview();
+}
+
+void wdgEditor::addFont()
+{
+    QPersistentModelIndex currentIndex = ui->tvwChars->currentIndex();
+    QPair<int, int> currentSelection(currentIndex.parent().row(), currentIndex.row());
+
+    /* 'Adding font' policy: place font under current font; select it
+     */
+
+    // Add new font to object
+    if (_font->fonts.isEmpty()) // font file is empty
+        _font->fonts.append(OCFont::SingleFont());
+    else if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
+        _font->fonts.insert(currentSelection.second + 1, OCFont::SingleFont());
+    else // character is primarily selected
+        _font->fonts.insert(currentSelection.first + 1, OCFont::SingleFont());
+
+    emit setModified(true);
+    reloadUi();
+    switchSelection();
+
+    // Control current selection
+    if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
+        ui->tvwChars->setCurrentIndex(model->index(currentSelection.second + 1, 0));
+    else // character is primarily selected
+        ui->tvwChars->setCurrentIndex(model->index(currentSelection.first + 1, 0));
+
+    ui->stwProperties->setCurrentIndex(0);
+    ui->ledFontName->setFocus();
+}
+
+void wdgEditor::addCharacter()
+{
+    if (!_font->selection.contains(OCFont::Selection::Font)) return;
+
+    int prevPixelRow = ui->sbxHighestPixelInFontRow->value();
+
+    QPersistentModelIndex currentIndex = ui->tvwChars->currentIndex();
+    QPair<int, int> currentSelection(currentIndex.parent().row(), currentIndex.row());
+
+    /* 'Adding characters' policy - if selection is...
+     *  - a font: place character on bottom
+     *  - a character: place character under current character
+     */
+
+    // Add new char to object
+    if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
+        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.append(OCFont::SingleFont::Character());
+    else // character is primarily selected
+        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.insert(ui->tvwChars->currentIndex().row() + 1, OCFont::SingleFont::Character());
+
+    emit setModified(true);
+    reloadUi();
+    switchSelection();
+
+    // Control current selection
+    if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
+        ui->tvwChars->setCurrentIndex(model->index(_font->fonts[currentSelection.second].characters.count() - 1, 0, model->index(currentSelection.second, 0)));
+    else // character is primarily selected
+        ui->tvwChars->setCurrentIndex(model->index(ui->tvwChars->currentIndex().row() + 1, 0, model->index(currentSelection.first, 0)));
+
+    ui->stwProperties->setCurrentIndex(1);
+    ui->ledCharacter->setFocus();
+
+    if (set.read(objectName(), "keepPixelRow").toBool()) ui->sbxHighestPixelInFontRow->setValue(prevPixelRow);
+}
+
+void wdgEditor::deleteItem()
+{
+    if (_font->selection.contains(OCFont::Selection::Character))
+    {
+        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.removeAt(ui->tvwChars->currentIndex().row());
+
+        if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.isEmpty())
+            ui->tvwChars->setCurrentIndex(ui->tvwChars->currentIndex().parent());
+    }
+    else if (_font->selection.contains(OCFont::Selection::Font)) _font->fonts.removeAt(ui->tvwChars->currentIndex().row());
+    else return;
+
+    reloadUi();
+    switchSelection();
+
+    emit setModified(true);
+}
+
+void wdgEditor::search() // TODO
+{
+    qInfo() << "bla";
+    if (!ui->fraSearch->isVisible())
+    {
+        ui->fraSearch->setVisible(true);
+        ui->ledSearch->selectAll();
+        return;
+    }
+
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     currentSearch = ui->ledSearch->text();
 
     qDebug().noquote() << "Find char: '" + currentSearch + "'";
 
-    ui->btnNextResult->setEnabled(true);
+    actionGoToNextError->setEnabled(true);
 
     // Search for char
     ui->tvwChars->setCurrentIndex(model->index(0, 0));
@@ -199,10 +300,10 @@ void wdgEditor::on_btnFind_clicked() // TODO
     QMessageBox::information(this, tr("Character not found"), tr("The entered character could not be found."));
     qDebug() << "Character not found.";
     currentSearch = "";
-    ui->btnNextResult->setEnabled(false);
+    actionGoToNextError->setEnabled(false);
 }
 
-void wdgEditor::on_btnNextResult_clicked()
+void wdgEditor::goToNextError() // TODO
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
     qDebug() << "Go to next search result";
@@ -212,7 +313,7 @@ void wdgEditor::on_btnNextResult_clicked()
             return;
 
         int i = ui->tvwChars->currentIndex().row();
-        
+
         QList<OCFont::SingleFont::Character> tempList;
         tempList = _font->fonts[_font->selection[OCFont::Selection::Font]].characters;
         tempList.removeAt(ui->tvwChars->currentIndex().row());
@@ -268,62 +369,6 @@ void wdgEditor::on_btnNextResult_clicked()
 
         switchSelection();
     }
-}
-
-void wdgEditor::on_btnEditorPreferences_clicked()
-{
-    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
-    WPREFERENCES->show();
-}
-
-// Reloads prop editor state
-void wdgEditor::switchSelection()
-{
-    _font->selection.clear();
-
-    QModelIndex currentIndex = ui->tvwChars->currentIndex();
-
-    if (currentIndex.parent().row() == -1)
-    {
-        if (currentIndex.row() == -1) // selection is nothing
-        {
-            ui->stwProperties->setEnabled(false);
-            ui->btnNewChar->setEnabled(false);
-        }
-        else // selection is a font
-        {
-            _font->selection[OCFont::Selection::Font] = currentIndex.row();
-
-            ui->stwProperties->setCurrentIndex(0);
-            ui->stwProperties->setEnabled(true);
-            ui->btnNewChar->setEnabled(true);
-
-            ui->ledFontName->setText(_font->fonts[currentIndex.row()].name());
-            ui->ledColorTexture->setText(_font->fonts[currentIndex.row()].colorTexture());
-            ui->ledAlphaTexture->setText(_font->fonts[currentIndex.row()].alphaTexture());
-            ui->sbxMaxHeigthOfChars->setValue(_font->fonts[currentIndex.row()].maxHeightOfChars());
-            ui->sbxDistanceBetweenChars->setValue(_font->fonts[currentIndex.row()].distanceBetweenChars());
-        }
-    }
-    else // selection is a character
-    {
-        _font->selection[OCFont::Selection::Font] = currentIndex.parent().row();
-        _font->selection[OCFont::Selection::Character] = currentIndex.row();
-
-        ui->stwProperties->setCurrentIndex(1);
-        ui->stwProperties->setEnabled(true);
-        ui->btnNewChar->setEnabled(true);
-
-        OCFont::SingleFont::Character character = _font->fonts[currentIndex.parent().row()].characters.at(currentIndex.row());
-
-        ui->ledCharacter->setText(character.character());
-        ui->sbxLeftPixel->setValue(character.leftPixel());
-        ui->sbxRightPixel->setValue(character.rightPixel());
-        ui->sbxHighestPixelInFontRow->setValue(character.highestPixelInFontRow());
-    }
-
-    checkCharValidity();
-    emit reloadPreview();
 }
 
 void wdgEditor::checkCharValidity()
@@ -496,27 +541,24 @@ void wdgEditor::reloadUi()
 
     ui->tvwChars->verticalScrollBar()->setValue(currentScrollbarPosition);
 
-    ui->lblStatistics->setText(tr("%1 fonts, %2 characters total").arg(QString::number(_font->fonts.count()), QString::number(_font->totalCharacterCount())));
+    ui->lblStatistics->setText(tr("%n font(s), ", "", _font->fonts.count()) + tr("%n character(s) total", "", _font->totalCharacterCount()));
 
     // checkCharValidity();
     // checkPropValidity();
 
-    ui->btnDeleteSelection->setDisabled(model->rowCount() == 0);
+    actionDeleteItem->setDisabled(model->rowCount() == 0);
 
-    ui->btnMoveUp->setEnabled(ui->tvwChars->currentIndex().row() > 0);
+    actionMoveUp->setEnabled(ui->tvwChars->currentIndex().row() > 0);
     if (_font->selection.contains(OCFont::Selection::Character))
-        ui->btnMoveDown->setEnabled(ui->tvwChars->currentIndex().row() < (_font->fonts[ui->tvwChars->currentIndex().parent().row()].characters.count() - 1));
+        actionMoveDown->setEnabled(ui->tvwChars->currentIndex().row() < (_font->fonts[ui->tvwChars->currentIndex().parent().row()].characters.count() - 1));
     else if (_font->selection.contains(OCFont::Selection::Font))
-        ui->btnMoveDown->setEnabled(ui->tvwChars->currentIndex().row() < (_font->fonts.count() - 1));
+        actionMoveDown->setEnabled(ui->tvwChars->currentIndex().row() < (_font->fonts.count() - 1));
     else
-        ui->btnMoveDown->setEnabled(false);
+        actionMoveDown->setEnabled(false);
+
+    actionGoToNextError->setDisabled(_font->fonts.isEmpty());
 
     // TODO FOR Char position preview: Reload tex preview here (maybe in thread)
-}
-
-void wdgEditor::on_btnTest_clicked()
-{
-    reloadUi();
 }
 
 void wdgEditor::on_ledFontName_textChanged(const QString &arg1)
@@ -625,4 +667,9 @@ void wdgEditor::on_sbxDistanceBetweenChars_valueChanged(int arg1)
     checkPropValidity();
     checkCharValidity();
     emit setModified(true);
+}
+
+void wdgEditor::on_btnCloseSearch_clicked()
+{
+    ui->fraSearch->setVisible(false);
 }

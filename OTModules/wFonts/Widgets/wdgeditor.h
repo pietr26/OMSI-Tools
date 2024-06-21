@@ -19,17 +19,9 @@ public:
     explicit wdgEditor(QWidget *parent, OCFont *font);
     ~wdgEditor();
 
+    QList<QAction*> actionsEdit;
+
 private slots:
-    void on_btnNewChar_clicked();
-
-    void on_btnNewFont_clicked();
-
-    void on_btnDeleteSelection_clicked();
-
-    void on_btnMoveUp_clicked();
-
-    void on_btnMoveDown_clicked();
-
     void on_ledCharacter_textChanged(const QString &arg1);
 
     void on_sbxLeftPixel_valueChanged(int arg1);
@@ -38,13 +30,7 @@ private slots:
 
     void on_sbxHighestPixelInFontRow_valueChanged(int arg1);
 
-    void on_btnFind_clicked();
-
-    void on_btnNextResult_clicked();
-
     void on_btnEditorPreferences_clicked();
-
-    void on_btnTest_clicked();
 
     void on_ledFontName_textChanged(const QString &arg1);
 
@@ -60,6 +46,8 @@ private slots:
 
     void on_sbxDistanceBetweenChars_valueChanged(int arg1);
 
+    void on_btnCloseSearch_clicked();
+
 public slots:
     void reloadUi();
 
@@ -67,6 +55,12 @@ public slots:
     void checkPropValidity(); // |_
 
     void switchSelection();
+
+    void addFont();
+    void addCharacter();
+    void deleteItem();
+    void search();
+    void goToNextError();
 
 signals:
     void setModified(bool state);
@@ -98,6 +92,14 @@ private:
     void moveChar(int selection, Move action);
 
     QString currentSearch;
+
+    QAction *actionAddFont;
+    QAction *actionAddCharacter;
+    QAction *actionDeleteItem;
+    QAction *actionMoveUp;
+    QAction *actionMoveDown;
+    QAction *actionSearch;
+    QAction *actionGoToNextError;
 };
 
 #endif // WDGEDITOR_H
