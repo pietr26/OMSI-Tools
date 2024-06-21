@@ -235,7 +235,7 @@ void wdgEditor::addCharacter()
     if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
         _font->fonts[_font->selection[OCFont::Selection::Font]].characters.append(OCFont::SingleFont::Character());
     else // character is primarily selected
-        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.insert(ui->tvwChars->currentIndex().row() + 1, OCFont::SingleFont::Character());
+        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.insert(_font->selection[OCFont::Selection::Character] + 1, OCFont::SingleFont::Character());
 
     emit setModified(true);
     reloadUi();
@@ -245,7 +245,7 @@ void wdgEditor::addCharacter()
     if (!_font->selection.contains(OCFont::Selection::Character)) // font is primarily selected
         ui->tvwChars->setCurrentIndex(model->index(_font->fonts[currentSelection.second].characters.count() - 1, 0, model->index(currentSelection.second, 0)));
     else // character is primarily selected
-        ui->tvwChars->setCurrentIndex(model->index(ui->tvwChars->currentIndex().row() + 1, 0, model->index(currentSelection.first, 0)));
+        ui->tvwChars->setCurrentIndex(model->index(_font->selection[OCFont::Selection::Character] + 1, 0, model->index(currentSelection.first, 0)));
 
     ui->stwProperties->setCurrentIndex(1);
     ui->ledCharacter->setFocus();
@@ -257,12 +257,16 @@ void wdgEditor::deleteItem()
 {
     if (_font->selection.contains(OCFont::Selection::Character))
     {
-        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.removeAt(ui->tvwChars->currentIndex().row());
+        _font->fonts[_font->selection[OCFont::Selection::Font]].characters.removeAt(_font->selection[OCFont::Selection::Character]);
 
         if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.isEmpty())
             ui->tvwChars->setCurrentIndex(ui->tvwChars->currentIndex().parent());
     }
-    else if (_font->selection.contains(OCFont::Selection::Font)) _font->fonts.removeAt(ui->tvwChars->currentIndex().row());
+    else if (_font->selection.contains(OCFont::Selection::Font))
+    {
+        _font->fonts.removeAt(_font->selection[OCFont::Selection::Font]);
+        ui->tvwChars->setExpanded(model->index(_font->selection[OCFont::Selection::Font], 0), false);
+    }
     else return;
 
     reloadUi();
@@ -385,9 +389,9 @@ void wdgEditor::checkCharValidity()
     ui->lblLeftPixel->setStyleSheet("");
     ui->lblHighestPixelInFontRow->setStyleSheet("");
 
-    if (_font->fonts[_font->selection[OCFont::Selection::Font]].characters.isEmpty() || (ui->tvwChars->currentIndex().row() == -1)) return;
+    if (!_font->selection.contains(OCFont::Selection::Character) || _font->fonts[_font->selection[OCFont::Selection::Font]].characters.isEmpty()) return;
 
-    OCFont::SingleFont::Character character = _font->fonts[_font->selection[OCFont::Selection::Font]].characters.at(ui->tvwChars->currentIndex().row());
+    OCFont::SingleFont::Character character = _font->fonts[_font->selection[OCFont::Selection::Font]].characters.at(_font->selection[OCFont::Selection::Character]);
 
     if (character.character().isEmpty()) ui->lblCharacter->setStyleSheet("color:red");
     else
