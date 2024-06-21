@@ -9,7 +9,7 @@ wdgEditor::wdgEditor(QWidget *parent, OCFont *font)
     ui->setupUi(this);
 
     ui->tvwChars->setModel(model);
-    connect(ui->tvwChars->selectionModel(), &QItemSelectionModel::currentRowChanged, this, [this](){ ui->tvwChars->selectionModel()->blockSignals(true); switchSelection(); reloadUi(); ui->tvwChars->selectionModel()->blockSignals(false); });
+    connect(ui->tvwChars->selectionModel(), &QItemSelectionModel::currentRowChanged, this, [this](){ ui->tvwChars->selectionModel()->blockSignals(true); blockSignals(true); switchSelection(); reloadUi(); ui->tvwChars->selectionModel()->blockSignals(false); blockSignals(false); });
 
     // Create and connect actions --------------------------------------------------------------------
     actionAddFont = new QAction(QIcon::fromTheme("list-add"), "Add font"); actionAddFont->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
@@ -517,7 +517,7 @@ void wdgEditor::reloadUi()
         QStandardItem *fontItem = new QStandardItem(font.name().isEmpty() ? QString("(%1)").arg(tr("unnamed")) : font.name());
         fontItem->setRowCount(font.characters.count());
 
-        for (int j = 0; j < font.characters.count(); j++) fontItem->setChild(j, 0, new QStandardItem(font.characters[j].character().isEmpty() ? QString("(%1)").arg(tr("unnamed")) : font.characters[j].character()));
+        for (int j = 0; j < font.characters.count(); j++) fontItem->setChild(j, 0, new QStandardItem(font.characters[j].character().isEmpty() ? QString("(%1)").arg(tr("undefined")) : font.characters[j].character()));
 
         model->invisibleRootItem()->appendRow(fontItem);
     }
@@ -546,7 +546,7 @@ void wdgEditor::reloadUi()
 
     ui->tvwChars->verticalScrollBar()->setValue(currentScrollbarPosition);
 
-    ui->lblStatistics->setText(tr("%n font(s), ", "", _font->fonts.count()) + tr("%n character(s) total", "", _font->totalCharacterCount()));
+    ui->lblStatistics->setText(tr("%n font(s)", "", _font->fonts.count()) + ", " + tr("%n character(s) total", "", _font->totalCharacterCount()));
 
     // checkCharValidity();
     // checkPropValidity();
@@ -606,10 +606,7 @@ void wdgEditor::on_btnColorTexture_clicked()
     _font->fonts[_font->selection[OCFont::Selection::Font]].setColorTexture(filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").size() + 1));
 
     if (ui->ledColorTexture->text() != _font->fonts[_font->selection[OCFont::Selection::Font]].colorTexture())
-    {
         qDebug() << QString("New color texture: '%1'").arg(filename);
-        emit setModified(true);
-    }
 
     ui->ledColorTexture->setText(_font->fonts[_font->selection[OCFont::Selection::Font]].colorTexture());
 }
@@ -640,10 +637,7 @@ void wdgEditor::on_btnAlphaTexture_clicked()
     _font->fonts[_font->selection[OCFont::Selection::Font]].setAlphaTexture(filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").size() + 1));
 
     if (ui->ledAlphaTexture->text() != _font->fonts[_font->selection[OCFont::Selection::Font]].alphaTexture())
-    {
         qDebug() << QString("New alpha texture: '%1'").arg(filename);
-        emit setModified(true);
-    }
 
     ui->ledAlphaTexture->setText(_font->fonts[_font->selection[OCFont::Selection::Font]].alphaTexture());
 }
