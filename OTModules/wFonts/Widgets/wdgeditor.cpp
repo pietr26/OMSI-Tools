@@ -74,6 +74,11 @@ wdgEditor::~wdgEditor()
     delete ui;
 }
 
+void wdgEditor::unexpandAll()
+{
+    ui->tvwChars->collapseAll();
+}
+
 void wdgEditor::on_ledCharacter_textChanged(const QString &arg1)
 {
     if (!_font->selection.contains(OCFont::Selection::Character)) return;
@@ -498,10 +503,10 @@ void wdgEditor::reloadUi()
     QPersistentModelIndex currentIndex = ui->tvwChars->currentIndex();
     QPair<int, int> currentSelection(currentIndex.parent().row(), currentIndex.row());
 
-    QList<bool> expansions; // TODO: clear on font reload
+    fontExpansions.clear(); // TODO: clear on font reload
 
     for (int i = 0; i < model->rowCount(); i++)
-        expansions << ui->tvwChars->isExpanded(model->index(i, 0)); // TODO: implement for delete, move!
+        fontExpansions << ui->tvwChars->isExpanded(model->index(i, 0)); // TODO: implement for delete, move!
 
     model->clear();
 
@@ -518,7 +523,7 @@ void wdgEditor::reloadUi()
     }
 
     // Re-set expansions
-    for (int i = 0; i < expansions.count(); i++) ui->tvwChars->setExpanded(model->index(i, 0), expansions[i]);
+    for (int i = 0; i < fontExpansions.count(); i++) ui->tvwChars->setExpanded(model->index(i, 0), fontExpansions[i]);
 
     QModelIndex newSelection;
     QModelIndex prevNewSelection;

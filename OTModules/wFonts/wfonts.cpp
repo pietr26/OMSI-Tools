@@ -358,7 +358,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
         return;
     }
 
-    currentFontIndex = 0;
+    WDGEDITOR->unexpandAll();
     emit reloadUi();
     setWindowModified(false);
 

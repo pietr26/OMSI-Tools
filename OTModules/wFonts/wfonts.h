@@ -80,8 +80,6 @@ private:
     void selectedEncoding(QStringConverter::Encoding selectedEncoding);
 
     void setVisiblilty();
-
-    int currentFontIndex;
 };
 
 #endif // WFONTS_H

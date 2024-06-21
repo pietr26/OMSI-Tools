@@ -21,6 +21,8 @@ public:
 
     QList<QAction*> actionsEdit;
 
+    void unexpandAll();
+
 private slots:
     void on_ledCharacter_textChanged(const QString &arg1);
 
@@ -82,6 +84,8 @@ private:
         Up,
         Down
     };
+
+    QList<bool> fontExpansions;
 
     wPreferences *WPREFERENCES = new wPreferences(this, "wFonts");
 
