@@ -933,8 +933,8 @@ public:
 
             foreach (SingleFont font, fonts) {
                 out << "#############################################" << "\n";
-                out << "Font name:\t\t\t" << font.name() << "\n";
-                out << "Total characters:\t" << font.characters.count() << "\n";
+                out << "Font name: " << font.name() << "\n";
+                out << "Characters: " << font.characters.count() << "\n";
                 out << "\n";
 
                 out << "[newfont]" << "\n";
