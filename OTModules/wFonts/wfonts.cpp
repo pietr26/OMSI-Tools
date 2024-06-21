@@ -59,12 +59,6 @@ void wFonts::resizeEvent(QResizeEvent *event)
     emit resizePreview();
 }
 
-void wFonts::recieveFontIndex(int index)
-{
-    emit changeFontIndex(index);
-    emit reloadUi();
-}
-
 void wFonts::on_actionBackToHome_triggered()
 {
     emit backToHome();

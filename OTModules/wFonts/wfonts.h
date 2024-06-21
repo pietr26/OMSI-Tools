@@ -44,8 +44,6 @@ private slots:
 
     void resizeEvent(QResizeEvent *event);
 
-    void recieveFontIndex(int index);
-
     void on_actionSendFeedback_triggered();
 
 signals:
@@ -54,8 +52,6 @@ signals:
     void reloadUi();
 
     void resizePreview();
-
-    void changeFontIndex(int index);
 
 private:
     Ui::wFonts *ui;
