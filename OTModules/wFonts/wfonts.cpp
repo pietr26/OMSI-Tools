@@ -244,7 +244,7 @@ void wFonts::loadRecentFiles()
         QAction *action = new QAction();
 
         action->setData(current);
-        action->setText(QString::number(i) + "      " + QFile(current).fileName());
+        action->setText(QString::number(i + 1) + "      " + QFile(current).fileName());
         action->setVisible(true);
         switch (i)
         {
