@@ -10,6 +10,8 @@ fadeInOutText::fadeInOutText(QList<QPair<QString, unsigned int>> textList, unsig
     texts = textList;
     fadeInOutTime = msFadeInOutTime;
 
+    ui->lblText->clear();
+
     ui->lblText->setProperty("opacity", 0);
     labelEffect = new QGraphicsOpacityEffect(this);
     ui->lblText->setGraphicsEffect(labelEffect);
