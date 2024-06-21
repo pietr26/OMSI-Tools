@@ -143,7 +143,7 @@ void wFonts::on_actionShowInExplorer_triggered()
     else ui->statusbar->showMessage(tr("The font file (still) doesn't exist."), 4000);
 }
 
-QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
+void wFonts::save(OTFileMethods::fileMethods method, QString filen)
 {
     qDebug() << "Save font...";
 
@@ -151,27 +151,21 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
     if (method != OTFileMethods::backupSave)
     {
         QString dir;
-        if (_font->path().isEmpty())
-        {
-            if (_font->fonts[currentFontIndex].name().isEmpty() || _font->fonts[currentFontIndex].name() == " ")
-                dir = set.read("main", "mainDir").toString() + "/Fonts";
-            else
-                dir = set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts[currentFontIndex].name() + ".oft";
-        }
+        if (_font->path().isEmpty()) dir = set.read("main", "mainDir").toString() + QString("/Fonts/%1.oft").arg(tr("unnamed"));
         else dir = _font->path();
 
-        if (filen == "" || method == OTFileMethods::saveAs)
+        if (filen.isEmpty() || method == OTFileMethods::saveAs)
         {
             qDebug() << "Save font with file dialog";
             filen = QFileDialog::getSaveFileName(this, tr("Save font"), dir, tr("OMSI font file") +  " (*.oft)");
         }
-        if (filen.isEmpty()) return "";
+        if (filen.isEmpty()) return;
 
         _font->setPath(filen);
     }
 
     if (method != OTFileMethods::backupSave && _font->path().isEmpty())
-        return "";
+        return;
 
     if (method != OTFileMethods::backupSave)
     {
@@ -186,10 +180,10 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
     OCFont *tempFont = _font;
     if (method == OTFileMethods::backupSave)
     {
-        if (_font->fonts[currentFontIndex].name().isEmpty() || _font->fonts[currentFontIndex].name() != " ")
-            tempFont->setPath(QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + " " + _font->fonts[currentFontIndex].name() + ".oft"));
+        if (_font->path().isEmpty())
+            tempFont->setPath(QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + QString("_%1.oft").arg("unnamed")));
         else
-            tempFont->setPath(QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + ".oft"));
+            tempFont->setPath(QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + "_" + QFileInfo(_font->path()).fileName()));
     }
 
     qDebug() << "Direct path:" << tempFont->path();
@@ -201,7 +195,7 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
             qWarning() << "Font could not be saved!";
             ui->statusbar->showMessage(tr("Error: The file could not be saved."), 4000);
         }
-        return "";
+        return;
     }
 
 
@@ -216,7 +210,7 @@ QString wFonts::save(OTFileMethods::fileMethods method, QString filen)
     }
     else qDebug().noquote() << "Backup file successfully saved: '" + QFileInfo(tempFont->path()).absoluteFilePath() + "'";
 
-    return "";
+    return;
 }
 
 void wFonts::setTitle(QString filen)
@@ -241,7 +235,7 @@ void wFonts::loadRecentFiles()
         ui->menuRecentlyOpenedFonts->clear();
     }
 
-    int i = 1;
+    int i = 0;
     foreach (QString current, recentFiles)
     {
         if (!QFile(current).exists())
@@ -254,16 +248,16 @@ void wFonts::loadRecentFiles()
         action->setVisible(true);
         switch (i)
         {
-        case 1: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_1)); break;
-        case 2: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_2)); break;
-        case 3: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_3)); break;
-        case 4: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_4)); break;
-        case 5: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_5)); break;
-        case 6: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_6)); break;
-        case 7: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_7)); break;
-        case 8: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_8)); break;
-        case 9: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_9)); break;
-        case 10: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_0)); break;
+        case 0: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_1)); break;
+        case 1: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_2)); break;
+        case 2: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_3)); break;
+        case 3: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_4)); break;
+        case 4: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_5)); break;
+        case 5: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_6)); break;
+        case 6: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_7)); break;
+        case 7: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_8)); break;
+        case 8: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_9)); break;
+        case 9: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_0)); break;
         }
 
         connect(action, &QAction::triggered, this, [=]() { this->open(OTFileMethods::open, action->data().toString()); });
@@ -272,8 +266,7 @@ void wFonts::loadRecentFiles()
         i++;
     }
 
-    if (i == 1)
-        ui->menuRecentlyOpenedFonts->setEnabled(false);
+    if (i == 0) ui->menuRecentlyOpenedFonts->setEnabled(false);
 }
 
 void wFonts::saveRecentFiles(QString absoluteNewFilePath)
@@ -284,10 +277,8 @@ void wFonts::saveRecentFiles(QString absoluteNewFilePath)
     int i = 0;
     foreach (QString current, recentFiles)
     {
-        if (!QFile(current).exists())
-            recentFiles.removeAt(i);
-        else
-            i++;
+        if (!QFile(current).exists()) recentFiles.removeAt(i);
+        else i++;
     }
 
     if (recentFiles.contains(absoluteNewFilePath))
@@ -307,18 +298,15 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
 {
     if (!filen.isEmpty() && !QFile(filen).exists())
     {
-        if (method != OTFileMethods::silentOpen)
-            msg.fileOpenErrorCloseOMSI(this, filen);
+        if (method != OTFileMethods::silentOpen) msg.fileOpenErrorCloseOMSI(this, filen);
         return;
     }
 
     if (isWindowModified() == true)
     {
         int msgResult = msg.unsavedChanges(this);
-        if (msgResult == -1)
-            return;
-        else if (msgResult == 1)
-            save(OTFileMethods::save, _font->path());
+        if (msgResult == -1) return;
+        else if (msgResult == 1) save(OTFileMethods::save, _font->path());
     }
 
     _font->clear();
@@ -341,10 +329,6 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
 
     if (method != OTFileMethods::silentOpen)
     {
-        // Make an direct (= more saver) autosave by coping the file // TODO: remove?
-        // qDebug() << "Create font file backup...";
-        // QFile::copy(_font->path(), "backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + " " + _font->fonts[currentFontIndex].name() + "_afterOpen.oft");
-
         // Cut out only the file name and put it into the window title
         QFileInfo fileInfo(QFile(_font->path()).fileName());
         QString filenameWithoutPath(fileInfo.fileName());

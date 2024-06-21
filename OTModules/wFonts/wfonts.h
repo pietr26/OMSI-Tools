@@ -46,6 +46,8 @@ private slots:
 
     void recieveFontIndex(int index);
 
+    void on_actionSendFeedback_triggered();
+
 signals:
     void backToHome();
 
@@ -72,7 +74,7 @@ private:
     int maxRecentFileCount = 10;
 
     void createDockWidgets();
-    QString save(OTFileMethods::fileMethods method, QString filen = "");
+    void save(OTFileMethods::fileMethods method, QString filen = "");
     void setTitle(QString filen = "");
     void saveRecentFiles(QString absoluteNewFilePath);
     void loadRecentFiles();
