@@ -12,7 +12,8 @@ wdgPreview::wdgPreview(QWidget *parent, OCFont *font)
 
     // First setup - if not, the application will crash in wFonts::resizeEvent()
     texPreviewScene = new QGraphicsScene(this);
-    ui->grvTexPreview->setScene(texPreviewScene);
+    layout()->addWidget(grv);
+    grv->setScene(texPreviewScene);
 }
 
 wdgPreview::~wdgPreview()
@@ -28,7 +29,7 @@ void wdgPreview::resizeEvent(QResizeEvent *event)
 
 void wdgPreview::on_cobxPreviewOptions_currentIndexChanged(int index)
 {
-    if (/*setupFinished*/ true) /*TODO*/set.write(objectName(), "texPreview", index);
+    if (/*setupFinished*/ true) /*TODO*/set.write(objectName(), "texPreview", index); // BUG
     reloadUi();
 }
 
@@ -48,7 +49,7 @@ void wdgPreview::reloadUi()
 
         // QGraphicsScene::clear() is not enough - it doesn't reset the draw aera size
         texPreviewScene = new QGraphicsScene(this);
-        ui->grvTexPreview->setScene(texPreviewScene);
+        grv->setScene(texPreviewScene);
 
         if (QFile(tex).exists())
         {
@@ -59,11 +60,11 @@ void wdgPreview::reloadUi()
     else
     {
         texPreviewScene = new QGraphicsScene(this);
-        ui->grvTexPreview->setScene(texPreviewScene);
+        grv->setScene(texPreviewScene);
     }
 }
 
 void wdgPreview::resizeTexPreview()
 {
-    ui->grvTexPreview->fitInView(texPreviewScene->sceneRect(), Qt::KeepAspectRatio);
+    grv->fitInView(texPreviewScene->sceneRect(), Qt::KeepAspectRatio);
 }

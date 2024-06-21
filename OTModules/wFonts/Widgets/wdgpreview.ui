@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>53</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -69,25 +69,6 @@
       </widget>
      </item>
     </layout>
-   </item>
-   <item>
-    <widget class="QGraphicsView" name="grvTexPreview">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Sunken</enum>
-     </property>
-     <property name="renderHints">
-      <set>QPainter::Antialiasing|QPainter::LosslessImageRendering|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>

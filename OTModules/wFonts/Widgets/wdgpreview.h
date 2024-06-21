@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "OTBackend/OCC.h"
 #include <QGraphicsScene>
+#include "OTWidgets/graphicsview.h"
 
 namespace Ui {
 class wdgPreview;
@@ -37,6 +38,7 @@ private:
     OCFont *_font;
 
     QGraphicsScene *texPreviewScene = new QGraphicsScene();
+    GraphicsView *grv = new GraphicsView();
 };
 
 #endif // WDGPREVIEW_H

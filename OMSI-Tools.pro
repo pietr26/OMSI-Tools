@@ -64,6 +64,7 @@ SOURCES += \
     OTModules/wmapselection.cpp \
     OTModules/wmessageviewer.cpp \
     OTWidgets/fadeinouttext.cpp \
+    OTWidgets/graphicsview.cpp \
     OTWidgets/input2dcoordinates.cpp \
     OTWidgets/input3dcoordinates.cpp \
     OTWidgets/inputaddeditremove.cpp \
@@ -143,6 +144,7 @@ HEADERS += \
     OTModules/OTInternals/wdevtools.h \
     OTModules/wVerifyMap/wverifymap.h \
     OTWidgets/fadeinouttext.h \
+    OTWidgets/graphicsview.h \
     OTWidgets/input2dcoordinates.h \
     OTWidgets/input3dcoordinates.h \
     OTWidgets/inputaddeditremove.h \
