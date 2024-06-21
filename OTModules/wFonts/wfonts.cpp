@@ -375,3 +375,10 @@ void wFonts::setVisiblilty()
     ui->actionReload->setEnabled(_font->path().isEmpty() || !QFile(_font->path()).exists());
     ui->actionShowInExplorer->setEnabled(_font->path().isEmpty() || !QFile(_font->path()).exists());
 }
+
+void wFonts::on_actionSendFeedback_triggered()
+{
+    wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::fonts);
+    WFEEDBACK->setWindowModality(Qt::ApplicationModal);
+    WFEEDBACK->show();
+}
