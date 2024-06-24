@@ -26,7 +26,7 @@ public:
     enum methods
     {
         open = 1,
-        reOpen = 2,
+        reopen = 2,
         silentOpen = 3,
         save = 4,
         saveAs = 5,
@@ -581,7 +581,7 @@ public:
 class OTFileOperations
 {
 public:
-    QString writeFileHeader()
+    Q_DECL_DEPRECATED QString writeFileHeader()
     {
         return "File created with " + OTInformation::name + " " + OTInformation::versions::currentVersion.first + " on " + misc.getDate() + ", " + misc.getTime() + "\n\n";
     }

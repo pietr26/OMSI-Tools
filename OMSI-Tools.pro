@@ -41,6 +41,9 @@ SOURCES += \
     OTModules/wFbh/waddword.cpp \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wdbknownwords.cpp \
+    OTModules/wFonts/Widgets/wdgeditor.cpp \
+    OTModules/wFonts/Widgets/wdgpreview.cpp \
+    OTModules/wFonts/wfonts.cpp \
     OTModules/wLFClient/Widgets/wdgactions.cpp \
     OTModules/wLFClient/Widgets/wdginformation.cpp \
     OTModules/wLFClient/Widgets/wdgmanagetrips.cpp \
@@ -61,6 +64,7 @@ SOURCES += \
     OTModules/wmapselection.cpp \
     OTModules/wmessageviewer.cpp \
     OTWidgets/fadeinouttext.cpp \
+    OTWidgets/graphicsview.cpp \
     OTWidgets/input2dcoordinates.cpp \
     OTWidgets/input3dcoordinates.cpp \
     OTWidgets/inputaddeditremove.cpp \
@@ -69,7 +73,6 @@ SOURCES += \
     OTWidgets/verifymaptools.cpp \
     main.cpp \
     OTModules/OTInternals/wdevtools.cpp \
-    OTModules/wfonts.cpp \
     OTModules/wVerifyMap/wverifymap.cpp \
     OTModules/OTGeneric/wabout.cpp \
     OTModules/OTGeneric/wreleasenotes.cpp \
@@ -116,6 +119,9 @@ HEADERS += \
     OTModules/wFbh/waddword.h \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wdbknownwords.h \
+    OTModules/wFonts/Widgets/wdgeditor.h \
+    OTModules/wFonts/Widgets/wdgpreview.h \
+    OTModules/wFonts/wfonts.h \
     OTModules/wLFClient/Widgets/wdgactions.h \
     OTModules/wLFClient/Widgets/wdginformation.h \
     OTModules/wLFClient/Widgets/wdgmanagetrips.h \
@@ -136,9 +142,9 @@ HEADERS += \
     OTModules/wmapselection.h \
     OTModules/wmessageviewer.h \
     OTModules/OTInternals/wdevtools.h \
-    OTModules/wfonts.h \
     OTModules/wVerifyMap/wverifymap.h \
     OTWidgets/fadeinouttext.h \
+    OTWidgets/graphicsview.h \
     OTWidgets/input2dcoordinates.h \
     OTWidgets/input3dcoordinates.h \
     OTWidgets/inputaddeditremove.h \
@@ -165,6 +171,9 @@ FORMS += \
     OTModules/wFbh/waddword.ui \
     OTModules/wFbh/wdbcopyrights.ui \
     OTModules/wFbh/wdbknownwords.ui \
+    OTModules/wFonts/Widgets/wdgeditor.ui \
+    OTModules/wFonts/Widgets/wdgpreview.ui \
+    OTModules/wFonts/wfonts.ui \
     OTModules/wLFClient/Widgets/wdgactions.ui \
     OTModules/wLFClient/Widgets/wdginformation.ui \
     OTModules/wLFClient/Widgets/wdgmanagetrips.ui \
@@ -185,7 +194,6 @@ FORMS += \
     OTModules/wmapselection.ui \
     OTModules/wmessageviewer.ui \
     OTModules/OTInternals/wdevtools.ui \
-    OTModules/wfonts.ui \
     OTModules/wVerifyMap/wverifymap.ui \
     OTWidgets/fadeinouttext.ui \
     OTWidgets/input2dcoordinates.ui \

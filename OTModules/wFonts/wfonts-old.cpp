@@ -1,5 +1,5 @@
-#include "wfonts.h"
-#include "ui_wfonts.h"
+#include "wfonts-old.h"
+#include "ui_wfonts-old.h"
 
 
 wFonts::wFonts(QWidget *parent) :
@@ -33,36 +33,9 @@ wFonts::wFonts(QWidget *parent) :
 
     fop.createBackupFolder();
 
-    // Set only-Numbers
-    ui->sbxHighestPixelInFontRow->clear();
-    ui->sbxLeftPixel->clear();
-    ui->sbxRightPixel->clear();
-    ui->sbxMaxHeigthOfChars->clear();
-    ui->sbxDistanceBetweenChars->clear();
-
-    // and for Debug-Action
-    ui->actionGoToNextError->setEnabled(false);
-
-    ui->btnNextResult->setEnabled(false);
-    ui->btnFind->setEnabled(false);
-
     enableFontArea(false);
-
-    loadTexPreview();
-
-    strListChars = new QStringListModel();
-
-    ui->twgFont->setCurrentIndex(0);
-    ui->gbxSearchChar->setVisible(false);
-
-    setUnsaved(false);
-    ui->lvwChars->setModel(strListChars);
-    connect(ui->lvwChars->selectionModel(), &QItemSelectionModel::currentRowChanged, this, &wFonts::charSelectionChanged);
+    
     checkPropValidity();
-
-    // First setup - if not, the application will crash in wFonts::resizeEvent()
-    texPreviewScene = new QGraphicsScene(this);
-    ui->grvTexPreview->setScene(texPreviewScene);
 
     setupFinished = true;
 
@@ -196,16 +169,16 @@ void wFonts::loadRecentFiles()
         action->setVisible(true);
         switch (i)
         {
-            case 1: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_1)); break;
-            case 2: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_2)); break;
-            case 3: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_3)); break;
-            case 4: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_4)); break;
-            case 5: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_5)); break;
-            case 6: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_6)); break;
-            case 7: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_7)); break;
-            case 8: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_8)); break;
-            case 9: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_9)); break;
-            case 10: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_0)); break;
+        case 1: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_1)); break;
+        case 2: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_2)); break;
+        case 3: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_3)); break;
+        case 4: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_4)); break;
+        case 5: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_5)); break;
+        case 6: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_6)); break;
+        case 7: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_7)); break;
+        case 8: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_8)); break;
+        case 9: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_9)); break;
+        case 10: action->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_0)); break;
         }
 
         connect(action, &QAction::triggered, this, [=]() { this->open(OTFileMethods::open, action->data().toString()); });
@@ -255,40 +228,7 @@ void wFonts::setUnsaved(bool state)
 
 void wFonts::checkPropValidity()
 {
-    ui->lblFontName->setStyleSheet("");
-    ui->lblColorTexture->setStyleSheet("");
-    ui->lblAlphaTexture->setStyleSheet("");
-    ui->lblMaxHeigthOfChars->setStyleSheet("");
-    ui->lblDistanceBetweenChars->setStyleSheet("");
-
-    if (font.name == "")
-        ui->lblFontName->setStyleSheet("color:red");
-
-    if ((font.colorTexture != "") && !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + font.colorTexture).exists())
-        ui->lblColorTexture->setStyleSheet("color:red");
-
-    if (font.alphaTexture == "" || !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture).exists())
-        ui->lblAlphaTexture->setStyleSheet("color:red");
-
-    if (ui->sbxMaxHeigthOfChars->text() == "" || (font.maxHeightOfChars == 0))
-        ui->lblMaxHeigthOfChars->setStyleSheet("color:red");
-
-    if (ui->sbxDistanceBetweenChars->text() == "")
-        ui->lblDistanceBetweenChars->setStyleSheet("color:red");
-
-    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture).exists())
-    {
-        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + font.alphaTexture);
-
-        if (alphaTexture.width() != 0 || alphaTexture.height() != 0)
-        {
-            if (font.maxHeightOfChars > QString::number(alphaTexture.height()).toInt())
-                ui->lblMaxHeigthOfChars->setStyleSheet("color:red");
-
-            if (font.distanceBetweenChars > QString::number(alphaTexture.width()).toInt())
-                ui->lblDistanceBetweenChars->setStyleSheet("color:red");
-        }
-    }
+    
 }
 
 void wFonts::checkCharValidity()
@@ -390,26 +330,7 @@ void wFonts::selectAllAndClear(bool onlyChar)
 
 void wFonts::move(int selection, QString action)
 {
-    if ((selection == 0 && action == "UP") || (selection > font.charList.size() - 1 && action == "DOWN"))
-        return;
-
-    int moving;
-
-    if (action == "UP")
-        moving = selection - 1;
-    else if (action == "DOWN")
-        moving = selection + 1;
-    else
-    {
-        qWarning().noquote() << "Invalid move parameter: " + action;
-        return;
-    }
-    setUnsaved();
-
-    // Move the selected item down / up
-    font.charList.move(selection, moving);
-    reloadCharList();
-    ui->lvwChars->setCurrentIndex(strListChars->index(moving));
+    
 }
 
 void wFonts::enableFontArea(bool status)
@@ -740,10 +661,10 @@ void wFonts::on_actionGoToNextError_triggered()
         }
 
         if (font.charList.at(i).character.isEmpty() || chars.contains(font.charList.at(i).character) ||
-           font.charList.at(i).leftPixel == -1 ||
-           font.charList.at(i).rightPixel == -1 ||
-           font.charList.at(i).highestPixelInFontRow == -1 ||
-           font.charList.at(i).leftPixel >= font.charList.at(i).rightPixel || rightPixelTooBig || leftPixelTooBig || highestPixelTooBig)
+            font.charList.at(i).leftPixel == -1 ||
+            font.charList.at(i).rightPixel == -1 ||
+            font.charList.at(i).highestPixelInFontRow == -1 ||
+            font.charList.at(i).leftPixel >= font.charList.at(i).rightPixel || rightPixelTooBig || leftPixelTooBig || highestPixelTooBig)
         {
             ui->lvwChars->setCurrentIndex(strListChars->index(i));
             reloadCharUI();
@@ -770,7 +691,7 @@ void wFonts::on_actionGoToNextError_triggered()
             i++;
     }
 
-    end:
+end:
     ui->statusbar->showMessage(tr("There aren't any errors. The font is valid."), 4000);
     qInfo() << "Could not found any errors.";
 }
@@ -835,20 +756,20 @@ void wFonts::on_actionClose_triggered()
 
 void wFonts::on_btnColorTexture_clicked()
 {
-     QString filename = QFileDialog::getOpenFileName(this, tr("Select color texture..."), set.read("main", "mainDir").toString() + "/Fonts", tr("Bitmap picture") + " (*.bmp)");
-     QFile file(filename);
-     if (filename == "")
-         return;
+    QString filename = QFileDialog::getOpenFileName(this, tr("Select color texture..."), set.read("main", "mainDir").toString() + "/Fonts", tr("Bitmap picture") + " (*.bmp)");
+    QFile file(filename);
+    if (filename == "")
+        return;
 
-     font.colorTexture = filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").size() + 1);
+    font.colorTexture = filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").size() + 1);
 
-     if (ui->ledColorTexture->text() != font.colorTexture)
-     {
-         qDebug() << QString("New color texture: '%1'").arg(filename);
-         setUnsaved();
-     }
+    if (ui->ledColorTexture->text() != font.colorTexture)
+    {
+        qDebug() << QString("New color texture: '%1'").arg(filename);
+        setUnsaved();
+    }
 
-     ui->ledColorTexture->setText(font.colorTexture);
+    ui->ledColorTexture->setText(font.colorTexture);
 }
 
 void wFonts::on_btnAlphaTexture_clicked()
@@ -1152,8 +1073,8 @@ void wFonts::on_sbxLeftPixel_textChanged(const QString &arg1)
         else
             font.charList[ui->lvwChars->currentIndex().row()].leftPixel = arg1.toInt();
 
-//        if (!charUIUpdate)
-//            reloadCharList();
+        //        if (!charUIUpdate)
+        //            reloadCharList();
     }
 
     checkCharValidity();

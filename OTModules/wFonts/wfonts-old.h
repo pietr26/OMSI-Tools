@@ -6,7 +6,7 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wfeedback.h"
-#include "OTGeneric/wselectencoding.h"
+#include "OTModules/OTGeneric/wselectencoding.h"
 #include <QItemSelectionModel>
 #include <QCloseEvent>
 #include <QGraphicsScene>
@@ -179,8 +179,6 @@ private:
     void checkCharValidity();
 
     QString currentSearch;
-
-    bool charListUpdate = false;
 
     bool charUIUpdate = false;
 
