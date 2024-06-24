@@ -315,8 +315,6 @@ void wPreferences::on_btnMoreLanguages_clicked()
         QDesktopServices::openUrl(OTLinks::showroom);
 }
 
-void wPreferences::on_cobxAutoUpdateCheck_currentIndexChanged(int index) { Q_UNUSED(index); modified(); }
-
 void wPreferences::on_cobxLogfileMode_currentIndexChanged(int index) { Q_UNUSED(index); if (setupFinished) { modified(); needRestart = true; } }
 
 void wPreferences::on_sbxAutosaveDuration_valueChanged(int arg1) { Q_UNUSED(arg1); modified(); }

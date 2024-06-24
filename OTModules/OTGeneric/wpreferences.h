@@ -50,8 +50,6 @@ private slots:
 
     void on_btnMoreLanguages_clicked();
 
-    void on_cobxAutoUpdateCheck_currentIndexChanged(int index);
-
     void on_cobxLogfileMode_currentIndexChanged(int index);
 
     void on_cbxBackupEnabled_clicked(bool checked);
