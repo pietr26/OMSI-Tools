@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTExternal.h"
-#include "OTBackend/OCC.h"
+#include "OTBackend/OCC/OCMap.h"
 
 namespace Ui {
 class wPlaceObjects;

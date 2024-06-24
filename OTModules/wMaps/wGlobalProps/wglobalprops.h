@@ -4,8 +4,7 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTOmsiFileHandler.h"
-#include "OTBackend/OTGlobal.h"
-#include "OTBackend/OCC.h"
+#include "OTBackend/OCC/OCMap.h"
 #include "OTWidgets/input3dcoordinates.h"
 #include "OTModules/wMaps/wGlobalProps/weditgroundtexture.h"
 #include "OTModules/wMaps/wGlobalProps/weditseason.h"

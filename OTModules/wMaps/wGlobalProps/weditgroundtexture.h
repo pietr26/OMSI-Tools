@@ -2,8 +2,7 @@
 #define WEDITGROUNDTEXTURE_H
 
 #include <QMainWindow>
-#include <OTBackend/OCC.h>
-#include <OTBackend/OTGlobal.h>
+#include "OTBackend/OCC/OCMap.h"
 
 namespace Ui {
 class wEditGroundTexture;

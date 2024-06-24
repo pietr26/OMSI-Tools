@@ -98,7 +98,33 @@ HEADERS += \
     OTBackend/DiscordGameSDK/user_manager.h \
     OTBackend/DiscordGameSDK/voice_manager.h \
     OTBackend/LFClientAPIInterface/lfclientapiinterface.h \
-    OTBackend/OCC.h \
+    OTBackend/OCC/OCBase.h \
+    OTBackend/OCC/OCDriver.h \
+    OTBackend/OCC/OCFont.h \
+    OTBackend/OCC/OCGameControler.h \
+    OTBackend/OCC/OCHuman.h \
+    OTBackend/OCC/OCKeyboard.h \
+    OTBackend/OCC/OCLanguage.h \
+    OTBackend/OCC/OCMap.h \
+    OTBackend/OCC/OCModel.h \
+    OTBackend/OCC/OCMoney.h \
+    OTBackend/OCC/OCOptions.h \
+    OTBackend/OCC/OCPassengercabin.h \
+    OTBackend/OCC/OCPlugin.h \
+    OTBackend/OCC/OCRail.h \
+    OTBackend/OCC/OCSceneryobject.h \
+    OTBackend/OCC/OCScript.h \
+    OTBackend/OCC/OCSituation.h \
+    OTBackend/OCC/OCSound.h \
+    OTBackend/OCC/OCSpline.h \
+    OTBackend/OCC/OCTextureChangeMaster.h \
+    OTBackend/OCC/OCTextureProfile.h \
+    OTBackend/OCC/OCTicketPack.h \
+    OTBackend/OCC/OCTrain.h \
+    OTBackend/OCC/OCTranslation.h \
+    OTBackend/OCC/OCVehicle.h \
+    OTBackend/OCC/OCViewable.h \
+    OTBackend/OCC/OCWeather.h \
     OTBackend/OTExternal.h \
     OTBackend/OTGlobal.h \
     OTBackend/OTLogger.h \

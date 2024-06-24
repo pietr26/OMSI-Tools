@@ -2,14 +2,12 @@
 #define WMAPS_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
-#include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/wmapselection.h"
 #include "OTModules/wMaps/wGlobalProps/wglobalprops.h"
 #include "OTModules/wMaps/wPlaceObjects/wplaceobjects.h"
-#include "OTBackend/OCC.h"
+#include "OTBackend/OCC/OCMap.h"
 
 namespace Ui {
 class wMaps;

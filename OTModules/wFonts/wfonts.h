@@ -3,8 +3,7 @@
 
 #include <QMainWindow>
 #include "OTModules/OTGeneric/wpreferences.h"
-#include "OTBackend/OTGlobal.h"
-#include "OTBackend/OCC.h"
+#include "OTBackend/OCC/OCFont.h"
 #include <QDockWidget>
 #include "Widgets/wdgeditor.h"
 #include "Widgets/wdgpreview.h"

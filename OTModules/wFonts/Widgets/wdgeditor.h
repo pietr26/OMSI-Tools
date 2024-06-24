@@ -2,7 +2,7 @@
 #define WDGEDITOR_H
 
 #include <QWidget>
-#include "OTBackend/OCC.h"
+#include "OTBackend/OCC/OCFont.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include <QScrollBar>
 

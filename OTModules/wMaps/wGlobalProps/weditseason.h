@@ -2,7 +2,7 @@
 #define WEDITSEASON_H
 
 #include <QMainWindow>
-#include "OTBackend/OCC.h"
+#include "OTBackend/OCC/OCMap.h"
 #include <QStandardItemModel>
 
 namespace Ui {

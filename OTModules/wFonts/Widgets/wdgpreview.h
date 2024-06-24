@@ -2,7 +2,7 @@
 #define WDGPREVIEW_H
 
 #include <QWidget>
-#include "OTBackend/OCC.h"
+#include "OTBackend/OCC/OCFont.h"
 #include <QGraphicsScene>
 #include "OTWidgets/graphicsview.h"
 
