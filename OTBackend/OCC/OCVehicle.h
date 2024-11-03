@@ -2,6 +2,7 @@
 #define OCVEHICLE_H
 
 #include "OCBase.h"
+#include "OCViewable.h"
 
 class OCVehicle // bus, ovh
 {
@@ -17,7 +18,7 @@ public:
         };
 
         Type type;
-        OC3DCoordinates<float> position;
+        OCType::Coord3D<float> position;
         float distanceFromOrigin;
         int perspective;
         float xRotation;
@@ -70,7 +71,7 @@ public:
             float type; // 0=Truck (three degrees of freedom); 1=Bus (two degrees of freedom)
         };
 
-        std::optional<OC3DCoordinates<float>> couplingFront; // coupling_front
+        std::optional<OCType::Coord3D<float>> couplingFront; // coupling_front
         QString couplingFrontFile;  // couple_front
         bool couplingFrontIsReversed; // ...
 
@@ -78,7 +79,7 @@ public:
 
         bool couplingFrontIsOpenForSound; // couple_front_open_for_sound
 
-        std::optional<OC3DCoordinates<float>> couplingBack; // coupling_back
+        std::optional<OCType::Coord3D<float>> couplingBack; // coupling_back
         QString couplingBackFile;   // couple_back
         bool couplingBackIsReversed; // ...
     };
@@ -94,8 +95,8 @@ public:
     {
     public:
         float distanceBetweenBoogieAndCog; // z axis
-        OC3DCoordinates<int> frequencies; // values: 2nd, 4th, 6th
-        OC3DCoordinates<int> damping; // values: 3rd, 5th, 7th
+        OCType::Coord3D<int> frequencies; // values: 2nd, 4th, 6th
+        OCType::Coord3D<int> damping; // values: 3rd, 5th, 7th
     };
 
     class Registration
@@ -172,11 +173,11 @@ public:
     QList<View> passengerViews;
 
     int standardDriverView = -1;
-    std::optional<OC3DCoordinates<float>> outsideCameraPosition;
+    std::optional<OCType::Coord3D<float>> outsideCameraPosition;
 
     QList<View> reflexions;
 
-    QList<OCViewable::Attachment> ticketAttachments;
+    QList<OCViewable::AttachmentMethod> ticketAttachments;
 
     std::optional<float> gravityZPosition;
     std::optional<int> rollingResistance;
@@ -192,11 +193,11 @@ public:
 
     std::optional<Distance> Distance;
 
-    std::optional<OC2DCoordinates<float>> rowdyFactor;
+    std::optional<OCType::Coord2D<float>> rowdyFactor;
 
     std::optional<VehicleOscillating> railBodyOscillating;
 
-    OCViewable object;
+    OCViewable::Viewable object;
     bool scriptsharing;
 
     int type = -1; // TODO: ? - maybe see aiVehicleType (this class)

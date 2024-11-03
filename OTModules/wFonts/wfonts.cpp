@@ -4,7 +4,7 @@
 wFonts::wFonts(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::wFonts),
-    _font(new OCFont())
+    _font(new FontCollection())
 {
     qInfo().noquote() << "Starting " + objectName() + "...";
 
@@ -171,7 +171,7 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
         setTitle(filenameWithoutPath);
     }
 
-    OCFont *tempFont = _font;
+    FontCollection *tempFont = _font;
     if (method == OTFileMethods::backupSave)
     {
         if (_font->path().isEmpty())
@@ -182,7 +182,7 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
 
     qDebug() << "Direct path:" << tempFont->path();
 
-    if (tempFont->write() != OCFont::valid)
+    if (tempFont->write() != FontCollection::valid)
     {
         if (method != OTFileMethods::backupSave)
         {
@@ -330,7 +330,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
     }
 
     _font->setEncoding(encoding);
-    if (_font->read() != OCFont::valid)
+    if (_font->read() != FontCollection::valid)
     {
         if (method != OTFileMethods::silentOpen) msg.fileOpenErrorCloseOMSI(this, _font->path());
         return;

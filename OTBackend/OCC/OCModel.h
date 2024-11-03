@@ -3,7 +3,7 @@
 
 #include "OCBase.h"
 
-class OCModel : public OCFile // cfg
+class OCModel : public OCBase::File // cfg
 {
 public:
     // If e.g. particle_emitter is used before all [mesh] entries, create an emtpy material - TODO: "OPTIONAL IN MESH" section in txt :-)
@@ -96,8 +96,8 @@ public:
                 float factor;
             };
 
-            std::optional<OC3DCoordinates<float>> originTransform;
-            std::optional<OC3DCoordinates<int>> originRotation; // TODO: Does this makes sense? :')
+            std::optional<OCType::Coord3D<float>> originTransform;
+            std::optional<OCType::Coord3D<int>> originRotation; // TODO: Does this makes sense? :')
 
             std::optional<Method> animationTransform;
             std::optional<Method> animationRotation;
@@ -132,14 +132,14 @@ public:
             QString variable;
             float distance; // from origin to 63% of power
             QColor color;
-            OC3DCoordinates<float> position;
+            OCType::Coord3D<float> position;
         };
 
         class Smoke  // TODO: Explore different values
         {
         public:
-            OC3DCoordinates<QVariant> position;
-            OC3DCoordinates<QVariant> outflowPosition;
+            OCType::Coord3D<QVariant> position;
+            OCType::Coord3D<QVariant> outflowPosition;
 
             QVariant speed;
             QVariant speedVaration;
@@ -192,8 +192,8 @@ public:
                 int attachMulti;
             };
 
-            OC3DCoordinates<QVariant> position;
-            OC3DCoordinates<QVariant> outflowPosition;
+            OCType::Coord3D<QVariant> position;
+            OCType::Coord3D<QVariant> outflowPosition;
 
             std::optional<MethodMinMax> velocity;
             std::optional<MethodMinMax> constantVelocity;
@@ -222,7 +222,7 @@ public:
             QString variable;
             float size;
             QColor color;
-            OC3DCoordinates<float> position;
+            OCType::Coord3D<float> position;
             /* [light]
              * <Variable>
              * <Size>
@@ -245,9 +245,9 @@ public:
                 allDirections = 2
             };
 
-            OC3DCoordinates<float> position; // 0=0° 1=90° 2=180°
-            OC3DCoordinates<float> direction; // 0=0° 1=90° 2=180°
-            OC3DCoordinates<float> lightCone; // 0=0° 1=90° 2=180°
+            OCType::Coord3D<float> position; // 0=0° 1=90° 2=180°
+            OCType::Coord3D<float> direction; // 0=0° 1=90° 2=180°
+            OCType::Coord3D<float> lightCone; // 0=0° 1=90° 2=180°
             bool lightInAllDirections;
             Rotation rotation;
         };
@@ -355,8 +355,8 @@ public:
     class Spotlight
     {
     public:
-        OC3DCoordinates<float> position;
-        OC3DCoordinates<float> direction;
+        OCType::Coord3D<float> position;
+        OCType::Coord3D<float> direction;
         QColor color;
         float distance;
         int innerlightConeAngle;
@@ -366,8 +366,8 @@ public:
     QList<Mesh> meshes;
 
     QList<TextTexture> textTextures;
-    QList<OC2DCoordinates<int>> scriptTextures;
-    std::optional<OC3DBox<float>> viewbox; // [VFDmaxmin] - ATTENTION: Some calculations are necessary to fit values in the class! - values: 1=xMinPos 2=yMinPos 3=zMinPos 4=xMaxPos 5=yMaxPos 6=zMaxPos
+    QList<OCType::Coord2D<int>> scriptTextures;
+    std::optional<OCType::Box<float>> viewbox; // [VFDmaxmin] - ATTENTION: Some calculations are necessary to fit values in the class! - values: 1=xMinPos 2=yMinPos 3=zMinPos 4=xMaxPos 5=yMaxPos 6=zMaxPos
     QList<ComplexTextureChange> complexTextureChanges;
 
     QList<Spotlight> spotlights;

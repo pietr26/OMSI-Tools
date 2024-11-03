@@ -3,7 +3,7 @@
 
 #include "OCBase.h"
 
-class OCTranslation : public OCFile // dsc
+class OCTranslation : public OCBase::File // dsc
 {
 public:
     // TODO: Embed in other classes?

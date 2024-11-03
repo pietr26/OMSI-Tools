@@ -25,6 +25,33 @@ SOURCES += \
     OTBackend/DiscordGameSDK/user_manager.cpp \
     OTBackend/DiscordGameSDK/voice_manager.cpp \
     OTBackend/LFClientAPIInterface/lfclientapiinterface.cpp \
+    OTBackend/OCC/OCBase.cpp \
+    OTBackend/OCC/OCDriver.cpp \
+    OTBackend/OCC/OCFont.cpp \
+    OTBackend/OCC/OCGameControler.cpp \
+    OTBackend/OCC/OCHuman.cpp \
+    OTBackend/OCC/OCKeyboard.cpp \
+    OTBackend/OCC/OCLanguage.cpp \
+    OTBackend/OCC/OCMap.cpp \
+    OTBackend/OCC/OCModel.cpp \
+    OTBackend/OCC/OCMoney.cpp \
+    OTBackend/OCC/OCOptions.cpp \
+    OTBackend/OCC/OCPassengercabin.cpp \
+    OTBackend/OCC/OCPlugin.cpp \
+    OTBackend/OCC/OCRail.cpp \
+    OTBackend/OCC/OCSceneryobject.cpp \
+    OTBackend/OCC/OCScript.cpp \
+    OTBackend/OCC/OCSituation.cpp \
+    OTBackend/OCC/OCSound.cpp \
+    OTBackend/OCC/OCSpline.cpp \
+    OTBackend/OCC/OCTextureChangeMaster.cpp \
+    OTBackend/OCC/OCTextureProfile.cpp \
+    OTBackend/OCC/OCTicketPack.cpp \
+    OTBackend/OCC/OCTrain.cpp \
+    OTBackend/OCC/OCTranslation.cpp \
+    OTBackend/OCC/OCVehicle.cpp \
+    OTBackend/OCC/OCViewable.cpp \
+    OTBackend/OCC/OCWeather.cpp \
     OTBackend/OTLogger.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
     OTModules/OTGeneric/wfirstsetup.cpp \

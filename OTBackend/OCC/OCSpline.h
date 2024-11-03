@@ -2,6 +2,7 @@
 #define OCSPLINE_H
 
 #include "OCBase.h"
+#include "OCRail.h"
 
 class OCSpline
 {
@@ -60,7 +61,7 @@ public:
     {
     public:
         // TODO: maximum of 2 profilepoints?
-        QList<OC3DCoordinates<float>> points;
+        QList<OCType::Coord3D<float>> points;
     };
 
     class Path

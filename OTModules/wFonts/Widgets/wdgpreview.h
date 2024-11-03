@@ -15,7 +15,7 @@ class wdgPreview : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgPreview(QWidget *parent, OCFont *font);
+    explicit wdgPreview(QWidget *parent, FontCollection *font);
     ~wdgPreview();
 
 private slots:
@@ -35,7 +35,7 @@ private:
 
     OTSettings set;
 
-    OCFont *_font;
+    FontCollection *_font;
 
     QGraphicsScene *texPreviewScene = new QGraphicsScene();
     GraphicsView *grv = new GraphicsView();

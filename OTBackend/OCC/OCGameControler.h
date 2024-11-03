@@ -3,10 +3,15 @@
 
 #include "OCBase.h"
 
-class OCGameControler : public OCFile // cfg
+namespace OCGameControler
+{
+
+class GameControler : public OCBase::File // cfg
 {
 public:
         // TODO
 };
+
+}
 
 #endif // OCGAMECONTROLER_H

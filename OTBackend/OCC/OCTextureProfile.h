@@ -3,7 +3,7 @@
 
 #include "OCBase.h"
 
-class OCTextureProfile : public OCFile // [textureName].[textureSuffix].cfg
+class OCTextureProfile : public OCBase::File // [textureName].[textureSuffix].cfg
 {
 public:
     bool hasMoisture;

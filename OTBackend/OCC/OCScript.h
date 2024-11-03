@@ -17,7 +17,7 @@ public:
     */
 };
 
-class OCScript : public OCFile // osc // TODO
+class OCScript : public OCBase::File // osc // TODO
 {
 public:
     class Action

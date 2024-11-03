@@ -64,7 +64,7 @@ private:
 
     wSelectEncoding *WSELECTENCODING;
 
-    OCFont *_font;
+    FontCollection *_font;
 
     int maxRecentFileCount = 10;
 

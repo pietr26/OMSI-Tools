@@ -3,13 +3,13 @@
 
 #include "OCBase.h"
 
-class OCSound : public OCFile // in sound.cfg
+class OCSound : public OCBase::File // in sound.cfg
 {
 public:
     class ThreeDimensionPosition
     {
     public:
-        OC3DCoordinates<float> position;
+        OCType::Coord3D<float> position;
         float maxIntensityRadius;
     };
 
@@ -17,7 +17,7 @@ public:
     {
     public:
         QString variable;
-        QList<OC2DCoordinates<float>> points;
+        QList<OCType::Coord2D<float>> points;
     };
 
     template<class T>
@@ -67,7 +67,7 @@ public:
 
     QVariant dir; // TODO: ? - direction?
 
-    OCUnknown nextRandom; // TODO: ?
+    OCBase::Unknown nextRandom; // TODO: ?
 };
 
 #endif // OCSOUND_H

@@ -2,6 +2,8 @@
 #define OCSITUATION_H
 
 #include "OCBase.h"
+#include "OCMap.h"
+#include "OTBackend/OCC/OCScript.h"
 
 class OCSituation { // .osn
 public:
@@ -11,7 +13,7 @@ public:
     {
     public:
         QString vehiclePath;
-        OC3DCoordinates<float> position;
+        OCType::Coord3D<float> position;
         float vehicle5thValue; // TODO: ?
         float vehicle6thValue; // TODO: ?
         float vehicle7thValue; // TODO: ?
@@ -49,7 +51,7 @@ public:
     QString globalPath;
     QDateTime time; // year[int], daysFrom01Jan[int], hoursFromMidnight[int], minutesFromFullHour[int], secondsFromFullMinute[float]
 
-    OC2DCoordinates<int> centerTile;
+    OCType::Coord2D<int> centerTile;
     OCMapPosition mapcam; // tilePos not used here! See 'centerTile' member
     OCMapPosition egoPosition; // tilePos not used here! See 'centerTile' member - std: x=10;y=10
 

@@ -6,9 +6,9 @@
 class OCMapPosition
 {
 public:
-    OC2DCoordinates<int> tilePosition;
+    OCType::Coord2D<int> tile;
 
-    OC3DCoordinates<float> position;
+    OCType::Coord3D<float> position;
 
     float rotAroundZ;
 
@@ -19,7 +19,7 @@ public:
 
 class OCMap { // TODO: override clear function
 public:
-    class Global : public OCFile // global.cfg
+    class Global : public OCBase::File // global.cfg
     {
     public:
         class Texture
@@ -114,7 +114,7 @@ public:
 
                 int awkwardValue1;
 
-                OC3DCoordinates<float> position;
+                OCType::Coord3D<float> position;
 
                 float awkwardValue2;
 
@@ -150,7 +150,7 @@ public:
         class TileInformation
         {
         public:
-            OC2DCoordinates<int> position;
+            OCType::Coord2D<int> position;
 
             QString filename;
         };
@@ -276,13 +276,13 @@ public:
                         int yTilePos = in.readLine().toInt();
                         int xTilePos = in.readLine().toInt();
 
-                        standardView.tilePosition = OC2DCoordinates<int>(xTilePos, yTilePos); // 1, 2
+                        standardView.tile = OCType::Coord2D<int>(xTilePos, yTilePos); // 1, 2
 
                         // Attention: Inverted values
                         float xPos = in.readLine().toFloat(); // 3
                         float zPos = in.readLine().toFloat(); // 4
                         float yPos = in.readLine().toFloat(); // 5
-                        standardView.position = OC3DCoordinates<float>(xPos, yPos, zPos); // 3, 4, 5
+                        standardView.position = OCType::Coord3D<float>(xPos, yPos, zPos); // 3, 4, 5
 
                         standardView.rotAroundZ = in.readLine().toFloat();
                         standardView.rotAroundX = in.readLine().toFloat();
@@ -365,7 +365,7 @@ public:
                             float xPos = in.readLine().toFloat();
                             float zPos = in.readLine().toFloat();
                             float yPos = in.readLine().toFloat();
-                            entrypoint.position = OC3DCoordinates<float>(xPos, yPos, zPos);
+                            entrypoint.position = OCType::Coord3D<float>(xPos, yPos, zPos);
 
                             entrypoint.awkwardValue2 = in.readLine().toFloat();
                             entrypoint.awkwardValue3 = in.readLine().toFloat();
@@ -392,7 +392,7 @@ public:
                         int x = in.readLine().toInt();
                         int y = in.readLine().toInt();
 
-                        tile.position = OC2DCoordinates<int>(x, y);
+                        tile.position = OCType::Coord2D<int>(x, y);
                         tile.filename = in.readLine();
 
                         tiles.append(tile);
@@ -439,8 +439,7 @@ public:
             out.setEncoding(QStringConverter::Latin1);
 
             try {
-                OCBase base;
-                out << base.writeFileHeader() << "\n\n";
+                out << OCBase::writeFileHeader() << "\n\n";
 
                 out << "[name]" << "\n";
                 out << name << "\n\n";
@@ -475,8 +474,8 @@ public:
                 out << bgImage.startHeight << "\n\n";
 
                 out << "[mapcam]" << "\n";
-                out << standardView.tilePosition.y << "\n";
-                out << standardView.tilePosition.x << "\n";
+                out << standardView.tile.y << "\n";
+                out << standardView.tile.x << "\n";
                 out << standardView.position.x << "\n";
                 out << standardView.position.z << "\n";
                 out << standardView.position.y << "\n";
@@ -601,7 +600,7 @@ public:
         }
     };
 
-    class Tile : public OCFile // map
+    class Tile : public OCBase::File // map
     {
     public:
         class Spline
@@ -665,7 +664,7 @@ public:
         QList<Sceneryobject> sceneryobjects;
     };
 
-    class UnschedTrafficDensitiesGroup : public OCFile // unsched_trafficdens.txt
+    class UnschedTrafficDensitiesGroup : public OCBase::File // unsched_trafficdens.txt
     {
     public:
         class day
@@ -689,7 +688,7 @@ public:
         QList<day> days;
     };
 
-    class UnschedVehicleGroup : public OCFile // unsched_vehgroups.txt
+    class UnschedVehicleGroup : public OCBase::File // unsched_vehgroups.txt
     {
     public:
         QString name;
@@ -868,7 +867,7 @@ public:
         };
 
         int timezone;
-        OC2DCoordinates<float> location;
+        OCType::Coord2D<float> location;
 
         QList<DaylightSavingTime> daylistSavingTimes;
     };
@@ -900,7 +899,7 @@ public:
 
     };
 
-    class TTData : public OCFile
+    class TTData : public OCBase::File
     {
     public:
         class Trip
@@ -981,7 +980,7 @@ public:
         QList<Trip> trips;
         QList<Line> lines;
 
-        FileIOResponse read() override
+        Global::FileIOResponse read()
         {
             clear();
 
@@ -995,7 +994,7 @@ public:
                 {
                     // msg.fileOpenErrorCloseOMSI(parent, dir); TODO
                     qDebug().noquote() << "Cannot open file: Full path: '" + QFileInfo(ttp).absoluteFilePath() + "'";
-                    return FileIOResponse::errFileNotOpen;
+                    return Global::FileIOResponse::errFileNotOpen;
                 }
 
                 Trip trip;
@@ -1048,7 +1047,7 @@ public:
                 catch (...)
                 {
                     ttp.close();
-                    return FileIOResponse::errCritical;
+                    return Global::FileIOResponse::errCritical;
                 }
             }
 
@@ -1062,7 +1061,7 @@ public:
                 {
                     // msg.fileOpenErrorCloseOMSI(parent, dir); TODO
                     qDebug().noquote() << "Cannot open file: Full path: '" + QFileInfo(ttl).absoluteFilePath() + "'";
-                    return FileIOResponse::errFileNotOpen;
+                    return Global::FileIOResponse::errFileNotOpen;
                 }
 
                 Line lineTT;
@@ -1124,11 +1123,11 @@ public:
                 catch (...)
                 {
                     ttl.close();
-                    return FileIOResponse::errCritical;
+                    return Global::FileIOResponse::errCritical;
                 }
             }
 
-            return FileIOResponse::valid;
+            return Global::FileIOResponse::valid;
         }
     };
 

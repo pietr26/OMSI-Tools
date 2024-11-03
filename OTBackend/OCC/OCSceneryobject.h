@@ -2,6 +2,8 @@
 #define OCSCENERYOBJECT_H
 
 #include "OCBase.h"
+#include "OCRail.h"
+#include "OCViewable.h"
 
 class OCSceneryobject
 {
@@ -19,7 +21,7 @@ public:
     class Maplight
     {
     public:
-        OC3DCoordinates<float> position;
+        OCType::Coord3D<float> position;
         QColor color;
         float maxBrightnessRadius = -1;
     };
@@ -27,7 +29,7 @@ public:
     class Triggerbox
     {
     public:
-        OC3DBox<float> geometry;
+        OCType::Box<float> geometry;
 
         float reverbTime = -1; // in s; max: 3
         float transition = -1; // in m, means "softness" when a vehicle goes in / out of the triggerbox
@@ -68,7 +70,7 @@ public:
     class SplineHelper
     {
     public:
-        OC3DCoordinates<float> position; // Attention! Inverted: xzy
+        OCType::Coord3D<float> position; // Attention! Inverted: xzy
         float rotation; // can be bigger as 360
         float splineHelper5thValue; // TODO: ?
         float splineHelper6thValue; // TODO: ?
@@ -77,7 +79,7 @@ public:
     class Path
     {
     public:
-        OC3DCoordinates<float> position; // not inverted
+        OCType::Coord3D<float> position; // not inverted
         float rotation;
         float radius;
         float length = 10;
@@ -126,9 +128,9 @@ public:
 
     int complexity = -1;
 
-    std::optional<OC2DCoordinates<float>> crashModePole;
+    std::optional<OCType::Coord2D<float>> crashModePole;
 
-    std::optional<OC3DCoordinates<float>> centerOfGravity;
+    std::optional<OCType::Coord2D<float>> centerOfGravity;
 
     QString crossingHeightDeform;
     QString terrainHole;
@@ -146,7 +148,7 @@ public:
 
     int switchDirectionCount = -1; // e.g.: single / 'simple' switch: 2  -  [switch]
 
-    OCViewable object;
+    OCViewable::Viewable object;
 };
 
 #endif // OCSCENERYOBJECT_H

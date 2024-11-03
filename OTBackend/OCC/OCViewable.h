@@ -3,54 +3,62 @@
 
 #include "OCBase.h"
 
-class OCViewable : public OCFile // Sceneryobjects, Vehicles, Humans
+namespace OCViewable
+{
+
+class AttachmentMethod
 {
 public:
-    class Attachment
+    enum Method
     {
-    public:
-        class Method
-        {
-        public:
-            enum MethodIdent
-            {
-                xRotation = 1,
-                yRotation = 2,
-                zRotation = 3,
-                transform = 4
-            };
-
-            MethodIdent type;
-            float rotation;
-            OC3DCoordinates<float> transformation;
-        };
-        QList<Method> methods;
+        xRotationMethod = 1,
+        yRotationMethod = 2,
+        zRotationMethod = 3,
+        transformMethod = 4
     };
 
-    QString friendlyname;
-    QList<QString> groups;
-    QString description;
+    Method type() const;
+    void setType(Method newType);
+    float rotation() const;
+    void setRotation(float newRotation);
+    OCType::Coord3D<float> transformation() const;
+    void setTransformation(const OCType::Coord3D<float> &newTransformation);
 
-    QList<Attachment> attachments;
+private:
+    Method _type;
+    float _rotation;
+    OCType::Coord3D<float> _transformation;
+};
 
-    std::optional<OC3DBox<float>> boundingBox;
+class Viewable : public OCBase::File // Sceneryobjects, Vehicles, Humans
+{
+private:
+    QString _friendlyname;
+    QList<QString> _groups;
+    QString _description;
 
-    QList<QString> varNameLists;
-    QList<QString> stringVarNameLists;
-    QList<QString> scripts;
-    QList<QString> consfiles;
+    QList<QList<AttachmentMethod>> _attachments;
 
-    QString modelPath;
-    QString passengerCabinPath;
-    QString pathPath;
-    QString soundPath;
-    QString aiSoundPath;
+    std::optional<OCType::Box<float>> _boundingBox;
 
-    std::optional<int> mass;
+    QList<QString> _varNameLists;
+    QList<QString> _stringVarNameLists;
+    QList<QString> _scripts;
+    QList<QString> _consfiles;
 
-    std::optional<OC3DCoordinates<int>> momentOfIntertia;
+    QString _modelPath;
+    QString _passengerCabinPath;
+    QString _pathPath;
+    QString _soundPath;
+    QString _aiSoundPath;
+
+    std::optional<int> _mass;
+
+    std::optional<OCType::Coord3D<int>> _momentOfIntertia;
 
     bool noDistanceCheck;
 };
+
+}
 
 #endif // OCVIEWABLE_H

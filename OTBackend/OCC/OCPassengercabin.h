@@ -3,7 +3,7 @@
 
 #include "OCBase.h"
 
-class OCPassengercabin : public OCFile // cfg
+class OCPassengercabin : public OCBase::File // cfg
 {
 public:
         // TODO

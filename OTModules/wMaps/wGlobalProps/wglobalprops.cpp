@@ -97,8 +97,8 @@ void wGlobalProps::reloadUI()
     ui->sbxBIStartWidth->setValue(map.global.bgImage.startWidth);
     ui->sbxBIStartHeight->setValue(map.global.bgImage.startHeight);
 
-    ui->cuwDVTilePosition->setValue1(map.global.standardView.tilePosition.x);
-    ui->cuwDVTilePosition->setValue2(map.global.standardView.tilePosition.y);
+    ui->cuwDVTilePosition->setValue1(map.global.standardView.tile.x);
+    ui->cuwDVTilePosition->setValue2(map.global.standardView.tile.y);
     ui->cuwDVPosition->setValue1(map.global.standardView.position.x);
     ui->cuwDVPosition->setValue2(map.global.standardView.position.y);
     ui->cuwDVPosition->setValue3(map.global.standardView.position.z);
@@ -333,12 +333,12 @@ void wGlobalProps::on_sbxBIStartHeight_valueChanged(int arg1)
 
 void wGlobalProps::on_cuwDVTilePosition_name1Changed(float value)
 {
-    map.global.standardView.tilePosition.x = value;
+    map.global.standardView.tile.x = value;
 }
 
 void wGlobalProps::on_cuwDVTilePosition_name2Changed(float value)
 {
-    map.global.standardView.tilePosition.y = value;
+    map.global.standardView.tile.y = value;
 }
 
 void wGlobalProps::on_cuwDVPosition_name1Changed(float value)

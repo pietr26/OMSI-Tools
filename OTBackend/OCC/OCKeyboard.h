@@ -3,7 +3,7 @@
 
 #include "OCBase.h"
 
-class OCKeyboard : public OCFile // cfg
+class OCKeyboard : public OCBase::File // cfg
 {
 public:
     class Entry

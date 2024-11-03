@@ -3,18 +3,35 @@
 
 #include "OCBase.h"
 
-class OCLanguage : public OCFile // olf
+namespace OCLanguage
+{
+
+class Part
 {
 public:
-    class Part
-    {
-    public:
-        QString ident;
-        QString translation;
-    };
+    QString ident() const;
+    void setIdent(const QString &newIdent);
+    QString translation() const;
+    void setTranslation(const QString &newTranslation);
 
-    QString ident;
-    QList<Part> parts;
+private:
+    QString _ident;
+    QString _translation;
 };
+
+class Language : public OCBase::File // olf
+{
+public:
+    QString ident() const;
+    void setIdent(const QString &newIdent);
+    QList<Part *> parts() const;
+    void setParts(const QList<Part *> &newParts);
+
+private:
+    QString _ident;
+    QList<Part*> _parts;
+};
+
+}
 
 #endif // OCLANGUAGE_H
