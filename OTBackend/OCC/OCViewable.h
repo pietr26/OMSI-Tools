@@ -17,44 +17,36 @@ public:
         transformMethod = 4
     };
 
-    Method type() const;
-    void setType(Method newType);
-    float rotation() const;
-    void setRotation(float newRotation);
-    OCType::Coord3D<float> transformation() const;
-    void setTransformation(const OCType::Coord3D<float> &newTransformation);
-
-private:
-    Method _type;
-    float _rotation;
-    OCType::Coord3D<float> _transformation;
+    Method type;
+    float rotation;
+    OCType::Coord3D<float> transformation;
 };
 
 class Viewable : public OCBase::File // Sceneryobjects, Vehicles, Humans
 {
-private:
-    QString _friendlyname;
-    QList<QString> _groups;
-    QString _description;
+public:
+    QString friendlyname;
+    QList<QString> groups;
+    QString description;
 
-    QList<QList<AttachmentMethod>> _attachments;
+    QList<QList<AttachmentMethod>> attachments;
 
-    std::optional<OCType::Box<float>> _boundingBox;
+    std::optional<OCType::Box<float>> boundingBox;
 
-    QList<QString> _varNameLists;
-    QList<QString> _stringVarNameLists;
-    QList<QString> _scripts;
-    QList<QString> _consfiles;
+    QList<QString> varNameLists;
+    QList<QString> stringVarNameLists;
+    QList<QString> scripts;
+    QList<QString> consfiles;
 
-    QString _modelPath;
-    QString _passengerCabinPath;
-    QString _pathPath;
-    QString _soundPath;
-    QString _aiSoundPath;
+    QString modelPath;
+    QString passengerCabinPath;
+    QString pathPath;
+    QString soundPath;
+    QString aiSoundPath;
 
-    std::optional<int> _mass;
+    std::optional<int> mass;
 
-    std::optional<OCType::Coord3D<int>> _momentOfIntertia;
+    std::optional<OCType::Coord3D<int>> momentOfIntertia;
 
     bool noDistanceCheck;
 };

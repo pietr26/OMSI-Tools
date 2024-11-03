@@ -91,7 +91,7 @@ void wFonts::on_actionNewFile_triggered()
         if (msgResult == -1)
             return;
         else if (msgResult == 1)
-            save(OTFileMethods::save, _font->path());
+            save(OTFileMethods::save, _font->path);
     }
 
     qDebug() << "Create new font";
@@ -118,22 +118,22 @@ void wFonts::on_actionOpenWithEncoding_triggered()
 
 void wFonts::on_actionReload_triggered()
 {
-    if (!_font->path().isEmpty()) open(OTFileMethods::reopen, _font->path());
+    if (!_font->path.isEmpty()) open(OTFileMethods::reopen, _font->path);
 }
 
 void wFonts::on_actionSave_triggered()
 {
-    save(OTFileMethods::save, _font->path());
+    save(OTFileMethods::save, _font->path);
 }
 
 void wFonts::on_actionSaveAs_triggered()
 {
-    save(OTFileMethods::saveAs, _font->path());
+    save(OTFileMethods::saveAs, _font->path);
 }
 
 void wFonts::on_actionShowInExplorer_triggered()
 {
-    if (QFile(_font->path()).exists()) misc.openInExplorer(_font->path());
+    if (QFile(_font->path).exists()) misc.openInExplorer(_font->path);
     else ui->statusbar->showMessage(tr("The font file (still) doesn't exist."), 4000);
 }
 
@@ -145,8 +145,8 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
     if (method != OTFileMethods::backupSave)
     {
         QString dir;
-        if (_font->path().isEmpty()) dir = set.read("main", "mainDir").toString() + QString("/Fonts/%1.oft").arg(tr("unnamed"));
-        else dir = _font->path();
+        if (_font->path.isEmpty()) dir = set.read("main", "mainDir").toString() + QString("/Fonts/%1.oft").arg(tr("unnamed"));
+        else dir = _font->path;
 
         if (filen.isEmpty() || method == OTFileMethods::saveAs)
         {
@@ -155,18 +155,18 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
         }
         if (filen.isEmpty()) return;
 
-        _font->setPath(filen);
+        _font->path = filen;
     }
 
-    if (method != OTFileMethods::backupSave && _font->path().isEmpty())
+    if (method != OTFileMethods::backupSave && _font->path.isEmpty())
         return;
 
     if (method != OTFileMethods::backupSave)
     {
-        QFile file(_font->path());
+        QFile file(_font->path);
 
         // Cut out only file name and put it into the window title
-        QFileInfo fileInfo(QFile(_font->path()).fileName());
+        QFileInfo fileInfo(QFile(_font->path).fileName());
         QString filenameWithoutPath(fileInfo.fileName());
         setTitle(filenameWithoutPath);
     }
@@ -174,13 +174,13 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
     FontCollection *tempFont = _font;
     if (method == OTFileMethods::backupSave)
     {
-        if (_font->path().isEmpty())
-            tempFont->setPath(QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + QString("_%1.oft").arg("unnamed")));
+        if (_font->path.isEmpty())
+            tempFont->path = QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + QString("_%1.oft").arg("unnamed"));
         else
-            tempFont->setPath(QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + "_" + QFileInfo(_font->path()).fileName()));
+            tempFont->path = QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + "_" + QFileInfo(_font->path).fileName());
     }
 
-    qDebug() << "Direct path:" << tempFont->path();
+    qDebug() << "Direct path:" << tempFont->path;
 
     if (tempFont->write() != FontCollection::valid)
     {
@@ -195,14 +195,14 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
 
     if (method != OTFileMethods::backupSave)
     {
-        saveRecentFiles(QDir().absoluteFilePath(_font->path()));
+        saveRecentFiles(QDir().absoluteFilePath(_font->path));
 
         ui->statusbar->showMessage(tr("File saved successfully."), 4000);
         qInfo() << "File successfully saved!";
-        qDebug().noquote() << "File: '" + QFileInfo(tempFont->path()).absoluteFilePath() + "'";
+        qDebug().noquote() << "File: '" + QFileInfo(tempFont->path).absoluteFilePath() + "'";
         setWindowModified(false);
     }
-    else qDebug().noquote() << "Backup file successfully saved: '" + QFileInfo(tempFont->path()).absoluteFilePath() + "'";
+    else qDebug().noquote() << "Backup file successfully saved: '" + QFileInfo(tempFont->path).absoluteFilePath() + "'";
 
     return;
 }
@@ -300,39 +300,39 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
     {
         int msgResult = msg.unsavedChanges(this);
         if (msgResult == -1) return;
-        else if (msgResult == 1) save(OTFileMethods::save, _font->path());
+        else if (msgResult == 1) save(OTFileMethods::save, _font->path);
     }
 
     _font->clear();
-    _font->setPath(filen);
+    _font->path = filen;
 
     if (method == OTFileMethods::open)
     {
-        if (_font->path().isEmpty())
+        if (_font->path.isEmpty())
         {
             qDebug() << "Open with file dialog";
-            _font->setPath(QFileDialog::getOpenFileName(this, tr("Open font..."), set.read("main", "mainDir").toString() + "/Fonts", tr("OMSI font file") + " (*.oft)"));
-            if (_font->path().isEmpty()) return;
+            _font->path = QFileDialog::getOpenFileName(this, tr("Open font..."), set.read("main", "mainDir").toString() + "/Fonts", tr("OMSI font file") + " (*.oft)");
+            if (_font->path.isEmpty()) return;
             else emit reloadUi();
         }
 
-        saveRecentFiles(QDir().absoluteFilePath(_font->path()));
+        saveRecentFiles(QDir().absoluteFilePath(_font->path));
     }
 
-    qInfo() << "Open file" << _font->path();
+    qInfo() << "Open file" << _font->path;
 
     if (method != OTFileMethods::silentOpen)
     {
         // Cut out only the file name and put it into the window title
-        QFileInfo fileInfo(QFile(_font->path()).fileName());
+        QFileInfo fileInfo(QFile(_font->path).fileName());
         QString filenameWithoutPath(fileInfo.fileName());
         setTitle(filenameWithoutPath);
     }
 
-    _font->setEncoding(encoding);
+    _font->encoding = encoding;
     if (_font->read() != FontCollection::valid)
     {
-        if (method != OTFileMethods::silentOpen) msg.fileOpenErrorCloseOMSI(this, _font->path());
+        if (method != OTFileMethods::silentOpen) msg.fileOpenErrorCloseOMSI(this, _font->path);
         return;
     }
 
@@ -350,8 +350,8 @@ void wFonts::selectedEncoding(QStringConverter::Encoding selectedEncoding)
 
 void wFonts::setVisiblilty()
 {
-    ui->actionReload->setEnabled(_font->path().isEmpty() || !QFile(_font->path()).exists());
-    ui->actionShowInExplorer->setEnabled(_font->path().isEmpty() || !QFile(_font->path()).exists());
+    ui->actionReload->setEnabled(_font->path.isEmpty() || !QFile(_font->path).exists());
+    ui->actionShowInExplorer->setEnabled(_font->path.isEmpty() || !QFile(_font->path).exists());
 }
 
 void wFonts::on_actionSendFeedback_triggered()
