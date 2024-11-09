@@ -52,8 +52,8 @@ public:
     QDateTime time; // year[int], daysFrom01Jan[int], hoursFromMidnight[int], minutesFromFullHour[int], secondsFromFullMinute[float]
 
     OCType::Coord2D<int> centerTile;
-    OCMapPosition mapcam; // tilePos not used here! See 'centerTile' member
-    OCMapPosition egoPosition; // tilePos not used here! See 'centerTile' member - std: x=10;y=10
+    OCMap::Position mapcam; // tilePos not used here! See 'centerTile' member
+    OCMap::Position egoPosition; // tilePos not used here! See 'centerTile' member - std: x=10;y=10
 
     bool icaoWeatherActive;
 

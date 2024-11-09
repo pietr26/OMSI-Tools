@@ -15,7 +15,7 @@ class wPlaceObjects : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit wPlaceObjects(OCMap::Global globalProps, QWidget *parent = nullptr);
+    explicit wPlaceObjects(OCMap::Map::Global globalProps, QWidget *parent = nullptr);
     ~wPlaceObjects();
 
 private slots:
@@ -50,14 +50,14 @@ private slots:
     void on_sbxObjectDensity_valueChanged(int arg1);
 
 signals:
-    void returnGlobalProps(OCMap::Global props);
+    void returnGlobalProps(OCMap::Map::Global props);
 
 private:
     Ui::wPlaceObjects *ui;
     OTSettings set;
     OTDirectXTexConv texconv;
 
-    OCMap map;
+    OCMap::Map map;
 
     QTemporaryFile convertedPreviewImage;
 

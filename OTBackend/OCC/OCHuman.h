@@ -7,7 +7,7 @@
 namespace OCHuman
 {
 
-class OCHuman : public OCBase::File // hum
+class Human : public OCBase::File // hum
 {
 public:
     int age = -1;

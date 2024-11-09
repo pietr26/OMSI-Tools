@@ -14,7 +14,6 @@ public:
         // bool ?;
     };
 
-
     QList<Entry> entries;
 };
 

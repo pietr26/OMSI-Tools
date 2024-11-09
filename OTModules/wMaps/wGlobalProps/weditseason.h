@@ -14,7 +14,7 @@ class wEditSeason : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit wEditSeason(OCMap::Global::Season s, int index, QWidget *parent = nullptr);
+    explicit wEditSeason(OCMap::Map::Global::Season s, int index, QWidget *parent = nullptr);
     ~wEditSeason();
 
 private slots:
@@ -29,7 +29,7 @@ private slots:
     void on_daeEnd_userDateChanged(const QDate &date);
 
 signals:
-    void returnSeason(OCMap::Global::Season season);
+    void returnSeason(OCMap::Map::Global::Season season);
 
 private:
     Ui::wEditSeason *ui;
@@ -37,7 +37,7 @@ private:
 
     void reloadUI();
 
-    OCMap::Global::Season season = OCMap::Global::Season();
+    OCMap::Map::Global::Season season = OCMap::Map::Global::Season();
     int seasonIndex;
 
 };

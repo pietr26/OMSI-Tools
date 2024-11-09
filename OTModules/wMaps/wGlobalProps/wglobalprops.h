@@ -18,11 +18,11 @@ class wGlobalProps : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit wGlobalProps(OCMap::Global globalProps, QWidget *parent = nullptr);
+    explicit wGlobalProps(OCMap::Map::Global globalProps, QWidget *parent = nullptr);
     ~wGlobalProps();
 
 signals:
-    void returnGlobalProps(OCMap::Global globalProps);
+    void returnGlobalProps(OCMap::Map::Global globalProps);
 
 private slots:
     void on_btnEditProtectedProps_clicked();
@@ -31,7 +31,7 @@ private slots:
 
     void on_btnBISelectPicturePath_clicked();
 
-    void recieveGroundTexture(OCMap::Global::Texture texture, int index);
+    void recieveGroundTexture(OCMap::Map::Global::Texture texture, int index);
 
     void on_ledFriendlyname_textEdited(const QString &arg1);
 
@@ -114,7 +114,7 @@ private:
 
     bool setupFinished;
 
-    OCMap map;
+    OCMap::Map map;
 
     QStandardItemModel *modelGroundTextures;
     QStandardItemModel *modelSeasons;

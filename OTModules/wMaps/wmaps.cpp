@@ -74,7 +74,7 @@ void wMaps::recieveSelectedMap(QPair<QString, QString> mapInfo)
     else
         ui->lblPicture->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::CameraPhoto).pixmap(128, 128));
 
-    map.global = OCMap::Global();
+    map.global = OCMap::Map::Global();
     map.dir = currentMap.second.remove("/global.cfg");
     map.global.read();
 }
@@ -93,7 +93,7 @@ void wMaps::on_btnEditPropterties_clicked()
     WGLOBALPROPS->show();
 }
 
-void wMaps::recieveGlobalProps(OCMap::Global globalProps)
+void wMaps::recieveGlobalProps(OCMap::Map::Global globalProps)
 {
     map.global = globalProps;
 }

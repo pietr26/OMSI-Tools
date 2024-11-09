@@ -1,7 +1,7 @@
 #include "wdgpreview.h"
 #include "ui_wdgpreview.h"
 
-wdgPreview::wdgPreview(QWidget *parent, FontCollection *font)
+wdgPreview::wdgPreview(QWidget *parent, OCFont::FontCollection *font)
     : QWidget(parent)
     , ui(new Ui::wdgPreview),
     _font(font)
@@ -41,9 +41,9 @@ void wdgPreview::on_btnReloadTexPreview_clicked()
 
 void wdgPreview::reloadUi()
 {
-    if (_font->selection.contains(FontCollection::FontSelection))
+    if (_font->selection.contains(OCFont::FontCollection::FontSelection))
     {
-        QString tex = set.read("main", "mainDir").toString() + "/Fonts/" + (set.read(objectName(), "texPreview").toInt() == 0 ? _font->fonts[_font->selection[FontCollection::FontSelection]]->colorTexture : _font->fonts.at(_font->selection[FontCollection::FontSelection])->alphaTexture);
+        QString tex = set.read("main", "mainDir").toString() + "/Fonts/" + (set.read(objectName(), "texPreview").toInt() == 0 ? _font->fonts[_font->selection[OCFont::FontCollection::FontSelection]]->colorTexture : _font->fonts.at(_font->selection[OCFont::FontCollection::FontSelection])->alphaTexture);
 
         ui->cobxPreviewOptions->setCurrentIndex(set.read(objectName(), "texPreview").toInt());
 

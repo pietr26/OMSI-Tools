@@ -1,6 +1,6 @@
 #include "OCFont.h"
 
-OCBase::File::FileIOResponse FontCollection::read()
+OCBase::File::FileIOResponse OCFont::FontCollection::read()
 {
     QFile file(path);
 
@@ -56,7 +56,7 @@ OCBase::File::FileIOResponse FontCollection::read()
     return FileIOResponse::valid;
 }
 
-OCBase::File::FileIOResponse FontCollection::write()
+OCBase::File::FileIOResponse OCFont::FontCollection::write()
 {
     QFile file(path);
 
@@ -114,9 +114,9 @@ OCBase::File::FileIOResponse FontCollection::write()
     return FileIOResponse::valid;
 }
 
-void FontCollection::clear() { fonts.clear(); path.clear(); encoding = QStringConverter::Latin1; }
+void OCFont::FontCollection::clear() { fonts.clear(); path.clear(); encoding = QStringConverter::Latin1; }
 
-int FontCollection::totalCharacterCount()
+int OCFont::FontCollection::totalCharacterCount()
 {
     int characterCount = 0;
     foreach (SingleFont* font, fonts) characterCount += font->characters.count();

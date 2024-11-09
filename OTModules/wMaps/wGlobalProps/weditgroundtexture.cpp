@@ -1,7 +1,7 @@
 #include "weditgroundtexture.h"
 #include "ui_weditgroundtexture.h"
 
-wEditGroundTexture::wEditGroundTexture(OCMap::Global::Texture tex, int index, QWidget *parent) :
+wEditGroundTexture::wEditGroundTexture(OCMap::Map::Global::Texture tex, int index, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wEditGroundTexture)
 {

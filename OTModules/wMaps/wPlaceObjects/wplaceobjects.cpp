@@ -3,7 +3,7 @@
 
 #include <QPainter>
 
-wPlaceObjects::wPlaceObjects(OCMap::Global globalProps, QWidget *parent)
+wPlaceObjects::wPlaceObjects(OCMap::Map::Global globalProps, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::wPlaceObjects)
 {
@@ -69,7 +69,7 @@ void wPlaceObjects::checkObjectList()
 
 void wPlaceObjects::loadUi()
 {
-    foreach (OCMap::Global::TileInformation current, map.global.tiles)
+    foreach (OCMap::Map::Global::TileInformation current, map.global.tiles)
     {
         QListWidgetItem *item = new QListWidgetItem(QString("%1 / %2\t%3").arg(QString::number(current.position.x), QString::number(current.position.y), current.filename));
         item->setCheckState(Qt::Unchecked);

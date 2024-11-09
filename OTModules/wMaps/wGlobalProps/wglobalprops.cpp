@@ -1,7 +1,7 @@
 #include "wglobalprops.h"
 #include "ui_wglobalprops.h"
 
-wGlobalProps::wGlobalProps(OCMap::Global globalProps, QWidget *parent) :
+wGlobalProps::wGlobalProps(OCMap::Map::Global globalProps, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wGlobalProps)
 {
@@ -203,7 +203,7 @@ void wGlobalProps::on_btnBISelectPicturePath_clicked()
     }
 }
 
-void wGlobalProps::recieveGroundTexture(OCMap::Global::Texture texture, int index)
+void wGlobalProps::recieveGroundTexture(OCMap::Map::Global::Texture texture, int index)
 {
     if (index == -1) map.global.groundTextures.append(texture);
     else map.global.groundTextures.insert(index, texture);
@@ -230,7 +230,7 @@ void wGlobalProps::on_btnSyncNames_clicked(bool checked)
 
 void wGlobalProps::on_cuwGroundTextures_addClicked()
 {
-    WEDITGROUNDTEXTURE = new wEditGroundTexture(OCMap::Global::Texture(), -1, this);
+    WEDITGROUNDTEXTURE = new wEditGroundTexture(OCMap::Map::Global::Texture(), -1, this);
     WEDITGROUNDTEXTURE->show();
 }
 
@@ -373,7 +373,7 @@ void wGlobalProps::on_sbxDVDistanceFromPosition_valueChanged(int arg1)
 
 void wGlobalProps::on_cuwSeasons_addClicked()
 {
-    WEDITSEASON = new wEditSeason(OCMap::Global::Season(), -1, this);
+    WEDITSEASON = new wEditSeason(OCMap::Map::Global::Season(), -1, this);
     WEDITSEASON->show();
 }
 

@@ -1,7 +1,7 @@
 #include "wdgeditor.h"
 #include "ui_wdgeditor.h"
 
-wdgEditor::wdgEditor(QWidget *parent, FontCollection *font)
+wdgEditor::wdgEditor(QWidget *parent, OCFont::FontCollection *font)
     : QWidget(parent)
     , ui(new Ui::wdgEditor),
     _font(font)
@@ -33,11 +33,11 @@ wdgEditor::wdgEditor(QWidget *parent, FontCollection *font)
     connect(actionAddCharacter, &QAction::triggered, this, &wdgEditor::addCharacter);
     connect(actionDeleteItem, &QAction::triggered, this, &wdgEditor::deleteItem);
     connect(actionMoveUp, &QAction::triggered, this, [this]() {
-        if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1)
+        if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1)
             moveChar(ui->tvwChars->currentIndex().row(), Move::Up);
     });
     connect(actionMoveDown, &QAction::triggered, this, [this]() {
-        if (ui->tvwChars->currentIndex().row() != (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1)
+        if (ui->tvwChars->currentIndex().row() != (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1)
             moveChar(ui->tvwChars->currentIndex().row(), Move::Down);
     });
     connect(actionSearch, &QAction::triggered, this, &wdgEditor::search);
@@ -47,11 +47,11 @@ wdgEditor::wdgEditor(QWidget *parent, FontCollection *font)
     connect(ui->btnAddCharacter, &QPushButton::clicked, this, &wdgEditor::addCharacter);
     connect(ui->btnDeleteItem, &QPushButton::clicked, this, &wdgEditor::deleteItem);
     connect(ui->btnMoveUp, &QPushButton::clicked, this, [this]() {
-        if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1)
+        if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().parent().row() != 1)
             moveChar(ui->tvwChars->currentIndex().row(), Move::Up);
     });
     connect(ui->btnMoveDown, &QPushButton::clicked, this, [this]() {
-        if (ui->tvwChars->currentIndex().row() != (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1)
+        if (ui->tvwChars->currentIndex().row() != (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count() - 1) && ui->tvwChars->currentIndex().parent().row() != 1)
             moveChar(ui->tvwChars->currentIndex().row(), Move::Down);
     });
 
@@ -81,10 +81,10 @@ void wdgEditor::unexpandAll()
 
 void wdgEditor::on_ledCharacter_textChanged(const QString &arg1)
 {
-    if (!_font->selection.contains(FontCollection::CharacterSelection)) return;
-    if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) return;
+    if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
     {
-        _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.at(ui->tvwChars->currentIndex().row())->character = arg1; // TODO: need update functions??
+        _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.at(ui->tvwChars->currentIndex().row())->character = arg1; // TODO: need update functions??
         reloadUi();
     }
 
@@ -94,10 +94,10 @@ void wdgEditor::on_ledCharacter_textChanged(const QString &arg1)
 
 void wdgEditor::on_sbxLeftPixel_valueChanged(int arg1)
 {
-    if (!_font->selection.contains(FontCollection::CharacterSelection)) return;
-    if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) return;
+    if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
     {
-        _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.at(ui->tvwChars->currentIndex().row())->leftPixel = arg1;
+        _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.at(ui->tvwChars->currentIndex().row())->leftPixel = arg1;
         reloadUi();
     }
 
@@ -107,10 +107,10 @@ void wdgEditor::on_sbxLeftPixel_valueChanged(int arg1)
 
 void wdgEditor::on_sbxRightPixel_valueChanged(int arg1)
 {
-    if (!_font->selection.contains(FontCollection::CharacterSelection)) return;
-    if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) return;
+    if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
     {
-        _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.at(ui->tvwChars->currentIndex().row())->rightPixel = arg1;
+        _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.at(ui->tvwChars->currentIndex().row())->rightPixel = arg1;
         reloadUi();
     }
 
@@ -120,10 +120,10 @@ void wdgEditor::on_sbxRightPixel_valueChanged(int arg1)
 
 void wdgEditor::on_sbxHighestPixelInFontRow_valueChanged(int arg1)
 {
-    if (!_font->selection.contains(FontCollection::CharacterSelection)) return;
-    if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) return;
+    if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count() != 0 && ui->tvwChars->currentIndex().row() != -1)
     {
-        _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.at(ui->tvwChars->currentIndex().row())->highestPixelInFontRow = arg1;
+        _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.at(ui->tvwChars->currentIndex().row())->highestPixelInFontRow = arg1;
         reloadUi();
     }
 
@@ -140,7 +140,7 @@ void wdgEditor::on_btnEditorPreferences_clicked()
 // Reloads prop editor state
 void wdgEditor::switchSelection()
 {
-    _font->selection = QMap<FontCollection::Selection, int>();
+    _font->selection = QMap<OCFont::FontCollection::Selection, int>();
 
     QModelIndex currentIndex = ui->tvwChars->currentIndex();
 
@@ -153,7 +153,7 @@ void wdgEditor::switchSelection()
         }
         else // selection is a font
         {
-            _font->selection.insert(FontCollection::FontSelection, currentIndex.row());
+            _font->selection.insert(OCFont::FontCollection::FontSelection, currentIndex.row());
 
             ui->stwProperties->setCurrentIndex(0);
             ui->stwProperties->setEnabled(true);
@@ -168,14 +168,14 @@ void wdgEditor::switchSelection()
     }
     else // selection is a character
     {
-        _font->selection.insert(FontCollection::FontSelection, currentIndex.parent().row());
-        _font->selection.insert(FontCollection::CharacterSelection, currentIndex.row());
+        _font->selection.insert(OCFont::FontCollection::FontSelection, currentIndex.parent().row());
+        _font->selection.insert(OCFont::FontCollection::CharacterSelection, currentIndex.row());
 
         ui->stwProperties->setCurrentIndex(1);
         ui->stwProperties->setEnabled(true);
         actionAddCharacter->setEnabled(true);
 
-        Character *character = _font->fonts.at(currentIndex.parent().row())->characters.at(currentIndex.row());
+        OCFont::Character *character = _font->fonts.at(currentIndex.parent().row())->characters.at(currentIndex.row());
 
         ui->ledCharacter->setText(character->character);
         ui->sbxLeftPixel->setValue(character->leftPixel);
@@ -197,18 +197,18 @@ void wdgEditor::addFont()
 
     // Add new font to object
     if (_font->fonts.isEmpty()) // font file is empty
-        _font->fonts.append(new SingleFont());
-    else if (!_font->selection.contains(FontCollection::CharacterSelection)) // font is primarily selected
-        _font->fonts.insert(currentSelection.second + 1, new SingleFont());
+        _font->fonts.append(new OCFont::SingleFont());
+    else if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) // font is primarily selected
+        _font->fonts.insert(currentSelection.second + 1, new OCFont::SingleFont());
     else // character is primarily selected
-        _font->fonts.insert(currentSelection.first + 1, new SingleFont());
+        _font->fonts.insert(currentSelection.first + 1, new OCFont::SingleFont());
 
     emit setModified(true);
     reloadUi();
     switchSelection();
 
     // Control current selection
-    if (!_font->selection.contains(FontCollection::CharacterSelection)) // font is primarily selected
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) // font is primarily selected
         ui->tvwChars->setCurrentIndex(model->index(currentSelection.second + 1, 0));
     else // character is primarily selected
         ui->tvwChars->setCurrentIndex(model->index(currentSelection.first + 1, 0));
@@ -219,7 +219,7 @@ void wdgEditor::addFont()
 
 void wdgEditor::addCharacter()
 {
-    if (!_font->selection.contains(FontCollection::FontSelection)) return;
+    if (!_font->selection.contains(OCFont::FontCollection::FontSelection)) return;
 
     int prevPixelRow = ui->sbxHighestPixelInFontRow->value();
 
@@ -232,20 +232,20 @@ void wdgEditor::addCharacter()
      */
 
     // Add new char to object
-    if (!_font->selection.contains(FontCollection::CharacterSelection)) // font is primarily selected
-        _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.append(new Character());
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) // font is primarily selected
+        _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.append(new OCFont::Character());
     else // character is primarily selected
-        _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.insert(_font->selection.value(FontCollection::CharacterSelection) + 1, new Character());
+        _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.insert(_font->selection.value(OCFont::FontCollection::CharacterSelection) + 1, new OCFont::Character());
 
     emit setModified(true);
     reloadUi();
     switchSelection();
 
     // Control current selection
-    if (!_font->selection.contains(FontCollection::CharacterSelection)) // font is primarily selected
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) // font is primarily selected
         ui->tvwChars->setCurrentIndex(model->index(_font->fonts.at(currentSelection.second)->characters.count() - 1, 0, model->index(currentSelection.second, 0)));
     else // character is primarily selected
-        ui->tvwChars->setCurrentIndex(model->index(_font->selection.value(FontCollection::CharacterSelection) + 1, 0, model->index(currentSelection.first, 0)));
+        ui->tvwChars->setCurrentIndex(model->index(_font->selection.value(OCFont::FontCollection::CharacterSelection) + 1, 0, model->index(currentSelection.first, 0)));
 
     ui->stwProperties->setCurrentIndex(1);
     ui->ledCharacter->setFocus();
@@ -255,17 +255,17 @@ void wdgEditor::addCharacter()
 
 void wdgEditor::deleteItem()
 {
-    if (_font->selection.contains(FontCollection::CharacterSelection))
+    if (_font->selection.contains(OCFont::FontCollection::CharacterSelection))
     {
-        _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.removeAt(_font->selection.value(FontCollection::CharacterSelection));
+        _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.removeAt(_font->selection.value(OCFont::FontCollection::CharacterSelection));
 
-        if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.isEmpty())
+        if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.isEmpty())
             ui->tvwChars->setCurrentIndex(ui->tvwChars->currentIndex().parent());
     }
-    else if (_font->selection.contains(FontCollection::FontSelection))
+    else if (_font->selection.contains(OCFont::FontCollection::FontSelection))
     {
-        _font->fonts.removeAt(_font->selection.value(FontCollection::FontSelection));
-        ui->tvwChars->setExpanded(model->index(_font->selection.value(FontCollection::FontSelection), 0), false);
+        _font->fonts.removeAt(_font->selection.value(OCFont::FontCollection::FontSelection));
+        ui->tvwChars->setExpanded(model->index(_font->selection.value(OCFont::FontCollection::FontSelection), 0), false);
     }
     else return;
 
@@ -285,7 +285,7 @@ void wdgEditor::search() // TODO
         return;
     }
 
-    if (!_font->selection.contains(FontCollection::CharacterSelection)) return;
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) return;
     currentSearch = ui->ledSearch->text();
 
     qDebug().noquote() << "Find char: '" + currentSearch + "'";
@@ -295,9 +295,9 @@ void wdgEditor::search() // TODO
     // Search for char
     ui->tvwChars->setCurrentIndex(model->index(0, 0));
 
-    for (int i = 0; i < _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count(); i++)
+    for (int i = 0; i < _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count(); i++)
     {
-        if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.at(i)->character == currentSearch)
+        if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.at(i)->character == currentSearch)
         {
             switchSelection();
             return;
@@ -314,17 +314,17 @@ void wdgEditor::search() // TODO
 
 void wdgEditor::goToNextError() // TODO
 {
-    if (!_font->selection.contains(FontCollection::CharacterSelection)) return;
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) return;
     qDebug() << "Go to next search result";
     if (currentSearch != "")
     {
-        if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count() == 1)
+        if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count() == 1)
             return;
 
         int i = ui->tvwChars->currentIndex().row();
 
-        QList<Character*> tempList;
-        tempList = _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters;
+        QList<OCFont::Character*> tempList;
+        tempList = _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters;
         tempList.removeAt(ui->tvwChars->currentIndex().row());
 
         bool secondRound = false;
@@ -382,22 +382,22 @@ void wdgEditor::goToNextError() // TODO
 
 void wdgEditor::checkCharValidity()
 {
-    if (!_font->selection.contains(FontCollection::CharacterSelection)) return; // TODO: Check of all characters (with in-TreeView stylesheeting)
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) return; // TODO: Check of all characters (with in-TreeView stylesheeting)
 
     ui->lblCharacter->setStyleSheet("");
     ui->lblRightPixel->setStyleSheet("");
     ui->lblLeftPixel->setStyleSheet("");
     ui->lblHighestPixelInFontRow->setStyleSheet("");
 
-    if (!_font->selection.contains(FontCollection::CharacterSelection) || _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.isEmpty()) return;
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection) || _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.isEmpty()) return;
 
-    Character *character = _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.at(_font->selection.value(FontCollection::CharacterSelection));
+    OCFont::Character *character = _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.at(_font->selection.value(OCFont::FontCollection::CharacterSelection));
 
     if (character->character.isEmpty()) ui->lblCharacter->setStyleSheet("color:red");
     else
     {
         QStringList tempCharList;
-        foreach (Character *current, _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters)
+        foreach (OCFont::Character *current, _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters)
             tempCharList << current->character;
 
         if (tempCharList.indexOf(character->character) != -1)
@@ -418,9 +418,9 @@ void wdgEditor::checkCharValidity()
     if (character->leftPixel == -1) ui->lblLeftPixel->setStyleSheet("color:red");
     if (character->highestPixelInFontRow == -1) ui->lblHighestPixelInFontRow->setStyleSheet("color:red");
 
-    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->alphaTexture).exists())
+    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture).exists())
     {
-        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->alphaTexture);
+        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture);
 
         if (alphaTexture.width() != 0 || alphaTexture.height() != 0)
         {
@@ -438,7 +438,7 @@ void wdgEditor::checkCharValidity()
 
 void wdgEditor::checkPropValidity()
 {
-    if (!_font->selection.contains(FontCollection::FontSelection)) return;
+    if (!_font->selection.contains(OCFont::FontCollection::FontSelection)) return;
 
     ui->lblFontName->setStyleSheet("");
     ui->lblColorTexture->setStyleSheet("");
@@ -446,31 +446,31 @@ void wdgEditor::checkPropValidity()
     ui->lblMaxHeigthOfChars->setStyleSheet("");
     ui->lblDistanceBetweenChars->setStyleSheet("");
 
-    if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->name.isEmpty())
+    if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->name.isEmpty())
         ui->lblFontName->setStyleSheet("color:red");
 
-    if (!_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->colorTexture.isEmpty() && !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->colorTexture).exists())
+    if (!_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture.isEmpty() && !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture).exists())
         ui->lblColorTexture->setStyleSheet("color:red");
 
-    if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->alphaTexture.isEmpty() || !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->alphaTexture).exists())
+    if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture.isEmpty() || !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture).exists())
         ui->lblAlphaTexture->setStyleSheet("color:red");
 
-    if (ui->sbxMaxHeigthOfChars->text().isEmpty() || (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->maxHeightOfChars == 0))
+    if (ui->sbxMaxHeigthOfChars->text().isEmpty() || (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->maxHeightOfChars == 0))
         ui->lblMaxHeigthOfChars->setStyleSheet("color:red");
 
     if (ui->sbxDistanceBetweenChars->text().isEmpty())
         ui->lblDistanceBetweenChars->setStyleSheet("color:red");
 
-    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->alphaTexture).exists())
+    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture).exists())
     {
-        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->alphaTexture);
+        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture);
 
         if (alphaTexture.width() != 0 || alphaTexture.height() != 0)
         {
-            if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->maxHeightOfChars > QString::number(alphaTexture.height()).toInt())
+            if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->maxHeightOfChars > QString::number(alphaTexture.height()).toInt())
                 ui->lblMaxHeigthOfChars->setStyleSheet("color:red");
 
-            if (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->distanceBetweenChars > QString::number(alphaTexture.width()).toInt())
+            if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->distanceBetweenChars > QString::number(alphaTexture.width()).toInt())
                 ui->lblDistanceBetweenChars->setStyleSheet("color:red");
         }
     }
@@ -478,17 +478,17 @@ void wdgEditor::checkPropValidity()
 
 void wdgEditor::moveChar(int sel, Move action)
 {
-    if (!_font->selection.contains(FontCollection::FontSelection)) return;
+    if (!_font->selection.contains(OCFont::FontCollection::FontSelection)) return;
 
     if (action == Move::Up && sel == 0) return;
-    if (action == Move::Down && _font->selection.contains(FontCollection::CharacterSelection) && sel > (_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.count() - 1)) return;
-    if (action == Move::Down && _font->selection.contains(FontCollection::CharacterSelection) && sel > (_font->fonts.count() - 1)) return;
+    if (action == Move::Down && _font->selection.contains(OCFont::FontCollection::CharacterSelection) && sel > (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count() - 1)) return;
+    if (action == Move::Down && _font->selection.contains(OCFont::FontCollection::CharacterSelection) && sel > (_font->fonts.count() - 1)) return;
 
     int moving = action == Move::Up ? sel - 1 : sel + 1;
 
-    if (_font->selection.contains(FontCollection::CharacterSelection))
-        _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->characters.move(sel, moving);
-    else if (_font->selection.contains(FontCollection::FontSelection))
+    if (_font->selection.contains(OCFont::FontCollection::CharacterSelection))
+        _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.move(sel, moving);
+    else if (_font->selection.contains(OCFont::FontCollection::FontSelection))
         _font->fonts.move(sel, moving);
     else
         return;
@@ -496,8 +496,8 @@ void wdgEditor::moveChar(int sel, Move action)
     emit setModified(true);
     reloadUi();
 
-    if (_font->selection.contains(FontCollection::CharacterSelection)) ui->tvwChars->setCurrentIndex(model->index(moving, 0, ui->tvwChars->currentIndex().parent()));
-    else if (_font->selection.contains(FontCollection::FontSelection)) ui->tvwChars->setCurrentIndex(model->index(moving, 0));
+    if (_font->selection.contains(OCFont::FontCollection::CharacterSelection)) ui->tvwChars->setCurrentIndex(model->index(moving, 0, ui->tvwChars->currentIndex().parent()));
+    else if (_font->selection.contains(OCFont::FontCollection::FontSelection)) ui->tvwChars->setCurrentIndex(model->index(moving, 0));
 }
 
 // Reloads TreeView
@@ -516,7 +516,7 @@ void wdgEditor::reloadUi()
 
     for (int i = 0; i < _font->fonts.count(); i++)
     {
-        SingleFont *font = _font->fonts.at(i);
+        OCFont::SingleFont *font = _font->fonts.at(i);
 
         QStandardItem *fontItem = new QStandardItem(font->name.isEmpty() ? QString("(%1)").arg(tr("unnamed")) : font->name);
         fontItem->setRowCount(font->characters.count());
@@ -558,9 +558,9 @@ void wdgEditor::reloadUi()
     actionDeleteItem->setDisabled(model->rowCount() == 0);
 
     actionMoveUp->setEnabled(ui->tvwChars->currentIndex().row() > 0);
-    if (_font->selection.contains(FontCollection::CharacterSelection))
+    if (_font->selection.contains(OCFont::FontCollection::CharacterSelection))
         actionMoveDown->setEnabled(ui->tvwChars->currentIndex().row() < (_font->fonts.at(ui->tvwChars->currentIndex().parent().row())->characters.count() - 1));
-    else if (_font->selection.contains(FontCollection::FontSelection))
+    else if (_font->selection.contains(OCFont::FontCollection::FontSelection))
         actionMoveDown->setEnabled(ui->tvwChars->currentIndex().row() < (_font->fonts.count() - 1));
     else
         actionMoveDown->setEnabled(false);
@@ -572,10 +572,10 @@ void wdgEditor::reloadUi()
 
 void wdgEditor::on_ledFontName_textChanged(const QString &arg1)
 {
-    if (!_font->selection.contains(FontCollection::FontSelection)) return;
-    if (_font->selection.value(FontCollection::FontSelection) == -1) return;
+    if (!_font->selection.contains(OCFont::FontCollection::FontSelection)) return;
+    if (_font->selection.value(OCFont::FontCollection::FontSelection) == -1) return;
 
-    _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->name = arg1;
+    _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->name = arg1;
 
     reloadUi();
     checkPropValidity();
@@ -585,10 +585,10 @@ void wdgEditor::on_ledFontName_textChanged(const QString &arg1)
 
 void wdgEditor::on_ledColorTexture_textChanged(const QString &arg1)
 {
-    if (!_font->selection.contains(FontCollection::FontSelection)) return;
-    if (_font->selection.value(FontCollection::FontSelection) == -1) return;
+    if (!_font->selection.contains(OCFont::FontCollection::FontSelection)) return;
+    if (_font->selection.value(OCFont::FontCollection::FontSelection) == -1) return;
 
-    _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->colorTexture = arg1;
+    _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture = arg1;
 
     reloadUi();
     checkPropValidity();
@@ -600,27 +600,27 @@ void wdgEditor::on_ledColorTexture_textChanged(const QString &arg1)
 
 void wdgEditor::on_btnColorTexture_clicked()
 {
-    if (!_font->selection.contains(FontCollection::FontSelection)) return;
-    if (_font->selection.value(FontCollection::FontSelection) == -1) return;
+    if (!_font->selection.contains(OCFont::FontCollection::FontSelection)) return;
+    if (_font->selection.value(OCFont::FontCollection::FontSelection) == -1) return;
 
     QString filename = QFileDialog::getOpenFileName(this, tr("Select color texture..."), set.read("main", "mainDir").toString() + "/Fonts", tr("Bitmap picture") + " (*.bmp)");
 
     if (filename.isEmpty()) return;
 
-    _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->colorTexture = filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").size() + 1);
+    _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture = filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").size() + 1);
 
-    if (ui->ledColorTexture->text() != _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->colorTexture)
+    if (ui->ledColorTexture->text() != _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture)
         qDebug() << QString("New color texture: '%1'").arg(filename);
 
-    ui->ledColorTexture->setText(_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->colorTexture);
+    ui->ledColorTexture->setText(_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture);
 }
 
 void wdgEditor::on_ledAlphaTexture_textChanged(const QString &arg1)
 {
-    if (!_font->selection.contains(FontCollection::FontSelection)) return;
-    if (_font->selection.value(FontCollection::FontSelection) == -1) return;
+    if (!_font->selection.contains(OCFont::FontCollection::FontSelection)) return;
+    if (_font->selection.value(OCFont::FontCollection::FontSelection) == -1) return;
 
-    _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->alphaTexture = arg1;
+    _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture = arg1;
 
     reloadUi();
     checkPropValidity();
@@ -632,26 +632,26 @@ void wdgEditor::on_ledAlphaTexture_textChanged(const QString &arg1)
 
 void wdgEditor::on_btnAlphaTexture_clicked()
 {
-    if (!_font->selection.contains(FontCollection::FontSelection)) return;
-    if (_font->selection.value(FontCollection::FontSelection) == -1) return;
+    if (!_font->selection.contains(OCFont::FontCollection::FontSelection)) return;
+    if (_font->selection.value(OCFont::FontCollection::FontSelection) == -1) return;
 
     QString filename = QFileDialog::getOpenFileName(this, tr("Select alpha texture..."), set.read("main", "mainDir").toString() + "/Fonts", tr("Bitmap picture") + " (*.bmp)");
     if (filename.isEmpty()) return;
 
-    _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->alphaTexture = filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").size() + 1);
+    _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture = filename.remove(0, QString(set.read("main", "mainDir").toString() + "/Fonts").size() + 1);
 
-    if (ui->ledAlphaTexture->text() != _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->alphaTexture)
+    if (ui->ledAlphaTexture->text() != _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture)
         qDebug() << QString("New alpha texture: '%1'").arg(filename);
 
-    ui->ledAlphaTexture->setText(_font->fonts.at(_font->selection.value(FontCollection::FontSelection))->alphaTexture);
+    ui->ledAlphaTexture->setText(_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture);
 }
 
 void wdgEditor::on_sbxMaxHeigthOfChars_valueChanged(int arg1)
 {
-    if (!_font->selection.contains(FontCollection::FontSelection)) return;
-    if (_font->selection.value(FontCollection::FontSelection) == -1) return;
+    if (!_font->selection.contains(OCFont::FontCollection::FontSelection)) return;
+    if (_font->selection.value(OCFont::FontCollection::FontSelection) == -1) return;
 
-    _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->maxHeightOfChars = arg1;
+    _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->maxHeightOfChars = arg1;
 
     reloadUi();
     checkPropValidity();
@@ -661,10 +661,10 @@ void wdgEditor::on_sbxMaxHeigthOfChars_valueChanged(int arg1)
 
 void wdgEditor::on_sbxDistanceBetweenChars_valueChanged(int arg1)
 {
-    if (!_font->selection.contains(FontCollection::FontSelection)) return;
-    if (_font->selection.value(FontCollection::FontSelection) == -1) return;
+    if (!_font->selection.contains(OCFont::FontCollection::FontSelection)) return;
+    if (_font->selection.value(OCFont::FontCollection::FontSelection) == -1) return;
 
-    _font->fonts.at(_font->selection.value(FontCollection::FontSelection))->distanceBetweenChars = arg1;
+    _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->distanceBetweenChars = arg1;
 
     reloadUi();
     checkPropValidity();

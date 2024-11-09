@@ -13,11 +13,11 @@ class wEditGroundTexture : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit wEditGroundTexture(OCMap::Global::Texture tex, int index, QWidget *parent = nullptr);
+    explicit wEditGroundTexture(OCMap::Map::Global::Texture tex, int index, QWidget *parent = nullptr);
     ~wEditGroundTexture();
 
 signals:
-    void returnTexture(OCMap::Global::Texture texture, int index);
+    void returnTexture(OCMap::Map::Global::Texture texture, int index);
 
 private slots:
     void on_btnMainTex_clicked();
@@ -40,7 +40,7 @@ private:
 
     void reloadUI();
 
-    OCMap::Global::Texture texture = OCMap::Global::Texture();
+    OCMap::Map::Global::Texture texture = OCMap::Map::Global::Texture();
     int textureIndex;
 };
 

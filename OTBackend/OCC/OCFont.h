@@ -3,6 +3,8 @@
 
 #include "OCBase.h"
 
+namespace OCFont {
+
 class Character
 {
 public:
@@ -46,5 +48,9 @@ public:
 
     QMap<Selection, int> selection;
 };
+
+}
+
+
 
 #endif // OCFONT_H

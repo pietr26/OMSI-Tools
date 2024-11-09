@@ -3,7 +3,9 @@
 
 #include "OCBase.h"
 
-class OCMapPosition
+namespace OCMap {
+
+class Position
 {
 public:
     OCType::Coord2D<int> tile;
@@ -17,7 +19,7 @@ public:
     float distanceFromPosition;
 };
 
-class OCMap { // TODO: override clear function
+class Map : public OCBase::File { // TODO: override clear function
 public:
     class Global : public OCBase::File // global.cfg
     {
@@ -175,7 +177,7 @@ public:
 
         BackgroundImage bgImage;
 
-        OCMapPosition standardView;
+        Position standardView;
 
         QString currency;
 
@@ -600,7 +602,7 @@ public:
         }
     };
 
-    class Tile : public OCBase::File // map
+    class Tile // map
     {
     public:
         class Spline
@@ -664,7 +666,7 @@ public:
         QList<Sceneryobject> sceneryobjects;
     };
 
-    class UnschedTrafficDensitiesGroup : public OCBase::File // unsched_trafficdens.txt
+    class UnschedTrafficDensitiesGroup // unsched_trafficdens.txt
     {
     public:
         class day
@@ -688,7 +690,7 @@ public:
         QList<day> days;
     };
 
-    class UnschedVehicleGroup : public OCBase::File // unsched_vehgroups.txt
+    class UnschedVehicleGroup // unsched_vehgroups.txt
     {
     public:
         QString name;
@@ -804,7 +806,7 @@ public:
             public:
                 int ident = -1;
 
-                QList<OCMap::Tile::Spline::Rule> rules;
+                QList<OCMap::Map::Tile::Spline::Rule> rules;
 
                 bool isDeleted;
                 QString type; // optional new path for an spline
@@ -812,8 +814,8 @@ public:
 
             int version;
 
-            QList<OCMap::Tile::Spline> splines;
-            QList<OCMap::Tile::Sceneryobject> sceneryobjects;
+            QList<OCMap::Map::Tile::Spline> splines;
+            QList<OCMap::Map::Tile::Sceneryobject> sceneryobjects;
         };
 
         QString folderName;
@@ -899,7 +901,7 @@ public:
 
     };
 
-    class TTData : public OCBase::File
+    class TTData
     {
     public:
         class Trip
@@ -1129,6 +1131,15 @@ public:
 
             return Global::FileIOResponse::valid;
         }
+
+        Global::FileIOResponse write() {
+            // TODO
+        }
+
+        void clear() {
+            trips.clear();
+            lines.clear();
+        }
     };
 
     Global global;
@@ -1151,6 +1162,8 @@ public:
     inline static QString dir = "";
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(OCMap::TTData::Tour::Days);
+}
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(OCMap::Map::TTData::Tour::Days);
 
 #endif // OCMAP_H

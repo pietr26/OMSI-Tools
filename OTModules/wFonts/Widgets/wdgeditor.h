@@ -16,7 +16,7 @@ class wdgEditor : public QWidget
     Q_OBJECT
 
 public:
-    explicit wdgEditor(QWidget *parent, FontCollection *font);
+    explicit wdgEditor(QWidget *parent, OCFont::FontCollection *font);
     ~wdgEditor();
 
     QList<QAction*> actionsEdit;
@@ -77,7 +77,7 @@ private:
     OTSettings set;
     OTMessage msg;
 
-    FontCollection *_font;
+    OCFont::FontCollection *_font;
 
     enum Move
     {

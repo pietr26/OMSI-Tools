@@ -41,7 +41,7 @@ private slots:
 
     void on_btnEditPropterties_clicked();
 
-    void recieveGlobalProps(OCMap::Global globalProps);
+    void recieveGlobalProps(OCMap::Map::Global globalProps);
 
     void on_btnSave_clicked();
 
@@ -59,7 +59,7 @@ private:
 
     QPair<QString, QString> currentMap;
 
-    OCMap map;
+    OCMap::Map map;
 
     void enableUi(bool enable);
 };

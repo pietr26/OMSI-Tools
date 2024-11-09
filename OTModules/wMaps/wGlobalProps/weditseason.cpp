@@ -1,7 +1,7 @@
 #include "weditseason.h"
 #include "ui_weditseason.h"
 
-wEditSeason::wEditSeason(OCMap::Global::Season s, int index, QWidget *parent) :
+wEditSeason::wEditSeason(OCMap::Map::Global::Season s, int index, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wEditSeason)
 {
@@ -49,7 +49,7 @@ void wEditSeason::on_btnDiscard_clicked()
 
 void wEditSeason::on_cobxSeason_currentIndexChanged(int index)
 {
-    season.type = OCMap::Global::Season::Type(index);
+    season.type = OCMap::Map::Global::Season::Type(index);
 }
 
 
