@@ -701,35 +701,37 @@ public:
         return returnString;
     }
 
-    void loadTranslator()
+    void loadTranslator(QString contextIdentifier = "")
     {
         QTranslator *translator = new QTranslator();
         QTranslator *baseTranslator = new QTranslator();
 
         QString languageFile;
         QString baseLanguageFile;
+
         switch (read("main", "language").toInt())
         {
             //case 0: english
-            case 1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
-            case 2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
-            case 3: languageFile = "tr_it"; baseLanguageFile = "qtbase_it"; break;
-            case 4: languageFile = "tr_cs"; baseLanguageFile = "qtbase_cs"; break;
+            case  1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
+            case  2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
+            case  3: languageFile = "tr_it"; baseLanguageFile = "qtbase_it"; break;
+            case  4: languageFile = "tr_cs"; baseLanguageFile = "qtbase_cs"; break;
 
-            case 5: languageFile = "tr_et"; baseLanguageFile = "qtbase_en"; break;
-            case 6: languageFile = "tr_eo"; baseLanguageFile = "qtbase_en"; break;
-            case 7: languageFile = "tr_fi"; baseLanguageFile = "qtbase_fi"; break;
-            case 8: languageFile = "tr_is"; baseLanguageFile = "qtbase_en"; break;
-            case 9: languageFile = "tr_ja"; baseLanguageFile = "qtbase_ja"; break;
+            case  5: languageFile = "tr_et"; baseLanguageFile = "qtbase_en"; break;
+            case  6: languageFile = "tr_eo"; baseLanguageFile = "qtbase_en"; break;
+            case  7: languageFile = "tr_fi"; baseLanguageFile = "qtbase_fi"; break;
+            case  8: languageFile = "tr_is"; baseLanguageFile = "qtbase_en"; break;
+            case  9: languageFile = "tr_ja"; baseLanguageFile = "qtbase_ja"; break;
             case 10: languageFile = "tr_cy"; baseLanguageFile = "qtbase_en"; break;
         }
 
         if (languageFile != "")
         {
-            bool trLoad = translator->load(languageFile, ":/rec/data/translations/");
+            QString test = ":/rec/data/translations" + contextIdentifier + "/";
+            bool trLoad = translator->load(languageFile, ":/rec/data/translations" + contextIdentifier + "/");
             bool trInstall = qApp->installTranslator(translator);
 
-            bool baseTrLoad = baseTranslator->load(baseLanguageFile, ":/rec/data/translations/");
+            bool baseTrLoad = baseTranslator->load(baseLanguageFile, ":/rec/data/translationsBASE/");
             bool baseTrInstall = qApp->installTranslator(baseTranslator);
 
             if (trLoad && trInstall && baseTrLoad && baseTrInstall)
@@ -799,6 +801,18 @@ public:
 
         if (!read("WDT", "welcomeEN").isValid())
             write("WDT", "welcomeEN", "Hello");
+    }
+
+    void setPreferencesOnStartLFC()
+    {
+        bool themeLFCOk = false;
+        read("LFC", "theme").toString().toInt(&themeLFCOk);
+
+        if (!read("LFC", "language").isValid())
+            write("LFC", "language", 1);
+
+        if (!read("LFC", "theme").isValid() || themeLFCOk)
+            write("LFC", "theme", "Fusion");
     }
 
     QString getCurrentLanguageCode()

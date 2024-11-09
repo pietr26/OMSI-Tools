@@ -20,8 +20,6 @@
 #include "OTModules/wFbh/wdbcopyrights.h"
 #include "OTModules/wMaps/wmaps.h"
 #include "OTModules/wBugDoc/wbugdoc.h"
-#include "OTModules/wLFClient/wlfclientparticipant.h"
-#include "OTModules/wLFClient/wlfclientdispatcher.h"
 
 namespace Ui {
 class wStart;
@@ -90,10 +88,6 @@ private slots:
 
     void on_actionAboutQt_triggered();
 
-    void on_tbnLFClientDispatcher_clicked();
-
-    void on_tbnLFClientParticipant_clicked();
-
     void on_lblUpdate_linkActivated(const QString &link);
 
 private:
@@ -113,8 +107,6 @@ private:
     wMaps *WMAPS;
     wBugDoc *WBUGDOC;
     wDBKnownWords *WDBKNOWNWORDS;
-    wLFClientParticipant *WLFCLIENTPARTICIPANT;
-    wLFClientDispatcher *WLFCLIENTDISPATCHER;
     OTUpdater *updater = new OTUpdater();
 
     OTSettings set;

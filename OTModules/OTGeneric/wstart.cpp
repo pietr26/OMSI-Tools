@@ -394,22 +394,6 @@ void wStart::on_actionRoadmap_triggered() { QDesktopServices::openUrl(OTLinks::r
 
 void wStart::on_actionAboutQt_triggered() { QMessageBox::aboutQt(this); }
 
-void wStart::on_tbnLFClientDispatcher_clicked()
-{
-    WLFCLIENTDISPATCHER = new wLFClientDispatcher();
-    connect(WLFCLIENTDISPATCHER, &wLFClientDispatcher::backToHome, this, &wStart::reopen);
-    WLFCLIENTDISPATCHER->show();
-    close();
-}
-
-void wStart::on_tbnLFClientParticipant_clicked()
-{
-    WLFCLIENTPARTICIPANT = new wLFClientParticipant();
-    connect(WLFCLIENTPARTICIPANT, &wLFClientParticipant::backToHome, this, &wStart::reopen);
-    WLFCLIENTPARTICIPANT->show();
-    close();
-}
-
 void wStart::on_lblUpdate_linkActivated(const QString &link)
 {
     Q_UNUSED(link);

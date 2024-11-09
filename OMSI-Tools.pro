@@ -24,7 +24,6 @@ SOURCES += \
     OTBackend/DiscordGameSDK/types.cpp \
     OTBackend/DiscordGameSDK/user_manager.cpp \
     OTBackend/DiscordGameSDK/voice_manager.cpp \
-    OTBackend/LFClientAPIInterface/lfclientapiinterface.cpp \
     OTBackend/OCC/OCBase.cpp \
     OTBackend/OCC/OCDriver.cpp \
     OTBackend/OCC/OCFont.cpp \
@@ -71,17 +70,6 @@ SOURCES += \
     OTModules/wFonts/Widgets/wdgeditor.cpp \
     OTModules/wFonts/Widgets/wdgpreview.cpp \
     OTModules/wFonts/wfonts.cpp \
-    OTModules/wLFClient/Widgets/wdgactions.cpp \
-    OTModules/wLFClient/Widgets/wdginformation.cpp \
-    OTModules/wLFClient/Widgets/wdgmanagetrips.cpp \
-    OTModules/wLFClient/Widgets/wdgmanageusers.cpp \
-    OTModules/wLFClient/Widgets/wdgnotification.cpp \
-    OTModules/wLFClient/Widgets/wdgnotifications.cpp \
-    OTModules/wLFClient/Widgets/wdgtrip.cpp \
-    OTModules/wLFClient/Widgets/wdgtrips.cpp \
-    OTModules/wLFClient/wlfclientdispatcher.cpp \
-    OTModules/wLFClient/wlfclientparticipant.cpp \
-    OTModules/wLFClient/wlogin.cpp \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp \
     OTModules/wMaps/wGlobalProps/weditseason.cpp \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
@@ -124,7 +112,6 @@ HEADERS += \
     OTBackend/DiscordGameSDK/types.h \
     OTBackend/DiscordGameSDK/user_manager.h \
     OTBackend/DiscordGameSDK/voice_manager.h \
-    OTBackend/LFClientAPIInterface/lfclientapiinterface.h \
     OTBackend/OCC/OCBase.h \
     OTBackend/OCC/OCDriver.h \
     OTBackend/OCC/OCFont.h \
@@ -175,17 +162,6 @@ HEADERS += \
     OTModules/wFonts/Widgets/wdgeditor.h \
     OTModules/wFonts/Widgets/wdgpreview.h \
     OTModules/wFonts/wfonts.h \
-    OTModules/wLFClient/Widgets/wdgactions.h \
-    OTModules/wLFClient/Widgets/wdginformation.h \
-    OTModules/wLFClient/Widgets/wdgmanagetrips.h \
-    OTModules/wLFClient/Widgets/wdgmanageusers.h \
-    OTModules/wLFClient/Widgets/wdgnotification.h \
-    OTModules/wLFClient/Widgets/wdgnotifications.h \
-    OTModules/wLFClient/Widgets/wdgtrip.h \
-    OTModules/wLFClient/Widgets/wdgtrips.h \
-    OTModules/wLFClient/wlfclientdispatcher.h \
-    OTModules/wLFClient/wlfclientparticipant.h \
-    OTModules/wLFClient/wlogin.h \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.h \
     OTModules/wMaps/wGlobalProps/weditseason.h \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
@@ -227,17 +203,6 @@ FORMS += \
     OTModules/wFonts/Widgets/wdgeditor.ui \
     OTModules/wFonts/Widgets/wdgpreview.ui \
     OTModules/wFonts/wfonts.ui \
-    OTModules/wLFClient/Widgets/wdgactions.ui \
-    OTModules/wLFClient/Widgets/wdginformation.ui \
-    OTModules/wLFClient/Widgets/wdgmanagetrips.ui \
-    OTModules/wLFClient/Widgets/wdgmanageusers.ui \
-    OTModules/wLFClient/Widgets/wdgnotification.ui \
-    OTModules/wLFClient/Widgets/wdgnotifications.ui \
-    OTModules/wLFClient/Widgets/wdgtrip.ui \
-    OTModules/wLFClient/Widgets/wdgtrips.ui \
-    OTModules/wLFClient/wlfclientdispatcher.ui \
-    OTModules/wLFClient/wlfclientparticipant.ui \
-    OTModules/wLFClient/wlogin.ui \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.ui \
     OTModules/wMaps/wGlobalProps/weditseason.ui \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
