@@ -8,8 +8,6 @@
         <file>data/icons/wCleanup.svg</file>
         <file>data/translations/tr_de.qm</file>
         <file>data/translations/tr_fr.qm</file>
-        <file>data/translations/qtbase_de.qm</file>
-        <file>data/translations/qtbase_fr.qm</file>
         <file>data/icons/webdisk-tools.png</file>
         <file>data/icons/markBlue.svg</file>
         <file>data/icons/wMaps.svg</file>
@@ -23,13 +21,9 @@
         <file>data/flags/fi.svg</file>
         <file>data/flags/fr.svg</file>
         <file>data/flags/ja.svg</file>
-        <file>data/translations/qtbase_cs.qm</file>
         <file>data/translations/tr_cs.qm</file>
         <file>data/translations/tr_cs.ts</file>
         <file>data/flags/cs.svg</file>
-        <file>data/translations/qtbase_fi.qm</file>
-        <file>data/translations/qtbase_ja.qm</file>
-        <file>data/translations/qtbase_en.qm</file>
         <file>data/icons/christmas.svg</file>
         <file>data/base-gitignore.txt</file>
         <file>data/external/texconv.exe</file>
@@ -42,5 +36,14 @@
         <file>data/translations/tr_fr.ts</file>
         <file>data/translations/tr_ja.qm</file>
         <file>data/icons/markYellow.svg</file>
+        <file>data/translationsBASE/qtbase_cs.qm</file>
+        <file>data/translationsBASE/qtbase_de.qm</file>
+        <file>data/translationsBASE/qtbase_en.qm</file>
+        <file>data/translationsBASE/qtbase_fi.qm</file>
+        <file>data/translationsBASE/qtbase_fr.qm</file>
+        <file>data/translationsBASE/qtbase_ja.qm</file>
+        <file>data/translationsLFC/tr_de.ts</file>
+        <file>data/icons/lfclient.ico</file>
+        <file>data/icons/lfclient.png</file>
     </qresource>
 </RCC>
