@@ -24,8 +24,9 @@ wFirstSetup::wFirstSetup(QWidget *parent)
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fr.svg"), OTStrings::langFr); // 2
 
     ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/cs.svg"), OTStrings::langCs); // 3
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fi.svg"), OTStrings::langFi); // 4
-    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/ja.svg"), OTStrings::langJa); // 5
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/nl.svg"), OTStrings::langNl); // 4
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/fi.svg"), OTStrings::langFi); // 5
+    ui->cobxLanguage->addItem(QIcon(":/rec/data/flags/ja.svg"), OTStrings::langJa); // 6
 
     // Disable languages:
     auto* model = qobject_cast<QStandardItemModel*>(ui->cobxLanguage->model());
@@ -33,8 +34,9 @@ wFirstSetup::wFirstSetup(QWidget *parent)
     // model->item(1)->setEnabled(false); // de
     // model->item(2)->setEnabled(false); // fr
     // model->item(3)->setEnabled(false); // cs
-    model->item(4)->setEnabled(false); // fi
-    model->item(5)->setEnabled(false); // ja
+    // model->item(4)->setEnabled(false); // nl
+    model->item(5)->setEnabled(false); // fi
+    model->item(6)->setEnabled(false); // ja
 
     /// --------------------------------------------------------------------------------
 

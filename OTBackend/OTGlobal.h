@@ -714,15 +714,11 @@ public:
             //case 0: english
             case  1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
             case  2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
-            case  3: languageFile = "tr_it"; baseLanguageFile = "qtbase_it"; break;
-            case  4: languageFile = "tr_cs"; baseLanguageFile = "qtbase_cs"; break;
+            case  3: languageFile = "tr_cs"; baseLanguageFile = "qtbase_cs"; break;
+            case  4: languageFile = "tr_nl"; baseLanguageFile = "qtbase_nl"; break;
 
-            case  5: languageFile = "tr_et"; baseLanguageFile = "qtbase_en"; break;
-            case  6: languageFile = "tr_eo"; baseLanguageFile = "qtbase_en"; break;
             case  7: languageFile = "tr_fi"; baseLanguageFile = "qtbase_fi"; break;
-            case  8: languageFile = "tr_is"; baseLanguageFile = "qtbase_en"; break;
             case  9: languageFile = "tr_ja"; baseLanguageFile = "qtbase_ja"; break;
-            case 10: languageFile = "tr_cy"; baseLanguageFile = "qtbase_en"; break;
         }
 
         if (languageFile != "")
@@ -1001,6 +997,7 @@ public:
     static inline const QString langDe = "Deutsch (German)";
     static inline const QString langIt = "Italiano (Italian)";
     static inline const QString langJa = "日本語 (Japanese)";
+    static inline const QString langNl = "Nederlands (Dutch)";
 
     static inline const QString textureSuffixes = QObject::tr("Images") + " (*.png *.jpg *.jpeg *.bmp *.dds)";
 

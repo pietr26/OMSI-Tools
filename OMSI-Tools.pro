@@ -231,7 +231,9 @@ TRANSLATIONS += \
     data/translations/tr_fr.ts \
     data/translations/tr_cs.ts \
     data/translations/tr_fi.ts \
-    data/translations/tr_ja.ts
+    data/translations/tr_ja.ts \
+    data/translations/tr_nl.ts
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

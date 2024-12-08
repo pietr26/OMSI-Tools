@@ -45,5 +45,6 @@
         <file>data/translationsLFC/tr_de.ts</file>
         <file>data/icons/lfclient.ico</file>
         <file>data/icons/lfclient.png</file>
+        <file>data/flags/nl.svg</file>
     </qresource>
 </RCC>

@@ -19,22 +19,22 @@
         <translation>&apos;Omsi.exe&apos; n&apos;a pas pu être trouvé dans le répertoire sélectionné. Le chemin d&apos;accès est-il correct ? Dans le cas contraire, des problèmes peuvent apparaître dans certains modules. Faut-il sélectionner un nouveau chemin d&apos;accès ?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="849"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="850"/>
         <source>There was an error while open the temporary database. Please try it again or contact the developer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="899"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="900"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
         <translation>Le fichier sélectionné n&apos;existe pas ou est protégé en lecture.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="908"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="909"/>
         <source>There are no chars in the font.</source>
         <translation>Il n&apos;y a pas de caractères dans la police.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="980"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="981"/>
         <source>Bytes</source>
         <translation>l&apos;octet</translation>
     </message>
@@ -60,12 +60,12 @@
         <translation>Sélectionnez le répertoire principal de l&apos;OMSI...</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="855"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="856"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
         <translation>Pour continuer, l&apos;application a besoin du répertoire principal de l&apos;OMSI. Faut-il le faire maintenant ?</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="913"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="914"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
         <translation>Il y a eu une erreur de sauvegarde &apos;%1&apos;. Si OMSI est en cours d&apos;exécution, veuillez le fermer et réessayer.</translation>
     </message>
@@ -85,18 +85,18 @@
         <translation>Impossible de trouver &quot;Omsi.exe&quot;</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="865"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="886"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="866"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="887"/>
         <source>Unsaved changes</source>
         <translation>Modifications non sauvegardées</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="865"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <source>There are unsaved changes.</source>
         <translation>Il y a des changements non sauvés.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="886"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="887"/>
         <source>There are unsaved changes. Close anyway?</source>
         <translation>Il y a des changements non sauvés. Fermer quand même ?</translation>
     </message>
@@ -126,120 +126,120 @@
         <translation>L&apos;hiver profond</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1008"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1010"/>
         <source>The source code of %1 is about %2 lines long.</source>
         <translation>Le code source de %1 fait environ %2 lignes.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1009"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1011"/>
         <source>%1 was born from a simple console application called &quot;Font Creator&quot;.</source>
         <translation>%1 est né d&apos;une simple application console appelée &quot;Font Creator&quot;.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1011"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1013"/>
         <source>In the &lt;a href=&apos;%2&apos;&gt;Wiki of %1&lt;/a&gt; you can find useful explanations about all topics.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1012"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1014"/>
         <source>Check out the latest developments in the &lt;a href=&apos;%1&apos;&gt;presentation thread in the OMSI-WebDisk&lt;/a&gt;.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1013"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1015"/>
         <source>Your hard disk is crowded? Clean up your main directory with %1&apos; cleanup tool.</source>
         <translation>Votre disque dur est encombré ? Nettoyez votre répertoire principal avec l&apos;outil de nettoyage %1.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="855"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="856"/>
         <source>OMSI main directory not found</source>
         <translation>Le répertoire principal de l&apos;OMSI est introuvable</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="899"/>
-        <location filename="../../OTBackend/OTGlobal.h" line="903"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="900"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="904"/>
         <source>Error while opening file</source>
         <translation>Erreur lors de l&apos;ouverture d&apos;un fichier</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="903"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="904"/>
         <source>There was an error while opening &apos;%1&apos;. If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
         <translation>Une erreur s&apos;est produite lors de l&apos;ouverture de &apos;%1&apos;. Si OMSI est en cours d&apos;exécution, veuillez le fermer et réessayer. En outre, vérifiez si le fichier existe toujours.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="908"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="909"/>
         <source>No chars in font</source>
         <translation>Pas de caractères dans la police</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="913"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="914"/>
         <source>Save error</source>
         <translation>Erreur de sauvegarde</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="918"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="919"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
         <translation>Ce module est malheureusement encore désactivé par manque de temps dans les développements. Merci de rester à l&apos;affût des nouvelles mises à jour dans les prochains jours.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="918"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="919"/>
         <source>Module still deactivated</source>
         <translation>Module encore désactivé</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="981"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="982"/>
         <source>kB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
         <translation>kO</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="982"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="983"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
         <translation>Mo</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="983"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="984"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
         <translation>Go</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="984"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="985"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
         <translation>To</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="985"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="986"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
         <translation>Po</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1000"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1002"/>
         <source>Images</source>
         <translation>Images</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1010"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1012"/>
         <source>With the updater of %1 you can install updates with one click. It is available through the preferences.</source>
         <translation>L&apos;updater de %1 vous permet d&apos;installer des mises à jour en un seul clic. Il est disponible dans les préférences.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1014"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1016"/>
         <source>You&apos;ve started %1 about %2 times.</source>
         <translation>Vous avez démarré %1 environ %2 fois.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1018"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1020"/>
         <source>The application server is currently undergoing maintenance (HTTP 503). Please try again later.</source>
         <translation>Le serveur d&apos;application est en cours de maintenance (HTTP 503). Veuillez réessayer plus tard.</translation>
     </message>
     <message>
-        <location filename="../../OTBackend/OTGlobal.h" line="1034"/>
+        <location filename="../../OTBackend/OTGlobal.h" line="1036"/>
         <source>Windows standard</source>
         <translation>Standard Windows</translation>
     </message>
@@ -1817,7 +1817,7 @@ Il s&apos;agit d&apos;une version alpha du module. Veuillez créer une sauvegard
         <translation>Fenêtre</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="248"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="252"/>
         <source>Delete all backups</source>
         <translation>Supprimer toutes les sauvegardes</translation>
     </message>
@@ -1869,8 +1869,8 @@ Il s&apos;agit d&apos;une version alpha du module. Veuillez créer une sauvegard
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="449"/>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="289"/>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="293"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="297"/>
         <source>Reset preferences</source>
         <translation>Réinitialiser les préférences</translation>
     </message>
@@ -1880,12 +1880,12 @@ Il s&apos;agit d&apos;une version alpha du module. Veuillez créer une sauvegard
         <translation>Vérification des cartes</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="42"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="46"/>
         <source>Calculating...</source>
         <translation>Calculer...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="50"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="54"/>
         <source>Off</source>
         <translation>Off</translation>
     </message>
@@ -1895,67 +1895,67 @@ Il s&apos;agit d&apos;une version alpha du module. Veuillez créer une sauvegard
         <translation>préférences</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="50"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="54"/>
         <source>Standard (recommended)</source>
         <translation>Standard (recommandé)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="273"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="277"/>
         <source>Maintenance</source>
         <translation>Maintenance</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="275"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="279"/>
         <source>Failed</source>
         <translation>Échec</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="277"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="281"/>
         <source>Finshed</source>
         <translation>Enveloppé</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="289"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="293"/>
         <source>Should all preferences be reset? This action cannot be undone! Any preferences will be deleted. However, files such as backups are not affected.</source>
         <translation>Faut-il réinitialiser toutes les préférences ? Cette action ne peut être annulée ! Toutes les préférences seront supprimées. Toutefois, les fichiers tels que les sauvegardes ne sont pas affectés.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="293"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="297"/>
         <source>The application will now restart.</source>
         <translation>L&apos;application va maintenant redémarrer.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="312"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="316"/>
         <source>More languages</source>
         <translation>Plus de langues</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="355"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="359"/>
         <source>To fully apply all changed preferences, the application requires a restart.</source>
         <translation>Pour appliquer pleinement toutes les préférences modifiées, l&apos;application doit être redémarrée.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="355"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="359"/>
         <source>Restart required</source>
         <translation>Redémarrage nécessaire</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="248"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="252"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
         <translation>Faut-il supprimer toutes les sauvegardes ? Elles seront déplacées vers la corbeille.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="275"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="279"/>
         <source>Could not check for updates. Please check your internet connection and try again.</source>
         <translation>Impossible de vérifier les mises à jour. Veuillez vérifier votre connexion internet et réessayer.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="277"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="281"/>
         <source>No updates available.</source>
         <translation>Aucune mise à jour disponible.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="312"/>
+        <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="316"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
         <translation>Vous voulez avoir plus de langues parmi lesquelles choisir ? Malheureusement, il n&apos;y a pas plus de langues pour le moment. Mais si vous connaissez bien une langue, vous êtes le bienvenu pour traduire %1 ! Veuillez contacter le développeur à l&apos;OMSI WebDisk, également si vous avez d&apos;autres questions.</translation>
@@ -2228,173 +2228,131 @@ En fonction des performances de l&apos;ordinateur et de la connexion internet, c
 <context>
     <name>wVerifyMap</name>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1082"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="162"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1617"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="170"/>
         <source>Start verifying</source>
         <translation>Commencer à vérifier</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="147"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="153"/>
         <source>Overview and statistics about the map</source>
         <translation>Vue d&apos;ensemble et statistiques sur la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="150"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="156"/>
         <source>Overview</source>
         <translation>Vue d&apos;ensemble</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="502"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="606"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="683"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="763"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="837"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="911"/>
-        <source>All:</source>
-        <translation>Tous :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="556"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="639"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="867"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="941"/>
-        <source>Missing:</source>
-        <translation>Manquant :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="898"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="718"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1493"/>
         <source>Humans</source>
         <translation>Humains</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="489"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="355"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1214"/>
         <source>Tiles</source>
         <translation>Carreaux</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="213"/>
-        <source>Total:</source>
-        <translation>Total :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="171"/>
-        <source>Tiles:</source>
-        <translation>Carreaux :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="275"/>
-        <source>Vehicles:</source>
-        <translation>Véhicules :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="403"/>
-        <source>Sceneryobjects:</source>
-        <translation>Objets de décor :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="259"/>
-        <source>Splines:</source>
-        <translation>Splines :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="187"/>
-        <source>Textures:</source>
-        <translation>Textures :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="298"/>
-        <source>Missing (or invalid):</source>
-        <translation>Manquant (ou invalide) :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="354"/>
-        <source>Humans:</source>
-        <translation>Les humains :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="670"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="496"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1343"/>
         <source>Sceneryobjects</source>
         <translation>Objets du paysage</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="750"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="214"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1397"/>
         <source>Splines</source>
         <translation>Cannelures</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="824"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1006"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1445"/>
         <source>Vehicles</source>
         <translation>Véhicules</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="667"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1340"/>
         <source>Sceneryobjects on the map</source>
         <translation>Objets de paysage sur la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="101"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="107"/>
         <source>Start!</source>
         <translation>Commencez !</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="716"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="793"/>
-        <source>Missing / invalid:</source>
-        <translation>Manquant / invalide :</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="747"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1394"/>
         <source>Splines on the map</source>
         <translation>Splines sur la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="821"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1442"/>
         <source>AI vehicles on the map</source>
         <translation>Véhicules AI sur la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="895"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1490"/>
         <source>Humans on the map</source>
         <translation>Les humains sur la carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1041"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1576"/>
         <source>Map</source>
         <translation>Carte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1050"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1585"/>
         <source>Specials</source>
         <translation>Spéciaux</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1071"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1606"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1118"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1653"/>
         <source>Back to home</source>
         <translation>Retour à l&apos;accueil</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="593"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="862"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1292"/>
         <source>Textures</source>
         <translation>Textures</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1057"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1107"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="192"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="262"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="333"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="403"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="474"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="544"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="693"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="766"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="837"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="910"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="981"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1054"/>
+        <source>0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1592"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1642"/>
         <source>Help</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1093"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1628"/>
         <source>Preferences...</source>
         <translation>Préférences...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1096"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1631"/>
         <source>Preferences</source>
         <translation>Préférences</translation>
     </message>
@@ -2415,27 +2373,27 @@ En fonction des performances de l&apos;ordinateur et de la connexion internet, c
         <translation>Appuyez sur %1 pour lancer la vérification.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="164"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="172"/>
         <source>Running...</source>
         <translation>Courir...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="196"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="204"/>
         <source>The selected map file doesn&apos;t exist.</source>
         <translation>Le fichier de carte sélectionné n&apos;existe pas.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="196"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="204"/>
         <source>Map file doesn&apos;t exist</source>
         <translation>Le fichier de carte n&apos;existe pas</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="358"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="366"/>
         <source>Verification finished.</source>
         <translation>Vérification terminée.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="433"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="441"/>
         <source>Reloaded map list.</source>
         <translation>Liste des cartes rechargées.</translation>
     </message>
