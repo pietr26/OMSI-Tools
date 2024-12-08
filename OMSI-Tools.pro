@@ -26,6 +26,7 @@ SOURCES += \
     OTBackend/DiscordGameSDK/voice_manager.cpp \
     OTBackend/OCC/OCBase.cpp \
     OTBackend/OCC/OCDriver.cpp \
+    OTBackend/OCC/OCFS.cpp \
     OTBackend/OCC/OCFont.cpp \
     OTBackend/OCC/OCGameControler.cpp \
     OTBackend/OCC/OCHuman.cpp \
@@ -114,6 +115,7 @@ HEADERS += \
     OTBackend/DiscordGameSDK/voice_manager.h \
     OTBackend/OCC/OCBase.h \
     OTBackend/OCC/OCDriver.h \
+    OTBackend/OCC/OCFS.h \
     OTBackend/OCC/OCFont.h \
     OTBackend/OCC/OCGameControler.h \
     OTBackend/OCC/OCHuman.h \

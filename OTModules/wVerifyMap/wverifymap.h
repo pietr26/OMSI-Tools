@@ -7,6 +7,7 @@
 #include "OTWidgets/verifymaptools.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
+#include "OTBackend/OCC/OCFS.h"
 #include <QListWidgetItem>
 #include <QKeySequence>
 #include <QKeyEvent>
