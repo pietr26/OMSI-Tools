@@ -77,18 +77,6 @@ private slots:
 
     void on_btnVerificationPreferences_clicked();
 
-    void on_btnToTextures_clicked();
-
-    void on_btnToObjects_clicked();
-
-    void on_btnToSplines_clicked();
-
-    void on_btnToVehicles_clicked();
-
-    void on_btnToHumans_clicked();
-
-    void on_btnToTiles_clicked();
-
 signals:
     void backToHome();
 
@@ -118,7 +106,6 @@ private:
     bool mapListSetupFinished = false;
     void enableView(bool enable);
 
-    void setToButtons();
 };
 
 #endif // WVERIFYMAP_H

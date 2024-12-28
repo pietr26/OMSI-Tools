@@ -52,15 +52,19 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     ui->lwgHumansAll->installEventFilter(new EventFilterCopyElements(ui->lwgHumansAll));
     ui->lwgHumansMissing->installEventFilter(new EventFilterCopyElements(ui->lwgHumansMissing));
 
-    ui->lblIconTiles->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::ApplicationExit).pixmap(32));
-    ui->lblIconObjects->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::ApplicationExit).pixmap(32));
-    ui->lblIconSplines->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::ApplicationExit).pixmap(32));
-    ui->lblIconVehicles->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::ApplicationExit).pixmap(32));
-    ui->lblIconHumans->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::ApplicationExit).pixmap(32));
-    ui->lblIconTextures->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::ApplicationExit).pixmap(32));
-
-
-    setToButtons();
+    // Set overview tiles
+    ui->wdgTiles->setName(tr("Tiles"));
+    ui->wdgSceneryobjects->setName(tr("Sceneryobjects"));
+    ui->wdgSplines->setName(tr("Splines"));
+    ui->wdgVehicles->setName(tr("Vehicles"));
+    ui->wdgHumans->setName(tr("Humans"));
+    ui->wdgTextures->setName(tr("Textures"));
+    connect(ui->wdgTiles, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(1); });
+    connect(ui->wdgSceneryobjects, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(2); });
+    connect(ui->wdgSplines, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(3); });
+    connect(ui->wdgVehicles, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(4); });
+    connect(ui->wdgHumans, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(5); });
+    connect(ui->wdgTextures, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(6); });
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -116,25 +120,14 @@ void wVerifyMap::selectAllAndClear()
     ui->lwgHumansMissing->selectAll();
     qDeleteAll (ui->lwgHumansMissing->selectedItems());
 
-    // Clear all lineEdits:
-    ui->lblTotalTiles->clear();
-    ui->lblMissingTiles->clear();
-    ui->lblTotalTextures->clear();
-    ui->lblMissingTextures->clear();
-
-    ui->lblTotalObjects->clear();
-    ui->lblMissingObjects->clear();
-    ui->lblTotalSplines->clear();
-    ui->lblMissingSplines->clear();
-
-    ui->lblTotalHumans->clear();
-    ui->lblMissingHumans->clear();
-    ui->lblTotalVehicles->clear();
-    ui->lblMissingVehicles->clear();
-
     ui->pgbProgress->setVisible(false);
 
-    setToButtons();
+    ui->wdgTiles->clear();
+    ui->wdgSceneryobjects->clear();
+    ui->wdgSplines->clear();
+    ui->wdgVehicles->clear();
+    ui->wdgHumans->clear();
+    ui->wdgTextures->clear();
 }
 
 
@@ -170,16 +163,6 @@ void wVerifyMap::enableView(bool enable)
         ui->btnStartVerifying->setText(tr("Start verifying"));
     else
         ui->btnStartVerifying->setText(tr("Running..."));
-}
-
-void wVerifyMap::setToButtons()
-{
-    ui->btnToTiles->setVisible(ui->lblMissingTiles->text() != "0");
-    ui->btnToTextures->setVisible(ui->lblMissingTextures->text() != "0");
-    ui->btnToObjects->setVisible(ui->lblMissingObjects->text() != "0");
-    ui->btnToSplines->setVisible(ui->lblMissingSplines->text() != "0");
-    ui->btnToVehicles->setVisible(ui->lblMissingVehicles->text() != "0");
-    ui->btnToHumans->setVisible(ui->lblMissingHumans->text() != "0");
 }
 
 void wVerifyMap::on_btnStartVerifying_clicked()
@@ -280,8 +263,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->lwgTilesMissing->addItems(filehandler.stuffobj.missing.tiles);
         ui->lwgTilesMissing->sortItems();
 
-        ui->lblTotalTiles->setText(QString::number(ui->lwgTilesAll->count()));
-        ui->lblMissingTiles->setText(QString::number(ui->lwgTilesMissing->count()));
+        ui->wdgTiles->setCount(ui->lwgTilesAll->count());
+        ui->wdgTiles->setMissing(ui->lwgTilesMissing->count());
 
         QStringList textures;
         QStringList missingTextures;
@@ -306,8 +289,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->lwgTexturesMissing->addItems(missingTextures);
         ui->lwgTexturesMissing->sortItems();
 
-        ui->lblTotalTextures->setText(QString::number(ui->lwgTexturesAll->count()));
-        ui->lblMissingTextures->setText(QString::number(ui->lwgTexturesMissing->count()));
+        ui->wdgTextures->setCount(ui->lwgTexturesAll->count());
+        ui->wdgTextures->setMissing(ui->lwgTexturesMissing->count());
 
         // SCO:
         QStringList objects = filehandler.stuffobj.missing.sceneryobjects + filehandler.stuffobj.existing.sceneryobjects;
@@ -318,8 +301,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->lwgObjectsMissing->addItems(filehandler.stuffobj.missing.sceneryobjects);
         ui->lwgObjectsMissing->sortItems();
 
-        ui->lblTotalObjects->setText(QString::number(ui->lwgObjectsAll->count()));
-        ui->lblMissingObjects->setText(QString::number(ui->lwgObjectsMissing->count()));
+        ui->wdgSceneryobjects->setCount(ui->lwgObjectsAll->count());
+        ui->wdgSceneryobjects->setMissing(ui->lwgObjectsMissing->count());
 
         // SLI:
         QStringList splines = filehandler.stuffobj.missing.splines + filehandler.stuffobj.existing.splines;
@@ -330,8 +313,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->lwgSplinesMissing->addItems(filehandler.stuffobj.missing.splines);
         ui->lwgSplinesMissing->sortItems();
 
-        ui->lblTotalSplines->setText(QString::number(ui->lwgSplinesAll->count()));
-        ui->lblMissingSplines->setText(QString::number(ui->lwgSplinesMissing->count()));
+        ui->wdgSplines->setCount(ui->lwgSplinesAll->count());
+        ui->wdgSplines->setMissing(ui->lwgSplinesMissing->count());
 
         // VEH:
         QStringList vehicles = filehandler.stuffobj.missing.vehicles + filehandler.stuffobj.existing.vehicles;
@@ -342,8 +325,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->lwgVehiclesMissing->addItems(filehandler.stuffobj.missing.vehicles);
         ui->lwgVehiclesMissing->sortItems();
 
-        ui->lblTotalVehicles->setText(QString::number(ui->lwgVehiclesAll->count()));
-        ui->lblMissingVehicles->setText(QString::number(ui->lwgVehiclesMissing->count()));
+        ui->wdgVehicles->setCount(ui->lwgVehiclesAll->count());
+        ui->wdgVehicles->setMissing(ui->lwgVehiclesMissing->count());
 
         // HUM:
         QStringList humans = filehandler.stuffobj.missing.humans + filehandler.stuffobj.existing.humans;
@@ -354,8 +337,8 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         ui->lwgHumansMissing->addItems(filehandler.stuffobj.missing.humans);
         ui->lwgHumansMissing->sortItems();
 
-        ui->lblTotalHumans->setText(QString::number(ui->lwgHumansAll->count()));
-        ui->lblMissingHumans->setText(QString::number(ui->lwgHumansMissing->count()));
+        ui->wdgHumans->setCount(ui->lwgHumansAll->count());
+        ui->wdgHumans->setMissing(ui->lwgHumansMissing->count());
 
         // ----------
 
@@ -372,7 +355,6 @@ void wVerifyMap::endVerifying()
 {
     startEndWatchProgress(false);
     enableView(true);
-    setToButtons();
 }
 
 void wVerifyMap::on_actionClose_triggered()
@@ -446,15 +428,3 @@ void wVerifyMap::on_actionBackToHome_triggered()
     close();
     emit backToHome();
 }
-
-void wVerifyMap::on_btnToTiles_clicked() { ui->twgVerfying->setCurrentIndex(1); }
-
-void wVerifyMap::on_btnToTextures_clicked() { ui->twgVerfying->setCurrentIndex(2); }
-
-void wVerifyMap::on_btnToObjects_clicked() { ui->twgVerfying->setCurrentIndex(3); }
-
-void wVerifyMap::on_btnToSplines_clicked() { ui->twgVerfying->setCurrentIndex(4); }
-
-void wVerifyMap::on_btnToVehicles_clicked() { ui->twgVerfying->setCurrentIndex(5); }
-
-void wVerifyMap::on_btnToHumans_clicked() { ui->twgVerfying->setCurrentIndex(6); }
