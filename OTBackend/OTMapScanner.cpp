@@ -35,11 +35,13 @@ void OTMapChecker::run() {
             locker.unlock();
 
             for(QString file : files) {
-                int type; //0 = Sceneryobject / 1 = Spline
+                int type; //0 = Sceneryobject / 1 = Spline / 2 = human
                 if(file.endsWith(".sco")) {
                     type = 0;
                 } else if(file.endsWith(".sli")) {
                     type = 1;
+                } else if(file.endsWith(".hum")) {
+                    type = 2;
                 } else {
                     qWarning() << "Unkown file type" << file;
                     continue;
@@ -51,10 +53,14 @@ void OTMapChecker::run() {
                 if(type == 1 && _allSplines.contains(file))
                     continue;
 
+                if(type == 2 && _allHumans.contains(file))
+                    continue;
+
                 if(!QFile::exists(_omsiDir + "/" + file)) {
                     switch(type) {
                         case 0: _missingSceneryobjects << file; break;
                         case 1: _missingSplines        << file; break;
+                        case 2: _missingHumans         << file; break;
                         default: break;
                     }
                 }
@@ -62,6 +68,7 @@ void OTMapChecker::run() {
                 switch(type) {
                 case 0: _allSceneryobjects << file; break;
                 case 1: _allSplines        << file; break;
+                case 2: _allHumans         << file; break;
                 default: break;
                 }
             }
@@ -99,12 +106,20 @@ QStringList OTMapChecker::allSplines() const {
     return _allSplines;
 }
 
+QStringList OTMapChecker::allHumans() const {
+    return _allHumans;
+}
+
 QStringList OTMapChecker::missingSceneryobjects() const {
     return _missingSceneryobjects;
 }
 
 QStringList OTMapChecker::missingSplines() const {
     return _missingSplines;
+}
+
+QStringList OTMapChecker::missingHumans() const {
+    return _missingHumans;
 }
 
 int OTMapChecker::allSceneryobjectsCount() const {
@@ -115,12 +130,20 @@ int OTMapChecker::allSplinesCount() const {
     return _allSplines.count();
 }
 
+int OTMapChecker::allHumansCount() const {
+    return _allHumans.count();
+}
+
 int OTMapChecker::missingSceneryobjectsCount() const {
     return _missingSceneryobjects.count();
 }
 
 int OTMapChecker::missingSplinesCount() const {
     return _missingSplines.count();
+}
+
+int OTMapChecker::missingHumansCount() {
+    return _missingHumans.count();
 }
 
 // ------------------------------------------------------------------------
@@ -135,6 +158,7 @@ void OTMapScanner::run() {
     _missingTiles.clear();
     scanGlobal();
     scanParkLists();
+    scanHumans();
 
     int tileCount = _allTiles.count();
     emit initActionCount(tileCount);
@@ -205,6 +229,28 @@ void OTMapScanner::scanParkLists() {
         _checker->addToQueue(list);
         i++;
     }
+}
+
+void OTMapScanner::scanHumans() {
+    QString path = _mapDir + "/humans.txt";
+    QFile f(path);
+    if(!f.exists()) {
+        qWarning() << "humans.txt not found!";
+        return;
+    }
+
+    if(!f.open(QFile::ReadOnly)) {
+        qWarning() << "Could not open humans.txt";
+        return;
+    }
+
+    QTextStream s(&f);
+    QStringList list;
+    while(!s.atEnd()) {
+        list << s.readLine();
+    }
+    f.close();
+    _checker->addToQueue(list);
 }
 
 void OTMapScanner::scanTile(const QString &filename) {

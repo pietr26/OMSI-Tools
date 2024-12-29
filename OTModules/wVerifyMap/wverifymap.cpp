@@ -207,11 +207,11 @@ void wVerifyMap::onCheckerFinished() {
     ui->wdgVehiclesOverview->setMissing(ui->wdgVehicles->getData().missing);
 
     // HUM:
-    ui->wdgHumans->add(filehandler.stuffobj.existing.humans, false);
-    ui->wdgHumans->add(filehandler.stuffobj.missing.humans, true);
+    ui->wdgHumans->add(_checker->allHumans(), false);
+    ui->wdgHumans->add(_checker->missingHumans(), true);
     ui->wdgHumans->apply();
-    ui->wdgHumansOverview->setTotal(ui->wdgHumans->getData().total);
-    ui->wdgHumansOverview->setMissing(ui->wdgHumans->getData().missing);
+    ui->wdgHumansOverview->setTotal(_checker->allHumansCount());
+    ui->wdgHumansOverview->setMissing(_checker->missingHumansCount());
 
     // GLOBAL TEX:
     ui->wdgTextures->add(filehandler.stuffobj.existing.globalTextures, false);
