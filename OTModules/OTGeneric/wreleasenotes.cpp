@@ -12,7 +12,7 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
     //adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - " + tr("release notes"));
+    setWindowTitle(tr("release notes") + " - " + OTInformation::name);
 
     ui->statusbar->addPermanentWidget(ui->lblSelectBranch);
     ui->statusbar->addPermanentWidget(ui->cbxBranch);

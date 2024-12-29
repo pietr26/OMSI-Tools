@@ -11,7 +11,7 @@ wDBCopyrights::wDBCopyrights(QWidget *parent) :
     adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - argument panel");
+    setWindowTitle("Argument panel");
 
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
     dbHandler.setupDatabase("CREATE TABLE copyrightArguments (ID INTEGER, argument TEXT, PRIMARY KEY(ID AUTOINCREMENT)); CREATE TABLE copyrightPaths (ID INTEGER, path TEXT, argumentIDs TEXT, pathRedirect INTEGER, PRIMARY KEY(ID AUTOINCREMENT));");

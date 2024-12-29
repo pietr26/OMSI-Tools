@@ -13,7 +13,7 @@ wDevTools::wDevTools(QWidget *parent) :
     resize(misc.sizeWindow(0.5, 0.75));
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - DevTools");
+    setWindowTitle("DevTools - " + OTInformation::name);
 
     setOutputVisible(true);
 

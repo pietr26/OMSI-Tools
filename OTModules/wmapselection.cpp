@@ -10,7 +10,7 @@ wMapSelection::wMapSelection(QWidget *parent, QString lastMapPath, bool withPath
     adjustSize();
     resize(misc.sizeWindow(0.25, 0.6));
 
-    setWindowTitle(tr("Select map..."));
+    setWindowTitle(tr("Select map"));
     setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
     ui->btnConfirm->setShortcut(Qt::Key_Return | Qt::Key_Enter);
 

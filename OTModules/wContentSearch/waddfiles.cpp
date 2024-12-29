@@ -6,6 +6,7 @@ wAddFiles::wAddFiles(QWidget *parent) :
     ui(new Ui::wAddFiles)
 {
     ui->setupUi(this);
+    setWindowTitle(tr("Add files"));
 }
 
 wAddFiles::~wAddFiles()

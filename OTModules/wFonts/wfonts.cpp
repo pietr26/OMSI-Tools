@@ -209,8 +209,8 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
 
 void wFonts::setTitle(QString filen)
 {
-    if (filen.isEmpty()) wFonts::setWindowTitle("[*] " + OTInformation::name + " - " + tr("Font creation"));
-    else wFonts::setWindowTitle("[*] " + OTInformation::name + " - " + tr("Font creation") + " (" + filen + ")");
+    if (filen.isEmpty()) wFonts::setWindowTitle("[*] " + tr("Font creation") + " - " + OTInformation::name);
+    else wFonts::setWindowTitle("[*] " + filen + " - " + tr("Font creation") + " - " + OTInformation::name);
 }
 
 void wFonts::loadRecentFiles()

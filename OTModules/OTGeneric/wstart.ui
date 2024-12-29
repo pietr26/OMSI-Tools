@@ -3,7 +3,7 @@
  <class>wStart</class>
  <widget class="QMainWindow" name="wStart">
   <property name="windowModality">
-   <enum>Qt::NonModal</enum>
+   <enum>Qt::WindowModality::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -125,10 +125,10 @@
           <bool>false</bool>
          </property>
          <property name="popupMode">
-          <enum>QToolButton::DelayedPopup</enum>
+          <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
          </property>
          <property name="toolButtonStyle">
-          <enum>Qt::ToolButtonTextUnderIcon</enum>
+          <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
          </property>
          <property name="autoRaise">
           <bool>false</bool>
@@ -169,10 +169,10 @@
           <bool>false</bool>
          </property>
          <property name="popupMode">
-          <enum>QToolButton::DelayedPopup</enum>
+          <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
          </property>
          <property name="toolButtonStyle">
-          <enum>Qt::ToolButtonTextUnderIcon</enum>
+          <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
          </property>
          <property name="autoRaise">
           <bool>false</bool>
@@ -182,7 +182,7 @@
        <item>
         <spacer name="horizontalSpacer_2">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -244,10 +244,10 @@
           <bool>false</bool>
          </property>
          <property name="popupMode">
-          <enum>QToolButton::DelayedPopup</enum>
+          <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
          </property>
          <property name="toolButtonStyle">
-          <enum>Qt::ToolButtonTextUnderIcon</enum>
+          <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
          </property>
          <property name="autoRaise">
           <bool>false</bool>
@@ -288,10 +288,10 @@
           <bool>false</bool>
          </property>
          <property name="popupMode">
-          <enum>QToolButton::DelayedPopup</enum>
+          <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
          </property>
          <property name="toolButtonStyle">
-          <enum>Qt::ToolButtonTextUnderIcon</enum>
+          <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
          </property>
          <property name="autoRaise">
           <bool>false</bool>
@@ -301,7 +301,7 @@
        <item>
         <spacer name="horizontalSpacer_3">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -347,7 +347,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>Cleanup</string>
+          <string>Directory cleanup</string>
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">
@@ -363,10 +363,10 @@
           <bool>false</bool>
          </property>
          <property name="popupMode">
-          <enum>QToolButton::DelayedPopup</enum>
+          <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
          </property>
          <property name="toolButtonStyle">
-          <enum>Qt::ToolButtonTextUnderIcon</enum>
+          <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
          </property>
          <property name="autoRaise">
           <bool>false</bool>
@@ -376,7 +376,7 @@
        <item>
         <spacer name="horizontalSpacer_4">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -438,10 +438,10 @@
           <bool>false</bool>
          </property>
          <property name="popupMode">
-          <enum>QToolButton::DelayedPopup</enum>
+          <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
          </property>
          <property name="toolButtonStyle">
-          <enum>Qt::ToolButtonTextUnderIcon</enum>
+          <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
          </property>
          <property name="autoRaise">
           <bool>false</bool>
@@ -482,10 +482,10 @@
           <bool>false</bool>
          </property>
          <property name="popupMode">
-          <enum>QToolButton::DelayedPopup</enum>
+          <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
          </property>
          <property name="toolButtonStyle">
-          <enum>Qt::ToolButtonTextUnderIcon</enum>
+          <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
          </property>
          <property name="autoRaise">
           <bool>false</bool>
@@ -495,7 +495,7 @@
        <item>
         <spacer name="horizontalSpacer_5">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -511,7 +511,7 @@
     <item>
      <spacer name="verticalSpacer_2">
       <property name="orientation">
-       <enum>Qt::Vertical</enum>
+       <enum>Qt::Orientation::Vertical</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
@@ -541,7 +541,7 @@
          <bool>true</bool>
         </property>
         <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -561,10 +561,10 @@
     <bool>false</bool>
    </property>
    <property name="features">
-    <set>QDockWidget::NoDockWidgetFeatures</set>
+    <set>QDockWidget::DockWidgetFeature::NoDockWidgetFeatures</set>
    </property>
    <property name="allowedAreas">
-    <set>Qt::RightDockWidgetArea</set>
+    <set>Qt::DockWidgetArea::RightDockWidgetArea</set>
    </property>
    <property name="windowTitle">
     <string notr="true">dwgMessages</string>
@@ -579,7 +579,7 @@
        <item>
         <spacer name="horizontalSpacer">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -619,28 +619,28 @@
         </size>
        </property>
        <property name="editTriggers">
-        <set>QAbstractItemView::NoEditTriggers</set>
+        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
        </property>
        <property name="showDropIndicator" stdset="0">
         <bool>false</bool>
        </property>
        <property name="verticalScrollMode">
-        <enum>QAbstractItemView::ScrollPerPixel</enum>
+        <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
        </property>
        <property name="horizontalScrollMode">
-        <enum>QAbstractItemView::ScrollPerPixel</enum>
+        <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
        </property>
        <property name="isWrapping" stdset="0">
         <bool>false</bool>
        </property>
        <property name="resizeMode">
-        <enum>QListView::Adjust</enum>
+        <enum>QListView::ResizeMode::Adjust</enum>
        </property>
        <property name="spacing">
         <number>0</number>
        </property>
        <property name="itemAlignment">
-        <set>Qt::AlignLeading</set>
+        <set>Qt::AlignmentFlag::AlignLeading</set>
        </property>
       </widget>
      </item>
@@ -653,7 +653,7 @@
      <x>0</x>
      <y>0</y>
      <width>1368</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

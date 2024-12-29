@@ -11,7 +11,7 @@ wDBKnownWords::wDBKnownWords(QWidget *parent) :
     adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - known words panel");
+    setWindowTitle("Known words panel");
     resize(misc.sizeWindow(0.2, 0.8));
 
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
