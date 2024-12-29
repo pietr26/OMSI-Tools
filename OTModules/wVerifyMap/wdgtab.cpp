@@ -31,6 +31,7 @@ void wdgTab::clear()
 void wdgTab::add(QStringList items, bool isMissing)
 {
     isApplied = false;
+    items.replaceInStrings("/", "\\");
     if (isMissing) missing << items;
     else all << items;
 }
