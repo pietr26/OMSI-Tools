@@ -23,7 +23,7 @@
       </font>
      </property>
      <property name="text">
-      <string>lblText</string>
+      <string notr="true">lblText</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
