@@ -30,6 +30,7 @@ public:
     explicit OTMapChecker(QObject *parent);
     void run() override;
 
+    QString omsiDir() const;
     void setOmsiDir(const QString &);
     void addToQueue(const QStringList &);
     void setFinished();
@@ -72,21 +73,28 @@ public:
     void setMapDir(const QString &);
 
     void scanGlobal();
+    void scanTextures();
     void scanParkLists();
     void scanHumans();
     void scanTile(const QString &filename);
 
     QStringList allTiles() const;
+    QStringList allTextures() const;
     QStringList missingTiles() const;
+    QStringList missingTextures() const;
 
     int allTilesCout() const;
+    int allTexturesCount() const;
     int missingTilesCount();
+    int missingTexturesCount() const;
 
 private:
     OTMapChecker *_checker;
     QString _mapDir;
     QStringList _allTiles;
+    QStringList _allTextures;
     QStringList _missingTiles;
+    QStringList _missingTextures;
 };
 
 

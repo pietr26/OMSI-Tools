@@ -82,6 +82,10 @@ void OTMapChecker::run() {
     std::sort(_missingSplines.begin(),        _missingSplines.end());
 }
 
+QString OTMapChecker::omsiDir() const {
+    return _omsiDir;
+}
+
 void OTMapChecker::setOmsiDir(const QString &str) {
     _omsiDir = str;
 }
@@ -157,6 +161,7 @@ void OTMapScanner::run() {
     _allTiles.clear();
     _missingTiles.clear();
     scanGlobal();
+    scanTextures();
     scanParkLists();
     scanHumans();
 
@@ -195,10 +200,26 @@ void OTMapScanner::scanGlobal() {
             s.readLine();
             s.readLine();
             _allTiles << s.readLine();
+        } else if(line == "[groundtex]") {
+            QString tex1 = s.readLine();
+            QString tex2 = s.readLine();
+
+            if(!_allTextures.contains(tex1))
+                _allTextures << tex1;
+            if(!_allTextures.contains(tex2))
+                _allTextures << tex2;
         }
     }
 
     f.close();
+}
+
+void OTMapScanner::scanTextures() {
+    QString omsiDir = _checker->omsiDir();
+    for(QString current : _allTextures) {
+        if(!QFile::exists(omsiDir + "/" + current) && !_missingTextures.contains(current))
+            _missingTextures << current;
+    }
 }
 
 void OTMapScanner::scanParkLists() {
@@ -289,14 +310,30 @@ QStringList OTMapScanner::allTiles() const {
     return _allTiles;
 }
 
+QStringList OTMapScanner::allTextures() const {
+    return _allTextures;
+}
+
 QStringList OTMapScanner::missingTiles() const {
     return _missingTiles;
+}
+
+QStringList OTMapScanner::missingTextures() const {
+    return _missingTextures;
 }
 
 int OTMapScanner::allTilesCout() const {
     return _allTiles.count();
 }
 
+int OTMapScanner::allTexturesCount() const {
+    return _allTextures.count();
+}
+
 int OTMapScanner::missingTilesCount() {
     return _missingTiles.count();
+}
+
+int OTMapScanner::missingTexturesCount() const {
+    return _missingTextures.count();
 }

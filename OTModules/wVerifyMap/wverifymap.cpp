@@ -214,11 +214,11 @@ void wVerifyMap::onCheckerFinished() {
     ui->wdgHumansOverview->setMissing(_checker->missingHumansCount());
 
     // GLOBAL TEX:
-    ui->wdgTextures->add(filehandler.stuffobj.existing.globalTextures, false);
-    ui->wdgTextures->add(filehandler.stuffobj.missing.globalTextures, true);
+    ui->wdgTextures->add(_scanner->allTextures(), false);
+    ui->wdgTextures->add(_scanner->missingTextures(), true);
     ui->wdgTextures->apply();
-    ui->wdgTexturesOverview->setTotal(ui->wdgTextures->getData().total);
-    ui->wdgTexturesOverview->setMissing(ui->wdgTextures->getData().missing);
+    ui->wdgTexturesOverview->setTotal(_scanner->allTexturesCount());
+    ui->wdgTexturesOverview->setMissing(_scanner->missingTexturesCount());
 
     qInfo() << "Verification finished.";
     ui->statusbar->showMessage(tr("Verification finished."), 5000);
