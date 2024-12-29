@@ -186,13 +186,13 @@ void OTMapScanner::run() {
     _missingTiles.clear();
     _allTextures.clear();
     _missingTextures.clear();
+
     scanGlobal();
     scanTextures();
-    scanParkLists();
-    scanHumans();
-    scanAiList();
 
     // read chrono events
+
+    qInfo() << "reading chrono events";
     QStringList chronoTiles;
     QDir chronoDir(_mapDir + "/Chrono");
     if(chronoDir.exists()) {
@@ -220,12 +220,17 @@ void OTMapScanner::run() {
     emit initActionCount(tileCount);
     QString totalString = " /";
 
+    qInfo() << "reading tiles";
     int i = 1;
     for(QString str : combinedList) {
         emit statusUpdate(i, tr("Read tile %1 of %2").arg(QString::number(i), QString::number(tileCount)));
         scanTile(str);
         i++;
     }
+
+    scanParkLists();
+    scanHumans();
+    scanAiList();
 
     _checker->setFinished();
 }
@@ -236,11 +241,17 @@ void OTMapScanner::setMapDir(const QString &str) {
 
 void OTMapScanner::scanGlobal() {
     QFile f(_mapDir + "/global.cfg");
-    if(!f.exists())
-        return;
 
-    if(!f.open(QFile::ReadOnly))
+    qInfo() << "reading global.cfg";
+    if(!f.exists()) {
+        qWarning() << "global.cfg not found";
         return;
+    }
+
+    if(!f.open(QFile::ReadOnly)) {
+        qWarning() << "Could not open global.cfg";
+        return;
+    }
 
     QTextStream s(&f);
 
@@ -280,6 +291,8 @@ void OTMapScanner::scanParkLists() {
         QString indexStr = i != 0 ? "_" + QString::number(i) : "";
         QString path = _mapDir + "/parklist_p" + indexStr + ".txt";
         QFile f(path);
+
+        qInfo() << "reading " << path.remove(_mapDir + "/");
         if(!f.exists() && i != 0)
             break;
         else if(!f.exists()) {
@@ -288,7 +301,7 @@ void OTMapScanner::scanParkLists() {
         }
 
         if(!f.open(QFile::ReadOnly)) {
-            qWarning() << "Could not open " << path.remove(_mapDir);
+            qWarning() << "Could not open " << path.remove(_mapDir + "/");
             break;
         }
 
@@ -305,6 +318,7 @@ void OTMapScanner::scanParkLists() {
 
 void OTMapScanner::scanHumans() {
     QFile f(_mapDir + "/humans.txt");
+    qInfo() << "reading humans.txt";
     if(!f.exists()) {
         qWarning() << "humans.txt not found!";
         return;
@@ -326,6 +340,7 @@ void OTMapScanner::scanHumans() {
 
 void OTMapScanner::scanAiList() {
     QString omsiDir = _checker->omsiDir();
+    qInfo() << "reading ailists.cfg";
     QFile f(_mapDir + "/ailists.cfg");
     if(!f.exists()) {
         qWarning() << "ailists.cfg not found!";
@@ -368,10 +383,16 @@ void OTMapScanner::scanAiList() {
 void OTMapScanner::scanTile(const QString &filename) {
     QStringList fileList;
 
+    qDebug() << "reading " << filename;
     QFile f(_mapDir + "/" + filename);
-    if(!f.exists() || !f.open(QFile::ReadOnly)) {
+    if(!f.exists()) {
+        qWarning() << filename << " not found!";
         _missingTiles << filename;
         return;
+    }
+
+    if(!f.open(QFile::ReadOnly)) {
+        qWarning() << "Could not open " << filename;
     }
 
     QTextStream s(&f);
