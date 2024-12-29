@@ -3,6 +3,7 @@
 
 #include <QThread>
 #include <QFile>
+#include <QDir>
 #include <QMutex>
 #include <QQueue>
 #include <QWaitCondition>

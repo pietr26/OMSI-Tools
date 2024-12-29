@@ -1,3 +1,4 @@
+// TODO: Chrono Events
 // TODO: Advanced verifying:
 /*
  * SCO:
@@ -8,7 +9,6 @@
 
  * SLI:
     - Texturen
-
 */
 #include "OTMapScanner.h"
 
@@ -183,8 +183,8 @@ OTMapScanner::OTMapScanner(QObject *parent, OTMapChecker *checker) :
 
 void OTMapScanner::run() {
     _allTiles.clear();
-    _allTextures.clear();
     _missingTiles.clear();
+    _allTextures.clear();
     _missingTextures.clear();
     scanGlobal();
     scanTextures();
@@ -192,12 +192,36 @@ void OTMapScanner::run() {
     scanHumans();
     scanAiList();
 
-    int tileCount = _allTiles.count();
+    // read chrono events
+    QStringList chronoTiles;
+    QDir chronoDir(_mapDir + "/Chrono");
+    if(chronoDir.exists()) {
+        QStringList chronoList = chronoDir.entryList(QDir::NoDotAndDotDot|QDir::Dirs);
+        for(QString currentChrono : chronoList) {
+            QDir currentDir(_mapDir + "/Chrono/" + currentChrono);
+            QStringList currentChronoList = currentDir.entryList(QDir::Files);
+            if(!currentChronoList.contains("Chrono.cfg"))
+                continue;
+
+            for(QString currentFile : currentChronoList) {
+                if(currentFile.endsWith(".map")) {
+                    chronoTiles << "Chrono/" + currentChrono + "/" + currentFile;
+                    if(!_allTiles.contains(currentFile))
+                        _allTiles << currentFile;
+                }
+            }
+        }
+    }
+
+    QStringList combinedList = _allTiles;
+    combinedList << chronoTiles;
+
+    int tileCount = combinedList.count();
     emit initActionCount(tileCount);
     QString totalString = " /";
 
     int i = 1;
-    for(QString str : _allTiles) {
+    for(QString str : combinedList) {
         emit statusUpdate(i, tr("Read tile %1 of %2").arg(QString::number(i), QString::number(tileCount)));
         scanTile(str);
         i++;
