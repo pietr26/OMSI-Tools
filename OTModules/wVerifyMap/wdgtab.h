@@ -61,7 +61,7 @@ private:
     OTMiscellaneous misc;
     wContentSearch* WCONTENTSEARCH;
 
-    QStringList existing, missing;
+    QStringList all, missing;
 
     bool isApplied = false;
 

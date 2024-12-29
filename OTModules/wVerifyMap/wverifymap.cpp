@@ -19,13 +19,25 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     DiscordGameSDK::setIcon("wverifymap");
     DiscordGameSDK::update();
 
+    // init scanner
+    _checker = new OTMapChecker(this);
+    _scanner = new OTMapScanner(this, _checker);
+
+    connect(_scanner, &QThread::finished, this, &wVerifyMap::onScannerFinished);
+    connect(_checker, &QThread::finished, this, &wVerifyMap::onCheckerFinished);
+
+    connect(_scanner, &OTMapScannerAbstract::initActionCount, ui->pgbProgress, &QProgressBar::setMaximum);
+    connect(_checker, &OTMapScannerAbstract::initActionCount, ui->pgbProgress, &QProgressBar::setMaximum);
+
+    connect(_scanner, &OTMapScannerAbstract::statusUpdate, this, &wVerifyMap::onStatusUpdate);
+    connect(_checker, &OTMapScannerAbstract::statusUpdate, this, &wVerifyMap::onStatusUpdate);
+
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
 
     loadMapList();
     on_cobxMapName_currentIndexChanged(ui->cobxMapName->currentIndex());
 
     // Connect S&S
-    connect(watchProgress, SIGNAL(timeout()), this, SLOT(reloadProgress()));
     ui->pgbProgress->setVisible(false);
     ui->statusbar->showMessage(QString(tr("Press %1 to start the verification.")).arg("\"" + ui->btnStartVerifying->text() + "\""));
     ui->twgVerfying->setCurrentIndex(0);
@@ -93,28 +105,6 @@ void wVerifyMap::selectAllAndClear()
     ui->wdgTexturesOverview->clear();
 }
 
-
-void wVerifyMap::reloadProgress()
-{
-    ui->pgbProgress->setMinimum(0);
-    ui->pgbProgress->setMaximum(filehandler.maxProgress);
-    ui->pgbProgress->setValue(filehandler.currentProgress);
-    ui->statusbar->showMessage(filehandler.progressName);
-}
-
-void wVerifyMap::startEndWatchProgress(bool state)
-{
-    if (state)
-        watchProgress->start(50);
-    else
-    {
-        watchProgress->stop();
-        ui->pgbProgress->setMinimum(0);
-        ui->pgbProgress->setMaximum(100);
-        ui->pgbProgress->setValue(100);
-    }
-}
-
 void wVerifyMap::enableView(bool enable)
 {
     ui->btnStartVerifying->setEnabled(enable);
@@ -138,18 +128,16 @@ void wVerifyMap::on_btnStartVerifying_clicked()
             set.write("main", "mainDir", set.getOmsiPath(this));
         else
             return;
-        cutCount = set.read("main", "mainDir").toString().size() + 1;
     }
 
     enableView(false);
-    startEndWatchProgress(true);
     ui->twgVerfying->setCurrentIndex(0);
 
     if (!QFile::exists(filehandler.getMapPath()))
     {
         QMessageBox::warning(this, tr("Map file doesn't exist"), tr("The selected map file doesn't exist."));
         qWarning() << QString("Could not found map file '%1'!").arg(filehandler.getMapPath());
-        return endVerifying();
+        return;
     }
     qInfo().noquote() << QString("Map: %1").arg(filehandler.getMapPath());
 
@@ -157,128 +145,10 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     filehandler.stuffobj.clear();
     ui->pgbProgress->setVisible(true);
 
-    // MAP:
-    qInfo() << "Get tiles...";
-    filehandler.getTiles(this);
-    qDebug() << "Got tiles.";
+    _checker->setOmsiDir(set.read("main", "mainDir").toString());
 
-    // SCO and SLI:
-    qInfo() << "Get sceneryobjects / splines...";
-    filehandler.getItems(filehandler.stuffobj.existing.tiles);
-    qDebug() << "Got sceneryobjects / splines.";
-
-    filehandler.stuffobj.removeDuplicates(); // TODO: Outsource in their class / functions
-
-    QFuture<void> scoFuture;
-    QFutureWatcher<void> *scoFutureWatcher  = new QFutureWatcher<void>(this);
-    QEventLoop *loop = new QEventLoop();
-
-    // SCO and SLI (advanced)
-    if (set.read(objectName(), "advVerifying").toBool())
-    {
-        qInfo() << "Checking sceneryobjects...";
-        //filehandler.verifyObjects(filehandler.stuffobj.existing.sceneryobjects);
-
-        //QFuture<void> future = QtConcurrent::run(&OTOMSIFileHandler::verifyObjects, &filehandler, filehandler.stuffobj.existing.sceneryobjects);
-        scoFuture = QtConcurrent::run([=]() {
-            filehandler.verifyObjects(filehandler.stuffobj.existing.sceneryobjects);
-        });
-
-        scoFutureWatcher->setFuture(scoFuture);
-        connect(scoFutureWatcher, &QFutureWatcher<void>::finished, this, [=]() { qDebug() << "Checked sceneryobjects."; loop->quit(); });
-
-        qInfo() << "Checking splines...";
-        filehandler.verifySplines(filehandler.stuffobj.existing.splines);
-        qDebug() << "Checked splines.";
-    }
-
-    // VEH:
-    qInfo() << "Get vehicles...";
-    filehandler.getVehicles(this);
-    qDebug() << "Got vehicles.";
-
-    // HUM:
-    qInfo() << "Get humans...";
-    filehandler.getHumans(this);
-    qDebug() << "Got humans.";
-
-    // GLOBAL TEX:
-    qInfo() << "Get map textures...";
-    filehandler.checkTextureLayers(this);
-    qDebug() << "Got map textures.";
-
-    if (set.read(objectName(), "advVerifying").toBool())
-        loop->exec();
-
-    scoFutureWatcher->deleteLater();
-    loop->deleteLater();
-
-    // SET UI:
-    {
-        qDebug() << "Set view...";
-        filehandler.stuffobj.removeDuplicates();
-        filehandler.stuffobj.toBackslash();
-
-        // MAP:
-        ui->wdgTiles->add(filehandler.stuffobj.existing.tiles, false);
-        ui->wdgTiles->add(filehandler.stuffobj.missing.tiles, true);
-        ui->wdgTiles->apply();
-        ui->wdgTilesOverview->setTotal(ui->wdgTiles->getData().total);
-        ui->wdgTilesOverview->setMissing(ui->wdgTiles->getData().missing);
-
-        // SCO:
-        ui->wdgSceneryobjects->add(filehandler.stuffobj.existing.sceneryobjects, false);
-        ui->wdgSceneryobjects->add(filehandler.stuffobj.missing.sceneryobjects, true);
-        ui->wdgSceneryobjects->apply();
-        ui->wdgSceneryobjectsOverview->setTotal(ui->wdgSceneryobjects->getData().total);
-        ui->wdgSceneryobjectsOverview->setMissing(ui->wdgSceneryobjects->getData().missing);
-
-        // SLI:
-        ui->wdgSplines->add(filehandler.stuffobj.existing.splines, false);
-        ui->wdgSplines->add(filehandler.stuffobj.missing.splines, true);
-        ui->wdgSplines->apply();
-        ui->wdgSplinesOverview->setTotal(ui->wdgSplines->getData().total);
-        ui->wdgSplinesOverview->setMissing(ui->wdgSplines->getData().missing);
-
-        // VEH:
-        ui->wdgVehicles->add(filehandler.stuffobj.existing.vehicles, false);
-        ui->wdgVehicles->add(filehandler.stuffobj.missing.vehicles, true);
-        ui->wdgVehicles->apply();
-        ui->wdgVehiclesOverview->setTotal(ui->wdgVehicles->getData().total);
-        ui->wdgVehiclesOverview->setMissing(ui->wdgVehicles->getData().missing);
-
-        // HUM:
-        ui->wdgHumans->add(filehandler.stuffobj.existing.humans, false);
-        ui->wdgHumans->add(filehandler.stuffobj.missing.humans, true);
-        ui->wdgHumans->apply();
-        ui->wdgHumansOverview->setTotal(ui->wdgHumans->getData().total);
-        ui->wdgHumansOverview->setMissing(ui->wdgHumans->getData().missing);
-
-        // TEX:
-        if (set.read(objectName(), "advVerifying").toBool() && !set.read(objectName(), "onlyMapTextures").toBool())
-        {
-            ui->wdgTextures->add(filehandler.stuffobj.existing.textures, false);
-            ui->wdgTextures->add(filehandler.stuffobj.missing.textures, true);
-        }
-
-        // GLOBAL TEX:
-        ui->wdgTextures->add(filehandler.stuffobj.existing.globalTextures, false);
-        ui->wdgTextures->add(filehandler.stuffobj.missing.globalTextures, true);
-        ui->wdgTextures->apply();
-        ui->wdgTexturesOverview->setTotal(ui->wdgTextures->getData().total);
-        ui->wdgTexturesOverview->setMissing(ui->wdgTextures->getData().missing);
-    }
-
-    qInfo() << "Verification finished.";
-    ui->statusbar->showMessage(tr("Verification finished."), 5000);
-
-    endVerifying();
-}
-
-void wVerifyMap::endVerifying()
-{
-    startEndWatchProgress(false);
-    enableView(true);
+    _scanner->start(QThread::HighPriority);
+    _checker->start(QThread::HighPriority);
 }
 
 void wVerifyMap::on_actionClose_triggered()
@@ -297,6 +167,69 @@ void wVerifyMap::on_btnVerificationPreferences_clicked()
     WPREFERENCES = new wPreferences(this, "wVerifyMap");
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
+}
+
+void wVerifyMap::onScannerFinished() {
+    qDebug() << "scanner finished";
+
+    ui->pgbProgress->setMaximum(0);
+    ui->statusbar->showMessage(tr("checking objects and splines..."));
+
+    ui->wdgTiles->add(_scanner->allTiles(), false);
+    ui->wdgTiles->add(_scanner->missingTiles(), true);
+    ui->wdgTiles->apply();
+    ui->wdgTilesOverview->setTotal(_scanner->allTilesCout());
+    ui->wdgTilesOverview->setMissing(_scanner->missingTilesCount());
+}
+
+void wVerifyMap::onCheckerFinished() {
+    qDebug() << "checker finished";
+
+    // SCO:
+    ui->wdgSceneryobjects->add(_checker->allSceneryobjects(), false);
+    ui->wdgSceneryobjects->add(_checker->missingSceneryobjects(), true);
+    ui->wdgSceneryobjects->apply();
+    ui->wdgSceneryobjectsOverview->setTotal(_checker->allSceneryobjectsCount());
+    ui->wdgSceneryobjectsOverview->setMissing(_checker->missingSceneryobjectsCount());
+
+    // SLI:
+    ui->wdgSplines->add(_checker->allSplines(), false);
+    ui->wdgSplines->add(_checker->missingSplines(), true);
+    ui->wdgSplines->apply();
+    ui->wdgSplinesOverview->setTotal(_checker->allSplinesCount());
+    ui->wdgSplinesOverview->setMissing(_checker->missingSplinesCount());
+
+    // VEH:
+    ui->wdgVehicles->add(filehandler.stuffobj.existing.vehicles, false);
+    ui->wdgVehicles->add(filehandler.stuffobj.missing.vehicles, true);
+    ui->wdgVehicles->apply();
+    ui->wdgVehiclesOverview->setTotal(ui->wdgVehicles->getData().total);
+    ui->wdgVehiclesOverview->setMissing(ui->wdgVehicles->getData().missing);
+
+    // HUM:
+    ui->wdgHumans->add(filehandler.stuffobj.existing.humans, false);
+    ui->wdgHumans->add(filehandler.stuffobj.missing.humans, true);
+    ui->wdgHumans->apply();
+    ui->wdgHumansOverview->setTotal(ui->wdgHumans->getData().total);
+    ui->wdgHumansOverview->setMissing(ui->wdgHumans->getData().missing);
+
+    // GLOBAL TEX:
+    ui->wdgTextures->add(filehandler.stuffobj.existing.globalTextures, false);
+    ui->wdgTextures->add(filehandler.stuffobj.missing.globalTextures, true);
+    ui->wdgTextures->apply();
+    ui->wdgTexturesOverview->setTotal(ui->wdgTextures->getData().total);
+    ui->wdgTexturesOverview->setMissing(ui->wdgTextures->getData().missing);
+
+    qInfo() << "Verification finished.";
+    ui->statusbar->showMessage(tr("Verification finished."), 5000);
+
+    ui->pgbProgress->setVisible(false);
+    enableView(true);
+}
+
+void wVerifyMap::onStatusUpdate(int i, QString message) {
+    ui->pgbProgress->setValue(i);
+    ui->statusbar->showMessage(message);
 }
 
 void wVerifyMap::loadMapList()
@@ -334,6 +267,8 @@ void wVerifyMap::on_cobxMapName_currentIndexChanged(int index)
 
     QString picture = mapList[index].second + "picture.jpg";
     picture.remove("global.cfg");
+
+    _scanner->setMapDir(mapList[index].second.remove("global.cfg"));
 
     if (QFile(picture).exists())
         ui->lblPicture->setPixmap(QPixmap(picture));
