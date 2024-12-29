@@ -16,6 +16,8 @@ wdgEditor::wdgEditor(QWidget *parent, OCFont::FontCollection *font)
         reloadUi(false, true);
 
         ui->tvwChars->selectionModel()->blockSignals(false); blockSignals(false);
+
+        reloadPreview();
     });
 
     // Create and connect actions --------------------------------------------------------------------
