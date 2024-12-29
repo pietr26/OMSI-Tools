@@ -174,7 +174,7 @@ void wVerifyMap::onScannerFinished() {
     ui->wdgTiles->add(_scanner->allTiles(), false);
     ui->wdgTiles->add(_scanner->missingTiles(), true);
     ui->wdgTiles->apply();
-    ui->wdgTilesOverview->setTotal(_scanner->allTilesCout());
+    ui->wdgTilesOverview->setTotal(_scanner->allTilesCount());
     ui->wdgTilesOverview->setMissing(_scanner->missingTilesCount());
 }
 
