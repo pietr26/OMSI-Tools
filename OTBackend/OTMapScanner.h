@@ -66,6 +66,7 @@ public:
     void setMapDir(const QString &);
 
     void scanGlobal();
+    void scanParkLists();
     void scanTile(const QString &filename);
 
     QStringList allTiles() const;

@@ -132,6 +132,7 @@ void OTMapScanner::run() {
     _allTiles.clear();
     _missingTiles.clear();
     scanGlobal();
+    scanParkLists();
 
     int tileCount = _allTiles.count();
     emit initActionCount(tileCount);
@@ -172,6 +173,28 @@ void OTMapScanner::scanGlobal() {
     }
 
     f.close();
+}
+
+void OTMapScanner::scanParkLists() {
+    int i = 0;
+
+    while(true) {
+        QString indexStr = i != 0 ? "_" + QString::number(i) : "";
+        QString path = _mapDir + "/parklist_p" + indexStr + ".txt";
+        QFile f(path);
+        if(!f.exists())
+            break;
+
+        f.open(QFile::ReadOnly);
+        QTextStream s(&f);
+        QStringList list;
+        while(!s.atEnd()) {
+            list << s.readLine();
+        }
+        f.close();
+        _checker->addToQueue(list);
+        i++;
+    }
 }
 
 void OTMapScanner::scanTile(const QString &filename) {
