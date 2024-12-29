@@ -191,7 +191,11 @@ void OTMapScanner::scanParkLists() {
             break;
         }
 
-        f.open(QFile::ReadOnly);
+        if(!f.open(QFile::ReadOnly)) {
+            qWarning() << "Could not open " << path.remove(_mapDir);
+            break;
+        }
+
         QTextStream s(&f);
         QStringList list;
         while(!s.atEnd()) {
