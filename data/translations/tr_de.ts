@@ -244,12 +244,12 @@
         <translation>[Leere Zeile in Parkplatzliste %1]</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="69"/>
+        <location filename="../../main.cpp" line="65"/>
         <source>Crash detected</source>
         <translation>Absturz erkannt</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="69"/>
+        <location filename="../../main.cpp" line="65"/>
         <source>%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.
 Open the path of the logfile?</source>
         <translation>%1 scheint beim letzten Start abgestürzt zu sein. Die Logfile des letzten Starts wurde gesondert abgespeichert. Bitte kontaktiere den Entwickler mit der Logfile.
@@ -366,6 +366,11 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
         <source>Add</source>
         <translation>Hinzufügen</translation>
     </message>
+    <message>
+        <location filename="../../OTModules/wContentSearch/waddfiles.cpp" line="9"/>
+        <source>Add files</source>
+        <translation>Dateien hinzufügen</translation>
+    </message>
 </context>
 <context>
     <name>wCleanup</name>
@@ -458,8 +463,8 @@ Soll der Pfad der Logfile geöffnet werden?</translation>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="16"/>
         <location filename="../../OTModules/wcleanup.cpp" line="18"/>
-        <source>Cleanup</source>
-        <translation>Aufräumer</translation>
+        <source>Directory cleanup</source>
+        <translation>Verzeichnis aufräumen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="19"/>
@@ -1454,8 +1459,8 @@ Bitte lege einige Einstellungen fest, damit %1 korrekt funktioniert.</translatio
     </message>
     <message>
         <location filename="../../OTModules/wmapselection.cpp" line="13"/>
-        <source>Select map...</source>
-        <translation>Karte auswählen...</translation>
+        <source>Select map</source>
+        <translation>Karte auswählen</translation>
     </message>
 </context>
 <context>
@@ -2054,11 +2059,6 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         <translation>Kartenüberprüfung</translation>
     </message>
     <message>
-        <location filename="../../OTModules/OTGeneric/wstart.ui" line="350"/>
-        <source>Cleanup</source>
-        <translation>Aufräumer</translation>
-    </message>
-    <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="404"/>
         <source>Control center trip [OMSI-WebDisk]</source>
         <translation>Leitstellenfahrt [OMSI-WebDisk]</translation>
@@ -2133,6 +2133,11 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="75"/>
         <source>&lt;a href=&quot;exec&quot;&gt;View details&lt;/a&gt;</source>
         <translation>&lt;a href=&quot;exec&quot;&gt;Details ansehen&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/OTGeneric/wstart.ui" line="350"/>
+        <source>Directory cleanup</source>
+        <translation>Verzeichnis aufräumen</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="425"/>
@@ -2393,13 +2398,13 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="465"/>
-        <source>Rightmost pixel:</source>
-        <translation>Rechtester Pixel:</translation>
+        <source>Right pixel:</source>
+        <translation>Rechter Pixel:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="478"/>
-        <source>Leftmost pixel:</source>
-        <translation>Linkester Pixel:</translation>
+        <source>Left pixel:</source>
+        <translation>Linker Pixel:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="496"/>
@@ -2412,27 +2417,27 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         <translation>Zeichen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="309"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="313"/>
         <source>Character not found</source>
         <translation>Zeichen nicht gefunden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="309"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="313"/>
         <source>The entered character could not be found.</source>
         <translation>Das eingegebene Zeichen konnte nicht gefunden werden.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="521"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="540"/>
         <source>unnamed</source>
         <translation>unbenannt</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="524"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="545"/>
         <source>undefined</source>
         <translation>nicht definiert</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="553"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="598"/>
         <source>%n character(s) total</source>
         <translation>
             <numerusform>%n Zeichen ingesamt</numerusform>
@@ -2440,7 +2445,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="553"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="598"/>
         <source>%n font(s)</source>
         <translation>
             <numerusform>%n Schrift</numerusform>
@@ -2448,18 +2453,18 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         </translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="606"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="639"/>
         <source>Select color texture...</source>
         <translation>Farbtextur auswählen...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="606"/>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="638"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="639"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="671"/>
         <source>Bitmap picture</source>
         <translation>Bitmap-Bild</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="638"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="671"/>
         <source>Select alpha texture...</source>
         <translation>Alphatextur auswählen...</translation>
     </message>
@@ -2552,43 +2557,50 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
 <context>
     <name>wdgTab</name>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="24"/>
-        <source>All</source>
-        <translation>Alle</translation>
+        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="40"/>
+        <source>all</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="68"/>
-        <source>Missing</source>
-        <translation>Fehlend</translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="122"/>
+        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="137"/>
         <source>Path:</source>
         <translation>Pfad:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="143"/>
+        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="165"/>
         <source>Status:</source>
         <translation>Status:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="157"/>
+        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="179"/>
         <source>Usages:</source>
         <translation>Verwendungen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="173"/>
+        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="195"/>
         <source>Show</source>
         <translation>Anzeigen</translation>
     </message>
     <message>
+        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="27"/>
+        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="51"/>
+        <source>All (%1)</source>
+        <translation>Alle (%1)</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="28"/>
         <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="52"/>
+        <source>Missing (%1)</source>
+        <translation>Fehlend (%1)</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="57"/>
         <source>Copy selected %1</source>
         <comment>Copy selected elements</comment>
         <translation>Ausgewählte %1 kopieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="53"/>
+        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="58"/>
         <source>Search for missing %1</source>
         <comment>Search for missing elements</comment>
         <translation>Fehlende %1 suchen</translation>
