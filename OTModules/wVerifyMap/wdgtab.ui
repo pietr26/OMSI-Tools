@@ -21,7 +21,7 @@
      </property>
      <widget class="QWidget" name="tabAll">
       <attribute name="title">
-       <string>All</string>
+       <string>all</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
@@ -65,7 +65,7 @@
      </widget>
      <widget class="QWidget" name="tabMissing">
       <attribute name="title">
-       <string>Missing</string>
+       <string notr="true">missing</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
@@ -132,6 +132,9 @@
           <widget class="QPushButton" name="btnCopyPath">
            <property name="text">
             <string/>
+           </property>
+           <property name="icon">
+            <iconset theme="QIcon::ThemeIcon::EditCopy"/>
            </property>
           </widget>
          </item>

@@ -8,6 +8,7 @@ wdgTab::wdgTab(QWidget *parent)
     ui->setupUi(this);
     ui->lwgAll->installEventFilter(new EventFilterCopyElements(ui->lwgAll));
     ui->lwgMissing->installEventFilter(new EventFilterCopyElements(ui->lwgMissing));
+    clear();
 }
 
 wdgTab::~wdgTab()
@@ -20,10 +21,11 @@ void wdgTab::clear()
     existing.clear();
     missing.clear();
 
-    ui->lwgAll->selectAll();
-    qDeleteAll (ui->lwgAll->selectedItems());
-    ui->lwgMissing->selectAll();
-    qDeleteAll (ui->lwgMissing->selectedItems());
+    ui->lwgAll->clear();
+    ui->lwgMissing->clear();
+
+    ui->twgItems->setTabText(0, tr("All (%1)").arg(0));
+    ui->twgItems->setTabText(1, tr("Missing (%1)").arg(0));
 }
 
 void wdgTab::add(QStringList items, bool isMissing)
@@ -45,6 +47,9 @@ void wdgTab::apply()
     ui->lwgAll->addItems(all);
     ui->lwgAll->sortItems();
     isApplied = true;
+
+    ui->twgItems->setTabText(0, tr("All (%1)").arg(all.count()));
+    ui->twgItems->setTabText(1, tr("Missing (%1)").arg(missing.count()));
 }
 
 void wdgTab::setName(QString name)
@@ -108,3 +113,29 @@ void wdgTab::search(QStringList items)
     WCONTENTSEARCH->setWindowModality(Qt::ApplicationModal);
     WCONTENTSEARCH->show();
 }
+
+void wdgTab::setPath()
+{
+    if (ui->twgItems->currentIndex())
+    {
+        if (ui->lwgMissing->currentRow() == -1 || ui->lwgMissing->selectedItems().count() > 1) ui->ledPath->clear();
+        else ui->ledPath->setText(ui->lwgMissing->currentItem()->text());
+    }
+    else
+    {
+        if (ui->lwgAll->currentRow() == -1 || ui->lwgAll->selectedItems().count() > 1) ui->ledPath->clear();
+        else ui->ledPath->setText(ui->lwgAll->currentItem()->text());
+    }
+}
+
+void wdgTab::on_twgItems_currentChanged(int index) { Q_UNUSED(index); setPath(); }
+void wdgTab::on_lwgAll_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); setPath(); }
+void wdgTab::on_lwgMissing_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); setPath(); }
+
+void wdgTab::on_ledPath_textChanged(const QString &arg1) { ui->btnCopyPath->setEnabled(!arg1.isEmpty()); }
+
+void wdgTab::on_btnCopyPath_clicked()
+{
+    misc.copy(ui->ledPath->text());
+}
+

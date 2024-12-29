@@ -46,6 +46,16 @@ private slots:
 
     void on_btnCopySelectedElements_clicked();
 
+    void on_twgItems_currentChanged(int index);
+
+    void on_lwgAll_currentRowChanged(int currentRow);
+
+    void on_ledPath_textChanged(const QString &arg1);
+
+    void on_lwgMissing_currentRowChanged(int currentRow);
+
+    void on_btnCopyPath_clicked();
+
 private:
     Ui::wdgTab *ui;
     OTMiscellaneous misc;
@@ -59,6 +69,8 @@ private:
     void copy(QStringList items);
     void search(QList<QListWidgetItem*> items);
     void search(QStringList items);
+
+    void setPath();
 };
 
 
