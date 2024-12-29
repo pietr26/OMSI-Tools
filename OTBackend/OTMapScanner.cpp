@@ -21,8 +21,10 @@ void OTMapChecker::run() {
     _finish = false;
     _allSceneryobjects.clear();
     _allSplines.clear();
+    _allHumans.clear();
     _missingSceneryobjects.clear();
     _missingSplines.clear();
+    _missingHumans.clear();
 
     while (true) {
         QMutexLocker locker(&_mutex);
@@ -159,7 +161,9 @@ OTMapScanner::OTMapScanner(QObject *parent, OTMapChecker *checker) :
 
 void OTMapScanner::run() {
     _allTiles.clear();
+    _allTextures.clear();
     _missingTiles.clear();
+    _missingTextures.clear();
     scanGlobal();
     scanTextures();
     scanParkLists();
