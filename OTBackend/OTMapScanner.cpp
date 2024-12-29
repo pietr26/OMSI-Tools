@@ -182,8 +182,12 @@ void OTMapScanner::scanParkLists() {
         QString indexStr = i != 0 ? "_" + QString::number(i) : "";
         QString path = _mapDir + "/parklist_p" + indexStr + ".txt";
         QFile f(path);
-        if(!f.exists())
+        if(!f.exists() && i != 0)
             break;
+        else if(!f.exists()) {
+            qWarning() << "parklist_p.txt not found!";
+            break;
+        }
 
         f.open(QFile::ReadOnly);
         QTextStream s(&f);
