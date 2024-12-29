@@ -7,6 +7,7 @@
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTBackend/OCC/OCFS.h"
+#include "OTBackend/OTMapScanner.h"
 #include <QListWidgetItem>
 #include <QKeySequence>
 #include <QKeyEvent>
@@ -33,8 +34,6 @@ private slots:
 
     void on_actionStartVerifying_triggered();
 
-    void reloadProgress();
-
     void on_actionSendFeedback_triggered();
 
     void on_cobxMapName_currentIndexChanged(int index);
@@ -44,6 +43,10 @@ private slots:
     void on_actionBackToHome_triggered();
 
     void on_btnVerificationPreferences_clicked();
+
+    void onScannerFinished();
+    void onCheckerFinished();
+    void onStatusUpdate(int, QString);
 
 signals:
     void backToHome();
@@ -60,18 +63,15 @@ private:
 
     OTOMSIFileHandler filehandler;
 
-    QTimer *watchProgress = new QTimer();
-
-    void startEndWatchProgress(bool state);
-
-    void endVerifying();
-
     void loadMapList();
 
     QList<QPair<QString, QString>> mapList;
 
     bool mapListSetupFinished = false;
     void enableView(bool enable);
+
+    OTMapScanner *_scanner;
+    OTMapChecker *_checker;
 
 };
 

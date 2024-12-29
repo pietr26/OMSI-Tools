@@ -53,6 +53,7 @@ SOURCES += \
     OTBackend/OCC/OCViewable.cpp \
     OTBackend/OCC/OCWeather.cpp \
     OTBackend/OTLogger.cpp \
+    OTBackend/OTMapScanner.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
     OTModules/OTGeneric/wfirstsetup.cpp \
     OTModules/OTGeneric/wpreferences.cpp \
@@ -145,6 +146,7 @@ HEADERS += \
     OTBackend/OTExternal.h \
     OTBackend/OTGlobal.h \
     OTBackend/OTLogger.h \
+    OTBackend/OTMapScanner.h \
     OTBackend/OTOmsiFileHandler.h \
     OTBackend/OTOmsiFileHandler_models.h \
     OTModules/OTGeneric/wfeedback.h \

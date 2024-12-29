@@ -18,7 +18,7 @@ wdgTab::~wdgTab()
 
 void wdgTab::clear()
 {
-    existing.clear();
+    all.clear();
     missing.clear();
 
     ui->lwgAll->clear();
@@ -31,8 +31,9 @@ void wdgTab::clear()
 void wdgTab::add(QStringList items, bool isMissing)
 {
     isApplied = false;
+    items.replaceInStrings("/", "\\");
     if (isMissing) missing << items;
-    else existing << items;
+    else all << items;
 }
 
 void wdgTab::apply()
@@ -42,8 +43,6 @@ void wdgTab::apply()
     ui->lwgMissing->sortItems();
 
     ui->lwgAll->clear();
-    QStringList all = QStringList(existing + missing);
-    all.removeDuplicates();
     ui->lwgAll->addItems(all);
     ui->lwgAll->sortItems();
     isApplied = true;
@@ -61,7 +60,7 @@ void wdgTab::setName(QString name)
 OTVerificationOverviewData wdgTab::getData()
 {
     if (!isApplied) qFatal() << "Cannot get data from an unapplied object!";
-    return OTVerificationOverviewData(missing.count(), existing.count());
+    return OTVerificationOverviewData(missing.count(), all.count());
 }
 
 void wdgTab::on_btnSearchForMissingElements_clicked()
@@ -72,7 +71,7 @@ void wdgTab::on_btnSearchForMissingElements_clicked()
 
 void wdgTab::on_btnCopySelectedElements_clicked()
 {
-    if (ui->lwgMissing->selectedItems().isEmpty()) copy(ui->twgItems->currentIndex() ? missing : existing);
+    if (ui->lwgMissing->selectedItems().isEmpty()) copy(ui->twgItems->currentIndex() ? missing : all);
     else copy(ui->twgItems->currentIndex() ? ui->lwgMissing->selectedItems() : ui->lwgAll->selectedItems());
 }
 

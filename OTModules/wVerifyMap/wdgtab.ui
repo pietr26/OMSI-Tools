@@ -37,7 +37,7 @@
       </property>
       <widget class="QWidget" name="tabAll">
        <attribute name="title">
-        <string>all</string>
+        <string notr="true">all</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
@@ -109,7 +109,7 @@
        </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_3">
