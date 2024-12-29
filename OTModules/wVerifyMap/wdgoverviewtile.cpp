@@ -14,43 +14,51 @@ wdgOverviewTile::~wdgOverviewTile()
     delete ui;
 }
 
-void wdgOverviewTile::setCount(int count)
+void wdgOverviewTile::setTotal(int count)
 {
-    ui->lblTotal->setText(QString::number(count));
+    switch (type)
+    {
+        case Tile: ui->lblTotal->setText(tr("%n tile(s)", "", count)); break;
+        case Sceneryobject: ui->lblTotal->setText(tr("%n sceneryobjec(ts)", "", count)); break;
+        case Spline: ui->lblTotal->setText(tr("%n spline(s)", "", count)); break;
+        case Vehicle: ui->lblTotal->setText(tr("%n vehicle(s)", "", count)); break;
+        case Human: ui->lblTotal->setText(tr("%n human(s)", "", count)); break;
+        case Texture: ui->lblTotal->setText(tr("%n texture(s)", "", count)); break;
+        case None: ui->lblTotal->setText(tr("%n element(s)", "", count)); break;
+    }
+
     if (count == 0) ui->lblIcon->setPixmap(QPixmap());
 }
 
 void wdgOverviewTile::setMissing(int missing)
 {
-    ui->lblMissing->setText(QString::number(missing) + " " + tr("missing", "x items missing"));
+    ui->lblMissing->setText(tr("%n missing", "", missing));
 
-    if (missing == 0)
-    {
-        ui->lblIcon->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::WeatherClear).pixmap(32));
-        ui->btnTo->setVisible(false);
-    }
+    ui->btnTo->setVisible(missing != 0);
+
+    if (missing == 0)  ui->lblIcon->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::WeatherClear).pixmap(32));
     else
     {
-        ui->btnTo->setVisible(true);
-
-        if (warningInsteadError)
-            ui->lblIcon->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::DialogWarning).pixmap(32));
-        else
-            ui->lblIcon->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::EditClear).pixmap(32));
+        if (warningInsteadError) ui->lblIcon->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::DialogWarning).pixmap(32));
+        else ui->lblIcon->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::EditClear).pixmap(32));
     }
 }
 
 void wdgOverviewTile::clear()
 {
-    ui->lblTotal->setText("0");
-    ui->lblMissing->setText("0 " + tr("missing", "x items missing"));
+    setMissing(0);
+    setTotal(0);
     ui->btnTo->setVisible(false);
     QPixmap empty = QPixmap(32, 32);
     empty.fill(Qt::transparent);
     ui->lblIcon->setPixmap(empty);
 }
 
-void wdgOverviewTile::setName(QString name) { ui->lblName->setText(name); }
+void wdgOverviewTile::setElementType(ElementType _type)
+{
+    type = _type; clear();
+}
+
 void wdgOverviewTile::setWarningInsteadError(bool enable) { warningInsteadError = enable; }
 
 void wdgOverviewTile::on_btnTo_clicked() { goTo(); }

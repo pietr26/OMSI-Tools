@@ -4,44 +4,12 @@
 #include <QMainWindow>
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTOmsiFileHandler.h"
-#include "OTWidgets/verifymaptools.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTBackend/OCC/OCFS.h"
 #include <QListWidgetItem>
 #include <QKeySequence>
 #include <QKeyEvent>
-
-class EventFilterCopyElements : public QObject {
-    Q_OBJECT
-
-public:
-    EventFilterCopyElements(QListWidget *listWidget) : lwg(listWidget) { }
-
-protected:
-    bool eventFilter(QObject *obj, QEvent *event) override
-    {
-        if (event->type() == QEvent::KeyPress)
-        {
-            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-            if (keyEvent->modifiers() == Qt::ControlModifier && keyEvent->key() == Qt::Key_C)
-            {
-                QList<QListWidgetItem*> items = lwg->selectedItems();
-                QString copystring;
-
-                foreach (QListWidgetItem *current, items) copystring += current->text() + "\n";
-                misc.copy(copystring);
-
-                return true;
-            }
-        }
-        return QObject::eventFilter(obj, event);
-    }
-
-private:
-    QListWidget *lwg;
-    OTMiscellaneous misc;
-};
 
 namespace Ui {
 class wVerifyMap;
@@ -84,7 +52,6 @@ private:
     Ui::wVerifyMap *ui;
     OTMessage msg;
     OTSettings set;
-    wContentSearch *WCONTENTSEARCH;
     wPreferences *WPREFERENCES;
 
     int cutCount = set.read("main", "mainDir").toString().size() + 1;

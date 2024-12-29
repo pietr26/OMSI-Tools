@@ -24,47 +24,33 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     loadMapList();
     on_cobxMapName_currentIndexChanged(ui->cobxMapName->currentIndex());
 
-    // ---
-    ui->hlaTiles->insertWidget(1, new verifyMapTools(ui->lwgTilesAll, ui->lwgTilesMissing, this));
-    ui->hlaTextures->insertWidget(1, new verifyMapTools(ui->lwgTexturesAll, ui->lwgTexturesMissing, this));
-    ui->hlaObjects->insertWidget(1, new verifyMapTools(ui->lwgObjectsAll, ui->lwgObjectsMissing, this));
-    ui->hlaSplines->insertWidget(1, new verifyMapTools(ui->lwgSplinesAll, ui->lwgSplinesMissing, this));
-    ui->hlaVehicles->insertWidget(1, new verifyMapTools(ui->lwgVehiclesAll, ui->lwgVehiclesMissing, this));
-    ui->hlaHumans->insertWidget(1, new verifyMapTools(ui->lwgHumansAll, ui->lwgHumansMissing, this));
-
     // Connect S&S
     connect(watchProgress, SIGNAL(timeout()), this, SLOT(reloadProgress()));
     ui->pgbProgress->setVisible(false);
     ui->statusbar->showMessage(QString(tr("Press %1 to start the verification.")).arg("\"" + ui->btnStartVerifying->text() + "\""));
     ui->twgVerfying->setCurrentIndex(0);
 
-    ui->lwgTilesAll->installEventFilter(new EventFilterCopyElements(ui->lwgTilesAll));
-    ui->lwgTilesMissing->installEventFilter(new EventFilterCopyElements(ui->lwgTilesMissing));
-    ui->lwgTexturesAll->installEventFilter(new EventFilterCopyElements(ui->lwgTexturesAll));
-    ui->lwgTexturesMissing->installEventFilter(new EventFilterCopyElements(ui->lwgTexturesMissing));
-
-    ui->lwgObjectsAll->installEventFilter(new EventFilterCopyElements(ui->lwgObjectsAll));
-    ui->lwgObjectsMissing->installEventFilter(new EventFilterCopyElements(ui->lwgObjectsMissing));
-    ui->lwgSplinesAll->installEventFilter(new EventFilterCopyElements(ui->lwgSplinesAll));
-    ui->lwgSplinesMissing->installEventFilter(new EventFilterCopyElements(ui->lwgSplinesMissing));
-    ui->lwgVehiclesAll->installEventFilter(new EventFilterCopyElements(ui->lwgVehiclesAll));
-    ui->lwgVehiclesMissing->installEventFilter(new EventFilterCopyElements(ui->lwgVehiclesMissing));
-    ui->lwgHumansAll->installEventFilter(new EventFilterCopyElements(ui->lwgHumansAll));
-    ui->lwgHumansMissing->installEventFilter(new EventFilterCopyElements(ui->lwgHumansMissing));
-
     // Set overview tiles
+    ui->wdgTilesOverview->setElementType(ElementType::Tile);
+    ui->wdgSceneryobjectsOverview->setElementType(ElementType::Sceneryobject);
+    ui->wdgSplinesOverview->setElementType(ElementType::Spline);
+    ui->wdgVehiclesOverview->setElementType(ElementType::Vehicle);
+    ui->wdgHumansOverview->setElementType(ElementType::Human);
+    ui->wdgTexturesOverview->setElementType(ElementType::Texture);
+    connect(ui->wdgTilesOverview, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(1); });
+    connect(ui->wdgSceneryobjectsOverview, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(2); });
+    connect(ui->wdgSplinesOverview, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(3); });
+    connect(ui->wdgVehiclesOverview, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(4); });
+    connect(ui->wdgHumansOverview, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(5); });
+    connect(ui->wdgTexturesOverview, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(6); });
+
+    // Set tabs
     ui->wdgTiles->setName(tr("Tiles"));
     ui->wdgSceneryobjects->setName(tr("Sceneryobjects"));
     ui->wdgSplines->setName(tr("Splines"));
     ui->wdgVehicles->setName(tr("Vehicles"));
     ui->wdgHumans->setName(tr("Humans"));
     ui->wdgTextures->setName(tr("Textures"));
-    connect(ui->wdgTiles, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(1); });
-    connect(ui->wdgSceneryobjects, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(2); });
-    connect(ui->wdgSplines, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(3); });
-    connect(ui->wdgVehicles, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(4); });
-    connect(ui->wdgHumans, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(5); });
-    connect(ui->wdgTextures, &wdgOverviewTile::goTo, this, [this](){ ui->twgVerfying->setCurrentIndex(6); });
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -90,44 +76,21 @@ void wVerifyMap::selectAllAndClear()
     qDebug() << "Clear view...";
 
     // Clear ListWidgets:
-    ui->lwgTilesAll->selectAll();
-    qDeleteAll (ui->lwgTilesAll->selectedItems());
-    ui->lwgTilesMissing->selectAll();
-    qDeleteAll (ui->lwgTilesMissing->selectedItems());
-
-    ui->lwgTexturesAll->selectAll();
-    qDeleteAll (ui->lwgTexturesAll->selectedItems());
-    ui->lwgTexturesMissing->selectAll();
-    qDeleteAll (ui->lwgTexturesMissing->selectedItems());
-
-    ui->lwgObjectsAll->selectAll();
-    qDeleteAll (ui->lwgObjectsAll->selectedItems());
-    ui->lwgObjectsMissing->selectAll();
-    qDeleteAll (ui->lwgObjectsMissing->selectedItems());
-
-    ui->lwgSplinesAll->selectAll();
-    qDeleteAll (ui->lwgSplinesAll->selectedItems());
-    ui->lwgSplinesMissing->selectAll();
-    qDeleteAll (ui->lwgSplinesMissing->selectedItems());
-
-    ui->lwgVehiclesAll->selectAll();
-    qDeleteAll (ui->lwgVehiclesAll->selectedItems());
-    ui->lwgVehiclesMissing->selectAll();
-    qDeleteAll (ui->lwgVehiclesMissing->selectedItems());
-
-    ui->lwgHumansAll->selectAll();
-    qDeleteAll (ui->lwgHumansAll->selectedItems());
-    ui->lwgHumansMissing->selectAll();
-    qDeleteAll (ui->lwgHumansMissing->selectedItems());
-
-    ui->pgbProgress->setVisible(false);
-
     ui->wdgTiles->clear();
     ui->wdgSceneryobjects->clear();
     ui->wdgSplines->clear();
     ui->wdgVehicles->clear();
     ui->wdgHumans->clear();
     ui->wdgTextures->clear();
+
+    ui->pgbProgress->setVisible(false);
+
+    ui->wdgTilesOverview->clear();
+    ui->wdgSceneryobjectsOverview->clear();
+    ui->wdgSplinesOverview->clear();
+    ui->wdgVehiclesOverview->clear();
+    ui->wdgHumansOverview->clear();
+    ui->wdgTexturesOverview->clear();
 }
 
 
@@ -191,6 +154,7 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     qInfo().noquote() << QString("Map: %1").arg(filehandler.getMapPath());
 
     selectAllAndClear();
+    filehandler.stuffobj.clear();
     ui->pgbProgress->setVisible(true);
 
     // MAP:
@@ -256,93 +220,53 @@ void wVerifyMap::on_btnStartVerifying_clicked()
         filehandler.stuffobj.toBackslash();
 
         // MAP:
-        QStringList tiles = filehandler.stuffobj.missing.tiles + filehandler.stuffobj.existing.tiles;
-        tiles.removeDuplicates();
-        ui->lwgTilesAll->addItems(tiles);
-        ui->lwgTilesAll->sortItems();
-        ui->lwgTilesMissing->addItems(filehandler.stuffobj.missing.tiles);
-        ui->lwgTilesMissing->sortItems();
+        ui->wdgTiles->add(filehandler.stuffobj.existing.tiles, false);
+        ui->wdgTiles->add(filehandler.stuffobj.missing.tiles, true);
+        ui->wdgTiles->apply();
+        ui->wdgTilesOverview->setTotal(ui->wdgTiles->getData().total);
+        ui->wdgTilesOverview->setMissing(ui->wdgTiles->getData().missing);
 
-        ui->wdgTiles->setCount(ui->lwgTilesAll->count());
-        ui->wdgTiles->setMissing(ui->lwgTilesMissing->count());
+        // SCO:
+        ui->wdgSceneryobjects->add(filehandler.stuffobj.existing.sceneryobjects, false);
+        ui->wdgSceneryobjects->add(filehandler.stuffobj.missing.sceneryobjects, true);
+        ui->wdgSceneryobjects->apply();
+        ui->wdgSceneryobjectsOverview->setTotal(ui->wdgSceneryobjects->getData().total);
+        ui->wdgSceneryobjectsOverview->setMissing(ui->wdgSceneryobjects->getData().missing);
 
-        QStringList textures;
-        QStringList missingTextures;
+        // SLI:
+        ui->wdgSplines->add(filehandler.stuffobj.existing.splines, false);
+        ui->wdgSplines->add(filehandler.stuffobj.missing.splines, true);
+        ui->wdgSplines->apply();
+        ui->wdgSplinesOverview->setTotal(ui->wdgSplines->getData().total);
+        ui->wdgSplinesOverview->setMissing(ui->wdgSplines->getData().missing);
+
+        // VEH:
+        ui->wdgVehicles->add(filehandler.stuffobj.existing.vehicles, false);
+        ui->wdgVehicles->add(filehandler.stuffobj.missing.vehicles, true);
+        ui->wdgVehicles->apply();
+        ui->wdgVehiclesOverview->setTotal(ui->wdgVehicles->getData().total);
+        ui->wdgVehiclesOverview->setMissing(ui->wdgVehicles->getData().missing);
+
+        // HUM:
+        ui->wdgHumans->add(filehandler.stuffobj.existing.humans, false);
+        ui->wdgHumans->add(filehandler.stuffobj.missing.humans, true);
+        ui->wdgHumans->apply();
+        ui->wdgHumansOverview->setTotal(ui->wdgHumans->getData().total);
+        ui->wdgHumansOverview->setMissing(ui->wdgHumans->getData().missing);
+
         // TEX:
         if (set.read(objectName(), "advVerifying").toBool() && !set.read(objectName(), "onlyMapTextures").toBool())
         {
-            textures = filehandler.stuffobj.missing.textures + filehandler.stuffobj.existing.textures;
-            ui->lwgTexturesAll->addItems(textures);
-
-            ui->lwgTexturesMissing->addItems(filehandler.stuffobj.missing.textures);
+            ui->wdgTextures->add(filehandler.stuffobj.existing.textures, false);
+            ui->wdgTextures->add(filehandler.stuffobj.missing.textures, true);
         }
 
         // GLOBAL TEX:
-        textures.append(filehandler.stuffobj.missing.globalTextures);
-        textures.append(filehandler.stuffobj.existing.globalTextures);
-        textures.removeDuplicates();
-        ui->lwgTexturesAll->addItems(textures);
-        ui->lwgTexturesAll->sortItems();
-
-        missingTextures.append(filehandler.stuffobj.missing.globalTextures);
-        missingTextures.removeDuplicates();
-        ui->lwgTexturesMissing->addItems(missingTextures);
-        ui->lwgTexturesMissing->sortItems();
-
-        ui->wdgTextures->setCount(ui->lwgTexturesAll->count());
-        ui->wdgTextures->setMissing(ui->lwgTexturesMissing->count());
-
-        // SCO:
-        QStringList objects = filehandler.stuffobj.missing.sceneryobjects + filehandler.stuffobj.existing.sceneryobjects;
-        objects.removeDuplicates();
-        ui->lwgObjectsAll->addItems(objects);
-        ui->lwgObjectsAll->sortItems();
-
-        ui->lwgObjectsMissing->addItems(filehandler.stuffobj.missing.sceneryobjects);
-        ui->lwgObjectsMissing->sortItems();
-
-        ui->wdgSceneryobjects->setCount(ui->lwgObjectsAll->count());
-        ui->wdgSceneryobjects->setMissing(ui->lwgObjectsMissing->count());
-
-        // SLI:
-        QStringList splines = filehandler.stuffobj.missing.splines + filehandler.stuffobj.existing.splines;
-        splines.removeDuplicates();
-        ui->lwgSplinesAll->addItems(splines);
-        ui->lwgSplinesAll->sortItems();
-
-        ui->lwgSplinesMissing->addItems(filehandler.stuffobj.missing.splines);
-        ui->lwgSplinesMissing->sortItems();
-
-        ui->wdgSplines->setCount(ui->lwgSplinesAll->count());
-        ui->wdgSplines->setMissing(ui->lwgSplinesMissing->count());
-
-        // VEH:
-        QStringList vehicles = filehandler.stuffobj.missing.vehicles + filehandler.stuffobj.existing.vehicles;
-        vehicles.removeDuplicates();
-        ui->lwgVehiclesAll->addItems(vehicles);
-        ui->lwgVehiclesAll->sortItems();
-
-        ui->lwgVehiclesMissing->addItems(filehandler.stuffobj.missing.vehicles);
-        ui->lwgVehiclesMissing->sortItems();
-
-        ui->wdgVehicles->setCount(ui->lwgVehiclesAll->count());
-        ui->wdgVehicles->setMissing(ui->lwgVehiclesMissing->count());
-
-        // HUM:
-        QStringList humans = filehandler.stuffobj.missing.humans + filehandler.stuffobj.existing.humans;
-        humans.removeDuplicates();
-        ui->lwgHumansAll->addItems(humans);
-        ui->lwgHumansAll->sortItems();
-
-        ui->lwgHumansMissing->addItems(filehandler.stuffobj.missing.humans);
-        ui->lwgHumansMissing->sortItems();
-
-        ui->wdgHumans->setCount(ui->lwgHumansAll->count());
-        ui->wdgHumans->setMissing(ui->lwgHumansMissing->count());
-
-        // ----------
-
-        filehandler.stuffobj.clear();
+        ui->wdgTextures->add(filehandler.stuffobj.existing.globalTextures, false);
+        ui->wdgTextures->add(filehandler.stuffobj.missing.globalTextures, true);
+        ui->wdgTextures->apply();
+        ui->wdgTexturesOverview->setTotal(ui->wdgTextures->getData().total);
+        ui->wdgTexturesOverview->setMissing(ui->wdgTextures->getData().missing);
     }
 
     qInfo() << "Verification finished.";

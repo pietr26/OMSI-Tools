@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>637</width>
-    <height>788</height>
+    <width>715</width>
+    <height>803</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -112,12 +112,6 @@
     </item>
     <item>
      <widget class="QTabWidget" name="twgVerfying">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
       <property name="toolTip">
        <string/>
       </property>
@@ -128,7 +122,7 @@
        <enum>QTabWidget::TabShape::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::TextElideMode::ElideNone</enum>
@@ -159,13 +153,13 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <widget class="wdgOverviewTile" name="wdgTiles" native="true"/>
+           <widget class="wdgOverviewTile" name="wdgTilesOverview" native="true"/>
           </item>
           <item>
-           <widget class="wdgOverviewTile" name="wdgSceneryobjects" native="true"/>
+           <widget class="wdgOverviewTile" name="wdgSceneryobjectsOverview" native="true"/>
           </item>
           <item>
-           <widget class="wdgOverviewTile" name="wdgSplines" native="true"/>
+           <widget class="wdgOverviewTile" name="wdgSplinesOverview" native="true"/>
           </item>
          </layout>
         </item>
@@ -198,13 +192,13 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="wdgOverviewTile" name="wdgVehicles" native="true"/>
+           <widget class="wdgOverviewTile" name="wdgVehiclesOverview" native="true"/>
           </item>
           <item>
-           <widget class="wdgOverviewTile" name="wdgHumans" native="true"/>
+           <widget class="wdgOverviewTile" name="wdgHumansOverview" native="true"/>
           </item>
           <item>
-           <widget class="wdgOverviewTile" name="wdgTextures" native="true"/>
+           <widget class="wdgOverviewTile" name="wdgTexturesOverview" native="true"/>
           </item>
          </layout>
         </item>
@@ -282,79 +276,11 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <layout class="QHBoxLayout" name="hlaTiles">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_8">
-            <item>
-             <widget class="QListWidget" name="lwgTilesAll">
-              <property name="acceptDrops">
-               <bool>false</bool>
-              </property>
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="dragEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="dragDropOverwriteMode">
-               <bool>false</bool>
-              </property>
-              <property name="dragDropMode">
-               <enum>QAbstractItemView::DragDropMode::NoDragDrop</enum>
-              </property>
-              <property name="defaultDropAction">
-               <enum>Qt::DropAction::IgnoreAction</enum>
-              </property>
-              <property name="alternatingRowColors">
-               <bool>false</bool>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="textElideMode">
-               <enum>Qt::TextElideMode::ElideLeft</enum>
-              </property>
-              <property name="viewMode">
-               <enum>QListView::ViewMode::ListMode</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_9">
-            <item>
-             <widget class="QListWidget" name="lwgTilesMissing">
-              <property name="acceptDrops">
-               <bool>false</bool>
-              </property>
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="dragEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="dragDropMode">
-               <enum>QAbstractItemView::DragDropMode::NoDragDrop</enum>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
+         <widget class="wdgTab" name="wdgTiles" native="true"/>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tabObjects">
+      <widget class="QWidget" name="tabSceneryobjects">
        <property name="toolTip">
         <string>Sceneryobjects on the map</string>
        </property>
@@ -363,48 +289,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <layout class="QHBoxLayout" name="hlaObjects">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_13">
-            <item>
-             <widget class="QListWidget" name="lwgObjectsAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="viewMode">
-               <enum>QListView::ViewMode::ListMode</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_14">
-            <item>
-             <widget class="QListWidget" name="lwgObjectsMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="viewMode">
-               <enum>QListView::ViewMode::ListMode</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
+         <widget class="wdgTab" name="wdgSceneryobjects" native="true"/>
         </item>
        </layout>
       </widget>
@@ -417,42 +302,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <layout class="QHBoxLayout" name="hlaSplines">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_15">
-            <item>
-             <widget class="QListWidget" name="lwgSplinesAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_16">
-            <item>
-             <widget class="QListWidget" name="lwgSplinesMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
+         <widget class="wdgTab" name="wdgSplines" native="true"/>
         </item>
        </layout>
       </widget>
@@ -465,42 +315,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <layout class="QHBoxLayout" name="hlaVehicles">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_17">
-            <item>
-             <widget class="QListWidget" name="lwgVehiclesAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_18">
-            <item>
-             <widget class="QListWidget" name="lwgVehiclesMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
+         <widget class="wdgTab" name="wdgVehicles" native="true"/>
         </item>
        </layout>
       </widget>
@@ -513,42 +328,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <layout class="QHBoxLayout" name="hlaHumans">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_19">
-            <item>
-             <widget class="QListWidget" name="lwgHumansAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_20">
-            <item>
-             <widget class="QListWidget" name="lwgHumansMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
+         <widget class="wdgTab" name="wdgHumans" native="true"/>
         </item>
        </layout>
       </widget>
@@ -558,45 +338,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <layout class="QHBoxLayout" name="hlaTextures">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_10">
-            <item>
-             <widget class="QListWidget" name="lwgTexturesAll">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="dragEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_11">
-            <item>
-             <widget class="QListWidget" name="lwgTexturesMissing">
-              <property name="toolTip">
-               <string/>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
-              </property>
-              <property name="batchSize">
-               <number>300</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
+         <widget class="wdgTab" name="wdgTextures" native="true"/>
         </item>
        </layout>
       </widget>
@@ -634,7 +376,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>637</width>
+     <width>715</width>
      <height>25</height>
     </rect>
    </property>
@@ -729,6 +471,12 @@
    <class>wdgOverviewTile</class>
    <extends>QWidget</extends>
    <header>OTModules/wVerifyMap/wdgoverviewtile.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>wdgTab</class>
+   <extends>QWidget</extends>
+   <header>OTModules/wVerifyMap/wdgtab.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

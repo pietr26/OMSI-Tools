@@ -77,6 +77,7 @@ SOURCES += \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp \
     OTModules/wMaps/wmaps.cpp \
     OTModules/wVerifyMap/wdgoverviewtile.cpp \
+    OTModules/wVerifyMap/wdgtab.cpp \
     OTModules/wcleanup.cpp \
     OTModules/wmapselection.cpp \
     OTModules/wmessageviewer.cpp \
@@ -87,7 +88,6 @@ SOURCES += \
     OTWidgets/inputaddeditremove.cpp \
     OTWidgets/message.cpp \
     OTWidgets/scrollingtext.cpp \
-    OTWidgets/verifymaptools.cpp \
     main.cpp \
     OTModules/OTInternals/wdevtools.cpp \
     OTModules/wVerifyMap/wverifymap.cpp \
@@ -171,6 +171,7 @@ HEADERS += \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.h \
     OTModules/wMaps/wmaps.h \
     OTModules/wVerifyMap/wdgoverviewtile.h \
+    OTModules/wVerifyMap/wdgtab.h \
     OTModules/wcleanup.h \
     OTModules/wmapselection.h \
     OTModules/wmessageviewer.h \
@@ -183,7 +184,6 @@ HEADERS += \
     OTWidgets/inputaddeditremove.h \
     OTWidgets/message.h \
     OTWidgets/scrollingtext.h \
-    OTWidgets/verifymaptools.h \
     OTModules/OTGeneric/wabout.h \
     OTModules/OTGeneric/wreleasenotes.h \
     OTModules/OTGeneric/wstart.h
@@ -213,6 +213,7 @@ FORMS += \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.ui \
     OTModules/wMaps/wmaps.ui \
     OTModules/wVerifyMap/wdgoverviewtile.ui \
+    OTModules/wVerifyMap/wdgtab.ui \
     OTModules/wcleanup.ui \
     OTModules/wmapselection.ui \
     OTModules/wmessageviewer.ui \
@@ -224,7 +225,6 @@ FORMS += \
     OTWidgets/inputaddeditremove.ui \
     OTWidgets/message.ui \
     OTWidgets/scrollingtext.ui \
-    OTWidgets/verifymaptools.ui \
     OTModules/OTGeneric/wabout.ui \
     OTModules/OTGeneric/wreleasenotes.ui \
     OTModules/OTGeneric/wstart.ui

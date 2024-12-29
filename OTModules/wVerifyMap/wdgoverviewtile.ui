@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>177</width>
+    <width>248</width>
     <height>178</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">wdgOverviewTile</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -58,24 +58,6 @@
          <property name="font">
           <font>
            <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblName">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
            <bold>true</bold>
           </font>
          </property>
@@ -83,7 +65,7 @@
           <string/>
          </property>
          <property name="text">
-          <string>elements</string>
+          <string notr="true">total elements</string>
          </property>
         </widget>
        </item>
@@ -131,7 +113,7 @@
           </font>
          </property>
          <property name="text">
-          <string>0</string>
+          <string notr="true">missing missing elements</string>
          </property>
         </widget>
        </item>
