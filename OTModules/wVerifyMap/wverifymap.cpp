@@ -200,11 +200,11 @@ void wVerifyMap::onCheckerFinished() {
     ui->wdgSplinesOverview->setMissing(_checker->missingSplinesCount());
 
     // VEH:
-    ui->wdgVehicles->add(filehandler.stuffobj.existing.vehicles, false);
-    ui->wdgVehicles->add(filehandler.stuffobj.missing.vehicles, true);
+    ui->wdgVehicles->add(_checker->allVehicles(), false);
+    ui->wdgVehicles->add(_checker->missingVehicles(), true);
     ui->wdgVehicles->apply();
-    ui->wdgVehiclesOverview->setTotal(ui->wdgVehicles->getData().total);
-    ui->wdgVehiclesOverview->setMissing(ui->wdgVehicles->getData().missing);
+    ui->wdgVehiclesOverview->setTotal(_checker->allVehiclesCount());
+    ui->wdgVehiclesOverview->setMissing(_checker->missingVehiclesCount());
 
     // HUM:
     ui->wdgHumans->add(_checker->allHumans(), false);

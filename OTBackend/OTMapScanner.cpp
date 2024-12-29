@@ -22,9 +22,11 @@ void OTMapChecker::run() {
     _allSceneryobjects.clear();
     _allSplines.clear();
     _allHumans.clear();
+    _allVehicles.clear();
     _missingSceneryobjects.clear();
     _missingSplines.clear();
     _missingHumans.clear();
+    _missingVehicles.clear();
 
     while (true) {
         QMutexLocker locker(&_mutex);
@@ -37,14 +39,16 @@ void OTMapChecker::run() {
             locker.unlock();
 
             for(QString file : files) {
-                int type; //0 = Sceneryobject / 1 = Spline / 2 = human
-                if(file.endsWith(".sco")) {
+                int type; //0 = Sceneryobject / 1 = Spline / 2 = human // vehicle = 3
+                if(file.endsWith(".sco"))
                     type = 0;
-                } else if(file.endsWith(".sli")) {
+                else if(file.endsWith(".sli"))
                     type = 1;
-                } else if(file.endsWith(".hum")) {
+                else if(file.endsWith(".hum"))
                     type = 2;
-                } else {
+                else if(file.endsWith(".ovh") || file.endsWith(".bus") || file.endsWith(".zug"))
+                    type = 3;
+                else {
                     qWarning() << "Unkown file type" << file;
                     continue;
                 }
@@ -63,6 +67,7 @@ void OTMapChecker::run() {
                         case 0: _missingSceneryobjects << file; break;
                         case 1: _missingSplines        << file; break;
                         case 2: _missingHumans         << file; break;
+                        case 3: _missingVehicles       << file; break;
                         default: break;
                     }
                 }
@@ -71,6 +76,7 @@ void OTMapChecker::run() {
                 case 0: _allSceneryobjects << file; break;
                 case 1: _allSplines        << file; break;
                 case 2: _allHumans         << file; break;
+                case 3: _allVehicles       << file; break;
                 default: break;
                 }
             }
@@ -116,6 +122,10 @@ QStringList OTMapChecker::allHumans() const {
     return _allHumans;
 }
 
+QStringList OTMapChecker::allVehicles() const {
+    return _allVehicles;
+}
+
 QStringList OTMapChecker::missingSceneryobjects() const {
     return _missingSceneryobjects;
 }
@@ -126,6 +136,10 @@ QStringList OTMapChecker::missingSplines() const {
 
 QStringList OTMapChecker::missingHumans() const {
     return _missingHumans;
+}
+
+QStringList OTMapChecker::missingVehicles() const {
+    return _missingVehicles;
 }
 
 int OTMapChecker::allSceneryobjectsCount() const {
@@ -140,6 +154,10 @@ int OTMapChecker::allHumansCount() const {
     return _allHumans.count();
 }
 
+int OTMapChecker::allVehiclesCount() const {
+    return _allVehicles.count();
+}
+
 int OTMapChecker::missingSceneryobjectsCount() const {
     return _missingSceneryobjects.count();
 }
@@ -150,6 +168,10 @@ int OTMapChecker::missingSplinesCount() const {
 
 int OTMapChecker::missingHumansCount() {
     return _missingHumans.count();
+}
+
+int OTMapChecker::missingVehiclesCount() const {
+    return _missingVehicles.count();
 }
 
 // ------------------------------------------------------------------------
@@ -168,6 +190,7 @@ void OTMapScanner::run() {
     scanTextures();
     scanParkLists();
     scanHumans();
+    scanAiList();
 
     int tileCount = _allTiles.count();
     emit initActionCount(tileCount);
@@ -257,8 +280,7 @@ void OTMapScanner::scanParkLists() {
 }
 
 void OTMapScanner::scanHumans() {
-    QString path = _mapDir + "/humans.txt";
-    QFile f(path);
+    QFile f(_mapDir + "/humans.txt");
     if(!f.exists()) {
         qWarning() << "humans.txt not found!";
         return;
@@ -273,6 +295,47 @@ void OTMapScanner::scanHumans() {
     QStringList list;
     while(!s.atEnd()) {
         list << s.readLine();
+    }
+    f.close();
+    _checker->addToQueue(list);
+}
+
+void OTMapScanner::scanAiList() {
+    QString omsiDir = _checker->omsiDir();
+    QFile f(_mapDir + "/ailists.cfg");
+    if(!f.exists()) {
+        qWarning() << "ailists.cfg not found!";
+        return;
+    }
+
+    if(!f.open(QFile::ReadOnly)) {
+        qWarning() << "Could not open ailists.cfg";
+        return;
+    }
+
+    QTextStream s(&f);
+    QStringList list;
+    while(!s.atEnd()) {
+        QString line = s.readLine();
+
+        if(line == "[aigroup_2]") {
+            s.readLine();
+            s.readLine();
+            line = s.readLine();
+            while(line != "[end]" && !s.atEnd()) {
+                QString file = line.split("\t")[0];
+                if(!list.contains(file))
+                    list << file;
+
+                line = s.readLine();
+            }
+        }
+
+        if(line == "[aigroup_depot_typgroup_2]") {
+            line = s.readLine();
+            if(!list.contains(line))
+                list << line;
+        }
     }
     f.close();
     _checker->addToQueue(list);

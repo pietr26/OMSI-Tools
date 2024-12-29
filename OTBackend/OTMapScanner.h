@@ -38,16 +38,20 @@ public:
     QStringList allSceneryobjects() const;
     QStringList allSplines() const;
     QStringList allHumans() const;
+    QStringList allVehicles() const;
     QStringList missingSceneryobjects() const;
     QStringList missingSplines() const;
     QStringList missingHumans() const;
+    QStringList missingVehicles() const;
 
     int allSceneryobjectsCount() const;
     int allSplinesCount() const;
     int allHumansCount() const;
+    int allVehiclesCount() const;
     int missingSceneryobjectsCount() const;
     int missingSplinesCount() const;
     int missingHumansCount();
+    int missingVehiclesCount() const;
 
 private:
     QString _omsiDir;
@@ -58,10 +62,12 @@ private:
 
     QStringList _allSceneryobjects;
     QStringList _allSplines;
+    QStringList _allHumans;
+    QStringList _allVehicles;
     QStringList _missingSceneryobjects;
     QStringList _missingSplines;
-    QStringList _allHumans;
     QStringList _missingHumans;
+    QStringList _missingVehicles;
 };
 
 class OTMapScanner : public OTMapScannerAbstract
@@ -76,6 +82,7 @@ public:
     void scanTextures();
     void scanParkLists();
     void scanHumans();
+    void scanAiList();
     void scanTile(const QString &filename);
 
     QStringList allTiles() const;
