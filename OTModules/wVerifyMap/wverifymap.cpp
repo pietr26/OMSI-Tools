@@ -241,13 +241,12 @@ void wVerifyMap::loadMapList()
     mapList = filehandler.listMaps();
 
     qDebug().noquote() << "Map count:" << mapList.size();
-
-    for (int i = 0; i < mapList.size(); i++)
-        ui->cobxMapName->addItem(mapList[i].first);
+    QString lastMap = set.read(objectName(), "mapPath").toString();
 
     for (int i = 0; i < mapList.size(); i++)
     {
-        if (mapList[i].second == set.read(objectName(), "mapPath").toString())
+        ui->cobxMapName->addItem(mapList[i].first);
+        if (mapList[i].second == lastMap)
         {
             ui->cobxMapName->setCurrentIndex(i);
             i = mapList.size();
