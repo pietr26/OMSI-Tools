@@ -48,7 +48,7 @@ private slots:
 signals:
     void backToHome();
 
-    void reloadUi();
+    void reloadUi(bool reset = false, bool charChange = false);
 
     void resizePreview();
 

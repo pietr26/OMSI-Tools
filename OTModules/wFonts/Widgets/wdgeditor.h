@@ -51,7 +51,7 @@ private slots:
     void on_btnCloseSearch_clicked();
 
 public slots:
-    void reloadUi();
+    void reloadUi(bool reset = false, bool selectionChange = false);
 
     void checkCharValidity(); // TODO: combine?
     void checkPropValidity(); // |_
@@ -69,7 +69,7 @@ signals:
 
     void reloadActionStates();
 
-    void reloadPreview();
+    void reloadPreview(bool reset = false, bool charChange = false);
 
 private:
     Ui::wdgEditor *ui;
@@ -81,8 +81,8 @@ private:
 
     enum Move
     {
-        Up,
-        Down
+        Up = 1,
+        Down = 2
     };
 
     QList<bool> fontExpansions;
@@ -93,7 +93,7 @@ private:
 
     void clear(bool onlyChar);
 
-    void moveChar(int selection, Move action);
+    void moveElement(int selection, Move action);
 
     QString currentSearch;
 
@@ -103,7 +103,8 @@ private:
     QAction *actionMoveUp;
     QAction *actionMoveDown;
     QAction *actionSearch;
-    QAction *actionGoToNextError;
+
+    bool switchSelectionActive = false;
 };
 
 #endif // WDGEDITOR_H

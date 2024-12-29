@@ -21,7 +21,7 @@
        <item>
         <spacer name="horizontalSpacer">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -102,10 +102,10 @@
      <item>
       <widget class="QTreeView" name="tvwChars">
        <property name="contextMenuPolicy">
-        <enum>Qt::ActionsContextMenu</enum>
+        <enum>Qt::ContextMenuPolicy::ActionsContextMenu</enum>
        </property>
        <property name="editTriggers">
-        <set>QAbstractItemView::NoEditTriggers</set>
+        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
        </property>
        <attribute name="headerVisible">
         <bool>false</bool>
@@ -127,7 +127,7 @@
        <item>
         <spacer name="horizontalSpacer_3">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -352,7 +352,7 @@
               </font>
              </property>
              <property name="buttonSymbols">
-              <enum>QAbstractSpinBox::UpDownArrows</enum>
+              <enum>QAbstractSpinBox::ButtonSymbols::UpDownArrows</enum>
              </property>
              <property name="accelerated">
               <bool>false</bool>
@@ -401,7 +401,7 @@
          <item>
           <spacer name="verticalSpacer_2">
            <property name="orientation">
-            <enum>Qt::Vertical</enum>
+            <enum>Qt::Orientation::Vertical</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -418,7 +418,7 @@
          <item>
           <layout class="QGridLayout" name="gridLayout_2">
            <property name="sizeConstraint">
-            <enum>QLayout::SetDefaultConstraint</enum>
+            <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
            </property>
            <item row="2" column="2" rowspan="2" colspan="2">
             <widget class="QSpinBox" name="sbxRightPixel">
@@ -449,7 +449,7 @@
               <number>1</number>
              </property>
              <property name="cursorMoveStyle">
-              <enum>Qt::LogicalMoveStyle</enum>
+              <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
              </property>
              <property name="clearButtonEnabled">
               <bool>false</bool>
@@ -462,7 +462,7 @@
               <string/>
              </property>
              <property name="text">
-              <string>Rightmost pixel:</string>
+              <string>Right pixel:</string>
              </property>
              <property name="buddy">
               <cstring>sbxRightPixel</cstring>
@@ -475,7 +475,7 @@
               <string/>
              </property>
              <property name="text">
-              <string>Leftmost pixel:</string>
+              <string>Left pixel:</string>
              </property>
              <property name="buddy">
               <cstring>sbxLeftPixel</cstring>
@@ -542,7 +542,7 @@
          <item>
           <spacer name="verticalSpacer">
            <property name="orientation">
-            <enum>Qt::Vertical</enum>
+            <enum>Qt::Orientation::Vertical</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>

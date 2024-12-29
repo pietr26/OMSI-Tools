@@ -24,7 +24,7 @@ private slots:
     void on_btnReloadTexPreview_clicked();
 
 public slots:
-    void reloadUi();
+    void reloadUi(bool reset = false, bool charChange = false);
 
     void resizeTexPreview();
 

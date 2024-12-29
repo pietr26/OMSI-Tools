@@ -39,8 +39,10 @@ void wdgPreview::on_btnReloadTexPreview_clicked()
     reloadUi();
 }
 
-void wdgPreview::reloadUi()
+void wdgPreview::reloadUi(bool reset, bool charChange)
 {
+    Q_UNUSED(reset); Q_UNUSED(charChange);
+
     if (_font->selection.contains(OCFont::FontCollection::FontSelection))
     {
         QString tex = set.read("main", "mainDir").toString() + "/Fonts/" + (set.read(objectName(), "texPreview").toInt() == 0 ? _font->fonts[_font->selection[OCFont::FontCollection::FontSelection]]->colorTexture : _font->fonts.at(_font->selection[OCFont::FontCollection::FontSelection])->alphaTexture);
