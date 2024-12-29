@@ -52,16 +52,18 @@ void OTMapChecker::run() {
                     continue;
 
                 if(!QFile::exists(_omsiDir + "/" + file)) {
-                    if(type == 0)
-                        _missingSceneryobjects << file;
-                    else
-                        _missingSplines << file;
+                    switch(type) {
+                        case 0: _missingSceneryobjects << file; break;
+                        case 1: _missingSplines        << file; break;
+                        default: break;
+                    }
                 }
 
-                if(type == 0)
-                    _allSceneryobjects << file;
-                else
-                    _allSplines << file;
+                switch(type) {
+                case 0: _allSceneryobjects << file; break;
+                case 1: _allSplines        << file; break;
+                default: break;
+                }
             }
         }
     }
