@@ -26,11 +26,8 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     connect(_scanner, &QThread::finished, this, &wVerifyMap::onScannerFinished);
     connect(_checker, &QThread::finished, this, &wVerifyMap::onCheckerFinished);
 
-    connect(_scanner, &OTMapScannerAbstract::initActionCount, ui->pgbProgress, &QProgressBar::setMaximum);
-    connect(_checker, &OTMapScannerAbstract::initActionCount, ui->pgbProgress, &QProgressBar::setMaximum);
-
-    connect(_scanner, &OTMapScannerAbstract::statusUpdate, this, &wVerifyMap::onStatusUpdate);
-    connect(_checker, &OTMapScannerAbstract::statusUpdate, this, &wVerifyMap::onStatusUpdate);
+    connect(_scanner, &OTMapScanner::initActionCount, ui->pgbProgress, &QProgressBar::setMaximum);
+    connect(_scanner, &OTMapScanner::statusUpdate, this, &wVerifyMap::onStatusUpdate);
 
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
 
@@ -142,7 +139,6 @@ void wVerifyMap::on_btnStartVerifying_clicked()
     qInfo().noquote() << QString("Map: %1").arg(filehandler.getMapPath());
 
     selectAllAndClear();
-    filehandler.stuffobj.clear();
     ui->pgbProgress->setVisible(true);
 
     _checker->setOmsiDir(set.read("main", "mainDir").toString());

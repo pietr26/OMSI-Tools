@@ -11,20 +11,7 @@
 #include <QFile>
 #include <QTextStream>
 
-class OTMapScannerAbstract : public QThread
-{
-    Q_OBJECT
-public:
-    explicit OTMapScannerAbstract(QObject *parent) : QThread(parent) {}
-    void run() override = 0;
-
-signals:
-    void initActionCount(int);
-    void statusUpdate(int, QString);
-private:
-};
-
-class OTMapChecker : public OTMapScannerAbstract
+class OTMapChecker : public QThread
 {
     Q_OBJECT
 public:
@@ -71,7 +58,7 @@ private:
     QStringList _missingVehicles;
 };
 
-class OTMapScanner : public OTMapScannerAbstract
+class OTMapScanner : public QThread
 {
     Q_OBJECT
 public:
@@ -95,6 +82,10 @@ public:
     int allTexturesCount() const;
     int missingTilesCount();
     int missingTexturesCount() const;
+
+signals:
+    void initActionCount(int);
+    void statusUpdate(int, QString);
 
 private:
     OTMapChecker *_checker;

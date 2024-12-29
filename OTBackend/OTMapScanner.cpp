@@ -13,7 +13,7 @@
 #include "OTMapScanner.h"
 
 OTMapChecker::OTMapChecker(QObject *parent) :
-    OTMapScannerAbstract(parent),
+    QThread(parent),
     _finish(false) {
 }
 
@@ -177,7 +177,7 @@ int OTMapChecker::missingVehiclesCount() const {
 // ------------------------------------------------------------------------
 
 OTMapScanner::OTMapScanner(QObject *parent, OTMapChecker *checker) :
-    OTMapScannerAbstract(parent),
+    QThread(parent),
     _checker(checker)
 {}
 
