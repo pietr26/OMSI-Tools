@@ -249,7 +249,6 @@ void wVerifyMap::loadMapList()
         if (mapList[i].second == lastMap)
         {
             ui->cobxMapName->setCurrentIndex(i);
-            i = mapList.size();
         }
     }
     mapListSetupFinished = true;
