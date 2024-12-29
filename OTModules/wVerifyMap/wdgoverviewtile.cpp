@@ -19,7 +19,7 @@ void wdgOverviewTile::setTotal(int count)
     switch (type)
     {
         case Tile: ui->lblTotal->setText(tr("%n tile(s)", "", count)); break;
-        case Sceneryobject: ui->lblTotal->setText(tr("%n sceneryobjec(ts)", "", count)); break;
+        case Sceneryobject: ui->lblTotal->setText(tr("%n sceneryobject(s)", "", count)); break;
         case Spline: ui->lblTotal->setText(tr("%n spline(s)", "", count)); break;
         case Vehicle: ui->lblTotal->setText(tr("%n vehicle(s)", "", count)); break;
         case Human: ui->lblTotal->setText(tr("%n human(s)", "", count)); break;
