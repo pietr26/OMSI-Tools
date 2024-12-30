@@ -28,7 +28,7 @@ private slots:
     void on_hslOpacity_valueChanged(int value);
 
 public slots:
-    void reloadPreview(OCFont::FontCollection *font, bool update = true);
+    void reloadPreview();
 
     void resizeEvent(QResizeEvent *event);
 

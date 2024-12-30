@@ -8,7 +8,6 @@ wdgPreview::wdgPreview(QWidget *parent, OCFont::FontCollection *font)
 {
     ui->setupUi(this);
 
-    reloadPreview(new OCFont::FontCollection());
     ui->cobxPreviewOptions->setCurrentIndex(set.read(objectName(), "texPreview").toInt());
     ui->hslOpacity->setValue(set.read(objectName(), "texPreviewOpacity").toInt());
 
@@ -32,18 +31,16 @@ void wdgPreview::resizeEvent(QResizeEvent *event)
 void wdgPreview::on_cobxPreviewOptions_currentIndexChanged(int index)
 {
     set.write(objectName(), "texPreview", index);
-    reloadPreview(new OCFont::FontCollection(), false);
+    reloadPreview();
 }
 
 void wdgPreview::on_btnReloadTexPreview_clicked()
 {
-    reloadPreview(new OCFont::FontCollection(), false);
+    reloadPreview();
 }
 
-void wdgPreview::reloadPreview(OCFont::FontCollection *font, bool update)
+void wdgPreview::reloadPreview()
 {
-    if (update) _font = font;
-
     int hScroll = grv->horizontalScrollBar()->value();
     int vScroll = grv->verticalScrollBar()->value();
 
@@ -52,9 +49,14 @@ void wdgPreview::reloadPreview(OCFont::FontCollection *font, bool update)
     ui->cobxPreviewOptions->setEnabled(hasFontSelection);
 
     texPreviewScene->clear();
+    if (_font->fonts.isEmpty()) return;
 
     if (hasFontSelection)
     {
+        if (_font->fonts[_font->selection[OCFont::FontCollection::FontSelection]]->colorTexture.isEmpty() ||
+            _font->fonts[_font->selection[OCFont::FontCollection::FontSelection]]->alphaTexture.isEmpty())
+            return;
+
         QString tex = set.read("main", "mainDir").toString() + "/Fonts/" +
                       (set.read(objectName(), "texPreview").toInt() == 0 ?
                            _font->fonts[_font->selection[OCFont::FontCollection::FontSelection]]->colorTexture :
@@ -114,5 +116,5 @@ void wdgPreview::reloadPreview(OCFont::FontCollection *font, bool update)
 void wdgPreview::on_hslOpacity_valueChanged(int value)
 {
     set.write(objectName(), "texPreviewOpacity", value);
-    reloadPreview(new OCFont::FontCollection(), false);
+    reloadPreview();
 }

@@ -68,7 +68,7 @@ signals:
 
     void reloadActionStates();
 
-    void reloadPreview(OCFont::FontCollection *font, bool update = true);
+    void reloadPreview();
 
 private:
     Ui::wdgEditor *ui;
@@ -102,8 +102,6 @@ private:
     QAction *actionMoveUp;
     QAction *actionMoveDown;
     QAction *actionSearch;
-
-    bool switchSelectionActive = false;
 };
 
 #endif // WDGEDITOR_H
