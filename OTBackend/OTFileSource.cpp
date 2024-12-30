@@ -1,7 +1,7 @@
 #include "OTFileSource.h"
 
 OTFileSource::OTFileSource(const QString &fileName, FileType fileType) :
-    _fileName(fileName), _fileType(fileType) {
+    _fileName(fileName), _fileType(fileType), _failedOpenFile(false) {
 }
 
 bool OTFileSource::operator==(const OTFileSource &other) {
@@ -60,6 +60,9 @@ int OTFileSource::occurrencesCount() const {
 }
 
 QString OTFileSource::errorString() const {
+    if(_failedOpenFile)
+        return QObject::tr("Couldn't open file");
+
     QStringList errors;
     if(!_missingMeshs.empty())
         errors << QObject::tr("%n missing mesh file(s)", "", _missingMeshs.count());
@@ -71,6 +74,10 @@ QString OTFileSource::errorString() const {
         errors << QObject::tr("%n missing texture(s)", "", _missingTextures.count());
 
     return errors.join("\n");
+}
+
+void OTFileSource::setFileOpenFailed() {
+    _failedOpenFile = true;
 }
 
 bool OTFileSource::hasMissingMesh() const {

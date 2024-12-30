@@ -37,6 +37,7 @@ public:
 
     bool isValid() const;
     QString errorString() const;
+    void setFileOpenFailed();
 
     bool hasMissingMesh() const;
     QStringList missingMeshs() const;
@@ -56,6 +57,7 @@ private:
     QList<QPair<QString, int>> _sources;
     QStringList _missingMeshs, _missingScriptFiles, _missingTextures;
     FileType _fileType;
+    bool _failedOpenFile;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(OTFileSource::ErrorCodes);
