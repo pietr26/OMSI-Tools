@@ -50,6 +50,23 @@ wFonts::~wFonts()
     delete ui;
 }
 
+void wFonts::closeEvent(QCloseEvent *event)
+{
+    // TODO
+    Q_UNUSED(event);
+
+    if (isWindowModified())
+    {
+        int msgResult = msg.unsavedChanges(this);
+        if (msgResult == -1)
+        {
+            event->ignore();
+            return;
+        }
+        else if (msgResult == 1) save(OTFileMethods::save, _font->path);
+    }
+}
+
 void wFonts::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
@@ -57,8 +74,7 @@ void wFonts::resizeEvent(QResizeEvent *event)
 
 void wFonts::on_actionBackToHome_triggered()
 {
-    emit backToHome();
-    close();
+    if (close()) emit backToHome();
 }
 
 void wFonts::on_actionClose_triggered()
@@ -293,7 +309,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
         return;
     }
 
-    if (isWindowModified() == true)
+    if (isWindowModified())
     {
         int msgResult = msg.unsavedChanges(this);
         if (msgResult == -1) return;

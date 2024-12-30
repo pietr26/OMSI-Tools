@@ -23,6 +23,8 @@ public:
     ~wFonts();
 
 private slots:
+    void closeEvent (QCloseEvent *event);
+
     void on_actionBackToHome_triggered();
 
     void on_actionClose_triggered();
