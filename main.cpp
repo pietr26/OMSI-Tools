@@ -93,13 +93,19 @@ int main(int argc, char *argv[])
             discord->exec();
         });
 
+        DiscordGameSDK::clearActivity();
+#ifdef QT_DEBUG
+        DiscordGameSDK::setModule("Debugging");
+        DiscordGameSDK::update();
+        DiscordGameSDK::setBlockUpdate(true);
+#else
         if (OTInformation::build == OTBuildOptions::Dev)
         {
             DiscordGameSDK::clearActivity();
             DiscordGameSDK::setModule("Developing a new version");
             DiscordGameSDK::update();
         }
-        else DiscordGameSDK::clearActivity();
+#endif
     }
 
     wStart *WSTART;
