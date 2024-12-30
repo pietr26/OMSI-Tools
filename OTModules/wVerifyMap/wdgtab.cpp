@@ -149,7 +149,7 @@ void wdgTab::updateDetails()
     // else set values
     ui->ledPath->setText(itm->text());
     OTFileSource source = findSource(itm->text());
-    ui->lblUsages->setText(tr("%1 (in %n tile(s))", "", source.sourcesCount()).arg(QString::number(source.occurrencesCount())));
+    ui->lblUsages->setText(tr("%1 (in %n file(s))", "", source.sourcesCount()).arg(QString::number(source.occurrencesCount())));
 
     if(tabIndex) {
         ui->lblStatus->setText(tr("missing"));
