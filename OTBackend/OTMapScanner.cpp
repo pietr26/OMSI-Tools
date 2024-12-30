@@ -33,6 +33,11 @@ void OTMapChecker::run() {
     _missingVehicles.clear();
     _missingUnknown.clear();
 
+    OTSettings set;
+    bool advancedCheck = set.read("wVerifyMap", "advVerifying").toBool();
+    // for debug purposes, you can enable this line:
+    // bool advancedCheck = true;
+
     while (true) {
         QMutexLocker locker(&_mutex);
         if (_queue.isEmpty()) {
@@ -62,6 +67,8 @@ void OTMapChecker::run() {
                         case OTFileSource::VehicleFile:       _missingVehicles       << file; break;
                         default: break;
                     }
+                } else if(advancedCheck) {
+                    this->advancedCheck(source);
                 }
             }
         }
@@ -282,6 +289,80 @@ OTFileSource *OTMapChecker::findOrCreateSourceObject(const QString &fileName, bo
         qWarning() << "unkown file type: " << fileName;
         return &_allUnkown.insert(fileName, OTFileSource(fileName, OTFileSource::UnknownFile)).value();
     }
+}
+
+void OTMapChecker::advancedCheck(OTFileSource *source) {
+    QString fileName = source->fileName();
+    QFile f(_omsiDir + "/" + fileName);
+    if(!f.open(QFile::ReadOnly)) {
+        qWarning() << "Could not open " << fileName;
+        source->setFileOpenFailed();
+        return;
+    }
+
+    QFileInfo info(_omsiDir + "/" + fileName);
+    QDir fileDir = info.dir();
+
+    QTextStream s(&f);
+
+    int l = 0; // line number
+    while(!s.atEnd()) {
+        QString line = s.readLine();
+        l++;
+
+        // missing mesh files
+        if(line == "[mesh]" || line == "[collision_mesh]") {
+            QString mesh = s.readLine();
+            if(!QFile::exists(fileDir.path() + "/model/" + mesh)) {
+                qWarning() << "missing mesh file: " << mesh;
+                source->addMissingMesh(mesh);
+            }
+        }
+
+        // missing script files
+        if(line == "[varnamelist]" || line == "[stringvarnamelist]" || line == "[script]" || line == "[constfile]") {
+            QString countStr = s.readLine();
+            l++;
+            bool ok;
+            int count = countStr.toInt(&ok);
+            if(!ok) {
+                qWarning().noquote() << "invalid entry count \"" + countStr + "\" in " + fileName + " at line " + QString::number(l);
+                continue;
+            }
+
+            line = s.readLine();
+            l++;
+            int i = 1;
+            while(i <= count && !s.atEnd()) {
+                if(!QFile::exists(fileDir.path() + "/" + line)) {
+                    qWarning().noquote() << "missing script file \"" + line + "\" in " + fileName + " at line " + QString::number(l);;
+                    source->addMissingScriptFile(line);
+                }
+
+                line = s.readLine();
+                l++; i++;
+            }
+        }
+
+        // TODO: Scan for missing textures:
+        /*
+         * [CTC]
+         * [CTCTexture]
+         * [matl_bumpmap]
+         * [matl_envmap_mask]
+         * [matl_envmap]
+         * [matl_freetex]
+         * [matl_lightmap]
+         * [matl_nightmap]
+         * [matl_transmap]
+         * [matl]
+         * [texchanges]
+         * [texture]
+         * [tree]
+         */
+    }
+
+    f.close();
 }
 
 // ------------------------------------------------------------------------

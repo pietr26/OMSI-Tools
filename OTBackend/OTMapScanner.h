@@ -50,6 +50,8 @@ public:
 protected:
     OTFileSource *findOrCreateSourceObject(const QString &fileName, bool *wasNewCreated);
 
+    void advancedCheck(OTFileSource *source);
+
 private:
     QString _omsiDir;
     QQueue<QList<QPair<QString,QString>>> _queue;
