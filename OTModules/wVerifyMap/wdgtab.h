@@ -54,6 +54,8 @@ private slots:
 
     void on_ledPath_textChanged(const QString &arg1);
 
+    void on_lwgInvalid_currentRowChanged(int currentRow);
+
     void on_lwgMissing_currentRowChanged(int currentRow);
 
     void on_btnCopyPath_clicked();
@@ -65,7 +67,7 @@ private:
     OTMiscellaneous misc;
     wContentSearch* WCONTENTSEARCH;
 
-    QStringList all, missing;
+    QStringList all, invalid, missing;
 
     bool isApplied = false;
 

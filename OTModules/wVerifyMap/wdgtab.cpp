@@ -26,7 +26,8 @@ void wdgTab::clear()
     ui->lwgMissing->clear();
 
     ui->twgItems->setTabText(0, tr("All (%1)").arg(0));
-    ui->twgItems->setTabText(1, tr("Missing (%1)").arg(0));
+    ui->twgItems->setTabText(1, tr("Invalid (%1)").arg(0));
+    ui->twgItems->setTabText(2, tr("Missing (%1)").arg(0));
 
     ui->ledPath->clear();
     ui->lblStatus->clear();
@@ -39,6 +40,9 @@ void wdgTab::addAll(QList<OTFileSource> items)
     for(OTFileSource &source : items) {
         all << source.fileName().replace("/", "\\");
         sources << source;
+        if(!source.isValid()) {
+            invalid<< source.fileName().replace("/", "\\");
+        }
     }
 }
 
@@ -54,13 +58,18 @@ void wdgTab::apply()
     ui->lwgMissing->addItems(missing);
     ui->lwgMissing->sortItems();
 
+    ui->lwgInvalid->clear();
+    ui->lwgInvalid->addItems(invalid);
+    ui->lwgInvalid->sortItems();
+
     ui->lwgAll->clear();
     ui->lwgAll->addItems(all);
     ui->lwgAll->sortItems();
     isApplied = true;
 
     ui->twgItems->setTabText(0, tr("All (%1)").arg(all.count()));
-    ui->twgItems->setTabText(1, tr("Missing (%1)").arg(missing.count()));
+    ui->twgItems->setTabText(1, tr("Invalid (%1)").arg(invalid.count()));
+    ui->twgItems->setTabText(2, tr("Missing (%1)").arg(missing.count()));
 }
 
 void wdgTab::setName(QString name)
@@ -131,12 +140,15 @@ void wdgTab::updateDetails()
     QListWidgetItem *itm;
     int selectionCount;
 
-    if(tabIndex) {
-        itm = ui->lwgMissing->currentItem();
-        selectionCount = ui->lwgMissing->selectedItems().count();
-    } else {
+    if(tabIndex == 0) {
         itm = ui->lwgAll->currentItem();
         selectionCount = ui->lwgAll->selectedItems().count();
+    } else if(tabIndex == 1) {
+        itm = ui->lwgInvalid->currentItem();
+        selectionCount = ui->lwgInvalid->selectedItems().count();
+    } else {
+        itm = ui->lwgMissing->currentItem();
+        selectionCount = ui->lwgMissing->selectedItems().count();
     }
 
     // clear if invalid
@@ -152,12 +164,19 @@ void wdgTab::updateDetails()
     OTFileSource source = findSource(itm->text());
     ui->lblUsages->setText(tr("%1 (in %n file(s))", "", source.sourcesCount()).arg(QString::number(source.occurrencesCount())));
 
-    if(tabIndex) {
+    bool isMissing = missing.contains(itm->text());
+
+    if(isMissing) {
         ui->lblStatus->setText(tr("missing"));
         ui->lblStatus->setStyleSheet("color: #ff2222;");
     } else {
-        ui->lblStatus->setText(tr("existing"));
-        ui->lblStatus->setStyleSheet("color: #55aa00;");
+        if(source.isValid()) {
+            ui->lblStatus->setText(tr("valid"));
+            ui->lblStatus->setStyleSheet("color: #55aa00;");
+        } else {
+            ui->lblStatus->setText(source.errorString());
+            ui->lblStatus->setStyleSheet("color: #ffaa00;");
+        }
     }
 }
 
@@ -172,6 +191,7 @@ OTFileSource wdgTab::findSource(QString fileName) const {
 
 void wdgTab::on_twgItems_currentChanged(int index) { Q_UNUSED(index); updateDetails(); }
 void wdgTab::on_lwgAll_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); updateDetails(); }
+void wdgTab::on_lwgInvalid_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); updateDetails(); }
 void wdgTab::on_lwgMissing_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); updateDetails(); }
 
 void wdgTab::on_ledPath_textChanged(const QString &arg1) { ui->btnCopyPath->setEnabled(!arg1.isEmpty()); }
@@ -185,3 +205,4 @@ void wdgTab::on_btnShowUsages_clicked() {
     OTFileSource source = findSource(ui->ledPath->text());
     qDebug() << source.sources();
 }
+

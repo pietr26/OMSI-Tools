@@ -33,7 +33,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tabAll">
        <attribute name="title">
@@ -42,6 +42,50 @@
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QListWidget" name="lwgAll">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="dragEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="dragDropOverwriteMode">
+           <bool>false</bool>
+          </property>
+          <property name="dragDropMode">
+           <enum>QAbstractItemView::DragDropMode::NoDragDrop</enum>
+          </property>
+          <property name="defaultDropAction">
+           <enum>Qt::DropAction::IgnoreAction</enum>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>false</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
+          </property>
+          <property name="textElideMode">
+           <enum>Qt::TextElideMode::ElideLeft</enum>
+          </property>
+          <property name="viewMode">
+           <enum>QListView::ViewMode::ListMode</enum>
+          </property>
+          <property name="batchSize">
+           <number>300</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabInvalid">
+       <attribute name="title">
+        <string>invalid</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QListWidget" name="lwgInvalid">
           <property name="acceptDrops">
            <bool>false</bool>
           </property>
