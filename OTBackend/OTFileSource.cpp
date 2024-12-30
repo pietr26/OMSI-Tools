@@ -4,6 +4,14 @@ OTFileSource::OTFileSource(const QString &fileName, FileType fileType) :
     _fileName(fileName), _fileType(fileType) {
 }
 
+bool OTFileSource::operator==(const OTFileSource &other) {
+    return fileName() == other.fileName();
+}
+
+bool OTFileSource::operator<(const OTFileSource &other) {
+    return fileName() < other.fileName();
+}
+
 QString OTFileSource::fileName() const {
     return _fileName;
 }

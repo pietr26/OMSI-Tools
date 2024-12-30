@@ -22,7 +22,9 @@ public:
         UnknownFile
     };
 
-    OTFileSource(const QString &fileName, FileType fileType);
+    OTFileSource(const QString &fileName = "", FileType fileType = UnknownFile);
+    bool operator==(const OTFileSource &other);
+    bool operator<(const OTFileSource &other);
 
     QString fileName() const;
     FileType fileType() const;
