@@ -72,7 +72,7 @@ private:
     void search(QList<QListWidgetItem*> items);
     void search(QStringList items);
 
-    void setPath();
+    void updateDetails();
 };
 
 

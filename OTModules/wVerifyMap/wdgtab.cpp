@@ -119,7 +119,7 @@ void wdgTab::search(QStringList items)
     WCONTENTSEARCH->show();
 }
 
-void wdgTab::setPath()
+void wdgTab::updateDetails()
 {
     if (ui->twgItems->currentIndex())
     {
@@ -133,9 +133,9 @@ void wdgTab::setPath()
     }
 }
 
-void wdgTab::on_twgItems_currentChanged(int index) { Q_UNUSED(index); setPath(); }
-void wdgTab::on_lwgAll_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); setPath(); }
-void wdgTab::on_lwgMissing_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); setPath(); }
+void wdgTab::on_twgItems_currentChanged(int index) { Q_UNUSED(index); updateDetails(); }
+void wdgTab::on_lwgAll_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); updateDetails(); }
+void wdgTab::on_lwgMissing_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); updateDetails(); }
 
 void wdgTab::on_ledPath_textChanged(const QString &arg1) { ui->btnCopyPath->setEnabled(!arg1.isEmpty()); }
 
