@@ -1,6 +1,8 @@
 #include "wdgoverviewtile.h"
 #include "ui_wdgoverviewtile.h"
 
+#include "OTBackend/OTGlobal.h"
+
 wdgOverviewTile::wdgOverviewTile(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::wdgOverviewTile)
@@ -30,13 +32,22 @@ void wdgOverviewTile::setTotal(int count)
     if (count == 0) ui->lblIcon->setPixmap(QPixmap());
 }
 
-void wdgOverviewTile::setMissing(int missing)
+void wdgOverviewTile::setInvalidAndMissing(int invalid, int missing)
 {
-    ui->lblMissing->setText(tr("%n missing", "", missing));
+    OTSettings set;
+    bool advanced = set.read("wVerifyMap", "advVerifying").toBool();
+    QString str;
+    if(!advanced) {
+        str = tr("%n missing", "", missing);
+    } else {
+        str = tr("%n invalid", "", invalid) + "\r\n" + tr("%n missing", "", missing);
+    }
+    ui->lblInvalidAndMissing->setText(str);
 
-    ui->btnTo->setVisible(missing != 0);
+    bool allOK = (invalid == 0 && missing == 0);
+    ui->btnTo->setVisible(!allOK);
 
-    if (missing == 0)  ui->lblIcon->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::WeatherClear).pixmap(32));
+    if (allOK)  ui->lblIcon->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::WeatherClear).pixmap(32));
     else
     {
         if (warningInsteadError) ui->lblIcon->setPixmap(QIcon::fromTheme(QIcon::ThemeIcon::DialogWarning).pixmap(32));
@@ -46,7 +57,7 @@ void wdgOverviewTile::setMissing(int missing)
 
 void wdgOverviewTile::clear()
 {
-    setMissing(0);
+    setInvalidAndMissing(0, 0);
     setTotal(0);
     ui->btnTo->setVisible(false);
     QPixmap empty = QPixmap(32, 32);
