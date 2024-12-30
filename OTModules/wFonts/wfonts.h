@@ -45,6 +45,8 @@ private slots:
 
     void on_actionSendFeedback_triggered();
 
+    void on_actionPreferences_triggered();
+
 signals:
     void backToHome();
 

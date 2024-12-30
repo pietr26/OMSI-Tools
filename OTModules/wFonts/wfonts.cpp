@@ -362,3 +362,10 @@ void wFonts::on_actionSendFeedback_triggered()
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
 }
+
+void wFonts::on_actionPreferences_triggered()
+{
+    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
+}
