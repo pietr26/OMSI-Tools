@@ -51,8 +51,6 @@ signals:
     void reloadUi(bool reset = false, bool charChange = false);
     void reloadPreview(OCFont::FontCollection *font, bool update = true);
 
-    void resizePreview();
-
 private:
     Ui::wFonts *ui;
     wPreferences *WPREFERENCES;

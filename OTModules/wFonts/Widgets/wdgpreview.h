@@ -30,8 +30,6 @@ private slots:
 public slots:
     void reloadPreview(OCFont::FontCollection *font, bool update = true);
 
-    void resizeTexPreview();
-
     void resizeEvent(QResizeEvent *event);
 
 private:

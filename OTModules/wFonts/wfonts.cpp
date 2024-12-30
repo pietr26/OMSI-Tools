@@ -34,8 +34,6 @@ wFonts::wFonts(QWidget *parent)
     connect(this, &wFonts::reloadUi, WDGEDITOR, &wdgEditor::switchSelection);
     connect(this, &wFonts::reloadPreview, WDGPREVIEW, &wdgPreview::reloadPreview);
 
-    connect(this, &wFonts::resizePreview, WDGPREVIEW, &wdgPreview::resizeTexPreview);
-
     connect(WDGEDITOR, &wdgEditor::reloadPreview, WDGPREVIEW, &wdgPreview::reloadPreview);
     connect(WDGEDITOR, &wdgEditor::reloadActionStates, this, &wFonts::setVisiblilty);
     connect(WDGEDITOR, &wdgEditor::setModified, this, &wFonts::setWindowModified);
@@ -55,8 +53,6 @@ wFonts::~wFonts()
 void wFonts::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
-
-    emit resizePreview();
 }
 
 void wFonts::on_actionBackToHome_triggered()

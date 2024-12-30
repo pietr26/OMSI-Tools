@@ -27,7 +27,6 @@ wdgPreview::~wdgPreview()
 void wdgPreview::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
-    resizeTexPreview();
 }
 
 void wdgPreview::on_cobxPreviewOptions_currentIndexChanged(int index)
@@ -45,23 +44,27 @@ void wdgPreview::reloadPreview(OCFont::FontCollection *font, bool update)
 {
     if (update) _font = font;
 
-    ui->btnReloadTexPreview->setEnabled(_font->selection.contains(OCFont::FontCollection::FontSelection));
-    ui->cobxPreviewOptions->setEnabled(_font->selection.contains(OCFont::FontCollection::FontSelection));
+    int hScroll = grv->horizontalScrollBar()->value();
+    int vScroll = grv->verticalScrollBar()->value();
 
-    if (_font->selection.contains(OCFont::FontCollection::FontSelection))
+    bool hasFontSelection = _font->selection.contains(OCFont::FontCollection::FontSelection);
+    ui->btnReloadTexPreview->setEnabled(hasFontSelection);
+    ui->cobxPreviewOptions->setEnabled(hasFontSelection);
+
+    texPreviewScene->clear();
+
+    if (hasFontSelection)
     {
-        QString tex = set.read("main", "mainDir").toString() + "/Fonts/" + (set.read(objectName(), "texPreview").toInt() == 0 ? _font->fonts[_font->selection[OCFont::FontCollection::FontSelection]]->colorTexture : _font->fonts.at(_font->selection[OCFont::FontCollection::FontSelection])->alphaTexture);
-
-        // QGraphicsScene::clear() is not enough - it doesn't reset the draw aera size
-        texPreviewScene = new QGraphicsScene(this);
-        grv->setScene(texPreviewScene);
+        QString tex = set.read("main", "mainDir").toString() + "/Fonts/" +
+                      (set.read(objectName(), "texPreview").toInt() == 0 ?
+                           _font->fonts[_font->selection[OCFont::FontCollection::FontSelection]]->colorTexture :
+                           _font->fonts.at(_font->selection[OCFont::FontCollection::FontSelection])->alphaTexture);
 
         if (QFile(tex).exists())
         {
             QPixmap baseTexture = QPixmap(tex);
 
             // Overlay
-
             if (_font->selection.contains(OCFont::FontCollection::CharacterSelection))
             {
                 overlay = QPixmap(baseTexture.size());
@@ -96,27 +99,16 @@ void wdgPreview::reloadPreview(OCFont::FontCollection *font, bool update)
                 painter.end();
             }
 
-            // ---
-
             QPainter painter(&baseTexture);
             painter.drawPixmap(0, 0, overlay);
             painter.end();
 
             texPreviewScene->addPixmap(baseTexture);
-            resizeTexPreview();
         }
     }
-    else
-    {
-        texPreviewScene = new QGraphicsScene(this);
-        grv->setScene(texPreviewScene);
-    }
-}
 
-void wdgPreview::resizeTexPreview()
-{
-    // TODO: remove
-    grv->fitInView(texPreviewScene->sceneRect(), Qt::KeepAspectRatio);
+    grv->horizontalScrollBar()->setValue(hScroll);
+    grv->verticalScrollBar()->setValue(vScroll);
 }
 
 void wdgPreview::on_hslOpacity_valueChanged(int value)
@@ -124,4 +116,3 @@ void wdgPreview::on_hslOpacity_valueChanged(int value)
     set.write(objectName(), "texPreviewOpacity", value);
     reloadPreview(new OCFont::FontCollection(), false);
 }
-
