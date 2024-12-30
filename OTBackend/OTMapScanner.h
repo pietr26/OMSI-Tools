@@ -57,10 +57,12 @@ private:
     QHash<QString, OTFileSource> _allSplines;
     QHash<QString, OTFileSource> _allHumans;
     QHash<QString, OTFileSource> _allVehicles;
+    QHash<QString, OTFileSource> _allUnkown;
     QStringList _missingSceneryobjects;
     QStringList _missingSplines;
     QStringList _missingHumans;
     QStringList _missingVehicles;
+    QStringList _missingUnknown;
 };
 
 class OTMapScanner : public QThread
@@ -100,8 +102,10 @@ private:
     QString _mapDir;
     QHash<QString, OTFileSource> _allTiles;
     QHash<QString, OTFileSource> _allTextures;
+    QHash<QString, OTFileSource> _allUnkown;
     QStringList _missingTiles;
     QStringList _missingTextures;
+    QStringList _missingUnknown;
 };
 
 

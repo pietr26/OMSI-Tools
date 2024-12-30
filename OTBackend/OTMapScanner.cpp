@@ -9,6 +9,8 @@
  * SLI:
     - Texturen
 */
+// TODO: recognize file type by file context instead of extension
+
 #include "OTMapScanner.h"
 
 OTMapChecker::OTMapChecker(QObject *parent) :
@@ -230,10 +232,12 @@ OTFileSource *OTMapChecker::findOrCreateSourceObject(const QString &fileName, bo
         }
     }
 
-    qCritical() << "Couldn't handle source object: " << fileName;
-
-    // FIXME: Causes crash!!!
-    return nullptr;
+    if (_allUnkown.contains(fileName))
+        return &_allUnkown[fileName];
+    else {
+        qWarning() << "unkown file type: " << fileName;
+        return &_allUnkown.insert(fileName, OTFileSource(fileName, OTFileSource::UnknownFile)).value();
+    }
 }
 
 // ------------------------------------------------------------------------
@@ -542,10 +546,12 @@ OTFileSource *OTMapScanner::findOrCreateSourceObject(const QString &fileName, co
             return &_allTextures[fileName];
         else
             return &_allTextures.insert(fileName, OTFileSource(fileName, OTFileSource::TextureFile)).value();
+    } else {
+        if (_allUnkown.contains(fileName))
+            return &_allUnkown[fileName];
+        else {
+            qWarning() << "unkown file type: " << fileName;
+            return &_allUnkown.insert(fileName, OTFileSource(fileName, OTFileSource::UnknownFile)).value();
+        }
     }
-
-    qCritical() << "Couldn't handle source object: " << fileName;
-
-    // FIXME: Causes crash!!!
-    return nullptr;
 }
