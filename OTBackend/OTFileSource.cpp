@@ -1,7 +1,7 @@
 #include "OTFileSource.h"
 
 OTFileSource::OTFileSource(const QString &fileName, FileType fileType) :
-    _fileName(fileName), _fileType(fileType), _occurrences(0) {
+    _fileName(fileName), _fileType(fileType) {
 }
 
 QString OTFileSource::fileName() const {
@@ -12,30 +12,39 @@ OTFileSource::FileType OTFileSource::fileType() const {
     return _fileType;
 }
 
-QStringList OTFileSource::sources() {
-    _sources.removeDuplicates();
+QList<QPair<QString, int>> OTFileSource::sources() {
     return _sources;
+}
+
+QStringList OTFileSource::sourceStrings() {
+    QStringList result;
+    for(QPair<QString, int> current : _sources)
+        result << current.first;
+
+    return result;
 }
 
 int OTFileSource::sourcesCount() {
     return sources().count();
 }
 
-void OTFileSource::addSource(const QString &newSource) {
-    _sources << newSource;
-}
+void OTFileSource::addOccurrence(const QString &newSource) {
+    for(QPair<QString, int> &current : _sources) {
+        if(current.first == newSource) {
+            current.second++;
+            return;
+        }
+    }
 
-void OTFileSource::addSources(const QStringList &newSources) {
-    for(QString source : newSources)
-        _sources << source;
+    _sources << QPair<QString, int>(newSource, 1);
 }
 
 int OTFileSource::occurrencesCount() const {
-    return _occurrences;
-}
-
-void OTFileSource::newOccurrence() {
-    _occurrences++;
+    int count = 0;
+    for(QPair<QString, int> current : _sources) {
+        count += current.second;
+    }
+    return count;
 }
 
 QString OTFileSource::errorString() const {

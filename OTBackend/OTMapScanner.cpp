@@ -41,8 +41,7 @@ void OTMapChecker::run() {
                 QString file = pair.first;
 
                 OTFileSource *source = findOrCreateSourceObject(file);
-                source->addSource(pair.second);
-                source->newOccurrence();
+                source->addOccurrence(pair.second);
 
                 if(!QFile::exists(_omsiDir + "/" + file)) {
                     switch(source->fileType()) {
@@ -231,8 +230,7 @@ void OTMapScanner::run() {
                 if(currentFile.endsWith(".map")) {
                     chronoTiles << "Chrono/" + currentChrono + "/" + currentFile;
                     OTFileSource *source = findOrCreateSourceObject(currentFile);
-                    source->newOccurrence();
-                    source->addSource("Chrono/" + currentChrono);
+                    source->addOccurrence("Chrono/" + currentChrono);
                 }
             }
         }
@@ -292,18 +290,15 @@ void OTMapScanner::scanGlobal() {
             s.readLine();
             s.readLine();
             OTFileSource *source = findOrCreateSourceObject(s.readLine(), false);
-            source->newOccurrence();
-            source->addSource("global.cfg");
+            source->addOccurrence("global.cfg");
         } else if(line == "[groundtex]") {
             QString tex1 = s.readLine();
             QString tex2 = s.readLine();
 
             OTFileSource *source = findOrCreateSourceObject(tex1, true);
-            source->newOccurrence();
-            source->addSource("global.cfg");
+            source->addOccurrence("global.cfg");
             source = findOrCreateSourceObject(tex2, true);
-            source->newOccurrence();
-            source->addSource("global.cfg");
+            source->addOccurrence("global.cfg");
         }
     }
 
