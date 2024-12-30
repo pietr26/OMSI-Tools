@@ -26,6 +26,10 @@ void wdgTab::clear()
 
     ui->twgItems->setTabText(0, tr("All (%1)").arg(0));
     ui->twgItems->setTabText(1, tr("Missing (%1)").arg(0));
+
+    ui->ledPath->clear();
+    ui->lblStatus->clear();
+    ui->lblUsages->clear();
 }
 
 void wdgTab::addAll(QList<OTFileSource> items)
@@ -137,6 +141,8 @@ void wdgTab::updateDetails()
     // clear if invalid
     if(!itm || selectionCount > 1) {
         ui->ledPath->clear();
+        ui->lblStatus->clear();
+        ui->lblUsages->clear();
         return;
     }
 
