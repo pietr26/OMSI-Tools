@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QTextStream>
+#include "OTFileSource.h"
 
 class OTMapChecker : public QThread
 {

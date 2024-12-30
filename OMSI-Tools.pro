@@ -52,6 +52,7 @@ SOURCES += \
     OTBackend/OCC/OCVehicle.cpp \
     OTBackend/OCC/OCViewable.cpp \
     OTBackend/OCC/OCWeather.cpp \
+    OTBackend/OTFileSource.cpp \
     OTBackend/OTLogger.cpp \
     OTBackend/OTMapScanner.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
@@ -144,6 +145,7 @@ HEADERS += \
     OTBackend/OCC/OCViewable.h \
     OTBackend/OCC/OCWeather.h \
     OTBackend/OTExternal.h \
+    OTBackend/OTFileSource.h \
     OTBackend/OTGlobal.h \
     OTBackend/OTLogger.h \
     OTBackend/OTMapScanner.h \
