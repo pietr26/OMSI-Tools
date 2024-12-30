@@ -8,13 +8,14 @@ wdgPreview::wdgPreview(QWidget *parent, OCFont::FontCollection *font)
 {
     ui->setupUi(this);
 
-    reloadUi();
+    reloadPreview(new OCFont::FontCollection());
     ui->cobxPreviewOptions->setCurrentIndex(set.read(objectName(), "texPreview").toInt());
 
     // First setup - if not, the application will crash in wFonts::resizeEvent()
     texPreviewScene = new QGraphicsScene(this);
     layout()->addWidget(grv);
     grv->setScene(texPreviewScene);
+    grv->setResizeAnchor(QGraphicsView::AnchorUnderMouse);
 }
 
 wdgPreview::~wdgPreview()
@@ -31,17 +32,20 @@ void wdgPreview::resizeEvent(QResizeEvent *event)
 void wdgPreview::on_cobxPreviewOptions_currentIndexChanged(int index)
 {
     set.write(objectName(), "texPreview", index);
-    reloadUi();
+    reloadPreview(new OCFont::FontCollection(), false);
 }
 
 void wdgPreview::on_btnReloadTexPreview_clicked()
 {
-    reloadUi();
+    reloadPreview(new OCFont::FontCollection(), false);
 }
 
-void wdgPreview::reloadUi(bool reset, bool charChange)
+void wdgPreview::reloadPreview(OCFont::FontCollection *font, bool update)
 {
-    Q_UNUSED(reset); Q_UNUSED(charChange);
+    if (update) _font = font;
+
+    ui->btnReloadTexPreview->setEnabled(_font->selection.contains(OCFont::FontCollection::FontSelection));
+    ui->cobxPreviewOptions->setEnabled(_font->selection.contains(OCFont::FontCollection::FontSelection));
 
     if (_font->selection.contains(OCFont::FontCollection::FontSelection))
     {
@@ -53,7 +57,51 @@ void wdgPreview::reloadUi(bool reset, bool charChange)
 
         if (QFile(tex).exists())
         {
-            texPreviewScene->addPixmap(tex);
+            QPixmap baseTexture = QPixmap(tex);
+
+            // Overlay
+
+            if (update && _font->selection.contains(OCFont::FontCollection::CharacterSelection))
+            {
+                overlay = QPixmap(baseTexture.size());
+                overlay.fill(Qt::transparent);
+
+                QPainter painter(&overlay);
+                QPen pen(QColor(255, 0, 0, 100));
+                pen.setWidth(1);
+                painter.setPen(pen);
+
+                OCFont::SingleFont *font = _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection));
+                OCFont::Character *character = font->characters.at(_font->selection.value(OCFont::FontCollection::CharacterSelection));
+
+                painter.drawRect(character->leftPixel, character->highestPixelInFontRow, character->rightPixel - character->leftPixel, font->maxHeightOfChars);
+                painter.end();
+            }
+            else if (update && _font->selection.contains(OCFont::FontCollection::FontSelection))
+            {
+                overlay = QPixmap(baseTexture.size());
+                overlay.fill(Qt::transparent);
+
+                QPainter painter(&overlay);
+                QPen pen(QColor(255, 0, 0, 100));
+                pen.setWidth(1);
+                painter.setPen(pen);
+
+                OCFont::SingleFont *font = _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection));
+
+                foreach (OCFont::Character *current, font->characters)
+                    painter.drawRect(current->leftPixel, current->highestPixelInFontRow, current->rightPixel - current->leftPixel, font->maxHeightOfChars);
+
+                painter.end();
+            }
+
+            // ---
+
+            QPainter painter(&baseTexture);
+            painter.drawPixmap(0, 0, overlay);
+            painter.end();
+
+            texPreviewScene->addPixmap(baseTexture);
             resizeTexPreview();
         }
     }
@@ -62,12 +110,9 @@ void wdgPreview::reloadUi(bool reset, bool charChange)
         texPreviewScene = new QGraphicsScene(this);
         grv->setScene(texPreviewScene);
     }
-
-    ui->btnReloadTexPreview->setEnabled(_font->selection.contains(OCFont::FontCollection::FontSelection));
-    ui->cobxPreviewOptions->setEnabled(_font->selection.contains(OCFont::FontCollection::FontSelection));
 }
 
 void wdgPreview::resizeTexPreview()
 {
-    grv->fitInView(texPreviewScene->sceneRect(), Qt::KeepAspectRatio);
+    //grv->fitInView(texPreviewScene->sceneRect(), Qt::KeepAspectRatio);
 }

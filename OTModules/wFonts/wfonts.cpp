@@ -32,11 +32,11 @@ wFonts::wFonts(QWidget *parent)
 
     connect(this, &wFonts::reloadUi, WDGEDITOR, &wdgEditor::reloadUi);
     connect(this, &wFonts::reloadUi, WDGEDITOR, &wdgEditor::switchSelection);
-    connect(this, &wFonts::reloadUi, WDGPREVIEW, &wdgPreview::reloadUi);
+    connect(this, &wFonts::reloadPreview, WDGPREVIEW, &wdgPreview::reloadPreview);
 
     connect(this, &wFonts::resizePreview, WDGPREVIEW, &wdgPreview::resizeTexPreview);
 
-    connect(WDGEDITOR, &wdgEditor::reloadPreview, WDGPREVIEW, &wdgPreview::reloadUi);
+    connect(WDGEDITOR, &wdgEditor::reloadPreview, WDGPREVIEW, &wdgPreview::reloadPreview);
     connect(WDGEDITOR, &wdgEditor::reloadActionStates, this, &wFonts::setVisiblilty);
     connect(WDGEDITOR, &wdgEditor::setModified, this, &wFonts::setWindowModified);
 
@@ -99,6 +99,7 @@ void wFonts::on_actionNewFile_triggered()
     //selectAllAndClear();
 
     emit reloadUi();
+    emit reloadPreview(new OCFont::FontCollection());
     setTitle();
 
     setWindowModified(false);
@@ -313,7 +314,11 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
             qDebug() << "Open with file dialog";
             _font->path = QFileDialog::getOpenFileName(this, tr("Open font..."), set.read("main", "mainDir").toString() + "/Fonts", tr("OMSI font file") + " (*.oft)");
             if (_font->path.isEmpty()) return;
-            else emit reloadUi();
+            else
+            { // TODO: needed?
+                emit reloadUi();
+                emit reloadPreview(new OCFont::FontCollection());
+            }
         }
 
         saveRecentFiles(QDir().absoluteFilePath(_font->path));
@@ -338,6 +343,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
 
     WDGEDITOR->unexpandAll();
     emit reloadUi(true);
+    emit reloadPreview(new OCFont::FontCollection());
     setWindowModified(false);
 
     qDebug() << "Font opened.";

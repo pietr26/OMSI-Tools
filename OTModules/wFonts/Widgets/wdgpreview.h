@@ -5,6 +5,8 @@
 #include "OTBackend/OCC/OCFont.h"
 #include <QGraphicsScene>
 #include "OTWidgets/graphicsview.h"
+#include "OTBackend/OCC/OCFont.h"
+#include "wdggraphicsview.h"
 
 namespace Ui {
 class wdgPreview;
@@ -24,7 +26,7 @@ private slots:
     void on_btnReloadTexPreview_clicked();
 
 public slots:
-    void reloadUi(bool reset = false, bool charChange = false);
+    void reloadPreview(OCFont::FontCollection *font, bool update = true);
 
     void resizeTexPreview();
 
@@ -37,8 +39,12 @@ private:
 
     OCFont::FontCollection *_font;
 
+    QPixmap overlay;
+
     QGraphicsScene *texPreviewScene = new QGraphicsScene();
-    GraphicsView *grv = new GraphicsView();
+    wdgGraphicsView *grv = new wdgGraphicsView();
+
+    void drawCharacterOverlay();
 };
 
 #endif // WDGPREVIEW_H

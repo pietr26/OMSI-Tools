@@ -70,6 +70,7 @@ SOURCES += \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wdbknownwords.cpp \
     OTModules/wFonts/Widgets/wdgeditor.cpp \
+    OTModules/wFonts/Widgets/wdggraphicsview.cpp \
     OTModules/wFonts/Widgets/wdgpreview.cpp \
     OTModules/wFonts/wfonts.cpp \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp \
@@ -165,6 +166,7 @@ HEADERS += \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wdbknownwords.h \
     OTModules/wFonts/Widgets/wdgeditor.h \
+    OTModules/wFonts/Widgets/wdggraphicsview.h \
     OTModules/wFonts/Widgets/wdgpreview.h \
     OTModules/wFonts/wfonts.h \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.h \

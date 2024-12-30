@@ -49,6 +49,7 @@ signals:
     void backToHome();
 
     void reloadUi(bool reset = false, bool charChange = false);
+    void reloadPreview(OCFont::FontCollection *font, bool update = true);
 
     void resizePreview();
 

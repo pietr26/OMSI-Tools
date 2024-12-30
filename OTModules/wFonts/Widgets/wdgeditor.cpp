@@ -17,7 +17,7 @@ wdgEditor::wdgEditor(QWidget *parent, OCFont::FontCollection *font)
 
         ui->tvwChars->selectionModel()->blockSignals(false); blockSignals(false);
 
-        reloadPreview();
+        emit reloadPreview(_font);
     });
 
     // Create and connect actions --------------------------------------------------------------------
@@ -187,8 +187,7 @@ void wdgEditor::switchSelection()
     }
 
     checkCharValidity();
-    emit reloadPreview();
-
+    emit reloadPreview(_font);
 
     switchSelectionActive = false;
 }
@@ -198,8 +197,7 @@ void wdgEditor::addFont()
     QPersistentModelIndex currentIndex = ui->tvwChars->currentIndex();
     QPair<int, int> currentSelection(currentIndex.parent().row(), currentIndex.row());
 
-    /* 'Adding font' policy: place font under current font; select it
-     */
+    // 'Adding font' policy: place font under current font; select it
 
     // Add new font to object
     if (_font->fonts.isEmpty()) // font file is empty
@@ -628,7 +626,7 @@ void wdgEditor::on_ledColorTexture_textChanged(const QString &arg1)
     checkCharValidity();
     emit setModified(true);
 
-    emit reloadPreview();
+    emit reloadPreview(_font);
 }
 
 void wdgEditor::on_btnColorTexture_clicked()
@@ -660,7 +658,7 @@ void wdgEditor::on_ledAlphaTexture_textChanged(const QString &arg1)
     checkCharValidity();
     emit setModified(true);
 
-    emit reloadPreview();
+    emit reloadPreview(_font);
 }
 
 void wdgEditor::on_btnAlphaTexture_clicked()
