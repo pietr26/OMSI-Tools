@@ -7,7 +7,7 @@ wdgGraphicsView::wdgGraphicsView(QWidget *parent) : QGraphicsView(parent)
 }
 
 void wdgGraphicsView::mousePressEvent(QMouseEvent *event) {
-    if (event->button() == Qt::LeftButton) {
+    if (event->button() == Qt::MiddleButton) {
         dragging = true;
         dragStartPos = event->pos();
         setCursor(Qt::ClosedHandCursor);
@@ -26,7 +26,7 @@ void wdgGraphicsView::mouseMoveEvent(QMouseEvent *event) {
 }
 
 void wdgGraphicsView::mouseReleaseEvent(QMouseEvent *event) {
-    if (event->button() == Qt::LeftButton && dragging) {
+    if (event->button() == Qt::MiddleButton && dragging) {
         dragging = false;
         setCursor(Qt::ArrowCursor);
     } else
