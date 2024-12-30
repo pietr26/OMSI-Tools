@@ -62,13 +62,14 @@ int main(int argc, char *argv[])
         if (isCrash)
         {
             qWarning() << "Crash on last start detected! A logfile has been saved.";
+            #ifndef QT_DEBUG
             QMessageBox::StandardButton reply = QMessageBox::question(NULL, QObject::tr("Crash detected"), QObject::tr("%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.\nOpen the path of the logfile?").arg(OTInformation::name));
 
             if (reply == QMessageBox::Yes)
                 fop.showInExplorer(newName);
+            #endif
         }
-        else
-            qDebug() << "No crash detected.";
+        else qDebug() << "No crash detected.";
 
         set.write("main", "closeCheck", false);
 
