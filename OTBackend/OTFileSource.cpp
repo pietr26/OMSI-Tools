@@ -47,6 +47,10 @@ void OTFileSource::addOccurrence(const QString &newSource) {
     _sources << QPair<QString, int>(newSource, 1);
 }
 
+bool OTFileSource::isValid() const {
+    return _missingMeshs.isEmpty() && _missingScriptFiles.isEmpty() && _missingTextures.isEmpty();
+}
+
 int OTFileSource::occurrencesCount() const {
     int count = 0;
     for(QPair<QString, int> current : _sources) {

@@ -35,6 +35,7 @@ public:
     int occurrencesCount() const;
     void addOccurrence(const QString &newSource);
 
+    bool isValid() const;
     QString errorString() const;
 
     bool hasMissingMesh() const;
