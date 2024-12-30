@@ -6,6 +6,33 @@ wdgGraphicsView::wdgGraphicsView(QWidget *parent) : QGraphicsView(parent)
     setResizeAnchor(QGraphicsView::NoAnchor);
 }
 
+void wdgGraphicsView::mousePressEvent(QMouseEvent *event) {
+    if (event->button() == Qt::LeftButton) {
+        dragging = true;
+        dragStartPos = event->pos();
+        setCursor(Qt::ClosedHandCursor);
+    } else
+        QGraphicsView::mousePressEvent(event);
+}
+
+void wdgGraphicsView::mouseMoveEvent(QMouseEvent *event) {
+    if (dragging) {
+        QPointF delta = mapToScene(event->pos()) - mapToScene(dragStartPos);
+        dragStartPos = event->pos();
+
+        translate(delta.x(), delta.y());
+    } else
+        QGraphicsView::mouseMoveEvent(event);
+}
+
+void wdgGraphicsView::mouseReleaseEvent(QMouseEvent *event) {
+    if (event->button() == Qt::LeftButton && dragging) {
+        dragging = false;
+        setCursor(Qt::ArrowCursor);
+    } else
+        QGraphicsView::mouseReleaseEvent(event);
+}
+
 void wdgGraphicsView::wheelEvent(QWheelEvent *event)
 {
     if (QApplication::keyboardModifiers() == Qt::ControlModifier)
