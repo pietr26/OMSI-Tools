@@ -56,12 +56,6 @@ void OTMapChecker::run() {
         }
     }
 
-    // process stuff    
-    std::sort(_allSceneryobjects.begin(),     _allSceneryobjects.end(), [](OTFileSource a, OTFileSource b){return a.fileName() < b.fileName();});
-    std::sort(_allSplines.begin(),            _allSplines.end(),        [](OTFileSource a, OTFileSource b){return a.fileName() < b.fileName();});
-    std::sort(_allHumans.begin(),             _allHumans.end(),         [](OTFileSource a, OTFileSource b){return a.fileName() < b.fileName();});
-    std::sort(_allVehicles.begin(),           _allVehicles.end(),       [](OTFileSource a, OTFileSource b){return a.fileName() < b.fileName();});
-
     std::sort(_missingSceneryobjects.begin(), _missingSceneryobjects.end());
     std::sort(_missingSplines.begin(),        _missingSplines.end());
     std::sort(_missingHumans.begin(),         _missingHumans.end());
@@ -97,19 +91,51 @@ void OTMapChecker::setFinished() {
 }
 
 QList<OTFileSource> OTMapChecker::allSceneryobjects() const {
-    return _allSceneryobjects;
+    QMap<QString, OTFileSource> map;
+    for(OTFileSource source : _allSceneryobjects)
+        map.insert(source.fileName(), source);
+
+    QList<OTFileSource> list;
+    for (OTFileSource source : map)
+        list << source;
+
+    return list;
 }
 
 QList<OTFileSource> OTMapChecker::allSplines() const {
-    return _allSplines;
+    QMap<QString, OTFileSource> map;
+    for(OTFileSource source : _allSplines)
+        map.insert(source.fileName(), source);
+
+    QList<OTFileSource> list;
+    for (OTFileSource source : map)
+        list << source;
+
+    return list;
 }
 
 QList<OTFileSource> OTMapChecker::allHumans() const {
-    return _allHumans;
+    QMap<QString, OTFileSource> map;
+    for(OTFileSource source : _allHumans)
+        map.insert(source.fileName(), source);
+
+    QList<OTFileSource> list;
+    for (OTFileSource source : map)
+        list << source;
+
+    return list;
 }
 
 QList<OTFileSource> OTMapChecker::allVehicles() const {
-    return _allVehicles;
+    QMap<QString, OTFileSource> map;
+    for(OTFileSource source : _allVehicles)
+        map.insert(source.fileName(), source);
+
+    QList<OTFileSource> list;
+    for (OTFileSource source : map)
+        list << source;
+
+    return list;
 }
 
 QStringList OTMapChecker::missingSceneryobjects() const {
@@ -160,35 +186,43 @@ int OTMapChecker::missingVehiclesCount() const {
     return _missingVehicles.count();
 }
 
-OTFileSource *OTMapChecker::findOrCreateSourceObject(const QString &fileName) {
-    if(fileName.endsWith(".sco")) {
-        for(int i = 0; i < _allSceneryobjects.count(); i++)
-            if(_allSceneryobjects[i].fileName() == fileName)
-                return &_allSceneryobjects[i];
+OTFileSource *OTMapChecker::findOrCreateSourceObject(const QString &fileName, bool *wasNewCreated) {
+    *wasNewCreated = false;
 
-        _allSceneryobjects << OTFileSource(fileName, OTFileSource::SceneryobjectFile);
-        return &_allSceneryobjects.last();
-    } else if(fileName.endsWith(".sli")) {
-        for(int i = 0; i < _allSplines.count(); i++)
-            if(_allSplines[i].fileName() == fileName)
-                return &_allSplines[i];
+    if (fileName.endsWith(".sco")) {
+        if (_allSceneryobjects.contains(fileName)) {
+            return &_allSceneryobjects[fileName];
+        } else {
+            *wasNewCreated = true;
+            return &_allSceneryobjects.insert(fileName, OTFileSource(fileName, OTFileSource::SceneryobjectFile)).value();
+        }
+    }
 
-        _allSplines << OTFileSource(fileName, OTFileSource::SplineFile);
-        return &_allSplines.last();
-    } else if(fileName.endsWith(".hum")) {
-        for(int i = 0; i < _allHumans.count(); i++)
-            if(_allHumans[i].fileName() == fileName)
-                return &_allHumans[i];
+    if (fileName.endsWith(".sli")) {
+        if (_allSplines.contains(fileName)) {
+            return &_allSplines[fileName];
+        } else {
+            *wasNewCreated = true;
+            return &_allSplines.insert(fileName, OTFileSource(fileName, OTFileSource::SplineFile)).value();
+        }
+    }
 
-        _allHumans << OTFileSource(fileName, OTFileSource::HumanFile);
-        return &_allHumans.last();
-    } else if(fileName.endsWith(".ovh") || fileName.endsWith(".bus") || fileName.endsWith(".zug")) {
-        for(int i = 0; i < _allVehicles.count(); i++)
-            if(_allVehicles[i].fileName() == fileName)
-                return &_allVehicles[i];
+    if (fileName.endsWith(".hum")) {
+        if (_allHumans.contains(fileName)) {
+            return &_allHumans[fileName];
+        } else {
+            *wasNewCreated = true;
+            return &_allHumans.insert(fileName, OTFileSource(fileName, OTFileSource::HumanFile)).value();
+        }
+    }
 
-        _allVehicles << OTFileSource(fileName, OTFileSource::VehicleFile);
-        return &_allVehicles.last();
+    if (fileName.endsWith(".ovh") || fileName.endsWith(".bus") || fileName.endsWith(".zug")) {
+        if (_allVehicles.contains(fileName)) {
+            return &_allVehicles[fileName];
+        } else {
+            *wasNewCreated = true;
+            return &_allVehicles.insert(fileName, OTFileSource(fileName, OTFileSource::HumanFile)).value();
+        }
     }
 
     qCritical() << "Couldn't handle source object: " << fileName;
@@ -445,11 +479,27 @@ void OTMapScanner::scanTile(const QString &filename) {
 }
 
 QList<OTFileSource> OTMapScanner::allTiles() const {
-    return _allTiles;
+    QMap<QString, OTFileSource> map;
+    for(OTFileSource source : _allTiles)
+        map.insert(source.fileName(), source);
+
+    QList<OTFileSource> list;
+    for (OTFileSource source : map)
+        list << source;
+
+    return list;
 }
 
 QList<OTFileSource> OTMapScanner::allTextures() const {
-    return _allTextures;
+    QMap<QString, OTFileSource> map;
+    for(OTFileSource source : _allTextures)
+        map.insert(source.fileName(), source);
+
+    QList<OTFileSource> list;
+    for (OTFileSource source : map)
+        list << source;
+
+    return list;
 }
 
 QStringList OTMapScanner::missingTiles() const {
@@ -477,20 +527,16 @@ int OTMapScanner::missingTexturesCount() const {
 }
 
 OTFileSource *OTMapScanner::findOrCreateSourceObject(const QString &fileName, const bool &texture) {
-    if(fileName.endsWith(".map")) {
-        for(int i = 0; i < _allTiles.count(); i++)
-            if(_allTiles[i].fileName() == fileName)
-                return &_allTiles[i];
-
-        _allTiles << OTFileSource(fileName, OTFileSource::TileFile);
-        return &_allTiles.last();
+    if (fileName.endsWith(".map")) {
+        if (_allTiles.contains(fileName))
+            return &_allTiles[fileName];
+        else
+            return &_allTiles.insert(fileName, OTFileSource(fileName, OTFileSource::HumanFile)).value();
     } else if(texture) {
-        for(int i = 0; i < _allTextures.count(); i++)
-            if(_allTextures[i].fileName() == fileName)
-                return &_allTextures[i];
-
-        _allTextures << OTFileSource(fileName, OTFileSource::TextureFile);
-        return &_allTextures.last();
+        if (_allTextures.contains(fileName))
+            return &_allTextures[fileName];
+        else
+            return &_allTextures.insert(fileName, OTFileSource(fileName, OTFileSource::TextureFile)).value();
     }
 
     qCritical() << "Couldn't handle source object: " << fileName;

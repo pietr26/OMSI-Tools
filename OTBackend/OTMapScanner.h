@@ -44,7 +44,7 @@ public:
     int missingVehiclesCount() const;
 
 protected:
-    OTFileSource *findOrCreateSourceObject(const QString &fileName);
+    OTFileSource *findOrCreateSourceObject(const QString &fileName, bool *wasNewCreated);
 
 private:
     QString _omsiDir;
@@ -53,10 +53,10 @@ private:
     QWaitCondition _dataAvailable;
     bool _finish;
 
-    QList<OTFileSource> _allSceneryobjects;
-    QList<OTFileSource> _allSplines;
-    QList<OTFileSource> _allHumans;
-    QList<OTFileSource> _allVehicles;
+    QHash<QString, OTFileSource> _allSceneryobjects;
+    QHash<QString, OTFileSource> _allSplines;
+    QHash<QString, OTFileSource> _allHumans;
+    QHash<QString, OTFileSource> _allVehicles;
     QStringList _missingSceneryobjects;
     QStringList _missingSplines;
     QStringList _missingHumans;
@@ -98,8 +98,8 @@ signals:
 private:
     OTMapChecker *_checker;
     QString _mapDir;
-    QList<OTFileSource> _allTiles;
-    QList<OTFileSource> _allTextures;
+    QHash<QString, OTFileSource> _allTiles;
+    QHash<QString, OTFileSource> _allTextures;
     QStringList _missingTiles;
     QStringList _missingTextures;
 };
