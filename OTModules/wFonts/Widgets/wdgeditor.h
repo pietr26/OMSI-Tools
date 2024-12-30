@@ -62,7 +62,6 @@ public slots:
     void addCharacter();
     void deleteItem();
     void search();
-    void goToNextError();
 
 signals:
     void setModified(bool state);
