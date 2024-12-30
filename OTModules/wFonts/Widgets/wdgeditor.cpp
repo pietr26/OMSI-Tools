@@ -21,17 +21,17 @@ wdgEditor::wdgEditor(QWidget *parent, OCFont::FontCollection *font)
     });
 
     // Create and connect actions --------------------------------------------------------------------
-    actionAddFont = new QAction(QIcon::fromTheme("list-add"), "Add font"); actionAddFont->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
+    actionAddFont = new QAction(QIcon::fromTheme("list-add"), tr("Add font")); actionAddFont->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
     actionsEdit << actionAddFont;
-    actionAddCharacter = new QAction(QIcon::fromTheme("list-add"), "Add character"); actionAddCharacter->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Tab));
+    actionAddCharacter = new QAction(QIcon::fromTheme("list-add"), tr("Add character")); actionAddCharacter->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Tab));
     actionsEdit << actionAddCharacter;
-    actionDeleteItem = new QAction(QIcon::fromTheme("edit-clear"), "Delete item"); actionDeleteItem->setShortcut(Qt::Key_Delete);
+    actionDeleteItem = new QAction(QIcon::fromTheme("edit-clear"), tr("Delete item")); actionDeleteItem->setShortcut(Qt::Key_Delete);
     actionsEdit << actionDeleteItem;
-    actionMoveUp = new QAction(QIcon::fromTheme("go-up"), "Move item up"); actionMoveUp->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Up));
+    actionMoveUp = new QAction(QIcon::fromTheme("go-up"), tr("Move item up")); actionMoveUp->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Up));
     actionsEdit << actionMoveUp;
-    actionMoveDown = new QAction(QIcon::fromTheme("go-down"), "Move item down"); actionMoveDown->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Down));
+    actionMoveDown = new QAction(QIcon::fromTheme("go-down"), tr("Move item down")); actionMoveDown->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Down));
     actionsEdit << actionMoveDown;
-    actionSearch = new QAction(QIcon::fromTheme("edit-find"), "Search"); actionSearch->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));
+    actionSearch = new QAction(QIcon::fromTheme("edit-find"), tr("Search")); actionSearch->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));
     actionsEdit << actionSearch; ui->ledSearch->addAction(actionSearch, QLineEdit::TrailingPosition);
 
     ui->tvwChars->addActions(actionsEdit);

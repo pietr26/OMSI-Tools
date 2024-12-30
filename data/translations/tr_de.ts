@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="de_DE">
 <context>
+    <name>OTMapScanner</name>
+    <message>
+        <location filename="../../OTBackend/OTMapScanner.cpp" line="226"/>
+        <source>Read tile %1 of %2</source>
+        <translation>Lese Kachel %1 von %2</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="900"/>
@@ -989,7 +997,7 @@ Bitte lege einige Einstellungen fest, damit %1 korrekt funktioniert.</translatio
         <translation>Extras</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="80"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="76"/>
         <source>Preview</source>
         <translation>Vorschau</translation>
     </message>
@@ -1080,14 +1088,14 @@ Bitte lege einige Einstellungen fest, damit %1 korrekt funktioniert.</translatio
         <translation>Zurück zum Startbildschirm</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="154"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="151"/>
         <source>Save font</source>
         <translation>Schrift speichern</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.cpp" line="18"/>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="212"/>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="213"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="209"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="210"/>
         <source>Font creation</source>
         <translation>Schrifterstellung</translation>
     </message>
@@ -1097,38 +1105,38 @@ Bitte lege einige Einstellungen fest, damit %1 korrekt funktioniert.</translatio
         <translation>Erstellt eine Schrift</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="75"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="71"/>
         <source>Editor</source>
         <translation>Editor</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="148"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="145"/>
         <source>unnamed</source>
         <translation>unbenannt</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="190"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="187"/>
         <source>Error: The file could not be saved.</source>
         <translation>Fehler: Die Datei konnte nicht gespeichert werden.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="200"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="197"/>
         <source>File saved successfully.</source>
         <translation>Datei erfolgreich gespeichert.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="137"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="134"/>
         <source>The font file (still) doesn&apos;t exist.</source>
         <translation>Die Schriftdatei existiert (noch) nicht.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="154"/>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="314"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="151"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="311"/>
         <source>OMSI font file</source>
         <translation>OMSI-Schrift</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="314"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="311"/>
         <source>Open font...</source>
         <translation>Schrift öffnen...</translation>
     </message>
@@ -2201,7 +2209,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
     <name>wVerifyMap</name>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="426"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="126"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="113"/>
         <source>Start verifying</source>
         <translation>Überprüfung starten</translation>
     </message>
@@ -2217,31 +2225,31 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="327"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="52"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="61"/>
         <source>Humans</source>
         <translation>Menschen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="275"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="48"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="57"/>
         <source>Tiles</source>
         <translation>Kacheln</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="288"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="49"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="58"/>
         <source>Sceneryobjects</source>
         <translation>Szenerieobjekte</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="301"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="50"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="59"/>
         <source>Splines</source>
         <translation>Splines</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="314"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="51"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="60"/>
         <source>Vehicles</source>
         <translation>Fahrzeuge</translation>
     </message>
@@ -2298,7 +2306,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="337"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="53"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="62"/>
         <source>Textures</source>
         <translation>Texturen</translation>
     </message>
@@ -2324,32 +2332,37 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         <translation>Überprüft eine Karte</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="30"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="39"/>
         <source>Press %1 to start the verification.</source>
         <translation>Drücke %1 zum Starten der Überprüfung.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="128"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="115"/>
         <source>Running...</source>
         <translation>Läuft...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="150"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="135"/>
         <source>The selected map file doesn&apos;t exist.</source>
         <translation>Die ausgewählte Kartendatei existiert nicht.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="150"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="135"/>
         <source>Map file doesn&apos;t exist</source>
         <translation>Karte existiert nicht</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="273"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="172"/>
+        <source>checking objects and splines...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="220"/>
         <source>Verification finished.</source>
         <translation>Überprüfung beendet.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="347"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="276"/>
         <source>Reloaded map list.</source>
         <translation>Kartenliste neu geladen.</translation>
     </message>
@@ -2363,11 +2376,13 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="196"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="24"/>
         <source>Add font</source>
         <translation>Schrift hinzufügen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="203"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="26"/>
         <source>Add character</source>
         <translation>Zeichen hinzufügen</translation>
     </message>
@@ -2417,27 +2432,47 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         <translation>Zeichen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="313"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="28"/>
+        <source>Delete item</source>
+        <translation>Element löschen</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="30"/>
+        <source>Move item up</source>
+        <translation>Element nach oben verschieben</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="32"/>
+        <source>Move item down</source>
+        <translation>Element nach unten verschieben</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="34"/>
+        <source>Search</source>
+        <translation>Suchen</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="311"/>
         <source>Character not found</source>
         <translation>Zeichen nicht gefunden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="313"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="311"/>
         <source>The entered character could not be found.</source>
         <translation>Das eingegebene Zeichen konnte nicht gefunden werden.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="540"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="538"/>
         <source>unnamed</source>
         <translation>unbenannt</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="545"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="543"/>
         <source>undefined</source>
         <translation>nicht definiert</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="598"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="596"/>
         <source>%n character(s) total</source>
         <translation>
             <numerusform>%n Zeichen ingesamt</numerusform>
@@ -2445,7 +2480,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="598"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="596"/>
         <source>%n font(s)</source>
         <translation>
             <numerusform>%n Schrift</numerusform>
@@ -2453,18 +2488,18 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         </translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="639"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="637"/>
         <source>Select color texture...</source>
         <translation>Farbtextur auswählen...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="639"/>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="671"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="637"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="669"/>
         <source>Bitmap picture</source>
         <translation>Bitmap-Bild</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="671"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="669"/>
         <source>Select alpha texture...</source>
         <translation>Alphatextur auswählen...</translation>
     </message>
@@ -2472,7 +2507,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
 <context>
     <name>wdgOverviewTile</name>
     <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/wdgoverviewtile.cpp" line="21"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="21"/>
         <source>%n tile(s)</source>
         <translation>
             <numerusform>%n Kachel</numerusform>
@@ -2480,15 +2515,15 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/wdgoverviewtile.cpp" line="22"/>
-        <source>%n sceneryobjec(ts)</source>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="22"/>
+        <source>%n sceneryobject(s)</source>
         <translation>
             <numerusform>%n Szenerieobjekt</numerusform>
             <numerusform>%n Szenerieobjekte</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/wdgoverviewtile.cpp" line="23"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="23"/>
         <source>%n spline(s)</source>
         <translation>
             <numerusform>%n Spline</numerusform>
@@ -2496,7 +2531,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/wdgoverviewtile.cpp" line="24"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="24"/>
         <source>%n vehicle(s)</source>
         <translation>
             <numerusform>%n Fahrzeug</numerusform>
@@ -2504,7 +2539,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/wdgoverviewtile.cpp" line="25"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="25"/>
         <source>%n human(s)</source>
         <translation>
             <numerusform>%n Mensch</numerusform>
@@ -2512,7 +2547,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/wdgoverviewtile.cpp" line="26"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="26"/>
         <source>%n texture(s)</source>
         <translation>
             <numerusform>%n Textur</numerusform>
@@ -2520,7 +2555,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/wdgoverviewtile.cpp" line="27"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="27"/>
         <source>%n element(s)</source>
         <translation>
             <numerusform>%n Element</numerusform>
@@ -2528,7 +2563,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/wdgoverviewtile.cpp" line="35"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="35"/>
         <source>%n missing</source>
         <translation>
             <numerusform>%n fehlt</numerusform>
@@ -2539,17 +2574,22 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
 <context>
     <name>wdgPreview</name>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="42"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="35"/>
+        <source>Highlighting opacity:</source>
+        <translation>Hervorhebungsfarbe:</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="81"/>
         <source>Color texture</source>
         <translation>Farbtextur</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="47"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="86"/>
         <source>Alpha texture</source>
         <translation>Alphatextur</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="61"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="100"/>
         <source>Reload texture preview</source>
         <translation>Texturvorschau neu laden</translation>
     </message>
@@ -2557,50 +2597,45 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
 <context>
     <name>wdgTab</name>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="40"/>
-        <source>all</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="137"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.ui" line="137"/>
         <source>Path:</source>
         <translation>Pfad:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="165"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.ui" line="165"/>
         <source>Status:</source>
         <translation>Status:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="179"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.ui" line="179"/>
         <source>Usages:</source>
         <translation>Verwendungen:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.ui" line="195"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.ui" line="195"/>
         <source>Show</source>
         <translation>Anzeigen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="27"/>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="51"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="27"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="50"/>
         <source>All (%1)</source>
         <translation>Alle (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="28"/>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="52"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="28"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="51"/>
         <source>Missing (%1)</source>
         <translation>Fehlend (%1)</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="57"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="56"/>
         <source>Copy selected %1</source>
         <comment>Copy selected elements</comment>
         <translation>Ausgewählte %1 kopieren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wdgtab.cpp" line="58"/>
+        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="57"/>
         <source>Search for missing %1</source>
         <comment>Search for missing elements</comment>
         <translation>Fehlende %1 suchen</translation>
