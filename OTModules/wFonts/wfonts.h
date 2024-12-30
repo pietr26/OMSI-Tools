@@ -43,8 +43,6 @@ private slots:
 
     void on_actionShowInExplorer_triggered();
 
-    void resizeEvent(QResizeEvent *event);
-
     void on_actionSendFeedback_triggered();
 
     void on_actionPreferences_triggered();

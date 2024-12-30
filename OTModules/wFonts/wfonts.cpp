@@ -67,11 +67,6 @@ void wFonts::closeEvent(QCloseEvent *event)
     }
 }
 
-void wFonts::resizeEvent(QResizeEvent *event)
-{
-    QWidget::resizeEvent(event);
-}
-
 void wFonts::on_actionBackToHome_triggered()
 {
     if (close()) emit backToHome();
