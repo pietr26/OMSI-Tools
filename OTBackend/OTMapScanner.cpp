@@ -40,10 +40,15 @@ void OTMapChecker::run() {
             for(QPair<QString,QString> pair : files) {
                 QString file = pair.first;
 
-                OTFileSource *source = findOrCreateSourceObject(file);
+                bool wasCreatedNew;
+                OTFileSource *source = findOrCreateSourceObject(file, &wasCreatedNew);
                 source->addOccurrence(pair.second);
 
+                if(!wasCreatedNew)
+                    continue;
+
                 if(!QFile::exists(_omsiDir + "/" + file)) {
+                    qDebug() << "Missing file: " << file;
                     switch(source->fileType()) {
                         case OTFileSource::SceneryobjectFile: _missingSceneryobjects << file; break;
                         case OTFileSource::SplineFile:        _missingSplines        << file; break;
