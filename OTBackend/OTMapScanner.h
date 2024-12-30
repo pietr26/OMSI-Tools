@@ -40,8 +40,12 @@ public:
     int allVehiclesCount() const;
     int missingSceneryobjectsCount() const;
     int missingSplinesCount() const;
-    int missingHumansCount();
+    int missingHumansCount() const;
     int missingVehiclesCount() const;
+    int invalidSceneryobjectsCount() const;
+    int invalidSplinesCount() const;
+    int invalidHumansCount() const;
+    int invalidVehiclesCount() const;
 
 protected:
     OTFileSource *findOrCreateSourceObject(const QString &fileName, bool *wasNewCreated);
@@ -89,6 +93,8 @@ public:
     int allTexturesCount() const;
     int missingTilesCount();
     int missingTexturesCount() const;
+    int invalidTilesCount();
+    int invalidTexturesCount() const;
 
 protected:
     OTFileSource *findOrCreateSourceObject(const QString &fileName, const bool &texture = false);

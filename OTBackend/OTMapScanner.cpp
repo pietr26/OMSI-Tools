@@ -13,6 +13,8 @@
 
 #include "OTMapScanner.h"
 
+#include "OTBackend/OTGlobal.h"
+
 OTMapChecker::OTMapChecker(QObject *parent) :
     QThread(parent),
     _finish(false) {
@@ -24,10 +26,12 @@ void OTMapChecker::run() {
     _allSplines.clear();
     _allHumans.clear();
     _allVehicles.clear();
+    _allUnkown.clear();
     _missingSceneryobjects.clear();
     _missingSplines.clear();
     _missingHumans.clear();
     _missingVehicles.clear();
+    _missingUnknown.clear();
 
     while (true) {
         QMutexLocker locker(&_mutex);
@@ -185,12 +189,52 @@ int OTMapChecker::missingSplinesCount() const {
     return _missingSplines.count();
 }
 
-int OTMapChecker::missingHumansCount() {
+int OTMapChecker::missingHumansCount() const {
     return _missingHumans.count();
 }
 
 int OTMapChecker::missingVehiclesCount() const {
     return _missingVehicles.count();
+}
+
+int OTMapChecker::invalidSceneryobjectsCount() const {
+    QList<OTFileSource> list = allSceneryobjects();
+    int count = 0;
+    for(OTFileSource &source : list)
+        if(!source.isValid())
+            count++;
+
+    return count;
+}
+
+int OTMapChecker::invalidSplinesCount() const {
+    QList<OTFileSource> list = allSplines();
+    int count = 0;
+    for(OTFileSource &source : list)
+        if(!source.isValid())
+            count++;
+
+    return count;
+}
+
+int OTMapChecker::invalidHumansCount() const {
+    QList<OTFileSource> list = allHumans();
+    int count = 0;
+    for(OTFileSource &source : list)
+        if(!source.isValid())
+            count++;
+
+    return count;
+}
+
+int OTMapChecker::invalidVehiclesCount() const {
+    QList<OTFileSource> list = allVehicles();
+    int count = 0;
+    for(OTFileSource &source : list)
+        if(!source.isValid())
+            count++;
+
+    return count;
 }
 
 OTFileSource *OTMapChecker::findOrCreateSourceObject(const QString &fileName, bool *wasNewCreated) {
@@ -249,9 +293,11 @@ OTMapScanner::OTMapScanner(QObject *parent, OTMapChecker *checker) :
 
 void OTMapScanner::run() {
     _allTiles.clear();
-    _missingTiles.clear();
     _allTextures.clear();
+    _allUnkown.clear();
+    _missingTiles.clear();
     _missingTextures.clear();
+    _missingUnknown.clear();
 
     scanGlobal();
     scanTextures();
@@ -533,6 +579,26 @@ int OTMapScanner::missingTilesCount() {
 
 int OTMapScanner::missingTexturesCount() const {
     return _missingTextures.count();
+}
+
+int OTMapScanner::invalidTilesCount() {
+    QList<OTFileSource> list = allTiles();
+    int count = 0;
+    for(OTFileSource &source : list)
+        if(!source.isValid())
+            count++;
+
+    return count;
+}
+
+int OTMapScanner::invalidTexturesCount() const {
+    QList<OTFileSource> list = allTextures();
+    int count = 0;
+    for(OTFileSource &source : list)
+        if(!source.isValid())
+            count++;
+
+    return count;
 }
 
 OTFileSource *OTMapScanner::findOrCreateSourceObject(const QString &fileName, const bool &texture) {
