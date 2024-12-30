@@ -33,6 +33,7 @@ void wdgTab::addAll(QList<OTFileSource> items)
     isApplied = false;
     for(OTFileSource &source : items) {
         all << source.fileName().replace("/", "\\");
+        sources << source;
     }
 }
 
@@ -121,16 +122,45 @@ void wdgTab::search(QStringList items)
 
 void wdgTab::updateDetails()
 {
-    if (ui->twgItems->currentIndex())
-    {
-        if (ui->lwgMissing->currentRow() == -1 || ui->lwgMissing->selectedItems().count() > 1) ui->ledPath->clear();
-        else ui->ledPath->setText(ui->lwgMissing->currentItem()->text());
+    int tabIndex = ui->twgItems->currentIndex();
+    QListWidgetItem *itm;
+    int selectionCount;
+
+    if(tabIndex) {
+        itm = ui->lwgMissing->currentItem();
+        selectionCount = ui->lwgMissing->selectedItems().count();
+    } else {
+        itm = ui->lwgAll->currentItem();
+        selectionCount = ui->lwgAll->selectedItems().count();
     }
-    else
-    {
-        if (ui->lwgAll->currentRow() == -1 || ui->lwgAll->selectedItems().count() > 1) ui->ledPath->clear();
-        else ui->ledPath->setText(ui->lwgAll->currentItem()->text());
+
+    // clear if invalid
+    if(!itm || selectionCount > 1) {
+        ui->ledPath->clear();
+        return;
     }
+
+    // else set values
+    ui->ledPath->setText(itm->text());
+    OTFileSource source = findSource(itm->text());
+    ui->lblUsages->setText(tr("%1 (in %n tile(s))", "", source.sourcesCount()).arg(QString::number(source.occurrencesCount())));
+
+    if(tabIndex) {
+        ui->lblStatus->setText(tr("missing"));
+        ui->lblStatus->setStyleSheet("color: #ff2222;");
+    } else {
+        ui->lblStatus->setText(tr("existing"));
+        ui->lblStatus->setStyleSheet("color: #55aa00;");
+    }
+}
+
+OTFileSource wdgTab::findSource(QString fileName) const {
+    for(OTFileSource source : sources)
+        if(source.fileName() == fileName)
+            return source;
+
+    // fallback - should never be needed
+    return OTFileSource("", OTFileSource::UnknownFile);
 }
 
 void wdgTab::on_twgItems_currentChanged(int index) { Q_UNUSED(index); updateDetails(); }
@@ -144,3 +174,7 @@ void wdgTab::on_btnCopyPath_clicked()
     misc.copy(ui->ledPath->text());
 }
 
+void wdgTab::on_btnShowUsages_clicked() {
+    OTFileSource source = findSource(ui->ledPath->text());
+    qDebug() << source.sources();
+}

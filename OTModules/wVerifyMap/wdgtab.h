@@ -58,6 +58,8 @@ private slots:
 
     void on_btnCopyPath_clicked();
 
+    void on_btnShowUsages_clicked();
+
 private:
     Ui::wdgTab *ui;
     OTMiscellaneous misc;
@@ -72,7 +74,10 @@ private:
     void search(QList<QListWidgetItem*> items);
     void search(QStringList items);
 
+    QList<OTFileSource> sources;
+
     void updateDetails();
+    OTFileSource findSource(QString fileName) const;
 };
 
 
