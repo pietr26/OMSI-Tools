@@ -1,4 +1,3 @@
-// TODO: Chrono Events
 // TODO: Advanced verifying:
 /*
  * SCO:
@@ -43,6 +42,7 @@ void OTMapChecker::run() {
 
                 OTFileSource *source = findOrCreateSourceObject(file);
                 source->addSource(pair.second);
+                source->newOccurrence();
 
                 if(!QFile::exists(_omsiDir + "/" + file)) {
                     switch(source->fileType()) {
@@ -194,6 +194,7 @@ OTFileSource *OTMapChecker::findOrCreateSourceObject(const QString &fileName) {
 
     qCritical() << "Couldn't handle source object: " << fileName;
 
+    // FIXME: Causes crash!!!
     return nullptr;
 }
 
@@ -230,6 +231,7 @@ void OTMapScanner::run() {
                 if(currentFile.endsWith(".map")) {
                     chronoTiles << "Chrono/" + currentChrono + "/" + currentFile;
                     OTFileSource *source = findOrCreateSourceObject(currentFile);
+                    source->newOccurrence();
                     source->addSource("Chrono/" + currentChrono);
                 }
             }
@@ -289,13 +291,19 @@ void OTMapScanner::scanGlobal() {
         if(line == "[map]") {
             s.readLine();
             s.readLine();
-            findOrCreateSourceObject(s.readLine(), false);
+            OTFileSource *source = findOrCreateSourceObject(s.readLine(), false);
+            source->newOccurrence();
+            source->addSource("global.cfg");
         } else if(line == "[groundtex]") {
             QString tex1 = s.readLine();
             QString tex2 = s.readLine();
 
-            findOrCreateSourceObject(tex1, true);
-            findOrCreateSourceObject(tex2, true);
+            OTFileSource *source = findOrCreateSourceObject(tex1, true);
+            source->newOccurrence();
+            source->addSource("global.cfg");
+            source = findOrCreateSourceObject(tex2, true);
+            source->newOccurrence();
+            source->addSource("global.cfg");
         }
     }
 
@@ -390,17 +398,14 @@ void OTMapScanner::scanAiList() {
             line = s.readLine();
             while(line != "[end]" && !s.atEnd()) {
                 QString file = line.split("\t")[0];
-                if(!list.contains(file))
-                    list << file;
-
+                list << file;
                 line = s.readLine();
             }
         }
 
         if(line == "[aigroup_depot_typgroup_2]") {
             line = s.readLine();
-            if(!list.contains(line))
-                list << line;
+            list << line;
         }
     }
     f.close();
@@ -441,7 +446,6 @@ void OTMapScanner::scanTile(const QString &filename) {
     }
 
     f.close();
-    fileList.removeDuplicates();
     _checker->addToQueue(fileList, filename);
 }
 
@@ -496,5 +500,6 @@ OTFileSource *OTMapScanner::findOrCreateSourceObject(const QString &fileName, co
 
     qCritical() << "Couldn't handle source object: " << fileName;
 
+    // FIXME: Causes crash!!!
     return nullptr;
 }

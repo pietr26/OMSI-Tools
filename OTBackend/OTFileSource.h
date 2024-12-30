@@ -27,9 +27,13 @@ public:
     QString fileName() const;
     FileType fileType() const;
 
-    QStringList sources() const;
+    QStringList sources();
+    int sourcesCount();
     void addSource(const QString &newSource);
     void addSources(const QStringList &newSources);
+
+    int occurrencesCount() const;
+    void newOccurrence();
 
     QString errorString() const;
 
@@ -45,11 +49,13 @@ public:
     QStringList missingTextures() const;
     void addMissingTexture(const QString &newTexture);
 
+
 private:
     QString _fileName;
     QStringList _sources;
     QStringList _missingMeshs, _missingScriptFiles, _missingTextures;
     FileType _fileType;
+    int _occurrences;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(OTFileSource::ErrorCodes);

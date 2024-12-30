@@ -1,7 +1,7 @@
 #include "OTFileSource.h"
 
 OTFileSource::OTFileSource(const QString &fileName, FileType fileType) :
-    _fileName(fileName), _fileType(fileType) {
+    _fileName(fileName), _fileType(fileType), _occurrences(0) {
 }
 
 QString OTFileSource::fileName() const {
@@ -12,8 +12,13 @@ OTFileSource::FileType OTFileSource::fileType() const {
     return _fileType;
 }
 
-QStringList OTFileSource::sources() const {
+QStringList OTFileSource::sources() {
+    _sources.removeDuplicates();
     return _sources;
+}
+
+int OTFileSource::sourcesCount() {
+    return sources().count();
 }
 
 void OTFileSource::addSource(const QString &newSource) {
@@ -23,6 +28,14 @@ void OTFileSource::addSource(const QString &newSource) {
 void OTFileSource::addSources(const QStringList &newSources) {
     for(QString source : newSources)
         _sources << source;
+}
+
+int OTFileSource::occurrencesCount() const {
+    return _occurrences;
+}
+
+void OTFileSource::newOccurrence() {
+    _occurrences++;
 }
 
 QString OTFileSource::errorString() const {
@@ -74,3 +87,4 @@ QStringList OTFileSource::missingTextures() const {
 void OTFileSource::addMissingTexture(const QString &newTexture) {
     _missingTextures << newTexture;
 }
+
