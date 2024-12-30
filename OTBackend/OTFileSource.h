@@ -5,17 +5,27 @@
 
 class OTFileSource {
 public:
-    OTFileSource(const QString &fileName);
-
     enum ErrorCode {
         MeshMissing = 0x01,
         VarlistMissing = 0x02,
         TextureMissing = 0x04
     };
-
     Q_DECLARE_FLAGS(ErrorCodes, ErrorCode);
 
+    enum FileType {
+        SceneryobjectFile,
+        SplineFile,
+        HumanFile,
+        VehicleFile,
+        TileFile,
+        TextureFile,
+        UnknownFile
+    };
+
+    OTFileSource(const QString &fileName, FileType fileType);
+
     QString fileName() const;
+    FileType fileType() const;
 
     QStringList sources() const;
     void addSource(const QString &newSource);
@@ -39,6 +49,7 @@ private:
     QString _fileName;
     QStringList _sources;
     QStringList _missingMeshs, _missingScriptFiles, _missingTextures;
+    FileType _fileType;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(OTFileSource::ErrorCodes);

@@ -21,13 +21,14 @@ public:
 
     QString omsiDir() const;
     void setOmsiDir(const QString &);
-    void addToQueue(const QStringList &);
+    void addToQueue(const QList<QPair<QString, QString>> &);
+    void addToQueue(const QStringList &, const QString &source);
     void setFinished();
 
-    QStringList allSceneryobjects() const;
-    QStringList allSplines() const;
-    QStringList allHumans() const;
-    QStringList allVehicles() const;
+    QList<OTFileSource> allSceneryobjects() const;
+    QList<OTFileSource> allSplines() const;
+    QList<OTFileSource> allHumans() const;
+    QList<OTFileSource> allVehicles() const;
     QStringList missingSceneryobjects() const;
     QStringList missingSplines() const;
     QStringList missingHumans() const;
@@ -42,17 +43,20 @@ public:
     int missingHumansCount();
     int missingVehiclesCount() const;
 
+protected:
+    OTFileSource *findOrCreateSourceObject(const QString &fileName);
+
 private:
     QString _omsiDir;
-    QQueue<QStringList> _queue;
+    QQueue<QList<QPair<QString,QString>>> _queue;
     QMutex _mutex;
     QWaitCondition _dataAvailable;
     bool _finish;
 
-    QStringList _allSceneryobjects;
-    QStringList _allSplines;
-    QStringList _allHumans;
-    QStringList _allVehicles;
+    QList<OTFileSource> _allSceneryobjects;
+    QList<OTFileSource> _allSplines;
+    QList<OTFileSource> _allHumans;
+    QList<OTFileSource> _allVehicles;
     QStringList _missingSceneryobjects;
     QStringList _missingSplines;
     QStringList _missingHumans;
@@ -74,8 +78,8 @@ public:
     void scanAiList();
     void scanTile(const QString &filename);
 
-    QStringList allTiles() const;
-    QStringList allTextures() const;
+    QList<OTFileSource> allTiles() const;
+    QList<OTFileSource> allTextures() const;
     QStringList missingTiles() const;
     QStringList missingTextures() const;
 
@@ -84,6 +88,9 @@ public:
     int missingTilesCount();
     int missingTexturesCount() const;
 
+protected:
+    OTFileSource *findOrCreateSourceObject(const QString &fileName, const bool &texture = false);
+
 signals:
     void initActionCount(int);
     void statusUpdate(int, QString);
@@ -91,8 +98,8 @@ signals:
 private:
     OTMapChecker *_checker;
     QString _mapDir;
-    QStringList _allTiles;
-    QStringList _allTextures;
+    QList<OTFileSource> _allTiles;
+    QList<OTFileSource> _allTextures;
     QStringList _missingTiles;
     QStringList _missingTextures;
 };

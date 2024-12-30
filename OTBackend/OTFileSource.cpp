@@ -1,11 +1,15 @@
 #include "OTFileSource.h"
 
-OTFileSource::OTFileSource(const QString &fileName) :
-    _fileName(fileName) {
+OTFileSource::OTFileSource(const QString &fileName, FileType fileType) :
+    _fileName(fileName), _fileType(fileType) {
 }
 
 QString OTFileSource::fileName() const {
     return _fileName;
+}
+
+OTFileSource::FileType OTFileSource::fileType() const {
+    return _fileType;
 }
 
 QStringList OTFileSource::sources() const {

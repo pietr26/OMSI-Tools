@@ -28,12 +28,18 @@ void wdgTab::clear()
     ui->twgItems->setTabText(1, tr("Missing (%1)").arg(0));
 }
 
-void wdgTab::add(QStringList items, bool isMissing)
+void wdgTab::addAll(QList<OTFileSource> items)
 {
     isApplied = false;
+    for(OTFileSource &source : items) {
+        all << source.fileName().replace("/", "\\");
+    }
+}
+
+void wdgTab::addMissing(QStringList items) {
+    isApplied = false;
     items.replaceInStrings("/", "\\");
-    if (isMissing) missing << items;
-    else all << items;
+    missing << items;
 }
 
 void wdgTab::apply()

@@ -3,6 +3,7 @@
 
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
+#include "OTBackend/OTFileSource.h"
 
 #include <QListWidget>
 #include <QKeyEvent>
@@ -35,7 +36,8 @@ public:
     ~wdgTab();
 
     void clear();
-    void add(QStringList items, bool isMissing);
+    void addAll(QList<OTFileSource> items);
+    void addMissing(QStringList items);
     void apply();
     void setName(QString name);
 
