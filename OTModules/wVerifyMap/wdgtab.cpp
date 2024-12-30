@@ -20,6 +20,7 @@ void wdgTab::clear()
 {
     all.clear();
     missing.clear();
+    sources.clear();
 
     ui->lwgAll->clear();
     ui->lwgMissing->clear();
