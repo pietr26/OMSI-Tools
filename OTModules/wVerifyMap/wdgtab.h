@@ -80,6 +80,8 @@ private:
 
     void updateDetails();
     OTFileSource findSource(QString fileName) const;
+
+    QWidget *invalidItesmWidget;
 };
 
 

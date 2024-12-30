@@ -8,6 +8,9 @@ wdgTab::wdgTab(QWidget *parent)
     ui->setupUi(this);
     ui->lwgAll->installEventFilter(new EventFilterCopyElements(ui->lwgAll));
     ui->lwgMissing->installEventFilter(new EventFilterCopyElements(ui->lwgMissing));
+
+    // save the tab widget of "invalid" because we need to remove it if advanced mode is not enabled but we need to add it later again
+    invalidItesmWidget = ui->twgItems->widget(1);
     clear();
 }
 
@@ -18,16 +21,33 @@ wdgTab::~wdgTab()
 
 void wdgTab::clear()
 {
+    OTSettings set;
+    bool advanced = set.read("wVerifyMap", "advVerifying").toBool();
+
     all.clear();
+    invalid.clear();
     missing.clear();
     sources.clear();
 
     ui->lwgAll->clear();
+    ui->lwgInvalid->clear();
     ui->lwgMissing->clear();
 
-    ui->twgItems->setTabText(0, tr("All (%1)").arg(0));
-    ui->twgItems->setTabText(1, tr("Invalid (%1)").arg(0));
-    ui->twgItems->setTabText(2, tr("Missing (%1)").arg(0));
+    if(advanced) {
+        if(ui->twgItems->count() == 2)
+            ui->twgItems->insertTab(1, invalidItesmWidget, tr("Invalid (%1)").arg(0));
+        else
+            ui->twgItems->setTabText(1, tr("Invalid (%1)").arg(0));
+
+        ui->twgItems->setTabText(0, tr("All (%1)").arg(0));
+        ui->twgItems->setTabText(2, tr("Missing (%1)").arg(0));
+    } else {
+        if(ui->twgItems->count() == 3)
+            ui->twgItems->removeTab(1);
+
+        ui->twgItems->setTabText(0, tr("All (%1)").arg(0));
+        ui->twgItems->setTabText(1, tr("Missing (%1)").arg(0));
+    }
 
     ui->ledPath->clear();
     ui->lblStatus->clear();
@@ -67,9 +87,17 @@ void wdgTab::apply()
     ui->lwgAll->sortItems();
     isApplied = true;
 
-    ui->twgItems->setTabText(0, tr("All (%1)").arg(all.count()));
-    ui->twgItems->setTabText(1, tr("Invalid (%1)").arg(invalid.count()));
-    ui->twgItems->setTabText(2, tr("Missing (%1)").arg(missing.count()));
+    OTSettings set;
+    bool advanced = set.read("wVerifyMap", "advVerifying").toBool();
+
+    if(advanced) {
+        ui->twgItems->setTabText(0, tr("All (%1)").arg(all.count()));
+        ui->twgItems->setTabText(1, tr("Invalid (%1)").arg(invalid.count()));
+        ui->twgItems->setTabText(2, tr("Missing (%1)").arg(missing.count()));
+    } else {
+        ui->twgItems->setTabText(0, tr("All (%1)").arg(all.count()));
+        ui->twgItems->setTabText(1, tr("Missing (%1)").arg(missing.count()));
+    }
 }
 
 void wdgTab::setName(QString name)
