@@ -87,6 +87,19 @@ void wdgTab::apply()
     ui->lwgAll->clear();
     ui->lwgAll->addItems(all);
     ui->lwgAll->sortItems();
+
+    for(int i = 0; i < ui->lwgAll->count(); i++)  {
+        QListWidgetItem *itm = ui->lwgAll->item(i);
+        QString text = itm->text();
+        if(missing.contains(text)) {
+            itm->setBackground(QColor(255, 0, 0, 64));
+            itm->setToolTip(tr("This file was not found"));
+        } else if(!findSource(text).isValid()) {
+            itm->setBackground(QColor(255, 170, 0, 128));
+            itm->setToolTip(tr("This file is invalid"));
+        }
+    }
+
     isApplied = true;
 
     OTSettings set;
