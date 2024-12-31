@@ -1,6 +1,8 @@
 #include "wdgtab.h"
 #include "ui_wdgtab.h"
 
+#include "dlgsourceslist.h"
+
 wdgTab::wdgTab(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::wdgTab)
@@ -231,6 +233,10 @@ void wdgTab::on_btnCopyPath_clicked()
 
 void wdgTab::on_btnShowUsages_clicked() {
     OTFileSource source = findSource(ui->ledPath->text());
-    qDebug() << source.sources();
-}
+    dlgSourcesList dlg;
+    QList<QPair<QString, int>> sources = source.sources();
+    std::sort(sources.begin(), sources.end(), [](QPair<QString, int> a, QPair<QString, int> b){return a.first < b.first;});
 
+    dlg.addSources(sources);
+    dlg.exec();
+}
