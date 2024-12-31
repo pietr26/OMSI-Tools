@@ -58,8 +58,6 @@ private slots:
 
     void on_cbxAdvancedVerifying_stateChanged(int arg1);
 
-    void on_cbxOnlyMapTextures_stateChanged(int arg1);
-
     void on_btnSave_clicked();
 
     void on_cbxShowNews_stateChanged(int arg1);

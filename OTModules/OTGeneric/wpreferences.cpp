@@ -142,10 +142,6 @@ void wPreferences::loadPreferences()
     {
         // adv verifying
         ui->cbxAdvancedVerifying->setChecked(set.read("wVerifyMap", "advVerifying").toBool());
-
-        // map textures
-        ui->cbxOnlyMapTextures->setChecked(set.read("wVerifyMap", "onlyMapTextures").toBool());
-        ui->cbxOnlyMapTextures->setEnabled(ui->cbxAdvancedVerifying->isChecked());
     };
 
     // FONT CREATION
@@ -209,9 +205,6 @@ void wPreferences::savePreferences()
     {
         // adv verifying
         set.write("wVerifyMap", "advVerifying", ui->cbxAdvancedVerifying->isChecked());
-
-        // map textures
-        set.write("wVerifyMap", "onlyMapTextures", ui->cbxOnlyMapTextures->isChecked());
     };
 
     // FONT CREATION
@@ -327,9 +320,7 @@ void wPreferences::on_ledAuthor_textChanged(const QString &arg1) { Q_UNUSED(arg1
 
 void wPreferences::on_cbxBackupEnabled_clicked(bool checked) { Q_UNUSED(checked); modified(); }
 
-void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { modified(); ui->cbxOnlyMapTextures->setEnabled(arg1); }
-
-void wPreferences::on_cbxOnlyMapTextures_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
+void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { modified(); }
 
 void wPreferences::on_cbxShowNews_stateChanged(int arg1) { Q_UNUSED(arg1); if (setupFinished) { modified(); needRestart = true; } }
 
