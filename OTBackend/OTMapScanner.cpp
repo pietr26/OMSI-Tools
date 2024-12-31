@@ -279,7 +279,7 @@ OTFileSource *OTMapChecker::findOrCreateSourceObject(const QString &fileName, bo
             return &_allVehicles[fileName];
         } else {
             *wasNewCreated = true;
-            return &_allVehicles.insert(fileName, OTFileSource(fileName, OTFileSource::HumanFile)).value();
+            return &_allVehicles.insert(fileName, OTFileSource(fileName, OTFileSource::VehicleFile)).value();
         }
     }
 
