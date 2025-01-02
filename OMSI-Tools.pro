@@ -81,6 +81,7 @@ SOURCES += \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp \
     OTModules/wMaps/wmaps.cpp \
+    OTModules/wVerifyMap/dlgfilepreview.cpp \
     OTModules/wVerifyMap/dlgsourceslist.cpp \
     OTModules/wVerifyMap/wdgoverviewtile.cpp \
     OTModules/wVerifyMap/wdgtab.cpp \
@@ -181,6 +182,7 @@ HEADERS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.h \
     OTModules/wMaps/wmaps.h \
+    OTModules/wVerifyMap/dlgfilepreview.h \
     OTModules/wVerifyMap/dlgsourceslist.h \
     OTModules/wVerifyMap/wdgoverviewtile.h \
     OTModules/wVerifyMap/wdgtab.h \
@@ -224,6 +226,7 @@ FORMS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.ui \
     OTModules/wMaps/wmaps.ui \
+    OTModules/wVerifyMap/dlgfilepreview.ui \
     OTModules/wVerifyMap/dlgsourceslist.ui \
     OTModules/wVerifyMap/wdgoverviewtile.ui \
     OTModules/wVerifyMap/wdgtab.ui \
