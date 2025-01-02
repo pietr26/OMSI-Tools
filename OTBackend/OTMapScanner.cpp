@@ -9,11 +9,11 @@
  * SLI:
     - Texturen
 */
-// TODO: recognize file type by file context instead of extension
 
 #include "OTMapScanner.h"
-
 #include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTContentValidator/OTContentValidator.h"
+#include "OTBackend/OTContentValidator/OTSceneryobjectValidator.h"
 
 OTMapChecker::OTMapChecker(QObject *parent) :
     QThread(parent),
@@ -34,9 +34,10 @@ void OTMapChecker::run() {
     _missingUnknown.clear();
 
     OTSettings set;
-    bool advancedCheck = set.read("wVerifyMap", "advVerifying").toBool();
     // for debug purposes, you can enable this line:
-    // bool advancedCheck = true;
+    set.write("wVerifyMap", "advVerifying", true);
+
+    bool advancedCheck = set.read("wVerifyMap", "advVerifying").toBool();
 
     while (true) {
         QMutexLocker locker(&_mutex);
@@ -208,7 +209,7 @@ int OTMapChecker::invalidSceneryobjectsCount() const {
     QList<OTFileSource> list = allSceneryobjects();
     int count = 0;
     for(OTFileSource &source : list)
-        if(!source.isValid())
+        if(!source.advancedCheckResult().isValid())
             count++;
 
     return count;
@@ -218,7 +219,7 @@ int OTMapChecker::invalidSplinesCount() const {
     QList<OTFileSource> list = allSplines();
     int count = 0;
     for(OTFileSource &source : list)
-        if(!source.isValid())
+        if(!source.advancedCheckResult().isValid())
             count++;
 
     return count;
@@ -228,7 +229,7 @@ int OTMapChecker::invalidHumansCount() const {
     QList<OTFileSource> list = allHumans();
     int count = 0;
     for(OTFileSource &source : list)
-        if(!source.isValid())
+        if(!source.advancedCheckResult().isValid())
             count++;
 
     return count;
@@ -238,7 +239,7 @@ int OTMapChecker::invalidVehiclesCount() const {
     QList<OTFileSource> list = allVehicles();
     int count = 0;
     for(OTFileSource &source : list)
-        if(!source.isValid())
+        if(!source.advancedCheckResult().isValid())
             count++;
 
     return count;
@@ -292,77 +293,21 @@ OTFileSource *OTMapChecker::findOrCreateSourceObject(const QString &fileName, bo
 }
 
 void OTMapChecker::advancedCheck(OTFileSource *source) {
-    QString fileName = source->fileName();
-    QFile f(_omsiDir + "/" + fileName);
-    if(!f.open(QFile::ReadOnly)) {
-        qWarning() << "Could not open " << fileName;
-        source->setFileOpenFailed();
-        return;
+    OTContentValidator *validator = nullptr;
+
+    // TODO: Handle all file types
+    switch(source->fileType()) {
+        case OTFileSource::SceneryobjectFile:
+            validator = new OTSceneryobjectValidator(nullptr, _omsiDir + "/" + source->fileName());
+        break;
     }
 
-    QFileInfo info(_omsiDir + "/" + fileName);
-    QDir fileDir = info.dir();
-
-    QTextStream s(&f);
-
-    int l = 0; // line number
-    while(!s.atEnd()) {
-        QString line = s.readLine();
-        l++;
-
-        // missing mesh files
-        if(line == "[mesh]" || line == "[collision_mesh]") {
-            QString mesh = s.readLine();
-            if(!QFile::exists(fileDir.path() + "/model/" + mesh)) {
-                qWarning() << "missing mesh file: " << mesh;
-                source->addMissingMesh(mesh);
-            }
-        }
-
-        // missing script files
-        if(line == "[varnamelist]" || line == "[stringvarnamelist]" || line == "[script]" || line == "[constfile]") {
-            QString countStr = s.readLine();
-            l++;
-            bool ok;
-            int count = countStr.toInt(&ok);
-            if(!ok) {
-                qWarning().noquote() << "invalid entry count \"" + countStr + "\" in " + fileName + " at line " + QString::number(l);
-                continue;
-            }
-
-            line = s.readLine();
-            l++;
-            int i = 1;
-            while(i <= count && !s.atEnd()) {
-                if(!QFile::exists(fileDir.path() + "/" + line)) {
-                    qWarning().noquote() << "missing script file \"" + line + "\" in " + fileName + " at line " + QString::number(l);;
-                    source->addMissingScriptFile(line);
-                }
-
-                line = s.readLine();
-                l++; i++;
-            }
-        }
-
-        // TODO: Scan for missing textures:
-        /*
-         * [CTC]
-         * [CTCTexture]
-         * [matl_bumpmap]
-         * [matl_envmap_mask]
-         * [matl_envmap]
-         * [matl_freetex]
-         * [matl_lightmap]
-         * [matl_nightmap]
-         * [matl_transmap]
-         * [matl]
-         * [texchanges]
-         * [texture]
-         * [tree]
-         */
+    if(validator) {
+        validator->validate();
+        source->setAdvancedCheckResult(validator->result());
+        delete validator;
+        validator = nullptr;
     }
-
-    f.close();
 }
 
 // ------------------------------------------------------------------------
@@ -666,7 +611,7 @@ int OTMapScanner::invalidTilesCount() {
     QList<OTFileSource> list = allTiles();
     int count = 0;
     for(OTFileSource &source : list)
-        if(!source.isValid())
+        if(!source.advancedCheckResult().isValid())
             count++;
 
     return count;
@@ -676,7 +621,7 @@ int OTMapScanner::invalidTexturesCount() const {
     QList<OTFileSource> list = allTextures();
     int count = 0;
     for(OTFileSource &source : list)
-        if(!source.isValid())
+        if(!source.advancedCheckResult().isValid())
             count++;
 
     return count;

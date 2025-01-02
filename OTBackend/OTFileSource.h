@@ -2,6 +2,7 @@
 #define OTFILESOURCE_H
 
 #include <QObject>
+#include "OTBackend/OTContentValidator/OTContentValidator.h"
 
 class OTFileSource {
 public:
@@ -35,29 +36,14 @@ public:
     int occurrencesCount() const;
     void addOccurrence(const QString &newSource);
 
-    bool isValid() const;
-    QString errorString() const;
-    void setFileOpenFailed();
-
-    bool hasMissingMesh() const;
-    QStringList missingMeshs() const;
-    void addMissingMesh(const QString &newMesh);
-
-    bool hasMissingScriptFile() const;
-    QStringList missingScriptFiles() const;
-    void addMissingScriptFile(const QString &newScriptFile);
-
-    bool hasMissingTexture();
-    QStringList missingTextures() const;
-    void addMissingTexture(const QString &newTexture);
-
+    OTContentValidatorResult advancedCheckResult() const;
+    void setAdvancedCheckResult(const OTContentValidatorResult &result);
 
 private:
     QString _fileName;
     QList<QPair<QString, int>> _sources;
-    QStringList _missingMeshs, _missingScriptFiles, _missingTextures;
     FileType _fileType;
-    bool _failedOpenFile;
+    OTContentValidatorResult _advancedCheckResult;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(OTFileSource::ErrorCodes);

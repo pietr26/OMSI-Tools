@@ -1,7 +1,7 @@
 #include "OTFileSource.h"
 
 OTFileSource::OTFileSource(const QString &fileName, FileType fileType) :
-    _fileName(fileName), _fileType(fileType), _failedOpenFile(false) {
+    _fileName(fileName), _fileType(fileType) {
 }
 
 bool OTFileSource::operator==(const OTFileSource &other) {
@@ -36,6 +36,14 @@ int OTFileSource::sourcesCount() {
     return sources().count();
 }
 
+int OTFileSource::occurrencesCount() const {
+    int count = 0;
+    for(QPair<QString, int> current : _sources) {
+        count += current.second;
+    }
+    return count;
+}
+
 void OTFileSource::addOccurrence(const QString &newSource) {
     for(QPair<QString, int> &current : _sources) {
         if(current.first == newSource) {
@@ -47,72 +55,10 @@ void OTFileSource::addOccurrence(const QString &newSource) {
     _sources << QPair<QString, int>(newSource, 1);
 }
 
-bool OTFileSource::isValid() const {
-    return _missingMeshs.isEmpty() && _missingScriptFiles.isEmpty() && _missingTextures.isEmpty();
+OTContentValidatorResult OTFileSource::advancedCheckResult() const {
+    return _advancedCheckResult;
 }
 
-int OTFileSource::occurrencesCount() const {
-    int count = 0;
-    for(QPair<QString, int> current : _sources) {
-        count += current.second;
-    }
-    return count;
+void OTFileSource::setAdvancedCheckResult(const OTContentValidatorResult &result) {
+    _advancedCheckResult = result;
 }
-
-QString OTFileSource::errorString() const {
-    if(_failedOpenFile)
-        return QObject::tr("Couldn't open file");
-
-    QStringList errors;
-    if(!_missingMeshs.empty())
-        errors << QObject::tr("%n missing mesh file(s)", "", _missingMeshs.count());
-
-    if(!_missingScriptFiles.empty())
-        errors << QObject::tr("%n missing script file(s)", "", _missingScriptFiles.count());
-
-    if(!_missingTextures.empty())
-        errors << QObject::tr("%n missing texture(s)", "", _missingTextures.count());
-
-    return errors.join("\n");
-}
-
-void OTFileSource::setFileOpenFailed() {
-    _failedOpenFile = true;
-}
-
-bool OTFileSource::hasMissingMesh() const {
-    return !_missingMeshs.isEmpty();
-}
-
-QStringList OTFileSource::missingMeshs() const {
-    return _missingMeshs;
-}
-
-void OTFileSource::addMissingMesh(const QString &newMesh) {
-    _missingMeshs << newMesh;
-}
-
-bool OTFileSource::hasMissingScriptFile() const {
-    return !_missingScriptFiles.isEmpty();
-}
-
-QStringList OTFileSource::missingScriptFiles() const {
-    return _missingScriptFiles;
-}
-
-void OTFileSource::addMissingScriptFile(const QString &newScriptFile) {
-    _missingScriptFiles << newScriptFile;
-}
-
-bool OTFileSource::hasMissingTexture() {
-    return !_missingTextures.isEmpty();
-}
-
-QStringList OTFileSource::missingTextures() const {
-    return _missingTextures;
-}
-
-void OTFileSource::addMissingTexture(const QString &newTexture) {
-    _missingTextures << newTexture;
-}
-
