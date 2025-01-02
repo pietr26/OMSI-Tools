@@ -34,9 +34,6 @@ void OTMapChecker::run() {
     _missingUnknown.clear();
 
     OTSettings set;
-    // for debug purposes, you can enable this line:
-    set.write("wVerifyMap", "advVerifying", true);
-
     bool advancedCheck = set.read("wVerifyMap", "advVerifying").toBool();
 
     while (true) {
