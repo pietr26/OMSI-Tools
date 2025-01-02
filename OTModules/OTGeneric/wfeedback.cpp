@@ -15,7 +15,7 @@ wFeedback::wFeedback(QWidget *parent, QUrl wikiEntry) :
     setWindowFlags(Qt::Window | Qt::WindowCloseButtonHint);
 
     // Load prefs
-    setWindowTitle(OTInformation::name + " - " + tr("Feedback"));
+    setWindowTitle(tr("Feedback") + " - " + OTInformation::name);
 
     if (wikiEntry.isEmpty())
         ui->btnWikiEntry->setEnabled(false);

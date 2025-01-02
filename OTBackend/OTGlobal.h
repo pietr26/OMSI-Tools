@@ -712,7 +712,7 @@ public:
 
         switch (read("main", "language").toInt())
         {
-            //case 0: english
+            case  0: languageFile = "tr_en"; baseLanguageFile = "qtbase_en"; break;
             case  1: languageFile = "tr_de"; baseLanguageFile = "qtbase_de"; break;
             case  2: languageFile = "tr_fr"; baseLanguageFile = "qtbase_fr"; break;
             case  3: languageFile = "tr_cs"; baseLanguageFile = "qtbase_cs"; break;
@@ -724,7 +724,6 @@ public:
 
         if (languageFile != "")
         {
-            QString test = ":/rec/data/translations" + contextIdentifier + "/";
             bool trLoad = translator->load(languageFile, ":/rec/data/translations" + contextIdentifier + "/");
             bool trInstall = qApp->installTranslator(translator);
 

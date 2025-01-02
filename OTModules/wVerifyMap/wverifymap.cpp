@@ -11,7 +11,7 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     //adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - " + tr("Map verification"));
+    setWindowTitle(tr("Map verification") + " - " + OTInformation::name);
 
     DiscordGameSDK::setModule(tr("Map verification"));
     DiscordGameSDK::setStatus(tr("Checking a map"));
@@ -174,7 +174,7 @@ void wVerifyMap::onScannerFinished() {
     ui->wdgTiles->addAll(_scanner->allTiles());
     ui->wdgTiles->addMissing(_scanner->missingTiles());
     ui->wdgTiles->apply();
-    ui->wdgTilesOverview->setTotal(_scanner->allTilesCout());
+    ui->wdgTilesOverview->setTotal(_scanner->allTilesCount());
     ui->wdgTilesOverview->setInvalidAndMissing(_scanner->invalidTilesCount(), _scanner->missingTilesCount());
 }
 

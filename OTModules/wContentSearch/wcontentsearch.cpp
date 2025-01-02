@@ -13,7 +13,7 @@ wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     resize(misc.sizeWindow(0.6, 0.75));
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - " + tr("Content search"));
+    setWindowTitle(tr("Content search") + " - " + OTInformation::name);
 
     DiscordGameSDK::setModule(tr("Content search"));
     DiscordGameSDK::setStatus(tr("Searches missing files"));

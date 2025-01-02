@@ -23,6 +23,8 @@ public:
     ~wFonts();
 
 private slots:
+    void closeEvent (QCloseEvent *event);
+
     void on_actionBackToHome_triggered();
 
     void on_actionClose_triggered();
@@ -41,16 +43,15 @@ private slots:
 
     void on_actionShowInExplorer_triggered();
 
-    void resizeEvent(QResizeEvent *event);
-
     void on_actionSendFeedback_triggered();
+
+    void on_actionPreferences_triggered();
 
 signals:
     void backToHome();
 
-    void reloadUi();
-
-    void resizePreview();
+    void reloadUi(bool reset = false, bool charChange = false);
+    void reloadPreview();
 
 private:
     Ui::wFonts *ui;

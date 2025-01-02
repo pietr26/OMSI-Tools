@@ -23,7 +23,7 @@
    <string notr="true">wVerifyMap</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
+   <iconset resource="../../resources.qrc">
     <normaloff>:/rec/data/icons/wVerifyMap.svg</normaloff>:/rec/data/icons/wVerifyMap.svg</iconset>
   </property>
   <property name="tabShape">
@@ -122,7 +122,7 @@
        <enum>QTabWidget::TabShape::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <property name="elideMode">
        <enum>Qt::TextElideMode::ElideNone</enum>
@@ -377,7 +377,7 @@
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMap">
@@ -470,18 +470,18 @@
   <customwidget>
    <class>wdgOverviewTile</class>
    <extends>QWidget</extends>
-   <header>OTModules/wVerifyMap/wdgoverviewtile.h</header>
+   <header>OTModules/wVerifyMap/Widgets/wdgoverviewtile.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>wdgTab</class>
    <extends>QWidget</extends>
-   <header>OTModules/wVerifyMap/wdgtab.h</header>
+   <header>OTModules/wVerifyMap/Widgets/wdgtab.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../../ressources.qrc"/>
+  <include location="../../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

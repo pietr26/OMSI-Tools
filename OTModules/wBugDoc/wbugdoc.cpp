@@ -11,7 +11,7 @@ wBugDoc::wBugDoc(QWidget *parent) :
     //adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - BugDoc");
+    setWindowTitle("BugDoc - " + OTInformation::name);
 
     // Load prefs
     if (set.read(objectName(), "screenshotScale").toInt() == 0) set.write(objectName(), "screenshotScale", 2);

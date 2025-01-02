@@ -600,7 +600,7 @@ QStringList OTMapScanner::missingTextures() const {
     return _missingTextures;
 }
 
-int OTMapScanner::allTilesCout() const {
+int OTMapScanner::allTilesCount() const {
     return _allTiles.count();
 }
 

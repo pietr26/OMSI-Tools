@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>874</width>
     <height>53</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -30,12 +30,65 @@
       </spacer>
      </item>
      <item>
+      <widget class="QCheckBox" name="cbxFollowSelection">
+       <property name="text">
+        <string>Follow selection</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblOpacity">
+       <property name="text">
+        <string>Highlighting opacity:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="hslOpacity">
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="singleStep">
+        <number>5</number>
+       </property>
+       <property name="pageStep">
+        <number>25</number>
+       </property>
+       <property name="value">
+        <number>255</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="tickPosition">
+        <enum>QSlider::TickPosition::TicksAbove</enum>
+       </property>
+       <property name="tickInterval">
+        <number>5</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QComboBox" name="cobxPreviewOptions">
        <property name="currentIndex">
         <number>0</number>
        </property>
        <property name="sizeAdjustPolicy">
-        <enum>QComboBox::AdjustToContents</enum>
+        <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
        </property>
        <item>
         <property name="text">

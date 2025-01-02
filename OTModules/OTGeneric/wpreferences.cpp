@@ -12,7 +12,7 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     resize(misc.sizeWindow(0.45, 0.6));
     qDebug() << "UI set";
 
-    setWindowTitle("[*] " + OTInformation::name + " - " + tr("preferences"));
+    setWindowTitle("[*] " + tr("preferences") + " - " + OTInformation::name);
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(refreshDiskUsage()));

@@ -11,7 +11,7 @@ wDBPanel::wDBPanel(QWidget *parent) :
     adjustSize();
     qDebug() << "UI set";
 
-    setWindowTitle(OTInformation::name + " - database panel");
+    setWindowTitle("Database panel - " + OTInformation::name);
     ui->btnStart->setEnabled(false);
     ui->pgbProgress->setVisible(false);
 

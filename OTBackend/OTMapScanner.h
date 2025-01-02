@@ -91,7 +91,7 @@ public:
     QStringList missingTiles() const;
     QStringList missingTextures() const;
 
-    int allTilesCout() const;
+    int allTilesCount() const;
     int allTexturesCount() const;
     int missingTilesCount();
     int missingTexturesCount() const;

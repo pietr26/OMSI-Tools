@@ -3,12 +3,8 @@
 #include "OTBackend/OTGlobal.h"
 
 #include <QApplication>
-#include <QTranslator>
-#include <QDebug>
-#include <QFile>
 #include "OTBackend/OTLogger.h"
 #include "OTBackend/DiscordGameSDK.h"
-#include <QThreadPool>
 
 void testArea()
 {
@@ -66,13 +62,14 @@ int main(int argc, char *argv[])
         if (isCrash)
         {
             qWarning() << "Crash on last start detected! A logfile has been saved.";
+            #ifndef QT_DEBUG
             QMessageBox::StandardButton reply = QMessageBox::question(NULL, QObject::tr("Crash detected"), QObject::tr("%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.\nOpen the path of the logfile?").arg(OTInformation::name));
 
             if (reply == QMessageBox::Yes)
                 fop.showInExplorer(newName);
+            #endif
         }
-        else
-            qDebug() << "No crash detected.";
+        else qDebug() << "No crash detected.";
 
         set.write("main", "closeCheck", false);
 
@@ -97,33 +94,23 @@ int main(int argc, char *argv[])
             discord->exec();
         });
 
-#ifdef QT_DEBUG
         DiscordGameSDK::clearActivity();
-        DiscordGameSDK::setModule("Debugging ☹");
-        DiscordGameSDK::setStatus("all the way to hell");
+#ifdef QT_DEBUG
+        DiscordGameSDK::setModule("Debugging");
         DiscordGameSDK::update();
         DiscordGameSDK::setBlockUpdate(true);
 #else
         if (OTInformation::build == OTBuildOptions::Dev)
         {
             DiscordGameSDK::clearActivity();
-            DiscordGameSDK::setModule("Developing");
-            DiscordGameSDK::setStatus(QString("a brand new version of %1").arg(OTInformation::name));
+            DiscordGameSDK::setModule("Developing a new version");
             DiscordGameSDK::update();
-            DiscordGameSDK::setBlockUpdate(true);
         }
-        else DiscordGameSDK::clearActivity();
 #endif
     }
 
     wStart *WSTART;
     wFirstSetup *WFIRSTSETUP;
-
-//    if ((QCoreApplication::arguments().size() >= 2) && (QCoreApplication::arguments().at(1) == "..."))
-//    {
-//        // ...
-//    }
-//    else
 
     if (!set.read("main", "language").isValid())
     {

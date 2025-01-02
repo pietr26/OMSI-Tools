@@ -23,20 +23,15 @@ wFonts::wFonts(QWidget *parent)
 
     loadRecentFiles();
 
-    ui->statusbar->addPermanentWidget(ui->pgbProgress);
-    ui->pgbProgress->setVisible(false);
     centralWidget()->setVisible(false);
 
     WDGEDITOR = new wdgEditor(this, _font);
     WDGPREVIEW = new wdgPreview(this, _font);
 
     connect(this, &wFonts::reloadUi, WDGEDITOR, &wdgEditor::reloadUi);
-    connect(this, &wFonts::reloadUi, WDGEDITOR, &wdgEditor::switchSelection);
-    connect(this, &wFonts::reloadUi, WDGPREVIEW, &wdgPreview::reloadUi);
+    connect(this, &wFonts::reloadPreview, WDGPREVIEW, &wdgPreview::reloadPreview);
 
-    connect(this, &wFonts::resizePreview, WDGPREVIEW, &wdgPreview::resizeTexPreview);
-
-    connect(WDGEDITOR, &wdgEditor::reloadPreview, WDGPREVIEW, &wdgPreview::reloadUi);
+    connect(WDGEDITOR, &wdgEditor::reloadPreview, WDGPREVIEW, &wdgPreview::reloadPreview);
     connect(WDGEDITOR, &wdgEditor::reloadActionStates, this, &wFonts::setVisiblilty);
     connect(WDGEDITOR, &wdgEditor::setModified, this, &wFonts::setWindowModified);
 
@@ -52,17 +47,23 @@ wFonts::~wFonts()
     delete ui;
 }
 
-void wFonts::resizeEvent(QResizeEvent *event)
+void wFonts::closeEvent(QCloseEvent *event)
 {
-    QWidget::resizeEvent(event);
-
-    emit resizePreview();
+    if (isWindowModified())
+    {
+        int msgResult = msg.unsavedChanges(this);
+        if (msgResult == -1)
+        {
+            event->ignore();
+            return;
+        }
+        else if (msgResult == 1) save(OTFileMethods::save, _font->path);
+    }
 }
 
 void wFonts::on_actionBackToHome_triggered()
 {
-    emit backToHome();
-    close();
+    if (close()) emit backToHome();
 }
 
 void wFonts::on_actionClose_triggered()
@@ -94,11 +95,12 @@ void wFonts::on_actionNewFile_triggered()
             save(OTFileMethods::save, _font->path);
     }
 
-    qDebug() << "Create new font";
+    qInfo() << "Create new font";
 
-    //selectAllAndClear();
+    _font->clear();
 
     emit reloadUi();
+    emit reloadPreview();
     setTitle();
 
     setWindowModified(false);
@@ -158,8 +160,7 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
         _font->path = filen;
     }
 
-    if (method != OTFileMethods::backupSave && _font->path.isEmpty())
-        return;
+    if (method != OTFileMethods::backupSave && _font->path.isEmpty()) return;
 
     if (method != OTFileMethods::backupSave)
     {
@@ -173,12 +174,8 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
 
     OCFont::FontCollection *tempFont = _font;
     if (method == OTFileMethods::backupSave)
-    {
-        if (_font->path.isEmpty())
-            tempFont->path = QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + QString("_%1.oft").arg("unnamed"));
-        else
-            tempFont->path = QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") + "_" + QFileInfo(_font->path).fileName());
-    }
+        tempFont->path = QDir().absoluteFilePath("backup/font_backup_" + misc.getDate("yyyyMMdd") + "_" + misc.getTime("hhmmss") +
+                            (_font->path.isEmpty() ? QString("_%1.oft").arg("unnamed") : "_" + QFileInfo(_font->path).fileName()));
 
     qDebug() << "Direct path:" << tempFont->path;
 
@@ -192,7 +189,6 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
         return;
     }
 
-
     if (method != OTFileMethods::backupSave)
     {
         saveRecentFiles(QDir().absoluteFilePath(_font->path));
@@ -203,14 +199,12 @@ void wFonts::save(OTFileMethods::fileMethods method, QString filen)
         setWindowModified(false);
     }
     else qDebug().noquote() << "Backup file successfully saved: '" + QFileInfo(tempFont->path).absoluteFilePath() + "'";
-
-    return;
 }
 
 void wFonts::setTitle(QString filen)
 {
-    if (filen.isEmpty()) wFonts::setWindowTitle("[*] " + OTInformation::name + " - " + tr("Font creation"));
-    else wFonts::setWindowTitle("[*] " + OTInformation::name + " - " + tr("Font creation") + " (" + filen + ")");
+    if (filen.isEmpty()) wFonts::setWindowTitle("[*] " + tr("Font creation") + " - " + OTInformation::name);
+    else wFonts::setWindowTitle("[*] " + filen + " - " + tr("Font creation") + " - " + OTInformation::name);
 }
 
 void wFonts::loadRecentFiles()
@@ -296,7 +290,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
         return;
     }
 
-    if (isWindowModified() == true)
+    if (isWindowModified())
     {
         int msgResult = msg.unsavedChanges(this);
         if (msgResult == -1) return;
@@ -313,7 +307,6 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
             qDebug() << "Open with file dialog";
             _font->path = QFileDialog::getOpenFileName(this, tr("Open font..."), set.read("main", "mainDir").toString() + "/Fonts", tr("OMSI font file") + " (*.oft)");
             if (_font->path.isEmpty()) return;
-            else emit reloadUi();
         }
 
         saveRecentFiles(QDir().absoluteFilePath(_font->path));
@@ -337,7 +330,7 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
     }
 
     WDGEDITOR->unexpandAll();
-    emit reloadUi();
+    emit reloadUi(true);
     setWindowModified(false);
 
     qDebug() << "Font opened.";
@@ -359,4 +352,11 @@ void wFonts::on_actionSendFeedback_triggered()
     wFeedback *WFEEDBACK = new wFeedback(this, OTLinks::Wiki::fonts);
     WFEEDBACK->setWindowModality(Qt::ApplicationModal);
     WFEEDBACK->show();
+}
+
+void wFonts::on_actionPreferences_triggered()
+{
+    WPREFERENCES = new wPreferences(this);
+    WPREFERENCES->setWindowModality(Qt::ApplicationModal);
+    WPREFERENCES->show();
 }

@@ -76,6 +76,7 @@ SOURCES += \
     OTModules/wFbh/wdbcopyrights.cpp \
     OTModules/wFbh/wdbknownwords.cpp \
     OTModules/wFonts/Widgets/wdgeditor.cpp \
+    OTModules/wFonts/Widgets/wdggraphicsview.cpp \
     OTModules/wFonts/Widgets/wdgpreview.cpp \
     OTModules/wFonts/wfonts.cpp \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp \
@@ -83,10 +84,10 @@ SOURCES += \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp \
     OTModules/wMaps/wmaps.cpp \
-    OTModules/wVerifyMap/dlgfilepreview.cpp \
-    OTModules/wVerifyMap/dlgsourceslist.cpp \
-    OTModules/wVerifyMap/wdgoverviewtile.cpp \
-    OTModules/wVerifyMap/wdgtab.cpp \
+    OTModules/wVerifyMap/Widgets/dlgfilepreview.cpp \
+    OTModules/wVerifyMap/Widgets/dlgsourceslist.cpp \
+    OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp \
+    OTModules/wVerifyMap/Widgets/wdgtab.cpp \
     OTModules/wcleanup.cpp \
     OTModules/wmapselection.cpp \
     OTModules/wmessageviewer.cpp \
@@ -179,6 +180,7 @@ HEADERS += \
     OTModules/wFbh/wdbcopyrights.h \
     OTModules/wFbh/wdbknownwords.h \
     OTModules/wFonts/Widgets/wdgeditor.h \
+    OTModules/wFonts/Widgets/wdggraphicsview.h \
     OTModules/wFonts/Widgets/wdgpreview.h \
     OTModules/wFonts/wfonts.h \
     OTModules/wMaps/wGlobalProps/weditgroundtexture.h \
@@ -186,10 +188,10 @@ HEADERS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.h \
     OTModules/wMaps/wmaps.h \
-    OTModules/wVerifyMap/dlgfilepreview.h \
-    OTModules/wVerifyMap/dlgsourceslist.h \
-    OTModules/wVerifyMap/wdgoverviewtile.h \
-    OTModules/wVerifyMap/wdgtab.h \
+    OTModules/wVerifyMap/Widgets/dlgfilepreview.h \
+    OTModules/wVerifyMap/Widgets/dlgsourceslist.h \
+    OTModules/wVerifyMap/Widgets/wdgoverviewtile.h \
+    OTModules/wVerifyMap/Widgets/wdgtab.h \
     OTModules/wcleanup.h \
     OTModules/wmapselection.h \
     OTModules/wmessageviewer.h \
@@ -230,10 +232,10 @@ FORMS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.ui \
     OTModules/wMaps/wmaps.ui \
-    OTModules/wVerifyMap/dlgfilepreview.ui \
-    OTModules/wVerifyMap/dlgsourceslist.ui \
-    OTModules/wVerifyMap/wdgoverviewtile.ui \
-    OTModules/wVerifyMap/wdgtab.ui \
+    OTModules/wVerifyMap/Widgets/dlgfilepreview.ui \
+    OTModules/wVerifyMap/Widgets/dlgsourceslist.ui \
+    OTModules/wVerifyMap/Widgets/wdgoverviewtile.ui \
+    OTModules/wVerifyMap/Widgets/wdgtab.ui \
     OTModules/wcleanup.ui \
     OTModules/wmapselection.ui \
     OTModules/wmessageviewer.ui \
@@ -250,6 +252,7 @@ FORMS += \
     OTModules/OTGeneric/wstart.ui
 
 TRANSLATIONS += \
+    data/translations/tr_en.ts \
     data/translations/tr_de.ts \
     data/translations/tr_fr.ts \
     data/translations/tr_cs.ts \
@@ -266,7 +269,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RC_ICONS = data/icons/logo.ico
 
 RESOURCES += \
-    ressources.qrc
+    resources.qrc
 
 DISTFILES += \
     devNotes
