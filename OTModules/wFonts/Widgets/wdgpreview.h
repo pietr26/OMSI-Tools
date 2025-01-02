@@ -7,6 +7,7 @@
 #include "OTWidgets/graphicsview.h"
 #include "OTBackend/OCC/OCFont.h"
 #include "wdggraphicsview.h"
+#include <QGraphicsPixmapItem>
 
 namespace Ui {
 class wdgPreview;
@@ -27,6 +28,8 @@ private slots:
 
     void on_hslOpacity_valueChanged(int value);
 
+    void on_cbxFollowSelection_stateChanged(int arg1);
+
 public slots:
     void reloadPreview();
 
@@ -34,17 +37,15 @@ public slots:
 
 private:
     Ui::wdgPreview *ui;
-
     OTSettings set;
-
     OCFont::FontCollection *_font;
 
-    QPixmap overlay;
+    QList<int> xValues, yValues;
+
+    void paintOverlay(QList<OCFont::Character*> characters, int maxHeightOfChars, QPixmap &pixmap);
 
     QGraphicsScene *texPreviewScene = new QGraphicsScene();
     wdgGraphicsView *grv = new wdgGraphicsView();
-
-    void drawCharacterOverlay();
 };
 
 #endif // WDGPREVIEW_H
