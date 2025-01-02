@@ -52,6 +52,9 @@ SOURCES += \
     OTBackend/OCC/OCVehicle.cpp \
     OTBackend/OCC/OCViewable.cpp \
     OTBackend/OCC/OCWeather.cpp \
+    OTBackend/OTContentValidator/OTContentValidator.cpp \
+    OTBackend/OTContentValidator/OTModelConfigValidator.cpp \
+    OTBackend/OTContentValidator/OTSceneryobjectValidator.cpp \
     OTBackend/OTFileSource.cpp \
     OTBackend/OTLogger.cpp \
     OTBackend/OTMapScanner.cpp \
@@ -145,6 +148,9 @@ HEADERS += \
     OTBackend/OCC/OCVehicle.h \
     OTBackend/OCC/OCViewable.h \
     OTBackend/OCC/OCWeather.h \
+    OTBackend/OTContentValidator/OTContentValidator.h \
+    OTBackend/OTContentValidator/OTModelConfigValidator.h \
+    OTBackend/OTContentValidator/OTSceneryobjectValidator.h \
     OTBackend/OTExternal.h \
     OTBackend/OTFileSource.h \
     OTBackend/OTGlobal.h \
