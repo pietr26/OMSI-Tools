@@ -11,8 +11,6 @@ OTSceneryobjectValidator::OTSceneryobjectValidator(QObject *parent, const QStrin
     OTModelConfigValidator(parent, filePath) {}
 
 void OTSceneryobjectValidator::specificValidate() {
-
-
     while(!_stream->atEnd()) {
         readNextLine();
         validateLine();

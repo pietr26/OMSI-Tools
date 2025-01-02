@@ -5,8 +5,7 @@
 
 #include "OTModelConfigValidator.h"
 
-class OTSceneryobjectValidator : public OTModelConfigValidator
-{
+class OTSceneryobjectValidator : public OTModelConfigValidator {
     Q_OBJECT
 public:
     explicit OTSceneryobjectValidator(QObject *parent, const QString &filePath);
