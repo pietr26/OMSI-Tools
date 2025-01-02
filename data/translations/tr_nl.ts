@@ -2,265 +2,292 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="nl_NL">
 <context>
-    <name>OTMapScanner</name>
-    <message>
-        <location filename="../../OTBackend/OTMapScanner.cpp" line="226"/>
-        <source>Read tile %1 of %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <location filename="../../OTBackend/OCC/OCMap.h" line="57"/>
         <source>Spring</source>
-        <translation type="unfinished"></translation>
+        <translation>Lente</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OCC/OCMap.h" line="58"/>
         <source>Autumn</source>
-        <translation type="unfinished"></translation>
+        <translation>Herfst</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OCC/OCMap.h" line="59"/>
         <source>Winter</source>
-        <translation type="unfinished"></translation>
+        <translation>Winter</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OCC/OCMap.h" line="60"/>
         <source>Deep winter</source>
-        <translation type="unfinished"></translation>
+        <translation>Hartje winter</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OCC/OCMap.h" line="61"/>
         <source>Summer</source>
-        <translation type="unfinished"></translation>
+        <translation>Zomer</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="599"/>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>Gelukt</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="599"/>
         <source>Successfully created shortcut!</source>
-        <translation type="unfinished"></translation>
+        <translation>Snelkoppeling is met succes geplaatst!</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="604"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Fout</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="604"/>
         <source>Could not create shortcut in %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen snelkoppeling maken in %1.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="655"/>
         <source>Could not found &quot;Omsi.exe&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;Omsi.exe&quot; is niet gevonden</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="655"/>
         <source>&apos;Omsi.exe&apos; could not found in the selected directory. Is it the correct path? Otherwise, problems may appear in some modules. Should a new path be selected?</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;Omsi.exe&apos; kan niet worden gevonden in de huidige map. Is dit de juiste map? Zo niet, kunnen er problemen optreden met sommige modules. Wilt u een nieuwe map selecteren?</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="672"/>
         <source>Select the OMSI main directory...</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer de OMSI-hoofdmap...</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="850"/>
         <source>There was an error while open the temporary database. Please try it again or contact the developer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Er is een fout opgetreden tijdens het openen van de tijdelijke database. Probeer het opnieuw, of neem contact op met de ontwikkelaar.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="856"/>
         <source>OMSI main directory not found</source>
-        <translation type="unfinished"></translation>
+        <translation>OMSI-hoofdmap niet gevonden</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="856"/>
         <source>To continue the application needs the OMSI main directory. Should it be done now?</source>
-        <translation type="unfinished"></translation>
+        <translation>Het programma heeft de OMSI-hoofdmap nodig om door te gaan. Wil je deze nu selecteren?</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <location filename="../../OTBackend/OTGlobal.h" line="887"/>
         <source>Unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Niet-opgeslagen wijzigingen</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="866"/>
         <source>There are unsaved changes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Er zijn niet opgeslagen wijzigingen.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="887"/>
         <source>There are unsaved changes. Close anyway?</source>
-        <translation type="unfinished"></translation>
+        <translation>Er zijn niet-opgeslagen wijzigingen. Alsnog afsluiten?</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="900"/>
         <location filename="../../OTBackend/OTGlobal.h" line="904"/>
         <source>Error while opening file</source>
-        <translation type="unfinished"></translation>
+        <translation>Fout tijdens het openen van het bestand</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="900"/>
         <source>The selected file doesn&apos;t exists or is read-protected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het gekozen bestand bestaat noet of is alleen-lezen.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="904"/>
         <source>There was an error while opening &apos;%1&apos;. If OMSI is running, please close it and retry it. Furthermore, check if the file still exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>Er is een fout opgetreden tijdens het openen van &apos;%1&apos;. Indien OMSI draait, sluit OMSI af en probeer het opnieuw, en controleer of het bestand nog steeds bestaat.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="909"/>
         <source>No chars in font</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen chars in lettertype</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="909"/>
         <source>There are no chars in the font.</source>
-        <translation type="unfinished"></translation>
+        <translation>Er zijn geen chars aanwezig in het lettertype.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="914"/>
         <source>Save error</source>
-        <translation type="unfinished"></translation>
+        <translation>Fout tijdens opslaan</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="914"/>
         <source>There was an save error &apos;%1&apos;. If OMSI is running, please close it and retry it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Er is een fout opgetreden tijdens het opslaan van &apos;%1&apos;. Als OMSI draait, sluit OMSI af en probeer het opnieuw.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="919"/>
         <source>Module still deactivated</source>
-        <translation type="unfinished"></translation>
+        <translation>Module nog steeds gedeactiveerd</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="919"/>
         <source>Unfortunately, this module is still deactivated due to a time shortage in the developments. Please check for new updates in the next few days.</source>
-        <translation type="unfinished"></translation>
+        <translation>Helaas, deze module is nog steeds gedeactiveerd vanwege een tekort aan tijd voor het ontwikkelen. Controleer voor updates in de komende dagen.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="981"/>
         <source>Bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>Bytes</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="982"/>
         <source>kB</source>
         <comment>Short version of &apos;Kilobyte&apos;</comment>
-        <translation type="unfinished"></translation>
+        <translation>kB</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="983"/>
         <source>MB</source>
         <comment>Short version of &apos;Megabyte&apos;</comment>
-        <translation type="unfinished"></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="984"/>
         <source>GB</source>
         <comment>Short version of &apos;Gigabyte&apos;</comment>
-        <translation type="unfinished"></translation>
+        <translation>GB</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="985"/>
         <source>TB</source>
         <comment>Short version of &apos;Terrabyte&apos;</comment>
-        <translation type="unfinished"></translation>
+        <translation>TB</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="986"/>
         <source>PB</source>
         <comment>Short version of &apos;Petabyte&apos;</comment>
-        <translation type="unfinished"></translation>
+        <translation>PB</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="1002"/>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeeldingen</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="1010"/>
         <source>The source code of %1 is about %2 lines long.</source>
-        <translation type="unfinished"></translation>
+        <translation>De broncode van %1 is ongeveer %2 lijnen lang.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="1011"/>
         <source>%1 was born from a simple console application called &quot;Font Creator&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 is ontstaan uit een simpel consoleprogramma genaamd &quot;Font Creator&quot;.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="1012"/>
         <source>With the updater of %1 you can install updates with one click. It is available through the preferences.</source>
-        <translation type="unfinished"></translation>
+        <translation>Met de updater van %1 kun je updates met 1 klik installeren. Deze functie is beschikbaar via voorkeuren.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="1013"/>
         <source>In the &lt;a href=&apos;%2&apos;&gt;Wiki of %1&lt;/a&gt; you can find useful explanations about all topics.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
-        <translation type="unfinished"></translation>
+        <translation>In de &lt;a href= &apos;%2&apos;&gt;Wiki of %1&lt;/a&gt; kun je nuttige informatie vinden over alle topics.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="1014"/>
         <source>Check out the latest developments in the &lt;a href=&apos;%1&apos;&gt;presentation thread in the OMSI-WebDisk&lt;/a&gt;.</source>
         <comment>Copy whole source text to prevent translations faults in HTML code</comment>
-        <translation type="unfinished"></translation>
+        <translation>Kijk voor de laatste ontwikkelingen in &lt;a href=&apos;%1&apos;&gt;presentatie-thread in de OMSI-WebDisk&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="1015"/>
         <source>Your hard disk is crowded? Clean up your main directory with %1&apos; cleanup tool.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je harde schijf is bijna vol. Ruim de hoofdmap op met %1&apos;s opruimtool.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="1016"/>
         <source>You&apos;ve started %1 about %2 times.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je hebt %1 ongeveer %2 keer gestart.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="1020"/>
         <source>The application server is currently undergoing maintenance (HTTP 503). Please try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>De applicatieserver krijgt momenteel een onderhoudsbeurt (HTTP 503) Probeer het later opnieuw.</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTGlobal.h" line="1036"/>
         <source>Windows standard</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows-standaard</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTOmsiFileHandler.h" line="58"/>
         <source>Checking sceneryobjects...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sceneryobjects controleren...</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTOmsiFileHandler.h" line="621"/>
         <location filename="../../OTBackend/OTOmsiFileHandler.h" line="1062"/>
         <source>Read tile %1 of %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Tile %1 van %2 lezen</translation>
     </message>
     <message>
         <location filename="../../OTBackend/OTOmsiFileHandler.h" line="724"/>
         <source>[Empty line in parklist %1]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Lege regel in parklist %1]</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="65"/>
+        <location filename="../../main.cpp" line="69"/>
         <source>Crash detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Crash gedetecteerd</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="65"/>
+        <location filename="../../main.cpp" line="69"/>
         <source>%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.
 Open the path of the logfile?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 is gecrashed na de laatste keer openen. Het logbestand van de laatste keer opstarten is apart opgeslagen. Meld dit a.u.b. aan de ontwikkelaar. Wil je de map met het logbestand openen?</translation>
+    </message>
+</context>
+<context>
+    <name>fadeInOutText</name>
+    <message>
+        <location filename="../../OTWidgets/fadeinouttext.ui" line="26"/>
+        <source>lblText</source>
+        <translation>lblText</translation>
+    </message>
+</context>
+<context>
+    <name>verifyMapTools</name>
+    <message>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="55"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="77"/>
+        <source>All files</source>
+        <translation>Alle bestanden</translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="58"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="80"/>
+        <source>From left list</source>
+        <translation>Uit linkerlijst</translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="66"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="88"/>
+        <source>Missing files only</source>
+        <translation>Alleen missende bestanden</translation>
+    </message>
+    <message>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="69"/>
+        <location filename="../../OTWidgets/verifymaptools.ui" line="91"/>
+        <source>From right list</source>
+        <translation>Uit rechterlijst</translation>
     </message>
 </context>
 <context>
@@ -268,97 +295,97 @@ Open the path of the logfile?</source>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.ui" line="374"/>
         <source>More...</source>
-        <translation type="unfinished"></translation>
+        <translation>Meer...</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="19"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Over</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="22"/>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versie</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
         <source>%1 is a tool for creating modifications for OMSI 2 - the bus simulator. %1 makes the creation of modifications easier and it includes helpful features to increase the workflow.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 is een tool voor het maken van mods voor OMSI 2 - The Bus Simulator. %1 maakt het maken van mods makkelijker, en zorgt voor een versnelde workflow.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
         <source>The Project has been started at January 22, 2021 and it&apos;s still in an early state of development.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het project is gestart op 22 januari 2021 en is nog steeds in vroege ontwikkeling.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="26"/>
         <source>%1 is licensed under the %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 is vrijgegeven onder de %2.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="28"/>
         <source>Development</source>
-        <translation type="unfinished"></translation>
+        <translation>Ontwikkeling</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="29"/>
         <source>Management, development</source>
-        <translation type="unfinished"></translation>
+        <translation>Management, ontwikkeling</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="30"/>
         <source>development</source>
-        <translation type="unfinished"></translation>
+        <translation>ontwikkeling</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="31"/>
         <source>Beta testers</source>
-        <translation type="unfinished"></translation>
+        <translation>Betatesters</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="42"/>
         <source>Translators</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertalers</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="43"/>
         <source>italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Italiaans</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="44"/>
         <source>french</source>
-        <translation type="unfinished"></translation>
+        <translation>Frans</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="45"/>
         <source>czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Tsjechisch</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="65"/>
         <source>More information</source>
-        <translation type="unfinished"></translation>
+        <translation>Meer informatie</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="65"/>
         <source>Build type: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Buildtype: %1</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="66"/>
         <source>Application build: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Build van applicatie: %1</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="67"/>
         <source>Approximate lines of code: %1 (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>Schatting van het aantal lijnen code: %1 (%2)</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wabout.cpp" line="67"/>
         <source>May 2024</source>
-        <translation type="unfinished"></translation>
+        <translation>Mei 2024</translation>
     </message>
 </context>
 <context>
@@ -366,17 +393,12 @@ Open the path of the logfile?</source>
     <message>
         <location filename="../../OTModules/wContentSearch/waddfiles.ui" line="21"/>
         <source>File paths must start from a subfolder in the main directory!</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestandspaden moeten beginnen in een submap van de hoofdmap!</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/waddfiles.ui" line="50"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wContentSearch/waddfiles.cpp" line="9"/>
-        <source>Add files</source>
-        <translation type="unfinished"></translation>
+        <translation>Toevoegen</translation>
     </message>
 </context>
 <context>
@@ -384,219 +406,219 @@ Open the path of the logfile?</source>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="45"/>
         <source>Analyse!</source>
-        <translation type="unfinished"></translation>
+        <translation>Analyse!</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="65"/>
         <source>Sceneryobjects</source>
-        <translation type="unfinished"></translation>
+        <translation>Sceneryobjects</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="89"/>
         <source>Splines</source>
-        <translation type="unfinished"></translation>
+        <translation>Splines</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="113"/>
         <source>Vehicles</source>
-        <translation type="unfinished"></translation>
+        <translation>Voertuigen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="144"/>
         <source>Actions for selected folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Acties voor geselecteerde mappen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="150"/>
         <source>Select all folders you want to move / delete.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies de mappen die je wilt verplaatsen / verwijderen.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="161"/>
         <source>Move to folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Verplaatsen naar map</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="171"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="239"/>
         <source>Specials</source>
-        <translation type="unfinished"></translation>
+        <translation>Specials</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="247"/>
         <location filename="../../OTModules/wcleanup.ui" line="305"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="253"/>
         <source>Analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Analyse</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="269"/>
         <source>Analyse</source>
-        <translation type="unfinished"></translation>
+        <translation>Analyseer</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="280"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="291"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="294"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="316"/>
         <source>Back to home</source>
-        <translation type="unfinished"></translation>
+        <translation>Terug naar het startscherm</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.ui" line="327"/>
         <source>Bulk mark in current list</source>
-        <translation type="unfinished"></translation>
+        <translation>Bulk-markeren in huidige lijst</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="16"/>
         <location filename="../../OTModules/wcleanup.cpp" line="18"/>
-        <source>Directory cleanup</source>
-        <translation type="unfinished"></translation>
+        <source>Cleanup</source>
+        <translation>Opruimen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="19"/>
         <source>Tidying up the OMSI directory</source>
-        <translation type="unfinished"></translation>
+        <translation>OMSI-hoofdmap aan het opruimen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="45"/>
         <source>Initialize...</source>
-        <translation type="unfinished"></translation>
+        <translation>Initialiseren...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="53"/>
         <source>No main directory selected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen hoofdmap geselecteerd.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="83"/>
         <source>Read map %1 of %2 (%3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Lees map %1 van %2 (%3)</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="102"/>
         <source>Analyze sceneryobject folder...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sceneryobject map analyseren...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="109"/>
         <source>Comparing sceneryobjects...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sceneryopbjects vergelijken...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="129"/>
         <source>Analyze spline folder...</source>
-        <translation type="unfinished"></translation>
+        <translation>Spline-map analyseren...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="136"/>
         <source>Comparing splines...</source>
-        <translation type="unfinished"></translation>
+        <translation>Splines vergelijken...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="160"/>
         <source>Analyze vehicle folder...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voertuigen-map analyseren...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="167"/>
         <source>Comparing vehicles...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voertugien vergelijken...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="194"/>
         <source>Done.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klaar.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="230"/>
         <source>Select destination folder...</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer doelmap...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="236"/>
         <source>Move sceneryobjects...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sceneryobjects verplaatsen...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="241"/>
         <source>Move sceneryobjects (%1 of %2)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sceneryobjects verplaatsen (%1 van %2)...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="269"/>
         <source>Move splines (%1 of %2)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Splines verplaatsen (%1 van %2)...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="296"/>
         <source>Move vehicles (%1 of %2)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voertuigen verplaatsen (%1 van %2)...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="318"/>
         <source>Moved selected folders to &apos;%1&apos;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geselecteerde mappen zijn verplaatst naar &apos;%1&apos;.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="323"/>
         <source>Delete files permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestanden permanent verwijderen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="323"/>
         <source>Please keep in mind that this option will delete all files PERMANENTLY. After deletion there is no possibility to restore them. Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Houd er rekening mee dat de bestanden PERMANENT worden verwijderd. Herstellen is na verwijdering niet mogelijk. Doorgaan?</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="331"/>
         <source>Delete sceneryobjects (%1 of %2)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sceneryobjects verwijderen (%1 van %2)...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="342"/>
         <source>Delete splines (%1 of %2)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Splines verwijderen (%1 van %2)...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="353"/>
         <source>Delete vehicles (%1 of %2)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voertuigen verwijderen (%1 van %2)...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="361"/>
         <source>Deleted selected folders.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geselecteerde mappen verwijderen.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="381"/>
         <source>Select destination folder &amp;&amp; move...</source>
-        <translation type="unfinished"></translation>
+        <translation>Doelmap kiezen &amp;&amp; verplaatsen...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wcleanup.cpp" line="386"/>
         <source>Delete permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>Permanent verwijderen</translation>
     </message>
 </context>
 <context>
@@ -604,212 +626,212 @@ Open the path of the logfile?</source>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="29"/>
         <source>Search input</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekopdracht</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="37"/>
         <source>Search input:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekopdracht:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="57"/>
         <source>Add files...</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestanden toevoegen...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="116"/>
         <source>Clear lists</source>
-        <translation type="unfinished"></translation>
+        <translation>Lijstinhoud verwijderen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="136"/>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="393"/>
         <source>Remove selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Selectie verwijderen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="175"/>
         <source>Search!</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken!</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="189"/>
         <source>Results</source>
-        <translation type="unfinished"></translation>
+        <translation>Resultaten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="218"/>
         <source>Information for selected link:</source>
         <extracomment>Use plural form for &apos;Information&apos;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Informatie voor geselecteerde link:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="241"/>
         <source>Open in browser...</source>
-        <translation type="unfinished"></translation>
+        <translation>In browser openen...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="248"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiëren</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="257"/>
         <source>Press this button if a link provided by the program no longer works or does not contain a file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klik op de knop als een link die door dit programma gegeven wordt niet meer werkt of geen bestand bevat.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="260"/>
         <source>Report invalid link...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ongeldige link rapporteren...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="325"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="336"/>
         <source>Specials</source>
-        <translation type="unfinished"></translation>
+        <translation>Specials</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="343"/>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="415"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="357"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="368"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="379"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="382"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="404"/>
         <source>Add list...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lijst toevoegen...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.ui" line="426"/>
         <source>Back to home</source>
-        <translation type="unfinished"></translation>
+        <translation>Terug naar het startscherm</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="16"/>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="18"/>
         <source>Content search</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken voor content</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="19"/>
         <source>Searches missing files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken naar ontbrekende bestanden</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="91"/>
         <source>Links (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Links (%1)</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="92"/>
         <source>Not found (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Niet gevonden (%1)</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="93"/>
         <source>Standard content (%1)</source>
         <comment>Please use plural; Optional original text: &apos;Standard files&apos;</comment>
-        <translation type="unfinished"></translation>
+        <translation>Standaardcontent (%1)</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="94"/>
         <source>Direct links (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Directe links (%1)</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="101"/>
         <source>No files available for searching.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen bestanden beschikbaar voor zoeken.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="187"/>
         <source>Open selected URLs...</source>
-        <translation type="unfinished"></translation>
+        <translation>Geselecteerde URLs openen...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="202"/>
         <source>Copied selected URLs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geselecteerde URLs gekopieerd.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="208"/>
         <source>Report invalid link</source>
-        <translation type="unfinished"></translation>
+        <translation>Rapporteer ongeldige link</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="208"/>
         <source>For reporting an invalid link, please visit the support thread or send an e-mail. Thank you for your assistance!</source>
-        <translation type="unfinished"></translation>
+        <translation>Om een ongeldige link te rapporteren, moet je de supportthread bezoeken of een e-mail sturen. Bedankt voor je medewerking!</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="214"/>
         <source>Select file with paths...</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer bestand met paden...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="214"/>
         <source>Text files</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekstbestanden</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="214"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle bestanden</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="237"/>
         <source>Add files</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestanden toevoegen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="237"/>
         <source>%1 path(s) will be added to the list.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 pad(en) zullen worden toegevoegd aan de lijst.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="240"/>
         <source>Process aborted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Proces afgebroken.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="277"/>
         <source>Downloading might not work with Google Chrome.</source>
-        <translation type="unfinished"></translation>
+        <translation>Downloaden met Google Chrome kan misschien niet werken.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="279"/>
         <source>Direct download link - the download will start directly after opening the URL.</source>
-        <translation type="unfinished"></translation>
+        <translation>Directe downloadlink - de download start meteen na het openen van de URL.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wContentSearch/wcontentsearch.cpp" line="281"/>
         <source>Archive password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Archiefwachtwoord:</translation>
     </message>
 </context>
 <context>
@@ -817,42 +839,42 @@ Open the path of the logfile?</source>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditgroundtexture.ui" line="23"/>
         <source>Main texture:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoofdtexture:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditgroundtexture.ui" line="30"/>
         <source>Detail texture:</source>
-        <translation type="unfinished"></translation>
+        <translation>Detailtexture:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditgroundtexture.ui" line="37"/>
         <source>Layer resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>Laagresolutie:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditgroundtexture.ui" line="199"/>
         <source>Discard changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Wijzigingen verwerpen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditgroundtexture.ui" line="219"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp" line="14"/>
         <source>Edit terrain texture</source>
-        <translation type="unfinished"></translation>
+        <translation>Terreintexture bewerken</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp" line="43"/>
         <source>Select main texture</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoofdtexture selecteren</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditgroundtexture.cpp" line="53"/>
         <source>Select detail texture</source>
-        <translation type="unfinished"></translation>
+        <translation>Detailtexture selecteren</translation>
     </message>
 </context>
 <context>
@@ -860,69 +882,69 @@ Open the path of the logfile?</source>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="21"/>
         <source>The default season is summer and does not need to be defined.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het standaardseizoen is zomer en hoeft niet te worden bepaald.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="30"/>
         <source>Start:</source>
-        <translation type="unfinished"></translation>
+        <translation>Start:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="37"/>
         <source>End:</source>
-        <translation type="unfinished"></translation>
+        <translation>Einde:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="44"/>
         <source>Season:</source>
-        <translation type="unfinished"></translation>
+        <translation>Seizoen:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="52"/>
         <source>Summer</source>
-        <translation type="unfinished"></translation>
+        <translation>Zomer</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="57"/>
         <source>Spring</source>
-        <translation type="unfinished"></translation>
+        <translation>Lente</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="62"/>
         <source>Autumn</source>
-        <translation type="unfinished"></translation>
+        <translation>Herfst</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="67"/>
         <source>Winter</source>
-        <translation type="unfinished"></translation>
+        <translation>Winter</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="72"/>
         <source>Deep winter</source>
-        <translation type="unfinished"></translation>
+        <translation>Hartje winter</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="80"/>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="87"/>
         <source>dd.MM.</source>
         <extracomment>Date format. dd = Date; MM = Month (attention to caps / no caps). Reform the date to language standard if needed.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>dd.MM.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="98"/>
         <source>Discard changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Wijzigingen verwerpen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.ui" line="118"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/weditseason.cpp" line="14"/>
         <source>Edit season</source>
-        <translation type="unfinished"></translation>
+        <translation>Seizoen bewerken</translation>
     </message>
 </context>
 <context>
@@ -930,27 +952,27 @@ Open the path of the logfile?</source>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="33"/>
         <source>Wiki entry</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki pagina</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="58"/>
         <source>Support thread</source>
-        <translation type="unfinished"></translation>
+        <translation>Supportthread</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="83"/>
         <source>Feedback form</source>
-        <translation type="unfinished"></translation>
+        <translation>Feedbackformulier</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.ui" line="105"/>
         <source>E-Mail:</source>
-        <translation type="unfinished"></translation>
+        <translation>E-Mail:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfeedback.cpp" line="18"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>Feedback</translation>
     </message>
 </context>
 <context>
@@ -959,27 +981,28 @@ Open the path of the logfile?</source>
         <location filename="../../OTModules/OTGeneric/wfirstsetup.ui" line="42"/>
         <source># Welcome to %1!
 Please define some settings so that %1 works correctly.</source>
-        <translation type="unfinished"></translation>
+        <translation># Welkom bij %1!
+Stel wat instellingen in zodat %1 correct werkt.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfirstsetup.ui" line="67"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Taal</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfirstsetup.ui" line="74"/>
         <source>OMSI main directory</source>
-        <translation type="unfinished"></translation>
+        <translation>OMSI-hoofdmap</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfirstsetup.ui" line="91"/>
         <source>Theme:</source>
-        <translation type="unfinished"></translation>
+        <translation>Thema:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wfirstsetup.ui" line="123"/>
         <source>Apply &amp;&amp; restart</source>
-        <translation type="unfinished"></translation>
+        <translation>Toepassen &amp;&amp; herstarten</translation>
     </message>
 </context>
 <context>
@@ -987,156 +1010,156 @@ Please define some settings so that %1 works correctly.</source>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="51"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="55"/>
         <source>Recently opened fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Recent geopende lettertypen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="81"/>
         <source>Specials</source>
-        <translation type="unfinished"></translation>
+        <translation>Specials</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="91"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerken</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="96"/>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="220"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="111"/>
         <source>Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>Openen...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="114"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Openen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="128"/>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="131"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="142"/>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="145"/>
         <source>Save as...</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan als...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="156"/>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="159"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="170"/>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="173"/>
         <source>New file</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuw bestand</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="181"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="184"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="195"/>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="198"/>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Opnieuw laden</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="209"/>
         <source>Show in explorer...</source>
-        <translation type="unfinished"></translation>
+        <translation>Weergeven in Verkenner...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="212"/>
         <source>Show in explorer</source>
-        <translation type="unfinished"></translation>
+        <translation>Weergeven in Verkenner</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="231"/>
         <source>Open with encoding...</source>
-        <translation type="unfinished"></translation>
+        <translation>Openen met versleuteling...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.ui" line="239"/>
         <source>Back to home</source>
-        <translation type="unfinished"></translation>
+        <translation>Terug naar het startscherm</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.cpp" line="18"/>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="209"/>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="210"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="212"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="213"/>
         <source>Font creation</source>
-        <translation type="unfinished"></translation>
+        <translation>Lettertype maken</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/wfonts.cpp" line="19"/>
         <source>Creating a font</source>
-        <translation type="unfinished"></translation>
+        <translation>Een lettertype maken</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="71"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="75"/>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="76"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="80"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorbeeld</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="134"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="137"/>
         <source>The font file (still) doesn&apos;t exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het lettertype bestand bestaad (nog steeds) niet.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="145"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="148"/>
         <source>unnamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Naamloos</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="151"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="154"/>
         <source>Save font</source>
-        <translation type="unfinished"></translation>
+        <translation>Lettertype opslaan</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="151"/>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="311"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="154"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="314"/>
         <source>OMSI font file</source>
-        <translation type="unfinished"></translation>
+        <translation>OMSI-lettertypebestand</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="187"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="190"/>
         <source>Error: The file could not be saved.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fout: Het bestand kan niet worden opgeslagen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="197"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="200"/>
         <source>File saved successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestand succesvol opgeslagen.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/wfonts.cpp" line="311"/>
+        <location filename="../../OTModules/wFonts/wfonts.cpp" line="314"/>
         <source>Open font...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lettertype openen...</translation>
     </message>
 </context>
 <context>
@@ -1144,306 +1167,306 @@ Please define some settings so that %1 works correctly.</source>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="21"/>
         <source>TEST</source>
-        <translation type="unfinished"></translation>
+        <translation>TEST</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="32"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Algemeen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="51"/>
         <source>Friendly name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendelijke naam:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="74"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Naam:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="86"/>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Omschrijving:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="99"/>
         <source>World coordinates</source>
-        <translation type="unfinished"></translation>
+        <translation>Wereld-coördinaten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="106"/>
         <source>Dynamic help arrows</source>
-        <translation type="unfinished"></translation>
+        <translation>Dynamische routepijlen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="113"/>
         <source>Left-hand driving (busstop cubes only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Links rijden (alleen bushaltekubussen)</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="120"/>
         <source>Extended support for rail vehicles</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitgebreide ondersteuning voor spoorvoertuigen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="130"/>
         <source>Currency:</source>
-        <translation type="unfinished"></translation>
+        <translation>Geldsoort:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="140"/>
         <source>Tickets:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaartjes:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="147"/>
         <source>Minimal repair time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimale reparatietijd:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="154"/>
         <source>Simulation years:</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaren in de simulatie:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="161"/>
         <source>to</source>
         <extracomment>Context: e.g. &quot;2013 to 2016&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Naar</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="194"/>
         <source>Year offset:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruimte tussen jaren:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="201"/>
         <source> years</source>
-        <translation type="unfinished"></translation>
+        <translation> jaren</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="244"/>
         <source>Edit protected properties...</source>
-        <translation type="unfinished"></translation>
+        <translation>Beveiligde eigenschappen bewerken...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="254"/>
         <source>Textures</source>
-        <translation type="unfinished"></translation>
+        <translation>Textures</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="268"/>
         <source>Background terrain image:</source>
-        <translation type="unfinished"></translation>
+        <translation>Achtergrondafbeelding terrein:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="293"/>
         <source>Picture path:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pad voor afbeelding:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="321"/>
         <source>Picture size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeeldingsgrootte:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="328"/>
         <source>Start width on picture:</source>
-        <translation type="unfinished"></translation>
+        <translation>Startbreedte op foto:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="357"/>
         <source>Start height on picture:</source>
-        <translation type="unfinished"></translation>
+        <translation>Starthoogte op foto:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="426"/>
         <source>Tile:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tile:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="433"/>
         <source>Position on tile:</source>
-        <translation type="unfinished"></translation>
+        <translation>Positie op tile:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="440"/>
         <source>Rotation:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotatie:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="447"/>
         <source>View distance from position:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zicht vanaf positie:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="533"/>
         <source>Terrain textures:</source>
-        <translation type="unfinished"></translation>
+        <translation>Terreintextures:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="564"/>
         <source>Default view:</source>
-        <translation type="unfinished"></translation>
+        <translation>Standaardzicht:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="587"/>
         <source>Environment &amp;&amp; Traffic</source>
-        <translation type="unfinished"></translation>
+        <translation>Omgeving &amp;&amp; Verkeer</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="595"/>
         <source>Seasons:</source>
-        <translation type="unfinished"></translation>
+        <translation>Seizoenen:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="623"/>
         <source>Vehicle density:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aantal voertuigen:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="630"/>
         <source>Passenger density:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aantal passagiers:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="695"/>
         <source>Entrypoints</source>
-        <translation type="unfinished"></translation>
+        <translation>Startpunten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="719"/>
         <source>Tiles</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiles</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="743"/>
         <source>Protected properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Beveiligde eigenschappen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="751"/>
         <source>Map version:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapversie:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="761"/>
         <source>Next ID code:</source>
-        <translation type="unfinished"></translation>
+        <translation>Volgende ID-code:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="796"/>
         <source>Discard changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Wijzigingen verwerpen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="821"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="840"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.ui" line="852"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="14"/>
         <source>Edit global properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Algemene eigenschappen bewerken</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="34"/>
         <source>Change protected properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Beveiligde eigenschappen bewerken</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="34"/>
         <source>Changes in protected properties may result in unexpected behavior or bugs in the map editor. Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wijzigingen in beveligde eigenschappen kunnen leiden tot ongewenst gedrag of bugs in de map editor. Wil je doorgaan?</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="71"/>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="79"/>
         <source>(none)</source>
-        <translation type="unfinished"></translation>
+        <translation>(geen)</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="110"/>
         <source>Texture</source>
-        <translation type="unfinished"></translation>
+        <translation>Texture</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="119"/>
         <source>Season</source>
-        <translation type="unfinished"></translation>
+        <translation>Seizoen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="120"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="121"/>
         <source>End</source>
-        <translation type="unfinished"></translation>
+        <translation>Einde</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="132"/>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="143"/>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tijd</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="133"/>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="144"/>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Factor</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="156"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Naam</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="157"/>
         <source>Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Aantal</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="169"/>
         <source>x coordinate</source>
-        <translation type="unfinished"></translation>
+        <translation>X-coordinaat</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="170"/>
         <source>y coordinate</source>
-        <translation type="unfinished"></translation>
+        <translation>Y-coordinaat</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="171"/>
         <source>Associated file exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestaat soortgelijk bestand</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="176"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ja</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="176"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Nee</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wGlobalProps/wglobalprops.cpp" line="198"/>
         <source>Select terrain background picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Achtergrondafbeelding terrein selecteren</translation>
     </message>
 </context>
 <context>
@@ -1451,22 +1474,22 @@ Please define some settings so that %1 works correctly.</source>
     <message>
         <location filename="../../OTModules/wmapselection.ui" line="57"/>
         <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevestigen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmapselection.ui" line="76"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmapselection.ui" line="88"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmapselection.cpp" line="13"/>
-        <source>Select map</source>
-        <translation type="unfinished"></translation>
+        <source>Select map...</source>
+        <translation>Map selecteren...</translation>
     </message>
 </context>
 <context>
@@ -1474,92 +1497,93 @@ Please define some settings so that %1 works correctly.</source>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="27"/>
         <source>Current map:</source>
-        <translation type="unfinished"></translation>
+        <translation>Huidige map:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="59"/>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="246"/>
         <source>Load map...</source>
-        <translation type="unfinished"></translation>
+        <translation>Map laden...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="68"/>
         <source>Edit properties...</source>
-        <translation type="unfinished"></translation>
+        <translation>Eigenschappen bewerken...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="75"/>
         <source>[ALPHA] Place objects by terrain layer</source>
-        <translation type="unfinished"></translation>
+        <translation>[ALPHA] Objecten plaatsen per terreinlaag</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="129"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="145"/>
         <source>- !!! -
 This is an alpha version of the module. Please create a backup of the selected map before EVERY use without exception. Errors may still occur despite testing!
 - !!! -</source>
-        <translation type="unfinished"></translation>
+        <translation>- !!! - Dit is een alpha-versie van de module. Maak een backup van de gekozen map VOOR IEDER GEBRUIK zonder uitzondering. Fouten kunnen nog steeds optreden, ongeacht het testen!
+- !!! -</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="170"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="179"/>
         <source>Specials</source>
-        <translation type="unfinished"></translation>
+        <translation>Specials</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="185"/>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="235"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="199"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="202"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="213"/>
         <source>Back to home</source>
-        <translation type="unfinished"></translation>
+        <translation>Terug naar het startscherm</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.ui" line="224"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.cpp" line="14"/>
         <location filename="../../OTModules/wMaps/wmaps.cpp" line="16"/>
         <source>Map editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Map editor</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.cpp" line="17"/>
         <source>Editing a map&apos;s properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Eigenschappen van map bewerken</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.cpp" line="103"/>
         <source>Save global.cfg...</source>
-        <translation type="unfinished"></translation>
+        <translation>global.cfgopslaan...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wmaps.cpp" line="108"/>
         <source>global.cfg saved!</source>
-        <translation type="unfinished"></translation>
+        <translation>global.cfg opgeslagen!</translation>
     </message>
 </context>
 <context>
@@ -1567,36 +1591,36 @@ This is an alpha version of the module. Please create a backup of the selected m
     <message>
         <location filename="../../OTModules/wmessageviewer.ui" line="143"/>
         <source>Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Bericht</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmessageviewer.ui" line="155"/>
         <location filename="../../OTModules/wmessageviewer.ui" line="158"/>
         <location filename="../../OTModules/wmessageviewer.ui" line="161"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmessageviewer.cpp" line="19"/>
         <location filename="../../OTModules/wmessageviewer.cpp" line="24"/>
         <source>Message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Bericht: %1</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmessageviewer.cpp" line="28"/>
         <source>Published on %1</source>
         <comment>e.g. Published on 28.10.2022</comment>
-        <translation type="unfinished"></translation>
+        <translation>Gepubliceerd op %1</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmessageviewer.cpp" line="48"/>
         <source>Loading image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeelding laden...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wmessageviewer.cpp" line="62"/>
         <source>Finished.</source>
-        <translation type="unfinished"></translation>
+        <translation>Voltooid.</translation>
     </message>
 </context>
 <context>
@@ -1604,112 +1628,112 @@ This is an alpha version of the module. Please create a backup of the selected m
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="23"/>
         <source>Objects per ha:</source>
-        <translation type="unfinished"></translation>
+        <translation>Objecten per ha:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="100"/>
         <source>Presets...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorinstellingen...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="109"/>
         <source>Terrain Layer ID:</source>
-        <translation type="unfinished"></translation>
+        <translation>Terreinlaag-ID:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="151"/>
         <source>Tile size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilegrootte:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="174"/>
         <source>z Variance:</source>
-        <translation type="unfinished"></translation>
+        <translation>z Variance:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="203"/>
         <source>Minimum distance:</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimumafstand:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="222"/>
         <source>Enable Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorbeeld inschakelen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="229"/>
         <source>Dry run</source>
-        <translation type="unfinished"></translation>
+        <translation>Droge run</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="238"/>
         <source>Perform action on tiles...</source>
-        <translation type="unfinished"></translation>
+        <translation>Acties uitvoeren op tiles...</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="259"/>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="266"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="285"/>
         <source>Objects</source>
-        <translation type="unfinished"></translation>
+        <translation>Objecten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="315"/>
         <source>Clear terrain layer painting after perform</source>
-        <translation type="unfinished"></translation>
+        <translation>Terreinlaag verf opruimen na operatie</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="340"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="357"/>
         <source>- !!! Apply changes: Return to map selection and click &apos;Save&apos; to apply NextIDCode !!! -</source>
-        <translation type="unfinished"></translation>
+        <translation>- !!! Wijzigingen toepassen: Ga terug naar de map selectie en klik &apos;Opslaan&apos; om NextIDCode toe te passen !! -</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="384"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="396"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.ui" line="404"/>
         <source>3D grass (Oberpfalz 3D)</source>
-        <translation type="unfinished"></translation>
+        <translation>3D-gras (Oberpfalz 3D)</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp" line="16"/>
         <source>Place objects by terrain layer painting</source>
-        <translation type="unfinished"></translation>
+        <translation>Objecten plaatsen per terreinlaag verf</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp" line="49"/>
         <source>Select objects</source>
-        <translation type="unfinished"></translation>
+        <translation>Objecten selecteren</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp" line="49"/>
         <source>OMSI Sceneryobject</source>
-        <translation type="unfinished"></translation>
+        <translation>OMSI Sceneryobject</translation>
     </message>
     <message>
         <location filename="../../OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp" line="274"/>
         <source>Placing preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorbeeld plaatsen</translation>
     </message>
 </context>
 <context>
@@ -1719,222 +1743,223 @@ This is an alpha version of the module. Please create a backup of the selected m
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="128"/>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="256"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Algemeen</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="99"/>
         <source>Map verification</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapverificatie</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="108"/>
         <source>Font creation</source>
-        <translation type="unfinished"></translation>
+        <translation>Lettertype maken</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="264"/>
         <source>Language (needs restart):</source>
-        <translation type="unfinished"></translation>
+        <translation>Taal (Herstarten nodig):</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="289"/>
         <source>Open logfile path</source>
-        <translation type="unfinished"></translation>
+        <translation>Open pad met logbestand</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="315"/>
         <source>Theme:</source>
-        <translation type="unfinished"></translation>
+        <translation>Thema:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="351"/>
         <source>Logging mode:</source>
-        <translation type="unfinished"></translation>
+        <translation>Logging-modus:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="393"/>
         <source>OMSI main directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>OMSI-hoofdmap:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="403"/>
         <source>Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>Auteur:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="413"/>
         <source>Show OMSI-Tools as an activity on Discord</source>
-        <translation type="unfinished"></translation>
+        <translation>Geef OMSI-Tools als activiteit op Discord weer</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="420"/>
         <source>Show news section on home screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Laat nieuws zien op het startscherm</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="442"/>
         <source>Check for updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Controleer op updates</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="449"/>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="293"/>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="297"/>
         <source>Reset preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren resetten</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="457"/>
         <source>Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Back-up</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="463"/>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingeschakeld</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="478"/>
         <source>Backup interval:</source>
-        <translation type="unfinished"></translation>
+        <translation>Backup-interval:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="492"/>
         <source>Open backup folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Open back-upmap</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="549"/>
         <source>Backup disk usage:</source>
-        <translation type="unfinished"></translation>
+        <translation>Schijfgebruik voor backups:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="581"/>
         <source>Show only map textures</source>
-        <translation type="unfinished"></translation>
+        <translation>Alleen maptextures weergeven</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="610"/>
         <source>If the advanced verifying is active, the contents of the scenery objects and splines are also checked. This includes, among other things, a texture and variable check.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als geavanceerd verifiëren is ingeschakeld, wordt ook de inhoud van sceneryobjects en splines gecontroleerd. Dit houdt, naast andere dingen, ook een texture en variabelen-controle.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="613"/>
         <source>Advanced verification (will be disabled on restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Geavanceerde verificatie (wordt uitgeschakeld na herstarten)</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="639"/>
         <source>Keep value of pixel row for newly created characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Behoud pixelwaarde voor nieuwgemaakte karakters</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="689"/>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="750"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="701"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="720"/>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="739"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.ui" line="726"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="15"/>
         <source>preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>voorkeuren</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="46"/>
         <source>Calculating...</source>
-        <translation type="unfinished"></translation>
+        <translation>Berekenen...</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="54"/>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Uit</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="54"/>
         <source>Standard (recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Standaard (aanbevolen)</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="252"/>
         <source>Delete all backups</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle back-ups verwijderen</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="252"/>
         <source>Should all backups be deleted? They will be moved to the recycle bin.</source>
-        <translation type="unfinished"></translation>
+        <translation>Moeten alle back-ups worden verwijderd? Deze zullen naar de prullenbak worden verplaatst.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="277"/>
         <source>Maintenance</source>
-        <translation type="unfinished"></translation>
+        <translation>Onderhoud</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="279"/>
         <source>Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Mislukt</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="279"/>
         <source>Could not check for updates. Please check your internet connection and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan niet controleren op updates. Controleer je internetverbinding en probeer opnieuw.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="281"/>
         <source>Finshed</source>
-        <translation type="unfinished"></translation>
+        <translation>Klaar</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="281"/>
         <source>No updates available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen updates beschikbaar.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="293"/>
         <source>Should all preferences be reset? This action cannot be undone! Any preferences will be deleted. However, files such as backups are not affected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Moeten alle voorkeuren worden gereset? Deze actie kan niet ongedaan worden gemaakt! Elke voorkeur wordt gereset, maar bestanden zoals back-ups blijven ongewijzigd.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="297"/>
         <source>The application will now restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>De applicatie zal nu herstarten.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="316"/>
         <source>More languages</source>
-        <translation type="unfinished"></translation>
+        <translation>Meer talen</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="316"/>
         <source>You want to have more languages to choose from?
 Unfortunately, there are no more languages at the moment. But if you know a language well, you are welcome to translate %1! Please contact the developer at the OMSI WebDisk, also if you have more questions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wil je meer talen om uit te kiezen?
+Helaas zijn dit momenteel alle talen. Maar als je de gewenste taal goed spreekt, ben je meer dan welkom om %1 te vertalen! Je kunt de ontwikkelaar een bericht sturen via de OMSI WebDisk, ook voor het stellen van vragen.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="359"/>
         <source>Restart required</source>
-        <translation type="unfinished"></translation>
+        <translation>Herstart vereist</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wpreferences.cpp" line="359"/>
         <source>To fully apply all changed preferences, the application requires a restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Om alle gewijzigde voorkeuren correct toe te passen, heeft de applicatie een herstart nodig.</translation>
     </message>
 </context>
 <context>
@@ -1942,81 +1967,82 @@ Unfortunately, there are no more languages at the moment. But if you know a lang
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="30"/>
         <source>Select version branch:</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer versiebranch:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="44"/>
         <source>Changes:</source>
-        <translation type="unfinished"></translation>
+        <translation>Wijzigingen:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="141"/>
         <source>Update now</source>
-        <translation type="unfinished"></translation>
+        <translation>Nu bijwerken</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="148"/>
         <source>Download manually</source>
-        <translation type="unfinished"></translation>
+        <translation>Handmatig downloaden</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="155"/>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="199"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.ui" line="187"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="15"/>
         <source>release notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Releasenotes</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="21"/>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="64"/>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Laden...</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="42"/>
         <source>Since you installed a portable version, you have to update %1 manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Omdat je een portable versie hebt geïnstalleerd, moet je %1 handmatig bijwerken.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="44"/>
         <source>Current version:</source>
-        <translation type="unfinished"></translation>
+        <translation>Huidige versie:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="47"/>
         <source>New version:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuwe versie:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="74"/>
         <source>The release notes couldn&apos;t be downloaded. Please check if your computer has a working internet connection, retry it or contact the developer.
 HTTP %1</source>
-        <translation type="unfinished"></translation>
+        <translation>De releasenotes kunnen niet worden gedownload. Controleer je internetverbinding en probeer het opnieuw. HTTP %1</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="81"/>
         <source>Install update</source>
-        <translation type="unfinished"></translation>
+        <translation>Update installeren</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="81"/>
         <source>%1 closes for installing the new version. Please wait until %1 has been restarted.
 Depending on the computer performance and the internet connection, this process may take a moment.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 sluit af voor het installeren van de nieuwe versie. Wacht alsjeblieft tot %1 opnieuw is gestart.
+Afhankelijk van de prestaties van de computer en de internetverbinding kan dit even duren.</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wreleasenotes.cpp" line="85"/>
         <source>Start update...</source>
-        <translation type="unfinished"></translation>
+        <translation>Update starten...</translation>
     </message>
 </context>
 <context>
@@ -2024,12 +2050,12 @@ Depending on the computer performance and the internet connection, this process 
     <message>
         <location filename="../../OTModules/OTGeneric/wselectencoding.ui" line="68"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteren</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wselectencoding.cpp" line="18"/>
         <source>Select encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer versleuteling</translation>
     </message>
 </context>
 <context>
@@ -2037,165 +2063,165 @@ Depending on the computer performance and the internet connection, this process 
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="43"/>
         <source>New version available:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuwe versie beschikbaar:</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="75"/>
         <source>&lt;a href=&quot;exec&quot;&gt;View details&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;exec&quot;&gt;Details bekijken&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="91"/>
         <source>Content development</source>
-        <translation type="unfinished"></translation>
+        <translation>Content-ontwikkeling</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="112"/>
         <source>Font creation</source>
-        <translation type="unfinished"></translation>
+        <translation>Lettertype maken</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="156"/>
         <source>Map editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Map editor</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="210"/>
         <source>Troubleshooting</source>
-        <translation type="unfinished"></translation>
+        <translation>Probleemoplossing</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="231"/>
         <source>Map verification</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapverificatie</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="275"/>
         <source>Content search</source>
-        <translation type="unfinished"></translation>
+        <translation>Content zoeken</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="329"/>
         <source>Disk memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Schijfgebruik</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="350"/>
-        <source>Directory cleanup</source>
-        <translation type="unfinished"></translation>
+        <source>Cleanup</source>
+        <translation>Opruimen</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="404"/>
         <source>Control center trip [OMSI-WebDisk]</source>
-        <translation type="unfinished"></translation>
+        <translation>Control Centrer rit [OMSI-WebDisk]</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="425"/>
         <source>Participant</source>
-        <translation type="unfinished"></translation>
+        <translation>Deelnemer</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="469"/>
         <source>Dispatcher</source>
-        <translation type="unfinished"></translation>
+        <translation>Centralist</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="661"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="669"/>
         <source>Specials</source>
-        <translation type="unfinished"></translation>
+        <translation>Specials</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="675"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="749"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="679"/>
         <source>Licenses</source>
-        <translation type="unfinished"></translation>
+        <translation>Licenties</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="707"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="718"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren...</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="721"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="760"/>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="763"/>
         <source>Release notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Releasenotes</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="771"/>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation>Handleiding</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="779"/>
         <source>Source code on GitHub</source>
-        <translation type="unfinished"></translation>
+        <translation>Broncode op GitHub</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="787"/>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>Herstarten</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="795"/>
         <source>Check for updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>Controleer op updates...</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="798"/>
         <source>Check for updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Controleer op updates</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="934"/>
         <source>Roadmap</source>
-        <translation type="unfinished"></translation>
+        <translation>Roadmap</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.ui" line="943"/>
         <source>About Qt...</source>
-        <translation type="unfinished"></translation>
+        <translation>Over Qt...</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="61"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Over %1</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="66"/>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="103"/>
         <source>News</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuws</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="106"/>
         <source>News - no internet connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuws - geen internetverbinding</translation>
     </message>
     <message>
         <location filename="../../OTModules/OTGeneric/wstart.cpp" line="390"/>
         <source>DirectXTex License</source>
-        <translation type="unfinished"></translation>
+        <translation>DirectXTex-licentie</translation>
     </message>
 </context>
 <context>
@@ -2203,161 +2229,172 @@ Depending on the computer performance and the internet connection, this process 
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="107"/>
         <source>Start!</source>
-        <translation type="unfinished"></translation>
+        <translation>Start!</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="147"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="153"/>
         <source>Overview and statistics about the map</source>
-        <translation type="unfinished"></translation>
+        <translation>Overzicht en statistieken van de map</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="150"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="156"/>
         <source>Overview</source>
-        <translation type="unfinished"></translation>
+        <translation>Overzicht</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="301"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="59"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="192"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="262"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="333"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="403"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="474"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="544"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="693"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="766"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="837"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="910"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="981"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1054"/>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="214"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1397"/>
         <source>Splines</source>
-        <translation type="unfinished"></translation>
+        <translation>Splines</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="275"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="57"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="355"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1214"/>
         <source>Tiles</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiles</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="288"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="58"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="496"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1343"/>
         <source>Sceneryobjects</source>
-        <translation type="unfinished"></translation>
+        <translation>Sceneryobjects</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="327"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="61"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="718"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1493"/>
         <source>Humans</source>
-        <translation type="unfinished"></translation>
+        <translation>Mensen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="337"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="62"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="862"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1292"/>
         <source>Textures</source>
-        <translation type="unfinished"></translation>
+        <translation>Textures</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="314"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="60"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1006"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1445"/>
         <source>Vehicles</source>
-        <translation type="unfinished"></translation>
+        <translation>Voertuigen</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="285"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1340"/>
         <source>Sceneryobjects on the map</source>
-        <translation type="unfinished"></translation>
+        <translation>Sceneryobjects op de map</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="298"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1394"/>
         <source>Splines on the map</source>
-        <translation type="unfinished"></translation>
+        <translation>Splines op de map</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="311"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1442"/>
         <source>AI vehicles on the map</source>
-        <translation type="unfinished"></translation>
+        <translation>AI-voertuigen op de map</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="324"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1490"/>
         <source>Humans on the map</source>
-        <translation type="unfinished"></translation>
+        <translation>Mensen op de map</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="385"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1576"/>
         <source>Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Map</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="394"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1585"/>
         <source>Specials</source>
-        <translation type="unfinished"></translation>
+        <translation>Specials</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="401"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="451"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1592"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1642"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="415"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1606"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Close</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="426"/>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="113"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1617"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="170"/>
         <source>Start verifying</source>
-        <translation type="unfinished"></translation>
+        <translation>Start verificatie</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="437"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1628"/>
         <source>Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="440"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1631"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorkeuren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="462"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.ui" line="1653"/>
         <source>Back to home</source>
-        <translation type="unfinished"></translation>
+        <translation>Terug naar het startscherm</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="14"/>
         <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="16"/>
         <source>Map verification</source>
-        <translation type="unfinished"></translation>
+        <translation>Map-verificatie</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="17"/>
         <source>Checking a map</source>
-        <translation type="unfinished"></translation>
+        <translation>Een map controleren</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="39"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="38"/>
         <source>Press %1 to start the verification.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="115"/>
-        <source>Running...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="135"/>
-        <source>Map file doesn&apos;t exist</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="135"/>
-        <source>The selected map file doesn&apos;t exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Druk op %1 om de verificatie te starten.</translation>
     </message>
     <message>
         <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="172"/>
-        <source>checking objects and splines...</source>
-        <translation type="unfinished"></translation>
+        <source>Running...</source>
+        <translation>Bezig...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="220"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="204"/>
+        <source>Map file doesn&apos;t exist</source>
+        <translation>Het bestand bestaat niet</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="204"/>
+        <source>The selected map file doesn&apos;t exist.</source>
+        <translation>Het geselecteerde bestand bestaat niet.</translation>
+    </message>
+    <message>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="366"/>
         <source>Verification finished.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verificatie afgerond.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="276"/>
+        <location filename="../../OTModules/wVerifyMap/wverifymap.cpp" line="441"/>
         <source>Reloaded map list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Maplijst is opnieuw geladen.</translation>
     </message>
 </context>
 <context>
@@ -2365,273 +2402,132 @@ Depending on the computer performance and the internet connection, this process 
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="82"/>
         <source>Font or character</source>
-        <translation type="unfinished"></translation>
+        <translation>Lettertype of karakter</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="196"/>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="24"/>
         <source>Add font</source>
-        <translation type="unfinished"></translation>
+        <translation>Lettertype toevoegen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="203"/>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="26"/>
         <source>Add character</source>
-        <translation type="unfinished"></translation>
+        <translation>Karakter toevoegen</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="224"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Naam:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="244"/>
         <source>Color texture:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kleur-texture:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="292"/>
         <source>Alpha texture:</source>
-        <translation type="unfinished"></translation>
+        <translation>Alpha-texture:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="340"/>
         <source>Maximum height of characters:</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximale hoogte van karakters:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="380"/>
         <source>Distance between characters:</source>
-        <translation type="unfinished"></translation>
+        <translation>Afstand tussen karakters:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="465"/>
-        <source>Right pixel:</source>
-        <translation type="unfinished"></translation>
+        <source>Rightmost pixel:</source>
+        <translation>Uiterst rechtse pixel:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="478"/>
-        <source>Left pixel:</source>
-        <translation type="unfinished"></translation>
+        <source>Leftmost pixel:</source>
+        <translation>Uiterst linkse pixel:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="496"/>
         <source>Highest pixel in row:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoogste pixel in rij:</translation>
     </message>
     <message>
         <location filename="../../OTModules/wFonts/Widgets/wdgeditor.ui" line="533"/>
         <source>Character:</source>
-        <translation type="unfinished"></translation>
+        <translation>Karakter:</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="28"/>
-        <source>Delete item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="30"/>
-        <source>Move item up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="32"/>
-        <source>Move item down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="34"/>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="311"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="309"/>
         <source>Character not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Karakter niet gevonden</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="311"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="309"/>
         <source>The entered character could not be found.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het ingevoerde karatker is niet gevonden.</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="538"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="521"/>
         <source>unnamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Naamloos</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="543"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="524"/>
         <source>undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>Niet gedefinieerd</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="596"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="553"/>
         <source>%n font(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n lettertype(n)</numerusform>
+            <numerusform>%n lettertype(n)</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="596"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="553"/>
         <source>%n character(s) total</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n karakters in totaal</numerusform>
+            <numerusform>%n karakters in totaal</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="637"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="606"/>
         <source>Select color texture...</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer kleur texture...</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="637"/>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="669"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="606"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="638"/>
         <source>Bitmap picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitmapafbeelding</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="669"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgeditor.cpp" line="638"/>
         <source>Select alpha texture...</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>wdgOverviewTile</name>
-    <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="21"/>
-        <source>%n tile(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="22"/>
-        <source>%n sceneryobject(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="23"/>
-        <source>%n spline(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="24"/>
-        <source>%n vehicle(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="25"/>
-        <source>%n human(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="26"/>
-        <source>%n texture(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="27"/>
-        <source>%n element(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp" line="35"/>
-        <source>%n missing</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation>Selecteer alpha texture...</translation>
     </message>
 </context>
 <context>
     <name>wdgPreview</name>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="35"/>
-        <source>Highlighting opacity:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="81"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="42"/>
         <source>Color texture</source>
-        <translation type="unfinished"></translation>
+        <translation>Kleur-texture</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="86"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="47"/>
         <source>Alpha texture</source>
-        <translation type="unfinished"></translation>
+        <translation>Alpha-texture</translation>
     </message>
     <message>
-        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="100"/>
+        <location filename="../../OTModules/wFonts/Widgets/wdgpreview.ui" line="61"/>
         <source>Reload texture preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>wdgTab</name>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.ui" line="137"/>
-        <source>Path:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.ui" line="165"/>
-        <source>Status:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.ui" line="179"/>
-        <source>Usages:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.ui" line="195"/>
-        <source>Show</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="27"/>
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="50"/>
-        <source>All (%1)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="28"/>
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="51"/>
-        <source>Missing (%1)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="56"/>
-        <source>Copy selected %1</source>
-        <comment>Copy selected elements</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../OTModules/wVerifyMap/Widgets/wdgtab.cpp" line="57"/>
-        <source>Search for missing %1</source>
-        <comment>Search for missing elements</comment>
-        <translation type="unfinished"></translation>
+        <translation>Texture voorbeeld herladen</translation>
     </message>
 </context>
 </TS>
