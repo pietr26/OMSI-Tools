@@ -16,6 +16,7 @@
 #include <QClipboard>
 #include <QStyle>
 #include <QStyleFactory>
+#include <QStyleHints>
 
 #include "DiscordGameSDK.h"
 
@@ -839,6 +840,15 @@ public:
         if (QApplication::style()->name() == "windows11") stylesheet += "QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox, QDateTimeEdit, QDateEdit, QTimeEdit, QButton { height: 25px; }";
 
         qApp->setStyleSheet(stylesheet);
+    }
+
+
+    static Qt::ColorScheme currentColorScheme() {
+        OTSettings set;
+        if(set.read("main", "theme").toString() == "windowsvista")
+            return Qt::ColorScheme::Light;
+        else
+            return QApplication::styleHints()->colorScheme();
     }
 };
 
