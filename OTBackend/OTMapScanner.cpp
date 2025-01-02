@@ -304,6 +304,10 @@ void OTMapChecker::advancedCheck(OTFileSource *source) {
             validator = new OTSplineValidator(nullptr, _omsiDir + "/" + source->fileName());
             break;
 
+        case OTFileSource::VehicleFile:
+            validator = new OTVehicleValidator(nullptr, _omsiDir + "/" + source->fileName());
+            break;
+
         default: break;
     }
 
