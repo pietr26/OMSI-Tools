@@ -251,7 +251,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RC_ICONS = data/icons/logo.ico
 
 RESOURCES += \
-    ressources.qrc
+    resources.qrc
 
 DISTFILES += \
     devNotes
