@@ -14,6 +14,8 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTContentValidator/OTContentValidator.h"
 #include "OTBackend/OTContentValidator/OTSceneryobjectValidator.h"
+#include "OTBackend/OTContentValidator/OTSplineValidator.h"
+#include "OTBackend/OTContentValidator/OTVehicleValidator.h"
 
 OTMapChecker::OTMapChecker(QObject *parent) :
     QThread(parent),
@@ -296,7 +298,13 @@ void OTMapChecker::advancedCheck(OTFileSource *source) {
     switch(source->fileType()) {
         case OTFileSource::SceneryobjectFile:
             validator = new OTSceneryobjectValidator(nullptr, _omsiDir + "/" + source->fileName());
-        break;
+            break;
+
+        case OTFileSource::SplineFile:
+            validator = new OTSplineValidator(nullptr, _omsiDir + "/" + source->fileName());
+            break;
+
+        default: break;
     }
 
     if(validator) {

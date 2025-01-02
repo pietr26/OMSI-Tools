@@ -55,6 +55,7 @@ SOURCES += \
     OTBackend/OTContentValidator/OTContentValidator.cpp \
     OTBackend/OTContentValidator/OTModelConfigValidator.cpp \
     OTBackend/OTContentValidator/OTSceneryobjectValidator.cpp \
+    OTBackend/OTContentValidator/OTSplineValidator.cpp \
     OTBackend/OTFileSource.cpp \
     OTBackend/OTLogger.cpp \
     OTBackend/OTMapScanner.cpp \
@@ -152,6 +153,7 @@ HEADERS += \
     OTBackend/OTContentValidator/OTContentValidator.h \
     OTBackend/OTContentValidator/OTModelConfigValidator.h \
     OTBackend/OTContentValidator/OTSceneryobjectValidator.h \
+    OTBackend/OTContentValidator/OTSplineValidator.h \
     OTBackend/OTExternal.h \
     OTBackend/OTFileSource.h \
     OTBackend/OTGlobal.h \
