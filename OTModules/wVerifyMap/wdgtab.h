@@ -62,6 +62,12 @@ private slots:
 
     void on_btnShowUsages_clicked();
 
+    void on_btnPreviewFile_clicked();
+
+    void on_lwgAll_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_lwgInvalid_itemDoubleClicked(QListWidgetItem *item);
+
 private:
     Ui::wdgTab *ui;
     OTMiscellaneous misc;

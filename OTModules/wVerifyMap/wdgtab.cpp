@@ -2,6 +2,7 @@
 #include "ui_wdgtab.h"
 
 #include "dlgsourceslist.h"
+#include "dlgfilepreview.h"
 
 wdgTab::wdgTab(QWidget *parent)
     : QWidget(parent)
@@ -62,7 +63,7 @@ void wdgTab::addAll(QList<OTFileSource> items)
     for(OTFileSource &source : items) {
         all << source.fileName().replace("/", "\\");
         sources << source;
-        if(!source.isValid()) {
+        if(!source.advancedCheckResult().isValid()) {
             invalid<< source.fileName().replace("/", "\\");
         }
     }
@@ -94,7 +95,7 @@ void wdgTab::apply()
         if(missing.contains(text)) {
             itm->setBackground(QColor(255, 0, 0, 64));
             itm->setToolTip(tr("This file was not found"));
-        } else if(!findSource(text).isValid()) {
+        } else if(!findSource(text).advancedCheckResult().isValid()) {
             itm->setBackground(QColor(255, 170, 0, 128));
             itm->setToolTip(tr("This file is invalid"));
         }
@@ -213,11 +214,11 @@ void wdgTab::updateDetails()
         ui->lblStatus->setText(tr("missing"));
         ui->lblStatus->setStyleSheet("color: #ff2222;");
     } else {
-        if(source.isValid()) {
+        if(source.advancedCheckResult().isValid()) {
             ui->lblStatus->setText(tr("valid"));
             ui->lblStatus->setStyleSheet("color: #55aa00;");
         } else {
-            ui->lblStatus->setText(source.errorString());
+            ui->lblStatus->setText(tr("%1 issue(s) found").arg(source.advancedCheckResult().issueCount()));
             ui->lblStatus->setStyleSheet("color: #ffaa00;");
         }
     }
@@ -252,4 +253,24 @@ void wdgTab::on_btnShowUsages_clicked() {
 
     dlg.addSources(sources);
     dlg.exec();
+}
+
+void wdgTab::on_btnPreviewFile_clicked() {
+    OTSettings set;
+    QString file = set.read("main", "mainDir").toString() + "/" + ui->ledPath->text();
+    if(!QFile::exists(file))
+        return;
+
+    dlgFilePreview dlg(this, file, findSource(ui->ledPath->text()).advancedCheckResult());
+    dlg.exec();
+}
+
+void wdgTab::on_lwgAll_itemDoubleClicked(QListWidgetItem *item) {
+    Q_UNUSED(item);
+    on_btnPreviewFile_clicked();
+}
+
+void wdgTab::on_lwgInvalid_itemDoubleClicked(QListWidgetItem *item) {
+    Q_UNUSED(item);
+    on_btnPreviewFile_clicked();
 }
