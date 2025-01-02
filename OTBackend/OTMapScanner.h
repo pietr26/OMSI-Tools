@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QTextStream>
+#include "OTFileSource.h"
 
 class OTMapChecker : public QThread
 {
@@ -20,13 +21,14 @@ public:
 
     QString omsiDir() const;
     void setOmsiDir(const QString &);
-    void addToQueue(const QStringList &);
+    void addToQueue(const QList<QPair<QString, QString>> &);
+    void addToQueue(const QStringList &, const QString &source);
     void setFinished();
 
-    QStringList allSceneryobjects() const;
-    QStringList allSplines() const;
-    QStringList allHumans() const;
-    QStringList allVehicles() const;
+    QList<OTFileSource> allSceneryobjects() const;
+    QList<OTFileSource> allSplines() const;
+    QList<OTFileSource> allHumans() const;
+    QList<OTFileSource> allVehicles() const;
     QStringList missingSceneryobjects() const;
     QStringList missingSplines() const;
     QStringList missingHumans() const;
@@ -38,24 +40,35 @@ public:
     int allVehiclesCount() const;
     int missingSceneryobjectsCount() const;
     int missingSplinesCount() const;
-    int missingHumansCount();
+    int missingHumansCount() const;
     int missingVehiclesCount() const;
+    int invalidSceneryobjectsCount() const;
+    int invalidSplinesCount() const;
+    int invalidHumansCount() const;
+    int invalidVehiclesCount() const;
+
+protected:
+    OTFileSource *findOrCreateSourceObject(const QString &fileName, bool *wasNewCreated);
+
+    void advancedCheck(OTFileSource *source);
 
 private:
     QString _omsiDir;
-    QQueue<QStringList> _queue;
+    QQueue<QList<QPair<QString,QString>>> _queue;
     QMutex _mutex;
     QWaitCondition _dataAvailable;
     bool _finish;
 
-    QStringList _allSceneryobjects;
-    QStringList _allSplines;
-    QStringList _allHumans;
-    QStringList _allVehicles;
+    QHash<QString, OTFileSource> _allSceneryobjects;
+    QHash<QString, OTFileSource> _allSplines;
+    QHash<QString, OTFileSource> _allHumans;
+    QHash<QString, OTFileSource> _allVehicles;
+    QHash<QString, OTFileSource> _allUnkown;
     QStringList _missingSceneryobjects;
     QStringList _missingSplines;
     QStringList _missingHumans;
     QStringList _missingVehicles;
+    QStringList _missingUnknown;
 };
 
 class OTMapScanner : public QThread
@@ -73,8 +86,8 @@ public:
     void scanAiList();
     void scanTile(const QString &filename);
 
-    QStringList allTiles() const;
-    QStringList allTextures() const;
+    QList<OTFileSource> allTiles() const;
+    QList<OTFileSource> allTextures() const;
     QStringList missingTiles() const;
     QStringList missingTextures() const;
 
@@ -82,6 +95,11 @@ public:
     int allTexturesCount() const;
     int missingTilesCount();
     int missingTexturesCount() const;
+    int invalidTilesCount();
+    int invalidTexturesCount() const;
+
+protected:
+    OTFileSource *findOrCreateSourceObject(const QString &fileName, const bool &texture = false);
 
 signals:
     void initActionCount(int);
@@ -90,10 +108,12 @@ signals:
 private:
     OTMapChecker *_checker;
     QString _mapDir;
-    QStringList _allTiles;
-    QStringList _allTextures;
+    QHash<QString, OTFileSource> _allTiles;
+    QHash<QString, OTFileSource> _allTextures;
+    QHash<QString, OTFileSource> _allUnkown;
     QStringList _missingTiles;
     QStringList _missingTextures;
+    QStringList _missingUnknown;
 };
 
 

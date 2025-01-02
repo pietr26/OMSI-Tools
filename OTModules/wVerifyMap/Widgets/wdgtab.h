@@ -3,6 +3,7 @@
 
 #include "OTBackend/OTGlobal.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
+#include "OTBackend/OTFileSource.h"
 
 #include <QListWidget>
 #include <QKeyEvent>
@@ -35,7 +36,8 @@ public:
     ~wdgTab();
 
     void clear();
-    void add(QStringList items, bool isMissing);
+    void addAll(QList<OTFileSource> items);
+    void addMissing(QStringList items);
     void apply();
     void setName(QString name);
 
@@ -52,16 +54,26 @@ private slots:
 
     void on_ledPath_textChanged(const QString &arg1);
 
+    void on_lwgInvalid_currentRowChanged(int currentRow);
+
     void on_lwgMissing_currentRowChanged(int currentRow);
 
     void on_btnCopyPath_clicked();
+
+    void on_btnShowUsages_clicked();
+
+    void on_btnPreviewFile_clicked();
+
+    void on_lwgAll_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_lwgInvalid_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     Ui::wdgTab *ui;
     OTMiscellaneous misc;
     wContentSearch* WCONTENTSEARCH;
 
-    QStringList all, missing;
+    QStringList all, invalid, missing;
 
     bool isApplied = false;
 
@@ -70,7 +82,12 @@ private:
     void search(QList<QListWidgetItem*> items);
     void search(QStringList items);
 
-    void setPath();
+    QList<OTFileSource> sources;
+
+    void updateDetails();
+    OTFileSource findSource(QString fileName) const;
+
+    QWidget *invalidItesmWidget;
 };
 
 

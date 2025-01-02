@@ -27,7 +27,7 @@ public:
     ~wdgOverviewTile();
 
     void setTotal(int count);
-    void setMissing(int missing);
+    void setInvalidAndMissing(int invalid, int missing);
     void clear();
     void setWarningInsteadError(bool enable);
     void setElementType(ElementType _type);

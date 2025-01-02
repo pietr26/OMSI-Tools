@@ -418,8 +418,9 @@ public:
         }
     }
 
-    bool checkTexture(QString fullPath, QString relPath)
+    static bool checkTexture(QString fullPath, QString relPath)
     {
+        OTSettings set;
         const QString mainDir = set.read("main", "mainDir").toString();
 
         if (fullPath.endsWith("/")) return false; // means in context that no explicit file name is given for this path

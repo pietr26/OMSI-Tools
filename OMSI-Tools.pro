@@ -52,6 +52,12 @@ SOURCES += \
     OTBackend/OCC/OCVehicle.cpp \
     OTBackend/OCC/OCViewable.cpp \
     OTBackend/OCC/OCWeather.cpp \
+    OTBackend/OTContentValidator/OTContentValidator.cpp \
+    OTBackend/OTContentValidator/OTModelConfigValidator.cpp \
+    OTBackend/OTContentValidator/OTSceneryobjectValidator.cpp \
+    OTBackend/OTContentValidator/OTSplineValidator.cpp \
+    OTBackend/OTContentValidator/OTVehicleValidator.cpp \
+    OTBackend/OTFileSource.cpp \
     OTBackend/OTLogger.cpp \
     OTBackend/OTMapScanner.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
@@ -78,6 +84,8 @@ SOURCES += \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp \
     OTModules/wMaps/wmaps.cpp \
+    OTModules/wVerifyMap/Widgets/dlgfilepreview.cpp \
+    OTModules/wVerifyMap/Widgets/dlgsourceslist.cpp \
     OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp \
     OTModules/wVerifyMap/Widgets/wdgtab.cpp \
     OTModules/wcleanup.cpp \
@@ -144,7 +152,13 @@ HEADERS += \
     OTBackend/OCC/OCVehicle.h \
     OTBackend/OCC/OCViewable.h \
     OTBackend/OCC/OCWeather.h \
+    OTBackend/OTContentValidator/OTContentValidator.h \
+    OTBackend/OTContentValidator/OTModelConfigValidator.h \
+    OTBackend/OTContentValidator/OTSceneryobjectValidator.h \
+    OTBackend/OTContentValidator/OTSplineValidator.h \
+    OTBackend/OTContentValidator/OTVehicleValidator.h \
     OTBackend/OTExternal.h \
+    OTBackend/OTFileSource.h \
     OTBackend/OTGlobal.h \
     OTBackend/OTLogger.h \
     OTBackend/OTMapScanner.h \
@@ -174,6 +188,8 @@ HEADERS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.h \
     OTModules/wMaps/wmaps.h \
+    OTModules/wVerifyMap/Widgets/dlgfilepreview.h \
+    OTModules/wVerifyMap/Widgets/dlgsourceslist.h \
     OTModules/wVerifyMap/Widgets/wdgoverviewtile.h \
     OTModules/wVerifyMap/Widgets/wdgtab.h \
     OTModules/wcleanup.h \
@@ -216,6 +232,8 @@ FORMS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.ui \
     OTModules/wMaps/wmaps.ui \
+    OTModules/wVerifyMap/Widgets/dlgfilepreview.ui \
+    OTModules/wVerifyMap/Widgets/dlgsourceslist.ui \
     OTModules/wVerifyMap/Widgets/wdgoverviewtile.ui \
     OTModules/wVerifyMap/Widgets/wdgtab.ui \
     OTModules/wcleanup.ui \

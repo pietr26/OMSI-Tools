@@ -171,50 +171,50 @@ void wVerifyMap::onScannerFinished() {
     ui->pgbProgress->setMaximum(0);
     ui->statusbar->showMessage(tr("checking objects and splines..."));
 
-    ui->wdgTiles->add(_scanner->allTiles(), false);
-    ui->wdgTiles->add(_scanner->missingTiles(), true);
+    ui->wdgTiles->addAll(_scanner->allTiles());
+    ui->wdgTiles->addMissing(_scanner->missingTiles());
     ui->wdgTiles->apply();
     ui->wdgTilesOverview->setTotal(_scanner->allTilesCount());
-    ui->wdgTilesOverview->setMissing(_scanner->missingTilesCount());
+    ui->wdgTilesOverview->setInvalidAndMissing(_scanner->invalidTilesCount(), _scanner->missingTilesCount());
 }
 
 void wVerifyMap::onCheckerFinished() {
     qDebug() << "checker finished";
 
     // SCO:
-    ui->wdgSceneryobjects->add(_checker->allSceneryobjects(), false);
-    ui->wdgSceneryobjects->add(_checker->missingSceneryobjects(), true);
+    ui->wdgSceneryobjects->addAll(_checker->allSceneryobjects());
+    ui->wdgSceneryobjects->addMissing(_checker->missingSceneryobjects());
     ui->wdgSceneryobjects->apply();
     ui->wdgSceneryobjectsOverview->setTotal(_checker->allSceneryobjectsCount());
-    ui->wdgSceneryobjectsOverview->setMissing(_checker->missingSceneryobjectsCount());
+    ui->wdgSceneryobjectsOverview->setInvalidAndMissing(_checker->invalidSceneryobjectsCount(), _checker->missingSceneryobjectsCount());
 
     // SLI:
-    ui->wdgSplines->add(_checker->allSplines(), false);
-    ui->wdgSplines->add(_checker->missingSplines(), true);
+    ui->wdgSplines->addAll(_checker->allSplines());
+    ui->wdgSplines->addMissing(_checker->missingSplines());
     ui->wdgSplines->apply();
     ui->wdgSplinesOverview->setTotal(_checker->allSplinesCount());
-    ui->wdgSplinesOverview->setMissing(_checker->missingSplinesCount());
+    ui->wdgSplinesOverview->setInvalidAndMissing(_checker->invalidSplinesCount(), _checker->missingSplinesCount());
 
     // VEH:
-    ui->wdgVehicles->add(_checker->allVehicles(), false);
-    ui->wdgVehicles->add(_checker->missingVehicles(), true);
+    ui->wdgVehicles->addAll(_checker->allVehicles());
+    ui->wdgVehicles->addMissing(_checker->missingVehicles());
     ui->wdgVehicles->apply();
     ui->wdgVehiclesOverview->setTotal(_checker->allVehiclesCount());
-    ui->wdgVehiclesOverview->setMissing(_checker->missingVehiclesCount());
+    ui->wdgVehiclesOverview->setInvalidAndMissing(_checker->invalidVehiclesCount(), _checker->missingVehiclesCount());
 
     // HUM:
-    ui->wdgHumans->add(_checker->allHumans(), false);
-    ui->wdgHumans->add(_checker->missingHumans(), true);
+    ui->wdgHumans->addAll(_checker->allHumans());
+    ui->wdgHumans->addMissing(_checker->missingHumans());
     ui->wdgHumans->apply();
     ui->wdgHumansOverview->setTotal(_checker->allHumansCount());
-    ui->wdgHumansOverview->setMissing(_checker->missingHumansCount());
+    ui->wdgHumansOverview->setInvalidAndMissing(_checker->invalidHumansCount(), _checker->missingHumansCount());
 
     // GLOBAL TEX:
-    ui->wdgTextures->add(_scanner->allTextures(), false);
-    ui->wdgTextures->add(_scanner->missingTextures(), true);
+    ui->wdgTextures->addAll(_scanner->allTextures());
+    ui->wdgTextures->addMissing(_scanner->missingTextures());
     ui->wdgTextures->apply();
     ui->wdgTexturesOverview->setTotal(_scanner->allTexturesCount());
-    ui->wdgTexturesOverview->setMissing(_scanner->missingTexturesCount());
+    ui->wdgTexturesOverview->setInvalidAndMissing(_scanner->invalidTexturesCount(), _scanner->missingTexturesCount());
 
     qInfo() << "Verification finished.";
     ui->statusbar->showMessage(tr("Verification finished."), 5000);
