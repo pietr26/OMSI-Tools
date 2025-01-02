@@ -723,7 +723,6 @@ public:
 
         if (languageFile != "")
         {
-            QString test = ":/rec/data/translations" + contextIdentifier + "/";
             bool trLoad = translator->load(languageFile, ":/rec/data/translations" + contextIdentifier + "/");
             bool trInstall = qApp->installTranslator(translator);
 
