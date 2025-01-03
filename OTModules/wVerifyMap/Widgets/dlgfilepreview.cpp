@@ -198,3 +198,13 @@ void dlgFilePreview::on_twgPreview_itemClicked(QTreeWidgetItem *item, int column
         openFile(linkedFiles[line], OTContentValidatorResult());
     }
 }
+
+void dlgFilePreview::on_btnOpenDirectory_clicked() {
+    QTreeWidgetItem *itm = ui->twgFiles->currentItem();
+    if(!itm)
+        return;
+
+    QString filePath = itm->text(1);
+    QFileInfo fi(filePath);
+    QDesktopServices::openUrl(QUrl(QUrl::fromLocalFile(fi.dir().path().replace("\\", "/"))));
+}

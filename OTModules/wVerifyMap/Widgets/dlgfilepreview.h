@@ -31,6 +31,8 @@ private slots:
     void on_twgFiles_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous);
     void on_twgPreview_itemClicked(QTreeWidgetItem *item, int column);
 
+    void on_btnOpenDirectory_clicked();
+
 private:
     Ui::dlgFilePreview *ui;
 

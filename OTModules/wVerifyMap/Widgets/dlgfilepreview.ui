@@ -30,6 +30,13 @@
       </spacer>
      </item>
      <item>
+      <widget class="QPushButton" name="btnOpenDirectory">
+       <property name="text">
+        <string>Open directory</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="btnOpenFile">
        <property name="text">
         <string>Open file externally</string>
