@@ -11,6 +11,13 @@ public:
 protected:
     void specificValidate() override;
     void validateLine() override;
+
+    void checkLastProfilePointCount();
+
+    QStringList _textures;
+    QHash<int, int> _textureAssignments;
+    int _lastProfileStart = 0;
+    int _profilePointCount = 0;
 };
 
 #endif // OTSPLINEVALIDATOR_H
