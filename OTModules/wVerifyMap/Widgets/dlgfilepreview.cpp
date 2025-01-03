@@ -18,7 +18,26 @@ dlgFilePreview::dlgFilePreview(QWidget *parent, const QString &filePath, const O
     ui->twgPreview->setColumnHidden(0, true);
     ui->twgPreview->setColumnWidth(1, 50);
 
-    QAction *close = addAction("", QKeySequence(Qt::CTRL | Qt::Key_W));
+    ui->splitter->setSizes({150});
+
+    QAction *closeAction = ui->twgFiles->addAction(QIcon::fromTheme(QIcon::ThemeIcon::WindowClose),
+                                                   tr("Close"),
+                                                   QKeySequence(Qt::CTRL | Qt::Key_W));
+    closeAction->setShortcutContext(Qt::WindowShortcut);
+
+    QAction *openExternallyAction = ui->twgFiles->addAction(QIcon::fromTheme(QIcon::ThemeIcon::FolderOpen),
+                                                            tr("Open externally"),
+                                                            QKeySequence(Qt::CTRL | Qt::Key_Return));
+    openExternallyAction->setShortcutContext(Qt::WindowShortcut);
+
+    connect(openExternallyAction, &QAction::triggered, this, &dlgFilePreview::on_btnOpenFile_clicked);
+    connect(closeAction, &QAction::triggered, this, [this](){
+        delete ui->twgFiles->currentItem();
+    });
+
+    ui->twgFiles->setContextMenuPolicy(Qt::ActionsContextMenu);
+
+    QAction *close = addAction("", QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_W));
     connect(close, &QAction::triggered, this, &dlgFilePreview::close);
 
     openFile(filePath, result);
