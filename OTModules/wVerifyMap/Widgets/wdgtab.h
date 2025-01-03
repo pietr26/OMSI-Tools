@@ -50,14 +50,6 @@ private slots:
 
     void on_twgItems_currentChanged(int index);
 
-    void on_lwgAll_currentRowChanged(int currentRow);
-
-    void on_ledPath_textChanged(const QString &arg1);
-
-    void on_lwgInvalid_currentRowChanged(int currentRow);
-
-    void on_lwgMissing_currentRowChanged(int currentRow);
-
     void on_btnCopyPath_clicked();
 
     void on_btnShowUsages_clicked();
@@ -67,6 +59,12 @@ private slots:
     void on_lwgAll_itemDoubleClicked(QListWidgetItem *item);
 
     void on_lwgInvalid_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_lwgAll_itemSelectionChanged();
+
+    void on_lwgInvalid_itemSelectionChanged();
+
+    void on_lwgMissing_itemSelectionChanged();
 
 private:
     Ui::wdgTab *ui;

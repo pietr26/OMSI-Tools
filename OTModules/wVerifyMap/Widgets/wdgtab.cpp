@@ -15,6 +15,7 @@ wdgTab::wdgTab(QWidget *parent)
     // save the tab widget of "invalid" because we need to remove it if advanced mode is not enabled but we need to add it later again
     invalidItesmWidget = ui->twgItems->widget(1);
     clear();
+    updateDetails();
 }
 
 wdgTab::~wdgTab()
@@ -195,6 +196,8 @@ void wdgTab::updateDetails()
         selectionCount = ui->lwgMissing->selectedItems().count();
     }
 
+    ui->fraDetails->setVisible(selectionCount == 1);
+
     // clear if invalid
     if(!itm || selectionCount > 1) {
         ui->ledPath->clear();
@@ -234,11 +237,9 @@ OTFileSource wdgTab::findSource(QString fileName) const {
 }
 
 void wdgTab::on_twgItems_currentChanged(int index) { Q_UNUSED(index); updateDetails(); }
-void wdgTab::on_lwgAll_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); updateDetails(); }
-void wdgTab::on_lwgInvalid_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); updateDetails(); }
-void wdgTab::on_lwgMissing_currentRowChanged(int currentRow) { Q_UNUSED(currentRow); updateDetails(); }
-
-void wdgTab::on_ledPath_textChanged(const QString &arg1) { ui->btnCopyPath->setEnabled(!arg1.isEmpty()); }
+void wdgTab::on_lwgAll_itemSelectionChanged() { updateDetails(); }
+void wdgTab::on_lwgInvalid_itemSelectionChanged() { updateDetails(); }
+void wdgTab::on_lwgMissing_itemSelectionChanged() { updateDetails(); }
 
 void wdgTab::on_btnCopyPath_clicked()
 {
