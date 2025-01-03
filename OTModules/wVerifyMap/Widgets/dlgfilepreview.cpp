@@ -10,10 +10,10 @@
 
 dlgFilePreview::dlgFilePreview(QWidget *parent, const QString &filePath, const OTContentValidatorResult &result) :
     QDialog(parent),
-    ui(new Ui::dlgFilePreview),
-    _filePath(filePath),
-    _result(result) {
+    ui(new Ui::dlgFilePreview) {
     ui->setupUi(this);
+
+    ui->twgFiles->setColumnHidden(1, true);
 
     ui->twgPreview->setColumnHidden(0, true);
     ui->twgPreview->setColumnWidth(1, 50);
@@ -21,27 +21,48 @@ dlgFilePreview::dlgFilePreview(QWidget *parent, const QString &filePath, const O
     QAction *close = addAction("", QKeySequence(Qt::CTRL | Qt::Key_W));
     connect(close, &QAction::triggered, this, &dlgFilePreview::close);
 
-    QString localFilePath = filePath;
-
-    OTSettings set;
-    setWindowTitle(localFilePath.remove(set.read("main", "mainDir").toString() + "/"));
-    loadFile();
+    openFile(filePath, result);
 }
 
 dlgFilePreview::~dlgFilePreview() {
     delete ui;
 }
 
-void dlgFilePreview::loadFile() {
-    QFile f(_filePath);
+void dlgFilePreview::openFile(const QString &filePath,const OTContentValidatorResult &result) {
+    QTreeWidgetItem *currentItem = ui->twgFiles->currentItem();
+    if(!currentItem && ui->twgFiles->topLevelItemCount() != 0)
+        return;
+
+    QTreeWidgetItem *newItem = new QTreeWidgetItem;
+
+    QFileInfo fi(filePath);
+    fi.fileName();
+    newItem->setText(0, fi.fileName());
+    newItem->setText(1, filePath);
+    _results[filePath] = result;
+    if(ui->twgFiles->topLevelItemCount() != 0)
+        currentItem->addChild(newItem);
+    else
+        ui->twgFiles->addTopLevelItem(newItem);
+    ui->twgFiles->setCurrentItem(newItem);
+}
+
+void dlgFilePreview::loadFile(const QString &filePath) {
+    qApp->setOverrideCursor(QCursor(Qt::WaitCursor));
+    clear();
+    QString localFilePath = filePath;
+    OTSettings set;
+    setWindowTitle(localFilePath.remove(set.read("main", "mainDir").toString() + "/").replace("/", "\\"));
+
+    QFile f(filePath);
     if(!f.exists()) {
-        qWarning() << "File not found: " << _filePath;
+        qWarning() << "File not found: " << filePath;
         QMessageBox::critical(this, tr("File not found"), tr("The file could not be found!"));
         return;
     }
 
     if(!f.open(QFile::ReadOnly)) {
-        qWarning().noquote() << "Could not open file:" << _filePath;
+        qWarning().noquote() << "Could not open file:" << filePath;
         QMessageBox::critical(this, tr("Couldn't open file"), tr("The file could not be opened!"));
         return;
     }
@@ -65,9 +86,11 @@ void dlgFilePreview::loadFile() {
         ui->twgPreview->setItemWidget(itm, 2, label);
     }
 
-    QList<OTContentValidatorIssue> issues = _result.issues();
+    _currentResult = _results[filePath];
 
-    QHash<int, QString> linkedFiles = _result.linkedFiles();
+    QList<OTContentValidatorIssue> issues = _currentResult.issues();
+
+    QHash<int, QString> linkedFiles = _currentResult.linkedFiles();
     for (QHash<int, QString>::const_iterator it = linkedFiles.constBegin(); it != linkedFiles.constEnd(); ++it) {
         int line = it.key();
         QString file = it.value();
@@ -95,8 +118,44 @@ void dlgFilePreview::loadFile() {
 
         label->setText("<html><table width=\"100%\"><tr><td>" + label->text() + "</td><td align=\"right\" style=\"color: " + (OTSettings::currentColorScheme() == Qt::ColorScheme::Dark ? "#FF6666" : "#AA0000") + ";\">" + issue.shortissueDescription() + "</td></tr></table></html>");
     }
+
+    qApp->restoreOverrideCursor();
+}
+
+void dlgFilePreview::clear() {
+    ui->twgPreview->clear();
+    setWindowTitle(tr("No file opened"));
 }
 
 void dlgFilePreview::on_btnOpenFile_clicked() {
-    QDesktopServices::openUrl(QUrl(QUrl::fromLocalFile(_filePath.replace("\\", "/"))));
+    QTreeWidgetItem *itm = ui->twgFiles->currentItem();
+    if(!itm)
+        return;
+
+    openExternally(itm->text(1));
+}
+
+void dlgFilePreview::openExternally(QString filePath) {
+    QDesktopServices::openUrl(QUrl(QUrl::fromLocalFile(filePath.replace("\\", "/"))));
+}
+
+void dlgFilePreview::on_twgFiles_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous) {
+    Q_UNUSED(previous);
+    if(!current)
+        clear();
+    else
+        loadFile(current->text(1));
+}
+
+void dlgFilePreview::on_twgPreview_itemClicked(QTreeWidgetItem *item, int column) {
+    Q_UNUSED(column);
+    if(!item)
+        return;
+
+    int line = ui->twgPreview->indexOfTopLevelItem(item) + 1;
+    QHash<int, QString> linkedFiles = _currentResult.linkedFiles();
+    if(linkedFiles.contains(line)) {
+        // TODO: Implement proper sub-content validator result which is not implemented now!
+        openFile(linkedFiles[line], OTContentValidatorResult());
+    }
 }

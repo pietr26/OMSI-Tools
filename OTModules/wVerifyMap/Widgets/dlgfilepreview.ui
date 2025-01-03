@@ -39,40 +39,61 @@
     </layout>
    </item>
    <item>
-    <widget class="QTreeWidget" name="twgPreview">
-     <property name="font">
-      <font>
-       <family>Lucida Console</family>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::FocusPolicy::NoFocus</enum>
-     </property>
-     <property name="editTriggers">
-      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
-     </property>
-     <property name="headerHidden">
-      <bool>true</bool>
-     </property>
-     <column>
-      <property name="text">
-       <string notr="true">dummy</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string notr="true">lineNr</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string notr="true">content</string>
-      </property>
-     </column>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,4">
+     <item>
+      <widget class="QTreeWidget" name="twgFiles">
+       <property name="headerHidden">
+        <bool>true</bool>
+       </property>
+       <column>
+        <property name="text">
+         <string notr="true">File name</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string notr="true">File path</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTreeWidget" name="twgPreview">
+       <property name="font">
+        <font>
+         <family>Lucida Console</family>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::FocusPolicy::NoFocus</enum>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+       </property>
+       <property name="headerHidden">
+        <bool>true</bool>
+       </property>
+       <column>
+        <property name="text">
+         <string notr="true">dummy</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string notr="true">lineNr</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string notr="true">content</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
