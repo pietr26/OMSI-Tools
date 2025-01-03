@@ -85,7 +85,7 @@ void dlgFilePreview::loadFile() {
         int line = issue.lineNumber();
         QTreeWidgetItem *itm = ui->twgPreview->topLevelItem(line - 1);
         if(!itm)
-            return;
+            continue;
 
         itm->setBackground(1, QColor(255, 0, 0, 64));
         itm->setBackground(2, QColor(255, 0, 0, 64));
