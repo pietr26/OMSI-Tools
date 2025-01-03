@@ -88,7 +88,7 @@ SOURCES += \
     OTModules/wVerifyMap/Widgets/dlgsourceslist.cpp \
     OTModules/wVerifyMap/Widgets/wdgoverviewtile.cpp \
     OTModules/wVerifyMap/Widgets/wdgtab.cpp \
-    OTModules/wcleanup.cpp \
+    OTModules/wCleanup/wcleanup.cpp \
     OTModules/wmapselection.cpp \
     OTModules/wmessageviewer.cpp \
     OTWidgets/fadeinouttext.cpp \
@@ -192,7 +192,7 @@ HEADERS += \
     OTModules/wVerifyMap/Widgets/dlgsourceslist.h \
     OTModules/wVerifyMap/Widgets/wdgoverviewtile.h \
     OTModules/wVerifyMap/Widgets/wdgtab.h \
-    OTModules/wcleanup.h \
+    OTModules/wCleanup/wcleanup.h \
     OTModules/wmapselection.h \
     OTModules/wmessageviewer.h \
     OTModules/OTInternals/wdevtools.h \
@@ -236,7 +236,7 @@ FORMS += \
     OTModules/wVerifyMap/Widgets/dlgsourceslist.ui \
     OTModules/wVerifyMap/Widgets/wdgoverviewtile.ui \
     OTModules/wVerifyMap/Widgets/wdgtab.ui \
-    OTModules/wcleanup.ui \
+    OTModules/wCleanup/wcleanup.ui \
     OTModules/wmapselection.ui \
     OTModules/wmessageviewer.ui \
     OTModules/OTInternals/wdevtools.ui \

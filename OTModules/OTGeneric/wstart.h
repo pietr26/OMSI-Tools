@@ -2,7 +2,7 @@
 #define WSTART_H
 
 #include <QMainWindow>
-#include "OTModules/wcleanup.h"
+#include "OTModules/wCleanup/wcleanup.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/OTGeneric/wreleasenotes.h"
