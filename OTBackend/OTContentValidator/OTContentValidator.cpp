@@ -80,6 +80,31 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
             QObject::tr("Material property definition without leading [matl]/[matl_change]"),
             QObject::tr("Material property definition without leading [matl]/[matl_change]")
         );
+    case ProfileTextureIndexOutOfRange:
+        return QPair<QString, QString>(
+            QObject::tr("Invalid texture index"),
+            QObject::tr("Texture index is out of range: Min: 0; Max: %1").arg(args.isEmpty() ? "unkown" : args[0])
+        );
+    case ProfilePointWithoutProfile:
+        return QPair<QString, QString>(
+            QObject::tr("Profile point without leading [profile]"),
+            QObject::tr("Profile point without leading [profile]")
+        );
+    case TooFewProfilePoints:
+        return QPair<QString, QString>(
+            QObject::tr("Too few profile points"),
+            QObject::tr("This profile doesn't have enough profile points (has %1, needs at least 2)").arg(args.isEmpty() ? "unkown" : args[0])
+        );
+    case InvalidPathType:
+        return QPair<QString, QString>(
+            QObject::tr("Invalid path type"),
+            QObject::tr("\"%1\" is not a valid path type (valid: 0; 1; 2; 3)").arg(args.isEmpty() ? "unkown" : args[0])
+        );
+    case InvalidPathDirection:
+        return QPair<QString, QString>(
+            QObject::tr("Invalid path direction"),
+            QObject::tr("\"%1\" is not a valid path direction (valid: 0; 1; 2)").arg(args.isEmpty() ? "unkown" : args[0])
+        );
     default:
         qDebug() << "missing issue description for " << e;
         return QPair<QString, QString>(QObject::tr("Unknown issue"), QObject::tr("Unknown issue"));

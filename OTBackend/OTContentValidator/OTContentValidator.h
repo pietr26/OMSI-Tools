@@ -38,7 +38,14 @@ public:
         MissingTextureFile,
         MeshConfigWithoutMesh,
         MaterialWithoutMesh,
-        MaterialPropertyWithoutMaterial
+        MaterialPropertyWithoutMaterial,
+
+        // Spline issues
+        ProfileTextureIndexOutOfRange,
+        ProfilePointWithoutProfile,
+        TooFewProfilePoints,
+        InvalidPathType,
+        InvalidPathDirection
     };
 
     int lineNumber() const;
