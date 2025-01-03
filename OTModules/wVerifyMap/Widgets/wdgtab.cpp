@@ -218,7 +218,7 @@ void wdgTab::updateDetails()
             ui->lblStatus->setText(tr("valid"));
             ui->lblStatus->setStyleSheet("color: #55aa00;");
         } else {
-            ui->lblStatus->setText(tr("%1 issue(s) found").arg(source.advancedCheckResult().issueCount()));
+            ui->lblStatus->setText(tr("%n issue(s) found", "", source.advancedCheckResult().issueCount()));
             ui->lblStatus->setStyleSheet("color: #ffaa00;");
         }
     }

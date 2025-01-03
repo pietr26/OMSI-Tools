@@ -38,7 +38,7 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
     case FileNotOpen:
         return QPair<QString, QString>(
             QObject::tr("Could not open file"),
-            QObject::tr("Could not open file %1: %2").arg(args.isEmpty() ? "" : args[0]).arg(args.count() < 2 ? "unkown error" : args[1])
+            QObject::tr("Could not open file %1: %2").arg(args.isEmpty() ? "" : args[0]).arg(args.count() < 2 ? "unknown error" : args[1])
         );
     case InvalidIntegerValue:
         return QPair<QString, QString>(
@@ -82,7 +82,7 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
         );
     default:
         qDebug() << "missing issue description for " << e;
-        return QPair<QString, QString>(QObject::tr("Unkown issue"), QObject::tr("Unknown issue"));
+        return QPair<QString, QString>(QObject::tr("Unknown issue"), QObject::tr("Unknown issue"));
     }
 }
 

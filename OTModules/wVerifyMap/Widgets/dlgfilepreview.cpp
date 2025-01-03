@@ -18,6 +18,9 @@ dlgFilePreview::dlgFilePreview(QWidget *parent, const QString &filePath, const O
     ui->twgPreview->setColumnHidden(0, true);
     ui->twgPreview->setColumnWidth(1, 50);
 
+    QAction *close = addAction("", QKeySequence(Qt::CTRL | Qt::Key_W));
+    connect(close, &QAction::triggered, this, &dlgFilePreview::close);
+
     QString localFilePath = filePath;
 
     OTSettings set;
