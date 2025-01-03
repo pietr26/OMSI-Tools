@@ -2710,7 +2710,7 @@ Je nach Leistung des Computers und der Internetverbindung kann dieser Vorgang ei
         <source>%n invalid</source>
         <translation>
             <numerusform>%n fehlerhaft</numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n fehlerhaft</numerusform>
         </translation>
     </message>
 </context>
