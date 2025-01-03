@@ -67,6 +67,20 @@ void dlgFilePreview::loadFile() {
 
     QList<OTContentValidatorIssue> issues = _result.issues();
 
+    QHash<int, QString> linkedFiles = _result.linkedFiles();
+    for (QHash<int, QString>::const_iterator it = linkedFiles.constBegin(); it != linkedFiles.constEnd(); ++it) {
+        int line = it.key();
+        QString file = it.value();
+
+        QTreeWidgetItem *itm = ui->twgPreview->topLevelItem(line - 1);
+        if(!itm)
+            continue;
+
+        QLabel *label = qobject_cast<QLabel*>(ui->twgPreview->itemWidget(itm, 2));
+        QString colorCode = OTSettings::currentColorScheme() == Qt::ColorScheme::Dark ? "#00aaff" : "#0055ff";
+        label->setText("<u style=\"color: " + colorCode + ";\">" + label->text() + "</u>");
+    }
+
     for(OTContentValidatorIssue issue : issues) {
         int line = issue.lineNumber();
         QTreeWidgetItem *itm = ui->twgPreview->topLevelItem(line - 1);
