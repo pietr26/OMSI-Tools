@@ -22,6 +22,7 @@ void OTSplineValidator::validateLine() {
         _meshFound = true;
         _matlFound = true;
         readNextLine();
+        // FIXME: remove spaces
         if(!OTOMSIFileHandler::checkTexture(_fileDir + "/texture/" + _currentLine, _currentLine))
             throwIssue(OTContentValidatorIssue::MissingTextureFile, {_currentLine});
         else
