@@ -166,6 +166,12 @@ QString OTContentValidator::readNextLine() {
     return _currentLine;
 }
 
+void OTContentValidator::throwIssueAtLine(const int &lineNumber,
+                                    const OTContentValidatorIssue::IssueType &errorType,
+                                    const QStringList &arguments) {
+    _result << OTContentValidatorIssue(lineNumber, errorType, arguments);
+}
+
 void OTContentValidator::throwIssue(const OTContentValidatorIssue::IssueType &errorType, const QStringList &arguments) {
-    _result << OTContentValidatorIssue(_currentLineNumber, errorType, arguments);
+    throwIssueAtLine(_currentLineNumber, errorType, arguments);
 }

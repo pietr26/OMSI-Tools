@@ -90,6 +90,7 @@ protected:
     virtual void specificValidate() = 0;
     virtual void validateLine() = 0;
     QString readNextLine();
+    void throwIssueAtLine(const int &lineNumber, const OTContentValidatorIssue::IssueType &errorType, const QStringList &args = {});
     void throwIssue(const OTContentValidatorIssue::IssueType &errorType, const QStringList &args = {});
 
     OTContentValidatorResult _result;
