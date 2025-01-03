@@ -15,6 +15,7 @@ void OTModelConfigValidator::specificValidate() {
 
 void OTModelConfigValidator::validateLine() {
     // missing mesh files
+    // FIXME: remove spaces
     if(_currentLine == "[mesh]" || _currentLine == "[collision_mesh]") {
         _meshFound = true;
         _matlFound = false;
