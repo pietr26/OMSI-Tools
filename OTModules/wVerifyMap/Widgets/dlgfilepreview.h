@@ -18,6 +18,8 @@ public:
     ~dlgFilePreview();
 
     static void openExternally(QString filePath);
+    static bool isBinaryFile(const QString &filePath);
+
 protected:
     void openFile(const QString &filePath, const OTContentValidatorResult &result);
     void loadFile(const QString &filePath);
@@ -34,6 +36,7 @@ private:
 
     QHash<QString, OTContentValidatorResult> _results;
     OTContentValidatorResult _currentResult;
+    inline static const QStringList _binaryFileTypes = {"o3d", "bmp", "png", "tga", "dds", "jpg", "wav", "terrain", "rdy", "water", "dll", "exe"};
 };
 
 #endif // DLGFILEPREVIEW_H

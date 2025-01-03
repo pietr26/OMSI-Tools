@@ -262,6 +262,11 @@ void wdgTab::on_btnPreviewFile_clicked() {
     if(!QFile::exists(file))
         return;
 
+    if(dlgFilePreview::isBinaryFile(file)) {
+        dlgFilePreview::openExternally(file);
+        return;
+    }
+
     dlgFilePreview dlg(this, file, findSource(ui->ledPath->text()).advancedCheckResult());
     dlg.exec();
 }

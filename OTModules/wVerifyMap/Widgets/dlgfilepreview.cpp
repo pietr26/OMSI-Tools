@@ -29,6 +29,11 @@ dlgFilePreview::~dlgFilePreview() {
 }
 
 void dlgFilePreview::openFile(const QString &filePath,const OTContentValidatorResult &result) {
+    if(isBinaryFile(filePath)) {
+        openExternally(filePath);
+        return;
+    }
+
     QTreeWidgetItem *currentItem = ui->twgFiles->currentItem();
     if(!currentItem && ui->twgFiles->topLevelItemCount() != 0)
         return;
@@ -137,6 +142,10 @@ void dlgFilePreview::on_btnOpenFile_clicked() {
 
 void dlgFilePreview::openExternally(QString filePath) {
     QDesktopServices::openUrl(QUrl(QUrl::fromLocalFile(filePath.replace("\\", "/"))));
+}
+
+bool dlgFilePreview::isBinaryFile(const QString &filePath) {
+    return _binaryFileTypes.contains(filePath.split(".").last());
 }
 
 void dlgFilePreview::on_twgFiles_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous) {
