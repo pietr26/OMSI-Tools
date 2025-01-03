@@ -38,7 +38,7 @@ private:
 
     QHash<QString, OTContentValidatorResult> _results;
     OTContentValidatorResult _currentResult;
-    inline static const QStringList _binaryFileTypes = {"o3d", "bmp", "png", "tga", "dds", "jpg", "wav", "terrain", "rdy", "water", "dll", "exe"};
+    inline static const QStringList _binaryFileTypes = {"o3d", "bmp", "png", "tga", "dds", "jpg", "wav", "terrain", "rdy", "water", "dll", "exe", "surf"};
 };
 
 #endif // DLGFILEPREVIEW_H
