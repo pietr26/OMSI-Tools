@@ -19,8 +19,7 @@ void OTModelConfigValidator::validateLine() {
         _meshFound = true;
         _matlFound = false;
         QString mesh = readNextLine();
-        // FIXME: remove spaces
-        if(!QFile::exists(_fileDir + "/model/" + mesh)) {
+        if(!QFile::exists(_fileDir + "/model/" + mesh.trimmed())) {
             throwIssue(OTContentValidatorIssue::MissingMeshFile, {mesh});
             return;
         } else {
@@ -55,7 +54,7 @@ void OTModelConfigValidator::validateLine() {
         readNextLine();
         int i = 1;
         while(i <= count && !_stream->atEnd()) {
-            if(!QFile::exists(_fileDir + "/" + _currentLine)) {
+            if(!QFile::exists(_fileDir + "/" + _currentLine.trimmed())) {
                 throwIssue(OTContentValidatorIssue::MissingScriptFile, {_currentLine});
             } else {
                 addLinkedFile(_fileDir + "/" + _currentLine);
