@@ -24,8 +24,6 @@ wdgEditor::wdgEditor(QWidget *parent, OCFont::FontCollection *font)
     actionsEdit << actionMoveUp;
     actionMoveDown = new QAction(QIcon::fromTheme("go-down"), tr("Move item down")); actionMoveDown->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Down));
     actionsEdit << actionMoveDown;
-    actionSearch = new QAction(QIcon::fromTheme("edit-find"), tr("Search")); actionSearch->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));
-    actionsEdit << actionSearch; ui->ledSearch->addAction(actionSearch, QLineEdit::TrailingPosition);
 
     ui->tvwChars->addActions(actionsEdit);
 
@@ -38,7 +36,6 @@ wdgEditor::wdgEditor(QWidget *parent, OCFont::FontCollection *font)
     connect(actionMoveDown, &QAction::triggered, this, [this]() {
         moveElement(ui->tvwChars->currentIndex().row(), Move::Down);
     });
-    connect(actionSearch, &QAction::triggered, this, &wdgEditor::search);
 
     connect(ui->btnAddFont, &QPushButton::clicked, this, &wdgEditor::addFont);
     connect(ui->btnAddCharacter, &QPushButton::clicked, this, &wdgEditor::addCharacter);
@@ -57,8 +54,6 @@ wdgEditor::wdgEditor(QWidget *parent, OCFont::FontCollection *font)
     connect(actionMoveDown, &QAction::enabledChanged, ui->btnMoveDown, &QPushButton::setEnabled);
 
     // --------------------------------------------------------------
-
-    ui->fraSearch->setVisible(false);
 
     reloadUi();
 }
@@ -275,42 +270,9 @@ void wdgEditor::deleteItem()
     emit setModified(true);
 }
 
-void wdgEditor::search() // BUG
-{
-    if (!ui->fraSearch->isVisible())
-    {
-        ui->fraSearch->setVisible(true);
-        ui->ledSearch->selectAll();
-        return;
-    }
-
-    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) return;
-    currentSearch = ui->ledSearch->text();
-
-    qDebug().noquote() << "Find char: '" + currentSearch + "'";
-
-    // Search for char
-    ui->tvwChars->setCurrentIndex(model->index(0, 0));
-
-    for (int i = 0; i < _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.count(); i++)
-    {
-        if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->characters.at(i)->character == currentSearch)
-        {
-            reloadUi();
-            return;
-        }
-
-        ui->tvwChars->setCurrentIndex(model->index(i + 1, 0));
-    }
-
-    QMessageBox::information(this, tr("Character not found"), tr("The entered character could not be found."));
-    qDebug() << "Character not found.";
-    currentSearch.clear();
-}
-
 void wdgEditor::checkCharValidity()
 {
-    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) return; // TODO: Check of all characters (with in-TreeView stylesheeting)
+    if (!_font->selection.contains(OCFont::FontCollection::CharacterSelection)) return;
 
     ui->lblCharacter->setStyleSheet("");
     ui->lblRightPixel->setStyleSheet("");
@@ -466,6 +428,7 @@ void wdgEditor::reloadUi(bool reset, bool selectionChange)
     for (int i = 0; i < model->rowCount(); i++)
         fontExpansions << ui->tvwChars->isExpanded(model->index(i, 0)); // TODO: implement for delete, move!
 
+    // Neladen der Font
     if (!selectionChange)
     {
         model->clear();
@@ -621,9 +584,4 @@ void wdgEditor::on_sbxDistanceBetweenChars_valueChanged(int arg1)
 
     reloadUi();
     emit setModified(true);
-}
-
-void wdgEditor::on_btnCloseSearch_clicked()
-{
-    ui->fraSearch->setVisible(false);
 }

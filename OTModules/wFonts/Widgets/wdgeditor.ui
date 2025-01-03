@@ -54,52 +54,6 @@
       <layout class="QHBoxLayout" name="horizontalLayout_6"/>
      </item>
      <item>
-      <widget class="QFrame" name="fraSearch">
-       <layout class="QHBoxLayout" name="horizontalLayout_8">
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLineEdit" name="ledSearch">
-          <property name="font">
-           <font>
-            <family>Consolas</family>
-           </font>
-          </property>
-          <property name="maxLength">
-           <number>32767</number>
-          </property>
-          <property name="placeholderText">
-           <string>Font or character</string>
-          </property>
-          <property name="clearButtonEnabled">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnCloseSearch">
-          <property name="icon">
-           <iconset theme="application-exit"/>
-          </property>
-          <property name="flat">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
       <widget class="QTreeView" name="tvwChars">
        <property name="contextMenuPolicy">
         <enum>Qt::ContextMenuPolicy::ActionsContextMenu</enum>

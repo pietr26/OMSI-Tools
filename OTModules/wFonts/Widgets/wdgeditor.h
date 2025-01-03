@@ -48,8 +48,6 @@ private slots:
 
     void on_sbxDistanceBetweenChars_valueChanged(int arg1);
 
-    void on_btnCloseSearch_clicked();
-
 public slots:
     void reloadUi(bool reset = false, bool selectionChange = false);
 
@@ -61,7 +59,6 @@ public slots:
     void addFont();
     void addCharacter();
     void deleteItem();
-    void search();
 
 signals:
     void setModified(bool state);
@@ -94,14 +91,11 @@ private:
 
     void moveElement(int selection, Move action);
 
-    QString currentSearch;
-
     QAction *actionAddFont;
     QAction *actionAddCharacter;
     QAction *actionDeleteItem;
     QAction *actionMoveUp;
     QAction *actionMoveDown;
-    QAction *actionSearch;
 };
 
 #endif // WDGEDITOR_H
