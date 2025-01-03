@@ -16,6 +16,9 @@ dlgSourcesList::dlgSourcesList(QWidget *parent)
     ui->twgSources->setColumnWidth(0, 0);
     ui->twgSources->setColumnWidth(2, 50);
 
+    QAction *close = addAction("", QKeySequence(Qt::CTRL | Qt::Key_W));
+    connect(close, &QAction::triggered, this, &dlgSourcesList::close);
+
     ui->twgSources->setContextMenuPolicy(Qt::ActionsContextMenu);
 
     QAction *action = ui->twgSources->addAction(QIcon::fromTheme(QIcon::ThemeIcon::EditCopy), tr("Copy"));
