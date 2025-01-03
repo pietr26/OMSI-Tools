@@ -99,6 +99,9 @@ protected:
     void addLinkedFile(const int &lineNumber, const QString &filePath);
     void addLinkedFile(const QString &filePath);
 
+    static bool isValidInt(const QString &);
+    static bool isValidFloat(const QString &);
+
     OTContentValidatorResult _result;
 
     QString _filePath, _fileDir, _omsiDir;

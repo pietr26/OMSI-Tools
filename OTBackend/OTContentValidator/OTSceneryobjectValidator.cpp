@@ -33,20 +33,8 @@ void OTSceneryobjectValidator::validateLine() {
             addLinkedFile(_fileDir + "/texture/" + _currentLine);
 
         // check numeric values
-        bool ok;
-        readNextLine().toFloat(&ok);
-        if(!ok)
-            throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
-        readNextLine().toFloat(&ok);
-        if(!ok)
-            throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
-        readNextLine().toFloat(&ok);
-        if(!ok)
-            throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
-        readNextLine().toFloat(&ok);
-        if(!ok)
-            throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
-
-        return;
+        for(int i = 0; i < 4; i++)
+            if(!isValidFloat(readNextLine()))
+                throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
     }
 }

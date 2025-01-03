@@ -190,3 +190,15 @@ void OTContentValidator::addLinkedFile(const int &lineNumber, const QString &fil
 void OTContentValidator::addLinkedFile(const QString &filePath) {
     addLinkedFile(_currentLineNumber, filePath);
 }
+
+bool OTContentValidator::isValidInt(const QString &string) {
+    bool ok;
+    string.toInt(&ok);
+    return ok;
+}
+
+bool OTContentValidator::isValidFloat(const QString &string) {
+    bool ok;
+    string.toFloat(&ok);
+    return ok;
+}
