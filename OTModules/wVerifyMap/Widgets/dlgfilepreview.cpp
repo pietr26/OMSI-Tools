@@ -38,6 +38,17 @@ void dlgFilePreview::openFile(const QString &filePath,const OTContentValidatorRe
     if(!currentItem && ui->twgFiles->topLevelItemCount() != 0)
         return;
 
+    // check, if the file is already opened
+    if(currentItem) {
+        for(int i = 0; i < currentItem->childCount(); i++) {
+            QTreeWidgetItem *itm = currentItem->child(i);
+            if(itm->text(1) == filePath) {
+                ui->twgFiles->setCurrentItem(itm);
+                return;
+            }
+        }
+    }
+
     QTreeWidgetItem *newItem = new QTreeWidgetItem;
 
     QFileInfo fi(filePath);
