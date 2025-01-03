@@ -446,7 +446,7 @@ void OTMapScanner::scanParkLists() {
         QFile f(path);
         QString fileName = "parklist_p" + indexStr + ".txt";
 
-        qInfo() << "reading " << fileName;
+        qInfo().noquote() << "reading" << fileName;
         if(!f.exists() && i != 0)
             break;
         else if(!f.exists()) {

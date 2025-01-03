@@ -41,7 +41,7 @@ void dlgFilePreview::loadFile() {
     }
 
     if(!f.open(QFile::ReadOnly)) {
-        qWarning() << "Could not open file: " << _filePath;
+        qWarning().noquote() << "Could not open file:" << _filePath;
         QMessageBox::critical(this, tr("Couldn't open file"), tr("The file could not be opened!"));
         return;
     }
