@@ -169,7 +169,7 @@ void wVerifyMap::onScannerFinished() {
     qDebug() << "scanner finished";
 
     ui->pgbProgress->setMaximum(0);
-    ui->statusbar->showMessage(tr("checking objects and splines..."));
+    ui->statusbar->showMessage(tr("Checking sceneryobjects and splines..."));
 
     ui->wdgTiles->addAll(_scanner->allTiles());
     ui->wdgTiles->addMissing(_scanner->missingTiles());

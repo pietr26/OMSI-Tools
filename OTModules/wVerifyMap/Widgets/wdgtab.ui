@@ -81,7 +81,7 @@
       </widget>
       <widget class="QWidget" name="tabInvalid">
        <attribute name="title">
-        <string>invalid</string>
+        <string notr="true">invalid</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
@@ -247,7 +247,7 @@
            <item>
             <widget class="QPushButton" name="btnPreviewFile">
              <property name="text">
-              <string>Preview File</string>
+              <string>Preview file</string>
              </property>
             </widget>
            </item>
