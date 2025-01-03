@@ -69,9 +69,13 @@ public:
 
     void addIssue(const OTContentValidatorIssue &issue);
 
+    QHash<int, QString> linkedFiles() const;
+    void addLinkedFile(const int &lineNumber, const QString &filePath);
+
 private:
     QString _fileName;
     QList<OTContentValidatorIssue> _issues;
+    QHash<int, QString> _linkedFiles;
 };
 
 class OTContentValidator : public QObject {
@@ -92,6 +96,8 @@ protected:
     QString readNextLine();
     void throwIssueAtLine(const int &lineNumber, const OTContentValidatorIssue::IssueType &errorType, const QStringList &args = {});
     void throwIssue(const OTContentValidatorIssue::IssueType &errorType, const QStringList &args = {});
+    void addLinkedFile(const int &lineNumber, const QString &filePath);
+    void addLinkedFile(const QString &filePath);
 
     OTContentValidatorResult _result;
 

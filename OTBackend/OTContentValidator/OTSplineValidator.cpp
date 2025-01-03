@@ -22,9 +22,9 @@ void OTSplineValidator::validateLine() {
         _meshFound = true;
         _matlFound = true;
         readNextLine();
-        if(!OTOMSIFileHandler::checkTexture(_fileDir + "/texture/" + _currentLine, _currentLine)) {
+        if(!OTOMSIFileHandler::checkTexture(_fileDir + "/texture/" + _currentLine, _currentLine))
             throwIssue(OTContentValidatorIssue::MissingTextureFile, {_currentLine});
-            return;
-        }
+        else
+            addLinkedFile(_fileDir + "/texture/" + _currentLine);
     }
 }

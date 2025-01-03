@@ -29,6 +29,8 @@ void OTSceneryobjectValidator::validateLine() {
         readNextLine();
         if(!OTOMSIFileHandler::checkTexture(_fileDir + "/texture/" + _currentLine, _currentLine))
             throwIssue(OTContentValidatorIssue::MissingTextureFile, {_currentLine});
+        else
+            addLinkedFile(_fileDir + "/texture/" + _currentLine);
 
         // check numeric values
         bool ok;

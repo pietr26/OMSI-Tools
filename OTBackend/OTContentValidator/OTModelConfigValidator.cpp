@@ -23,6 +23,8 @@ void OTModelConfigValidator::validateLine() {
         if(!QFile::exists(_fileDir + "/model/" + mesh)) {
             throwIssue(OTContentValidatorIssue::MissingMeshFile, {mesh});
             return;
+        } else {
+            addLinkedFile(_fileDir + "/model/" + mesh);
         }
     }
 
@@ -55,6 +57,8 @@ void OTModelConfigValidator::validateLine() {
         while(i <= count && !_stream->atEnd()) {
             if(!QFile::exists(_fileDir + "/" + _currentLine)) {
                 throwIssue(OTContentValidatorIssue::MissingScriptFile, {_currentLine});
+            } else {
+                addLinkedFile(_fileDir + "/" + _currentLine);
             }
             i++;
             readNextLine();

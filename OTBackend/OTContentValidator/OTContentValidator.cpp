@@ -115,6 +115,13 @@ void OTContentValidatorResult::addIssue(const OTContentValidatorIssue &issue) {
     _issues << issue;
 }
 
+QHash<int, QString> OTContentValidatorResult::linkedFiles() const {
+    return _linkedFiles;
+}
+
+void OTContentValidatorResult::addLinkedFile(const int &lineNumber, const QString &filePath) {
+    _linkedFiles[lineNumber] = filePath;
+}
 
 OTContentValidator::OTContentValidator(QObject *parent, const QString &filePath) :
     QObject(parent),
@@ -174,4 +181,12 @@ void OTContentValidator::throwIssueAtLine(const int &lineNumber,
 
 void OTContentValidator::throwIssue(const OTContentValidatorIssue::IssueType &errorType, const QStringList &arguments) {
     throwIssueAtLine(_currentLineNumber, errorType, arguments);
+}
+
+void OTContentValidator::addLinkedFile(const int &lineNumber, const QString &filePath) {
+    _result.addLinkedFile(lineNumber, filePath);
+}
+
+void OTContentValidator::addLinkedFile(const QString &filePath) {
+    addLinkedFile(_currentLineNumber, filePath);
 }
