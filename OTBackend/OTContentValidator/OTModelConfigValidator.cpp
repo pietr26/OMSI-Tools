@@ -114,7 +114,7 @@ void OTModelConfigValidator::validateLine() {
     if(_currentLine == "[scripttexture") {
         for(int i = 0; i < 2; i++)
             if(!isValidFloat(readNextLine()))
-                throwIssue(OTContentValidatorIssue::InvalidIntegerValue);
+                throwIssue(OTContentValidatorIssue::InvalidIntegerValue, {_currentLine});
         return;
     }
 }
