@@ -11,6 +11,7 @@ public:
 protected:
     void specificValidate() override;
     void validateLine() override;
+    void finalizeValidation() override;
 
     void checkLastProfilePointCount();
 

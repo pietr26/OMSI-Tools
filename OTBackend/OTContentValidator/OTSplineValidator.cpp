@@ -15,12 +15,8 @@ void OTSplineValidator::specificValidate() {
         OTModelConfigValidator::validateLine();
     }
 
-    checkLastProfilePointCount();
-
-    int textureCount = _textures.count();
-    for (auto it = _textureAssignments.begin(); it != _textureAssignments.end(); it++)
-        if(it.value() < 0 || it.value() >= textureCount)
-            throwIssueAtLine(it.key() + 1, OTContentValidatorIssue::ProfileTextureIndexOutOfRange, {QString::number(textureCount - 1)});
+    finalizeValidation();
+    OTModelConfigValidator::finalizeValidation();
 }
 
 void OTSplineValidator::validateLine() {
@@ -92,6 +88,15 @@ void OTSplineValidator::validateLine() {
                 throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
 
     }
+}
+
+void OTSplineValidator::finalizeValidation() {
+    checkLastProfilePointCount();
+
+    int textureCount = _textures.count();
+    for (auto it = _textureAssignments.begin(); it != _textureAssignments.end(); it++)
+        if(it.value() < 0 || it.value() >= textureCount)
+            throwIssueAtLine(it.key() + 1, OTContentValidatorIssue::ProfileTextureIndexOutOfRange, {QString::number(textureCount - 1)});
 }
 
 void OTSplineValidator::checkLastProfilePointCount() {

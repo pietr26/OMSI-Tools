@@ -16,6 +16,8 @@ void OTSceneryobjectValidator::specificValidate() {
         validateLine();
         OTModelConfigValidator::validateLine();
     }
+
+    OTModelConfigValidator::finalizeValidation();
 }
 
 void OTSceneryobjectValidator::validateLine() {
