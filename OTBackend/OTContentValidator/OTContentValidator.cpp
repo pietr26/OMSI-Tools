@@ -100,7 +100,11 @@ void OTContentValidator::validate() {
     }
 
     _stream = new QTextStream(&f);
-    _stream->setEncoding(QStringConverter::Latin1);
+    QTextStream s(&f);
+    if(_filePath.endsWith(".map"))
+        _stream->setEncoding(QStringConverter::Utf16LE);
+    else
+        _stream->setEncoding(QStringConverter::Latin1);
     specificValidate();
     f.close();
 }

@@ -103,6 +103,11 @@ void dlgFilePreview::loadFile(const QString &filePath) {
     }
 
     QTextStream s(&f);
+    if(filePath.endsWith(".map"))
+        s.setEncoding(QStringConverter::Utf16LE);
+    else
+        s.setEncoding(QStringConverter::Latin1);
+
     QString text = s.readAll();
     f.close();
 
