@@ -148,3 +148,9 @@ bool OTContentValidator::isValidFloat(const QString &string) {
     string.toFloat(&ok);
     return ok;
 }
+
+bool OTContentValidator::isValidRgbValue(const QString &string) {
+    bool ok;
+    int val = string.toInt(&ok);
+    return !(!ok || val < 0 || val > 255);
+}

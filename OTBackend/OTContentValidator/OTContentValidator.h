@@ -110,6 +110,7 @@ protected:
 
     static bool isValidInt(const QString &);
     static bool isValidFloat(const QString &);
+    static bool isValidRgbValue(const QString &);
 
     OTContentValidatorResult _result;
 
