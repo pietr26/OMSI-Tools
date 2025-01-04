@@ -54,7 +54,8 @@ public:
     QString longissueDescription() const;
 
 protected:
-    QPair<QString, QString> issueDescription(const int &e, const QStringList &arguments = {}) const;
+    static QPair<QString, QString> issueDescription(const int &e, const QStringList &arguments = {});
+    static QString issueArgument(const QStringList &args, const int &index, const QString &defaultValue = "");
 
 private:
     int _lineNumber;

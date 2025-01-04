@@ -53,6 +53,7 @@ SOURCES += \
     OTBackend/OCC/OCViewable.cpp \
     OTBackend/OCC/OCWeather.cpp \
     OTBackend/OTContentValidator/OTContentValidator.cpp \
+    OTBackend/OTContentValidator/OTContentValidatorIssueDescriptions.cpp \
     OTBackend/OTContentValidator/OTModelConfigValidator.cpp \
     OTBackend/OTContentValidator/OTSceneryobjectValidator.cpp \
     OTBackend/OTContentValidator/OTSplineValidator.cpp \
