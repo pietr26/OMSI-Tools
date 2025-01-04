@@ -43,20 +43,44 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
         longDesc  = QObject::tr("Texture file \"%1\" was not found!").arg(issueArgument(args, 0));
         break;
     case MeshConfigWithoutMesh:
-        bothDesc =  QObject::tr("Mesh configuration without leading [mesh]");
+        bothDesc  = QObject::tr("Mesh configuration without leading [mesh]");
         break;
     case MaterialWithoutMesh:
-        bothDesc =  QObject::tr("Material definition without leading [mesh]");
+        bothDesc  = QObject::tr("Material definition without leading [mesh]");
+        break;
+    case InvalidRgbValue:
+        shortDesc = QObject::tr("Invalid RGB value");
+        longDesc  = QObject::tr("\"%1\" Is not a valid RGB value (Min: 0; Max: 255)").arg(issueArgument(args, 0, "unkown"));
+        break;
+    case InvalidTexttextureColorMode:
+        shortDesc = QObject::tr("Invalid texttexture color mode");
+        longDesc  = QObject::tr("\"%1\" is not a valid texttexture color mode (valid: 0; 1)").arg(issueArgument(args, 0, "unkown"));
+        break;
+    case InvalidTexttextureAlignment:
+        shortDesc = QObject::tr("Invalid texttexture alignment");
+        longDesc  = QObject::tr("\"%1\" is not a valid texttexture alignment (valid: 0; 1; 2; 3; 4; 5)").arg(issueArgument(args, 0, "unkown"));
+        break;
+    case InvalidTexttexturePixelAlignment:
+        shortDesc = QObject::tr("Invalid texttexture pixel alignment");
+        longDesc  = QObject::tr("\"%1\" is not a valid texttexture pixel alignment (valid: 0; 1)").arg(issueArgument(args, 0, "unkown"));
         break;
     case MaterialPropertyWithoutMaterial:
-        bothDesc =  QObject::tr("Material property definition without leading [matl]/[matl_change]");
+        bothDesc  = QObject::tr("Material property definition without leading [matl]/[matl_change]");
+        break;
+    case MissingVariable:
+        shortDesc = QObject::tr("Missing variable");
+        longDesc  = QObject::tr("\"%1\" is not a defined variable").arg(issueArgument(args, 0, "unkown"));
+        break;
+    case MissingStringVariable:
+        shortDesc = QObject::tr("Missing string variable");
+        longDesc  = QObject::tr("\"%1\" is not a defined string variable").arg(issueArgument(args, 0, "unkown"));
         break;
     case ProfileTextureIndexOutOfRange:
         shortDesc = QObject::tr("Invalid texture index");
         longDesc  = QObject::tr("Texture index is out of range: Min: 0; Max: %1").arg(issueArgument(args, 0, "unkown"));
         break;
     case ProfilePointWithoutProfile:
-        bothDesc =  QObject::tr("Profile point without leading [profile]");
+        bothDesc  = QObject::tr("Profile point without leading [profile]");
         break;
     case TooFewProfilePoints:
         shortDesc = QObject::tr("Too few profile points");
@@ -72,7 +96,7 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
         break;
     default:
         qDebug() << "Missing issue description for " << e;
-        bothDesc = QObject::tr("Unknown issue");
+        bothDesc  = QObject::tr("Unknown issue");
     }
 
     if(bothDesc.isEmpty())

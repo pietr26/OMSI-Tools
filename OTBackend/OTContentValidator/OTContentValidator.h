@@ -39,6 +39,14 @@ public:
         MeshConfigWithoutMesh,
         MaterialWithoutMesh,
         MaterialPropertyWithoutMaterial,
+        InvalidRgbValue,
+        InvalidTexttextureColorMode,
+        InvalidTexttextureAlignment,
+        InvalidTexttexturePixelAlignment,
+
+        // Scripting issues
+        MissingVariable,
+        MissingStringVariable,
 
         // Spline issues
         ProfileTextureIndexOutOfRange,
