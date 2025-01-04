@@ -107,6 +107,15 @@ void OTModelConfigValidator::validateLine() {
             if(!ok || val < 0 || val > 1)
                 throwIssue(OTContentValidatorIssue::InvalidTexttexturePixelAlignment);
         }
+        return;
+    }
+
+    // scripttexture
+    if(_currentLine == "[scripttexture") {
+        for(int i = 0; i < 2; i++)
+            if(!isValidFloat(readNextLine()))
+                throwIssue(OTContentValidatorIssue::InvalidIntegerValue);
+        return;
     }
 }
 
