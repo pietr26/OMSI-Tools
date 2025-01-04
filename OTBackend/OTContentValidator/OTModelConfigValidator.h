@@ -34,13 +34,8 @@ protected:
         "[matl_item]",
         "[matl_lightmap]",
         "[matl_nightmap]",
-        "[matl_noWrite]",
-        "[matl_noXwrite]",
-        "[matl_noYwrite]",
         "[matl_noZcheck]",
         "[matl_noZwrite]",
-        "[matl_nozWrite]",
-        "[matl_nozwrite]",
         "[matl_texadress_border]",
         "[matl_texadress_clamp]",
         "[matl_transmap]"
