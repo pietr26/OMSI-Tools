@@ -16,31 +16,31 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
     switch(e) {
     case FileMissing:
         shortDesc = QObject::tr("File not found");
-        longDesc  = QObject::tr("File %1 not found").arg(issueArgument(args, 0));
+        longDesc  = QObject::tr("File \"%1\" not found").arg(issueArgument(args, 0));
         break;
     case FileNotOpen:
         shortDesc = QObject::tr("Could not open file");
-        longDesc  = QObject::tr("Could not open file %1: %2").arg(issueArgument(args, 0)).arg(issueArgument(args, 1, "unknown error"));
+        longDesc  = QObject::tr("Could not open file \"%1\". Error: %2").arg(issueArgument(args, 0)).arg(issueArgument(args, 1, "unknown error"));
         break;
     case InvalidIntegerValue:
         shortDesc = QObject::tr("Invalid integer value");
-        longDesc  = QObject::tr("Invalid integer value: %1").arg(issueArgument(args, 0));
+        longDesc  = QObject::tr("\"%1\" is not a valid integer value").arg(issueArgument(args, 0));
         break;
     case InvalidFloatValue:
         shortDesc = QObject::tr("Invalid float value");
-        longDesc  = QObject::tr("Invalid float value: %1").arg(issueArgument(args, 0));
+        longDesc  = QObject::tr("\"%1\" is not a valid float value").arg(issueArgument(args, 0));
         break;
     case MissingMeshFile:
         shortDesc = QObject::tr("Missing mesh file");
-        longDesc  = QObject::tr("Missing mesh file: %1").arg(issueArgument(args, 0));
+        longDesc  = QObject::tr("Mesh file \"%1\" was not found!").arg(issueArgument(args, 0));
         break;
     case MissingScriptFile:
         shortDesc = QObject::tr("Missing script file");
-        longDesc  = QObject::tr("Missing script file: %1").arg(issueArgument(args, 0));
+        longDesc  = QObject::tr("Script file \"%1\" was not found!").arg(issueArgument(args, 0));
         break;
     case MissingTextureFile:
         shortDesc = QObject::tr("Missing texture file");
-        longDesc  = QObject::tr("Missing texture file: %1").arg(issueArgument(args, 0));
+        longDesc  = QObject::tr("Texture file \"%1\" was not found!").arg(issueArgument(args, 0));
         break;
     case MeshConfigWithoutMesh:
         bothDesc =  QObject::tr("Mesh configuration without leading [mesh]");
