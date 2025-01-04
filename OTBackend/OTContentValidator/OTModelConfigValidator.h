@@ -12,8 +12,14 @@ public:
 protected:
     void specificValidate() override;
     void validateLine() override;
+    void finalizeValidation() override;
+
+    void readVarlist(const QString &filePath, const bool &stringvarlist);
 
     bool _meshFound = false, _matlFound = false;
+
+    QHash<int, QString> _foundVariables, _foundStringVariables;
+    QStringList _definedVariables, _definedStringVariables;
 
     const QStringList _matlProperties = {
         "[matl_allcolor]",
