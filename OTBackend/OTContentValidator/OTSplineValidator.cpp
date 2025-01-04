@@ -88,9 +88,8 @@ void OTSplineValidator::validateLine() {
             throwIssue(OTContentValidatorIssue::InvalidPathDirection, {_currentLine});
 
         if(path2)
-            for(int i = 0; i < 2; i++)
-                if(!isValidFloat(readNextLine()))
-                    throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
+            if(!isValidFloat(readNextLine()))
+                throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
 
     }
 }
