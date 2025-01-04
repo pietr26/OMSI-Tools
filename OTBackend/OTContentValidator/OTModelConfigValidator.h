@@ -21,6 +21,9 @@ protected:
     QHash<int, QString> _foundVariables, _foundStringVariables;
     QStringList _definedVariables, _definedStringVariables;
 
+    int _texttextureCount = 0;
+    QHash<int, int> _texttextureAssignments;
+
     const QStringList _matlProperties = {
         "[matl_allcolor]",
         "[matl_alpha]",

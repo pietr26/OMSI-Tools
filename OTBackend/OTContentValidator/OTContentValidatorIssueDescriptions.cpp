@@ -67,6 +67,10 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
     case MaterialPropertyWithoutMaterial:
         bothDesc  = QObject::tr("Material property definition without leading [matl]/[matl_change]");
         break;
+    case TexttextureIndexOutOfRange:
+        shortDesc = QObject::tr("Invalid texttexture index");
+        longDesc  = QObject::tr("Texttexture index is out of range: Min: 0; Max: %1").arg(issueArgument(args, 0, "unkown"));
+        break;
     case MissingVariable:
         shortDesc = QObject::tr("Missing variable");
         longDesc  = QObject::tr("\"%1\" is not a defined variable").arg(issueArgument(args, 0, "unkown"));

@@ -73,6 +73,7 @@ void OTModelConfigValidator::validateLine() {
 
     // texttexture
     if(_currentLine == "[texttexture]" || _currentLine == "[texttexture_enh]") {
+        _texttextureCount++;
         bool enhanced = _currentLine == "[texttexture_enh]";
 
         // string variable
@@ -117,9 +118,20 @@ void OTModelConfigValidator::validateLine() {
                 throwIssue(OTContentValidatorIssue::InvalidIntegerValue, {_currentLine});
         return;
     }
+
+    // texttexture assignment
+    if(_currentLine == "[useTextTexture]") {
+        bool ok;
+        int val = readNextLine().toInt(&ok);
+        if(!ok)
+            throwIssue(OTContentValidatorIssue::InvalidIntegerValue, {_currentLine});
+        else
+            _texttextureAssignments.insert(_currentLineNumber, val);
+    }
 }
 
 void OTModelConfigValidator::finalizeValidation() {
+    // check variables
     for (QHash<int, QString>::const_iterator it = _foundVariables.constBegin(); it != _foundVariables.constEnd(); ++it)
         if(!_definedVariables.contains(it.value()))
             throwIssueAtLine(it.key(), OTContentValidatorIssue::MissingVariable, {it.value()});
@@ -127,6 +139,11 @@ void OTModelConfigValidator::finalizeValidation() {
     for (QHash<int, QString>::const_iterator it = _foundStringVariables.constBegin(); it != _foundStringVariables.constEnd(); ++it)
         if(!_definedStringVariables.contains(it.value()))
             throwIssueAtLine(it.key(), OTContentValidatorIssue::MissingStringVariable, {it.value()});
+
+    // check texttexture assignments
+    for (auto it = _texttextureAssignments.begin(); it != _texttextureAssignments.end(); it++)
+        if(it.value() < 0 || it.value() >= _texttextureCount)
+            throwIssueAtLine(it.key(), OTContentValidatorIssue::TexttextureIndexOutOfRange, {QString::number(_texttextureCount - 1)});
 }
 
 void OTModelConfigValidator::readVarlist(const QString &filePath, const bool &stringvarlist) {

@@ -43,6 +43,7 @@ public:
         InvalidTexttextureColorMode,
         InvalidTexttextureAlignment,
         InvalidTexttexturePixelAlignment,
+        TexttextureIndexOutOfRange,
 
         // Scripting issues
         MissingVariable,
