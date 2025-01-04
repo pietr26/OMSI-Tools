@@ -29,86 +29,73 @@ QString OTContentValidatorIssue::longissueDescription() const {
 }
 
 QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, const QStringList &args) const {
+    QString shortDesc, longDesc, bothDesc;
     switch(e) {
     case FileMissing:
-        return QPair<QString, QString>(
-            QObject::tr("File not found"),
-            QObject::tr("File %1 not found").arg(args.isEmpty() ? "" : args[0])
-        );
+        shortDesc = QObject::tr("File not found");
+        longDesc  = QObject::tr("File %1 not found").arg(args.isEmpty() ? "" : args[0]);
+        break;
     case FileNotOpen:
-        return QPair<QString, QString>(
-            QObject::tr("Could not open file"),
-            QObject::tr("Could not open file %1: %2").arg(args.isEmpty() ? "" : args[0]).arg(args.count() < 2 ? "unknown error" : args[1])
-        );
+        shortDesc = QObject::tr("Could not open file");
+        longDesc  = QObject::tr("Could not open file %1: %2").arg(args.isEmpty() ? "" : args[0]).arg(args.count() < 2 ? "unknown error" : args[1]);
+        break;
     case InvalidIntegerValue:
-        return QPair<QString, QString>(
-            QObject::tr("Invalid integer value"),
-            QObject::tr("Invalid integer value: %1").arg(args.isEmpty() ? "" : args[0])
-        );
+        shortDesc = QObject::tr("Invalid integer value");
+        longDesc  = QObject::tr("Invalid integer value: %1").arg(args.isEmpty() ? "" : args[0]);
+        break;
     case InvalidFloatValue:
-        return QPair<QString, QString>(
-            QObject::tr("Invalid float value"),
-            QObject::tr("Invalid float value: %1").arg(args.isEmpty() ? "" : args[0])
-        );
+        shortDesc = QObject::tr("Invalid float value");
+        longDesc  = QObject::tr("Invalid float value: %1").arg(args.isEmpty() ? "" : args[0]);
+        break;
     case MissingMeshFile:
-        return QPair<QString, QString>(
-            QObject::tr("Missing mesh file"),
-            QObject::tr("Missing mesh file: %1").arg(args.isEmpty() ? "" : args[0])
-        );
+        shortDesc = QObject::tr("Missing mesh file");
+        longDesc  = QObject::tr("Missing mesh file: %1").arg(args.isEmpty() ? "" : args[0]);
+        break;
     case MissingScriptFile:
-        return QPair<QString, QString>(
-            QObject::tr("Missing script file"),
-            QObject::tr("Missing script file: %1").arg(args.isEmpty() ? "" : args[0])
-        );
+        shortDesc = QObject::tr("Missing script file");
+        longDesc  = QObject::tr("Missing script file: %1").arg(args.isEmpty() ? "" : args[0]);
+        break;
     case MissingTextureFile:
-        return QPair<QString, QString>(
-            QObject::tr("Missing texture file"),
-            QObject::tr("Missing texture file: %1").arg(args.isEmpty() ? "" : args[0])
-        );
+        shortDesc = QObject::tr("Missing texture file");
+        longDesc  = QObject::tr("Missing texture file: %1").arg(args.isEmpty() ? "" : args[0]);
+        break;
     case MeshConfigWithoutMesh:
-        return QPair<QString, QString>(
-            QObject::tr("Mesh configuration without leading [mesh]"),
-            QObject::tr("Mesh configuration without leading [mesh]")
-        );
+        bothDesc =  QObject::tr("Mesh configuration without leading [mesh]");
+        break;
     case MaterialWithoutMesh:
-        return QPair<QString, QString>(
-            QObject::tr("Material definition without leading [mesh]"),
-            QObject::tr("Material definition without leading [mesh]")
-        );
+        bothDesc =  QObject::tr("Material definition without leading [mesh]");
+        break;
     case MaterialPropertyWithoutMaterial:
-        return QPair<QString, QString>(
-            QObject::tr("Material property definition without leading [matl]/[matl_change]"),
-            QObject::tr("Material property definition without leading [matl]/[matl_change]")
-        );
+        bothDesc =  QObject::tr("Material property definition without leading [matl]/[matl_change]");
+        break;
     case ProfileTextureIndexOutOfRange:
-        return QPair<QString, QString>(
-            QObject::tr("Invalid texture index"),
-            QObject::tr("Texture index is out of range: Min: 0; Max: %1").arg(args.isEmpty() ? "unkown" : args[0])
-        );
+        shortDesc = QObject::tr("Invalid texture index");
+        longDesc  = QObject::tr("Texture index is out of range: Min: 0; Max: %1").arg(args.isEmpty() ? "unkown" : args[0]);
+        break;
     case ProfilePointWithoutProfile:
-        return QPair<QString, QString>(
-            QObject::tr("Profile point without leading [profile]"),
-            QObject::tr("Profile point without leading [profile]")
-        );
+        bothDesc =  QObject::tr("Profile point without leading [profile]");
+        break;
     case TooFewProfilePoints:
-        return QPair<QString, QString>(
-            QObject::tr("Too few profile points"),
-            QObject::tr("This profile doesn't have enough profile points (has %1, needs at least 2)").arg(args.isEmpty() ? "unkown" : args[0])
-        );
+        shortDesc = QObject::tr("Too few profile points");
+        longDesc  = QObject::tr("This profile doesn't have enough profile points (has %1, needs at least 2)").arg(args.isEmpty() ? "unkown" : args[0]);
+        break;
     case InvalidPathType:
-        return QPair<QString, QString>(
-            QObject::tr("Invalid path type"),
-            QObject::tr("\"%1\" is not a valid path type (valid: 0; 1; 2; 3)").arg(args.isEmpty() ? "unkown" : args[0])
-        );
+        shortDesc = QObject::tr("Invalid path type");
+        longDesc  = QObject::tr("\"%1\" is not a valid path type (valid: 0; 1; 2; 3)").arg(args.isEmpty() ? "unkown" : args[0]);
+        break;
     case InvalidPathDirection:
-        return QPair<QString, QString>(
-            QObject::tr("Invalid path direction"),
-            QObject::tr("\"%1\" is not a valid path direction (valid: 0; 1; 2)").arg(args.isEmpty() ? "unkown" : args[0])
-        );
+        shortDesc = QObject::tr("Invalid path direction");
+        longDesc  = QObject::tr("\"%1\" is not a valid path direction (valid: 0; 1; 2)").arg(args.isEmpty() ? "unkown" : args[0]);
+        break;
     default:
-        qDebug() << "missing issue description for " << e;
-        return QPair<QString, QString>(QObject::tr("Unknown issue"), QObject::tr("Unknown issue"));
+        qDebug() << "Missing issue description for " << e;
+        bothDesc = QObject::tr("Unknown issue");
     }
+
+    if(bothDesc.isEmpty())
+        return QPair<QString, QString>(shortDesc, longDesc);
+    else
+        return QPair<QString, QString>(bothDesc, bothDesc);
 }
 
 
