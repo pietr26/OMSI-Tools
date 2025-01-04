@@ -70,6 +70,44 @@ void OTModelConfigValidator::validateLine() {
 
         return;
     }
+
+    // texttexture
+    if(_currentLine == "[texttexture]" || _currentLine == "[texttexture_enh]") {
+        bool enhanced = _currentLine == "[texttexture_enh]";
+
+        // string variable
+        if(!isValidInt(readNextLine())) // skip if a string index is given instead of a variable (in sceneryobjecs)
+            _foundStringVariables.insert(_currentLineNumber, _currentLine);
+
+        // TODO: Check if font exists
+        readNextLine();
+        if(!isValidInt(readNextLine())) // width
+            throwIssue(OTContentValidatorIssue::InvalidIntegerValue, {_currentLine});
+        if(!isValidInt(readNextLine())) // height
+            throwIssue(OTContentValidatorIssue::InvalidIntegerValue, {_currentLine});
+
+        bool ok;
+        int colorCode = readNextLine().toInt(&ok);
+        if(!ok) // color mode
+            throwIssue(OTContentValidatorIssue::InvalidIntegerValue, {_currentLine});
+        else if(colorCode < 0 || colorCode > 1)
+            throwIssue(OTContentValidatorIssue::InvalidTexttextureColorMode, {_currentLine});
+
+        for(int i = 0; i < 3; i++) // color
+            if(!isValidRgbValue(readNextLine()))
+                throwIssue(OTContentValidatorIssue::InvalidRgbValue, {_currentLine});
+
+        if(enhanced) {
+            bool ok;
+            int val = readNextLine().toInt(&ok);
+            if(!ok || val < 0 || val > 5)
+                throwIssue(OTContentValidatorIssue::InvalidTexttextureAlignment);
+
+            val = readNextLine().toInt(&ok);
+            if(!ok || val < 0 || val > 1)
+                throwIssue(OTContentValidatorIssue::InvalidTexttexturePixelAlignment);
+        }
+    }
 }
 
 void OTModelConfigValidator::finalizeValidation() {
