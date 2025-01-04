@@ -229,6 +229,32 @@
          </spacer>
         </item>
         <item>
+         <widget class="QGroupBox" name="grbVerificationSummary">
+          <property name="title">
+           <string>Copy verification summary</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QLabel" name="lVerificationSummary">
+             <property name="text">
+              <string>If the scanned map does not work properly and you need external support (e.g. in the OMSI WebDisk), you can copy all relevant error information about the map here with one click so that you can paste it directly into the forum.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnCopyVerificationSummary">
+             <property name="text">
+              <string>Copy all missing and invalid files</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
          <widget class="QLabel" name="lblPicture">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -377,7 +403,7 @@
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMap">

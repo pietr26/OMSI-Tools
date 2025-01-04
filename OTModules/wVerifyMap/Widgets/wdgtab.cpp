@@ -123,6 +123,18 @@ void wdgTab::setName(QString name)
     ui->btnSearchForMissingElements->setText(tr("Search for missing %1", "Search for missing elements").arg(name));
 }
 
+QStringList wdgTab::allItems() const {
+    return all;
+}
+
+QStringList wdgTab::invalidItems() const {
+    return invalid;
+}
+
+QStringList wdgTab::missingItems() const {
+    return missing;
+}
+
 OTVerificationOverviewData wdgTab::getData()
 {
     if (!isApplied) qFatal() << "Cannot get data from an unapplied object!";

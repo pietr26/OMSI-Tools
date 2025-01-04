@@ -41,6 +41,10 @@ public:
     void apply();
     void setName(QString name);
 
+    QStringList allItems() const;
+    QStringList invalidItems() const;
+    QStringList missingItems() const;
+
     OTVerificationOverviewData getData();
 
 private slots:

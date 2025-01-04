@@ -1,6 +1,8 @@
 ﻿#include "wverifymap.h"
 #include "ui_wverifymap.h"
 
+#include "OTBackend/OTGlobal.h"
+
 wVerifyMap::wVerifyMap(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wVerifyMap)
@@ -61,6 +63,8 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
     ui->wdgHumans->setName(tr("Humans"));
     ui->wdgTextures->setName(tr("Textures"));
 
+    ui->grbVerificationSummary->setVisible(false);
+
     qInfo().noquote() << objectName() + " started";
 }
 
@@ -100,10 +104,14 @@ void wVerifyMap::selectAllAndClear()
     ui->wdgVehiclesOverview->clear();
     ui->wdgHumansOverview->clear();
     ui->wdgTexturesOverview->clear();
+
+    ui->grbVerificationSummary->setVisible(false);
 }
 
 void wVerifyMap::enableView(bool enable)
 {
+    ui->grbVerificationSummary->setVisible(enable);
+
     ui->btnStartVerifying->setEnabled(enable);
     ui->btnVerificationPreferences->setEnabled(enable);
     ui->cobxMapName->setEnabled(enable);
@@ -118,6 +126,8 @@ void wVerifyMap::enableView(bool enable)
 void wVerifyMap::on_btnStartVerifying_clicked()
 {
     qInfo() << "Start verifying...";
+
+    ui->grbVerificationSummary->setVisible(false);
 
     if (set.read("main", "mainDir").toString() == "")
     {
@@ -280,4 +290,75 @@ void wVerifyMap::on_actionBackToHome_triggered()
 {
     close();
     emit backToHome();
+}
+
+void wVerifyMap::on_btnCopyVerificationSummary_clicked() {
+    QString mapHeader = tr("Verified map:"), advancedHeader = tr("Advanced verification:");
+    int headerLength = std::max(mapHeader.length(), advancedHeader.length()) + 1;
+    while(mapHeader.length() < headerLength)
+        mapHeader += " ";
+    while(advancedHeader.length() < headerLength)
+        advancedHeader += " ";
+
+    QString mapName = ui->cobxMapName->currentText();
+    QString result;
+    result += "##########################################################\n"
+              + tr("Map verification result by %1 %2").arg(OTInformation::name).arg(OTInformation::versions::currentVersion.first) + "\n"
+              + "==========================================================\n"
+              + mapHeader + mapName + "\n"
+              + advancedHeader + (set.read("wVerifyMap", "advVerifying").toBool() ? tr("Yes") : tr("No"))
+              + "\n##########################################################\n\n";
+
+    for(int i = 0; i < _resultExportSectionHeaders.count(); i++) {
+        QStringList missing = ui->twgVerfying->widget(i + 1)->findChild<wdgTab*>()->missingItems();
+        QStringList invalid = ui->twgVerfying->widget(i + 1)->findChild<wdgTab*>()->invalidItems();
+        result += generateSummarySectionHeader(_resultExportSectionHeaders[i], missing.count(), invalid.count());
+
+        if(!missing.isEmpty()) {
+            result += ">>>" + tr("MISSING:") + "\n";
+            result += missing.join("\n") + "\n\n";
+        }
+
+        if(!invalid.isEmpty()) {
+            result += ">>>" + tr("INVALID:") + "\n";
+            result += invalid.join("\n") + "\n\n";
+        }
+
+        if(missing.isEmpty() && invalid.isEmpty())
+            result += "\n";
+    }
+
+    result += tr("<<< END OF FILE >>>");
+
+    if(result.length() > 75000) {
+        QMessageBox::StandardButton msg = QMessageBox::warning(this, tr("Long result"), tr("<p><b>The result is going to be very long!</b></p><p>Do you want to save at as a file instead of copying it the clipboard?</p>"), QMessageBox::Yes|QMessageBox::No|QMessageBox::Cancel);
+        if(msg == QMessageBox::Cancel)
+            return;
+        else if(msg == QMessageBox::Yes) {
+            QString path = QFileDialog::getSaveFileName(this, tr("Save verification summary"), QStandardPaths::writableLocation(QStandardPaths::DesktopLocation) + "/verification_summary_" + mapName + ".txt", tr("Text files (*.txt);;All files (*.*)"));
+            if(path.isEmpty())
+                return;
+            QFile file(path);
+            if(!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+                QMessageBox::critical(this, tr("Error"), tr("Could not open file for writing!"));
+                return;
+            }
+            file.write(result.toUtf8());
+            file.close();
+        } else {
+            qApp->clipboard()->setText(result);
+        }
+    } else {
+        qApp->clipboard()->setText(result);
+    }
+}
+
+QString wVerifyMap::generateSummarySectionHeader(const QString &headline,
+                                                 const int &missing,
+                                                 const int &invalid) {
+    return "=============================\r\n"
+           + headline + "\r\n"
+           + tr("(%1 missing").arg(QString::number(missing))
+           + (set.read("wVerifyMap", "advVerifying").toBool() ? ", " + tr("%1 invalid").arg(QString::number(invalid)) : "") + ")"
+           + "\r\n=============================\r\n";
 }

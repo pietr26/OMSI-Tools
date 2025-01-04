@@ -48,6 +48,9 @@ private slots:
     void onCheckerFinished();
     void onStatusUpdate(int, QString);
 
+    void on_btnCopyVerificationSummary_clicked();
+    QString generateSummarySectionHeader(const QString &headline, const int &missing, const int &invalid);
+
 signals:
     void backToHome();
 
@@ -73,6 +76,14 @@ private:
     OTMapScanner *_scanner;
     OTMapChecker *_checker;
 
+    static const inline QStringList _resultExportSectionHeaders = {
+        QObject::tr("TILES"),
+        QObject::tr("SCENERYOBJECTS"),
+        QObject::tr("SPLINES"),
+        QObject::tr("VEHICLES"),
+        QObject::tr("HUMANS"),
+        QObject::tr("TEXTURES")
+    };
 };
 
 #endif // WVERIFYMAP_H
