@@ -231,6 +231,13 @@ void wVerifyMap::onCheckerFinished() {
 
     ui->pgbProgress->setVisible(false);
     enableView(true);
+
+    bool hideSummary = true;
+    for(int i = 1; i < ui->twgVerfying->count(); i++)
+        hideSummary &= ui->twgVerfying->widget(i)->findChild<wdgTab*>()->missingItems().isEmpty()
+                       && ui->twgVerfying->widget(i)->findChild<wdgTab*>()->invalidItems().isEmpty();
+
+    ui->grbVerificationSummary->setVisible(!hideSummary);
 }
 
 void wVerifyMap::onStatusUpdate(int i, QString message) {
