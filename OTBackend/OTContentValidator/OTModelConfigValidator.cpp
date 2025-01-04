@@ -149,7 +149,7 @@ void OTModelConfigValidator::finalizeValidation() {
 void OTModelConfigValidator::readVarlist(const QString &filePath, const bool &stringvarlist) {
     QFile f(filePath);
     if(!f.open(QFile::ReadOnly | QFile::Text)) {
-        qWarning().noquote() << "Couldn't open file" << filePath << "for reading:" << f.errorString();
+        throwIssue(OTContentValidatorIssue::FileNotOpen, {filePath, f.errorString()});
         return;
     }
 
