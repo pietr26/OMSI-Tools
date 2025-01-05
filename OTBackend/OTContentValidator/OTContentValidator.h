@@ -58,6 +58,7 @@ public:
     };
 
     int lineNumber() const;
+    bool isWarning() const;
 
     QString shortissueDescription() const;
     QString longissueDescription() const;
@@ -67,6 +68,7 @@ protected:
     static QString issueArgument(const QStringList &args, const int &index, const QString &defaultValue = "");
 
 private:
+    bool _isWarning;
     int _lineNumber;
     int _issueType;
     QStringList _arguments;

@@ -150,13 +150,22 @@ void dlgFilePreview::loadFile(const QString &filePath) {
         if(!itm)
             continue;
 
-        itm->setBackground(1, QColor(255, 0, 0, 64));
-        itm->setBackground(2, QColor(255, 0, 0, 64));
+        QString colorCode;
+        if(issue.isWarning()) {
+            itm->setBackground(1, QColor(255, 170, 0, 64));
+            itm->setBackground(2, QColor(255, 170, 0, 64));
+            colorCode = OTSettings::currentColorScheme() == Qt::ColorScheme::Dark ? "#ffaa00" : "#666600";
+        } else {
+            itm->setBackground(1, QColor(255, 0, 0, 64));
+            itm->setBackground(2, QColor(255, 0, 0, 64));
+            colorCode = OTSettings::currentColorScheme() == Qt::ColorScheme::Dark ? "#FF6666" : "#AA0000";
+        }
         itm->setToolTip(2, issue.longissueDescription());
 
         QLabel *label = qobject_cast<QLabel*>(ui->twgPreview->itemWidget(itm, 2));
 
-        label->setText("<html><table width=\"100%\"><tr><td>" + label->text() + "</td><td align=\"right\" style=\"color: " + (OTSettings::currentColorScheme() == Qt::ColorScheme::Dark ? "#FF6666" : "#AA0000") + ";\">" + issue.shortissueDescription() + "</td></tr></table></html>");
+
+        label->setText("<html><table width=\"100%\"><tr><td>" + label->text() + "</td><td align=\"right\" style=\"color: " + colorCode + ";\">" + issue.shortissueDescription() + "</td></tr></table></html>");
     }
 
     qApp->restoreOverrideCursor();

@@ -10,14 +10,23 @@
 OTContentValidatorIssue::OTContentValidatorIssue(const int &lineNumber,
                                                  const int &issueType,
                                                  const QStringList &arguments) :
+    _isWarning(false),
     _lineNumber(lineNumber),
     _issueType(issueType),
     _arguments(arguments),
     _issueDescription(issueDescription(issueType, arguments)) {
+
+    // warnings:
+    switch(issueType) {
+    }
 }
 
 int OTContentValidatorIssue::lineNumber() const {
     return _lineNumber;
+}
+
+bool OTContentValidatorIssue::isWarning() const {
+    return _isWarning;
 }
 
 QString OTContentValidatorIssue::shortissueDescription() const {
