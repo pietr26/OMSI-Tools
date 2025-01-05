@@ -67,6 +67,13 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
     case MaterialPropertyWithoutMaterial:
         bothDesc  = QObject::tr("Material property definition without leading [matl]/[matl_change]");
         break;
+    case MaterialItemWithoutMaterialChange:
+        bothDesc = QObject::tr("[matl_item] without leading [matl_change]");
+        break;
+    case MaterialChangeWithoutItem:
+        shortDesc = QObject::tr("[matl_change] without usage of [matl_item]");
+        longDesc  = QObject::tr("This [matl_change] doesn't have any [matl_item] commands. Use [matl] instead.");
+        break;
     case TexttextureIndexOutOfRange:
         shortDesc = QObject::tr("Invalid texttexture index");
         longDesc  = QObject::tr("Texttexture index is out of range: Min: 0; Max: %1").arg(issueArgument(args, 0, "unkown"));

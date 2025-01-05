@@ -18,6 +18,8 @@ OTContentValidatorIssue::OTContentValidatorIssue(const int &lineNumber,
 
     // warnings:
     switch(issueType) {
+        case MaterialChangeWithoutItem:
+        _isWarning = true;
     }
 }
 

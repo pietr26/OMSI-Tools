@@ -39,6 +39,8 @@ public:
         MeshConfigWithoutMesh,
         MaterialWithoutMesh,
         MaterialPropertyWithoutMaterial,
+        MaterialItemWithoutMaterialChange,
+        MaterialChangeWithoutItem,
         InvalidRgbValue,
         InvalidTexttextureColorMode,
         InvalidTexttextureAlignment,
