@@ -4,8 +4,12 @@
 #include <QFile>
 #include <QDebug>
 
+#include "OTBackend/OTOmsiFileHandler.h"
+
 OTModelConfigValidator::OTModelConfigValidator(QObject *parent, const QString &filePath) :
-    OTContentValidator(parent, filePath) {}
+    OTContentValidator(parent, filePath) {
+    //TODO: init predefined variables here for bus and sco
+}
 
 void OTModelConfigValidator::specificValidate() {
     while(!_stream->atEnd()) {
@@ -32,11 +36,29 @@ void OTModelConfigValidator::validateLine() {
 
     // materials
     if(_currentLine == "[matl]" || _currentLine == "[matl_change]") {
+        checkLastMaterial();
+        bool isMatlChange = _currentLine == "[matl_change]";
         _matlFound = true;
-        if(!_meshFound) {
+        _matlItemFound = false;
+        _matlIsTexttexture = false;
+        _lastMatl = QPair<int, int>(_currentLineNumber, isMatlChange ? 2 : 1);
+        if(!_meshFound)
             throwIssue(OTContentValidatorIssue::MaterialWithoutMesh, {});
-            return;
-        }
+
+        _lastMatlTexture = readNextLine(); // texture
+
+        if(!isValidInt(readNextLine())) // submesh index
+            throwIssue(OTContentValidatorIssue::InvalidIntegerValue, {_currentLine});
+
+        if(isMatlChange) // changevar
+            _foundVariables.insert(_currentLineNumber, readNextLine());
+
+        return;
+    }
+    if(_currentLine == "[matl_item]") {
+        _matlItemFound = true;
+        if(_matlFound && _lastMatl.second == 1)
+            throwIssue(OTContentValidatorIssue::MaterialItemWithoutMaterialChange);
     }
     if(_matlProperties.contains(_currentLine) && !_matlFound) {
         throwIssue(OTContentValidatorIssue::MaterialPropertyWithoutMaterial, {});
@@ -121,6 +143,7 @@ void OTModelConfigValidator::validateLine() {
 
     // texttexture assignment
     if(_currentLine == "[useTextTexture]") {
+        _matlIsTexttexture = true;
         bool ok;
         int val = readNextLine().toInt(&ok);
         if(!ok)
@@ -131,6 +154,8 @@ void OTModelConfigValidator::validateLine() {
 }
 
 void OTModelConfigValidator::finalizeValidation() {
+    checkLastMaterial();
+
     // check variables
     for (QHash<int, QString>::const_iterator it = _foundVariables.constBegin(); it != _foundVariables.constEnd(); ++it)
         if(!_definedVariables.contains(it.value()))
@@ -167,4 +192,18 @@ void OTModelConfigValidator::readVarlist(const QString &filePath, const bool &st
     list->removeDuplicates();
 
     f.close();
+}
+
+void OTModelConfigValidator::checkLastMaterial() {
+    if(!_matlFound)
+        return;
+
+    if(_lastMatl.second == 2 && !_matlItemFound)
+        throwIssueAtLine(_lastMatl.first, OTContentValidatorIssue::MaterialChangeWithoutItem);
+
+    // check texture assignment
+    if(!_matlIsTexttexture) {
+        if(!OTOMSIFileHandler::checkTexture(_fileDir + "/texture/" + _lastMatlTexture.trimmed(), _lastMatlTexture.trimmed()))
+            throwIssueAtLine(_lastMatl.first + 1, OTContentValidatorIssue::MissingTextureFile, {_lastMatlTexture});
+    }
 }

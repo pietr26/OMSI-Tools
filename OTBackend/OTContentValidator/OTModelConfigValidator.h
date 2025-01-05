@@ -15,8 +15,11 @@ protected:
     void finalizeValidation() override;
 
     void readVarlist(const QString &filePath, const bool &stringvarlist);
+    void checkLastMaterial();
 
-    bool _meshFound = false, _matlFound = false;
+    bool _meshFound = false, _matlFound = false, _matlItemFound = false, _matlIsTexttexture = false;
+    QPair<int, int> _lastMatl = QPair<int, int>(0, 0); //<line number, type> (0 = invalid/unspecified, 1 = matl, 2 = matl_change)
+    QString _lastMatlTexture;
 
     QHash<int, QString> _foundVariables, _foundStringVariables;
     QStringList _definedVariables, _definedStringVariables;
