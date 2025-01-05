@@ -105,6 +105,9 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
         shortDesc = QObject::tr("Invalid path direction");
         longDesc  = QObject::tr("\"%1\" is not a valid path direction (valid: 0; 1; 2)").arg(issueArgument(args, 0, "unkown"));
         break;
+    case MaterialWithoutTexture:
+        bothDesc  = QObject::tr("Material definition without leading [texture]");
+        break;
     default:
         qDebug() << "Missing issue description for " << e;
         bothDesc  = QObject::tr("Unknown issue");

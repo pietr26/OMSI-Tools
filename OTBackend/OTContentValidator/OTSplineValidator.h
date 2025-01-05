@@ -15,7 +15,7 @@ protected:
 
     void checkLastProfilePointCount();
 
-    QStringList _textures;
+    int _textureCount = 0;
     QHash<int, int> _textureAssignments;
     int _lastProfileStart = 0;
     int _profilePointCount = 0;

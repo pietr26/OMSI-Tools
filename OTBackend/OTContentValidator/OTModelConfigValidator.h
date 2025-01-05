@@ -15,11 +15,14 @@ protected:
     void finalizeValidation() override;
 
     void readVarlist(const QString &filePath, const bool &stringvarlist);
+    void readMaterial(const bool &isSplineTexture = false);
     void checkLastMaterial();
 
     bool _meshFound = false, _matlFound = false, _matlItemFound = false, _matlIsTexttexture = false;
-    QPair<int, int> _lastMatl = QPair<int, int>(0, 0); //<line number, type> (0 = invalid/unspecified, 1 = matl, 2 = matl_change)
+    QPair<int, int> _lastMatl = QPair<int, int>(0, 0); //<line number, type> (0 = invalid/unspecified, 1 = matl/texture (spline), 2 = matl_change)
     QString _lastMatlTexture;
+
+    bool _splineScanning = false, _splineTextureFound = false;
 
     QHash<int, QString> _foundVariables, _foundStringVariables;
     QStringList _definedVariables, _definedStringVariables;

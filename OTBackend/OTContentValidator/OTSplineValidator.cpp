@@ -6,7 +6,9 @@
 #include <QTextStream>
 
 OTSplineValidator::OTSplineValidator(QObject *parent, const QString &filePath) :
-    OTModelConfigValidator(parent, filePath) {}
+    OTModelConfigValidator(parent, filePath) {
+    _splineScanning = true;
+}
 
 void OTSplineValidator::specificValidate() {
     while(!_stream->atEnd()) {
@@ -21,27 +23,30 @@ void OTSplineValidator::specificValidate() {
 
 void OTSplineValidator::validateLine() {
     // heightprofile definition
-    if(_currentLine == "[heightprofile]")
+    if(_currentLine == "[heightprofile]") {
+        _splineTextureFound = false;
         for(int i = 0; i < 4; i++)
             if(!isValidFloat(readNextLine()))
                 throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
+        return;
+    }
 
     // texture definition
     if(_currentLine == "[texture]") {
+        _splineTextureFound = true;
         _meshFound = true;
-        _matlFound = true;
-        readNextLine();
-        if(!OTOMSIFileHandler::checkTexture(_fileDir + "/texture/" + _currentLine.trimmed(), _currentLine.trimmed()))
-            throwIssue(OTContentValidatorIssue::MissingTextureFile, {_currentLine});
-        else
-            addLinkedFile(_fileDir + "/texture/" + _currentLine);
+        readMaterial(true);
 
-        _textures << _currentLine.trimmed();
+        _textureCount++;
+        return;
     }
+
+    // TODO: Validate PatchworkChain
 
     // profile definition
     if(_currentLine == "[profile]") {
         checkLastProfilePointCount();
+        _splineTextureFound = false;
 
         _lastProfileStart = _currentLineNumber;
         _profilePointCount = 0;
@@ -53,10 +58,13 @@ void OTSplineValidator::validateLine() {
         else {
             _textureAssignments[_lastProfileStart] = textureIndex;
         }
+
+        return;
     }
 
     // profile point definition
     if(_currentLine == "[profilepnt]") {
+        _splineTextureFound = false;
         _profilePointCount++;
         if(_lastProfileStart == 0)
             throwIssue(OTContentValidatorIssue::ProfilePointWithoutProfile);
@@ -65,10 +73,13 @@ void OTSplineValidator::validateLine() {
             if(!isValidFloat(readNextLine()))
                 throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
         }
+
+        return;
     }
 
     // path definition
     if(_currentLine == "[path]" || _currentLine == "[path_2]") {
+        _splineTextureFound = false;
         bool path2 = _currentLine == "[path_2]";
         bool ok;
         int pathType = readNextLine().toInt(&ok);
@@ -87,16 +98,17 @@ void OTSplineValidator::validateLine() {
             if(!isValidFloat(readNextLine()))
                 throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
 
+        return;
+
     }
 }
 
 void OTSplineValidator::finalizeValidation() {
     checkLastProfilePointCount();
 
-    int textureCount = _textures.count();
     for (auto it = _textureAssignments.begin(); it != _textureAssignments.end(); it++)
-        if(it.value() < 0 || it.value() >= textureCount)
-            throwIssueAtLine(it.key() + 1, OTContentValidatorIssue::ProfileTextureIndexOutOfRange, {QString::number(textureCount - 1)});
+        if(it.value() < 0 || it.value() >= _textureCount)
+            throwIssueAtLine(it.key() + 1, OTContentValidatorIssue::ProfileTextureIndexOutOfRange, {QString::number(_textureCount - 1)});
 }
 
 void OTSplineValidator::checkLastProfilePointCount() {

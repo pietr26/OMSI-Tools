@@ -56,7 +56,8 @@ public:
         ProfilePointWithoutProfile,
         TooFewProfilePoints,
         InvalidPathType,
-        InvalidPathDirection
+        InvalidPathDirection,
+        MaterialWithoutTexture
     };
 
     int lineNumber() const;

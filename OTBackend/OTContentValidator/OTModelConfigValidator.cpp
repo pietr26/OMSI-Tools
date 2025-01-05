@@ -36,23 +36,7 @@ void OTModelConfigValidator::validateLine() {
 
     // materials
     if(_currentLine == "[matl]" || _currentLine == "[matl_change]") {
-        checkLastMaterial();
-        bool isMatlChange = _currentLine == "[matl_change]";
-        _matlFound = true;
-        _matlItemFound = false;
-        _matlIsTexttexture = false;
-        _lastMatl = QPair<int, int>(_currentLineNumber, isMatlChange ? 2 : 1);
-        if(!_meshFound)
-            throwIssue(OTContentValidatorIssue::MaterialWithoutMesh, {});
-
-        _lastMatlTexture = readNextLine(); // texture
-
-        if(!isValidInt(readNextLine())) // submesh index
-            throwIssue(OTContentValidatorIssue::InvalidIntegerValue, {_currentLine});
-
-        if(isMatlChange) // changevar
-            _foundVariables.insert(_currentLineNumber, readNextLine());
-
+        readMaterial();
         return;
     }
     if(_currentLine == "[matl_item]") {
@@ -194,6 +178,30 @@ void OTModelConfigValidator::readVarlist(const QString &filePath, const bool &st
     f.close();
 }
 
+void OTModelConfigValidator::readMaterial(const bool &isSplineTexture) {
+    checkLastMaterial();
+    bool isMatlChange = _currentLine == "[matl_change]";
+    _matlFound = true;
+    _matlItemFound = false;
+    _matlIsTexttexture = false;
+    _lastMatl = QPair<int, int>(_currentLineNumber, isMatlChange ? 2 : 1);
+
+    if(_splineScanning && !isSplineTexture && !_splineTextureFound)
+        throwIssue(OTContentValidatorIssue::MaterialWithoutTexture);
+    else if(!_meshFound)
+        throwIssue(OTContentValidatorIssue::MaterialWithoutMesh);
+
+    _lastMatlTexture = readNextLine(); // texture
+
+    if(!isSplineTexture) {
+        if(!isValidInt(readNextLine())) // submesh index
+            throwIssue(OTContentValidatorIssue::InvalidIntegerValue, {_currentLine});
+
+        if(isMatlChange) // changevar
+            _foundVariables.insert(_currentLineNumber, readNextLine());
+    }
+}
+
 void OTModelConfigValidator::checkLastMaterial() {
     if(!_matlFound)
         return;
@@ -205,5 +213,7 @@ void OTModelConfigValidator::checkLastMaterial() {
     if(!_matlIsTexttexture) {
         if(!OTOMSIFileHandler::checkTexture(_fileDir + "/texture/" + _lastMatlTexture.trimmed(), _lastMatlTexture.trimmed()))
             throwIssueAtLine(_lastMatl.first + 1, OTContentValidatorIssue::MissingTextureFile, {_lastMatlTexture});
+        else
+            addLinkedFile(_lastMatl.first + 1, _fileDir + "/texture/" + _lastMatlTexture.trimmed());
     }
 }
