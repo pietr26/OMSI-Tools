@@ -58,6 +58,7 @@ public:
         InvalidPathType,
         InvalidPathDirection,
         MaterialWithoutTexture,
+        PatchworkChainWithoutTexture,
         InvalidPatchworkChainFrequencyString,
         InvalidPatchworkChainInvertableString,
     };

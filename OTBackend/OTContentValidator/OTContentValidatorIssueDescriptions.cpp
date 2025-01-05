@@ -68,7 +68,7 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
         bothDesc  = QObject::tr("Material property definition without leading [matl]/[matl_change]");
         break;
     case MaterialItemWithoutMaterialChange:
-        bothDesc = QObject::tr("[matl_item] without leading [matl_change]");
+        bothDesc  = QObject::tr("[matl_item] without leading [matl_change]");
         break;
     case MaterialChangeWithoutItem:
         shortDesc = QObject::tr("[matl_change] without usage of [matl_item]");
@@ -107,6 +107,10 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
         break;
     case MaterialWithoutTexture:
         bothDesc  = QObject::tr("Material definition without leading [texture]");
+        break;
+    case PatchworkChainWithoutTexture:
+        bothDesc  = QObject::tr("Patchwork chain definition without leading [texture]");
+        longDesc  = args.join("; ");
         break;
     case InvalidPatchworkChainFrequencyString:
         shortDesc = QObject::tr("Invalid frequency string");

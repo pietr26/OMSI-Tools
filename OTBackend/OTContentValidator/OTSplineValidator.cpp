@@ -41,8 +41,11 @@ void OTSplineValidator::validateLine() {
         return;
     }
 
-    // TODO: Validate PatchworkChain
+    // Patchwork chain
     if(_currentLine == "[patchwork_chain]") {
+        if(!_splineTextureFound)
+            throwIssue(OTContentValidatorIssue::PatchworkChainWithoutTexture);
+
         if(!isValidFloat(readNextLine()))
             throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
         int sectionCount = readNextLine().length() - 1;
