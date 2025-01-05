@@ -108,6 +108,14 @@ QPair<QString, QString> OTContentValidatorIssue::issueDescription(const int &e, 
     case MaterialWithoutTexture:
         bothDesc  = QObject::tr("Material definition without leading [texture]");
         break;
+    case InvalidPatchworkChainFrequencyString:
+        shortDesc = QObject::tr("Invalid frequency string");
+        longDesc  = args.join("; ");
+        break;
+    case InvalidPatchworkChainInvertableString:
+        shortDesc = QObject::tr("Invalid invertable string");
+        longDesc  = args.join("; ");
+        break;
     default:
         qDebug() << "Missing issue description for " << e;
         bothDesc  = QObject::tr("Unknown issue");

@@ -14,6 +14,9 @@ protected:
     void finalizeValidation() override;
 
     void checkLastProfilePointCount();
+    void throwPatchworkChainIssue(const OTContentValidatorIssue::IssueType &issueType,
+                                  const QPair<int, int> &lengthData,
+                                  const bool &invalidChars);
 
     int _textureCount = 0;
     QHash<int, int> _textureAssignments;

@@ -57,7 +57,9 @@ public:
         TooFewProfilePoints,
         InvalidPathType,
         InvalidPathDirection,
-        MaterialWithoutTexture
+        MaterialWithoutTexture,
+        InvalidPatchworkChainFrequencyString,
+        InvalidPatchworkChainInvertableString,
     };
 
     int lineNumber() const;

@@ -42,6 +42,28 @@ void OTSplineValidator::validateLine() {
     }
 
     // TODO: Validate PatchworkChain
+    if(_currentLine == "[patchwork_chain]") {
+        if(!isValidFloat(readNextLine()))
+            throwIssue(OTContentValidatorIssue::InvalidFloatValue, {_currentLine});
+        int sectionCount = readNextLine().length() - 1;
+        readNextLine();
+        bool wrongLength = _currentLine.length() != sectionCount;
+        bool invalidChars = !std::all_of(_currentLine.begin(), _currentLine.end(), [](QChar c){return c.isDigit();});
+
+        if(wrongLength || invalidChars)
+            throwPatchworkChainIssue(OTContentValidatorIssue::InvalidPatchworkChainFrequencyString,
+                                     QPair<int, int>(sectionCount, _currentLine.length()),
+                                     invalidChars);
+
+        readNextLine();
+        wrongLength = _currentLine.length() != sectionCount;
+        invalidChars = !std::all_of(_currentLine.begin(), _currentLine.end(), [](QChar c){return c == "0" || c == "1";});
+
+        if(wrongLength || invalidChars)
+            throwPatchworkChainIssue(OTContentValidatorIssue::InvalidPatchworkChainInvertableString,
+                                     QPair<int, int>(sectionCount, _currentLine.length()),
+                                     invalidChars);
+    }
 
     // profile definition
     if(_currentLine == "[profile]") {
@@ -114,4 +136,17 @@ void OTSplineValidator::finalizeValidation() {
 void OTSplineValidator::checkLastProfilePointCount() {
     if(_lastProfileStart != 0 && _profilePointCount < 2)
         throwIssueAtLine(_lastProfileStart, OTContentValidatorIssue::TooFewProfilePoints, {QString::number(_profilePointCount)});
+}
+
+void OTSplineValidator::throwPatchworkChainIssue(const OTContentValidatorIssue::IssueType &issueType,
+                                                 const QPair<int, int> &lengthData,
+                                                 const bool &invalidChars) {
+    QStringList args;
+    if(lengthData.first != lengthData.second)
+        args << tr("Invalid string length (should be %1, is %2)").arg(lengthData.first).arg(lengthData.second);
+
+    if(invalidChars)
+        args << tr("Contains invalid chars (only \"%1\" allowed)").arg(issueType == OTContentValidatorIssue::InvalidPatchworkChainFrequencyString ? "0123456789" : "0 or 1");
+
+    throwIssue(issueType, args);
 }
