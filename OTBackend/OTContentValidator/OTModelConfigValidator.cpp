@@ -9,6 +9,7 @@
 OTModelConfigValidator::OTModelConfigValidator(QObject *parent, const QString &filePath) :
     OTContentValidator(parent, filePath) {
     //TODO: init predefined variables here for bus and sco
+    initPredefinedVars();
 }
 
 void OTModelConfigValidator::specificValidate() {
@@ -142,11 +143,11 @@ void OTModelConfigValidator::finalizeValidation() {
 
     // check variables
     for (QHash<int, QString>::const_iterator it = _foundVariables.constBegin(); it != _foundVariables.constEnd(); ++it)
-        if(!_definedVariables.contains(it.value()))
+        if(!_definedVariables.contains(it.value(), Qt::CaseInsensitive))
             throwIssueAtLine(it.key(), OTContentValidatorIssue::MissingVariable, {it.value()});
 
     for (QHash<int, QString>::const_iterator it = _foundStringVariables.constBegin(); it != _foundStringVariables.constEnd(); ++it)
-        if(!_definedStringVariables.contains(it.value()))
+        if(!_definedStringVariables.contains(it.value(), Qt::CaseInsensitive))
             throwIssueAtLine(it.key(), OTContentValidatorIssue::MissingStringVariable, {it.value()});
 
     // check texttexture assignments
@@ -215,5 +216,20 @@ void OTModelConfigValidator::checkLastMaterial() {
             throwIssueAtLine(_lastMatl.first + 1, OTContentValidatorIssue::MissingTextureFile, {_lastMatlTexture});
         else
             addLinkedFile(_lastMatl.first + 1, _fileDir + "/texture/" + _lastMatlTexture.trimmed());
+    }
+}
+
+void OTModelConfigValidator::initPredefinedVars() {
+    if(_filePath.endsWith(".sco")) {
+        _definedVariables << _scoPredefinedVars;
+    }
+
+    if(_filePath.endsWith(".bus") || _filePath.endsWith(".ovh")) {
+        _definedVariables << _busOvhPredefinedVars;
+        _definedStringVariables << _busOvhPredefinedStringVars;
+    }
+
+    if(_filePath.endsWith(".hum")) {
+        _definedVariables << _humPredefinedVars;
     }
 }
