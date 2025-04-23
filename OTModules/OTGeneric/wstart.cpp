@@ -395,3 +395,9 @@ void wStart::on_lblUpdate_linkActivated(const QString &link)
     WRELEASENOTES->setWindowModality(Qt::ApplicationModal);
     WRELEASENOTES->show();
 }
+void wStart::on_tbnScriptEditor_clicked() {
+    WSCRIPTEDITOR = new wScriptEditor();
+    connect(WSCRIPTEDITOR, &wScriptEditor::backToHome, this, &wStart::reopen);
+    WSCRIPTEDITOR->show();
+    close();
+}

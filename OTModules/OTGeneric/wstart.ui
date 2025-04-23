@@ -23,7 +23,7 @@
    <string notr="true">Loading...</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
+   <iconset resource="../../resources.qrc">
     <normaloff>:/rec/data/icons/logo.svg</normaloff>:/rec/data/icons/logo.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -112,7 +112,7 @@
           <string>Font creation</string>
          </property>
          <property name="icon">
-          <iconset resource="../../ressources.qrc">
+          <iconset resource="../../resources.qrc">
            <normaloff>:/rec/data/icons/wFonts.svg</normaloff>:/rec/data/icons/wFonts.svg</iconset>
          </property>
          <property name="iconSize">
@@ -156,8 +156,48 @@
           <string>Map editor</string>
          </property>
          <property name="icon">
-          <iconset resource="../../ressources.qrc">
+          <iconset resource="../../resources.qrc">
            <normaloff>:/rec/data/icons/wMaps.svg</normaloff>:/rec/data/icons/wMaps.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <property name="popupMode">
+          <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+         </property>
+         <property name="autoRaise">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="tbnScriptEditor">
+         <property name="minimumSize">
+          <size>
+           <width>75</width>
+           <height>75</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>1</width>
+           <height>1</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Script editor</string>
          </property>
          <property name="iconSize">
           <size>
@@ -231,7 +271,7 @@
           <string>Map verification</string>
          </property>
          <property name="icon">
-          <iconset resource="../../ressources.qrc">
+          <iconset resource="../../resources.qrc">
            <normaloff>:/rec/data/icons/wVerifyMap.svg</normaloff>:/rec/data/icons/wVerifyMap.svg</iconset>
          </property>
          <property name="iconSize">
@@ -275,7 +315,7 @@
           <string>Content search</string>
          </property>
          <property name="icon">
-          <iconset resource="../../ressources.qrc">
+          <iconset resource="../../resources.qrc">
            <normaloff>:/rec/data/icons/wContentSearch.svg</normaloff>:/rec/data/icons/wContentSearch.svg</iconset>
          </property>
          <property name="iconSize">
@@ -350,7 +390,7 @@
           <string>Directory cleanup</string>
          </property>
          <property name="icon">
-          <iconset resource="../../ressources.qrc">
+          <iconset resource="../../resources.qrc">
            <normaloff>:/rec/data/icons/wCleanup.svg</normaloff>:/rec/data/icons/wCleanup.svg</iconset>
          </property>
          <property name="iconSize">
@@ -534,7 +574,7 @@
      <x>0</x>
      <y>0</y>
      <width>1368</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -752,7 +792,7 @@
   </action>
   <action name="actionDBPanelWDTFbh">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
+    <iconset resource="../../resources.qrc">
      <normaloff>:/rec/data/icons/webdisk-tools.png</normaloff>:/rec/data/icons/webdisk-tools.png</iconset>
    </property>
    <property name="text">
@@ -817,7 +857,7 @@
   </action>
   <action name="actionAboutQt">
    <property name="icon">
-    <iconset resource="../../ressources.qrc">
+    <iconset resource="../../resources.qrc">
      <normaloff>:/rec/data/icons/qt.svg</normaloff>:/rec/data/icons/qt.svg</iconset>
    </property>
    <property name="text">
@@ -826,7 +866,7 @@
   </action>
  </widget>
  <resources>
-  <include location="../../ressources.qrc"/>
+  <include location="../../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

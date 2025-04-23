@@ -20,6 +20,7 @@
 #include "OTModules/wFbh/wdbcopyrights.h"
 #include "OTModules/wMaps/wmaps.h"
 #include "OTModules/wBugDoc/wbugdoc.h"
+#include "OTModules/wScriptEditor/wScriptEditor.h"
 
 namespace Ui {
 class wStart;
@@ -90,6 +91,8 @@ private slots:
 
     void on_lblUpdate_linkActivated(const QString &link);
 
+    void on_tbnScriptEditor_clicked();
+
 private:
     Ui::wStart *ui;
     wPreferences *WPREFERENCES;
@@ -108,6 +111,8 @@ private:
     wBugDoc *WBUGDOC;
     wDBKnownWords *WDBKNOWNWORDS;
     OTUpdater *updater = new OTUpdater();
+
+    wScriptEditor *WSCRIPTEDITOR;
 
     OTSettings set;
     OTMessage msg;
