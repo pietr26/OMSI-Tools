@@ -276,3 +276,6 @@ DISTFILES += \
 
 LIBS += $$PWD/OTBackend/DiscordGameSDK/discord_game_sdk.dll.lib
 LIBS += -luser32
+
+# Copy discord dll file to build directory => no runtime error :)
+QMAKE_POST_LINK += copy /Y \"$$PWD\\OTBackend\\DiscordGameSDK\\discord_game_sdk.dll\" \"$$OUT_PWD\\discord_game_sdk.dll\"
