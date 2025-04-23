@@ -1,6 +1,7 @@
 #ifndef DISCORDGAMESDK_H
 #define DISCORDGAMESDK_H
 
+#define NOMINMAX
 #include "DiscordGameSDK/discord.h"
 #include <csignal>
 #include <QString>
