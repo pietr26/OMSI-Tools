@@ -275,3 +275,4 @@ DISTFILES += \
     devNotes
 
 LIBS += $$PWD/OTBackend/DiscordGameSDK/discord_game_sdk.dll.lib
+LIBS += -luser32
