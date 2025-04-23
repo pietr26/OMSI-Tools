@@ -2,6 +2,14 @@
 #define WSCRIPTEDITOR_H
 
 #include <QMainWindow>
+#include <QDockWidget>
+#include <QTreeView>
+#include <QFileDialog>
+
+#include "Project.h"
+#include "ProjectModel.h"
+
+#include "OTBackend/OTGlobal.h"
 
 namespace Ui {
 class wScriptEditor;
@@ -22,8 +30,18 @@ private slots:
 
     void on_actionClose_triggered();
 
+    void on_actionOpenProject_triggered();
+
 private:
     Ui::wScriptEditor *ui;
+
+    Project *_project;
+    ProjectModel *_projectModel;
+
+    QList<QDockWidget *> _docks;
+
+    QDockWidget *_dwProject;
+    QTreeView *_projectView;
 };
 
 #endif // WSCRIPTEDITOR_H

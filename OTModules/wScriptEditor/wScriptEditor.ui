@@ -27,7 +27,7 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOpenEntity"/>
+    <addaction name="actionOpenProject"/>
     <addaction name="actionOpenScriptFile"/>
     <addaction name="separator"/>
     <addaction name="actionNewFile"/>
@@ -72,12 +72,12 @@
     <string>Ctrl+Shift+O</string>
    </property>
   </action>
-  <action name="actionOpenEntity">
+  <action name="actionOpenProject">
    <property name="icon">
     <iconset theme="QIcon::ThemeIcon::FolderOpen"/>
    </property>
    <property name="text">
-    <string>Open entity</string>
+    <string>Open project</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>

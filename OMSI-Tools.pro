@@ -84,6 +84,8 @@ SOURCES += \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp \
     OTModules/wMaps/wmaps.cpp \
+    OTModules/wScriptEditor/Project.cpp \
+    OTModules/wScriptEditor/ProjectModel.cpp \
     OTModules/wScriptEditor/wScriptEditor.cpp \
     OTModules/wVerifyMap/Widgets/dlgfilepreview.cpp \
     OTModules/wVerifyMap/Widgets/dlgsourceslist.cpp \
@@ -189,6 +191,8 @@ HEADERS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.h \
     OTModules/wMaps/wmaps.h \
+    OTModules/wScriptEditor/Project.h \
+    OTModules/wScriptEditor/ProjectModel.h \
     OTModules/wScriptEditor/wScriptEditor.h \
     OTModules/wVerifyMap/Widgets/dlgfilepreview.h \
     OTModules/wVerifyMap/Widgets/dlgsourceslist.h \
