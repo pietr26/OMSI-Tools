@@ -9,6 +9,8 @@ QString Project::path() const {
 }
 
 void Project::setPath(const QString &newPath) {
+    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+
     _path = newPath;
 
     QFileInfo fi(_path);
@@ -23,6 +25,7 @@ void Project::setPath(const QString &newPath) {
     readProjectFiles();
 
     emit reset();
+    QApplication::restoreOverrideCursor();
 }
 
 QSet<QString> Project::varlistFiles() const {
