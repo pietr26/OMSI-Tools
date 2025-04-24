@@ -5,7 +5,8 @@ wScriptEditor::wScriptEditor(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wScriptEditor),
     _project(new Project(this)),
-    _projectModel(new ProjectModel(this)) {
+    _projectModel(new ProjectModel(this)),
+    _projectProxyModel(new ProjectSortFilterProxyModel(this)) {
     ui->setupUi(this);
 
     _dwProject = new QDockWidget(tr("Project"), this);
@@ -16,7 +17,11 @@ wScriptEditor::wScriptEditor(QWidget *parent) :
     _dwProject->setWidget(_projectView);
 
     _projectModel->setProject(_project);
-    _projectView->setModel(_projectModel);
+    _projectProxyModel->setSourceModel(_projectModel);
+    _projectProxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
+
+    _projectView->setModel(_projectProxyModel);
+    _projectView->sortByColumn(0, Qt::AscendingOrder);
 
     addDockWidget(Qt::LeftDockWidgetArea, _dwProject);
 
@@ -58,4 +63,5 @@ void wScriptEditor::on_actionOpenProject_triggered() {
     }
 
     _project->setPath(fileName);
+    _projectView->expandToDepth(0);
 }

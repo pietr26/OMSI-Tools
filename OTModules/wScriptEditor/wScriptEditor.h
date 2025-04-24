@@ -8,6 +8,7 @@
 
 #include "Project.h"
 #include "ProjectModel.h"
+#include "ProjectSortFilterProxyModel.h"
 
 #include "OTBackend/OTGlobal.h"
 
@@ -37,6 +38,7 @@ private:
 
     Project *_project;
     ProjectModel *_projectModel;
+    ProjectSortFilterProxyModel *_projectProxyModel;
 
     QList<QDockWidget *> _docks;
 

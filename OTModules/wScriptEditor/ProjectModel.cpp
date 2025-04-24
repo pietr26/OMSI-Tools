@@ -84,10 +84,13 @@ int ProjectModel::columnCount(const QModelIndex &parent) const {
 }
 
 QVariant ProjectModel::data(const QModelIndex &index, int role) const {
-    if (!index.isValid() || (role != Qt::DisplayRole && role != Qt::DecorationRole))
+    if (!index.isValid() || (role != Qt::DisplayRole && role != Qt::DecorationRole && role != Qt::UserRole))
         return QVariant();
 
     ProjectTreeItem* item = static_cast<ProjectTreeItem*>(index.internalPointer());
+
+    if(role == Qt::UserRole)
+        return item->type;
 
     if(role == Qt::DecorationRole) {
         switch(item->type) {
