@@ -87,6 +87,9 @@ SOURCES += \
     OTModules/wScriptEditor/Project.cpp \
     OTModules/wScriptEditor/ProjectModel.cpp \
     OTModules/wScriptEditor/ProjectSortFilterProxyModel.cpp \
+    OTModules/wScriptEditor/VariablesModel.cpp \
+    OTModules/wScriptEditor/VariablesSortFilterProxyModel.cpp \
+    OTModules/wScriptEditor/WdgVariables.cpp \
     OTModules/wScriptEditor/wScriptEditor.cpp \
     OTModules/wVerifyMap/Widgets/dlgfilepreview.cpp \
     OTModules/wVerifyMap/Widgets/dlgsourceslist.cpp \
@@ -195,6 +198,9 @@ HEADERS += \
     OTModules/wScriptEditor/Project.h \
     OTModules/wScriptEditor/ProjectModel.h \
     OTModules/wScriptEditor/ProjectSortFilterProxyModel.h \
+    OTModules/wScriptEditor/VariablesModel.h \
+    OTModules/wScriptEditor/VariablesSortFilterProxyModel.h \
+    OTModules/wScriptEditor/WdgVariables.h \
     OTModules/wScriptEditor/wScriptEditor.h \
     OTModules/wVerifyMap/Widgets/dlgfilepreview.h \
     OTModules/wVerifyMap/Widgets/dlgsourceslist.h \
@@ -240,6 +246,7 @@ FORMS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.ui \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.ui \
     OTModules/wMaps/wmaps.ui \
+    OTModules/wScriptEditor/WdgVariables.ui \
     OTModules/wScriptEditor/wScriptEditor.ui \
     OTModules/wVerifyMap/Widgets/dlgfilepreview.ui \
     OTModules/wVerifyMap/Widgets/dlgsourceslist.ui \

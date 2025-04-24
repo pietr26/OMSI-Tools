@@ -9,6 +9,7 @@
 #include "Project.h"
 #include "ProjectModel.h"
 #include "ProjectSortFilterProxyModel.h"
+#include "WdgVariables.h"
 
 #include "OTBackend/OTGlobal.h"
 
@@ -44,6 +45,9 @@ private:
 
     QDockWidget *_dwProject;
     QTreeView *_projectView;
+
+    QDockWidget *_dwVariables;
+    WdgVariables *_wdgVariables;
 };
 
 #endif // WSCRIPTEDITOR_H

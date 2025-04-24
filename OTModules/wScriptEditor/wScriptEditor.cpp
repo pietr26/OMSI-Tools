@@ -25,6 +25,14 @@ wScriptEditor::wScriptEditor(QWidget *parent) :
 
     addDockWidget(Qt::LeftDockWidgetArea, _dwProject);
 
+
+    _dwVariables = new QDockWidget(tr("Variables"), this);
+    _wdgVariables = new WdgVariables(_project, _dwVariables);
+    _dwVariables->setWidget(_wdgVariables);
+
+    _docks << _dwVariables;
+    addDockWidget(Qt::RightDockWidgetArea, _dwVariables);
+
     for(QDockWidget *dock : std::as_const(_docks)) {
         dock->setAllowedAreas(dockWidgetArea(dock));
         dock->setFeatures(QDockWidget::DockWidgetClosable);
