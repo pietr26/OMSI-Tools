@@ -5,6 +5,7 @@
 #include <QDockWidget>
 #include <QTreeView>
 #include <QFileDialog>
+#include <QToolBar>
 
 #include "Project.h"
 #include "ProjectModel.h"
@@ -36,6 +37,8 @@ private slots:
 
 private:
     Ui::wScriptEditor *ui;
+
+    QToolBar *_toolBar;
 
     Project *_project;
     ProjectModel *_projectModel;

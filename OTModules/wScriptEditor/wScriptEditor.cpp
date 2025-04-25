@@ -4,10 +4,17 @@
 wScriptEditor::wScriptEditor(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wScriptEditor),
+    _toolBar(new QToolBar(this)),
     _project(new Project(this)),
     _projectModel(new ProjectModel(this)),
     _projectProxyModel(new ProjectSortFilterProxyModel(this)) {
     ui->setupUi(this);
+
+    addToolBar(_toolBar);
+
+    _toolBar->addAction(ui->actionOpenProject);
+    _toolBar->addAction(ui->actionNewFile);
+    _toolBar->addAction(ui->actionSave);
 
     _dwProject = new QDockWidget(tr("Project"), this);
     _docks << _dwProject;
