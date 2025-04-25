@@ -8,6 +8,11 @@ QString Project::path() const {
     return _path;
 }
 
+
+QString Project::dir() const {
+    return _dir;
+}
+
 void Project::setPath(const QString &newPath) {
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
@@ -163,3 +168,4 @@ QMap<QString, float> Project::readConstfile(const QString &filePath) {
 
     return map;
 }
+

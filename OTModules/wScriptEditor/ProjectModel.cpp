@@ -1,7 +1,10 @@
 #include "ProjectModel.h"
 
 void ProjectTreeItem::ProjectTreeItem::addPathItem(const QString &path, ProjectTreeItem *parent) {
-    const QStringList parts = path.split('/', Qt::SkipEmptyParts);
+    QString cleanPath = path;
+    cleanPath.remove("script/");
+
+    const QStringList parts = cleanPath.split('/', Qt::SkipEmptyParts);
     ProjectTreeItem *currentParent = parent;
 
     for (int i = 0; i < parts.size(); ++i) {
@@ -9,7 +12,7 @@ void ProjectTreeItem::ProjectTreeItem::addPathItem(const QString &path, ProjectT
 
         // Prüfe, ob dieser Name schon unter currentParent existiert
         ProjectTreeItem *existing = nullptr;
-        for (ProjectTreeItem *child : currentParent->children) {
+        for (ProjectTreeItem *child : std::as_const(currentParent->children)) {
             if (child->name == part) {
                 existing = child;
                 break;
@@ -20,7 +23,7 @@ void ProjectTreeItem::ProjectTreeItem::addPathItem(const QString &path, ProjectT
             currentParent = existing;
         } else {
             // Neuen Eintrag erstellen
-            ProjectTreeItem *newItem = new ProjectTreeItem(File, part, currentParent);
+            ProjectTreeItem *newItem = new ProjectTreeItem(File, part, path, currentParent);
             currentParent->children.append(newItem);
             if(currentParent->type != Category)
                 currentParent->type = Folder;
@@ -107,23 +110,34 @@ QVariant ProjectModel::data(const QModelIndex &index, int role) const {
     return name;
 }
 
+QString ProjectModel::filePath(const QModelIndex &index) const {
+    if(!index.isValid())
+        return "";
+
+    return static_cast<ProjectTreeItem *>(index.internalPointer())->path;
+}
+
+ProjectTreeItem::Type ProjectModel::type(const QModelIndex &index) const {
+    if(!index.isValid())
+        return ProjectTreeItem::Invalid;
+
+    return static_cast<ProjectTreeItem *>(index.internalPointer())->type;
+}
+
 void ProjectModel::addCategory(const QString &name, const QStringList &items) {
-    ProjectTreeItem *category = new ProjectTreeItem(ProjectTreeItem::Category, name, _rootItem);
+    ProjectTreeItem *category = new ProjectTreeItem(ProjectTreeItem::Category, name, "", _rootItem);
     _rootItem->children.append(category);
 
-    for (const QString& path : items) {
-        QString file = path;
-        file.remove("script/");
-        ProjectTreeItem::addPathItem(file, category);
-    }
+    for (const QString& path : items)
+        ProjectTreeItem::addPathItem(path, category);
 }
 
 void ProjectModel::reload() {
     beginResetModel();
     if(_invisibleRootItem)
         delete _invisibleRootItem;
-    _invisibleRootItem = new ProjectTreeItem(ProjectTreeItem::Root, "");
-    _rootItem = new ProjectTreeItem(ProjectTreeItem::Root, _project->path().split("/").last());
+    _invisibleRootItem = new ProjectTreeItem(ProjectTreeItem::Root, "", "");
+    _rootItem = new ProjectTreeItem(ProjectTreeItem::Root, _project->path().split("/").last(), "");
     _invisibleRootItem->children.append(_rootItem);
 
     _varlistFiles = _project->varlistFiles().values();

@@ -10,18 +10,19 @@ struct ProjectTreeItem {
         Root,
         Category,
         File,
-        Folder
+        Folder,
+        Invalid
     };
 
     static void addPathItem(const QString &path, ProjectTreeItem *parent);
 
     Type type;
-    QString name;
+    QString name, path;
     ProjectTreeItem* parent = nullptr;
     QList<ProjectTreeItem*> children;
 
-    explicit ProjectTreeItem(Type type, const QString& name, ProjectTreeItem* parent = nullptr)
-        : type(type), name(name), parent(parent) {}
+    explicit ProjectTreeItem(Type type, const QString &name, const QString &path, ProjectTreeItem* parent = nullptr)
+        : type(type), name(name), path(path), parent(parent) {}
 
     ~ProjectTreeItem() {
         qDeleteAll(children);
@@ -49,6 +50,9 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+    QString filePath(const QModelIndex &index) const;
+    ProjectTreeItem::Type type(const QModelIndex &index) const;
 
 protected slots:
     void addCategory(const QString &name, const QStringList &items);

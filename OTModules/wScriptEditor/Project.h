@@ -31,6 +31,8 @@ public:
     QString path() const;
     void setPath(const QString &newPath);
 
+    QString dir() const;
+
     QSet<QString> varlistFiles() const;
     QSet<QString> stringVarlistFiles() const;
     QSet<QString> scriptFiles() const;

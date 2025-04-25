@@ -6,6 +6,7 @@
 #include <QTreeView>
 #include <QFileDialog>
 #include <QToolBar>
+#include <QTextDocument>
 
 #include "Project.h"
 #include "ProjectModel.h"
@@ -28,12 +29,16 @@ public:
 signals:
     void backToHome();
 
-private slots:
+protected slots:
     void on_actionBackToHome_triggered();
-
     void on_actionClose_triggered();
-
     void on_actionOpenProject_triggered();
+
+    void onFileOpen(const QModelIndex &index);
+    void onCurrentFileChanged(const int &tabIndex);
+    void onFileClose(const int &tabIndex);
+
+    void updateStackedWidget();
 
 private:
     Ui::wScriptEditor *ui;
@@ -51,6 +56,9 @@ private:
 
     QDockWidget *_dwVariables;
     WdgVariables *_wdgVariables;
+
+    QStringList _openFiles;
+    QList<QTextDocument *> _openDocuments;
 };
 
 #endif // WSCRIPTEDITOR_H
