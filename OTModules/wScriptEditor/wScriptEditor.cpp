@@ -111,6 +111,8 @@ void wScriptEditor::onFileOpen(const QModelIndex &index) {
         qWarning() << "Failed reading" << filePath; // TODO
         return;
     }
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     QTextStream s(&f);
     s.setEncoding(QStringConverter::Latin1);
     const QString text = s.readAll();
@@ -119,19 +121,23 @@ void wScriptEditor::onFileOpen(const QModelIndex &index) {
     QTextDocument *doc = new QTextDocument(this);
     doc->setDocumentLayout(new QPlainTextDocumentLayout(doc));
     doc->setPlainText(text);
-    doc->setDefaultFont(QFont("Courier New", 10));
+    doc->setDefaultFont(codeFont);
 
     int tabWidthChars = 3;
-    QFontMetricsF metrics(QFont("Courier New", 10));
+    QFontMetricsF metrics(codeFont);
     QTextOption option;
     option.setTabStopDistance(metrics.horizontalAdvance(" ") * tabWidthChars);
     doc->setDefaultTextOption(option);
+    QSyntaxHighlighter *highlighter = new ScriptSyntaxHighlighter(codeFont, doc);
 
     _openFiles << filePath;
     _openDocuments << doc;
     ui->tabBar->addTab(shortName);
     ui->tabBar->setCurrentIndex(ui->tabBar->count() - 1);
     updateStackedWidget();
+
+    qApp->processEvents(); // stay in the override cursor
+    QApplication::restoreOverrideCursor();
 }
 
 void wScriptEditor::onCurrentFileChanged(const int &tabIndex) {

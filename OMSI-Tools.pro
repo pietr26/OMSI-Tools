@@ -87,6 +87,7 @@ SOURCES += \
     OTModules/wScriptEditor/Project.cpp \
     OTModules/wScriptEditor/ProjectModel.cpp \
     OTModules/wScriptEditor/ProjectSortFilterProxyModel.cpp \
+    OTModules/wScriptEditor/ScriptSyntaxHighlighter.cpp \
     OTModules/wScriptEditor/VariablesModel.cpp \
     OTModules/wScriptEditor/VariablesSortFilterProxyModel.cpp \
     OTModules/wScriptEditor/WdgVariables.cpp \
@@ -198,6 +199,7 @@ HEADERS += \
     OTModules/wScriptEditor/Project.h \
     OTModules/wScriptEditor/ProjectModel.h \
     OTModules/wScriptEditor/ProjectSortFilterProxyModel.h \
+    OTModules/wScriptEditor/ScriptSyntaxHighlighter.h \
     OTModules/wScriptEditor/VariablesModel.h \
     OTModules/wScriptEditor/VariablesSortFilterProxyModel.h \
     OTModules/wScriptEditor/WdgVariables.h \

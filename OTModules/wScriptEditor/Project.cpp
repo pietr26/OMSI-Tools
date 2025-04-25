@@ -14,7 +14,7 @@ QString Project::dir() const {
 }
 
 void Project::setPath(const QString &newPath) {
-    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+    QApplication::setOverrideCursor(Qt::WaitCursor);
 
     _path = newPath;
 

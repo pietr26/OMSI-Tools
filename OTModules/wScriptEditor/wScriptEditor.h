@@ -12,6 +12,7 @@
 #include "ProjectModel.h"
 #include "ProjectSortFilterProxyModel.h"
 #include "WdgVariables.h"
+#include "ScriptSyntaxHighlighter.h"
 
 #include "OTBackend/OTGlobal.h"
 
@@ -59,6 +60,8 @@ private:
 
     QStringList _openFiles;
     QList<QTextDocument *> _openDocuments;
+
+    static const inline QFont codeFont = QFont("JetBrains Mono", 10, QFont::DemiBold);
 };
 
 #endif // WSCRIPTEDITOR_H
