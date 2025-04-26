@@ -158,3 +158,15 @@ void wScriptEditor::onFileClose(const int &tabIndex) {
 void wScriptEditor::updateStackedWidget() {
     ui->stackedWidget->setCurrentIndex(static_cast<bool>(ui->tabBar->count()));
 }
+
+void wScriptEditor::on_actionGoToLineNumber_triggered() {
+    bool ok;
+    const int lineNumber = QInputDialog::getInt(this, tr("Go to line number"), tr("Line number:"), 1, 1, ui->plainTextEdit->blockCount(), 1, &ok);
+    if(!ok)
+        return;
+
+    QTextCursor cursor = ui->plainTextEdit->textCursor();
+    cursor.movePosition(QTextCursor::Start);
+    cursor.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, lineNumber - 1);
+    ui->plainTextEdit->setTextCursor(cursor);
+}

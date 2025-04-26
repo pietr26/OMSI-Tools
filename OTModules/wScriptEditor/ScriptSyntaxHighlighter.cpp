@@ -6,7 +6,7 @@ ScriptSyntaxHighlighter::ScriptSyntaxHighlighter(const QFont &font, QTextDocumen
     QFont italicFont = font;
     italicFont.setItalic(true);
 
-    bool dark = QApplication::palette().color(QPalette::Window).lightness() < 128;
+    bool dark = darkMode();
 
     commentFormat.setForeground(dark ? QColor(96, 128, 96) : QColor(0, 128, 0));
     stringFormat.setForeground(dark ? QColor(128, 192, 128) : QColor(0, 128, 0));
@@ -15,6 +15,10 @@ ScriptSyntaxHighlighter::ScriptSyntaxHighlighter(const QFont &font, QTextDocumen
     ifFormat.setForeground(QColor(215, 58, 73));
     varFormat.setForeground(dark ? QColor(0, 160, 192) : QColor(0, 103, 124));
     commandFormat.setForeground(dark ? QColor(214, 149, 69) : QColor(192, 102, 0));
+}
+
+bool ScriptSyntaxHighlighter::darkMode() {
+    return QApplication::palette().color(QPalette::Window).lightness() < 128;
 }
 
 void ScriptSyntaxHighlighter::highlightBlock(const QString &text) {

@@ -12,6 +12,8 @@ class ScriptSyntaxHighlighter : public QSyntaxHighlighter {
 public:
     ScriptSyntaxHighlighter(const QFont &font, QTextDocument *parent = nullptr);
 
+    static bool darkMode();
+
 protected:
     void highlightBlock(const QString &text) override;
 

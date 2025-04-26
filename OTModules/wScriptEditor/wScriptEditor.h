@@ -7,6 +7,7 @@
 #include <QFileDialog>
 #include <QToolBar>
 #include <QTextDocument>
+#include <QInputDialog>
 
 #include "Project.h"
 #include "ProjectModel.h"
@@ -40,6 +41,9 @@ protected slots:
     void onFileClose(const int &tabIndex);
 
     void updateStackedWidget();
+
+private slots:
+    void on_actionGoToLineNumber_triggered();
 
 private:
     Ui::wScriptEditor *ui;

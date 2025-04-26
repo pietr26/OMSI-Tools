@@ -84,6 +84,8 @@ SOURCES += \
     OTModules/wMaps/wGlobalProps/wglobalprops.cpp \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.cpp \
     OTModules/wMaps/wmaps.cpp \
+    OTModules/wScriptEditor/CodeEditor.cpp \
+    OTModules/wScriptEditor/LineNumberArea.cpp \
     OTModules/wScriptEditor/Project.cpp \
     OTModules/wScriptEditor/ProjectModel.cpp \
     OTModules/wScriptEditor/ProjectSortFilterProxyModel.cpp \
@@ -196,6 +198,8 @@ HEADERS += \
     OTModules/wMaps/wGlobalProps/wglobalprops.h \
     OTModules/wMaps/wPlaceObjects/wplaceobjects.h \
     OTModules/wMaps/wmaps.h \
+    OTModules/wScriptEditor/CodeEditor.h \
+    OTModules/wScriptEditor/LineNumberArea.h \
     OTModules/wScriptEditor/Project.h \
     OTModules/wScriptEditor/ProjectModel.h \
     OTModules/wScriptEditor/ProjectSortFilterProxyModel.h \

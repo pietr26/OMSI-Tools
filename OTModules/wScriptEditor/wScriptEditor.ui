@@ -70,7 +70,11 @@
          <widget class="QTabBar" name="tabBar" native="true"/>
         </item>
         <item>
-         <widget class="QPlainTextEdit" name="plainTextEdit"/>
+         <widget class="CodeEditor" name="plainTextEdit">
+          <property name="lineWrapMode">
+           <enum>QPlainTextEdit::LineWrapMode::NoWrap</enum>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -84,7 +88,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -105,6 +109,7 @@
     <property name="title">
      <string>Edit</string>
     </property>
+    <addaction name="actionGoToLineNumber"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -191,6 +196,14 @@
     <string>Ctrl+N</string>
    </property>
   </action>
+  <action name="actionGoToLineNumber">
+   <property name="text">
+    <string>Go to line number</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -198,6 +211,11 @@
    <extends>QWidget</extends>
    <header>qtabbar.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CodeEditor</class>
+   <extends>QPlainTextEdit</extends>
+   <header>CodeEditor.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
