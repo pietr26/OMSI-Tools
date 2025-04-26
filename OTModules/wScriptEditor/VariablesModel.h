@@ -45,6 +45,8 @@ protected slots:
     void onConstAdded(const QString &constname, const float &value);
     void onConstRemoved(const QString &constname, const float &value);
 
+    void reload();
+
 private:
     Project *_project;
 

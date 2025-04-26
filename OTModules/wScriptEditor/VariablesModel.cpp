@@ -12,6 +12,8 @@ VariablesModel::VariablesModel(Project *project, QObject *parent) :
 
     connect(_project, &Project::constAdded,       this, &VariablesModel::onConstAdded);
     connect(_project, &Project::constRemoved,     this, &VariablesModel::onConstRemoved);
+
+    connect(_project, &Project::reset,            this, &VariablesModel::reload);
 }
 
 QVariant VariablesModel::headerData(int section, Qt::Orientation orientation, int role) const {
@@ -97,4 +99,10 @@ void VariablesModel::onConstAdded(const QString &constname, const float &value) 
 
 void VariablesModel::onConstRemoved(const QString &constname, const float &value) {
     // FIXME
+}
+
+void VariablesModel::reload() {
+    beginResetModel();
+    _items.clear();
+    endResetModel();
 }

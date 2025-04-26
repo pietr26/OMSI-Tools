@@ -79,6 +79,9 @@ void wScriptEditor::on_actionOpenProject_triggered() {
     if(fileName.isEmpty())
         return;
 
+    while(ui->tabBar->count() > 0)
+        onFileClose(ui->tabBar->count() - 1);
+
     QFile f(fileName);
 
     if(!f.open(QFile::ReadOnly)) {

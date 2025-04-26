@@ -26,10 +26,14 @@ void Project::setPath(const QString &newPath) {
     _scriptFiles.clear();
     _constFiles.clear();
 
+    _vars.clear();
+    _stringVars.clear();
+    _consts.clear();
+
     readFile();
+    emit reset();
     readProjectFiles();
 
-    emit reset();
     QApplication::restoreOverrideCursor();
 }
 
