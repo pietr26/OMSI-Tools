@@ -31,7 +31,7 @@ void ScriptSyntaxHighlighter::highlightBlock(const QString &text) {
     formatParts(text, blockKeywords, blockFormat);
     formatParts(text, varKeywords, varFormat);
     formatParts(text, commandKeywords, commandFormat);
-    formatParts(text, {"\".+?\""}, stringFormat);
+    formatParts(text, {"\".*?\""}, stringFormat);
     formatParts(text, {"-?([0-9]+|[0-9]*\\.[0-9]+)"}, numberFormat);
 }
 
