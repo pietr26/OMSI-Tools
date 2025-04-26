@@ -40,6 +40,7 @@ protected:
                                                    "\\(T\\.L\\.\\w+\\)",   // simple sound trigger
                                                    "\\(T\\.F\\.\\w+\\)",   // file switch sound trigger
                                                    "\\(M\\.L\\.\\w+\\)",   // macro call
+                                                   "\\(M\\.V\\.\\w+\\)",   // system macro call
                                                    "\\(F\\.L\\.\\w+\\)"};  // load curve
 
     static const inline QStringList commandKeywords = {"l0", "l1", "l2", "l3", "l4", "l5", "l6", "l7",
