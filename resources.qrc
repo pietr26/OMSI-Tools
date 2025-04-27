@@ -49,5 +49,6 @@
         <file>data/translations/tr_nl.ts</file>
         <file>data/translations/tr_nl.qm</file>
         <file>data/translationsBASE/qtbase_nl.qm</file>
+        <file>data/icons/wScriptEditor.svg</file>
     </qresource>
 </RCC>

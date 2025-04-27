@@ -199,6 +199,10 @@
          <property name="text">
           <string>Script editor</string>
          </property>
+         <property name="icon">
+          <iconset resource="../../resources.qrc">
+           <normaloff>:/rec/data/icons/wScriptEditor.svg</normaloff>:/rec/data/icons/wScriptEditor.svg</iconset>
+         </property>
          <property name="iconSize">
           <size>
            <width>25</width>
