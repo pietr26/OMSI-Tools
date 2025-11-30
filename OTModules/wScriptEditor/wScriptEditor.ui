@@ -219,7 +219,7 @@
   <customwidget>
    <class>CodeEditor</class>
    <extends>QPlainTextEdit</extends>
-   <header>CodeEditor.h</header>
+   <header>OTModules/wScriptEditor/CodeEditor.h</header>
   </customwidget>
  </customwidgets>
  <resources>
