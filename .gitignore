@@ -1,5 +1,5 @@
 build/*
 data/db/backups
-lrelease-pro.bat
-lupdate-pro.bat
-OMSI-Tools.pro.user
+CMakeLists.txt.user
+CMakeUserPresets.json
+.qtcreator/
