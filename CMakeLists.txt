@@ -158,6 +158,19 @@ set(OT_HEADERS
     OTBackend/OTExternal.h
     OTBackend/OTFileSource.h
     OTBackend/OTGlobal.h
+    OTBackend/OTFileMethods.h
+    OTBackend/OTBuildOptions.h
+    OTBackend/OTInformation.h
+    OTBackend/OTLinks.h
+    OTBackend/OTNetworkConnection.h
+    OTBackend/OTMiscellaneous.h
+    OTBackend/OTUpdater.h
+    OTBackend/OTFileOperations.h
+    OTBackend/OTSettings.h
+    OTBackend/OTMessage.h
+    OTBackend/OTDiskUsage.h
+    OTBackend/OTStrings.h
+    OTBackend/OTInAppMessage.h
     OTBackend/OTLogger.h
     OTBackend/OTMapScanner.h
     OTBackend/OTOmsiFileHandler.h
