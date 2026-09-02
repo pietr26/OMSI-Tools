@@ -84,9 +84,9 @@ private:
     OTDiskUsage dUs;
     OTStrings strings;
     QTimer *timer;
-    wDevTools *WDEVTOOLS;
-    wReleaseNotes *WRELEASENOTES;
-    wFeedback *WFEEDBACK;
+    wDevTools *WDEVTOOLS = nullptr;
+    wReleaseNotes *WRELEASENOTES = nullptr;
+    wFeedback *WFEEDBACK = nullptr;
 
     void reloadThemePreview();
 

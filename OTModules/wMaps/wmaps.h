@@ -52,10 +52,10 @@ private:
 
     OTSettings set;
     OTOMSIFileHandler filehandler;
-    wPreferences *WPREFERENCES;
-    wMapSelection *WMAPSELECTION;
-    wGlobalProps *WGLOBALPROPS;
-    wPlaceObjects *WPLACEOBJECTS;
+    wPreferences *WPREFERENCES = nullptr;
+    wMapSelection *WMAPSELECTION = nullptr;
+    wGlobalProps *WGLOBALPROPS = nullptr;
+    wPlaceObjects *WPLACEOBJECTS = nullptr;
 
     QPair<QString, QString> currentMap;
 

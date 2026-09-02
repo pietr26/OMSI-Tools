@@ -275,7 +275,9 @@ void wDevTools::on_btnSoundFileLister_clicked()
     foreach (QString current, files)
     {
         QFile file(current);
-        file.open(QFile::ReadOnly | QFile::Text);
+
+        if (!file.open(QFile::ReadOnly | QFile::Text))
+            qWarning().noquote() << "Could not open '" + current + "'.";
 
         QTextStream in (&file);
         QString line;

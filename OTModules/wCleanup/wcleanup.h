@@ -62,7 +62,7 @@ private:
     OTMessage msg;
     OTOMSIFileHandler filehandler;
     OTMiscellaneous misc;
-    wPreferences *WPREFERENCES;
+    wPreferences *WPREFERENCES = nullptr;
 };
 
 #endif // WCLEANUP_H

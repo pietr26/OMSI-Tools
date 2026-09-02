@@ -60,7 +60,7 @@ private slots:
 
 private:
     Ui::wBugDoc *ui;
-    wPreferences *WPREFERENCES;
+    wPreferences *WPREFERENCES = nullptr;
 
     void loadUI();
 

@@ -63,8 +63,8 @@ private:
     OTSettings set;
     OTMessage msg;
     OTMiscellaneous misc;
-    wPreferences *WPREFERENCES;
-    wAddFiles *WADDFILES;
+    wPreferences *WPREFERENCES = nullptr;
+    wAddFiles *WADDFILES = nullptr;
 
     OTDatabaseHandler dbHandler;
     QTemporaryFile database;

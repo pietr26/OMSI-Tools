@@ -92,21 +92,21 @@ private slots:
 
 private:
     Ui::wStart *ui;
-    wPreferences *WPREFERENCES;
-    wFonts *WFONTS;
-    wVerifyMap *WVERIFYMAP;
-    wDevTools *WDEVTOOLS;
-    wRegEditor *WREGEDITOR;
-    wDBPanel *WDBPANEL;
-    wContentSearch *WCONTENTSEARCH;
-    wReleaseNotes *WRELEASENOTES;
-    wAbout *WABOUT;
-    wFeedback *WFEEDBACK;
-    wCleanup *WCLEANUP;
-    wDBCopyrights *WDBCOPYRIGHTS;
-    wMaps *WMAPS;
-    wBugDoc *WBUGDOC;
-    wDBKnownWords *WDBKNOWNWORDS;
+    wPreferences *WPREFERENCES = nullptr;
+    wFonts *WFONTS = nullptr;
+    wVerifyMap *WVERIFYMAP = nullptr;
+    wDevTools *WDEVTOOLS = nullptr;
+    wRegEditor *WREGEDITOR = nullptr;
+    wDBPanel *WDBPANEL = nullptr;
+    wContentSearch *WCONTENTSEARCH = nullptr;
+    wReleaseNotes *WRELEASENOTES = nullptr;
+    wAbout *WABOUT = nullptr;
+    wFeedback *WFEEDBACK = nullptr;
+    wCleanup *WCLEANUP = nullptr;
+    wDBCopyrights *WDBCOPYRIGHTS = nullptr;
+    wMaps *WMAPS = nullptr;
+    wBugDoc *WBUGDOC = nullptr;
+    wDBKnownWords *WDBKNOWNWORDS = nullptr;
     OTUpdater *updater = new OTUpdater();
 
     OTSettings set;

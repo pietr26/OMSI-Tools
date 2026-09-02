@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
 {
     OTSettings set;
     OTMiscellaneous misc;
-    OTFileOperations fop;
 
     QApplication a(argc, argv);
 
@@ -66,7 +65,10 @@ int main(int argc, char *argv[])
             QMessageBox::StandardButton reply = QMessageBox::question(NULL, QObject::tr("Crash detected"), QObject::tr("%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.\nOpen the path of the logfile?").arg(OTInformation::name));
 
             if (reply == QMessageBox::Yes)
+            {
+                OTFileOperations fop;
                 fop.showInExplorer(newName);
+            }
             #endif
         }
         else qDebug() << "No crash detected.";

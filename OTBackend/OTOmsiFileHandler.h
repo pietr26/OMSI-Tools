@@ -70,7 +70,12 @@ public:
 //                qDebug().noquote() << "Here is " << current << "!";
 
             QFile object(OTPath::resolve(mainDir, current));
-            object.open(QFile::ReadOnly | QFile::Text);
+
+            // A file which exists but cannot be opened - OMSI is running and holds it,
+            // or the permissions do not allow reading - was processed as if it were
+            // empty. The flow below is unchanged, the failure is only made visible.
+            if (!object.open(QFile::ReadOnly | QFile::Text) && object.exists())
+                qWarning().noquote() << "Could not open '" + object.fileName() + "'.";
 
             if (object.exists())
             {
@@ -161,7 +166,9 @@ public:
                 textTextures.removeDuplicates();
 
                 object.close();
-                object.open(QFile::ReadOnly | QFile::Text);
+
+                if (!object.open(QFile::ReadOnly | QFile::Text))
+                    qWarning().noquote() << "Could not reopen '" + object.fileName() + "'.";
 
 
                 QTextStream in(&object);
@@ -362,7 +369,9 @@ public:
             //                qDebug().noquote() << "Here is " << current << "!";
 
             QFile spline(OTPath::resolve(mainDir, current));
-            spline.open(QFile::ReadOnly | QFile::Text);
+
+            if (!spline.open(QFile::ReadOnly | QFile::Text) && spline.exists())
+                qWarning().noquote() << "Could not open '" + spline.fileName() + "'.";
 
             if (spline.exists())
             {
@@ -1057,7 +1066,9 @@ private:
             path = getMapPath().remove("global.cfg") + path;
 
             QFile tile(path);
-            tile.open(QFile::ReadOnly | QFile::Text);
+
+            if (!tile.open(QFile::ReadOnly | QFile::Text))
+                qWarning().noquote() << "Could not open '" + path + "'.";
 
             QTextStream in(&tile);
             in.setEncoding(OTPlatform::omsiEncoding());

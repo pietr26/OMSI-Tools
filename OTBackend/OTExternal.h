@@ -205,9 +205,17 @@ public:
         tFile.resize(0);
 
         QFile nFile(newFile);
-        nFile.open(QFile::ReadOnly);
+
+        // Both failures leave the caller with an empty texture. See TODO.md - reporting
+        // that back through the return value would change what the callers show.
+        if (!nFile.open(QFile::ReadOnly))
+            qWarning().noquote() << "Could not open the converted texture '" + newFile + "'.";
+
         QByteArray bla = nFile.readAll();
-        tFile.open();
+
+        if (!tFile.open())
+            qWarning().noquote() << "Could not open the temporary file for the converted texture.";
+
         QDataStream in(&tFile);
         in.writeRawData(bla.constData(), bla.size());
 

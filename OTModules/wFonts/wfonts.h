@@ -55,15 +55,15 @@ signals:
 
 private:
     Ui::wFonts *ui;
-    wPreferences *WPREFERENCES;
+    wPreferences *WPREFERENCES = nullptr;
     OTSettings set;
     OTMessage msg;
     OTMiscellaneous misc;
 
-    wdgEditor *WDGEDITOR;
-    wdgPreview *WDGPREVIEW;
+    wdgEditor *WDGEDITOR = nullptr;
+    wdgPreview *WDGPREVIEW = nullptr;
 
-    wSelectEncoding *WSELECTENCODING;
+    wSelectEncoding *WSELECTENCODING = nullptr;
 
     OCFont::FontCollection *_font;
 

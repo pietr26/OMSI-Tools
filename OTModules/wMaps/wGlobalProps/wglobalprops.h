@@ -106,8 +106,8 @@ private slots:
 private:
     Ui::wGlobalProps *ui;
     OTSettings set;
-    wEditGroundTexture *WEDITGROUNDTEXTURE;
-    wEditSeason *WEDITSEASON;
+    wEditGroundTexture *WEDITGROUNDTEXTURE = nullptr;
+    wEditSeason *WEDITSEASON = nullptr;
     OTOMSIFileHandler filehandler;
 
     void reloadUI();

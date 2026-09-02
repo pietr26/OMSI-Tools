@@ -55,7 +55,7 @@ private:
     Ui::wVerifyMap *ui;
     OTMessage msg;
     OTSettings set;
-    wPreferences *WPREFERENCES;
+    wPreferences *WPREFERENCES = nullptr;
 
     int cutCount = set.read("main", "mainDir").toString().size() + 1;
 

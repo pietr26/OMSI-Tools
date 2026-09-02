@@ -320,7 +320,7 @@ void wPreferences::on_ledAuthor_textChanged(const QString &arg1) { Q_UNUSED(arg1
 
 void wPreferences::on_cbxBackupEnabled_clicked(bool checked) { Q_UNUSED(checked); modified(); }
 
-void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { modified(); }
+void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
 
 void wPreferences::on_cbxShowNews_stateChanged(int arg1) { Q_UNUSED(arg1); if (setupFinished) { modified(); needRestart = true; } }
 
