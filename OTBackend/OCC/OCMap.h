@@ -294,9 +294,16 @@ public:
                     else if (line == "[ticketpack]") ticketpack = in.readLine();
                     else if (line == "[repair_time_min]")
                     {
-                        float decimalTime = in.readLine().toFloat(); int hours = 0;
-                        while (decimalTime >= 60) { hours++; decimalTime -= 60; }
-                        repairTime = QTime(hours, decimalTime * 60);
+                        /*
+                            The value is in minutes - that is what the field is called, and
+                            what shipped maps contain (1.000 / 5.000 / 10.000).
+
+                            The remainder of the hour conversion used to be multiplied by 60
+                            a second time, so 5 minutes turned into QTime(0, 300) - an
+                            invalid QTime, whose hour() then returns -1 further down.
+                        */
+                        const int totalMinutes = qBound(0, qRound(in.readLine().toFloat()), 23 * 60 + 59);
+                        repairTime = QTime(totalMinutes / 60, totalMinutes % 60);
                     }
                     else if (line == "[years]")
                     {
@@ -492,10 +499,15 @@ public:
                 out << ticketpack.replace("/", "\\") << "\n\n";
 
                 out << "[repair_time_min]" << "\n";
-                float decimalRepairTime = 0; int hours = repairTime.hour();
-                while (hours != 0) { hours--; decimalRepairTime += 60; }
-                decimalRepairTime += repairTime.minute() / 60;
-                out << decimalRepairTime << "\n\n";
+
+                /*
+                    Counterpart of the read above: minutes.
+
+                    An invalid QTime - every map without this field - must not reach the
+                    arithmetic. hour() returns -1 for it, and the previous loop
+                    "while (hours != 0) hours--;" counted down from -1 and never ended.
+                */
+                out << (repairTime.isValid() ? repairTime.hour() * 60 + repairTime.minute() : 0) << "\n\n";
 
                 out << "[years]" << "\n";
                 out << startYear << "\n";

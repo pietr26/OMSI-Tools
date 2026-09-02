@@ -549,6 +549,7 @@ void OTMapScanner::scanTile(const QString &filename) {
 
     if(!f.open(QFile::ReadOnly)) {
         qWarning() << "Could not open " << filename;
+        return;
     }
 
     QTextStream s(&f);
