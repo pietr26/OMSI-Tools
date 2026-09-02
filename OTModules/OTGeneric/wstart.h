@@ -117,6 +117,35 @@ private:
 
     bool checkMainDir();
 
+    /*!
+        Shows a module window, comes back to this window when the module is done, and
+        lets the module free itself afterwards.
+
+        The modules used to stay alive forever: created without a parent, closed without
+        WA_DeleteOnClose, and forgotten as soon as the next click overwrote the pointer.
+        Every switch back and forth cost a whole window including its models.
+
+        deleteLater() is safe here: every module emits backToHome from one of its own
+        slots, and Qt only carries out a deferred deletion in the event loop the call was
+        made from - never in a nested one - so the emitting function has always returned
+        by then. The three modules which emit before their close() are fine for the same
+        reason.
+    */
+    template<class T>
+    void showModule(T *&window)
+    {
+        connect(window, &T::backToHome, this, [this, &window]()
+        {
+            reopen();
+
+            window->deleteLater();
+            window = nullptr;
+        });
+
+        window->show();
+        close();
+    }
+
     void loadMessagesOld();
     void loadMessages();
     void checkForUpdates();

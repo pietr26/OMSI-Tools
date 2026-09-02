@@ -40,6 +40,8 @@ void OTMapChecker::run() {
     bool advancedCheck = set.read("wVerifyMap", "advVerifying").toBool();
 
     while (true) {
+        if (isInterruptionRequested()) break;
+
         QMutexLocker locker(&_mutex);
         if (_queue.isEmpty()) {
             if (_finish) break;
@@ -50,6 +52,9 @@ void OTMapChecker::run() {
             locker.unlock();
 
             for(QPair<QString,QString> pair : files) {
+                if(isInterruptionRequested())
+                    break;
+
                 QString file = pair.first;
 
                 bool wasCreatedNew;
@@ -376,15 +381,23 @@ void OTMapScanner::run() {
     qInfo() << "reading tiles";
     int i = 1;
     for(QString str : combinedList) {
+        // The window can be closed while a scan is running; wVerifyMap::closeEvent()
+        // then asks both threads to stop and waits for them.
+        if(isInterruptionRequested())
+            break;
+
         emit statusUpdate(i, tr("Read tile %1 of %2").arg(QString::number(i), QString::number(tileCount)));
         scanTile(str);
         i++;
     }
 
-    scanParkLists();
-    scanHumans();
-    scanAiList();
+    if(!isInterruptionRequested()) {
+        scanParkLists();
+        scanHumans();
+        scanAiList();
+    }
 
+    // Always, so the checker leaves its wait even on an interrupted scan.
     _checker->setFinished();
 }
 

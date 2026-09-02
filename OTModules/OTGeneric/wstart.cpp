@@ -295,17 +295,13 @@ void wStart::on_actionCheckForUpdates_triggered()
 void wStart::on_tbnFonts_clicked()
 {
     WFONTS = new wFonts();
-    connect(WFONTS, &wFonts::backToHome, this, &wStart::reopen);
-    WFONTS->show();
-    close();
+    showModule(WFONTS);
 }
 
 void wStart::on_tbnContentSearch_clicked()
 {
     WCONTENTSEARCH = new wContentSearch();
-    connect(WCONTENTSEARCH, &wContentSearch::backToHome, this, &wStart::reopen);
-    WCONTENTSEARCH->show();
-    close();
+    showModule(WCONTENTSEARCH);
 }
 
 void wStart::on_tbnCleanup_clicked()
@@ -314,9 +310,7 @@ void wStart::on_tbnCleanup_clicked()
         return;
 
     WCLEANUP = new wCleanup();
-    connect(WCLEANUP, &wCleanup::backToHome, this, &wStart::reopen);
-    WCLEANUP->show();
-    close();
+    showModule(WCLEANUP);
 }
 
 void wStart::on_tbnMaps_clicked()
@@ -325,9 +319,7 @@ void wStart::on_tbnMaps_clicked()
         return;
 
     WMAPS = new wMaps();
-    connect(WMAPS, &wMaps::backToHome, this, &wStart::reopen);
-    WMAPS->show();
-    close();
+    showModule(WMAPS);
 }
 
 void wStart::on_tbnMapVerification_clicked()
@@ -336,17 +328,13 @@ void wStart::on_tbnMapVerification_clicked()
         return;
 
     WVERIFYMAP = new wVerifyMap();
-    connect(WVERIFYMAP, &wVerifyMap::backToHome, this, &wStart::reopen);
-    WVERIFYMAP->show();
-    close();
+    showModule(WVERIFYMAP);
 }
 
 void wStart::on_actionDashboard_triggered()
 {
     WDEVTOOLS = new wDevTools();
-    connect(WDEVTOOLS, &wDevTools::backToHome, this, &wStart::reopen);
-    WDEVTOOLS->show();
-    close();
+    showModule(WDEVTOOLS);
 }
 
 void wStart::on_actionApplicationCrashSimulation_triggered()
@@ -359,41 +347,31 @@ void wStart::on_actionApplicationCrashSimulation_triggered()
 void wStart::on_actionRegEditor_triggered()
 {
     WREGEDITOR = new wRegEditor();
-    connect(WREGEDITOR, &wRegEditor::backToHome, this, &wStart::reopen);
-    WREGEDITOR->show();
-    close();
+    showModule(WREGEDITOR);
 }
 
 void wStart::on_actionDBPanelContentSearch_triggered()
 {
     WDBPANEL = new wDBPanel();
-    connect(WDBPANEL, &wDBPanel::backToHome, this, &wStart::reopen);
-    WDBPANEL->show();
-    close();
+    showModule(WDBPANEL);
 }
 
 void wStart::on_actionBugDoc_triggered()
 {
     WBUGDOC = new wBugDoc();
-    connect(WBUGDOC, &wBugDoc::backToHome, this, &wStart::reopen);
-    WBUGDOC->show();
-    close();
+    showModule(WBUGDOC);
 }
 
 void wStart::on_actionDBPanelWDTFbh_triggered()
 {
     WDBCOPYRIGHTS = new wDBCopyrights();
-    connect(WDBCOPYRIGHTS, &wDBCopyrights::backToHome, this, &wStart::reopen);
-    WDBCOPYRIGHTS->show();
-    close();
+    showModule(WDBCOPYRIGHTS);
 }
 
 void wStart::on_actionDBPanelKnownWords_triggered()
 {
     WDBKNOWNWORDS = new wDBKnownWords();
-    connect(WDBKNOWNWORDS, &wDBKnownWords::backToHome, this, &wStart::reopen);
-    WDBKNOWNWORDS->show();
-    close();
+    showModule(WDBKNOWNWORDS);
 }
 
 void wStart::on_actionDirectXTex_triggered()

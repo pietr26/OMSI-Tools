@@ -24,6 +24,9 @@ public:
     explicit wVerifyMap(QWidget *parent = nullptr);
     ~wVerifyMap();
 
+protected:
+    void closeEvent(QCloseEvent *event) override;
+
 private slots:
 
     void on_actionClose_triggered();

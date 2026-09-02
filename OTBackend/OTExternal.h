@@ -33,7 +33,7 @@ public:
         if (action.length() > 63999)
         {
             qCritical() << "OTDatabaseHandler error: action string ist too long (> 64000)!";
-            return QSqlQuery();
+            return QSqlQuery(db);
         }
 
         if (automaticOpenClose)
@@ -41,21 +41,21 @@ public:
             if (!db.open())
             {
                 qCritical() << "OTDatabaseHandler error: Cannot open database automatically";
-                return QSqlQuery();
+                return QSqlQuery(db);
             }
 
-            QSqlQuery query(action);
+            QSqlQuery query(action, db);
             db.close();
             return query;
         }
         else
         {
             if (db.isOpen())
-                return QSqlQuery(action);
+                return QSqlQuery(action, db);
             else
             {
                 qCritical() << "OTDatabaseHandler error: Open database before executing an action!";
-                return QSqlQuery();
+                return QSqlQuery(db);
             }
         }
     }
@@ -89,7 +89,24 @@ public:
             database.close();
         }
 
-        db = QSqlDatabase::addDatabase("QSQLITE");
+        /*
+            Every handler gets its own named connection. Without a name they all shared
+            qt_sql_default_connection, so the second module to open a database removed
+            the first one's connection - Qt then reports "connection is still in use,
+            all queries will cease to work" and the older handle turns invalid.
+
+            Two handlers on the same file deliberately share one connection, which is
+            what wDBCopyrights and wAddPath need. No connection is removed here: the
+            handlers outlive their windows, and a shared connection must not be pulled
+            away from the other holder.
+        */
+        const QString connection = "OTDatabaseHandler:" + dbPath;
+
+        if (QSqlDatabase::contains(connection))
+            db = QSqlDatabase::database(connection, false);
+        else
+            db = QSqlDatabase::addDatabase("QSQLITE", connection);
+
         db.setDatabaseName(dbPath);
 
         if (firstSetup && !queryForFirstSetup.isEmpty()) doAction(queryForFirstSetup, true);
