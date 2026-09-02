@@ -102,7 +102,7 @@ void wCleanup::on_actionAnalyze_triggered()
         ui->statusbar->showMessage(tr("Analyze sceneryobject folder..."));
 
         QStringList scoFolders;
-        QDirIterator scoFolder(mainDir + "/Sceneryobjects", QDir::Dirs | QDir::NoDotAndDotDot);
+        QDirIterator scoFolder(OTPath::resolve(mainDir, "Sceneryobjects"), QDir::Dirs | QDir::NoDotAndDotDot);
         while (scoFolder.hasNext()) scoFolders << scoFolder.next().replace("/", "\\");
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
@@ -129,7 +129,7 @@ void wCleanup::on_actionAnalyze_triggered()
         ui->statusbar->showMessage(tr("Analyze spline folder..."));
 
         QStringList sliFolders;
-        QDirIterator sliFolder(mainDir + "/Splines", QDir::Dirs | QDir::NoDotAndDotDot);
+        QDirIterator sliFolder(OTPath::resolve(mainDir, "Splines"), QDir::Dirs | QDir::NoDotAndDotDot);
         while (sliFolder.hasNext()) sliFolders << sliFolder.next().replace("/", "\\");
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
@@ -160,7 +160,7 @@ void wCleanup::on_actionAnalyze_triggered()
         ui->statusbar->showMessage(tr("Analyze vehicle folder..."));
 
         QStringList vehFolders;
-        QDirIterator vehFolder(mainDir + "/Vehicles", QDir::Dirs | QDir::NoDotAndDotDot);
+        QDirIterator vehFolder(OTPath::resolve(mainDir, "Vehicles"), QDir::Dirs | QDir::NoDotAndDotDot);
         while (vehFolder.hasNext()) vehFolders << vehFolder.next().replace("/", "\\");
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);

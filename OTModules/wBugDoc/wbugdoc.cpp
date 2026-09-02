@@ -18,11 +18,15 @@ wBugDoc::wBugDoc(QWidget *parent) :
 
     ui->centralwidget->setEnabled(false);
 
+#ifdef Q_OS_WIN
     if (RegisterHotKey(NULL, 1, MOD_ALT, 'B')) {
         qInfo() << "GlobalShortcut: ALT + B";
     } else {
         qWarning() << "GlobalShortcut: ALT + B";
     }
+#else
+    qWarning() << "GlobalShortcut: ALT + B is not available on this platform";
+#endif
 
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
     ui->statusbar->addPermanentWidget(ui->btnWait);
@@ -33,7 +37,9 @@ wBugDoc::wBugDoc(QWidget *parent) :
 
 wBugDoc::~wBugDoc()
 {
+#ifdef Q_OS_WIN
     UnregisterHotKey(NULL, 1);
+#endif
     delete ui;
 }
 
@@ -49,7 +55,7 @@ void wBugDoc::on_actionClose_triggered() { QApplication::quit(); }
 void wBugDoc::on_actionLoad_triggered()
 {
     ui->centralwidget->setEnabled(false);
-    QString result = QFileDialog::getExistingDirectory(this, "Select / create BugDoc folder...", (set.read(objectName(), "lastBugDoc").toString().isEmpty() ? "C:/Users/pietr/Desktop" : set.read(objectName(), "lastBugDoc").toString()));
+    QString result = QFileDialog::getExistingDirectory(this, "Select / create BugDoc folder...", (set.read(objectName(), "lastBugDoc").toString().isEmpty() ? QStandardPaths::writableLocation(QStandardPaths::DesktopLocation) : set.read(objectName(), "lastBugDoc").toString()));
 
     if (!QDir(result).exists())
     {
@@ -203,6 +209,12 @@ void wBugDoc::on_btnAdd_clicked()
 
 void wBugDoc::on_btnWait_clicked()
 {
+#ifndef Q_OS_WIN
+    // Waiting for the screenshot needs a system wide hotkey, which neither X11 nor
+    // Wayland hand out to an ordinary application.
+    QMessageBox::information(this, "Global shortcut unavailable", "Waiting for ALT + B only works on Windows. Take the screenshot with your desktop's own tool and enter its path manually.");
+    return;
+#else
     showMinimized();
 
     MSG msg = {0, 0, 0, 0, 0, {0, 0}};
@@ -230,6 +242,7 @@ void wBugDoc::on_btnWait_clicked()
             break;
         }
     }
+#endif
 }
 
 void wBugDoc::on_actionHTML_triggered()

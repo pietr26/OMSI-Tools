@@ -88,7 +88,7 @@ void wPlaceObjects::on_sbxTerrainLayerID_valueChanged(int arg1)
 
     if (map.global.groundTextures[arg1].mainTex.endsWith(".dds"))
     {
-        texconv.convert("bmp", set.read("main", "mainDir").toString() + "/" + map.global.groundTextures[arg1].mainTex, convertedPreviewImage);
+        texconv.convert("bmp", OTPath::resolve(set.read("main", "mainDir").toString(), map.global.groundTextures[arg1].mainTex), convertedPreviewImage);
         test = QPixmap(convertedPreviewImage.fileName());
         ui->lblLayerTexturePicture->setPixmap(test);
         qInfo() << convertedPreviewImage.fileName();
@@ -180,9 +180,9 @@ void wPlaceObjects::on_btnStart_clicked()
 
             QString layerName = map.global.tiles[i].filename + "." + QString::number(ui->sbxTerrainLayerID->value()) + ".dds";
 
-            QString originalFilename = map.dir + "texture/map/" + layerName;
+            QString originalFilename = OTPath::resolve(map.dir, "texture/map/" + layerName);
 
-            texconv.convert("bmp", map.dir + "texture/map/" + layerName, layerSource);
+            texconv.convert("bmp", originalFilename, layerSource);
 
             QImage layer(layerSource.fileName());
 
@@ -202,9 +202,9 @@ void wPlaceObjects::on_btnStart_clicked()
                 // Change map file
                 if (!QDir().exists(map.dir + "/backup")) qDebug() << "Backup dir create:" << QDir().mkdir(map.dir + "/backup");
                 if (QFile(map.dir + "/backup/" + map.global.tiles[i].filename).exists()) QFile(map.dir + "/backup/" + map.global.tiles[i].filename).remove();
-                QFile::copy(map.dir + "/" + map.global.tiles[i].filename, map.dir + "/backup/" + map.global.tiles[i].filename);
+                QFile::copy(OTPath::resolve(map.dir, map.global.tiles[i].filename), map.dir + "/backup/" + map.global.tiles[i].filename);
 
-                QFile tile(map.dir + "/" + map.global.tiles[i].filename);
+                QFile tile(OTPath::resolve(map.dir, map.global.tiles[i].filename));
 
                 if (tile.open(QFile::WriteOnly | QFile::Text | QFile::Append))
                 {

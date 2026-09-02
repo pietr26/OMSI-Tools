@@ -308,9 +308,9 @@ void wdgEditor::checkCharValidity()
     if (character->leftPixel == -1) ui->lblLeftPixel->setStyleSheet("color:red");
     if (character->highestPixelInFontRow == -1) ui->lblHighestPixelInFontRow->setStyleSheet("color:red");
 
-    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture).exists())
+    if (QFile(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture)).exists())
     {
-        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture);
+        QImage alphaTexture(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture));
 
         if (alphaTexture.width() != 0 || alphaTexture.height() != 0)
         {
@@ -341,15 +341,15 @@ void wdgEditor::checkPropValidity()
     if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->name.isEmpty())
         ui->lblFontName->setStyleSheet("color:red");
 
-    if (!_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture.isEmpty() && !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture).exists())
+    if (!_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture.isEmpty() && !QFile(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture)).exists())
         ui->lblColorTexture->setStyleSheet("color:red");
 
-    if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture.isEmpty() || !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture).exists())
+    if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture.isEmpty() || !QFile(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture)).exists())
         ui->lblAlphaTexture->setStyleSheet("color:red");
 
-    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture).exists())
+    if (QFile(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture)).exists())
     {
-        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture);
+        QImage alphaTexture(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture));
 
         if (alphaTexture.width() != 0 || alphaTexture.height() != 0)
         {

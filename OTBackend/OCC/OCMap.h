@@ -213,7 +213,7 @@ public:
                 return FileIOResponse::errFileDoesntExist;
             }
 
-            QFile global(dir + "/global.cfg");
+            QFile global(OTPath::resolve(dir, "global.cfg"));
 
             if (!global.open(QFile::ReadOnly | QFile::Text))
             {
@@ -422,7 +422,7 @@ public:
                 return FileIOResponse::errFileDoesntExist;
             }
 
-            QFile global(dir + "/global.cfg");
+            QFile global(OTPath::resolve(dir, "global.cfg"));
 
             // Backup
             if (!QDir().exists(dir + "/backup")) qDebug() << "Backup dir create:" << QDir().mkdir(dir + "/backup");
@@ -986,7 +986,7 @@ public:
         {
             clear();
 
-            QDirIterator dirIteratorTtp(dir + "/TTData", QStringList() << "*.ttp", QDir::Files, QDirIterator::Subdirectories);
+            QDirIterator dirIteratorTtp(OTPath::resolve(dir, "TTData"), QStringList() << "*.ttp", QDir::Files, QDirIterator::Subdirectories);
 
             // Trips
             while (dirIteratorTtp.hasNext())
@@ -1053,7 +1053,7 @@ public:
                 }
             }
 
-            QDirIterator dirIteratorTtl(dir + "/TTData", QStringList() << "*.ttl", QDir::Files, QDirIterator::Subdirectories);
+            QDirIterator dirIteratorTtl(OTPath::resolve(dir, "TTData"), QStringList() << "*.ttl", QDir::Files, QDirIterator::Subdirectories);
 
             // Lines & Tours
             while (dirIteratorTtl.hasNext())

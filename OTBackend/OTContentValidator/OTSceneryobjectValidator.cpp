@@ -6,6 +6,7 @@
 #include <QDir>
 
 #include "OTBackend/OTOmsiFileHandler.h"
+#include "OTBackend/OTPath.h"
 
 OTSceneryobjectValidator::OTSceneryobjectValidator(QObject *parent, const QString &filePath) :
     OTModelConfigValidator(parent, filePath) {}
@@ -27,7 +28,7 @@ void OTSceneryobjectValidator::validateLine() {
     // validate [tree]
     if(_currentLine == "[tree]") {
         readNextLine();
-        if(!OTOMSIFileHandler::checkTexture(_fileDir + "/texture/" + _currentLine, _currentLine))
+        if(!OTOMSIFileHandler::checkTexture(OTPath::resolve(_fileDir, "texture/" + _currentLine), _currentLine))
             throwIssue(OTContentValidatorIssue::MissingTextureFile, {_currentLine});
 
         // check numeric values

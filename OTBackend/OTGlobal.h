@@ -19,6 +19,8 @@
 #include <QStyleHints>
 
 #include "DiscordGameSDK.h"
+#include "OTPath.h"
+#include "OTPlatform.h"
 
 
 class OTFileMethods
@@ -415,18 +417,14 @@ class OTMiscellaneous
 public:
     void openInExplorer(QString path)
     {
-        QStringList args;
-        args << "/select," << QDir::toNativeSeparators(path);
-
-        QProcess *process = new QProcess();
-        process->start("explorer.exe", args);
+        OTPlatform::showInFileManager(path);
     }
 
     void restart()
     {
         qInfo() << "Restart application...";
         qApp->quit();
-        QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+        QProcess::startDetached(qApp->applicationFilePath(), qApp->arguments().mid(1));
     }
 
     QString getTime(QString format = "hh:mm:ss") { return QTime::currentTime().toString(format); }
@@ -480,7 +478,7 @@ public:
         args << "--accept-licenses" << "--default-answer" << "--confirm-command" << "update" << "maintenancetool";
 
         QProcess *process = new QProcess();
-        process->start("../OMSI-Tools_Updater.exe", args);
+        process->start(OTPlatform::updaterExecutable(), args);
 
         qDebug() << "mt update status:" << process->waitForFinished();
 
@@ -494,7 +492,7 @@ public:
         args << "--accept-licenses" << "--default-answer" << "--confirm-command" << "update";
 
         process = new QProcess();
-        process->start("../OMSI-Tools_Updater.exe", args);
+        process->start(OTPlatform::updaterExecutable(), args);
 
         QApplication::quit();
     }
@@ -513,7 +511,7 @@ public:
 
         int status;
 
-        if (!QFile::exists("../OMSI-Tools_Updater.exe"))
+        if (!QFile::exists(OTPlatform::updaterExecutable()))
         {
             qInfo() << "Maintenance tool is not available.";
             status = -1;
@@ -527,7 +525,7 @@ public:
             args << "ch";
 
             QProcess *process = new QProcess();
-            process->start("../OMSI-Tools_Updater.exe", args);
+            process->start(OTPlatform::updaterExecutable(), args);
             qInfo() << "Dir:" << process->workingDirectory();
 
             process->waitForFinished(10000);
@@ -573,7 +571,7 @@ public:
         args << "--start-updater";
 
         QProcess *process = new QProcess();
-        process->start("../OMSI-Tools_Updater.exe", args);
+        process->start(OTPlatform::updaterExecutable(), args);
 
         QApplication::quit();
     }
@@ -610,12 +608,9 @@ public:
     void showInExplorer(QString absolutePath)
     {
         // ATTENTION: This will NOT work in the OneDrive folder - I don't know why.
-        QStringList args;
-        args << "/select," << QDir::toNativeSeparators(absolutePath);
         qDebug() << "Show in explorer:" << absolutePath;
 
-        QProcess *process = new QProcess();
-        process->start("explorer.exe", args);
+        OTPlatform::showInFileManager(absolutePath);
     }
 
 private:
@@ -643,11 +638,11 @@ public:
 
     void remove(QString module, QString name) { QSettings(OTInformation::name, module).remove(name); }
 
-    void removeAll() { QSettings("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat).remove(""); }
+    void removeAll() { OTPlatform::removeAllPreferences(OTInformation::name); }
 
     bool checkMainDir(QWidget *parent, QString mainDir, bool openMessage)
     {
-        if (!mainDir.isEmpty() && !QFileInfo(QFile(mainDir + "/Omsi.exe")).exists())
+        if (!mainDir.isEmpty() && !OTPath::exists(mainDir, "Omsi.exe"))
         {
             qWarning().noquote() << "'" + mainDir + "' isn't an OMSI path!";
 
@@ -668,7 +663,7 @@ public:
     QString getOmsiPath(QWidget *parent, bool openMessage = true, QString path = "")
     {
         if (path.isEmpty())
-            path = QSettings("HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\aerosoft\\OMSI 2", QSettings::NativeFormat).value("Product_Path").toString();
+            path = OTPlatform::omsiInstallationGuess();
 
         QString mainDir = QFileDialog::getExistingDirectory(parent, QObject::tr("Select the OMSI main directory..."), path);
 
@@ -679,25 +674,15 @@ public:
 
     QList<QPair<QString, QVariant>> getAllPreferences()
     {
-        QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat);
-
-        QList<QPair<QString, QVariant>> settings;
-        QStringList keys = set.allKeys();
-
-        foreach (QString current, keys)
-            settings.append(QPair<QString, QVariant>(current, set.value(current)));
-
-        return settings;
+        return OTPlatform::allPreferences(OTInformation::name);
     }
 
     QString getAllPreferencesFormatted()
     {
-        QSettings set("HKEY_CURRENT_USER\\SOFTWARE\\" + OTInformation::name, QSettings::NativeFormat);
-
         QString returnString = "\n";
 
-        foreach (QString current, set.allKeys())
-            returnString += current + " -> " + set.value(current).toString() + "\n";
+        foreach (auto current, getAllPreferences())
+            returnString += current.first + " -> " + current.second.toString() + "\n";
 
         return returnString;
     }
@@ -773,7 +758,8 @@ public:
         if (!read("wFonts", "texPreview").isValid())
             write("wFonts", "texPreview", 1);
 
-        if (!QFile("texconv.exe").exists()) qInfo() << "Extract textconv.exe:" << QFile().copy(":/rec/data/external/texconv.exe", "texconv.exe");
+        const QString texconv = OTPlatform::texconvExecutable();
+        if (!texconv.isEmpty() && !QFile(texconv).exists()) qInfo() << "Extract textconv.exe:" << QFile().copy(":/rec/data/external/texconv.exe", texconv);
 
         if (!QFile("_docs/Handbuch DE.pdf").exists())
         {

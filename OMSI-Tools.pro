@@ -10,20 +10,6 @@ DEFINES += QT_MESSAGELOGCONTEXT
 
 SOURCES += \
     OTBackend/DiscordGameSDK.cpp \
-    OTBackend/DiscordGameSDK/achievement_manager.cpp \
-    OTBackend/DiscordGameSDK/activity_manager.cpp \
-    OTBackend/DiscordGameSDK/application_manager.cpp \
-    OTBackend/DiscordGameSDK/core.cpp \
-    OTBackend/DiscordGameSDK/image_manager.cpp \
-    OTBackend/DiscordGameSDK/lobby_manager.cpp \
-    OTBackend/DiscordGameSDK/network_manager.cpp \
-    OTBackend/DiscordGameSDK/overlay_manager.cpp \
-    OTBackend/DiscordGameSDK/relationship_manager.cpp \
-    OTBackend/DiscordGameSDK/storage_manager.cpp \
-    OTBackend/DiscordGameSDK/store_manager.cpp \
-    OTBackend/DiscordGameSDK/types.cpp \
-    OTBackend/DiscordGameSDK/user_manager.cpp \
-    OTBackend/DiscordGameSDK/voice_manager.cpp \
     OTBackend/OCC/OCBase.cpp \
     OTBackend/OCC/OCDriver.cpp \
     OTBackend/OCC/OCFS.cpp \
@@ -59,6 +45,7 @@ SOURCES += \
     OTBackend/OTContentValidator/OTVehicleValidator.cpp \
     OTBackend/OTFileSource.cpp \
     OTBackend/OTLogger.cpp \
+    OTBackend/OTPath.cpp \
     OTBackend/OTMapScanner.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
     OTModules/OTGeneric/wfirstsetup.cpp \
@@ -163,6 +150,8 @@ HEADERS += \
     OTBackend/OTLogger.h \
     OTBackend/OTMapScanner.h \
     OTBackend/OTOmsiFileHandler.h \
+    OTBackend/OTPath.h \
+    OTBackend/OTPlatform.h \
     OTBackend/OTOmsiFileHandler_models.h \
     OTModules/OTGeneric/wfeedback.h \
     OTModules/OTGeneric/wfirstsetup.h \
@@ -274,8 +263,48 @@ RESOURCES += \
 DISTFILES += \
     devNotes
 
-LIBS += $$PWD/OTBackend/DiscordGameSDK/discord_game_sdk.dll.lib
-LIBS += -luser32
+# ------------------------------------------------------------------------------
+# Discord Game SDK
+#
+# The SDK is only shipped with this repository as a Windows library. On every other
+# platform it is used as soon as the matching shared library is placed next to it,
+# otherwise the rich presence is compiled out (see OT_NO_DISCORD).
 
-# Copy discord dll file to build directory => no runtime error :)
-QMAKE_POST_LINK += copy /Y \"$$PWD\\OTBackend\\DiscordGameSDK\\discord_game_sdk.dll\" \"$$OUT_PWD\\discord_game_sdk.dll\"
+DISCORD_SDK_DIR = $$PWD/OTBackend/DiscordGameSDK
+
+win32:      DISCORD_SDK_LIB = $$DISCORD_SDK_DIR/discord_game_sdk.dll.lib
+else:macx:  DISCORD_SDK_LIB = $$DISCORD_SDK_DIR/discord_game_sdk.dylib
+else:       DISCORD_SDK_LIB = $$DISCORD_SDK_DIR/discord_game_sdk.so
+
+exists($$DISCORD_SDK_LIB) {
+    SOURCES += \
+        $$DISCORD_SDK_DIR/achievement_manager.cpp \
+        $$DISCORD_SDK_DIR/activity_manager.cpp \
+        $$DISCORD_SDK_DIR/application_manager.cpp \
+        $$DISCORD_SDK_DIR/core.cpp \
+        $$DISCORD_SDK_DIR/image_manager.cpp \
+        $$DISCORD_SDK_DIR/lobby_manager.cpp \
+        $$DISCORD_SDK_DIR/network_manager.cpp \
+        $$DISCORD_SDK_DIR/overlay_manager.cpp \
+        $$DISCORD_SDK_DIR/relationship_manager.cpp \
+        $$DISCORD_SDK_DIR/storage_manager.cpp \
+        $$DISCORD_SDK_DIR/store_manager.cpp \
+        $$DISCORD_SDK_DIR/types.cpp \
+        $$DISCORD_SDK_DIR/user_manager.cpp \
+        $$DISCORD_SDK_DIR/voice_manager.cpp
+
+    LIBS += $$DISCORD_SDK_LIB
+
+    # Put the library next to the binary => no runtime error :)
+    win32 {
+        QMAKE_POST_LINK += copy /Y \"$$PWD\\OTBackend\\DiscordGameSDK\\discord_game_sdk.dll\" \"$$OUT_PWD\\discord_game_sdk.dll\"
+    } else {
+        QMAKE_POST_LINK += cp -f \"$$DISCORD_SDK_LIB\" \"$$OUT_PWD/\"
+        QMAKE_RPATHDIR += $ORIGIN
+    }
+} else {
+    message("Discord Game SDK library not found ($$DISCORD_SDK_LIB) - building without rich presence.")
+    DEFINES += OT_NO_DISCORD
+}
+
+win32: LIBS += -luser32

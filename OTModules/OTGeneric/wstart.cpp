@@ -255,7 +255,7 @@ void wStart::on_actionReleaseNotes_triggered()
 
 void wStart::on_actionManual_triggered()
 {
-    QDesktopServices::openUrl(QUrl("file:///" + QApplication::applicationDirPath() + "/_docs"));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(QApplication::applicationDirPath() + "/_docs"));
 }
 
 void wStart::on_actionSourceCodeOnGitHub_triggered()

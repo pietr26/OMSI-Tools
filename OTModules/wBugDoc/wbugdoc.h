@@ -5,7 +5,9 @@
 #include "OTBackend/OTGlobal.h"
 #include "OTBackend/OTExternal.h"
 #include "OTModules/OTGeneric/wpreferences.h"
+#ifdef Q_OS_WIN
 #include "windows.h"
+#endif
 #include <QPrinter>
 
 namespace Ui {

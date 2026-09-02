@@ -40,7 +40,7 @@ public:
         if (varnamelist.open (QFile::ReadOnly | QFile::Text))
         {
             QTextStream in(&varnamelist);
-            in.setEncoding(QStringConverter::System);
+            in.setEncoding(OTPlatform::omsiEncoding());
             while (!in.atEnd())
                 variables << in.readLine().toUpper();
         }
@@ -69,13 +69,13 @@ public:
 //            if (current.contains("Komin_1.sco"))
 //                qDebug().noquote() << "Here is " << current << "!";
 
-            QFile object(mainDir + "/" + current);
+            QFile object(OTPath::resolve(mainDir, current));
             object.open(QFile::ReadOnly | QFile::Text);
 
             if (object.exists())
             {
                 QTextStream inFirst(&object);
-                inFirst.setEncoding(QStringConverter::System);
+                inFirst.setEncoding(OTPlatform::omsiEncoding());
 
                 QString line;
                 QStringList variables;
@@ -101,10 +101,12 @@ public:
 
                         foreach (QString currentVarlist, varnameFiles)
                         {
-                            QString varlist = currentDir + "/" + currentVarlist;
+                            QString varlist = currentVarlist;
 
                             while ((varlist.endsWith(' ')))
                                 varlist.remove(varlist.length() - 1, 1);
+
+                            varlist = OTPath::resolve(currentDir, varlist);
 
                             if (!QFile(varlist).exists())
                             {
@@ -126,10 +128,12 @@ public:
 
                         foreach (QString currentVarlist, stringvarnameFiles)
                         {
-                            QString stringvarlist = currentDir + "/" + currentVarlist;
+                            QString stringvarlist = currentVarlist;
 
                             while ((stringvarlist.endsWith(' ')))
                                 stringvarlist.remove(stringvarlist.length() - 1, 1);
+
+                            stringvarlist = OTPath::resolve(currentDir, stringvarlist);
 
                             if (!QFile(stringvarlist).exists())
                             {
@@ -161,7 +165,7 @@ public:
 
 
                 QTextStream in(&object);
-                in.setEncoding(QStringConverter::System);
+                in.setEncoding(OTPlatform::omsiEncoding());
 
                 while (!in.atEnd())
                 {
@@ -194,7 +198,7 @@ public:
                             while ((scriptPath.endsWith(' ')))
                                 scriptPath.remove(scriptPath.length() - 1, 1);
 
-                            if (!QFile(currentDir + "/" + scriptPath).exists())
+                            if (!OTPath::exists(currentDir, scriptPath))
                             {
                                 qWarning().noquote() << "Error in object '" + current + "':" << "Script '" + scriptPath + "' could not be found!";
                                 stuffobj.missing.sceneryobjects << current;
@@ -212,7 +216,7 @@ public:
                             while ((constfilePath.endsWith(' ')))
                                 constfilePath.remove(constfilePath.length() - 1, 1);
 
-                            if (!QFile(currentDir + "/" + constfilePath).exists())
+                            if (!OTPath::exists(currentDir, constfilePath))
                             {
                                 qWarning().noquote() << "Error in object '" + current + "':" << "Constfile '" + constfilePath + "' could not be found!";
                                 stuffobj.missing.sceneryobjects << current;
@@ -228,7 +232,7 @@ public:
                         while ((line.endsWith(' ')))
                             line.remove(line.length() - 1, 1);
 
-                        QString fullPath = QDir(QFileInfo(object).dir()).absolutePath() + "/model/" + line;
+                        QString fullPath = OTPath::resolve(QDir(QFileInfo(object).dir()).absolutePath(), "model/" + line);
                         if (!QFile(fullPath).exists())
                         {
                             qWarning().noquote() << "Error in object '" + current + "':" << "Mesh '" + line + "' could not be found!";
@@ -248,11 +252,11 @@ public:
                         {
                             QString path = QFileInfo(QFileInfo(object).dir().absolutePath() + "/texture/" + line).absoluteFilePath().remove(0, cutCount);
 
-                            if (!checkTexture(QDir(QFileInfo(object).dir()).absolutePath() + "/texture/" + line, line))
+                            if (!checkTexture(OTPath::resolve(QDir(QFileInfo(object).dir()).absolutePath(), "texture/" + line), line))
                             {
                                 qWarning().noquote() << "Error in object '" + current + "':" << "Texture '" + line + "' could not be found!";
                                 // old: path
-                                stuffobj.missing.textures << QDir(QFileInfo(object).dir()).absolutePath() + "/texture/" + line;
+                                stuffobj.missing.textures << OTPath::resolve(QDir(QFileInfo(object).dir()).absolutePath(), "texture/" + line);
                                 qDebug().noquote() << "Abs:" << QFileInfo(QFileInfo(object).dir().absolutePath() + "/texture/" + line).absoluteFilePath();
                                 qDebug() << "\n----------------------------------------------------------------------------------------------";
                             }
@@ -270,7 +274,7 @@ public:
                             line.remove(line.length() - 1, 1);
 
                         QString path = QFileInfo(QFileInfo(object).dir().absolutePath() + "/texture/" + line).absoluteFilePath().remove(0, cutCount);
-                        if (!checkTexture(QDir(QFileInfo(object).dir()).absolutePath() + "/texture/" + line, line))
+                        if (!checkTexture(OTPath::resolve(QDir(QFileInfo(object).dir()).absolutePath(), "texture/" + line), line))
                         {
                             qWarning().noquote() << "Error in object '" + current + "':" << "[matl_change] texture '" + line + "' could not be found!";
                             stuffobj.missing.textures << path;
@@ -301,7 +305,7 @@ public:
                         while ((line.endsWith(' ')))
                             line.remove(line.length() - 1, 1);
 
-                        QString fullPath = QDir(QFileInfo(object).dir()).absolutePath() + "/" + line;
+                        QString fullPath = OTPath::resolve(QDir(QFileInfo(object).dir()).absolutePath(), line);
                         if (!QFile(fullPath).exists())
                         {
                             qWarning().noquote() << "Error in object '" + current + "':" << "Passengercabin '" + line + "' could not be found!";
@@ -318,7 +322,7 @@ public:
                             line.remove(line.length() - 1, 1);
 
                         QString path = QFileInfo(QFileInfo(object).dir().absolutePath() + "/texture/" + line).absoluteFilePath().remove(0, cutCount);
-                        if (!checkTexture(QDir(QFileInfo(object).dir()).absolutePath() + "/texture/" + line, line))
+                        if (!checkTexture(OTPath::resolve(QDir(QFileInfo(object).dir()).absolutePath(), "texture/" + line), line))
                         {
                             qWarning().noquote() << "Error in object '" + current + "':" << "[matl_freetex] Texture '" + line + "' could not be found!";
                             stuffobj.missing.textures << path;
@@ -357,13 +361,13 @@ public:
             //            if (current == "Splines\\ADDON_Bad_Huegelsdorf\\Ueberland\\str_land_2spur_6m.sli")
             //                qDebug().noquote() << "Here is " << current << "!";
 
-            QFile spline(mainDir + "/" + current);
+            QFile spline(OTPath::resolve(mainDir, current));
             spline.open(QFile::ReadOnly | QFile::Text);
 
             if (spline.exists())
             {
                 QTextStream in(&spline);
-                in.setEncoding(QStringConverter::System);
+                in.setEncoding(OTPlatform::omsiEncoding());
                 QString line;
                 unsigned int profileCounter = 0;
 
@@ -386,9 +390,9 @@ public:
                         while (line.at(line.length() - 1) == ' ')
                             line.remove(line.length() - 1, 1);
 
-                        QString fullPath = QDir(QFileInfo(spline).dir()).absolutePath() + "/" + line;
+                        QString fullPath = OTPath::resolve(QDir(QFileInfo(spline).dir()).absolutePath(), line);
                         QString texPath = QFileInfo(QFileInfo(spline).dir().absolutePath() + "/texture/" + line).absoluteFilePath().remove(0, cutCount);
-                        if (!checkTexture(QDir(QFileInfo(spline).dir()).absolutePath() + "/texture/" + line, line))
+                        if (!checkTexture(OTPath::resolve(QDir(QFileInfo(spline).dir()).absolutePath(), "texture/" + line), line))
                         {
                             qWarning().noquote() << "Error in spline '" + current + "':" << "texture '" + line + "' could not be found!";
                             qDebug().noquote() << "ABSOLUTE PATH:" << QFileInfo(QFileInfo(spline).dir().absolutePath() + "/texture/" + line).absoluteFilePath();
@@ -427,8 +431,9 @@ public:
 
         QString tempPath = fullPath;
         QString newPath = tempPath.remove(fullPath.length() - 3, 3) + "dds";
-        QFile sharedTexture(mainDir + "/Texture/" + relPath);
-        QFile mainDirTexture(mainDir + "/" + relPath);
+        newPath = OTPath::resolve(QFileInfo(newPath).absolutePath(), QFileInfo(newPath).fileName());
+        QFile sharedTexture(OTPath::resolve(mainDir, "Texture/" + relPath));
+        QFile mainDirTexture(OTPath::resolve(mainDir, relPath));
 
         if (!QFile(fullPath).exists())                  // if the 'real' texture exists
             if (!sharedTexture.exists())                // make shared texture check
@@ -438,8 +443,8 @@ public:
                         qDebug().noquote() << "Texture doesn't exist:";
                         qDebug().noquote() << "Full:" << fullPath;
                         qDebug().noquote() << "Rel:" << relPath;
-                        qDebug().noquote() << "Shared:" << mainDir + "/Texture/" + relPath;
-                        qDebug().noquote() << "mainDirTex:" << mainDir + "/" + relPath;
+                        qDebug().noquote() << "Shared:" << sharedTexture.fileName();
+                        qDebug().noquote() << "mainDirTex:" << mainDirTexture.fileName();
                         return false;
                     }
 
@@ -528,7 +533,7 @@ public:
         }
 
         QTextStream in(&file);
-        in.setEncoding(QStringConverter::System);
+        in.setEncoding(OTPlatform::omsiEncoding());
         QString line = "";
 
         while(!in.atEnd())
@@ -560,7 +565,7 @@ public:
 
         QString line;
         QTextStream in(&global);
-        in.setEncoding(QStringConverter::System);
+        in.setEncoding(OTPlatform::omsiEncoding());
 
         QString halfTilePath = mapPath;
         halfTilePath = halfTilePath.remove("global.cfg");
@@ -708,7 +713,7 @@ public:
                 }
 
                 QTextStream in(&parklist);
-                in.setEncoding(QStringConverter::System);
+                in.setEncoding(OTPlatform::omsiEncoding());
                 QString line;
                 int lineCounter = 0;
 
@@ -728,7 +733,7 @@ public:
                         continue;
                     }
 
-                    QFile firstVehicle(mainDir + "/" + line);
+                    QFile firstVehicle(OTPath::resolve(mainDir, line));
                     QString fullPath = QString(QFileInfo(firstVehicle).absoluteFilePath()).remove(0, cutCount);
 
                     if (!firstVehicle.exists())
@@ -790,7 +795,7 @@ public:
             }
 
             QTextStream in(&aiListFile);
-            in.setEncoding(QStringConverter::System);
+            in.setEncoding(OTPlatform::omsiEncoding());
 
             QString line;
             int lineCounter = 0;
@@ -826,7 +831,7 @@ public:
                         while (line.at(line.length() - 1).isNumber() || (line.at(line.length() - 1) == '\x9') || (line.at(line.length() - 1) == ' '))
                             line.remove(line.length() - 1, 1);
 
-                        QFile vehicle(mainDir + "/" + line);
+                        QFile vehicle(OTPath::resolve(mainDir, line));
 
                         if (!vehicle.exists())
                         {
@@ -856,7 +861,7 @@ public:
                         continue;
                     }
 
-                    QFile vehicle(mainDir + "/" + line);
+                    QFile vehicle(OTPath::resolve(mainDir, line));
 
                     if (!vehicle.exists())
                     {
@@ -886,7 +891,7 @@ public:
             }
 
             QTextStream in(&trainFile);
-            in.setEncoding(QStringConverter::System);
+            in.setEncoding(OTPlatform::omsiEncoding());
 
             QString line;
 
@@ -896,7 +901,7 @@ public:
 
                 if (!line.isEmpty())
                 {
-                    QFile train(mainDir + "/" + line);
+                    QFile train(OTPath::resolve(mainDir, line));
 
                     if (train.exists()){
                         if (QString(QFileInfo(train).absoluteFilePath()).remove(0, cutCount) == "")
@@ -952,7 +957,7 @@ public:
             }
 
             QTextStream in(&humans);
-            in.setEncoding(QStringConverter::System);
+            in.setEncoding(OTPlatform::omsiEncoding());
 
             QString line;
             int lineCounter = 0;
@@ -968,7 +973,7 @@ public:
                     continue;
                 }
 
-                QFile human(mainDir + "/" + line);
+                QFile human(OTPath::resolve(mainDir, line));
 
                 if (!human.exists())
                 {
@@ -996,7 +1001,7 @@ public:
         }
 
         QTextStream in(&global);
-        in.setEncoding(QStringConverter::System);
+        in.setEncoding(OTPlatform::omsiEncoding());
 
         while (!in.atEnd())
         {
@@ -1018,7 +1023,7 @@ public:
 
         foreach (QString current, globalTextures)
         {
-            QFile texture(mainDir + "/" + current);
+            QFile texture(OTPath::resolve(mainDir, current));
             if (!texture.exists())
             {
                 qWarning().noquote() << "Texture '" + QFileInfo(texture).absoluteFilePath() + "' is missing!";
@@ -1055,7 +1060,7 @@ private:
             tile.open(QFile::ReadOnly | QFile::Text);
 
             QTextStream in(&tile);
-            in.setEncoding(QStringConverter::System);
+            in.setEncoding(OTPlatform::omsiEncoding());
             QString line;
 
             while (!in.atEnd())
@@ -1074,7 +1079,7 @@ private:
                     in.readLine();
                     line = in.readLine();
 
-                    QFile object(mainDir + "/" + line);
+                    QFile object(OTPath::resolve(mainDir, line));
                     QString fullPath = QString(QFileInfo(object).absoluteFilePath()).remove(0, cutCount);
 
                     if (!object.exists())
@@ -1100,7 +1105,7 @@ private:
                     in.readLine();
                     line = in.readLine();
 
-                    QFile spline(mainDir + "/" + line);
+                    QFile spline(OTPath::resolve(mainDir, line));
                     QString fullPath = QString(QFileInfo(spline).absoluteFilePath()).remove(0, cutCount);
 
                     if (!spline.exists())

@@ -2,6 +2,7 @@
 #define OTEXTERNAL_H
 
 #include "OTGlobal.h"
+#include <QImage>
 #include <QtSql>
 #include <QSqlDriver>
 
@@ -190,6 +191,10 @@ class OTDirectXTexConv
 public:
     bool convert(QString format, QString input, QTemporaryFile &tFile)
     {
+        // DirectXTex is a Windows tool. Everywhere else Qt has to do the job.
+        if (OTPlatform::texconvExecutable().isEmpty())
+            return convertWithQt(format, input, tFile);
+
         QPair<QString, QString> output = exec(QStringList() << "-y" << "-ft" << format << "-o" << QDir::tempPath() << input);
 
         QString newFile = QDir::tempPath() + "/" + QFileInfo(input).fileName();
@@ -210,7 +215,9 @@ public:
 
     QPair<QString, QString> exec(QStringList args)
     {
-        if (!QFile("texconv.exe").exists())
+        const QString executable = OTPlatform::texconvExecutable();
+
+        if (executable.isEmpty() || !QFile(executable).exists())
         {
             qCritical() << "Could not find texconv.exe!";
             return QPair<QString, QString>("", "ERR: Could not find texconv.exe!");
@@ -218,7 +225,7 @@ public:
 
         QProcess texconvProcess;
         texconvProcess.setWorkingDirectory(QApplication::applicationDirPath());
-        texconvProcess.start("texconv.exe", args);
+        texconvProcess.start(executable, args);
         texconvProcess.waitForFinished();
 
         QString info = texconvProcess.readAllStandardOutput();
@@ -231,6 +238,24 @@ public:
     }
 
 private:
+    /// Reads the texture through Qt's image plugins. DDS needs the Qt Image Formats
+    /// module, which is not part of a default installation.
+    bool convertWithQt(QString format, QString input, QTemporaryFile &tFile)
+    {
+        QImage image(input);
+
+        if (image.isNull())
+        {
+            qCritical().noquote() << "Could not read '" + input + "'. For DDS textures the Qt Image Formats module has to be installed.";
+            return false;
+        }
+
+        tFile.resize(0);
+        if (!tFile.isOpen() && !tFile.open()) return false;
+        tFile.seek(0);
+
+        return image.save(&tFile, format.toUpper().toLatin1().constData());
+    }
 };
 
 #endif // OTEXTERNAL_H

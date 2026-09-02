@@ -12,6 +12,7 @@
 
 #include "OTMapScanner.h"
 #include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTPath.h"
 #include "OTBackend/OTContentValidator/OTContentValidator.h"
 #include "OTBackend/OTContentValidator/OTSceneryobjectValidator.h"
 #include "OTBackend/OTContentValidator/OTSplineValidator.h"
@@ -58,7 +59,7 @@ void OTMapChecker::run() {
                 if(!wasCreatedNew)
                     continue;
 
-                if(!QFile::exists(_omsiDir + "/" + file)) {
+                if(!OTPath::exists(_omsiDir, file)) {
                     qDebug() << "Missing file: " << file;
                     switch(source->fileType()) {
                         case OTFileSource::SceneryobjectFile: _missingSceneryobjects << file; break;
@@ -297,15 +298,15 @@ void OTMapChecker::advancedCheck(OTFileSource *source) {
     // TODO: Handle all file types
     switch(source->fileType()) {
         case OTFileSource::SceneryobjectFile:
-            validator = new OTSceneryobjectValidator(nullptr, _omsiDir + "/" + source->fileName());
+            validator = new OTSceneryobjectValidator(nullptr, OTPath::resolve(_omsiDir, source->fileName()));
             break;
 
         case OTFileSource::SplineFile:
-            validator = new OTSplineValidator(nullptr, _omsiDir + "/" + source->fileName());
+            validator = new OTSplineValidator(nullptr, OTPath::resolve(_omsiDir, source->fileName()));
             break;
 
         case OTFileSource::VehicleFile:
-            validator = new OTVehicleValidator(nullptr, _omsiDir + "/" + source->fileName());
+            validator = new OTVehicleValidator(nullptr, OTPath::resolve(_omsiDir, source->fileName()));
             break;
 
         default: break;
@@ -341,11 +342,11 @@ void OTMapScanner::run() {
 
     qInfo() << "reading chrono events";
     QStringList chronoTiles;
-    QDir chronoDir(_mapDir + "/Chrono");
+    QDir chronoDir(OTPath::resolve(_mapDir, "Chrono"));
     if(chronoDir.exists()) {
         QStringList chronoList = chronoDir.entryList(QDir::NoDotAndDotDot|QDir::Dirs);
         for(QString currentChrono : chronoList) {
-            QDir currentDir(_mapDir + "/Chrono/" + currentChrono);
+            QDir currentDir(OTPath::resolve(_mapDir, "Chrono/" + currentChrono));
             QStringList currentChronoList = currentDir.entryList(QDir::Files);
             if(!currentChronoList.contains("Chrono.cfg"))
                 continue;
@@ -392,7 +393,7 @@ void OTMapScanner::setMapDir(const QString &str) {
 }
 
 void OTMapScanner::scanGlobal() {
-    QFile f(_mapDir + "/global.cfg");
+    QFile f(OTPath::resolve(_mapDir, "global.cfg"));
 
     qInfo() << "reading global.cfg";
     if(!f.exists()) {
@@ -432,7 +433,7 @@ void OTMapScanner::scanGlobal() {
 void OTMapScanner::scanTextures() {
     QString omsiDir = _checker->omsiDir();
     for(OTFileSource &current : _allTextures) {
-        if(!QFile::exists(omsiDir + "/" + current.fileName()) && !_missingTextures.contains(current.fileName()))
+        if(!OTPath::exists(omsiDir, current.fileName()) && !_missingTextures.contains(current.fileName()))
             _missingTextures << current.fileName();
     }
 }
@@ -442,7 +443,7 @@ void OTMapScanner::scanParkLists() {
 
     while(true) {
         QString indexStr = i != 0 ? "_" + QString::number(i) : "";
-        QString path = _mapDir + "/parklist_p" + indexStr + ".txt";
+        QString path = OTPath::resolve(_mapDir, "parklist_p" + indexStr + ".txt");
         QFile f(path);
         QString fileName = "parklist_p" + indexStr + ".txt";
 
@@ -471,7 +472,7 @@ void OTMapScanner::scanParkLists() {
 }
 
 void OTMapScanner::scanHumans() {
-    QFile f(_mapDir + "/humans.txt");
+    QFile f(OTPath::resolve(_mapDir, "humans.txt"));
     qInfo() << "reading humans.txt";
     if(!f.exists()) {
         qWarning() << "humans.txt not found!";
@@ -495,7 +496,7 @@ void OTMapScanner::scanHumans() {
 void OTMapScanner::scanAiList() {
     QString omsiDir = _checker->omsiDir();
     qInfo() << "reading ailists.cfg";
-    QFile f(_mapDir + "/ailists.cfg");
+    QFile f(OTPath::resolve(_mapDir, "ailists.cfg"));
     if(!f.exists()) {
         qWarning() << "ailists.cfg not found!";
         return;
@@ -535,7 +536,7 @@ void OTMapScanner::scanTile(const QString &filename) {
     QStringList fileList;
 
     qDebug() << "reading " << filename;
-    QFile f(_mapDir + "/" + filename);
+    QFile f(OTPath::resolve(_mapDir, filename));
     if(!f.exists()) {
         qWarning() << filename << " not found!";
         _missingTiles << filename;
