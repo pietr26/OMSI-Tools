@@ -1,6 +1,7 @@
 #ifndef OTPLATFORM_H
 #define OTPLATFORM_H
 
+#include <QCoreApplication>
 #include <QDebug>
 #include <QDesktopServices>
 #include <QDir>
@@ -34,12 +35,24 @@ public:
 #endif
     }
 
-    /// File name of the bundled DirectXTex converter, or an empty string if there is no
-    /// build of it for this platform.
+    /// Absolute path of a file which lives next to the program binary.
+    ///
+    /// logfile.txt, _docs/, backup/ and texconv.exe used to be created through plain
+    /// relative paths, i.e. in the working directory - while the very same files were
+    /// always read back through applicationDirPath(). On Windows both are the same as
+    /// long as the program is started by double click; on Linux the working directory
+    /// is whatever the desktop environment hands over, usually the home directory.
+    static QString applicationFile(const QString &relativePath)
+    {
+        return QCoreApplication::applicationDirPath() + "/" + relativePath;
+    }
+
+    /// Absolute path of the bundled DirectXTex converter, or an empty string if there
+    /// is no build of it for this platform.
     static QString texconvExecutable()
     {
 #ifdef Q_OS_WIN
-        return "texconv.exe";
+        return applicationFile("texconv.exe");
 #else
         return QString();
 #endif

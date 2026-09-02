@@ -14,6 +14,10 @@ wDBKnownWords::wDBKnownWords(QWidget *parent) :
     setWindowTitle("Known words panel");
     resize(misc.sizeWindow(0.2, 0.8));
 
+    // TODO/PORTABILITAET: fest verdrahteter Pfad auf dem Entwicklungsrechner. Das
+    // Modul findet seine Datenbank deshalb nur dort - unter Linux und auf jedem
+    // anderen Windows-Rechner bleibt sie leer. Bewusst noch nicht umgestellt, weil
+    // die DBPanels reine Entwicklerwerkzeuge sind.
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
     dbHandler.setupDatabase("CREATE TABLE 'knownWords' ('ID' INTEGER, 'word' TEXT, PRIMARY KEY('ID' AUTOINCREMENT))");
 

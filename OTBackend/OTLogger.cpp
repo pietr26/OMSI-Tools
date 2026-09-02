@@ -1,8 +1,17 @@
 #include "OTLogger.h"
 
+#include <QMutex>
+#include <QMutexLocker>
+
 QString OTLogger::filename;
 bool OTLogger::logging = false;
 static const QtMessageHandler QT_DEFAULT_MESSAGE_HANDLER = qInstallMessageHandler(nullptr);
+
+/// handler() wird aus jedem Thread aufgerufen, der ein Qt-Logmakro benutzt - neben
+/// dem GUI-Thread sind das OTMapScanner und OTMapChecker. Ohne Sperre schreiben die
+/// drei gleichzeitig in dieselbe Datei und erhöhen denselben Zähler.
+static QMutex logMutex;
+
 unsigned int entryCount = 1;
 int logfileMode;
 bool hardcoreDebugLogfile;
@@ -14,7 +23,7 @@ void OTLogger::attach(QString filename, QString applicationName)
 {
     OTSettings set;
 
-    OTLogger::filename = QDir::currentPath() + QDir::separator() + filename;
+    OTLogger::filename = OTPlatform::applicationFile(filename);
     logfileMode = set.read("main", "logfileMode", false).toInt();
 
     OTLogger::logging = true;
@@ -47,9 +56,10 @@ void OTLogger::attach(QString filename, QString applicationName)
 /// Prepares and writes a logfile entry
 void OTLogger::handler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
+    QString logText;
+
     if (OTLogger::logging)
     {
-        QString logText;
         switch (type)
         {
             case QtDebugMsg:
@@ -74,7 +84,12 @@ void OTLogger::handler(QtMsgType type, const QMessageLogContext &context, const 
                 logText = QString("[Fatal]         %1").arg("Application closed due to a fatal error: " + msg);
                 break;
         }
+    }
 
+    QMutexLocker locker(&logMutex);
+
+    if (OTLogger::logging)
+    {
         QFile file(OTLogger::filename);
 
         if (file.open(QFile::Append | QFile::Text))

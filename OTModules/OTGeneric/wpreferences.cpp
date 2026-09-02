@@ -232,7 +232,7 @@ void wPreferences::modified()
 
 void wPreferences::refreshDiskUsage()
 {
-    ui->lblDiskUsageSize->setText(dUs.formatSize("backup"));
+    ui->lblDiskUsageSize->setText(dUs.formatSize(OTPlatform::applicationFile("backup")));
 }
 
 void wPreferences::on_btnClose_clicked()
@@ -246,7 +246,7 @@ void wPreferences::on_btnDeleteAllBackups_clicked()
 
     if (reply == QMessageBox::Yes)
     {
-        qDebug() << "Move to trash:" << QFile::moveToTrash("backup");
+        qDebug() << "Move to trash:" << QFile::moveToTrash(OTPlatform::applicationFile("backup"));
         ui->btnDeleteAllBackups->setEnabled(false);
         refreshDiskUsage();
         qInfo().noquote() << "Deleted backups";
@@ -255,7 +255,7 @@ void wPreferences::on_btnDeleteAllBackups_clicked()
 
 void wPreferences::on_btnOpenBackupFolder_clicked()
 {
-    QDir().mkdir("backup");
+    QDir().mkdir(OTPlatform::applicationFile("backup"));
     QString path = QFileInfo("./backup").absolutePath();
     path += "/backup";
 

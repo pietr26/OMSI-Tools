@@ -407,6 +407,7 @@ void OTMapScanner::scanGlobal() {
     }
 
     QTextStream s(&f);
+    s.setEncoding(OTPlatform::omsiEncoding());
 
     while(!s.atEnd()) {
         QString line = s.readLine();
@@ -461,6 +462,7 @@ void OTMapScanner::scanParkLists() {
         }
 
         QTextStream s(&f);
+        s.setEncoding(OTPlatform::omsiEncoding());
         QStringList list;
         while(!s.atEnd()) {
             list << s.readLine();
@@ -485,6 +487,7 @@ void OTMapScanner::scanHumans() {
     }
 
     QTextStream s(&f);
+    s.setEncoding(OTPlatform::omsiEncoding());
     QStringList list;
     while(!s.atEnd()) {
         list << s.readLine();
@@ -508,6 +511,7 @@ void OTMapScanner::scanAiList() {
     }
 
     QTextStream s(&f);
+    s.setEncoding(OTPlatform::omsiEncoding());
     QStringList list;
     while(!s.atEnd()) {
         QString line = s.readLine();
@@ -548,6 +552,7 @@ void OTMapScanner::scanTile(const QString &filename) {
     }
 
     QTextStream s(&f);
+    s.setEncoding(OTPlatform::omsiEncoding());
 
     while(!s.atEnd()) {
         QString line = s.readLine();

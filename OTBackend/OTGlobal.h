@@ -477,10 +477,12 @@ public:
         QStringList args;
         args << "--accept-licenses" << "--default-answer" << "--confirm-command" << "update" << "maintenancetool";
 
-        QProcess *process = new QProcess();
-        process->start(OTPlatform::updaterExecutable(), args);
+        {
+            QProcess process;
+            process.start(OTPlatform::updaterExecutable(), args);
 
-        qDebug() << "mt update status:" << process->waitForFinished();
+            qDebug() << "mt update status:" << process.waitForFinished();
+        }
 
         qDebug() << "OTUpdater: updated maintenacetool.";
 
@@ -491,7 +493,10 @@ public:
         args.clear();
         args << "--accept-licenses" << "--default-answer" << "--confirm-command" << "update";
 
-        process = new QProcess();
+        // Absichtlich auf dem Heap und ohne delete: der Updater muss weiterlaufen,
+        // wenn diese Funktion zurueckkehrt und die Anwendung sich beendet. Ein
+        // lokales QProcess wuerde den Kindprozess in seinem Destruktor abschiessen.
+        QProcess *process = new QProcess();
         process->start(OTPlatform::updaterExecutable(), args);
 
         QApplication::quit();
@@ -524,12 +529,12 @@ public:
             QStringList args;
             args << "ch";
 
-            QProcess *process = new QProcess();
-            process->start(OTPlatform::updaterExecutable(), args);
-            qInfo() << "Dir:" << process->workingDirectory();
+            QProcess process;
+            process.start(OTPlatform::updaterExecutable(), args);
+            qInfo() << "Dir:" << process.workingDirectory();
 
-            process->waitForFinished(10000);
-            QString output = process->readAllStandardOutput();
+            process.waitForFinished(10000);
+            QString output = process.readAllStandardOutput();
             qDebug() << "mt output:" << output;
 
             if (output.contains("id=\"latest\"")) status = 1;
@@ -587,8 +592,10 @@ public:
 
     void createBackupFolder()
     {
-        if (!QDir("backup").exists())
-            QDir().mkdir("backup");
+        const QString backup = OTPlatform::applicationFile("backup");
+
+        if (!QDir(backup).exists())
+            QDir().mkdir(backup);
     }
 
     void createShortcut(QString filepath, QString shortcutLocation, QWidget *parent)
@@ -761,10 +768,10 @@ public:
         const QString texconv = OTPlatform::texconvExecutable();
         if (!texconv.isEmpty() && !QFile(texconv).exists()) qInfo() << "Extract textconv.exe:" << QFile().copy(":/rec/data/external/texconv.exe", texconv);
 
-        if (!QFile("_docs/Handbuch DE.pdf").exists())
+        if (!QFile(OTPlatform::applicationFile("_docs/Handbuch DE.pdf")).exists())
         {
-            QDir().mkdir("_docs");
-            qInfo() << "Extract manuals:" << QFile().copy(":/rec/data/manual/Handbuch DE.pdf", "_docs/Handbuch DE.pdf");
+            QDir().mkdir(OTPlatform::applicationFile("_docs"));
+            qInfo() << "Extract manuals:" << QFile().copy(":/rec/data/manual/Handbuch DE.pdf", OTPlatform::applicationFile("_docs/Handbuch DE.pdf"));
         }
 
         write("wVerifyMap", "advVerifying", false);

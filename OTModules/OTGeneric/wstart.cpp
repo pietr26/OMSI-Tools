@@ -1,6 +1,8 @@
 #include "wstart.h"
 #include "ui_wstart.h"
 
+#include <QTimer>
+
 wStart::wStart(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::wStart)
@@ -58,15 +60,30 @@ wStart::wStart(QWidget *parent)
     ui->vlaFacts->addWidget(facts);
 
     ui->dwgMessages->setWindowTitle(tr("News"));
-    loadMessages();
-    ui->dwgMessages->setVisible(set.read(objectName(), "messagesVisible").toBool());
 
-    checkForUpdates(); // and show frame if update is available
+    /*
+        loadMessages() und checkForUpdates() blockieren beide: das eine auf dem
+        Netzwerk (OTNetworkConnection dreht dafuer einen eigenen QEventLoop), das
+        andere auf QProcess::waitForFinished(10000). Solange sie im Konstruktor
+        liefen, erschien das Fenster ohne Netzverbindung erst nach deren Timeouts,
+        und der geschachtelte Event-Loop konnte Slots auf dem noch unfertigen
+        Objekt ausloesen.
 
-    // Restore state (for dockwidget)
-    QVariant state = set.read(objectName(), "state");
-    if (state.isValid())
-        restoreState(state.toByteArray());
+        Ueber den Timer laufen sie unveraendert und in derselben Reihenfolge,
+        nur eben erst, sobald die Event-Loop steht und das Fenster sichtbar ist.
+    */
+    QTimer::singleShot(0, this, [this]()
+    {
+        loadMessages();
+        ui->dwgMessages->setVisible(set.read(objectName(), "messagesVisible").toBool());
+
+        checkForUpdates(); // and show frame if update is available
+
+        // Restore state (for dockwidget)
+        QVariant state = set.read(objectName(), "state");
+        if (state.isValid())
+            restoreState(state.toByteArray());
+    });
 
     qInfo().noquote() << objectName() + " started";
 }

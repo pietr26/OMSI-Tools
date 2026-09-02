@@ -4,7 +4,6 @@
 #include <QWidget>
 #include "OTBackend/OCC/OCFont.h"
 #include <QGraphicsScene>
-#include "OTWidgets/graphicsview.h"
 #include "OTBackend/OCC/OCFont.h"
 #include "wdggraphicsview.h"
 #include <QGraphicsPixmapItem>

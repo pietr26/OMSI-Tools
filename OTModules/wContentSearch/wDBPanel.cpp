@@ -61,6 +61,10 @@ wDBPanel::wDBPanel(QWidget *parent) :
 
     ui->tvwDuplicates->verticalHeader()->hide();
 
+    // TODO/PORTABILITAET: fest verdrahteter Pfad auf dem Entwicklungsrechner. Das
+    // Modul findet seine Datenbank deshalb nur dort - unter Linux und auf jedem
+    // anderen Windows-Rechner bleibt sie leer. Bewusst noch nicht umgestellt, weil
+    // die DBPanels reine Entwicklerwerkzeuge sind.
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/contentSearch.db";
     dbHandler.setupDatabase("CREATE TABLE paths (ID INTEGER, path TEXT, linkID TEXT, PRIMARY KEY(ID AUTOINCREMENT)); CREATE TABLE links (ID INTEGER, link TEXT, directLinks TEXT, information TEXT, PRIMARY KEY(ID AUTOINCREMENT));");
 

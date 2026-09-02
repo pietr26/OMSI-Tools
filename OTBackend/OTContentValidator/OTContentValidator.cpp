@@ -150,9 +150,16 @@ void OTContentValidator::validate() {
         return;
     }
 
-    _stream = new QTextStream(&f);
-    _stream->setEncoding(QStringConverter::Latin1);
+    // Der Stream gehoert zur lokalen QFile und darf sie nicht ueberleben - frueher
+    // blieb hier ein QTextStream auf dem Heap zurueck, der nach dem Verlassen der
+    // Funktion auf eine zerstoerte QFile zeigte.
+    QTextStream stream(&f);
+    stream.setEncoding(QStringConverter::Latin1);
+    _stream = &stream;
+
     specificValidate();
+
+    _stream = nullptr;
     f.close();
 }
 

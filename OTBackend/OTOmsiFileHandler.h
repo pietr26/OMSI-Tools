@@ -646,7 +646,7 @@ public:
         QElapsedTimer elTimer;
         elTimer.start();
         aFuture = QtConcurrent::run([=]() { getItemsFromTileList(a, checkMissing, "a"); });
-        QObject::connect(aFutureWatcher, &QFutureWatcher<void>::finished, [=]()
+        QObject::connect(aFutureWatcher, &QFutureWatcher<void>::finished, aFutureWatcher, [=]()
         {
             qDebug().noquote() << QString("getItemThread a finished (%1s)").arg(elTimer.elapsed() / 1000);
             aLoop->quit();
@@ -662,7 +662,7 @@ public:
         if (tiles.length() > 1)
         {
             bFuture = QtConcurrent::run([=]() { getItemsFromTileList(b, checkMissing, "b"); });
-            QObject::connect(bFutureWatcher, &QFutureWatcher<void>::finished, [=]()
+            QObject::connect(bFutureWatcher, &QFutureWatcher<void>::finished, bFutureWatcher, [=]()
             {
                 qDebug().noquote() << QString("getItemThread b finished (%1s)").arg(elTimer.elapsed() / 1000);
                 bLoop->quit();

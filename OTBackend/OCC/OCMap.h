@@ -1134,6 +1134,7 @@ public:
 
         Global::FileIOResponse write() {
             // TODO
+            return Global::FileIOResponse::errFunctionNotDefined;
         }
 
         void clear() {

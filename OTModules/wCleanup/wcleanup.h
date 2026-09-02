@@ -55,6 +55,9 @@ private:
 
     int cutCount = 0;
 
+    /// Baut aus einem Listeneintrag den absoluten Pfad des Ordners.
+    QString itemPath(const QString &itemText);
+
     OTSettings set;
     OTMessage msg;
     OTOMSIFileHandler filehandler;

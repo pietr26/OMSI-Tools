@@ -1,6 +1,8 @@
 #include "wdgpreview.h"
 #include "ui_wdgpreview.h"
 
+#include <QScrollBar>
+
 wdgPreview::wdgPreview(QWidget *parent, OCFont::FontCollection *font)
     : QWidget(parent)
     , ui(new Ui::wdgPreview),

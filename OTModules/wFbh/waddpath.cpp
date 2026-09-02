@@ -13,6 +13,10 @@ wAddPath::wAddPath(bool isNewEntry, QWidget *parent, int ID, QString path, QStri
 
     setWindowTitle("Add / edit path");
 
+    // TODO/PORTABILITAET: fest verdrahteter Pfad auf dem Entwicklungsrechner. Das
+    // Modul findet seine Datenbank deshalb nur dort - unter Linux und auf jedem
+    // anderen Windows-Rechner bleibt sie leer. Bewusst noch nicht umgestellt, weil
+    // die DBPanels reine Entwicklerwerkzeuge sind.
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
     dbHandler.setupDatabase();
     dbHandler.openDB();
