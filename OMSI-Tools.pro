@@ -45,6 +45,7 @@ SOURCES += \
     OTBackend/OTContentValidator/OTVehicleValidator.cpp \
     OTBackend/OTFileSource.cpp \
     OTBackend/OTLogger.cpp \
+    OTBackend/OTDdsImage.cpp \
     OTBackend/OTPath.cpp \
     OTBackend/OTMapScanner.cpp \
     OTModules/OTGeneric/wfeedback.cpp \
@@ -150,6 +151,7 @@ HEADERS += \
     OTBackend/OTLogger.h \
     OTBackend/OTMapScanner.h \
     OTBackend/OTOmsiFileHandler.h \
+    OTBackend/OTDdsImage.h \
     OTBackend/OTPath.h \
     OTBackend/OTPlatform.h \
     OTBackend/OTOmsiFileHandler_models.h \

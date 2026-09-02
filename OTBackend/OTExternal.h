@@ -2,6 +2,7 @@
 #define OTEXTERNAL_H
 
 #include "OTGlobal.h"
+#include "OTDdsImage.h"
 #include <QImage>
 #include <QtSql>
 #include <QSqlDriver>
@@ -238,23 +239,30 @@ public:
     }
 
 private:
-    /// Reads the texture through Qt's image plugins. DDS needs the Qt Image Formats
-    /// module, which is not part of a default installation.
+    /// Reads the texture through Qt's image plugins and falls back to the own DDS
+    /// reader, because Qt does not bring an image plugin for that format any more.
     bool convertWithQt(QString format, QString input, QTemporaryFile &tFile)
     {
         QImage image(input);
 
+        if (image.isNull()) image = OTDdsImage::read(input);
+
         if (image.isNull())
         {
-            qCritical().noquote() << "Could not read '" + input + "'. For DDS textures the Qt Image Formats module has to be installed.";
+            qCritical().noquote() << "Could not read '" + input + "'.";
             return false;
         }
 
-        tFile.resize(0);
         if (!tFile.isOpen() && !tFile.open()) return false;
+        tFile.resize(0);
         tFile.seek(0);
 
-        return image.save(&tFile, format.toUpper().toLatin1().constData());
+        if (!image.save(&tFile, format.toUpper().toLatin1().constData())) return false;
+
+        // The callers pick the result up by its file name, so it has to be on disk.
+        tFile.flush();
+
+        return true;
     }
 };
 
