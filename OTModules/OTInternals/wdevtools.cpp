@@ -1,6 +1,14 @@
 #include "wdevtools.h"
 #include "ui_wdevtools.h"
 
+#include <QFile>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QMessageBox>
+#include <QTextStream>
+
+#include "OTBackend/OTInformation.h"
+
 wDevTools::wDevTools(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wDevTools)

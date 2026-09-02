@@ -1,6 +1,9 @@
 #ifndef OCKEYBOARD_H
 #define OCKEYBOARD_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 class OCKeyboard : public OCBase::File // cfg

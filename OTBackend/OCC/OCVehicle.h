@@ -1,6 +1,10 @@
 #ifndef OCVEHICLE_H
 #define OCVEHICLE_H
 
+
+#include <QList>
+#include <QString>
+#include <QVariant>
 #include "OCBase.h"
 #include "OCViewable.h"
 

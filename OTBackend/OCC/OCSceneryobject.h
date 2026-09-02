@@ -1,6 +1,10 @@
 #ifndef OCSCENERYOBJECT_H
 #define OCSCENERYOBJECT_H
 
+
+#include <QColor>
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 #include "OCRail.h"
 #include "OCViewable.h"

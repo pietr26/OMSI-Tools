@@ -1,6 +1,8 @@
 #ifndef WDGPREVIEW_H
 #define WDGPREVIEW_H
 
+
+#include "OTBackend/OTSettings.h"
 #include <QWidget>
 #include "OTBackend/OCC/OCFont.h"
 #include <QGraphicsScene>

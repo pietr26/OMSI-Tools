@@ -1,6 +1,8 @@
 #include "wregeditor.h"
 #include "ui_wregeditor.h"
 
+#include "OTBackend/OTInformation.h"
+
 wRegEditor::wRegEditor(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wRegEditor)

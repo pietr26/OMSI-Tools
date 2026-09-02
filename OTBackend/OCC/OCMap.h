@@ -1,6 +1,21 @@
 #ifndef OCMAP_H
 #define OCMAP_H
 
+
+
+#include "OTBackend/OTPath.h"
+#include <QDate>
+#include <QDir>
+#include <QDirIterator>
+#include <QFile>
+#include <QFileInfo>
+#include <QList>
+#include <QString>
+#include <QStringConverter>
+#include <QTextStream>
+#include <QTime>
+#include <Qt>
+#include <algorithm>
 #include "OCBase.h"
 
 namespace OCMap {

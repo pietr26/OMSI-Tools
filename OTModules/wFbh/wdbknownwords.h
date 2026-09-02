@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "OTBackend/OTExternal.h"
-#include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTMiscellaneous.h"
 #include "waddword.h"
 
 namespace Ui {

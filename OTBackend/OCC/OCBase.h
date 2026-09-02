@@ -1,8 +1,12 @@
 #ifndef OCBASE_H
 #define OCBASE_H
 
-#include "OTBackend/OTGlobal.h"
 
+#include <QList>
+#include <QPair>
+#include <QString>
+#include <QVariant>
+#include <type_traits>
 namespace OCBase
 {
 

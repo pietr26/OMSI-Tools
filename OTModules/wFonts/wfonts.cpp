@@ -1,4 +1,6 @@
 #include "wfonts.h"
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTFileMethods.h"
 #include "ui_wfonts.h"
 
 wFonts::wFonts(QWidget *parent)

@@ -2,8 +2,9 @@
 #define WFEEDBACK_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
+#include <QUrl>
 
+#include "OTBackend/OTMiscellaneous.h"
 namespace Ui {
 class wFeedback;
 }

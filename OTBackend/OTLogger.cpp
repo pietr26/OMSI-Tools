@@ -3,6 +3,14 @@
 #include <QMutex>
 #include <QMutexLocker>
 
+#include <QDateTime>
+#include <QFile>
+#include <QTextStream>
+
+#include "OTInformation.h"
+#include "OTPlatform.h"
+#include "OTSettings.h"
+
 QString OTLogger::filename;
 bool OTLogger::logging = false;
 static const QtMessageHandler QT_DEFAULT_MESSAGE_HANDLER = qInstallMessageHandler(nullptr);

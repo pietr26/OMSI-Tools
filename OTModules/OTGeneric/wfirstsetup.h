@@ -2,7 +2,9 @@
 #define WFIRSTSETUP_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTSettings.h"
+#include "OTBackend/OTStrings.h"
 #include <QStandardItemModel>
 
 namespace Ui {

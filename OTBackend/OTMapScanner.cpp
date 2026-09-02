@@ -11,7 +11,13 @@
 */
 
 #include "OTMapScanner.h"
-#include "OTBackend/OTGlobal.h"
+#include <QDir>
+#include <QFile>
+#include <QTextStream>
+
+#include "OTBackend/OTPath.h"
+#include "OTBackend/OTPlatform.h"
+#include "OTBackend/OTSettings.h"
 #include "OTBackend/OTPath.h"
 #include "OTBackend/OTContentValidator/OTContentValidator.h"
 #include "OTBackend/OTContentValidator/OTSceneryobjectValidator.h"

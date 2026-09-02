@@ -1,6 +1,9 @@
 #ifndef OCTRAIN_H
 #define OCTRAIN_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 class OCTrain

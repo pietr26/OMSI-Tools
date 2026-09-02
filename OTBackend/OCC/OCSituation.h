@@ -1,6 +1,10 @@
 #ifndef OCSITUATION_H
 #define OCSITUATION_H
 
+
+#include <QDateTime>
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 #include "OCMap.h"
 #include "OTBackend/OCC/OCScript.h"

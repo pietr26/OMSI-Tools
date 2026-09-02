@@ -1,6 +1,11 @@
 #ifndef OCFONT_H
 #define OCFONT_H
 
+
+#include <QList>
+#include <QMap>
+#include <QString>
+#include <QStringConverter>
 #include "OCBase.h"
 
 namespace OCFont {

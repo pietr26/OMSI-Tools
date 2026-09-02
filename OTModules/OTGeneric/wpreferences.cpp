@@ -1,6 +1,19 @@
 #include "wpreferences.h"
 #include "ui_wpreferences.h"
 
+#include <QDesktopServices>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QMessageBox>
+#include <QStyleFactory>
+#include <QUrl>
+
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTLinks.h"
+#include "OTBackend/OTPlatform.h"
+
 wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     QMainWindow(parent),
     ui(new Ui::wPreferences)
@@ -9,6 +22,11 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
+
+    // The dialog frees itself when it is closed. Callers keep their pointer in a
+    // QPointer, which clears itself at the same moment - the pointer used to be left
+    // dangling and the dialog leaked with every single open.
+    setAttribute(Qt::WA_DeleteOnClose);
     resize(misc.sizeWindow(0.45, 0.6));
     qDebug() << "UI set";
 

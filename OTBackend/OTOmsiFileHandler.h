@@ -1,6 +1,16 @@
 #ifndef OTOMSIFILEHANDLER_H
 #define OTOMSIFILEHANDLER_H
-#include "OTBackend/OTGlobal.h"
+#include <QDir>
+#include <QDirIterator>
+#include <QElapsedTimer>
+#include <QFile>
+#include <QFileInfo>
+#include <QTextStream>
+
+#include "OTBackend/OTMessage.h"
+#include "OTBackend/OTPath.h"
+#include "OTBackend/OTPlatform.h"
+#include "OTBackend/OTSettings.h"
 #include <QtConcurrent>
 #include <QFuture>
 #include <QFutureWatcher>

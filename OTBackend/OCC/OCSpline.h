@@ -1,6 +1,9 @@
 #ifndef OCSPLINE_H
 #define OCSPLINE_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 #include "OCRail.h"
 

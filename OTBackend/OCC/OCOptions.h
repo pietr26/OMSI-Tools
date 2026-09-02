@@ -1,6 +1,8 @@
 #ifndef OCOPTIONS_H
 #define OCOPTIONS_H
 
+
+#include <QString>
 #include "OCBase.h"
 
 class OCOptions // *.oop | options.cfg

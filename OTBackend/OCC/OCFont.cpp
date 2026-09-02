@@ -1,4 +1,9 @@
 #include "OCFont.h"
+#include "OTBackend/OTSettings.h"
+#include <QFile>
+#include <QString>
+#include <QStringConverter>
+#include <QTextStream>
 
 OCBase::File::FileIOResponse OCFont::FontCollection::read()
 {

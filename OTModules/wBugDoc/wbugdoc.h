@@ -2,7 +2,11 @@
 #define WBUGDOC_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
+#include <QPointer>
+#include "OTBackend/OTMessage.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTNetworkConnection.h"
+#include "OTBackend/OTSettings.h"
 #include "OTBackend/OTExternal.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #ifdef Q_OS_WIN
@@ -60,7 +64,7 @@ private slots:
 
 private:
     Ui::wBugDoc *ui;
-    wPreferences *WPREFERENCES = nullptr;
+    QPointer<wPreferences> WPREFERENCES;
 
     void loadUI();
 

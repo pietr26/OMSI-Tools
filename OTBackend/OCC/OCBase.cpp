@@ -1,5 +1,9 @@
 #include "OCBase.h"
 
+#include <QDateTime>
+
+#include "OTBackend/OTInformation.h"
+
 QString OCBase::writeFileHeader()
 {
     return "File created with " + OTInformation::name + " " + OTInformation::versions::currentVersion.first + " on " + QDateTime::currentDateTime().toString("dd.MM.yyyy, hh:mm") + "\n\n";

@@ -1,6 +1,17 @@
 #include "wbugdoc.h"
 #include "ui_wbugdoc.h"
 
+#include <QApplication>
+#include <QDateTime>
+#include <QDir>
+#include <QFile>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QScreen>
+
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTLinks.h"
+
 wBugDoc::wBugDoc(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wBugDoc)

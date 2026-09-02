@@ -2,8 +2,10 @@
 #define WMESSAGEVIEWER_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
-
+#include "OTBackend/OTInAppMessage.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTNetworkConnection.h"
+#include "OTBackend/OTSettings.h"
 namespace Ui {
 class wMessageViewer;
 }

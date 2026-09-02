@@ -75,8 +75,11 @@ public:
         QStringList args;
         args << "/select," << QDir::toNativeSeparators(path);
 
-        QProcess *process = new QProcess();
-        process->start("explorer.exe", args);
+        // Detached, because the file manager has to outlive this call - a QProcess on
+        // the stack would kill it again, and the previous leaked one only avoided that
+        // by never being destroyed.
+        if (!QProcess::startDetached("explorer.exe", args))
+            qWarning() << "Could not open the file manager.";
 #else
         // Dolphin, Nautilus and friends implement this interface; if none of them is
         // around, fall back to simply opening the containing directory.

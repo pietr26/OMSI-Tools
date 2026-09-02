@@ -1,7 +1,15 @@
 #ifndef OTEXTERNAL_H
 #define OTEXTERNAL_H
 
-#include "OTGlobal.h"
+#include <QApplication>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QProcess>
+#include <QTemporaryFile>
+
+#include "OTMiscellaneous.h"
+#include "OTPlatform.h"
 #include "OTDdsImage.h"
 #include <QImage>
 #include <QtSql>

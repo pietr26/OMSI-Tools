@@ -1,6 +1,9 @@
 #ifndef OCTICKETPACK_H
 #define OCTICKETPACK_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 class OCTicketPack

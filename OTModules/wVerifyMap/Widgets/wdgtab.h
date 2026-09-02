@@ -1,7 +1,7 @@
 #ifndef WDGTAB_H
 #define WDGTAB_H
 
-#include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTMiscellaneous.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTBackend/OTFileSource.h"
 

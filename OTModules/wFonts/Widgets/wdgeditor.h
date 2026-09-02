@@ -2,6 +2,7 @@
 #define WDGEDITOR_H
 
 #include <QWidget>
+#include <QPointer>
 #include "OTBackend/OCC/OCFont.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include <QScrollBar>
@@ -83,7 +84,7 @@ private:
 
     QList<bool> fontExpansions;
 
-    wPreferences *WPREFERENCES = new wPreferences(this, "wFonts");
+    QPointer<wPreferences> WPREFERENCES;
 
     QStandardItemModel *model = new QStandardItemModel();
 

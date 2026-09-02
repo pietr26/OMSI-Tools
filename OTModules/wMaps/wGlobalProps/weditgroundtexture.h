@@ -1,6 +1,8 @@
 #ifndef WEDITGROUNDTEXTURE_H
 #define WEDITGROUNDTEXTURE_H
 
+
+#include "OTBackend/OTSettings.h"
 #include <QMainWindow>
 #include "OTBackend/OCC/OCMap.h"
 

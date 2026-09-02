@@ -3,6 +3,14 @@
 
 #include <QCloseEvent>
 
+#include <QApplication>
+#include <QFile>
+#include <QMessageBox>
+
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTLinks.h"
+
 wVerifyMap::wVerifyMap(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wVerifyMap)
@@ -180,6 +188,11 @@ void wVerifyMap::on_btnStartVerifying_clicked()
 
 void wVerifyMap::on_actionClose_triggered()
 {
+    // QApplication::quit() leaves the event loop without closing any window, so
+    // closeEvent() - and with it the shutdown of the two worker threads - would never
+    // run. Closing first makes the threads stop before the application goes away.
+    close();
+
     QApplication::quit();
 }
 

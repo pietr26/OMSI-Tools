@@ -1,4 +1,6 @@
 #include "wdgpreview.h"
+#include <QFile>
+#include <QFileInfo>
 #include "ui_wdgpreview.h"
 
 #include <QScrollBar>

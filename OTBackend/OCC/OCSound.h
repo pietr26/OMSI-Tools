@@ -1,6 +1,11 @@
 #ifndef OCSOUND_H
 #define OCSOUND_H
 
+
+#include <QList>
+#include <QString>
+#include <QVariant>
+#include <type_traits>
 #include "OCBase.h"
 
 class OCSound : public OCBase::File // in sound.cfg

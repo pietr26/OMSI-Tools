@@ -1,6 +1,8 @@
 #ifndef OCHUMAN_H
 #define OCHUMAN_H
 
+
+#include <QString>
 #include "OCBase.h"
 #include "OCViewable.h"
 

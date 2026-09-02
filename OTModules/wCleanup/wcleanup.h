@@ -2,8 +2,11 @@
 #define WCLEANUP_H
 
 #include <QMainWindow>
+#include <QPointer>
 #include "OTModules/OTGeneric/wpreferences.h"
-#include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTMessage.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTSettings.h"
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 
@@ -62,7 +65,7 @@ private:
     OTMessage msg;
     OTOMSIFileHandler filehandler;
     OTMiscellaneous misc;
-    wPreferences *WPREFERENCES = nullptr;
+    QPointer<wPreferences> WPREFERENCES;
 };
 
 #endif // WCLEANUP_H

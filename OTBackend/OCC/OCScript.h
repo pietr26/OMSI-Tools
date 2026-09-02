@@ -1,6 +1,9 @@
 #ifndef OCSCRIPT_H
 #define OCSCRIPT_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 template<class T>

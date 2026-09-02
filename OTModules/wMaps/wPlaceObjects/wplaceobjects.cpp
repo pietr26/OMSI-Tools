@@ -3,6 +3,13 @@
 
 #include <QPainter>
 
+#include <QDir>
+#include <QFile>
+#include <QFileDialog>
+#include <QTextStream>
+
+#include "OTBackend/OTPath.h"
+
 wPlaceObjects::wPlaceObjects(OCMap::Map::Global globalProps, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::wPlaceObjects)

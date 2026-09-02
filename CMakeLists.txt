@@ -157,7 +157,6 @@ set(OT_HEADERS
     OTBackend/OTContentValidator/OTVehicleValidator.h
     OTBackend/OTExternal.h
     OTBackend/OTFileSource.h
-    OTBackend/OTGlobal.h
     OTBackend/OTFileMethods.h
     OTBackend/OTBuildOptions.h
     OTBackend/OTInformation.h

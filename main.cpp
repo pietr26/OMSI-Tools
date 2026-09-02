@@ -1,7 +1,17 @@
 #include "OTModules/OTGeneric/wstart.h"
 #include "OTModules/OTGeneric/wfirstsetup.h"
-#include "OTBackend/OTGlobal.h"
+#include <QDir>
+#include <QFile>
+#include <QMessageBox>
+#include <QStyleFactory>
 
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTBuildOptions.h"
+#include "OTBackend/OTFileOperations.h"
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTPlatform.h"
+#include "OTBackend/OTSettings.h"
 #include <QApplication>
 #include "OTBackend/OTLogger.h"
 #include "OTBackend/DiscordGameSDK.h"

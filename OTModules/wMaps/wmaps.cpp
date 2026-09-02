@@ -1,4 +1,5 @@
 #include "wmaps.h"
+#include "OTBackend/DiscordGameSDK.h"
 #include "ui_wmaps.h"
 
 wMaps::wMaps(QWidget *parent) :

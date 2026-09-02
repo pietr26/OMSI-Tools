@@ -2,7 +2,9 @@
 #define WPLACEOBJECTS_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
+#include <QTemporaryFile>
+
+#include "OTBackend/OTSettings.h"
 #include "OTBackend/OTExternal.h"
 #include "OTBackend/OCC/OCMap.h"
 

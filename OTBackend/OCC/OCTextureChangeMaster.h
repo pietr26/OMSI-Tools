@@ -1,6 +1,9 @@
 #ifndef OCTEXTURECHANGEMASTER_H
 #define OCTEXTURECHANGEMASTER_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 class OCTextureChangeMaster

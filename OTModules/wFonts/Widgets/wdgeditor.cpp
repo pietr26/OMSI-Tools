@@ -118,6 +118,10 @@ void wdgEditor::on_sbxHighestPixelInFontRow_valueChanged(int arg1)
 
 void wdgEditor::on_btnEditorPreferences_clicked()
 {
+    // Created on demand like everywhere else. It used to be built in the member
+    // initialiser, so every editor carried a preferences dialog around whether it was
+    // ever opened or not - and it cannot be reused now that it frees itself on close.
+    WPREFERENCES = new wPreferences(this, "wFonts");
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
 }

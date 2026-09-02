@@ -43,11 +43,12 @@ public:
         args.clear();
         args << "--accept-licenses" << "--default-answer" << "--confirm-command" << "update";
 
-        // Absichtlich auf dem Heap und ohne delete: der Updater muss weiterlaufen,
-        // wenn diese Funktion zurueckkehrt und die Anwendung sich beendet. Ein
-        // lokales QProcess wuerde den Kindprozess in seinem Destruktor abschiessen.
-        QProcess *process = new QProcess();
-        process->start(OTPlatform::updaterExecutable(), args);
+        // The updater has to keep running once this function returns and the
+        // application shuts down. startDetached() is the API for that - the previous
+        // "new QProcess() and never delete it" only worked by accident, because a
+        // QProcess kills its child process in the destructor.
+        if (!QProcess::startDetached(OTPlatform::updaterExecutable(), args))
+            qCritical() << "Could not start the updater!";
 
         QApplication::quit();
     }
@@ -125,8 +126,8 @@ public:
         QStringList args;
         args << "--start-updater";
 
-        QProcess *process = new QProcess();
-        process->start(OTPlatform::updaterExecutable(), args);
+        if (!QProcess::startDetached(OTPlatform::updaterExecutable(), args))
+            qCritical() << "Could not start the maintenance tool!";
 
         QApplication::quit();
     }

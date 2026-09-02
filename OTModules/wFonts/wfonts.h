@@ -1,6 +1,9 @@
 #ifndef WFONTS_H
 #define WFONTS_H
 
+
+#include "OTBackend/OTFileMethods.h"
+#include <QPointer>
 #include <QMainWindow>
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTBackend/OCC/OCFont.h"
@@ -55,7 +58,7 @@ signals:
 
 private:
     Ui::wFonts *ui;
-    wPreferences *WPREFERENCES = nullptr;
+    QPointer<wPreferences> WPREFERENCES;
     OTSettings set;
     OTMessage msg;
     OTMiscellaneous misc;

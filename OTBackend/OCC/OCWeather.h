@@ -1,6 +1,10 @@
 #ifndef OCWEATHER_H
 #define OCWEATHER_H
 
+
+#include <QColor>
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 class OCWeather

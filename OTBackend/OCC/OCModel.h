@@ -1,6 +1,11 @@
 #ifndef OCMODEL_H
 #define OCMODEL_H
 
+
+#include <QColor>
+#include <QList>
+#include <QString>
+#include <QVariant>
 #include "OCBase.h"
 
 namespace OCModel {

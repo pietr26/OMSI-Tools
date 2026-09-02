@@ -5,8 +5,9 @@
 #include <QFileInfo>
 #include <QDebug>
 
-#include "OTBackend/OTGlobal.h"
+#include <QTextStream>
 
+#include "OTBackend/OTSettings.h"
 OTContentValidatorIssue::OTContentValidatorIssue(const int &lineNumber,
                                                  const int &issueType,
                                                  const QStringList &arguments) :

@@ -2,8 +2,6 @@
 #define OTLOGGER_H
 
 #include <QObject>
-#include "OTGlobal.h"
-
 class OTLogger : public QObject
 {
     Q_OBJECT

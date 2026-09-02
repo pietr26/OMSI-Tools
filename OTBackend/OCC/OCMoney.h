@@ -1,6 +1,9 @@
 #ifndef OCMONEY_H
 #define OCMONEY_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 class OCMoney { // *.cfg

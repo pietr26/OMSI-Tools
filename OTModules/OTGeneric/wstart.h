@@ -2,13 +2,20 @@
 #define WSTART_H
 
 #include <QMainWindow>
+#include <QPointer>
 #include "OTModules/wCleanup/wcleanup.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/OTGeneric/wreleasenotes.h"
 #include "OTModules/wFonts/wfonts.h"
 #include "OTModules/wVerifyMap/wverifymap.h"
-#include "OTBackend/OTGlobal.h"
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTFileOperations.h"
+#include "OTBackend/OTMessage.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTNetworkConnection.h"
+#include "OTBackend/OTSettings.h"
+#include "OTBackend/OTUpdater.h"
 #include "OTModules/OTGeneric/wabout.h"
 #include "OTModules/OTInternals/wdevtools.h"
 #include "OTModules/OTInternals/wregeditor.h"
@@ -92,16 +99,16 @@ private slots:
 
 private:
     Ui::wStart *ui;
-    wPreferences *WPREFERENCES = nullptr;
+    QPointer<wPreferences> WPREFERENCES;
     wFonts *WFONTS = nullptr;
     wVerifyMap *WVERIFYMAP = nullptr;
     wDevTools *WDEVTOOLS = nullptr;
     wRegEditor *WREGEDITOR = nullptr;
     wDBPanel *WDBPANEL = nullptr;
     wContentSearch *WCONTENTSEARCH = nullptr;
-    wReleaseNotes *WRELEASENOTES = nullptr;
-    wAbout *WABOUT = nullptr;
-    wFeedback *WFEEDBACK = nullptr;
+    QPointer<wReleaseNotes> WRELEASENOTES;
+    QPointer<wAbout> WABOUT;
+    QPointer<wFeedback> WFEEDBACK;
     wCleanup *WCLEANUP = nullptr;
     wDBCopyrights *WDBCOPYRIGHTS = nullptr;
     wMaps *WMAPS = nullptr;

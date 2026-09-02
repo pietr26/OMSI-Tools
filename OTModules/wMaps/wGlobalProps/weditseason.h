@@ -1,6 +1,8 @@
 #ifndef WEDITSEASON_H
 #define WEDITSEASON_H
 
+
+#include "OTBackend/OTSettings.h"
 #include <QMainWindow>
 #include "OTBackend/OCC/OCMap.h"
 #include <QStandardItemModel>

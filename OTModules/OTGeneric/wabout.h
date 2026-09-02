@@ -2,8 +2,8 @@
 #define WABOUT_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
-
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTSettings.h"
 namespace Ui {
 class wAbout;
 }

@@ -1,6 +1,10 @@
 #ifndef OCDRIVER_H
 #define OCDRIVER_H
 
+
+#include <QDate>
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 namespace OCDriver

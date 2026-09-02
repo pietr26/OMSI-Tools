@@ -1,4 +1,5 @@
 #include "wglobalprops.h"
+#include "OTBackend/OTStrings.h"
 #include "ui_wglobalprops.h"
 
 wGlobalProps::wGlobalProps(OCMap::Map::Global globalProps, QWidget *parent) :

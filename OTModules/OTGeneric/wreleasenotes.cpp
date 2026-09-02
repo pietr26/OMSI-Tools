@@ -1,6 +1,14 @@
 #include "wreleasenotes.h"
 #include "ui_wreleasenotes.h"
 
+#include <QDesktopServices>
+#include <QMessageBox>
+#include <QUrl>
+
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTLinks.h"
+#include "OTBackend/OTStrings.h"
+
 wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newVersion, bool viaUpdater) :
     QMainWindow(parent),
     ui(new Ui::wReleaseNotes)
@@ -9,6 +17,11 @@ wReleaseNotes::wReleaseNotes(QWidget *parent, bool updateAvailable, QString newV
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
+
+    // The dialog frees itself when it is closed. Callers keep their pointer in a
+    // QPointer, which clears itself at the same moment - the pointer used to be left
+    // dangling and the dialog leaked with every single open.
+    setAttribute(Qt::WA_DeleteOnClose);
     //adjustSize();
     qDebug() << "UI set";
 

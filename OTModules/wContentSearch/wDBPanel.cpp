@@ -1,6 +1,18 @@
 #include "wDBPanel.h"
 #include "ui_wDBPanel.h"
 
+#include <QDir>
+#include <QDirIterator>
+#include <QElapsedTimer>
+#include <QFile>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QMessageBox>
+#include <QTextStream>
+#include <QUrl>
+
+#include "OTBackend/OTInformation.h"
+
 wDBPanel::wDBPanel(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wDBPanel)

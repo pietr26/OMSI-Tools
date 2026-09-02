@@ -1,6 +1,17 @@
 #include "wcleanup.h"
 #include "ui_wcleanup.h"
 
+#include <QDir>
+#include <QDirIterator>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QMessageBox>
+
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTLinks.h"
+#include "OTBackend/OTPath.h"
+
 wCleanup::wCleanup(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wCleanup)

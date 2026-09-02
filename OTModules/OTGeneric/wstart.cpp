@@ -3,6 +3,23 @@
 
 #include <QTimer>
 
+#include <QApplication>
+#include <QDate>
+#include <QDateTime>
+#include <QDesktopServices>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QMessageBox>
+#include <QProcess>
+#include <QUrl>
+
+#include "OTBackend/OTBuildOptions.h"
+#include "OTBackend/OTInAppMessage.h"
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTLinks.h"
+#include "OTBackend/OTStrings.h"
+
 wStart::wStart(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::wStart)

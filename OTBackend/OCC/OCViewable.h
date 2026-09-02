@@ -1,6 +1,9 @@
 #ifndef OCVIEWABLE_H
 #define OCVIEWABLE_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 namespace OCViewable

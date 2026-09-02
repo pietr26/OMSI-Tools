@@ -4,6 +4,11 @@
 #include "dlgsourceslist.h"
 #include "dlgfilepreview.h"
 
+#include <QFile>
+
+#include "OTBackend/OTPath.h"
+#include "OTBackend/OTSettings.h"
+
 wdgTab::wdgTab(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::wdgTab)
