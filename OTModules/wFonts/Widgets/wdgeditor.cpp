@@ -432,7 +432,7 @@ void wdgEditor::reloadUi(bool reset, bool selectionChange)
     for (int i = 0; i < model->rowCount(); i++)
         fontExpansions << ui->tvwChars->isExpanded(model->index(i, 0)); // TODO: implement for delete, move!
 
-    // Neladen der Font
+    // Reload the font
     if (!selectionChange)
     {
         model->clear();

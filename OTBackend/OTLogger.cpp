@@ -15,9 +15,9 @@ QString OTLogger::filename;
 bool OTLogger::logging = false;
 static const QtMessageHandler QT_DEFAULT_MESSAGE_HANDLER = qInstallMessageHandler(nullptr);
 
-/// handler() wird aus jedem Thread aufgerufen, der ein Qt-Logmakro benutzt - neben
-/// dem GUI-Thread sind das OTMapScanner und OTMapChecker. Ohne Sperre schreiben die
-/// drei gleichzeitig in dieselbe Datei und erhöhen denselben Zähler.
+/// handler() is called from every thread which uses a Qt logging macro - besides the
+/// GUI thread those are OTMapScanner and OTMapChecker. Without a lock all three write
+/// into the same file and increment the same counter at once.
 static QMutex logMutex;
 
 unsigned int entryCount = 1;

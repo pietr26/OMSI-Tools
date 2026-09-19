@@ -46,13 +46,13 @@ wCleanup::~wCleanup()
 }
 
 /*!
-    Die Listeneintraege zeigen die Ordner in OMSIs Backslash-Schreibweise an (siehe
-    on_actionAnalyze_triggered()). Fuer jeden Dateisystemzugriff muss daraus wieder ein
-    Pfad werden, den die Plattform akzeptiert: unter Windows ist der Backslash ein
-    Trennzeichen, unter Linux ein gewoehnliches Zeichen im Dateinamen - dort zeigte der
-    zusammengesetzte Pfad deshalb ins Leere und jede Aktion lief wirkungslos durch.
+    The list entries show the folders in OMSI's backslash notation (see
+    on_actionAnalyze_triggered()). Every file system access has to turn that back into a
+    path the platform accepts: on Windows the backslash separates components, on Linux
+    it is an ordinary character in a file name - so the concatenated path pointed
+    nowhere there and every action ran through without any effect.
 
-    Die Anzeige selbst bleibt unveraendert.
+    The displayed text itself stays unchanged.
 */
 QString wCleanup::itemPath(const QString &itemText)
 {

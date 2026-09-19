@@ -79,15 +79,6 @@ wStart::wStart(QWidget *parent)
     ui->dwgMessages->setWindowTitle(tr("News"));
 
     /*
-        loadMessages() und checkForUpdates() blockieren beide: das eine auf dem
-        Netzwerk (OTNetworkConnection dreht dafuer einen eigenen QEventLoop), das
-        andere auf QProcess::waitForFinished(10000). Solange sie im Konstruktor
-        liefen, erschien das Fenster ohne Netzverbindung erst nach deren Timeouts,
-        und der geschachtelte Event-Loop konnte Slots auf dem noch unfertigen
-        Objekt ausloesen.
-
-        Ueber den Timer laufen sie unveraendert und in derselben Reihenfolge,
-        nur eben erst, sobald die Event-Loop steht und das Fenster sichtbar ist.
     */
     QTimer::singleShot(0, this, [this]()
     {

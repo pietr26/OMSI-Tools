@@ -58,7 +58,7 @@ private:
 
     int cutCount = 0;
 
-    /// Baut aus einem Listeneintrag den absoluten Pfad des Ordners.
+    /// Builds the absolute path of the folder from a list entry.
     QString itemPath(const QString &itemText);
 
     OTSettings set;

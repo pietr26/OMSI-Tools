@@ -98,7 +98,7 @@ public:
 
         bool hasCrossingProblem = false;
 
-        int blockPath1stValue; // TODO: ? |-> Wird vmtl. dafür genutzt, diesen Pfad freizuhalten bzw., dass dort keine KI zum Stehen kommt
+        int blockPath1stValue; // TODO: ? |-> Probably used to keep this path clear, i.e. to stop AI traffic from halting there
         int blockPath2ndValue; // TODO: ? /   s. Sceneryobjects\ADDON_SimpleStreets\Kreuz_MC\Einm_001_001_1.sco - Pfad 8: sogar 4 blockpaths auf einmal.
 
         // if (path2) {
