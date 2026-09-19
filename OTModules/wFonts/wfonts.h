@@ -66,7 +66,6 @@ private:
     wdgEditor *WDGEDITOR = nullptr;
     wdgPreview *WDGPREVIEW = nullptr;
 
-    wSelectEncoding *WSELECTENCODING = nullptr;
 
     OCFont::FontCollection *_font;
 
@@ -78,7 +77,6 @@ private:
     void saveRecentFiles(QString absoluteNewFilePath);
     void loadRecentFiles();
     void open(OTFileMethods::fileMethods method, QString filen = "", QStringConverter::Encoding encoding = QStringConverter::Latin1);
-    void selectedEncoding(QStringConverter::Encoding selectedEncoding);
 
     void setVisiblilty();
 };

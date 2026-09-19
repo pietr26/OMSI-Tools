@@ -115,11 +115,10 @@ void wFonts::on_actionOpen_triggered()
 
 void wFonts::on_actionOpenWithEncoding_triggered()
 {
-    wSelectEncoding *selectEncoding = new wSelectEncoding(this);
-    connect(selectEncoding, &wSelectEncoding::encodingSelected, this, &wFonts::selectedEncoding);
+    wSelectEncoding selectEncoding(this);
 
-    selectEncoding->setWindowModality(Qt::ApplicationModal);
-    selectEncoding->show();
+    if (selectEncoding.exec() == QDialog::Accepted)
+        open(OTFileMethods::open, "", selectEncoding.selectedEncoding());
 }
 
 void wFonts::on_actionReload_triggered()
@@ -338,11 +337,6 @@ void wFonts::open(OTFileMethods::fileMethods method, QString filen, QStringConve
     setWindowModified(false);
 
     qDebug() << "Font opened.";
-}
-
-void wFonts::selectedEncoding(QStringConverter::Encoding selectedEncoding)
-{
-    open(OTFileMethods::open, "", selectedEncoding);
 }
 
 void wFonts::setVisiblilty()
