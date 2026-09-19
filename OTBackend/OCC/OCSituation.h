@@ -30,7 +30,7 @@ public:
         int vehicle14thValue; // TODO: ?
         QString hofFileName;
 
-        bool isMyVehicle;
+        bool isMyVehicle = false;
 
         QList<OCVariableDeclaration<float>> variables; // There are also variables with '' as name. - do not save int values (e.g. 1) as float (e.g. 1.0)! - [vars]
         QList<OCVariableDeclaration<QString>> stringvariables; // see 1st on member 'variables' - [stringvars]
@@ -59,7 +59,7 @@ public:
     OCMap::Position mapcam; // tilePos not used here! See 'centerTile' member
     OCMap::Position egoPosition; // tilePos not used here! See 'centerTile' member - std: x=10;y=10
 
-    bool icaoWeatherActive;
+    bool icaoWeatherActive = false;
 
     QList<VehicleInformation> vehicles;
 

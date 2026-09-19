@@ -13,10 +13,10 @@ public:
     class HeightProfile
     {
     public:
-        float leftXPosition;
-        float rightXPosition;
-        float leftZPosition;
-        float rightZPosition;
+        float leftXPosition = 0.0f;
+        float rightXPosition = 0.0f;
+        float leftZPosition = 0.0f;
+        float rightZPosition = 0.0f;
     };
 
     class Texture
@@ -25,7 +25,7 @@ public:
         class PatchworkChain
         {
         public:
-            float length;
+            float length = 0.0f;
             QString transitions;
             QString frequencies;
             QString mirroring;
@@ -41,7 +41,7 @@ public:
         QString textureName;
         QString materials = ""; // TODO: Material object - TODO: ALL matl operations possible?
         std::optional<PatchworkChain> patchworkChain;
-        bool scaleTextureByLength;
+        bool scaleTextureByLength = false;
     };
 
     class Profile
@@ -50,10 +50,10 @@ public:
         class ProfilePoint
         {
         public:
-            float xPosition;
-            float zPosition;
-            float xPositiononTexture;
-            float stretchFactor;
+            float xPosition = 0.0f;
+            float zPosition = 0.0f;
+            float xPositiononTexture = 0.0f;
+            float stretchFactor = 0.0f;
         };
 
         int textureIdent = -1;
@@ -71,9 +71,9 @@ public:
     {
     public:
         int type = -1; // 0=Street 1=Sidewalk 2=Railroad
-        float xPosition;
-        float zPosition;
-        float width;
+        float xPosition = 0.0f;
+        float zPosition = 0.0f;
+        float width = 0.0f;
         int direction = -1; // 0=Forward 1=Reverse/Backward 2=Both
 
         std::optional<OCRail::RailEnh> rail;
@@ -84,7 +84,7 @@ public:
 
     int halfCantWidth = -1;
 
-    bool onlyVisibleInEditor;
+    bool onlyVisibleInEditor = false;
     QString rendertype; // see OCSceneryobject
 
     QList<HeightProfile> heightProfiles;

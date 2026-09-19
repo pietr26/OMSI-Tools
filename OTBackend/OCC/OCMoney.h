@@ -12,11 +12,11 @@ public:
     {
     public:
         QString modelFilename; // relative to CURRENT folder (without model folder!)
-        float value;
+        float value = 0.0f;
     };
 
     QString name;
-    int decimalCount;
+    int decimalCount = 0;
 
     QList<moneyPart> coins;
     QList<moneyPart> bills;

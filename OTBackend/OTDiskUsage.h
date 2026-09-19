@@ -13,7 +13,7 @@ public:
     {
         qint64 size = calcDirSize(dirPath);
 
-        int i;
+        int i = 0;
         double outputSize = size;
         for(i = 0; i < units.size() - 1; i++)
         {
@@ -28,7 +28,7 @@ public:
 
     QString calculateSize(qint64 size)
     {
-        int i;
+        int i = 0;
         double outputSize = size;
         for(i = 0; i < units.size() - 1; i++)
         {

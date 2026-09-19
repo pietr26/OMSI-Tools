@@ -213,13 +213,17 @@ void wPlaceObjects::on_btnStart_clicked()
 
                 QFile tile(OTPath::resolve(map.dir, map.global.tiles[i].filename));
 
-                if (tile.open(QFile::WriteOnly | QFile::Text | QFile::Append))
+                // Without QFile::Text: the flag only produced CRLF on Windows, and the
+                // tile files OMSI writes use CRLF on every platform.
+                if (tile.open(QFile::WriteOnly | QFile::Append))
                 {
                     QTextStream out(&tile);
                     out.setEncoding(QStringConverter::Utf16LE);
 
-                    out << "\n\n";
-                    out << newObjectEntries;
+                    const QString nl = "\r\n";
+
+                    out << nl << nl;
+                    out << QString(newObjectEntries).replace("\n", nl);
 
                     tile.close();
                 }

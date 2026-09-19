@@ -112,7 +112,7 @@ private:
 
     void reloadUI();
 
-    bool setupFinished;
+    bool setupFinished = false;
 
     OCMap::Map map;
 

@@ -31,24 +31,24 @@ public:
     QDate birthDate;
     QDate hireDate;
 
-    int totalBusstops;
-    int tooLateBusstops;
-    int tooEarlyBusstops;
+    int totalBusstops = 0;
+    int tooLateBusstops = 0;
+    int tooEarlyBusstops = 0;
 
     int distance; // km
 
-    int crashes;
-    int hitAndRun;
-    int extremeCrashes;
-    int injuredPeds;
+    int crashes = 0;
+    int hitAndRun = 0;
+    int extremeCrashes = 0;
+    int injuredPeds = 0;
 
-    int tickets;
-    float money;
+    int tickets = 0;
+    float money = 0.0f;
 
-    int passengerComfortTotal;
-    int passengerComfortPositive;
-    int ticketComfortTotal;
-    int ticketComfortPositive;
+    int passengerComfortTotal = 0;
+    int passengerComfortPositive = 0;
+    int ticketComfortTotal = 0;
+    int ticketComfortPositive = 0;
     float driveComfort; // % decimal
 
     QList<BusInfo*> busInfo;

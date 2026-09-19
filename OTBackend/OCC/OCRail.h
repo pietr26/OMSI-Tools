@@ -11,15 +11,15 @@ public:
     class RailEnh
     {
     public:
-        float singleRailLength;
-        bool pushes;
-        float waveLengthY;
-        float maxAmplitudeY;
-        float errorExponentY;
+        float singleRailLength = 0.0f;
+        bool pushes = false;
+        float waveLengthY = 0.0f;
+        float maxAmplitudeY = 0.0f;
+        float errorExponentY = 0.0f;
 
-        float waveLengthZ;
-        float maxAmplitudeZ;
-        float errorExponentZ;
+        float waveLengthZ = 0.0f;
+        float maxAmplitudeZ = 0.0f;
+        float errorExponentZ = 0.0f;
     };
 
     class ThirdRail

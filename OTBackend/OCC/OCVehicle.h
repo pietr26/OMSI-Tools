@@ -23,18 +23,18 @@ public:
 
         Type type;
         OCType::Coord3D<float> position;
-        float distanceFromOrigin;
-        int perspective;
-        float xRotation;
-        float zRotation;
+        float distanceFromOrigin = 0.0f;
+        int perspective = 0;
+        float xRotation = 0.0f;
+        float zRotation = 0.0f;
 
         // if (driverView) {
-        bool isScheduleView;
-        bool isTicketSellingView;
+        bool isScheduleView = false;
+        bool isTicketSellingView = false;
         // }
 
         // if (isReflexion) {
-        bool isExtendedReflexion;
+        bool isExtendedReflexion = false;
         // }
     };
 
@@ -56,7 +56,7 @@ public:
                 achse_antrieb = 8
             };
 
-            int type;
+            int type = 0;
             QVariant value;
         };
 
@@ -91,8 +91,8 @@ public:
     class Distance
     {
     public:
-        int constructionYear;
-        int kilometersPerYear;
+        int constructionYear = 0;
+        int kilometersPerYear = 0;
     };
 
     class VehicleOscillating
@@ -123,10 +123,10 @@ public:
     class Sinus
     {
     public:
-        float wheelRadius;
+        float wheelRadius = 0.0f;
         float wheelDistance = 1.5;
-        float wheelTaping;
-        float damping;
+        float wheelTaping = 0.0f;
+        float damping = 0.0f;
     };
 
     class AiBrakePerformance
@@ -149,10 +149,10 @@ public:
         };
 
         Position position;
-        float xMin;
-        float xMax;
-        float zMin;
-        float zMax;
+        float xMin = 0.0f;
+        float xMax = 0.0f;
+        float zMin = 0.0f;
+        float zMax = 0.0f;
         int type; // +1=topContactRail +2=BottomContactRail +4=SideContactRail
     };
 
@@ -167,7 +167,7 @@ public:
 
         Position position;
         QString couplingPosition;
-        int cablePosition;
+        int cablePosition = 0;
         QString variabelRead;
         QString variableWrite;
         QString brokeCableVariable;
@@ -202,7 +202,7 @@ public:
     std::optional<VehicleOscillating> railBodyOscillating;
 
     OCViewable::Viewable object;
-    bool scriptsharing;
+    bool scriptsharing = false;
 
     int type = -1; // TODO: ? - maybe see aiVehicleType (this class)
 

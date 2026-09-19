@@ -22,9 +22,9 @@ public:
         total = missing + existing;
     }
 
-    int missing;
-    int existing;
-    int total;
+    int missing = 0;
+    int existing = 0;
+    int total = 0;
 };
 
 class wdgTab : public QWidget

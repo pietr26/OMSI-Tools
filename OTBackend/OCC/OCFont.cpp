@@ -65,46 +65,53 @@ OCBase::File::FileIOResponse OCFont::FontCollection::write()
 {
     QFile file(path);
 
-    if (!file.open(QFile::WriteOnly | QFile::Text)) { return FileIOResponse::errFileNotOpen; }
+    // Without QFile::Text, so the terminator below is what ends up in the file on every
+    // platform - the flag only produced CRLF on Windows, and OMSI writes CRLF.
+    if (!file.open(QFile::WriteOnly)) { return FileIOResponse::errFileNotOpen; }
 
     QTextStream out(&file);
 
     out.setEncoding(QStringConverter::Latin1);
 
+    const QString nl = "\r\n";
+
+    // The file header carries its own line breaks.
+    const auto multiline = [&nl](QString text) { return text.replace("\n", nl); };
+
     try {
         OTSettings set;
 
-        out << OCBase::writeFileHeader();
-        out << "Author: " << set.read("main", "author").toString() << "\n";
-        out << "Font count: " << fonts.count() << "\n";
-        out << "Total characters: " << totalCharacterCount() << "\n";
-        out << "\n";
+        out << multiline(OCBase::writeFileHeader());
+        out << "Author: " << set.read("main", "author").toString() << nl;
+        out << "Font count: " << fonts.count() << nl;
+        out << "Total characters: " << totalCharacterCount() << nl;
+        out << nl;
 
         foreach (SingleFont *font, fonts) {
-            out << "#############################################" << "\n";
-            out << "Font name: " << font->name << "\n";
-            out << "Characters: " << font->characters.count() << "\n";
-            out << "\n";
+            out << "#############################################" << nl;
+            out << "Font name: " << font->name << nl;
+            out << "Characters: " << font->characters.count() << nl;
+            out << nl;
 
-            out << "[newfont]" << "\n";
-            out << font->name << "\n";
-            out << font->colorTexture << "\n";
-            out << font->alphaTexture << "\n";
+            out << "[newfont]" << nl;
+            out << font->name << nl;
+            out << font->colorTexture << nl;
+            out << font->alphaTexture << nl;
 
             QString maxHeightOfChars = (font->maxHeightOfChars == -1) ? "" : QString::number(font->maxHeightOfChars);
-            out << maxHeightOfChars << "\n";
+            out << maxHeightOfChars << nl;
             QString distanceBetweenChars = (font->distanceBetweenChars == -1) ? "" : QString::number(font->distanceBetweenChars);
-            out << distanceBetweenChars << "\n";
-            out << "\n";
+            out << distanceBetweenChars << nl;
+            out << nl;
 
             foreach (Character *character, font->characters)
             {
-                out << "[char]" << "\n";
-                out << character->character << "\n";
-                out << character->leftPixel << "\n";
-                out << character->rightPixel << "\n";
-                out << character->highestPixelInFontRow << "\n";
-                out << "\n";
+                out << "[char]" << nl;
+                out << character->character << nl;
+                out << character->leftPixel << nl;
+                out << character->rightPixel << nl;
+                out << character->highestPixelInFontRow << nl;
+                out << nl;
             }
         }
 

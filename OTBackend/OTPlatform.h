@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QDesktopServices>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <QProcess>
 #include <QSettings>
@@ -33,6 +34,46 @@ public:
 #else
         return QStringConverter::Latin1;
 #endif
+    }
+
+    /// Text format an OMSI file is stored in.
+    ///
+    /// OMSI is not consistent about this: its own editor writes global.cfg as UTF-16LE
+    /// with a byte order mark, while the maps shipped with the game are ANSI. A file
+    /// therefore has to be written back the way it was read instead of being forced
+    /// into one codec - doing the latter rewrote whole map files on every save.
+    struct TextFormat
+    {
+        QStringConverter::Encoding encoding = QStringConverter::Latin1;
+        bool byteOrderMark = false;
+    };
+
+    /// Reads the byte order mark of an already opened file without consuming it. Files
+    /// without one keep \a fallback, which is what the caller used before.
+    static TextFormat detectTextFormat(QFile &file, QStringConverter::Encoding fallback)
+    {
+        TextFormat format;
+        format.encoding = fallback;
+
+        const QByteArray head = file.peek(3);
+
+        if (head.startsWith(QByteArrayLiteral("\xFF\xFE")))
+        {
+            format.encoding = QStringConverter::Utf16LE;
+            format.byteOrderMark = true;
+        }
+        else if (head.startsWith(QByteArrayLiteral("\xFE\xFF")))
+        {
+            format.encoding = QStringConverter::Utf16BE;
+            format.byteOrderMark = true;
+        }
+        else if (head.startsWith(QByteArrayLiteral("\xEF\xBB\xBF")))
+        {
+            format.encoding = QStringConverter::Utf8;
+            format.byteOrderMark = true;
+        }
+
+        return format;
     }
 
     /// Absolute path of a file which lives next to the program binary.

@@ -9,14 +9,14 @@ class OTInAppMessage
 {
 public:
     QString ID;
-    int publicity;
+    int publicity = 0;
     QDateTime start;
     QDateTime end;
     QString slug;
     QStringList versions;
 
-    bool isImportant;
-    bool isVirutal;
+    bool isImportant = false;
+    bool isVirutal = false;
 
     QString enTitle;
     QString enShortDescription;

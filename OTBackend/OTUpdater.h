@@ -65,7 +65,7 @@ public:
     {
         qInfo() << "Check for updates...";
 
-        int status;
+        int status = 0;
 
         if (!QFile::exists(OTPlatform::updaterExecutable()))
         {

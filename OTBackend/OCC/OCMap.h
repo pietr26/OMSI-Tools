@@ -4,6 +4,7 @@
 
 
 #include "OTBackend/OTPath.h"
+#include "OTBackend/OTPlatform.h"
 #include <QDate>
 #include <QDir>
 #include <QDirIterator>
@@ -25,13 +26,13 @@ class Position
 public:
     OCType::Coord2D<int> tile;
 
-    OCType::Coord3D<float> position;
+    OCType::Coord3D<double> position;
 
-    float rotAroundZ;
+    double rotAroundZ = 0.0;
 
-    float rotAroundX;
+    double rotAroundX = 0.0;
 
-    float distanceFromPosition;
+    double distanceFromPosition = 0.0;
 };
 
 class Map : public OCBase::File { // TODO: override clear function
@@ -46,11 +47,11 @@ public:
 
             QString subTex;
 
-            int texSizeExponent;
+            int texSizeExponent = 0;
 
-            int mainTexRepeating;
+            int mainTexRepeating = 0;
 
-            int subTexRepeating;
+            int subTexRepeating = 0;
         };
 
         class Season
@@ -99,7 +100,7 @@ public:
         public:
             QTime time;
 
-            float factor;
+            double factor = 0.0;
         };
 
         // Wrap class for entrypoints
@@ -125,23 +126,23 @@ public:
              * )
              */
 
-                int objectID;
+                int objectID = 0;
 
-                int globalThingID;
+                int globalThingID = 0;
 
-                int awkwardValue1;
+                int awkwardValue1 = 0;
 
-                OCType::Coord3D<float> position;
+                OCType::Coord3D<double> position;
 
-                float awkwardValue2;
+                double awkwardValue2 = 0.0;
 
-                float awkwardValue3;
+                double awkwardValue3 = 0.0;
 
-                float awkwardValue4;
+                double awkwardValue4 = 0.0;
 
-                float awkwardValue5;
+                double awkwardValue5 = 0.0;
 
-                int tileID;
+                int tileID = 0;
             };
             QString name;
 
@@ -151,17 +152,17 @@ public:
         class BackgroundImage
         {
         public:
-            bool isVisible;
+            bool isVisible = false;
 
             QString picturePath;
 
-            float width;
+            double width = 0.0;
 
-            float height;
+            double height = 0.0;
 
-            float startWidth;
+            double startWidth = 0.0;
 
-            float startHeight;
+            double startHeight = 0.0;
         };
 
         class TileInformation
@@ -180,15 +181,15 @@ public:
 
         int version; // mostly 14
 
-        unsigned int nextIDCode;
+        unsigned int nextIDCode = 0;
 
-        bool worldCoodinates;
+        bool worldCoodinates = false;
 
-        bool dynHelpers;
+        bool dynHelpers = false;
 
-        bool lht;
+        bool lht = false;
 
-        bool realrail;
+        bool realrail = false;
 
         BackgroundImage bgImage;
 
@@ -200,11 +201,11 @@ public:
 
         QTime repairTime;
 
-        int startYear;
+        int startYear = 0;
 
-        int endYear;
+        int endYear = 0;
 
-        int realYearOffset;
+        int realYearOffset = 0;
 
         QString standardDepot;
 
@@ -219,6 +220,9 @@ public:
         QList<EntrypointCollection> entrypoints;
 
         QList<TileInformation> tiles;
+
+        /// Format global.cfg was read in, so write() can reproduce it byte for byte.
+        OTPlatform::TextFormat fileFormat;
 
         FileIOResponse read() override
         {
@@ -237,8 +241,13 @@ public:
                 return FileIOResponse::errFileNotOpen;
             }
 
+            // The OMSI editor writes UTF-16LE with a byte order mark, the shipped maps
+            // are ANSI. Latin1 stays the fallback for files without a mark, which is
+            // what this reader assumed for all of them before.
+            fileFormat = OTPlatform::detectTextFormat(global, QStringConverter::Latin1);
+
             QTextStream in(&global);
-            in.setEncoding(QStringConverter::Latin1);
+            in.setEncoding(fileFormat.encoding);
             QString line = "";
 
             clear();
@@ -262,14 +271,6 @@ public:
                             line = in.readLine();
                         }
 
-                        description.replace("Ä", "Ae", Qt::CaseSensitive);
-                        description.replace("Ö", "Oe", Qt::CaseSensitive);
-                        description.replace("Ü", "Ue", Qt::CaseSensitive);
-                        description.replace("ä", "ae", Qt::CaseSensitive);
-                        description.replace("ö", "oe", Qt::CaseSensitive);
-                        description.replace("ü", "ue", Qt::CaseSensitive);
-                        description.replace("ß", "ss", Qt::CaseSensitive);
-
                         description = description.trimmed();
                     }
                     else if (line == "[version]") version = in.readLine().toInt();
@@ -282,10 +283,10 @@ public:
                     {
                         bgImage.isVisible = in.readLine().toInt(); // 1
                         bgImage.picturePath = in.readLine(); // 2
-                        bgImage.width = in.readLine().toFloat(); // 3
-                        bgImage.height = in.readLine().toFloat(); // 4
-                        bgImage.startWidth = in.readLine().toFloat(); // 5
-                        bgImage.startHeight = in.readLine().toFloat(); // 6
+                        bgImage.width = in.readLine().toDouble(); // 3
+                        bgImage.height = in.readLine().toDouble(); // 4
+                        bgImage.startWidth = in.readLine().toDouble(); // 5
+                        bgImage.startHeight = in.readLine().toDouble(); // 6
                     }
                     else if (line == "[mapcam]")
                     {
@@ -296,14 +297,14 @@ public:
                         standardView.tile = OCType::Coord2D<int>(xTilePos, yTilePos); // 1, 2
 
                         // Attention: Inverted values
-                        float xPos = in.readLine().toFloat(); // 3
-                        float zPos = in.readLine().toFloat(); // 4
-                        float yPos = in.readLine().toFloat(); // 5
-                        standardView.position = OCType::Coord3D<float>(xPos, yPos, zPos); // 3, 4, 5
+                        double xPos = in.readLine().toDouble(); // 3
+                        double zPos = in.readLine().toDouble(); // 4
+                        double yPos = in.readLine().toDouble(); // 5
+                        standardView.position = OCType::Coord3D<double>(xPos, yPos, zPos); // 3, 4, 5
 
-                        standardView.rotAroundZ = in.readLine().toFloat();
-                        standardView.rotAroundX = in.readLine().toFloat();
-                        standardView.distanceFromPosition = in.readLine().toFloat();
+                        standardView.rotAroundZ = in.readLine().toDouble();
+                        standardView.rotAroundX = in.readLine().toDouble();
+                        standardView.distanceFromPosition = in.readLine().toDouble();
                     }
                     else if (line == "[moneysystem]") currency = in.readLine();
                     else if (line == "[ticketpack]") ticketpack = in.readLine();
@@ -317,7 +318,7 @@ public:
                             a second time, so 5 minutes turned into QTime(0, 300) - an
                             invalid QTime, whose hour() then returns -1 further down.
                         */
-                        const int totalMinutes = qBound(0, qRound(in.readLine().toFloat()), 23 * 60 + 59);
+                        const int totalMinutes = qBound(0, qRound(in.readLine().toDouble()), 23 * 60 + 59);
                         repairTime = QTime(totalMinutes / 60, totalMinutes % 60);
                     }
                     else if (line == "[years]")
@@ -359,19 +360,19 @@ public:
                     else if (line == "[trafficdensity_road]")
                     {
                         AiDensity density;
-                        float decimalTime = in.readLine().toFloat(); int hours = static_cast<int>(decimalTime);
+                        float decimalTime = in.readLine().toDouble(); int hours = static_cast<int>(decimalTime);
                         // TODO: Workaround
                         density.time = (hours != 24) ? QTime(hours, (decimalTime - hours) * 60) : QTime(23, 59);
-                        density.factor = in.readLine().toFloat();
+                        density.factor = in.readLine().toDouble();
                         trafficDensities.append(density);
                     }
                     else if (line == "[trafficdensity_passenger]")
                     {
                         AiDensity density;
-                        float decimalTime = in.readLine().toFloat(); int hours = static_cast<int>(decimalTime);
+                        float decimalTime = in.readLine().toDouble(); int hours = static_cast<int>(decimalTime);
                         // TODO: Workaround
                         density.time = (hours != 24) ? QTime(hours, (decimalTime - hours) * 60) : QTime(23, 59);
-                        density.factor = in.readLine().toFloat();
+                        density.factor = in.readLine().toDouble();
                         passengerDensities.append(density);
                     }
                     else if (line == "[entrypoints]")
@@ -386,15 +387,15 @@ public:
                             entrypoint.awkwardValue1 = in.readLine().toInt();
 
                             // Attention: Inverted values
-                            float xPos = in.readLine().toFloat();
-                            float zPos = in.readLine().toFloat();
-                            float yPos = in.readLine().toFloat();
-                            entrypoint.position = OCType::Coord3D<float>(xPos, yPos, zPos);
+                            double xPos = in.readLine().toDouble();
+                            double zPos = in.readLine().toDouble();
+                            double yPos = in.readLine().toDouble();
+                            entrypoint.position = OCType::Coord3D<double>(xPos, yPos, zPos);
 
-                            entrypoint.awkwardValue2 = in.readLine().toFloat();
-                            entrypoint.awkwardValue3 = in.readLine().toFloat();
-                            entrypoint.awkwardValue4 = in.readLine().toFloat();
-                            entrypoint.awkwardValue5 = in.readLine().toFloat();
+                            entrypoint.awkwardValue2 = in.readLine().toDouble();
+                            entrypoint.awkwardValue3 = in.readLine().toDouble();
+                            entrypoint.awkwardValue4 = in.readLine().toDouble();
+                            entrypoint.awkwardValue5 = in.readLine().toDouble();
                             entrypoint.tileID = in.readLine().toInt();
 
                             EntrypointCollection collection;
@@ -451,7 +452,9 @@ public:
             if (QFile(dir + "/backup/global.cfg").exists()) QFile(dir + "/backup/global.cfg").remove();
             global.copy(dir + "/backup/global.cfg");
 
-            if (!global.open(QFile::WriteOnly | QFile::Text))
+            // Without QFile::Text, so that the line terminator below is what ends up in
+            // the file on every platform - the flag only produced CRLF on Windows.
+            if (!global.open(QFile::WriteOnly))
             {
                 // msg.fileOpenErrorCloseOMSI(parent, mapFolderPath); TODO
                 qDebug().noquote() << "Cannot write file: Full path: '" + QFileInfo(global).absoluteFilePath() + "'";
@@ -459,61 +462,75 @@ public:
             }
 
             QTextStream out(&global);
-            // Notepad++ -> UTF-8 - readable by OMSI!
-            out.setEncoding(QStringConverter::Latin1);
+
+            // Give the file back in the shape it arrived in.
+            out.setEncoding(fileFormat.encoding);
+            out.setGenerateByteOrderMark(fileFormat.byteOrderMark);
+
+            // OMSI stores coordinates with 15 significant digits. The default of six
+            // truncated every one of them on each save and turned larger values into
+            // scientific notation.
+            out.setRealNumberPrecision(15);
+
+            // OMSI and its editor write CRLF.
+            const QString nl = "\r\n";
+
+            // The file header and the description carry their own line breaks and are
+            // kept with "\n" in memory, so they need converting too.
+            const auto multiline = [&nl](QString text) { return text.replace("\n", nl); };
 
             try {
-                out << OCBase::writeFileHeader() << "\n\n";
+                out << multiline(OCBase::writeFileHeader()) << nl << nl;
 
-                out << "[name]" << "\n";
-                out << name << "\n\n";
+                out << "[name]" << nl;
+                out << name << nl << nl;
 
-                out << "[friendlyname]" << "\n";
-                out << friendlyname << "\n\n";
+                out << "[friendlyname]" << nl;
+                out << friendlyname << nl << nl;
 
-                out << "[description]" << "\n";
-                out << description << "\n";
-                out << "[end]" << "\n\n";
+                out << "[description]" << nl;
+                out << multiline(description) << nl;
+                out << "[end]" << nl << nl;
 
-                out << "[version]" << "\n";
-                out << version << "\n\n";
+                out << "[version]" << nl;
+                out << version << nl << nl;
 
-                out << "[NextIDCode]" << "\n";
-                out << nextIDCode << "\n\n";
+                out << "[NextIDCode]" << nl;
+                out << nextIDCode << nl << nl;
 
-                if (worldCoodinates) out << "[worldcoordinates]" << "\n\n";
+                if (worldCoodinates) out << "[worldcoordinates]" << nl << nl;
 
-                if (dynHelpers) out << "[dynhelperactive]" << "\n\n";
+                if (dynHelpers) out << "[dynhelperactive]" << nl << nl;
 
-                if (lht) out << "[LHT]" << "\n\n";
+                if (lht) out << "[LHT]" << nl << nl;
 
-                if (realrail) out << "[realrail]" << "\n\n";
+                if (realrail) out << "[realrail]" << nl << nl;
 
-                out << "[backgroundimage]" << "\n";
-                out << bgImage.isVisible << "\n";
-                out << bgImage.picturePath.replace("/", "\\") << "\n";
-                out << bgImage.width << "\n";
-                out << bgImage.height << "\n";
-                out << bgImage.startWidth << "\n";
-                out << bgImage.startHeight << "\n\n";
+                out << "[backgroundimage]" << nl;
+                out << bgImage.isVisible << nl;
+                out << bgImage.picturePath.replace("/", "\\") << nl;
+                out << bgImage.width << nl;
+                out << bgImage.height << nl;
+                out << bgImage.startWidth << nl;
+                out << bgImage.startHeight << nl << nl;
 
-                out << "[mapcam]" << "\n";
-                out << standardView.tile.y << "\n";
-                out << standardView.tile.x << "\n";
-                out << standardView.position.x << "\n";
-                out << standardView.position.z << "\n";
-                out << standardView.position.y << "\n";
-                out << standardView.rotAroundZ << "\n";
-                out << standardView.rotAroundX << "\n";
-                out << standardView.distanceFromPosition << "\n\n";
+                out << "[mapcam]" << nl;
+                out << standardView.tile.y << nl;
+                out << standardView.tile.x << nl;
+                out << standardView.position.x << nl;
+                out << standardView.position.z << nl;
+                out << standardView.position.y << nl;
+                out << standardView.rotAroundZ << nl;
+                out << standardView.rotAroundX << nl;
+                out << standardView.distanceFromPosition << nl << nl;
 
-                out << "[moneysystem]" << "\n";
-                out << currency.replace("/", "\\") << "\n\n";
+                out << "[moneysystem]" << nl;
+                out << currency.replace("/", "\\") << nl << nl;
 
-                out << "[ticketpack]" << "\n";
-                out << ticketpack.replace("/", "\\") << "\n\n";
+                out << "[ticketpack]" << nl;
+                out << ticketpack.replace("/", "\\") << nl << nl;
 
-                out << "[repair_time_min]" << "\n";
+                out << "[repair_time_min]" << nl;
 
                 /*
                     Counterpart of the read above: minutes.
@@ -522,38 +539,38 @@ public:
                     arithmetic. hour() returns -1 for it, and the previous loop
                     "while (hours != 0) hours--;" counted down from -1 and never ended.
                 */
-                out << (repairTime.isValid() ? repairTime.hour() * 60 + repairTime.minute() : 0) << "\n\n";
+                out << (repairTime.isValid() ? repairTime.hour() * 60 + repairTime.minute() : 0) << nl << nl;
 
-                out << "[years]" << "\n";
-                out << startYear << "\n";
-                out << endYear << "\n\n";
+                out << "[years]" << nl;
+                out << startYear << nl;
+                out << endYear << nl << nl;
 
-                out << "[standarddepot]" << "\n";
-                out << standardDepot << "\n\n";
+                out << "[standarddepot]" << nl;
+                out << standardDepot << nl << nl;
 
                 if (realYearOffset != 0)
                 {
-                    out << "[realyearoffset]" << "\n";
-                    out << realYearOffset << "\n\n";
+                    out << "[realyearoffset]" << nl;
+                    out << realYearOffset << nl << nl;
                 }
 
                 for (int i = 0; i < groundTextures.count(); i++)
                 {
-                    out << "[groundtex]" << "\n";
-                    out << groundTextures[i].mainTex.replace("/", "\\") << "\n";
-                    out << groundTextures[i].subTex.replace("/", "\\") << "\n";
-                    out << groundTextures[i].texSizeExponent << "\n";
-                    out << groundTextures[i].mainTexRepeating << "\n";
-                    out << groundTextures[i].subTexRepeating << "\n\n";
+                    out << "[groundtex]" << nl;
+                    out << groundTextures[i].mainTex.replace("/", "\\") << nl;
+                    out << groundTextures[i].subTex.replace("/", "\\") << nl;
+                    out << groundTextures[i].texSizeExponent << nl;
+                    out << groundTextures[i].mainTexRepeating << nl;
+                    out << groundTextures[i].subTexRepeating << nl << nl;
                 }
 
                 seasons = sortSeasons(seasons);
                 for (int i = 0; i < seasons.count(); i++)
                 {
-                    out << "[addseason]" << "\n";
-                    out << seasons[i].type << "\n";
-                    out << (QDate(QDate::currentDate().year(), 1, 1).daysTo(seasons[i].start)) << "\n";
-                    out << (QDate(QDate::currentDate().year(), 1, 1).daysTo(seasons[i].end)) << "\n\n";
+                    out << "[addseason]" << nl;
+                    out << seasons[i].type << nl;
+                    out << (QDate(QDate::currentDate().year(), 1, 1).daysTo(seasons[i].start)) << nl;
+                    out << (QDate(QDate::currentDate().year(), 1, 1).daysTo(seasons[i].end)) << nl << nl;
                 }
 
                 std::sort(trafficDensities.begin(), trafficDensities.end(), [](const AiDensity &a, const AiDensity &b) {
@@ -562,11 +579,11 @@ public:
 
                 for (int i = 0; i < trafficDensities.count(); i++)
                 {
-                    out << "[trafficdensity_road]" << "\n";
+                    out << "[trafficdensity_road]" << nl;
                     // TODO: Workaround
-                    if (trafficDensities[i].time == QTime(23, 59)) out << "24.000\n";
-                    else out << QString::number(trafficDensities[i].time.hour()) + "." + QString::number(trafficDensities[i].time.minute() / 60) << "\n";
-                    out << trafficDensities[i].factor << "\n\n";
+                    if (trafficDensities[i].time == QTime(23, 59)) out << "24.000" << nl;
+                    else out << QString::number(trafficDensities[i].time.hour()) + "." + QString::number(trafficDensities[i].time.minute() / 60) << nl;
+                    out << trafficDensities[i].factor << nl << nl;
                 }
 
                 std::sort(passengerDensities.begin(), passengerDensities.end(), [](const AiDensity &a, const AiDensity &b) {
@@ -575,47 +592,47 @@ public:
 
                 for (int i = 0; i < passengerDensities.count(); i++)
                 {
-                    out << "[trafficdensity_passenger]" << "\n";
+                    out << "[trafficdensity_passenger]" << nl;
                     // TODO: Workaround
-                    if (passengerDensities[i].time == QTime(23, 59)) out << "24.000\n";
-                    else out << QString::number(passengerDensities[i].time.hour()) + "." + QString::number(passengerDensities[i].time.minute() / 60) << "\n";
-                    out << passengerDensities[i].factor << "\n\n";
+                    if (passengerDensities[i].time == QTime(23, 59)) out << "24.000" << nl;
+                    else out << QString::number(passengerDensities[i].time.hour()) + "." + QString::number(passengerDensities[i].time.minute() / 60) << nl;
+                    out << passengerDensities[i].factor << nl << nl;
                 }
 
-                out << "[entrypoints]" << "\n";
+                out << "[entrypoints]" << nl;
                 int count = 0;
                 foreach (EntrypointCollection current, entrypoints) count += current.entrypoints.count();
-                out << count << "\n";
+                out << count << nl;
                 for (int i = 0; i < entrypoints.count(); i++)
                 {
                     for (int j = 0; j < entrypoints[i].entrypoints.count(); j++)
                     {
-                        out << entrypoints[i].entrypoints[j].objectID << "\n";
-                        out << entrypoints[i].entrypoints[j].globalThingID << "\n";
-                        out << entrypoints[i].entrypoints[j].awkwardValue1 << "\n";
-                        out << entrypoints[i].entrypoints[j].position.x << "\n";
-                        out << entrypoints[i].entrypoints[j].position.z << "\n";
-                        out << entrypoints[i].entrypoints[j].position.y << "\n";
-                        out << entrypoints[i].entrypoints[j].awkwardValue2 << "\n";
-                        out << entrypoints[i].entrypoints[j].awkwardValue3 << "\n";
-                        out << entrypoints[i].entrypoints[j].awkwardValue4 << "\n";
-                        out << entrypoints[i].entrypoints[j].awkwardValue5 << "\n";
-                        out << entrypoints[i].entrypoints[j].tileID << "\n";
-                        out << entrypoints[i].name << "\n";
+                        out << entrypoints[i].entrypoints[j].objectID << nl;
+                        out << entrypoints[i].entrypoints[j].globalThingID << nl;
+                        out << entrypoints[i].entrypoints[j].awkwardValue1 << nl;
+                        out << entrypoints[i].entrypoints[j].position.x << nl;
+                        out << entrypoints[i].entrypoints[j].position.z << nl;
+                        out << entrypoints[i].entrypoints[j].position.y << nl;
+                        out << entrypoints[i].entrypoints[j].awkwardValue2 << nl;
+                        out << entrypoints[i].entrypoints[j].awkwardValue3 << nl;
+                        out << entrypoints[i].entrypoints[j].awkwardValue4 << nl;
+                        out << entrypoints[i].entrypoints[j].awkwardValue5 << nl;
+                        out << entrypoints[i].entrypoints[j].tileID << nl;
+                        out << entrypoints[i].name << nl;
                     }
                 }
 
-                out << "\n";
+                out << nl;
 
                 for (int i = 0; i < tiles.count(); i++)
                 {
-                    out << "[map]" << "\n";
-                    out << tiles[i].position.x << "\n";
-                    out << tiles[i].position.y << "\n";
-                    out << tiles[i].filename.replace("/", "\\") << "\n\n";
+                    out << "[map]" << nl;
+                    out << tiles[i].position.x << nl;
+                    out << tiles[i].position.y << nl;
+                    out << tiles[i].filename.replace("/", "\\") << nl << nl;
                 }
 
-                out << "\n";
+                out << nl;
 
                 global.close();
             }
@@ -644,7 +661,7 @@ public:
                 int aiGroupIndex = -1; // TODO: std::optional?
             };
 
-            bool h;
+            bool h = false;
 
             //?
             QString path;
@@ -684,10 +701,10 @@ public:
         */
         };
 
-        int version;
-        bool terrain;
-        bool variableTerrainLightmap;
-        bool variableTerrain;
+        int version = 0;
+        bool terrain = false;
+        bool variableTerrainLightmap = false;
+        bool variableTerrain = false;
 
         QList<Spline> splines;
         QList<Sceneryobject> sceneryobjects;
@@ -702,7 +719,7 @@ public:
             class density
             {
             public:
-                float time;
+                float time = 0.0f;
                 float density; // can be bigger as 1!
             };
 
@@ -713,7 +730,7 @@ public:
         };
 
         QString name;
-        float density;
+        float density = 0.0f;
         QList<day> days;
     };
 
@@ -733,7 +750,7 @@ public:
     class Parklist
     {
     public:
-        int ident;
+        int ident = 0;
         QList<QString> objectList;
     };
 
@@ -747,14 +764,14 @@ public:
             {
             public:
                 QString name;
-                int vehicleCount;
+                int vehicleCount = 0;
                 QList<int> vehicleIdents;
                 QString hofFileName;
             };
 
-            int vehicleClass;
+            int vehicleClass = 0;
             int baseClassForUnschedAI = -1; // -1: All vehicles that weren't mentioned in a group
-            int vehicleCount;
+            int vehicleCount = 0;
             QList<QString> vehiclePaths;
             QList<Group> groups;
         };
@@ -769,7 +786,7 @@ public:
                 {
                 public:
                     QString vehiclePath;
-                    int density;
+                    int density = 0;
                 };
 
                 QString name;
@@ -824,7 +841,7 @@ public:
 
                 QList<QString> relabels;
 
-                bool isDeleted;
+                bool isDeleted = false;
                 QString type; // optional new path for an object
             };
 
@@ -835,11 +852,11 @@ public:
 
                 QList<OCMap::Map::Tile::Spline::Rule> rules;
 
-                bool isDeleted;
+                bool isDeleted = false;
                 QString type; // optional new path for an spline
             };
 
-            int version;
+            int version = 0;
 
             QList<OCMap::Map::Tile::Spline> splines;
             QList<OCMap::Map::Tile::Sceneryobject> sceneryobjects;
@@ -892,10 +909,10 @@ public:
         public:
             QDate start; // with hours!
             QDate end; // with hours!
-            int changeHours;
+            int changeHours = 0;
         };
 
-        int timezone;
+        int timezone = 0;
         OCType::Coord2D<float> location;
 
         QList<DaylightSavingTime> daylistSavingTimes;
@@ -911,7 +928,7 @@ public:
             QString tour;
 
             // if (typesPrefered) {
-            float probability;
+            float probability = 0.0f;
             // }
         };
 
@@ -937,14 +954,14 @@ public:
             class Station
             {
             public:
-                int objectID;
-                int trackIndexParent;
+                int objectID = 0;
+                int trackIndexParent = 0;
                 QString name;
-                int tileID;
-                float awkwardValue1;
-                float awkwardValue2;
-                float awkwardValue3;
-                float awkwardValue4;
+                int tileID = 0;
+                float awkwardValue1 = 0.0f;
+                float awkwardValue2 = 0.0f;
+                float awkwardValue3 = 0.0f;
+                float awkwardValue4 = 0.0f;
             };
 
             class Profile
@@ -970,7 +987,7 @@ public:
             {
             public:
                 QString name;
-                int profileIndex;
+                int profileIndex = 0;
                 QTime start;
             };
 
@@ -1001,7 +1018,7 @@ public:
         public:
             QString name;
             bool userAllowed = false;
-            unsigned int priority;
+            unsigned int priority = 0;
 
             QList<Tour> tours;
         };
@@ -1052,10 +1069,10 @@ public:
                             station.trackIndexParent = in.readLine().toInt();
                             station.name = in.readLine();
                             station.tileID = in.readLine().toInt();
-                            station.awkwardValue1 = in.readLine().toFloat();
-                            station.awkwardValue2 = in.readLine().toFloat();
-                            station.awkwardValue3 = in.readLine().toFloat();
-                            station.awkwardValue4 = in.readLine().toFloat();
+                            station.awkwardValue1 = in.readLine().toDouble();
+                            station.awkwardValue2 = in.readLine().toDouble();
+                            station.awkwardValue3 = in.readLine().toDouble();
+                            station.awkwardValue4 = in.readLine().toDouble();
 
                             trip.stations << station;
                         }
@@ -1063,7 +1080,7 @@ public:
                         {
                             Trip::Profile profile;
                             profile.name = in.readLine();
-                            profile.duration = QTime::fromMSecsSinceStartOfDay(in.readLine().toFloat() * 60 * 1000);
+                            profile.duration = QTime::fromMSecsSinceStartOfDay(in.readLine().toDouble() * 60 * 1000);
 
                             trip.profiles << profile;
                         }
@@ -1139,7 +1156,7 @@ public:
 
                             tripInformation.name = in.readLine();
                             tripInformation.profileIndex = in.readLine().toInt();
-                            tripInformation.start = QTime::fromMSecsSinceStartOfDay(in.readLine().toFloat() * 60 * 1000);
+                            tripInformation.start = QTime::fromMSecsSinceStartOfDay(in.readLine().toDouble() * 60 * 1000);
 
                             lineTT.tours.last().trips << tripInformation;
                         }

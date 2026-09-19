@@ -54,12 +54,12 @@ public slots:
 
 public:
     QNetworkReply *reply;
-    int currentProgress;
-    int maxProgress;
-    int lastHttpCode;
+    int currentProgress = 0;
+    int maxProgress = 0;
+    int lastHttpCode = 0;
 
     /// Check if the last connection was successfully. -2: HTTP 503 | -1: No | 0: NULL | 1: Yes
-    int lastSuccess;
+    int lastSuccess = 0;
 
 private slots:
     void downloadProgress(qint64 current, qint64 max)

@@ -15,17 +15,17 @@ public:
         class Ticket
         {
         public:
-            bool isTicket2;
+            bool isTicket2 = false;
             QString nameDeu;
             QString nameEng;
-            int maxStops;
-            int minimumAge;
-            int maximumAge;
-            float price;
+            int maxStops = 0;
+            int minimumAge = 0;
+            int maximumAge = 0;
+            float price = 0.0f;
             QString displayText;
 
             // if(isTicket2) {
-            bool isDayTicket;
+            bool isDayTicket = false;
             float maxTicketPurchaseFactor = -1;
             // }
         };

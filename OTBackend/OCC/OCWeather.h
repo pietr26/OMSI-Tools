@@ -13,29 +13,29 @@ public:
     class Fog
     {
     public:
-        int range;
+        int range = 0;
         int viewDistance; // 50000=unlimited
     };
 
     class Wind
     {
     public:
-        float direction;
-        float force;
+        float direction = 0.0f;
+        float force = 0.0f;
     };
 
     class Temperature
     {
     public:
-        float temperature;
-        float dewPoint;
+        float temperature = 0.0f;
+        float dewPoint = 0.0f;
     };
 
     class Cloud
     {
     public:
         QString name;
-        float height;
+        float height = 0.0f;
     };
 
     class Precip
@@ -49,7 +49,7 @@ public:
         };
 
         Type type;
-        int intensity;
+        int intensity = 0;
         int Precip3rdValue; // TODO: ?
         float Precip4thValue; // TODO: ?
         int Precip5thValue; // TODO: ?
@@ -73,8 +73,8 @@ public:
 
     std::optional<Groundwet> groundwet;
 
-    bool snowOnRoad;
-    bool snow;
+    bool snowOnRoad = false;
+    bool snow = false;
 };
 
 class OCEnvir // envir.cfg
@@ -126,7 +126,7 @@ public:
 
         QString name;
         QString texture;
-        int textureSize;
+        int textureSize = 0;
         Coverage coverage;
     };
 

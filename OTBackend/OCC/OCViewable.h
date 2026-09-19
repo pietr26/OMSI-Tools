@@ -21,7 +21,7 @@ public:
     };
 
     Method type;
-    float rotation;
+    float rotation = 0.0f;
     OCType::Coord3D<float> transformation;
 };
 
@@ -51,7 +51,7 @@ public:
 
     std::optional<OCType::Coord3D<int>> momentOfIntertia;
 
-    bool noDistanceCheck;
+    bool noDistanceCheck = false;
 };
 
 }

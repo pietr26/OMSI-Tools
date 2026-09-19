@@ -43,7 +43,7 @@ private:
     void reloadUI();
 
     OCMap::Map::Global::Texture texture = OCMap::Map::Global::Texture();
-    int textureIndex;
+    int textureIndex = 0;
 };
 
 #endif // WEDITGROUNDTEXTURE_H

@@ -15,7 +15,7 @@ public:
     {
     public:
         OCType::Coord3D<float> position;
-        float maxIntensityRadius;
+        float maxIntensityRadius = 0.0f;
     };
 
     class Volcurve
@@ -45,14 +45,14 @@ public:
         Operation operation;
     };
 
-    bool isLoopSound;
-    float volume;
+    bool isLoopSound = false;
+    float volume = 0.0f;
     // if (isLoopSound) {
-    int sampleRate;
+    int sampleRate = 0;
     QString pitchVariable;
     QString pitchVariableFactor; // TODO: Correct name?
 
-    bool checkLoading;
+    bool checkLoading = false;
     // }
 
     std::optional<ThreeDimensionPosition> position;
@@ -60,7 +60,7 @@ public:
     int viewpoint = -1; // 0 equals 7   |   +1=userVehicleInside +2=userVehicleInside +4=aiVehicle
 
     // if (!isLoopSound) {
-    bool noLoop;
+    bool noLoop = false;
     QString trigger;
     bool onlyOne; // TODO: ?
     // }

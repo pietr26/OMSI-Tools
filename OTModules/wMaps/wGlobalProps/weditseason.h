@@ -40,7 +40,7 @@ private:
     void reloadUI();
 
     OCMap::Map::Global::Season season = OCMap::Map::Global::Season();
-    int seasonIndex;
+    int seasonIndex = 0;
 
 };
 

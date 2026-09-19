@@ -27,7 +27,7 @@ public:
                 QColor ambient;
                 QColor specular;
                 QColor emissive;
-                float power;
+                float power = 0.0f;
             };
 
             enum TextureAdress
@@ -64,8 +64,8 @@ public:
             QList<TextureMappingVariable> freeTextures;
             QString nightMap;
             QString transMap;
-            bool noZCheck;
-            bool noZWrite;
+            bool noZCheck = false;
+            bool noZWrite = false;
             int zBias = -1;
             std::optional<TextureAdress> textureAdress;
 
@@ -78,7 +78,7 @@ public:
         };
 
         QString filename;
-        int index;
+        int index = 0;
         int textTextureIndex = -1; // TODO: Also in MaterialProperty?
         int scriptTextureIndex = -1; // TODO: see textTextureIndex member
 
@@ -94,7 +94,7 @@ public:
         {
         public:
             QString variable;
-            float factor;
+            float factor = 0.0f;
         };
 
         std::optional<OCType::Coord3D<float>> originTransform;
@@ -122,7 +122,7 @@ public:
     {
     public:
         QString name;
-        int property;
+        int property = 0;
 
         int internalIdent = -1;
     };
@@ -175,7 +175,7 @@ public:
         {
         public:
             QString bitmap;
-            bool hasAlpha;
+            bool hasAlpha = false;
         };
 
         class InstantExplosionPartCount
@@ -188,9 +188,9 @@ public:
         class AttachTo
         {
         public:
-            int attach;
-            int attachGroup;
-            int attachMulti;
+            int attach = 0;
+            int attachGroup = 0;
+            int attachMulti = 0;
         };
 
         OCType::Coord3D<QVariant> position;
@@ -221,7 +221,7 @@ public:
     {
     public:
         QString variable;
-        float size;
+        float size = 0.0f;
         QColor color;
         OCType::Coord3D<float> position;
         /* [light]
@@ -249,7 +249,7 @@ public:
         OCType::Coord3D<float> position; // 0=0° 1=90° 2=180°
         OCType::Coord3D<float> direction; // 0=0° 1=90° 2=180°
         OCType::Coord3D<float> lightCone; // 0=0° 1=90° 2=180°
-        bool lightInAllDirections;
+        bool lightInAllDirections = false;
         Rotation rotation;
     };
 
@@ -258,14 +258,14 @@ public:
     public:
         QColor color;
         float size; // in m
-        int innerlightConeAngle;
-        int outerlightConeAngle;
+        int innerlightConeAngle = 0;
+        int outerlightConeAngle = 0;
         QString activiationVariable;
         QString brightnessVariable;
-        int brightnessFactor;
-        float playerOffset;
+        int brightnessFactor = 0;
+        float playerOffset = 0.0f;
         int effect; // 0=none +1=stars +2=noFog +4=both
-        bool hasLightCone;
+        bool hasLightCone = false;
         float delay; // in s
         QString effectTexture;
     };
@@ -279,8 +279,8 @@ public:
 
     QString mouseEvent; // trigger name
 
-    bool hasShadow;
-    bool isShadowMesh;
+    bool hasShadow = false;
+    bool isShadowMesh = false;
 
     Visible visible;
 
@@ -288,7 +288,7 @@ public:
 
     QString texchangeFile;
 
-    bool hasSmoothSkin;
+    bool hasSmoothSkin = false;
 
     int viewpoint = -1; // 0 equals 7   |   +1=userVehicleInside +2=userVehicleInside +4=aiVehicle
 
@@ -311,13 +311,13 @@ public:
 class TextTexture
 {
 public:
-    bool isEnh;
+    bool isEnh = false;
 
     QString variable;
     QString fontName;
     int width = -1;
     int height = -1;
-    bool useColorTexture;
+    bool useColorTexture = false;
     QColor color; // if useColorTexture == true
 
     // if (isEnh) {
@@ -332,7 +332,7 @@ public:
     };
 
     Orientation orientation;
-    bool snapFontToTop;
+    bool snapFontToTop = false;
     // }
 };
 
@@ -359,9 +359,9 @@ public:
     OCType::Coord3D<float> position;
     OCType::Coord3D<float> direction;
     QColor color;
-    float distance;
-    int innerlightConeAngle;
-    int outerlightConeAngle;
+    float distance = 0.0f;
+    int innerlightConeAngle = 0;
+    int outerlightConeAngle = 0;
 };
 
 
