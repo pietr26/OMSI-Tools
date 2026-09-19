@@ -116,8 +116,10 @@ void wFonts::on_actionOpen_triggered()
 void wFonts::on_actionOpenWithEncoding_triggered()
 {
     wSelectEncoding *selectEncoding = new wSelectEncoding(this);
-    selectEncoding->show();
     connect(selectEncoding, &wSelectEncoding::encodingSelected, this, &wFonts::selectedEncoding);
+
+    selectEncoding->setWindowModality(Qt::ApplicationModal);
+    selectEncoding->show();
 }
 
 void wFonts::on_actionReload_triggered()
