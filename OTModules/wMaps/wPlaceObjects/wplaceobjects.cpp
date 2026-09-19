@@ -193,14 +193,7 @@ void wPlaceObjects::on_btnStart_clicked()
 
             QImage layer(layerSource.fileName());
 
-            QString newObjectEntries = placeObjectsFromLayer(layer);
-
-            newObjectEntries.replace("Ä", "Ae", Qt::CaseSensitive);
-            newObjectEntries.replace("Ö", "Oe", Qt::CaseSensitive);
-            newObjectEntries.replace("Ü", "Ue", Qt::CaseSensitive);
-            newObjectEntries.replace("ä", "ae", Qt::CaseSensitive);
-            newObjectEntries.replace("ö", "oe", Qt::CaseSensitive);
-            newObjectEntries.replace("ü", "ue", Qt::CaseSensitive);
+            const QString newObjectEntries = placeObjectsFromLayer(layer);
 
             if (ui->cbxClearLayer->isChecked()) QFile(originalFilename).remove(); // TODO: Warnung
 
