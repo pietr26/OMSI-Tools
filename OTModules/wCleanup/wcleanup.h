@@ -61,6 +61,10 @@ private:
     /// Builds the absolute path of the folder from a list entry.
     QString itemPath(const QString &itemText);
 
+    /// Moves the folder of a list entry into destinationFolder and returns the files which
+    /// could not be moved.
+    QStringList moveFolder(const QString &itemText, const QString &destinationFolder);
+
     OTSettings set;
     OTMessage msg;
     OTOMSIFileHandler filehandler;

@@ -59,6 +59,58 @@ QString wCleanup::itemPath(const QString &itemText)
     return set.read("main", "mainDir").toString() + "/" + QString(itemText).replace('\\', '/');
 }
 
+/*!
+    Moves the folder of a list entry into destinationFolder, keeping its path relative to
+    the main directory.
+
+    A file which can't be moved stays where it is - e.g. because the destination already
+    contains a file with the same name (Qt never overwrites) or because the copy to
+    another drive fails. Afterwards only the directories which ran empty are removed, so
+    nothing that is still inside the main directory gets lost. Hidden and system files are
+    moved as well; before, they weren't listed and got deleted together with the folder.
+
+    Returns the files which could not be moved, relative to the main directory.
+*/
+QStringList wCleanup::moveFolder(const QString &itemText, const QString &destinationFolder)
+{
+    const QString mainDir = set.read("main", "mainDir").toString();
+    const QString sourceFolder = itemPath(itemText);
+    const QDir::Filters includeHidden = QDir::Hidden | QDir::System;
+
+    QStringList directories;
+    QDirIterator makePaths(sourceFolder, QDir::Dirs | QDir::NoDotAndDotDot | includeHidden, QDirIterator::Subdirectories);
+    while (makePaths.hasNext())
+    {
+        const QString current = makePaths.next();
+        directories << current;
+        QDir().mkpath(destinationFolder + "/" + QString(current).remove(0, cutCount));
+    }
+
+    // Collect first - the directory listing isn't reliable while its entries are moved away.
+    QStringList files;
+    QDirIterator listFiles(sourceFolder, QDir::Files | includeHidden, QDirIterator::Subdirectories);
+    while (listFiles.hasNext()) files << listFiles.next().remove(0, cutCount);
+
+    QStringList failedFiles;
+    for (const QString &current : files)
+    {
+        qApp->processEvents();
+
+        if (!QDir().rename(mainDir + "/" + current, destinationFolder + "/" + current))
+        {
+            qWarning().noquote() << QString("Could not move '%1' to '%2'.").arg(current, destinationFolder);
+            failedFiles << current;
+        }
+    }
+
+    // Deepest directories first - rmdir() refuses every directory which isn't empty.
+    std::sort(directories.begin(), directories.end(), [](const QString &a, const QString &b) { return a.size() > b.size(); });
+    for (const QString &directory : directories) QDir().rmdir(directory);
+    QDir().rmdir(sourceFolder);
+
+    return failedFiles;
+}
+
 void wCleanup::on_btnAnalyze_clicked()
 {
     on_actionAnalyze_triggered();
@@ -256,32 +308,28 @@ void wCleanup::on_btnStartAction_clicked()
 
         if (!destinationFolder.isEmpty())
         {
+            // Folders with files left behind stay in their list.
+            QStringList failedFiles;
+
             // Sceneryobjects
             ui->pgbProgress->setValue(1);
             ui->statusbar->showMessage(tr("Move sceneryobjects..."));
             qInfo().noquote() << QString("Move selected sceneryobjects to '%1'...").arg(destinationFolder);
 
+            QList<int> keptObjectIDs;
             for (int i = 0; i < objectIDs.count(); i++)
             {
                 ui->statusbar->showMessage(tr("Move sceneryobjects (%1 of %2)...").arg(QString::number(i + 1), QString::number(objectIDs.count())));
 
-                QDirIterator makePaths(itemPath(ui->lwgObjects->item(objectIDs[i])->text()), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-                while (makePaths.hasNext())
-                    QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
-
-
-                QDirIterator moveFiles(itemPath(ui->lwgObjects->item(objectIDs[i])->text()), QDir::Files, QDirIterator::Subdirectories);
-                while (moveFiles.hasNext())
+                const QStringList failed = moveFolder(ui->lwgObjects->item(objectIDs[i])->text(), destinationFolder);
+                if (!failed.isEmpty())
                 {
-                    qApp->processEvents();
-
-                    QString current = moveFiles.next().remove(0, cutCount);
-                    QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
+                    failedFiles << failed;
+                    keptObjectIDs << objectIDs[i];
                 }
-
-                QDir(itemPath(ui->lwgObjects->item(objectIDs[i])->text())).removeRecursively();
             }
 
+            for (int id : keptObjectIDs) objectIDs.removeOne(id);
             std::sort(objectIDs.begin(), objectIDs.end(), std::greater<int>());
             for (int i = 0; i < objectIDs.count(); i++) ui->lwgObjects->takeItem(objectIDs[i]);
 
@@ -289,26 +337,20 @@ void wCleanup::on_btnStartAction_clicked()
             ui->pgbProgress->setValue(2);
             qInfo().noquote() << QString("Move selected splines to '%1'...").arg(destinationFolder);
 
+            QList<int> keptSplineIDs;
             for (int i = 0; i < splineIDs.count(); i++)
             {
                 ui->statusbar->showMessage(tr("Move splines (%1 of %2)...").arg(QString::number(i + 1), QString::number(splineIDs.count())));
 
-                QDirIterator makePaths(itemPath(ui->lwgSplines->item(splineIDs[i])->text()), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-                while (makePaths.hasNext())
-                    QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
-
-                QDirIterator moveFiles(itemPath(ui->lwgSplines->item(splineIDs[i])->text()), QDir::Files, QDirIterator::Subdirectories);
-                while (moveFiles.hasNext())
+                const QStringList failed = moveFolder(ui->lwgSplines->item(splineIDs[i])->text(), destinationFolder);
+                if (!failed.isEmpty())
                 {
-                    qApp->processEvents();
-
-                    QString current = moveFiles.next().remove(0, cutCount);
-                    QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
+                    failedFiles << failed;
+                    keptSplineIDs << splineIDs[i];
                 }
-
-                QDir(itemPath(ui->lwgSplines->item(splineIDs[i])->text())).removeRecursively();
             }
 
+            for (int id : keptSplineIDs) splineIDs.removeOne(id);
             std::sort(splineIDs.begin(), splineIDs.end(), std::greater<int>());
             for (int i = 0; i < splineIDs.count(); i++) ui->lwgSplines->takeItem(splineIDs[i]);
 
@@ -316,31 +358,37 @@ void wCleanup::on_btnStartAction_clicked()
             ui->pgbProgress->setValue(3);
             qInfo().noquote() << QString("Move selected vehicles to '%1'...").arg(destinationFolder);
 
+            QList<int> keptVehicleIDs;
             for (int i = 0; i < vehicleIDs.count(); i++)
             {
                 ui->statusbar->showMessage(tr("Move vehicles (%1 of %2)...").arg(QString::number(i + 1), QString::number(vehicleIDs.count())));
 
-                QDirIterator makePaths(itemPath(ui->lwgVehicles->item(vehicleIDs[i])->text()), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-                while (makePaths.hasNext())
-                    QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
-
-                QDirIterator moveFiles(itemPath(ui->lwgVehicles->item(vehicleIDs[i])->text()), QDir::Files, QDirIterator::Subdirectories);
-                while (moveFiles.hasNext())
+                const QStringList failed = moveFolder(ui->lwgVehicles->item(vehicleIDs[i])->text(), destinationFolder);
+                if (!failed.isEmpty())
                 {
-                    qApp->processEvents();
-
-                    QString current = moveFiles.next().remove(0, cutCount);
-                    QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
+                    failedFiles << failed;
+                    keptVehicleIDs << vehicleIDs[i];
                 }
-
-                QDir(itemPath(ui->lwgVehicles->item(vehicleIDs[i])->text())).removeRecursively();
             }
 
+            for (int id : keptVehicleIDs) vehicleIDs.removeOne(id);
             std::sort(vehicleIDs.begin(), vehicleIDs.end(), std::greater<int>());
             for (int i = 0; i < vehicleIDs.count(); i++) ui->lwgVehicles->takeItem(vehicleIDs[i]);
 
             ui->pgbProgress->setValue(4);
-            ui->statusbar->showMessage(tr("Moved selected folders to '%1'.").arg(destinationFolder), 10000);
+
+            if (failedFiles.isEmpty())
+                ui->statusbar->showMessage(tr("Moved selected folders to '%1'.").arg(destinationFolder), 10000);
+            else
+            {
+                ui->statusbar->showMessage(tr("Not all files could be moved."), 10000);
+
+                QMessageBox box(QMessageBox::Warning, tr("Not all files could be moved"),
+                                tr("%n file(s) could not be moved to '%1' and stayed in the OMSI directory, e.g. because the destination folder already contains a file with the same name. The affected folders are still listed.", "", failedFiles.count()).arg(destinationFolder),
+                                QMessageBox::Ok, this);
+                box.setDetailedText(failedFiles.join("\n"));
+                box.exec();
+            }
         }
     }
     else if (ui->rbtnDelete->isChecked())
