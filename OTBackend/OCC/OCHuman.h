@@ -1,6 +1,8 @@
 #ifndef OCHUMAN_H
 #define OCHUMAN_H
 
+
+#include <QString>
 #include "OCBase.h"
 #include "OCViewable.h"
 
@@ -11,9 +13,9 @@ class Human : public OCBase::File // hum
 {
 public:
     int age = -1;
-    float seatHeight;
-    float feetDistance;
-    float height;
+    float seatHeight = 0.0f;
+    float feetDistance = 0.0f;
+    float height = 0.0f;
 
     OCType::Coord3D<float> hip; // xyz
     OCType::Coord3D<float> knee; // xyz

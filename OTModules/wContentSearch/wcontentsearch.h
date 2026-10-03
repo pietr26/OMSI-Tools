@@ -2,7 +2,12 @@
 #define WCONTENTSEARCH_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
+#include <QPointer>
+#include <QTemporaryFile>
+
+#include "OTBackend/OTMessage.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTSettings.h"
 #include "OTBackend/OTExternal.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
@@ -63,8 +68,8 @@ private:
     OTSettings set;
     OTMessage msg;
     OTMiscellaneous misc;
-    wPreferences *WPREFERENCES;
-    wAddFiles *WADDFILES;
+    QPointer<wPreferences> WPREFERENCES;
+    wAddFiles *WADDFILES = nullptr;
 
     OTDatabaseHandler dbHandler;
     QTemporaryFile database;

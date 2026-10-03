@@ -176,9 +176,6 @@
           </item>
           <item row="8" column="1">
            <widget class="QTimeEdit" name="tieRepairTime">
-            <property name="timeSpec">
-             <enum>Qt::LocalTime</enum>
-            </property>
             <property name="time">
              <time>
               <hour>0</hour>

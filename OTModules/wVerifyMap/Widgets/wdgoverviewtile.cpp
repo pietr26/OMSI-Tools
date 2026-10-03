@@ -1,8 +1,7 @@
 #include "wdgoverviewtile.h"
 #include "ui_wdgoverviewtile.h"
 
-#include "OTBackend/OTGlobal.h"
-
+#include "OTBackend/OTSettings.h"
 wdgOverviewTile::wdgOverviewTile(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::wdgOverviewTile)

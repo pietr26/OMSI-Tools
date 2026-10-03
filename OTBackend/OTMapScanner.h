@@ -57,7 +57,7 @@ private:
     QQueue<QList<QPair<QString,QString>>> _queue;
     QMutex _mutex;
     QWaitCondition _dataAvailable;
-    bool _finish;
+    bool _finish = false;
 
     QHash<QString, OTFileSource> _allSceneryobjects;
     QHash<QString, OTFileSource> _allSplines;

@@ -1,6 +1,9 @@
 #ifndef WFONTS_H
 #define WFONTS_H
 
+
+#include "OTBackend/OTFileMethods.h"
+#include <QPointer>
 #include <QMainWindow>
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTBackend/OCC/OCFont.h"
@@ -55,15 +58,14 @@ signals:
 
 private:
     Ui::wFonts *ui;
-    wPreferences *WPREFERENCES;
+    QPointer<wPreferences> WPREFERENCES;
     OTSettings set;
     OTMessage msg;
     OTMiscellaneous misc;
 
-    wdgEditor *WDGEDITOR;
-    wdgPreview *WDGPREVIEW;
+    wdgEditor *WDGEDITOR = nullptr;
+    wdgPreview *WDGPREVIEW = nullptr;
 
-    wSelectEncoding *WSELECTENCODING;
 
     OCFont::FontCollection *_font;
 
@@ -75,7 +77,6 @@ private:
     void saveRecentFiles(QString absoluteNewFilePath);
     void loadRecentFiles();
     void open(OTFileMethods::fileMethods method, QString filen = "", QStringConverter::Encoding encoding = QStringConverter::Latin1);
-    void selectedEncoding(QStringConverter::Encoding selectedEncoding);
 
     void setVisiblilty();
 };

@@ -1,7 +1,7 @@
 #ifndef WDGTAB_H
 #define WDGTAB_H
 
-#include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTMiscellaneous.h"
 #include "OTModules/wContentSearch/wcontentsearch.h"
 #include "OTBackend/OTFileSource.h"
 
@@ -22,9 +22,9 @@ public:
         total = missing + existing;
     }
 
-    int missing;
-    int existing;
-    int total;
+    int missing = 0;
+    int existing = 0;
+    int total = 0;
 };
 
 class wdgTab : public QWidget

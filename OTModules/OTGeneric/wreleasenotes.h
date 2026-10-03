@@ -2,8 +2,9 @@
 #define WRELEASENOTES_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
-
+#include "OTBackend/OTNetworkConnection.h"
+#include "OTBackend/OTSettings.h"
+#include "OTBackend/OTUpdater.h"
 namespace Ui {
 class wReleaseNotes;
 }

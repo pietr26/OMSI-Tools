@@ -19,7 +19,7 @@ protected:
     void wheelEvent(QWheelEvent* event) override;
 
 private:
-    bool dragging;
+    bool dragging = false;
     QPoint dragStartPos;
 };
 

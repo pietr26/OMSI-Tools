@@ -1,6 +1,14 @@
 #include "wdevtools.h"
 #include "ui_wdevtools.h"
 
+#include <QFile>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QMessageBox>
+#include <QTextStream>
+
+#include "OTBackend/OTInformation.h"
+
 wDevTools::wDevTools(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wDevTools)
@@ -275,7 +283,9 @@ void wDevTools::on_btnSoundFileLister_clicked()
     foreach (QString current, files)
     {
         QFile file(current);
-        file.open(QFile::ReadOnly | QFile::Text);
+
+        if (!file.open(QFile::ReadOnly | QFile::Text))
+            qWarning().noquote() << "Could not open '" + current + "'.";
 
         QTextStream in (&file);
         QString line;

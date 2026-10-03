@@ -1,6 +1,18 @@
 #include "wDBPanel.h"
 #include "ui_wDBPanel.h"
 
+#include <QDir>
+#include <QDirIterator>
+#include <QElapsedTimer>
+#include <QFile>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QMessageBox>
+#include <QTextStream>
+#include <QUrl>
+
+#include "OTBackend/OTInformation.h"
+
 wDBPanel::wDBPanel(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wDBPanel)
@@ -61,6 +73,10 @@ wDBPanel::wDBPanel(QWidget *parent) :
 
     ui->tvwDuplicates->verticalHeader()->hide();
 
+    // TODO/PORTABILITY: hardcoded path on the development machine. The module only
+    // finds its database there - on Linux and on any other Windows machine it stays
+    // empty. Deliberately left alone for now, because the DBPanels are developer
+    // tools only.
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/contentSearch.db";
     dbHandler.setupDatabase("CREATE TABLE paths (ID INTEGER, path TEXT, linkID TEXT, PRIMARY KEY(ID AUTOINCREMENT)); CREATE TABLE links (ID INTEGER, link TEXT, directLinks TEXT, information TEXT, PRIMARY KEY(ID AUTOINCREMENT));");
 

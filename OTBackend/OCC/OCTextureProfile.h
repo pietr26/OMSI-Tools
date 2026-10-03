@@ -6,9 +6,9 @@
 class OCTextureProfile : public OCBase::File // [textureName].[textureSuffix].cfg
 {
 public:
-    bool hasMoisture;
-    bool hasPuddles;
-    bool hasTerrainMapping;
+    bool hasMoisture = false;
+    bool hasPuddles = false;
+    bool hasTerrainMapping = false;
     int surface = -1; // TODO: enum? - std::optional?
     /*  0	asphalt (standard) - normaler Asphalt
         1	concrete - Beton(-platten)

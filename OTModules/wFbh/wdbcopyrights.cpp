@@ -13,6 +13,10 @@ wDBCopyrights::wDBCopyrights(QWidget *parent) :
 
     setWindowTitle("Argument panel");
 
+    // TODO/PORTABILITY: hardcoded path on the development machine. The module only
+    // finds its database there - on Linux and on any other Windows machine it stays
+    // empty. Deliberately left alone for now, because the DBPanels are developer
+    // tools only.
     dbHandler.dbPath = "D:/OMSI-Tools/OMSI-Tools/data/db/webdisk-tools.db";
     dbHandler.setupDatabase("CREATE TABLE copyrightArguments (ID INTEGER, argument TEXT, PRIMARY KEY(ID AUTOINCREMENT)); CREATE TABLE copyrightPaths (ID INTEGER, path TEXT, argumentIDs TEXT, pathRedirect INTEGER, PRIMARY KEY(ID AUTOINCREMENT));");
 

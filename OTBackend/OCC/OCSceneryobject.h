@@ -1,6 +1,10 @@
 #ifndef OCSCENERYOBJECT_H
 #define OCSCENERYOBJECT_H
 
+
+#include <QColor>
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 #include "OCRail.h"
 #include "OCViewable.h"
@@ -12,10 +16,10 @@ public:
     {
     public:
         QString texture;
-        float minHeight;
-        float maxHeight;
-        float minRatio;
-        float maxRatio;
+        float minHeight = 0.0f;
+        float maxHeight = 0.0f;
+        float minRatio = 0.0f;
+        float maxRatio = 0.0f;
     };
 
     class Maplight
@@ -45,7 +49,7 @@ public:
             {
             public:
                 int currentPhaseIdent = 12; // 12: off
-                float duration;
+                float duration = 0.0f;
             };
 
             QString name;
@@ -56,13 +60,13 @@ public:
         class TrafficLightJumpStop
         {
         public:
-            int checkOnApproachIdent;
-            float jumpTimePosition;
-            bool jumpIfNoApproach;
+            int checkOnApproachIdent = 0;
+            float jumpTimePosition = 0.0f;
+            bool jumpIfNoApproach = false;
             float jumpToTime = -1; // mandatory for [traffic_light_jump] {if!=-1} or [traffic_light_stop] {if=-1}!
         };
 
-        float duration;
+        float duration = 0.0f;
         QList<TrafficLight> trafficLights;
         QList<TrafficLightJumpStop> jumpStops;
     };
@@ -80,13 +84,13 @@ public:
     {
     public:
         OCType::Coord3D<float> position; // not inverted
-        float rotation;
-        float radius;
+        float rotation = 0.0f;
+        float radius = 0.0f;
         float length = 10;
-        float gradientStart;
-        float gradientEnd;
+        float gradientStart = 0.0f;
+        float gradientEnd = 0.0f;
         int type; // 0=Street 1=Sidewalk 2=Railroad
-        float width;
+        float width = 0.0f;
         int direction; // 0=Forward 1=Reverse/Backward 2=Both
         int blinker; // 0=no 1=Straight 2=Left 3=Right
 
@@ -94,7 +98,7 @@ public:
 
         bool hasCrossingProblem = false;
 
-        int blockPath1stValue; // TODO: ? |-> Wird vmtl. dafür genutzt, diesen Pfad freizuhalten bzw., dass dort keine KI zum Stehen kommt
+        int blockPath1stValue; // TODO: ? |-> Probably used to keep this path clear, i.e. to stop AI traffic from halting there
         int blockPath2ndValue; // TODO: ? /   s. Sceneryobjects\ADDON_SimpleStreets\Kreuz_MC\Einm_001_001_1.sco - Pfad 8: sogar 4 blockpaths auf einmal.
 
         // if (path2) {
@@ -108,22 +112,22 @@ public:
         int switchdir = -1;
     };
 
-    bool isDepot;
-    bool isBusstop;
-    bool isCarPark;
-    bool isPetrolStation;
-    bool isEntrypoint;
-    bool isHelpArrow;
-    bool isSignal;
-    bool isTrafficLight;
+    bool isDepot = false;
+    bool isBusstop = false;
+    bool isCarPark = false;
+    bool isPetrolStation = false;
+    bool isEntrypoint = false;
+    bool isHelpArrow = false;
+    bool isSignal = false;
+    bool isTrafficLight = false;
 
-    bool usesAbsoluteHeight;
-    bool lightMapMapping;
-    bool noCollision;
+    bool usesAbsoluteHeight = false;
+    bool lightMapMapping = false;
+    bool noCollision = false;
     QList<QString> collisionMeshes;
-    bool noMapLighting;
-    bool isJoinable;
-    bool isFixed;
+    bool noMapLighting = false;
+    bool isJoinable = false;
+    bool isFixed = false;
     QString rendertype;
 
     int complexity = -1;
@@ -135,8 +139,8 @@ public:
     QString crossingHeightDeform;
     QString terrainHole;
 
-    bool onlyVisibleInEditor;
-    bool isSurface;
+    bool onlyVisibleInEditor = false;
+    bool isSurface = false;
 
     std::optional<Tree> tree;
 

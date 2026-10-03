@@ -1,7 +1,17 @@
 #include "OTModules/OTGeneric/wstart.h"
 #include "OTModules/OTGeneric/wfirstsetup.h"
-#include "OTBackend/OTGlobal.h"
+#include <QDir>
+#include <QFile>
+#include <QMessageBox>
+#include <QStyleFactory>
 
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTBuildOptions.h"
+#include "OTBackend/OTFileOperations.h"
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTPlatform.h"
+#include "OTBackend/OTSettings.h"
 #include <QApplication>
 #include "OTBackend/OTLogger.h"
 #include "OTBackend/DiscordGameSDK.h"
@@ -23,7 +33,6 @@ int main(int argc, char *argv[])
 {
     OTSettings set;
     OTMiscellaneous misc;
-    OTFileOperations fop;
 
     QApplication a(argc, argv);
 
@@ -35,9 +44,9 @@ int main(int argc, char *argv[])
         if (set.read("main", "closeCheck") == "false")
         {
             isCrash = true;
-            newName = QString("logfile_crash_%1.txt").arg(misc.getDate("yyyy-MM-dd") + "_" + misc.getTime("hh-mm-ss"));
+            newName = OTPlatform::applicationFile(QString("logfile_crash_%1.txt").arg(misc.getDate("yyyy-MM-dd") + "_" + misc.getTime("hh-mm-ss")));
 
-            QFile::copy("logfile.txt", newName);
+            QFile::copy(OTPlatform::applicationFile("logfile.txt"), newName);
         }
 
         // Initialize logger
@@ -66,7 +75,10 @@ int main(int argc, char *argv[])
             QMessageBox::StandardButton reply = QMessageBox::question(NULL, QObject::tr("Crash detected"), QObject::tr("%1 seems to have crashed on last launch. The logfile of the last start was saved separately. Please contact the developer with this.\nOpen the path of the logfile?").arg(OTInformation::name));
 
             if (reply == QMessageBox::Yes)
+            {
+                OTFileOperations fop;
                 fop.showInExplorer(newName);
+            }
             #endif
         }
         else qDebug() << "No crash detected.";

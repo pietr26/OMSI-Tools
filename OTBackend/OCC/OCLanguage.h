@@ -1,6 +1,9 @@
 #ifndef OCLANGUAGE_H
 #define OCLANGUAGE_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 namespace OCLanguage

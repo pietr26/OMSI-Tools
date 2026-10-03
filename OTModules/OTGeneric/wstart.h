@@ -2,13 +2,20 @@
 #define WSTART_H
 
 #include <QMainWindow>
+#include <QPointer>
 #include "OTModules/wCleanup/wcleanup.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/OTGeneric/wreleasenotes.h"
 #include "OTModules/wFonts/wfonts.h"
 #include "OTModules/wVerifyMap/wverifymap.h"
-#include "OTBackend/OTGlobal.h"
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTFileOperations.h"
+#include "OTBackend/OTMessage.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTNetworkConnection.h"
+#include "OTBackend/OTSettings.h"
+#include "OTBackend/OTUpdater.h"
 #include "OTModules/OTGeneric/wabout.h"
 #include "OTModules/OTInternals/wdevtools.h"
 #include "OTModules/OTInternals/wregeditor.h"
@@ -92,21 +99,21 @@ private slots:
 
 private:
     Ui::wStart *ui;
-    wPreferences *WPREFERENCES;
-    wFonts *WFONTS;
-    wVerifyMap *WVERIFYMAP;
-    wDevTools *WDEVTOOLS;
-    wRegEditor *WREGEDITOR;
-    wDBPanel *WDBPANEL;
-    wContentSearch *WCONTENTSEARCH;
-    wReleaseNotes *WRELEASENOTES;
-    wAbout *WABOUT;
-    wFeedback *WFEEDBACK;
-    wCleanup *WCLEANUP;
-    wDBCopyrights *WDBCOPYRIGHTS;
-    wMaps *WMAPS;
-    wBugDoc *WBUGDOC;
-    wDBKnownWords *WDBKNOWNWORDS;
+    QPointer<wPreferences> WPREFERENCES;
+    wFonts *WFONTS = nullptr;
+    wVerifyMap *WVERIFYMAP = nullptr;
+    wDevTools *WDEVTOOLS = nullptr;
+    wRegEditor *WREGEDITOR = nullptr;
+    wDBPanel *WDBPANEL = nullptr;
+    wContentSearch *WCONTENTSEARCH = nullptr;
+    QPointer<wReleaseNotes> WRELEASENOTES;
+    QPointer<wAbout> WABOUT;
+    QPointer<wFeedback> WFEEDBACK;
+    wCleanup *WCLEANUP = nullptr;
+    wDBCopyrights *WDBCOPYRIGHTS = nullptr;
+    wMaps *WMAPS = nullptr;
+    wBugDoc *WBUGDOC = nullptr;
+    wDBKnownWords *WDBKNOWNWORDS = nullptr;
     OTUpdater *updater = new OTUpdater();
 
     OTSettings set;
@@ -116,6 +123,35 @@ private:
     OTNetworkConnection nc;
 
     bool checkMainDir();
+
+    /*!
+        Shows a module window, comes back to this window when the module is done, and
+        lets the module free itself afterwards.
+
+        The modules used to stay alive forever: created without a parent, closed without
+        WA_DeleteOnClose, and forgotten as soon as the next click overwrote the pointer.
+        Every switch back and forth cost a whole window including its models.
+
+        deleteLater() is safe here: every module emits backToHome from one of its own
+        slots, and Qt only carries out a deferred deletion in the event loop the call was
+        made from - never in a nested one - so the emitting function has always returned
+        by then. The three modules which emit before their close() are fine for the same
+        reason.
+    */
+    template<class T>
+    void showModule(T *&window)
+    {
+        connect(window, &T::backToHome, this, [this, &window]()
+        {
+            reopen();
+
+            window->deleteLater();
+            window = nullptr;
+        });
+
+        window->show();
+        close();
+    }
 
     void loadMessagesOld();
     void loadMessages();

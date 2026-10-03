@@ -1,6 +1,11 @@
 #include "wabout.h"
 #include "ui_wabout.h"
 
+#include <QMessageBox>
+
+#include "OTBackend/OTBuildOptions.h"
+#include "OTBackend/OTInformation.h"
+
 wAbout::wAbout(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wAbout)
@@ -9,6 +14,11 @@ wAbout::wAbout(QWidget *parent) :
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
+
+    // The dialog frees itself when it is closed. Callers keep their pointer in a
+    // QPointer, which clears itself at the same moment - the pointer used to be left
+    // dangling and the dialog leaked with every single open.
+    setAttribute(Qt::WA_DeleteOnClose);
     resize(misc.sizeWindow(0.5, 0.9));
     move(misc.centerPosition(this));
     qDebug() << "UI set";

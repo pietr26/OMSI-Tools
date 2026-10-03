@@ -1,6 +1,16 @@
 ﻿#include "wverifymap.h"
 #include "ui_wverifymap.h"
 
+#include <QCloseEvent>
+
+#include <QApplication>
+#include <QFile>
+#include <QMessageBox>
+
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTLinks.h"
+
 wVerifyMap::wVerifyMap(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wVerifyMap)
@@ -67,6 +77,35 @@ wVerifyMap::wVerifyMap(QWidget *parent) :
 wVerifyMap::~wVerifyMap()
 {
     delete ui;
+}
+
+/*!
+    Stops the two worker threads before the window goes away.
+
+    They used to keep running after "back to home" - the action is not disabled during
+    a scan - and only stayed harmless because the window object itself was never freed.
+    As soon as it is, destroying a running QThread aborts the application.
+*/
+void wVerifyMap::closeEvent(QCloseEvent *event)
+{
+    if (_scanner->isRunning() || _checker->isRunning())
+    {
+        qInfo() << "Closing while a verification is running - stopping the threads...";
+
+        _scanner->requestInterruption();
+        _checker->requestInterruption();
+
+        // The checker sleeps on its wait condition until there is work or the scanner
+        // declares itself done, so it has to be woken explicitly.
+        _checker->setFinished();
+
+        _scanner->wait();
+        _checker->wait();
+
+        qInfo() << "Threads stopped.";
+    }
+
+    QMainWindow::closeEvent(event);
 }
 
 void wVerifyMap::on_actionSendFeedback_triggered()
@@ -149,6 +188,11 @@ void wVerifyMap::on_btnStartVerifying_clicked()
 
 void wVerifyMap::on_actionClose_triggered()
 {
+    // QApplication::quit() leaves the event loop without closing any window, so
+    // closeEvent() - and with it the shutdown of the two worker threads - would never
+    // run. Closing first makes the threads stop before the application goes away.
+    close();
+
     QApplication::quit();
 }
 

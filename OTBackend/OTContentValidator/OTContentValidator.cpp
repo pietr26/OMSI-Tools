@@ -5,8 +5,9 @@
 #include <QFileInfo>
 #include <QDebug>
 
-#include "OTBackend/OTGlobal.h"
+#include <QTextStream>
 
+#include "OTBackend/OTSettings.h"
 OTContentValidatorIssue::OTContentValidatorIssue(const int &lineNumber,
                                                  const int &issueType,
                                                  const QStringList &arguments) :
@@ -150,9 +151,13 @@ void OTContentValidator::validate() {
         return;
     }
 
-    _stream = new QTextStream(&f);
-    _stream->setEncoding(QStringConverter::Latin1);
+    QTextStream stream(&f);
+    stream.setEncoding(QStringConverter::Latin1);
+    _stream = &stream;
+
     specificValidate();
+
+    _stream = nullptr;
     f.close();
 }
 

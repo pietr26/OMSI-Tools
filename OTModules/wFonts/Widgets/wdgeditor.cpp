@@ -118,6 +118,10 @@ void wdgEditor::on_sbxHighestPixelInFontRow_valueChanged(int arg1)
 
 void wdgEditor::on_btnEditorPreferences_clicked()
 {
+    // Created on demand like everywhere else. It used to be built in the member
+    // initialiser, so every editor carried a preferences dialog around whether it was
+    // ever opened or not - and it cannot be reused now that it frees itself on close.
+    WPREFERENCES = new wPreferences(this, "wFonts");
     WPREFERENCES->setWindowModality(Qt::ApplicationModal);
     WPREFERENCES->show();
 }
@@ -308,9 +312,9 @@ void wdgEditor::checkCharValidity()
     if (character->leftPixel == -1) ui->lblLeftPixel->setStyleSheet("color:red");
     if (character->highestPixelInFontRow == -1) ui->lblHighestPixelInFontRow->setStyleSheet("color:red");
 
-    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture).exists())
+    if (QFile(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture)).exists())
     {
-        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture);
+        QImage alphaTexture(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture));
 
         if (alphaTexture.width() != 0 || alphaTexture.height() != 0)
         {
@@ -341,15 +345,15 @@ void wdgEditor::checkPropValidity()
     if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->name.isEmpty())
         ui->lblFontName->setStyleSheet("color:red");
 
-    if (!_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture.isEmpty() && !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture).exists())
+    if (!_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture.isEmpty() && !QFile(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->colorTexture)).exists())
         ui->lblColorTexture->setStyleSheet("color:red");
 
-    if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture.isEmpty() || !QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture).exists())
+    if (_font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture.isEmpty() || !QFile(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture)).exists())
         ui->lblAlphaTexture->setStyleSheet("color:red");
 
-    if (QFile(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture).exists())
+    if (QFile(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture)).exists())
     {
-        QImage alphaTexture(set.read("main", "mainDir").toString() + "/Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture);
+        QImage alphaTexture(OTPath::resolve(set.read("main", "mainDir").toString(), "Fonts/" + _font->fonts.at(_font->selection.value(OCFont::FontCollection::FontSelection))->alphaTexture));
 
         if (alphaTexture.width() != 0 || alphaTexture.height() != 0)
         {
@@ -428,7 +432,7 @@ void wdgEditor::reloadUi(bool reset, bool selectionChange)
     for (int i = 0; i < model->rowCount(); i++)
         fontExpansions << ui->tvwChars->isExpanded(model->index(i, 0)); // TODO: implement for delete, move!
 
-    // Neladen der Font
+    // Reload the font
     if (!selectionChange)
     {
         model->clear();

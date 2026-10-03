@@ -1,6 +1,17 @@
 #include "wcleanup.h"
 #include "ui_wcleanup.h"
 
+#include <QDir>
+#include <QDirIterator>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QMessageBox>
+
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTLinks.h"
+#include "OTBackend/OTPath.h"
+
 wCleanup::wCleanup(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wCleanup)
@@ -32,6 +43,20 @@ wCleanup::wCleanup(QWidget *parent) :
 wCleanup::~wCleanup()
 {
     delete ui;
+}
+
+/*!
+    The list entries show the folders in OMSI's backslash notation (see
+    on_actionAnalyze_triggered()). Every file system access has to turn that back into a
+    path the platform accepts: on Windows the backslash separates components, on Linux
+    it is an ordinary character in a file name - so the concatenated path pointed
+    nowhere there and every action ran through without any effect.
+
+    The displayed text itself stays unchanged.
+*/
+QString wCleanup::itemPath(const QString &itemText)
+{
+    return set.read("main", "mainDir").toString() + "/" + QString(itemText).replace('\\', '/');
 }
 
 void wCleanup::on_btnAnalyze_clicked()
@@ -102,7 +127,7 @@ void wCleanup::on_actionAnalyze_triggered()
         ui->statusbar->showMessage(tr("Analyze sceneryobject folder..."));
 
         QStringList scoFolders;
-        QDirIterator scoFolder(mainDir + "/Sceneryobjects", QDir::Dirs | QDir::NoDotAndDotDot);
+        QDirIterator scoFolder(OTPath::resolve(mainDir, "Sceneryobjects"), QDir::Dirs | QDir::NoDotAndDotDot);
         while (scoFolder.hasNext()) scoFolders << scoFolder.next().replace("/", "\\");
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
@@ -129,7 +154,7 @@ void wCleanup::on_actionAnalyze_triggered()
         ui->statusbar->showMessage(tr("Analyze spline folder..."));
 
         QStringList sliFolders;
-        QDirIterator sliFolder(mainDir + "/Splines", QDir::Dirs | QDir::NoDotAndDotDot);
+        QDirIterator sliFolder(OTPath::resolve(mainDir, "Splines"), QDir::Dirs | QDir::NoDotAndDotDot);
         while (sliFolder.hasNext()) sliFolders << sliFolder.next().replace("/", "\\");
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
@@ -160,7 +185,7 @@ void wCleanup::on_actionAnalyze_triggered()
         ui->statusbar->showMessage(tr("Analyze vehicle folder..."));
 
         QStringList vehFolders;
-        QDirIterator vehFolder(mainDir + "/Vehicles", QDir::Dirs | QDir::NoDotAndDotDot);
+        QDirIterator vehFolder(OTPath::resolve(mainDir, "Vehicles"), QDir::Dirs | QDir::NoDotAndDotDot);
         while (vehFolder.hasNext()) vehFolders << vehFolder.next().replace("/", "\\");
 
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
@@ -240,12 +265,12 @@ void wCleanup::on_btnStartAction_clicked()
             {
                 ui->statusbar->showMessage(tr("Move sceneryobjects (%1 of %2)...").arg(QString::number(i + 1), QString::number(objectIDs.count())));
 
-                QDirIterator makePaths(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->item(objectIDs[i])->text(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+                QDirIterator makePaths(itemPath(ui->lwgObjects->item(objectIDs[i])->text()), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
                 while (makePaths.hasNext())
                     QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
 
 
-                QDirIterator moveFiles(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->item(objectIDs[i])->text(), QDir::Files, QDirIterator::Subdirectories);
+                QDirIterator moveFiles(itemPath(ui->lwgObjects->item(objectIDs[i])->text()), QDir::Files, QDirIterator::Subdirectories);
                 while (moveFiles.hasNext())
                 {
                     qApp->processEvents();
@@ -254,7 +279,7 @@ void wCleanup::on_btnStartAction_clicked()
                     QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
                 }
 
-                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->item(objectIDs[i])->text()).removeRecursively();
+                QDir(itemPath(ui->lwgObjects->item(objectIDs[i])->text())).removeRecursively();
             }
 
             std::sort(objectIDs.begin(), objectIDs.end(), std::greater<int>());
@@ -268,11 +293,11 @@ void wCleanup::on_btnStartAction_clicked()
             {
                 ui->statusbar->showMessage(tr("Move splines (%1 of %2)...").arg(QString::number(i + 1), QString::number(splineIDs.count())));
 
-                QDirIterator makePaths(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->item(splineIDs[i])->text(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+                QDirIterator makePaths(itemPath(ui->lwgSplines->item(splineIDs[i])->text()), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
                 while (makePaths.hasNext())
                     QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
 
-                QDirIterator moveFiles(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->item(splineIDs[i])->text(), QDir::Files, QDirIterator::Subdirectories);
+                QDirIterator moveFiles(itemPath(ui->lwgSplines->item(splineIDs[i])->text()), QDir::Files, QDirIterator::Subdirectories);
                 while (moveFiles.hasNext())
                 {
                     qApp->processEvents();
@@ -281,7 +306,7 @@ void wCleanup::on_btnStartAction_clicked()
                     QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
                 }
 
-                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->item(splineIDs[i])->text()).removeRecursively();
+                QDir(itemPath(ui->lwgSplines->item(splineIDs[i])->text())).removeRecursively();
             }
 
             std::sort(splineIDs.begin(), splineIDs.end(), std::greater<int>());
@@ -295,11 +320,11 @@ void wCleanup::on_btnStartAction_clicked()
             {
                 ui->statusbar->showMessage(tr("Move vehicles (%1 of %2)...").arg(QString::number(i + 1), QString::number(vehicleIDs.count())));
 
-                QDirIterator makePaths(set.read("main", "mainDir").toString() + "/" + ui->lwgVehicles->item(vehicleIDs[i])->text(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+                QDirIterator makePaths(itemPath(ui->lwgVehicles->item(vehicleIDs[i])->text()), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
                 while (makePaths.hasNext())
                     QDir().mkpath(destinationFolder + "/" + makePaths.next().remove(0, cutCount));
 
-                QDirIterator moveFiles(set.read("main", "mainDir").toString() + "/" + ui->lwgVehicles->item(vehicleIDs[i])->text(), QDir::Files, QDirIterator::Subdirectories);
+                QDirIterator moveFiles(itemPath(ui->lwgVehicles->item(vehicleIDs[i])->text()), QDir::Files, QDirIterator::Subdirectories);
                 while (moveFiles.hasNext())
                 {
                     qApp->processEvents();
@@ -308,7 +333,7 @@ void wCleanup::on_btnStartAction_clicked()
                     QDir().rename(set.read("main", "mainDir").toString() + "/" + current, destinationFolder + "/" + current);
                 }
 
-                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgVehicles->item(vehicleIDs[i])->text()).removeRecursively();
+                QDir(itemPath(ui->lwgVehicles->item(vehicleIDs[i])->text())).removeRecursively();
             }
 
             std::sort(vehicleIDs.begin(), vehicleIDs.end(), std::greater<int>());
@@ -329,7 +354,7 @@ void wCleanup::on_btnStartAction_clicked()
             {
                 qApp->processEvents();
                 ui->statusbar->showMessage(tr("Delete sceneryobjects (%1 of %2)...").arg(QString::number(i + 1), QString::number(objectIDs.count())));
-                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgObjects->item(objectIDs[i])->text()).removeRecursively();
+                QDir(itemPath(ui->lwgObjects->item(objectIDs[i])->text())).removeRecursively();
             }
 
             std::sort(objectIDs.begin(), objectIDs.end(), std::greater<int>());
@@ -340,7 +365,7 @@ void wCleanup::on_btnStartAction_clicked()
             {
                 qApp->processEvents();
                 ui->statusbar->showMessage(tr("Delete splines (%1 of %2)...").arg(QString::number(i + 1), QString::number(splineIDs.count())));
-                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgSplines->item(splineIDs[i])->text()).removeRecursively();
+                QDir(itemPath(ui->lwgSplines->item(splineIDs[i])->text())).removeRecursively();
             }
 
             std::sort(splineIDs.begin(), splineIDs.end(), std::greater<int>());
@@ -351,7 +376,7 @@ void wCleanup::on_btnStartAction_clicked()
             {
                 qApp->processEvents();
                 ui->statusbar->showMessage(tr("Delete vehicles (%1 of %2)...").arg(QString::number(i + 1), QString::number(vehicleIDs.count())));
-                QDir(set.read("main", "mainDir").toString() + "/" + ui->lwgVehicles->item(vehicleIDs[i])->text()).removeRecursively();
+                QDir(itemPath(ui->lwgVehicles->item(vehicleIDs[i])->text())).removeRecursively();
             }
 
             std::sort(vehicleIDs.begin(), vehicleIDs.end(), std::greater<int>());
@@ -413,17 +438,17 @@ void wCleanup::on_actionBackToHome_triggered()
 
 void wCleanup::on_lwgObjects_itemDoubleClicked(QListWidgetItem *item)
 {
-    misc.openInExplorer(set.read("main", "mainDir").toString() + "/" + item->text());
+    misc.openInExplorer(itemPath(item->text()));
 }
 
 void wCleanup::on_lwgSplines_itemDoubleClicked(QListWidgetItem *item)
 {
-    misc.openInExplorer(set.read("main", "mainDir").toString() + "/" + item->text());
+    misc.openInExplorer(itemPath(item->text()));
 }
 
 void wCleanup::on_lwgVehicles_itemDoubleClicked(QListWidgetItem *item)
 {
-    misc.openInExplorer(set.read("main", "mainDir").toString() + "/" + item->text());
+    misc.openInExplorer(itemPath(item->text()));
 }
 
 void wCleanup::on_actionBulkMarkInCurrentList_triggered()

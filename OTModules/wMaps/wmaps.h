@@ -2,6 +2,7 @@
 #define WMAPS_H
 
 #include <QMainWindow>
+#include <QPointer>
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 #include "OTModules/wmapselection.h"
@@ -52,10 +53,10 @@ private:
 
     OTSettings set;
     OTOMSIFileHandler filehandler;
-    wPreferences *WPREFERENCES;
-    wMapSelection *WMAPSELECTION;
-    wGlobalProps *WGLOBALPROPS;
-    wPlaceObjects *WPLACEOBJECTS;
+    QPointer<wPreferences> WPREFERENCES;
+    wMapSelection *WMAPSELECTION = nullptr;
+    wGlobalProps *WGLOBALPROPS = nullptr;
+    wPlaceObjects *WPLACEOBJECTS = nullptr;
 
     QPair<QString, QString> currentMap;
 

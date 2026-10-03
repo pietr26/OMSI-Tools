@@ -36,7 +36,7 @@ private:
 
     int prevRandomIndex = -1;
 
-    unsigned int fadeInOutTime;
+    unsigned int fadeInOutTime = 0;
 };
 
 #endif // FADEINOUTTEXT_H

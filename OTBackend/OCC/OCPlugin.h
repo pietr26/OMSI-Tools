@@ -1,6 +1,9 @@
 #ifndef OCPLUGIN_H
 #define OCPLUGIN_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 class OCPlugin // *.opl

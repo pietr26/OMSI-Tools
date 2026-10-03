@@ -1,6 +1,8 @@
 #ifndef WEDITGROUNDTEXTURE_H
 #define WEDITGROUNDTEXTURE_H
 
+
+#include "OTBackend/OTSettings.h"
 #include <QMainWindow>
 #include "OTBackend/OCC/OCMap.h"
 
@@ -41,7 +43,7 @@ private:
     void reloadUI();
 
     OCMap::Map::Global::Texture texture = OCMap::Map::Global::Texture();
-    int textureIndex;
+    int textureIndex = 0;
 };
 
 #endif // WEDITGROUNDTEXTURE_H

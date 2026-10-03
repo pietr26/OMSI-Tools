@@ -1,6 +1,10 @@
 #include "wfirstsetup.h"
 #include "ui_wfirstsetup.h"
 
+#include <QStyleFactory>
+
+#include "OTBackend/OTInformation.h"
+
 wFirstSetup::wFirstSetup(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::wFirstSetup)

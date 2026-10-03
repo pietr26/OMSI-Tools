@@ -1,5 +1,35 @@
 #include "DiscordGameSDK.h"
 
+#ifdef OT_NO_DISCORD
+
+/*
+    The Discord Game SDK is only shipped as a Windows library with this repository. If no
+    library for the current platform is available, the rich presence is skipped
+    completely - all entry points stay no-ops.
+
+    To enable it on Linux, drop Discord's 'discord_game_sdk.so' into
+    OTBackend/DiscordGameSDK/ and re-run qmake.
+*/
+
+DiscordGameSDK::DiscordGameSDK() { qInfo() << "DiscordGameSDK is not available on this platform - skipping rich presence."; }
+
+void DiscordGameSDK::exec() { }
+void DiscordGameSDK::stop() { }
+void DiscordGameSDK::update() { }
+void DiscordGameSDK::clearActivity() { }
+void DiscordGameSDK::setModule(QString name) { Q_UNUSED(name); }
+void DiscordGameSDK::setStatus(QString action) { Q_UNUSED(action); }
+void DiscordGameSDK::setStart(QDateTime epochTimestamp) { Q_UNUSED(epochTimestamp); }
+void DiscordGameSDK::setStart(bool enable) { Q_UNUSED(enable); }
+void DiscordGameSDK::setEnd(QDateTime epochTimestamp) { Q_UNUSED(epochTimestamp); }
+void DiscordGameSDK::setEnd(bool enable) { Q_UNUSED(enable); }
+void DiscordGameSDK::setIcon(QString key, QString tooltip) { Q_UNUSED(key); Q_UNUSED(tooltip); }
+void DiscordGameSDK::setImage(QString key, QString tooltip) { Q_UNUSED(key); Q_UNUSED(tooltip); }
+
+bool DiscordGameSDK::_blockExcecution = true;
+bool DiscordGameSDK::_blockUpdate = true;
+
+#else
 
 DiscordGameSDK::DiscordGameSDK()
 {
@@ -136,3 +166,5 @@ DiscordState DiscordGameSDK::_state = {};
 discord::Core* DiscordGameSDK::_core = {};
 bool DiscordGameSDK::_blockExcecution = false;
 bool DiscordGameSDK::_blockUpdate = false;
+
+#endif // OT_NO_DISCORD

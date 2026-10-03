@@ -1,4 +1,6 @@
 #include "weditgroundtexture.h"
+#include "OTBackend/OTStrings.h"
+#include <QFileDialog>
 #include "ui_weditgroundtexture.h"
 
 wEditGroundTexture::wEditGroundTexture(OCMap::Map::Global::Texture tex, int index, QWidget *parent) :

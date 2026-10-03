@@ -2,7 +2,14 @@
 #define WPREFERENCES_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
+#include <QPointer>
+#include "OTBackend/OTDiskUsage.h"
+#include "OTBackend/OTFileOperations.h"
+#include "OTBackend/OTMessage.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTSettings.h"
+#include "OTBackend/OTStrings.h"
+#include "OTBackend/OTUpdater.h"
 #include "OTModules/OTInternals/wdevtools.h"
 #include "OTModules/OTGeneric/wreleasenotes.h"
 #include "OTModules/OTGeneric/wfeedback.h"
@@ -84,9 +91,9 @@ private:
     OTDiskUsage dUs;
     OTStrings strings;
     QTimer *timer;
-    wDevTools *WDEVTOOLS;
-    wReleaseNotes *WRELEASENOTES;
-    wFeedback *WFEEDBACK;
+    wDevTools *WDEVTOOLS = nullptr;
+    QPointer<wReleaseNotes> WRELEASENOTES;
+    QPointer<wFeedback> WFEEDBACK;
 
     void reloadThemePreview();
 

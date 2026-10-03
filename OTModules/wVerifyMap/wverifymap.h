@@ -2,7 +2,9 @@
 #define WVERIFYMAP_H
 
 #include <QMainWindow>
-#include "OTBackend/OTGlobal.h"
+#include <QPointer>
+#include "OTBackend/OTMessage.h"
+#include "OTBackend/OTSettings.h"
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTModules/OTGeneric/wfeedback.h"
@@ -23,6 +25,9 @@ class wVerifyMap : public QMainWindow
 public:
     explicit wVerifyMap(QWidget *parent = nullptr);
     ~wVerifyMap();
+
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 private slots:
 
@@ -55,7 +60,7 @@ private:
     Ui::wVerifyMap *ui;
     OTMessage msg;
     OTSettings set;
-    wPreferences *WPREFERENCES;
+    QPointer<wPreferences> WPREFERENCES;
 
     int cutCount = set.read("main", "mainDir").toString().size() + 1;
 

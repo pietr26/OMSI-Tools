@@ -2,7 +2,8 @@
 #define MESSAGE_H
 
 #include <QWidget>
-#include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTInAppMessage.h"
+#include "OTBackend/OTSettings.h"
 #include "OTModules/wmessageviewer.h"
 
 namespace Ui {

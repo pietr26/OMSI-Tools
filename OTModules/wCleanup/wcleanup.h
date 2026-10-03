@@ -2,8 +2,11 @@
 #define WCLEANUP_H
 
 #include <QMainWindow>
+#include <QPointer>
 #include "OTModules/OTGeneric/wpreferences.h"
-#include "OTBackend/OTGlobal.h"
+#include "OTBackend/OTMessage.h"
+#include "OTBackend/OTMiscellaneous.h"
+#include "OTBackend/OTSettings.h"
 #include "OTBackend/OTOmsiFileHandler.h"
 #include "OTModules/OTGeneric/wfeedback.h"
 
@@ -55,11 +58,14 @@ private:
 
     int cutCount = 0;
 
+    /// Builds the absolute path of the folder from a list entry.
+    QString itemPath(const QString &itemText);
+
     OTSettings set;
     OTMessage msg;
     OTOMSIFileHandler filehandler;
     OTMiscellaneous misc;
-    wPreferences *WPREFERENCES;
+    QPointer<wPreferences> WPREFERENCES;
 };
 
 #endif // WCLEANUP_H

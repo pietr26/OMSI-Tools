@@ -4,6 +4,11 @@
 #include "dlgsourceslist.h"
 #include "dlgfilepreview.h"
 
+#include <QFile>
+
+#include "OTBackend/OTPath.h"
+#include "OTBackend/OTSettings.h"
+
 wdgTab::wdgTab(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::wdgTab)
@@ -257,7 +262,7 @@ void wdgTab::on_btnShowUsages_clicked() {
 
 void wdgTab::on_btnPreviewFile_clicked() {
     OTSettings set;
-    QString file = set.read("main", "mainDir").toString() + "/" + ui->ledPath->text();
+    QString file = OTPath::resolve(set.read("main", "mainDir").toString(), ui->ledPath->text());
     if(!QFile::exists(file))
         return;
 

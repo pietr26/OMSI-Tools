@@ -1,7 +1,9 @@
 #include "dlgfilepreview.h"
 #include "ui_dlgfilepreview.h"
 
-#include "OTBackend/OTGlobal.h"
+#include <QTextStream>
+
+#include "OTBackend/OTSettings.h"
 #include <QMessageBox>
 #include <QFile>
 #include <QUrl>

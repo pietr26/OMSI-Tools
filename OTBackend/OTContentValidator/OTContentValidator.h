@@ -50,8 +50,8 @@ protected:
     QPair<QString, QString> issueDescription(const int &e, const QStringList &arguments = {}) const;
 
 private:
-    int _lineNumber;
-    int _issueType;
+    int _lineNumber = 0;
+    int _issueType = 0;
     QStringList _arguments;
     QPair<QString, QString> _issueDescription;
 };
@@ -96,7 +96,7 @@ protected:
 
     QString _filePath, _fileDir, _omsiDir;
     QString _currentLine;
-    int _currentLineNumber;
+    int _currentLineNumber = 0;
     QTextStream *_stream;
 };
 

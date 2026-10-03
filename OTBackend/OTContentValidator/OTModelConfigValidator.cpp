@@ -3,6 +3,8 @@
 #include <QTextStream>
 #include <QFile>
 
+#include "OTBackend/OTPath.h"
+
 OTModelConfigValidator::OTModelConfigValidator(QObject *parent, const QString &filePath) :
     OTContentValidator(parent, filePath) {}
 
@@ -19,7 +21,7 @@ void OTModelConfigValidator::validateLine() {
         _meshFound = true;
         _matlFound = false;
         QString mesh = readNextLine();
-        if(!QFile::exists(_fileDir + "/model/" + mesh)) {
+        if(!OTPath::exists(_fileDir, "model/" + mesh)) {
             throwIssue(OTContentValidatorIssue::MissingMeshFile, {mesh});
             return;
         }
@@ -52,7 +54,7 @@ void OTModelConfigValidator::validateLine() {
         readNextLine();
         int i = 1;
         while(i <= count && !_stream->atEnd()) {
-            if(!QFile::exists(_fileDir + "/" + _currentLine)) {
+            if(!OTPath::exists(_fileDir, _currentLine)) {
                 throwIssue(OTContentValidatorIssue::MissingScriptFile, {_currentLine});
             }
             i++;

@@ -2,7 +2,7 @@
 #define WMAPSELECTION_H
 
 #include <QMainWindow>
-#include <OTBackend/OTGlobal.h>
+#include <OTBackend/OTMiscellaneous.h>
 #include <OTBackend/OTOmsiFileHandler.h>
 #include <QListWidgetItem>
 

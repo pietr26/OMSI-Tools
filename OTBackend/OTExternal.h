@@ -1,7 +1,17 @@
 #ifndef OTEXTERNAL_H
 #define OTEXTERNAL_H
 
-#include "OTGlobal.h"
+#include <QApplication>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QProcess>
+#include <QTemporaryFile>
+
+#include "OTMiscellaneous.h"
+#include "OTPlatform.h"
+#include "OTDdsImage.h"
+#include <QImage>
 #include <QtSql>
 #include <QSqlDriver>
 
@@ -31,7 +41,7 @@ public:
         if (action.length() > 63999)
         {
             qCritical() << "OTDatabaseHandler error: action string ist too long (> 64000)!";
-            return QSqlQuery();
+            return QSqlQuery(db);
         }
 
         if (automaticOpenClose)
@@ -39,21 +49,21 @@ public:
             if (!db.open())
             {
                 qCritical() << "OTDatabaseHandler error: Cannot open database automatically";
-                return QSqlQuery();
+                return QSqlQuery(db);
             }
 
-            QSqlQuery query(action);
+            QSqlQuery query(action, db);
             db.close();
             return query;
         }
         else
         {
             if (db.isOpen())
-                return QSqlQuery(action);
+                return QSqlQuery(action, db);
             else
             {
                 qCritical() << "OTDatabaseHandler error: Open database before executing an action!";
-                return QSqlQuery();
+                return QSqlQuery(db);
             }
         }
     }
@@ -87,7 +97,24 @@ public:
             database.close();
         }
 
-        db = QSqlDatabase::addDatabase("QSQLITE");
+        /*
+            Every handler gets its own named connection. Without a name they all shared
+            qt_sql_default_connection, so the second module to open a database removed
+            the first one's connection - Qt then reports "connection is still in use,
+            all queries will cease to work" and the older handle turns invalid.
+
+            Two handlers on the same file deliberately share one connection, which is
+            what wDBCopyrights and wAddPath need. No connection is removed here: the
+            handlers outlive their windows, and a shared connection must not be pulled
+            away from the other holder.
+        */
+        const QString connection = "OTDatabaseHandler:" + dbPath;
+
+        if (QSqlDatabase::contains(connection))
+            db = QSqlDatabase::database(connection, false);
+        else
+            db = QSqlDatabase::addDatabase("QSQLITE", connection);
+
         db.setDatabaseName(dbPath);
 
         if (firstSetup && !queryForFirstSetup.isEmpty()) doAction(queryForFirstSetup, true);
@@ -190,6 +217,10 @@ class OTDirectXTexConv
 public:
     bool convert(QString format, QString input, QTemporaryFile &tFile)
     {
+        // DirectXTex is a Windows tool. Everywhere else Qt has to do the job.
+        if (OTPlatform::texconvExecutable().isEmpty())
+            return convertWithQt(format, input, tFile);
+
         QPair<QString, QString> output = exec(QStringList() << "-y" << "-ft" << format << "-o" << QDir::tempPath() << input);
 
         QString newFile = QDir::tempPath() + "/" + QFileInfo(input).fileName();
@@ -199,9 +230,17 @@ public:
         tFile.resize(0);
 
         QFile nFile(newFile);
-        nFile.open(QFile::ReadOnly);
+
+        // Both failures leave the caller with an empty texture. See TODO.md - reporting
+        // that back through the return value would change what the callers show.
+        if (!nFile.open(QFile::ReadOnly))
+            qWarning().noquote() << "Could not open the converted texture '" + newFile + "'.";
+
         QByteArray bla = nFile.readAll();
-        tFile.open();
+
+        if (!tFile.open())
+            qWarning().noquote() << "Could not open the temporary file for the converted texture.";
+
         QDataStream in(&tFile);
         in.writeRawData(bla.constData(), bla.size());
 
@@ -210,7 +249,9 @@ public:
 
     QPair<QString, QString> exec(QStringList args)
     {
-        if (!QFile("texconv.exe").exists())
+        const QString executable = OTPlatform::texconvExecutable();
+
+        if (executable.isEmpty() || !QFile(executable).exists())
         {
             qCritical() << "Could not find texconv.exe!";
             return QPair<QString, QString>("", "ERR: Could not find texconv.exe!");
@@ -218,7 +259,7 @@ public:
 
         QProcess texconvProcess;
         texconvProcess.setWorkingDirectory(QApplication::applicationDirPath());
-        texconvProcess.start("texconv.exe", args);
+        texconvProcess.start(executable, args);
         texconvProcess.waitForFinished();
 
         QString info = texconvProcess.readAllStandardOutput();
@@ -231,6 +272,31 @@ public:
     }
 
 private:
+    /// Reads the texture through Qt's image plugins and falls back to the own DDS
+    /// reader, because Qt does not bring an image plugin for that format any more.
+    bool convertWithQt(QString format, QString input, QTemporaryFile &tFile)
+    {
+        QImage image(input);
+
+        if (image.isNull()) image = OTDdsImage::read(input);
+
+        if (image.isNull())
+        {
+            qCritical().noquote() << "Could not read '" + input + "'.";
+            return false;
+        }
+
+        if (!tFile.isOpen() && !tFile.open()) return false;
+        tFile.resize(0);
+        tFile.seek(0);
+
+        if (!image.save(&tFile, format.toUpper().toLatin1().constData())) return false;
+
+        // The callers pick the result up by its file name, so it has to be on disk.
+        tFile.flush();
+
+        return true;
+    }
 };
 
 #endif // OTEXTERNAL_H

@@ -1,6 +1,19 @@
 #include "wpreferences.h"
 #include "ui_wpreferences.h"
 
+#include <QDesktopServices>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QMessageBox>
+#include <QStyleFactory>
+#include <QUrl>
+
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTLinks.h"
+#include "OTBackend/OTPlatform.h"
+
 wPreferences::wPreferences(QWidget *parent, QString openDirect) :
     QMainWindow(parent),
     ui(new Ui::wPreferences)
@@ -9,6 +22,11 @@ wPreferences::wPreferences(QWidget *parent, QString openDirect) :
 
     qDebug() << "Set up UI...";
     ui->setupUi(this);
+
+    // The dialog frees itself when it is closed. Callers keep their pointer in a
+    // QPointer, which clears itself at the same moment - the pointer used to be left
+    // dangling and the dialog leaked with every single open.
+    setAttribute(Qt::WA_DeleteOnClose);
     resize(misc.sizeWindow(0.45, 0.6));
     qDebug() << "UI set";
 
@@ -232,7 +250,7 @@ void wPreferences::modified()
 
 void wPreferences::refreshDiskUsage()
 {
-    ui->lblDiskUsageSize->setText(dUs.formatSize("backup"));
+    ui->lblDiskUsageSize->setText(dUs.formatSize(OTPlatform::applicationFile("backup")));
 }
 
 void wPreferences::on_btnClose_clicked()
@@ -246,7 +264,7 @@ void wPreferences::on_btnDeleteAllBackups_clicked()
 
     if (reply == QMessageBox::Yes)
     {
-        qDebug() << "Move to trash:" << QFile::moveToTrash("backup");
+        qDebug() << "Move to trash:" << QFile::moveToTrash(OTPlatform::applicationFile("backup"));
         ui->btnDeleteAllBackups->setEnabled(false);
         refreshDiskUsage();
         qInfo().noquote() << "Deleted backups";
@@ -255,7 +273,7 @@ void wPreferences::on_btnDeleteAllBackups_clicked()
 
 void wPreferences::on_btnOpenBackupFolder_clicked()
 {
-    QDir().mkdir("backup");
+    QDir().mkdir(OTPlatform::applicationFile("backup"));
     QString path = QFileInfo("./backup").absolutePath();
     path += "/backup";
 
@@ -320,7 +338,7 @@ void wPreferences::on_ledAuthor_textChanged(const QString &arg1) { Q_UNUSED(arg1
 
 void wPreferences::on_cbxBackupEnabled_clicked(bool checked) { Q_UNUSED(checked); modified(); }
 
-void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { modified(); }
+void wPreferences::on_cbxAdvancedVerifying_stateChanged(int arg1) { Q_UNUSED(arg1); modified(); }
 
 void wPreferences::on_cbxShowNews_stateChanged(int arg1) { Q_UNUSED(arg1); if (setupFinished) { modified(); needRestart = true; } }
 

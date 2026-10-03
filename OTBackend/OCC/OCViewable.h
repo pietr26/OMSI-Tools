@@ -1,6 +1,9 @@
 #ifndef OCVIEWABLE_H
 #define OCVIEWABLE_H
 
+
+#include <QList>
+#include <QString>
 #include "OCBase.h"
 
 namespace OCViewable
@@ -18,7 +21,7 @@ public:
     };
 
     Method type;
-    float rotation;
+    float rotation = 0.0f;
     OCType::Coord3D<float> transformation;
 };
 
@@ -48,7 +51,7 @@ public:
 
     std::optional<OCType::Coord3D<int>> momentOfIntertia;
 
-    bool noDistanceCheck;
+    bool noDistanceCheck = false;
 };
 
 }

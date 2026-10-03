@@ -1,6 +1,8 @@
 #include "wmessageviewer.h"
 #include "ui_wmessageviewer.h"
 
+#include <QUrl>
+
 wMessageViewer::wMessageViewer(OTInAppMessage mData, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::wMessageViewer)

@@ -1,6 +1,20 @@
 #include "wcontentsearch.h"
 #include "ui_wcontentsearch.h"
 
+#include <QApplication>
+#include <QClipboard>
+#include <QDesktopServices>
+#include <QFile>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QTextStream>
+#include <QUrl>
+
+#include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTBuildOptions.h"
+#include "OTBackend/OTInformation.h"
+#include "OTBackend/OTLinks.h"
+
 wContentSearch::wContentSearch(QWidget *parent, QStringList paths) :
     QMainWindow(parent),
     ui(new Ui::wContentSearch)
