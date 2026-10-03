@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QPointer>
+#include <QSet>
 #include "OTModules/OTGeneric/wpreferences.h"
 #include "OTBackend/OTMessage.h"
 #include "OTBackend/OTMiscellaneous.h"
@@ -60,6 +61,10 @@ private:
 
     /// Builds the absolute path of the folder from a list entry.
     QString itemPath(const QString &itemText);
+
+    static QString topLevelFolder(const QString &relativePath);
+
+    QStringList unusedFolders(const QString &rootFolder, const QSet<QString> &usedFolders);
 
     /// Moves the folder of a list entry into destinationFolder and returns the files which
     /// could not be moved.

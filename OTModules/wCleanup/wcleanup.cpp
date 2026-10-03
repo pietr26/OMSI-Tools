@@ -59,6 +59,33 @@ QString wCleanup::itemPath(const QString &itemText)
     return set.read("main", "mainDir").toString() + "/" + QString(itemText).replace('\\', '/');
 }
 
+QString wCleanup::topLevelFolder(const QString &relativePath)
+{
+    const QStringList segments = QString(relativePath).replace('/', '\\').split('\\', Qt::SkipEmptyParts);
+    if (segments.size() < 3) return QString();
+
+    return QString(segments.at(0) + "\\" + segments.at(1)).toLower();
+}
+
+/*!
+    Returns the folders directly below rootFolder (e.g. "Sceneryobjects") which aren't
+    contained in usedFolders (see topLevelFolder()), in OMSI's backslash notation relative
+    to the main directory.
+*/
+QStringList wCleanup::unusedFolders(const QString &rootFolder, const QSet<QString> &usedFolders)
+{
+    QStringList unused;
+
+    QDirIterator folder(OTPath::resolve(set.read("main", "mainDir").toString(), rootFolder), QDir::Dirs | QDir::NoDotAndDotDot);
+    while (folder.hasNext())
+    {
+        const QString current = folder.next().remove(0, cutCount).replace('/', '\\');
+        if (!usedFolders.contains(current.toLower())) unused << current;
+    }
+
+    return unused;
+}
+
 /*!
     Moves the folder of a list entry into destinationFolder, keeping its path relative to
     the main directory.
@@ -169,96 +196,43 @@ void wCleanup::on_actionAnalyze_triggered()
     filehandler.stuffobj.existing.removeDuplicates();
     filehandler.stuffobj.toBackslash();
 
-    const QString mainDir = set.read("main", "mainDir").toString();
+    // A folder counts as used as soon as any file inside it is used, no matter of which
+    // kind - there are sceneryobjects inside spline folders and splines inside object
+    // folders, and parked vehicles are sceneryobjects inside the vehicle folder.
+    QSet<QString> usedFolders;
+    const QStringList usedFiles = filehandler.stuffobj.existing.sceneryobjects
+                                + filehandler.stuffobj.existing.splines
+                                + filehandler.stuffobj.existing.vehicles;
+    for (const QString &file : usedFiles) usedFolders << topLevelFolder(file);
+    usedFolders.remove(QString());
 
-    // Sceneryobjects:
-    if (!filehandler.stuffobj.existing.sceneryobjects.isEmpty())
+    // Without any used file (e.g. no map could be read) every folder would be listed.
+    if (!usedFolders.isEmpty())
     {
+        // Sceneryobjects:
         qInfo() << "Analyze sceneryobjects...";
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Analyze sceneryobject folder..."));
-
-        QStringList scoFolders;
-        QDirIterator scoFolder(OTPath::resolve(mainDir, "Sceneryobjects"), QDir::Dirs | QDir::NoDotAndDotDot);
-        while (scoFolder.hasNext()) scoFolders << scoFolder.next().replace("/", "\\");
-
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Comparing sceneryobjects..."));
-        foreach (QString current, scoFolders)
-        {
-            qApp->processEvents();
-            QStringListIterator iterator(filehandler.stuffobj.existing.sceneryobjects);
+        ui->lwgObjects->addItems(unusedFolders("Sceneryobjects", usedFolders));
 
-            int i = 0;
-            while (iterator.hasNext())
-                if (QString(mainDir + "/" + iterator.next()).replace("/", "\\").contains(current, Qt::CaseInsensitive))
-                    i++;
-
-            if (i == 0) ui->lwgObjects->addItem(current.remove(0, cutCount));
-        }
-    }
-
-    // Splines:
-    if (!filehandler.stuffobj.existing.splines.isEmpty())
-    {
+        // Splines:
         qInfo() << "Analyze splines...";
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Analyze spline folder..."));
-
-        QStringList sliFolders;
-        QDirIterator sliFolder(OTPath::resolve(mainDir, "Splines"), QDir::Dirs | QDir::NoDotAndDotDot);
-        while (sliFolder.hasNext()) sliFolders << sliFolder.next().replace("/", "\\");
-
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Comparing splines..."));
+        ui->lwgSplines->addItems(unusedFolders("Splines", usedFolders));
 
-        foreach (QString current, sliFolders)
-        {
-            qApp->processEvents();
-            QStringListIterator iterator(filehandler.stuffobj.existing.splines);
-
-            int i = 0;
-            while (iterator.hasNext())
-                if (QString(QFileInfo(mainDir + "/" + iterator.next()).absolutePath()).replace("/", "\\").contains(current, Qt::CaseInsensitive))
-                    i++;
-
-            if (i == 0) ui->lwgSplines->addItem(current.remove(0, cutCount));
-        }
-    }
-
-
-    // Vehicles:
-    if (!filehandler.stuffobj.existing.sceneryobjects.isEmpty() || !filehandler.stuffobj.existing.vehicles.isEmpty())
-    {
-        QStringList vehiclePaths;
-
+        // Vehicles:
         qInfo() << "Analyze vehicles...";
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Analyze vehicle folder..."));
-
-        QStringList vehFolders;
-        QDirIterator vehFolder(OTPath::resolve(mainDir, "Vehicles"), QDir::Dirs | QDir::NoDotAndDotDot);
-        while (vehFolder.hasNext()) vehFolders << vehFolder.next().replace("/", "\\");
-
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
         ui->statusbar->showMessage(tr("Comparing vehicles..."));
 
-        QStringList allExistingVehFolders = filehandler.stuffobj.existing.vehicles + filehandler.stuffobj.existing.sceneryobjects;
-        allExistingVehFolders.removeDuplicates();
-
-        foreach (QString current, vehFolders)
-        {
-            qApp->processEvents();
-            QStringListIterator iterator(allExistingVehFolders);
-
-            int i = 0;
-            while (iterator.hasNext())
-                if (QString(mainDir + "/" + iterator.next()).replace("/", "\\").contains(current, Qt::CaseInsensitive))
-                    i++;
-
-            if (i == 0) vehiclePaths << current.remove(0, cutCount);
-        }
-
+        QStringList vehiclePaths = unusedFolders("Vehicles", usedFolders);
         vehiclePaths.removeOne("Vehicles\\Announcements");
         vehiclePaths.removeOne("Vehicles\\Anzeigen");
 
