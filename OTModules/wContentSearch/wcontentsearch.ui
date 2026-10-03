@@ -14,7 +14,7 @@
    <string notr="true">wContentSearch</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
+   <iconset resource="../../resources.qrc">
     <normaloff>:/rec/data/icons/wContentSearch.svg</normaloff>:/rec/data/icons/wContentSearch.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -448,7 +448,7 @@
   </action>
  </widget>
  <resources>
-  <include location="../../ressources.qrc"/>
+  <include location="../../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

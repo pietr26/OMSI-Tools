@@ -218,7 +218,7 @@
            <string notr="true">Copy text</string>
           </property>
           <property name="icon">
-           <iconset resource="../../ressources.qrc">
+           <iconset resource="../../resources.qrc">
             <normaloff>:/rec/data/icons/webdisk-tools.png</normaloff>:/rec/data/icons/webdisk-tools.png</iconset>
           </property>
          </widget>
@@ -391,7 +391,7 @@
   <tabstop>tvwBugs</tabstop>
  </tabstops>
  <resources>
-  <include location="../../ressources.qrc"/>
+  <include location="../../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

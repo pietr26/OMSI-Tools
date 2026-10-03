@@ -14,7 +14,7 @@
    <string notr="true">wMaps</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../ressources.qrc">
+   <iconset resource="../../resources.qrc">
     <normaloff>:/rec/data/icons/wMaps.svg</normaloff>:/rec/data/icons/wMaps.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -248,7 +248,7 @@ This is an alpha version of the module. Please create a backup of the selected m
   </action>
  </widget>
  <resources>
-  <include location="../../ressources.qrc"/>
+  <include location="../../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

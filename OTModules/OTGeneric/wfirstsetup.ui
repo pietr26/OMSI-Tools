@@ -29,7 +29,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="../../ressources.qrc">:/rec/data/icons/logo.svg</pixmap>
+         <pixmap resource="../../resources.qrc">:/rec/data/icons/logo.svg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -141,7 +141,7 @@ Please define some settings so that %1 works correctly.</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../../ressources.qrc"/>
+  <include location="../../resources.qrc"/>
  </resources>
  <connections/>
 </ui>
