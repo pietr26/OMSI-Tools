@@ -8,6 +8,7 @@
 #include <QMessageBox>
 
 #include "OTBackend/DiscordGameSDK.h"
+#include "OTBackend/OTFolderTransfer.h"
 #include "OTBackend/OTInformation.h"
 #include "OTBackend/OTLinks.h"
 #include "OTBackend/OTPath.h"
@@ -24,10 +25,10 @@ wCleanup::wCleanup(QWidget *parent) :
     qDebug() << "UI set";
 
     // Load prefs
-    setWindowTitle(tr("Directory cleanup") + " - " + OTInformation::name);
+    setWindowTitle(tr("Directory sync") + " - " + OTInformation::name);
 
-    DiscordGameSDK::setModule(tr("Directory cleanup"));
-    DiscordGameSDK::setStatus(tr("Tidying up the OMSI directory"));
+    DiscordGameSDK::setModule(tr("Directory sync"));
+    DiscordGameSDK::setStatus(tr("Syncing the OMSI directory"));
     DiscordGameSDK::setStart();
     DiscordGameSDK::setIcon("wcleanup");
     DiscordGameSDK::update();
@@ -35,7 +36,19 @@ wCleanup::wCleanup(QWidget *parent) :
     ui->statusbar->addPermanentWidget(ui->pgbProgress);
     ui->pgbProgress->setVisible(false);
     ui->gbxActions->setVisible(false);
+    ui->gbxRestoreActions->setVisible(false);
     on_rbtnMoveToFolder_clicked();
+
+    ui->ledReferenceDir->setText(set.read("wCleanup", "referenceDir").toString());
+
+    for (QListWidget *list : { ui->lwgRestoreObjects, ui->lwgRestoreSplines, ui->lwgRestoreVehicles })
+    {
+        connect(list, &QListWidget::itemDoubleClicked, this, [this](QListWidgetItem *item) {
+            misc.openInExplorer(OTPath::resolve(ui->ledReferenceDir->text(), item->data(Qt::UserRole).toString()));
+        });
+    }
+
+    updateTabTitles();
 
     qInfo().noquote() << objectName() + " started";
 }
@@ -86,58 +99,6 @@ QStringList wCleanup::unusedFolders(const QString &rootFolder, const QSet<QStrin
     return unused;
 }
 
-/*!
-    Moves the folder of a list entry into destinationFolder, keeping its path relative to
-    the main directory.
-
-    A file which can't be moved stays where it is - e.g. because the destination already
-    contains a file with the same name (Qt never overwrites) or because the copy to
-    another drive fails. Afterwards only the directories which ran empty are removed, so
-    nothing that is still inside the main directory gets lost. Hidden and system files are
-    moved as well; before, they weren't listed and got deleted together with the folder.
-
-    Returns the files which could not be moved, relative to the main directory.
-*/
-QStringList wCleanup::moveFolder(const QString &itemText, const QString &destinationFolder)
-{
-    const QString mainDir = set.read("main", "mainDir").toString();
-    const QString sourceFolder = itemPath(itemText);
-    const QDir::Filters includeHidden = QDir::Hidden | QDir::System;
-
-    QStringList directories;
-    QDirIterator makePaths(sourceFolder, QDir::Dirs | QDir::NoDotAndDotDot | includeHidden, QDirIterator::Subdirectories);
-    while (makePaths.hasNext())
-    {
-        const QString current = makePaths.next();
-        directories << current;
-        QDir().mkpath(destinationFolder + "/" + QString(current).remove(0, cutCount));
-    }
-
-    // Collect first - the directory listing isn't reliable while its entries are moved away.
-    QStringList files;
-    QDirIterator listFiles(sourceFolder, QDir::Files | includeHidden, QDirIterator::Subdirectories);
-    while (listFiles.hasNext()) files << listFiles.next().remove(0, cutCount);
-
-    QStringList failedFiles;
-    for (const QString &current : files)
-    {
-        qApp->processEvents();
-
-        if (!QDir().rename(mainDir + "/" + current, destinationFolder + "/" + current))
-        {
-            qWarning().noquote() << QString("Could not move '%1' to '%2'.").arg(current, destinationFolder);
-            failedFiles << current;
-        }
-    }
-
-    // Deepest directories first - rmdir() refuses every directory which isn't empty.
-    std::sort(directories.begin(), directories.end(), [](const QString &a, const QString &b) { return a.size() > b.size(); });
-    for (const QString &directory : directories) QDir().rmdir(directory);
-    QDir().rmdir(sourceFolder);
-
-    return failedFiles;
-}
-
 void wCleanup::on_btnAnalyze_clicked()
 {
     on_actionAnalyze_triggered();
@@ -160,17 +121,22 @@ void wCleanup::on_actionAnalyze_triggered()
     }
 
     ui->pgbProgress->setVisible(true);
-    ui->pgbProgress->setMaximum(6);
+    ui->pgbProgress->setMaximum(7);
     ui->pgbProgress->setValue(1);
 
     ui->btnAnalyze->setEnabled(false);
     ui->actionAnalyze->setEnabled(false);
     ui->gbxActions->setVisible(false);
+    ui->gbxRestoreActions->setVisible(false);
 
     ui->lwgObjects->clear();
     ui->lwgSplines->clear();
     ui->lwgVehicles->clear();
+    ui->lwgRestoreObjects->clear();
+    ui->lwgRestoreSplines->clear();
+    ui->lwgRestoreVehicles->clear();
     filehandler.stuffobj.clear();
+    missingFolders.clear();
 
     cutCount = set.read("main", "mainDir").toString().size() + 1;
 
@@ -188,12 +154,14 @@ void wCleanup::on_actionAnalyze_triggered()
         qInfo().noquote() << QString("Read map '%1' (%2)").arg(globals.at(i).first, filehandler.getMapPath().remove(0, cutCount));
         ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
 
+        // The tile paths are relative to their map, so only the current map's may be read.
+        filehandler.stuffobj.existing.tiles.clear();
         filehandler.getTiles();
-        filehandler.getItems(filehandler.stuffobj.existing.tiles, false);
+        filehandler.getItems(filehandler.stuffobj.existing.tiles);
         filehandler.getVehicles();
     }
 
-    filehandler.stuffobj.existing.removeDuplicates();
+    filehandler.stuffobj.removeDuplicates();
     filehandler.stuffobj.toBackslash();
 
     // A folder counts as used as soon as any file inside it is used, no matter of which
@@ -239,6 +207,28 @@ void wCleanup::on_actionAnalyze_triggered()
         ui->lwgVehicles->addItems(vehiclePaths);
     }
 
+    // Missing files, grouped like the cleanup by their top-level folder. Placeholders like
+    // "[Aigroup] ..." have no such folder and drop out here.
+    qInfo() << "Analyze missing folders...";
+    ui->pgbProgress->setValue(ui->pgbProgress->value() + 1);
+    ui->statusbar->showMessage(tr("Looking up missing folders in the reference folder..."));
+
+    const QStringList missingFiles = filehandler.stuffobj.missing.sceneryobjects
+                                   + filehandler.stuffobj.missing.splines
+                                   + filehandler.stuffobj.missing.vehicles;
+    for (const QString &file : missingFiles)
+    {
+        const QString key = topLevelFolder(file);
+        if (!QStringList({ "sceneryobjects", "splines", "vehicles" }).contains(key.section('\\', 0, 0)))
+            continue;
+
+        MissingFolder &folder = missingFolders[key];
+        if (folder.name.isEmpty()) folder.name = file.section('\\', 0, 1);
+        if (!folder.files.contains(file, Qt::CaseInsensitive)) folder.files << file;
+    }
+
+    updateRestoreLists();
+
     ui->btnAnalyze->setEnabled(true);
     ui->actionAnalyze->setEnabled(true);
     ui->pgbProgress->setValue(ui->pgbProgress->maximum());
@@ -250,6 +240,8 @@ void wCleanup::on_actionAnalyze_triggered()
     for (int i = 0; i < ui->lwgObjects->count(); i++) ui->lwgObjects->item(i)->setCheckState(Qt::Unchecked);
     for (int i = 0; i < ui->lwgSplines->count(); i++) ui->lwgSplines->item(i)->setCheckState(Qt::Unchecked);
     for (int i = 0; i < ui->lwgVehicles->count(); i++) ui->lwgVehicles->item(i)->setCheckState(Qt::Unchecked);
+
+    updateTabTitles();
 
     qInfo() << "Finished.";
 }
@@ -282,6 +274,8 @@ void wCleanup::on_btnStartAction_clicked()
 
         if (!destinationFolder.isEmpty())
         {
+            const QString mainDir = set.read("main", "mainDir").toString();
+
             // Folders with files left behind stay in their list.
             QStringList failedFiles;
 
@@ -295,7 +289,8 @@ void wCleanup::on_btnStartAction_clicked()
             {
                 ui->statusbar->showMessage(tr("Move sceneryobjects (%1 of %2)...").arg(QString::number(i + 1), QString::number(objectIDs.count())));
 
-                const QStringList failed = moveFolder(ui->lwgObjects->item(objectIDs[i])->text(), destinationFolder);
+                const OTFolderTransfer::Result result = OTFolderTransfer::transfer(mainDir, destinationFolder, ui->lwgObjects->item(objectIDs[i])->text(), OTFolderTransfer::Move);
+                const QStringList failed = result.skipped + result.failed;
                 if (!failed.isEmpty())
                 {
                     failedFiles << failed;
@@ -316,7 +311,8 @@ void wCleanup::on_btnStartAction_clicked()
             {
                 ui->statusbar->showMessage(tr("Move splines (%1 of %2)...").arg(QString::number(i + 1), QString::number(splineIDs.count())));
 
-                const QStringList failed = moveFolder(ui->lwgSplines->item(splineIDs[i])->text(), destinationFolder);
+                const OTFolderTransfer::Result result = OTFolderTransfer::transfer(mainDir, destinationFolder, ui->lwgSplines->item(splineIDs[i])->text(), OTFolderTransfer::Move);
+                const QStringList failed = result.skipped + result.failed;
                 if (!failed.isEmpty())
                 {
                     failedFiles << failed;
@@ -337,7 +333,8 @@ void wCleanup::on_btnStartAction_clicked()
             {
                 ui->statusbar->showMessage(tr("Move vehicles (%1 of %2)...").arg(QString::number(i + 1), QString::number(vehicleIDs.count())));
 
-                const QStringList failed = moveFolder(ui->lwgVehicles->item(vehicleIDs[i])->text(), destinationFolder);
+                const OTFolderTransfer::Result result = OTFolderTransfer::transfer(mainDir, destinationFolder, ui->lwgVehicles->item(vehicleIDs[i])->text(), OTFolderTransfer::Move);
+                const QStringList failed = result.skipped + result.failed;
                 if (!failed.isEmpty())
                 {
                     failedFiles << failed;
@@ -413,6 +410,8 @@ void wCleanup::on_btnStartAction_clicked()
     if ((ui->lwgObjects->count() == 0) && (ui->lwgSplines->count() == 0) && (ui->lwgVehicles->count() == 0))
         ui->gbxActions->setVisible(false);
 
+    updateTabTitles();
+
 
     ui->lwgObjects->setEnabled(true);
     ui->lwgSplines->setEnabled(true);
@@ -475,29 +474,156 @@ void wCleanup::on_lwgVehicles_itemDoubleClicked(QListWidgetItem *item)
 
 void wCleanup::on_actionBulkMarkInCurrentList_triggered()
 {
-    if (ui->lwgObjects->hasFocus())
+    for (QListWidget *list : { ui->lwgObjects, ui->lwgSplines, ui->lwgVehicles, ui->lwgRestoreObjects, ui->lwgRestoreSplines, ui->lwgRestoreVehicles })
     {
-        for (int i = 0; i < ui->lwgObjects->selectedItems().count(); i++)
+        if (!list->hasFocus()) continue;
+
+        for (QListWidgetItem *item : list->selectedItems())
         {
-            if (ui->lwgObjects->selectedItems()[i]->checkState() == Qt::Unchecked) ui->lwgObjects->selectedItems()[i]->setCheckState(Qt::Checked);
-            else ui->lwgObjects->selectedItems()[i]->setCheckState(Qt::Unchecked);
-        }
-    }
-    else if (ui->lwgSplines->hasFocus())
-    {
-        for (int i = 0; i < ui->lwgSplines->selectedItems().count(); i++)
-        {
-            if (ui->lwgSplines->selectedItems()[i]->checkState() == Qt::Unchecked) ui->lwgSplines->selectedItems()[i]->setCheckState(Qt::Checked);
-            else ui->lwgSplines->selectedItems()[i]->setCheckState(Qt::Unchecked);
-        }
-    }
-    else if (ui->lwgVehicles->hasFocus())
-    {
-        for (int i = 0; i < ui->lwgVehicles->selectedItems().count(); i++)
-        {
-            if (ui->lwgVehicles->selectedItems()[i]->checkState() == Qt::Unchecked) ui->lwgVehicles->selectedItems()[i]->setCheckState(Qt::Checked);
-            else ui->lwgVehicles->selectedItems()[i]->setCheckState(Qt::Unchecked);
+            if (!(item->flags() & Qt::ItemIsUserCheckable)) continue;
+            item->setCheckState(item->checkState() == Qt::Unchecked ? Qt::Checked : Qt::Unchecked);
         }
     }
 }
 
+QListWidget *wCleanup::restoreList(const QString &folderName)
+{
+    const QString root = folderName.section('\\', 0, 0).toLower();
+    if (root == "sceneryobjects") return ui->lwgRestoreObjects;
+    if (root == "splines") return ui->lwgRestoreSplines;
+    return ui->lwgRestoreVehicles;
+}
+
+/*!
+    A folder can be restored as soon as the reference folder contains at least one of its
+    missing files - the whole folder is transferred then, even if some files stay missing.
+*/
+void wCleanup::updateRestoreLists()
+{
+    const QString referenceDir = ui->ledReferenceDir->text();
+    bool restorable = false;
+
+    ui->lwgRestoreObjects->clear();
+    ui->lwgRestoreSplines->clear();
+    ui->lwgRestoreVehicles->clear();
+
+    for (const MissingFolder &folder : std::as_const(missingFolders))
+    {
+        QStringList notFound;
+        for (const QString &file : folder.files)
+            if (referenceDir.isEmpty() || !OTPath::exists(referenceDir, file)) notFound << file;
+
+        const int found = folder.files.size() - notFound.size();
+
+        QListWidgetItem *item = new QListWidgetItem(QString("%1 (%2/%3)").arg(folder.name).arg(found).arg(folder.files.size()));
+        item->setData(Qt::UserRole, folder.name);
+
+        QString toolTip = tr("Missing files found in the reference folder: %1 of %2").arg(found).arg(folder.files.size());
+        if (!notFound.isEmpty())
+        {
+            const int maxLines = 15;
+            toolTip += "\n\n" + tr("Not in the reference folder:") + "\n" + notFound.mid(0, maxLines).join("\n");
+            if (notFound.size() > maxLines) toolTip += "\n" + tr("... and %n more", "", notFound.size() - maxLines);
+        }
+        item->setToolTip(toolTip);
+
+        if (found == 0)
+            item->setFlags(item->flags() & ~(Qt::ItemIsEnabled | Qt::ItemIsUserCheckable));
+        else
+        {
+            item->setCheckState(Qt::Unchecked);
+            restorable = true;
+        }
+
+        restoreList(folder.name)->addItem(item);
+    }
+
+    ui->gbxRestoreActions->setVisible(restorable);
+    updateTabTitles();
+}
+
+void wCleanup::updateTabTitles()
+{
+    const int unused = ui->lwgObjects->count() + ui->lwgSplines->count() + ui->lwgVehicles->count();
+    const int missing = ui->lwgRestoreObjects->count() + ui->lwgRestoreSplines->count() + ui->lwgRestoreVehicles->count();
+
+    ui->twgMode->setTabText(ui->twgMode->indexOf(ui->tabCleanup), unused == 0 ? tr("Clean up") : tr("Clean up (%1)").arg(unused));
+    ui->twgMode->setTabText(ui->twgMode->indexOf(ui->tabRestore), missing == 0 ? tr("Restore") : tr("Restore (%1)").arg(missing));
+}
+
+void wCleanup::on_btnSelectReferenceDir_clicked()
+{
+    const QString referenceDir = QFileDialog::getExistingDirectory(this, tr("Select reference folder..."), ui->ledReferenceDir->text());
+    if (referenceDir.isEmpty()) return;
+
+    if (QDir(referenceDir) == QDir(set.read("main", "mainDir").toString()))
+    {
+        QMessageBox::warning(this, tr("Invalid reference folder"), tr("The reference folder must not be the OMSI directory itself."));
+        return;
+    }
+
+    ui->ledReferenceDir->setText(referenceDir);
+    set.write("wCleanup", "referenceDir", referenceDir);
+    updateRestoreLists();
+}
+
+void wCleanup::on_btnStartRestore_clicked()
+{
+    const QString referenceDir = ui->ledReferenceDir->text();
+    const QString mainDir = set.read("main", "mainDir").toString();
+    const OTFolderTransfer::Mode mode = ui->rbtnRestoreMove->isChecked() ? OTFolderTransfer::Move : OTFolderTransfer::Copy;
+
+    QStringList folders;
+    for (QListWidget *list : { ui->lwgRestoreObjects, ui->lwgRestoreSplines, ui->lwgRestoreVehicles })
+        for (int i = 0; i < list->count(); i++)
+            if (list->item(i)->checkState() == Qt::Checked) folders << list->item(i)->data(Qt::UserRole).toString();
+
+    if (folders.isEmpty())
+    {
+        ui->statusbar->showMessage(tr("No folder selected."), 10000);
+        return;
+    }
+
+    ui->twgMode->setEnabled(false);
+    ui->btnAnalyze->setEnabled(false);
+    ui->actionAnalyze->setEnabled(false);
+
+    ui->pgbProgress->setValue(0);
+    ui->pgbProgress->setMaximum(folders.size());
+
+    qInfo().noquote() << QString("%1 %2 folder(s) from '%3'...").arg(mode == OTFolderTransfer::Move ? "Move" : "Copy").arg(folders.size()).arg(referenceDir);
+
+    int transferred = 0;
+    int skipped = 0;
+    QStringList failedFiles;
+    for (int i = 0; i < folders.size(); i++)
+    {
+        ui->statusbar->showMessage(tr("Restore folder %1 of %2 (%3)...").arg(i + 1).arg(folders.size()).arg(folders.at(i)));
+        ui->pgbProgress->setValue(i);
+
+        const OTFolderTransfer::Result result = OTFolderTransfer::transfer(referenceDir, mainDir, folders.at(i), mode);
+        transferred += result.transferred.size();
+        skipped += result.skipped.size();
+        failedFiles << result.failed;
+    }
+
+    qInfo().noquote() << QString("Restored %1 file(s), %2 already existed, %3 failed.").arg(transferred).arg(skipped).arg(failedFiles.size());
+
+    // A restored train only now reveals the vehicles it consists of.
+    on_actionAnalyze_triggered();
+    ui->twgMode->setEnabled(true);
+    ui->twgMode->setCurrentWidget(ui->tabRestore);
+
+    QString status = tr("Restored %n file(s).", "", transferred);
+    if (skipped != 0) status += " " + tr("%n file(s) already existed and were kept.", "", skipped);
+    ui->statusbar->showMessage(status, 10000);
+
+    if (!failedFiles.isEmpty())
+    {
+        QMessageBox box(QMessageBox::Warning, tr("Not all files could be restored"),
+                        tr("%n file(s) could not be transferred from the reference folder. The other files were restored.", "", failedFiles.count()),
+                        QMessageBox::Ok, this);
+        box.setDetailedText(failedFiles.join("\n"));
+        box.exec();
+    }
+}

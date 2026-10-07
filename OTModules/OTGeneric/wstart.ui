@@ -347,7 +347,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>Directory cleanup</string>
+          <string>Directory sync</string>
          </property>
          <property name="icon">
           <iconset resource="../../ressources.qrc">

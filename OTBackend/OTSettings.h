@@ -26,6 +26,10 @@ class OTSettings
 public:
     void write(QString module, QString name, QVariant value)
     {
+        // Paths get built as mainDir + "/" + ... and cut by mainDir's length + 1.
+        if ((module == "main") && (name == "mainDir"))
+            value = withoutTrailingSeparator(value.toString());
+
         QSettings preferences(OTInformation::name, module);
         preferences.setValue(name, value);
         qDebug().noquote().nospace() << "Write pref to " << module << ": "<< name << ", value: " << value;
@@ -135,6 +139,12 @@ public:
 
     void setPreferencesOnStart()
     {
+        // A trailing separator, typed in or returned by a file dialog, cut one character off
+        // every path relative to the main directory.
+        const QString mainDir = read("main", "mainDir").toString();
+        if (mainDir != withoutTrailingSeparator(mainDir))
+            write("main", "mainDir", mainDir);
+
         if (!read("main", "autoUpdateCheck").isValid())
             write("main", "autoUpdateCheck", 2);
 
@@ -238,6 +248,16 @@ public:
             return Qt::ColorScheme::Light;
         else
             return QApplication::styleHints()->colorScheme();
+    }
+
+private:
+    /// Keeps a root like "C:/" or "/" intact.
+    static QString withoutTrailingSeparator(QString path)
+    {
+        while ((path.length() > 1) && (path.endsWith('/') || path.endsWith('\\')) && !path.endsWith(":/") && !path.endsWith(":\\"))
+            path.chop(1);
+
+        return path;
     }
 };
 

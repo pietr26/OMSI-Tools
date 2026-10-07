@@ -2,6 +2,7 @@
 #define WCLEANUP_H
 
 #include <QMainWindow>
+#include <QMap>
 #include <QPointer>
 #include <QSet>
 #include "OTModules/OTGeneric/wpreferences.h"
@@ -51,6 +52,10 @@ private slots:
 
     void on_actionBulkMarkInCurrentList_triggered();
 
+    void on_btnSelectReferenceDir_clicked();
+
+    void on_btnStartRestore_clicked();
+
 signals:
     void backToHome();
 
@@ -66,9 +71,22 @@ private:
 
     QStringList unusedFolders(const QString &rootFolder, const QSet<QString> &usedFolders);
 
-    /// Moves the folder of a list entry into destinationFolder and returns the files which
-    /// could not be moved.
-    QStringList moveFolder(const QString &itemText, const QString &destinationFolder);
+    /// A top-level folder in which used files are missing.
+    struct MissingFolder
+    {
+        QString name;       ///< e.g. "Sceneryobjects\Hamburg", spelled like in the map
+        QStringList files;  ///< relative to the main directory
+    };
+
+    /// Key: topLevelFolder()
+    QMap<QString, MissingFolder> missingFolders;
+
+    /// Fills the restore lists from missingFolders and the current reference folder.
+    void updateRestoreLists();
+
+    QListWidget *restoreList(const QString &folderName);
+
+    void updateTabTitles();
 
     OTSettings set;
     OTMessage msg;

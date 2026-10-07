@@ -57,6 +57,7 @@ set(OT_SOURCES
     OTBackend/OTLogger.cpp
     OTBackend/OTDdsImage.cpp
     OTBackend/OTPath.cpp
+    OTBackend/OTFolderTransfer.cpp
     OTBackend/OTMapScanner.cpp
     OTModules/OTGeneric/wfeedback.cpp
     OTModules/OTGeneric/wfirstsetup.cpp
@@ -175,6 +176,7 @@ set(OT_HEADERS
     OTBackend/OTOmsiFileHandler.h
     OTBackend/OTDdsImage.h
     OTBackend/OTPath.h
+    OTBackend/OTFolderTransfer.h
     OTBackend/OTPlatform.h
     OTBackend/OTOmsiFileHandler_models.h
     OTModules/OTGeneric/wfeedback.h
